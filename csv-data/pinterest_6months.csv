@@ -1,4 +1,16 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-759,Employee Free Time,66.3%,Hard,0.046479902236053035, https://leetcode.com/problems/employee-free-time
-362,Design Hit Counter,63.7%,Medium,0.025382073271417165, https://leetcode.com/problems/design-hit-counter
-698,Partition to K Equal Sum Subsets,45.0%,Medium,0.02109782896463587, https://leetcode.com/problems/partition-to-k-equal-sum-subsets
+332,Reconstruct Itinerary,45.2%,Hard,100, https://leetcode.com/problems/reconstruct-itinerary
+465,Optimal Account Balancing,50.9%,Hard,96.7, https://leetcode.com/problems/optimal-account-balancing
+1055,Shortest Way to Form String,61.9%,Medium,94.8, https://leetcode.com/problems/shortest-way-to-form-string
+282,Expression Add Operators,44.0%,Hard,92.7, https://leetcode.com/problems/expression-add-operators
+815,Bus Routes,47.6%,Hard,85, https://leetcode.com/problems/bus-routes
+410,Split Array Largest Sum,61.7%,Hard,72.9, https://leetcode.com/problems/split-array-largest-sum
+494,Target Sum,53.0%,Medium,72.9, https://leetcode.com/problems/target-sum
+43,Multiply Strings,44.9%,Medium,66.6, https://leetcode.com/problems/multiply-strings
+642,Design Search Autocomplete System,50.1%,Hard,57.9, https://leetcode.com/problems/design-search-autocomplete-system
+1564,Put Boxes Into the Warehouse I,67.9%,Medium,57.9, https://leetcode.com/problems/put-boxes-into-the-warehouse-i
+445,Add Two Numbers II,63.1%,Medium,57.9, https://leetcode.com/problems/add-two-numbers-ii
+443,String Compression,61.0%,Medium,57.9, https://leetcode.com/problems/string-compression
+759,Employee Free Time,73.0%,Hard,0.046479902236053035, https://leetcode.com/problems/employee-free-time
+362,Design Hit Counter,69.8%,Medium,0.025382073271417165, https://leetcode.com/problems/design-hit-counter
+698,Partition to K Equal Sum Subsets,39.0%,Medium,0.02109782896463587, https://leetcode.com/problems/partition-to-k-equal-sum-subsets

@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1347,Minimum Number of Steps to Make Two Strings Anagram,82.6%,Medium,100, https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram
+845,Longest Mountain in Array,42.6%,Medium,91.5, https://leetcode.com/problems/longest-mountain-in-array
+347,Top K Frequent Elements,67.6%,Medium,91.5, https://leetcode.com/problems/top-k-frequent-elements
+76,Minimum Window Substring,48.7%,Hard,85.9, https://leetcode.com/problems/minimum-window-substring
+380,Insert Delete GetRandom O(1),55.6%,Medium,85.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+200,Number of Islands,65.3%,Medium,78.7, https://leetcode.com/problems/number-of-islands
+146,LRU Cache,48.3%,Medium,78.7, https://leetcode.com/problems/lru-cache
+2472,Maximum Number of Non-overlapping Palindrome Substrings,60.9%,Hard,78.7, https://leetcode.com/problems/maximum-number-of-non-overlapping-palindrome-substrings
+735,Asteroid Collision,49.4%,Medium,68.5, https://leetcode.com/problems/asteroid-collision
+697,Degree of an Array,58.8%,Easy,68.5, https://leetcode.com/problems/degree-of-an-array
+23,Merge k Sorted Lists,60.8%,Hard,68.5, https://leetcode.com/problems/merge-k-sorted-lists
+1229,Meeting Scheduler,55.2%,Medium,68.5, https://leetcode.com/problems/meeting-scheduler
+2861,Maximum Number of Alloys,41.2%,Medium,68.5, https://leetcode.com/problems/maximum-number-of-alloys
+68,Text Justification,52.5%,Hard,68.5, https://leetcode.com/problems/text-justification

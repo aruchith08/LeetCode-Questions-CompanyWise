@@ -1,4 +1,22 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1,Two Sum,45.6%,Easy,0.021367083275821815, https://leetcode.com/problems/two-sum
-76,Minimum Window Substring,34.6%,Hard,0.01693759130600622, https://leetcode.com/problems/minimum-window-substring
-121,Best Time to Buy and Sell Stock,50.5%,Easy,0.00846879565300311, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+151,Reverse Words in a String,58.2%,Medium,100, https://leetcode.com/problems/reverse-words-in-a-string
+2030,Smallest K-Length Subsequence With Occurrences of a Letter,40.3%,Hard,100, https://leetcode.com/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter
+2968,Apply Operations to Maximize Frequency Score,39.3%,Hard,100, https://leetcode.com/problems/apply-operations-to-maximize-frequency-score
+2838,Maximum Coins Heroes Can Collect,68.9%,Medium,97, https://leetcode.com/problems/maximum-coins-heroes-can-collect
+2039,The Time When the Network Becomes Idle,56.4%,Medium,97, https://leetcode.com/problems/the-time-when-the-network-becomes-idle
+2141,Maximum Running Time of N Computers,56.3%,Hard,97, https://leetcode.com/problems/maximum-running-time-of-n-computers
+2137,Pour Water Between Buckets to Make Water Levels Equal,68.1%,Medium,97, https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal
+3068,Find the Maximum Sum of Node Values,69.1%,Hard,97, https://leetcode.com/problems/find-the-maximum-sum-of-node-values
+1827,Minimum Operations to Make the Array Increasing,82.5%,Easy,97, https://leetcode.com/problems/minimum-operations-to-make-the-array-increasing
+2869,Minimum Operations to Collect Elements,62.5%,Easy,97, https://leetcode.com/problems/minimum-operations-to-collect-elements
+241,Different Ways to Add Parentheses,73.8%,Medium,79.4, https://leetcode.com/problems/different-ways-to-add-parentheses
+14,Longest Common Prefix,48.6%,Easy,61.8, https://leetcode.com/problems/longest-common-prefix
+977,Squares of a Sorted Array,74.2%,Easy,61.8, https://leetcode.com/problems/squares-of-a-sorted-array
+52,N-Queens II,79.5%,Hard,61.8, https://leetcode.com/problems/n-queens-ii
+118,Pascal's Triangle,79.5%,Easy,61.8, https://leetcode.com/problems/pascals-triangle
+805,Split Array With Same Average,27.8%,Hard,61.8, https://leetcode.com/problems/split-array-with-same-average
+322,Coin Change,49.3%,Medium,61.8, https://leetcode.com/problems/coin-change
+54,Spiral Matrix,58.2%,Medium,61.8, https://leetcode.com/problems/spiral-matrix
+1,Two Sum,58.1%,Easy,0.021367083275821815, https://leetcode.com/problems/two-sum
+76,Minimum Window Substring,48.7%,Hard,0.01693759130600622, https://leetcode.com/problems/minimum-window-substring
+121,Best Time to Buy and Sell Stock,57.5%,Easy,0.00846879565300311, https://leetcode.com/problems/best-time-to-buy-and-sell-stock

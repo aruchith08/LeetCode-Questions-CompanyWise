@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+726,Number of Atoms,65.3%,Hard,100, https://leetcode.com/problems/number-of-atoms
+1209,Remove All Adjacent Duplicates in String II,62.1%,Medium,86.9, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
+1331,Rank Transform of an Array,74.0%,Easy,80.1, https://leetcode.com/problems/rank-transform-of-an-array
+198,House Robber,53.7%,Medium,70.6, https://leetcode.com/problems/house-robber
+3,Longest Substring Without Repeating Characters,40.0%,Medium,70.6, https://leetcode.com/problems/longest-substring-without-repeating-characters
+78,Subsets,82.9%,Medium,70.6, https://leetcode.com/problems/subsets
+560,Subarray Sum Equals K,48.4%,Medium,70.6, https://leetcode.com/problems/subarray-sum-equals-k
+75,Sort Colors,70.3%,Medium,70.6, https://leetcode.com/problems/sort-colors
+697,Degree of an Array,58.8%,Easy,70.6, https://leetcode.com/problems/degree-of-an-array
+1011,Capacity To Ship Packages Within D Days,74.8%,Medium,70.6, https://leetcode.com/problems/capacity-to-ship-packages-within-d-days

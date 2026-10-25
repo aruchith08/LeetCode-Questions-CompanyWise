@@ -1,0 +1,40 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+5,Longest Palindromic Substring,38.9%,Medium,92.1, https://leetcode.com/problems/longest-palindromic-substring
+13,Roman to Integer,67.3%,Easy,92.1, https://leetcode.com/problems/roman-to-integer
+242,Valid Anagram,68.8%,Easy,87.1, https://leetcode.com/problems/valid-anagram
+41,First Missing Positive,44.0%,Hard,87.1, https://leetcode.com/problems/first-missing-positive
+88,Merge Sorted Array,55.9%,Easy,87.1, https://leetcode.com/problems/merge-sorted-array
+121,Best Time to Buy and Sell Stock,57.5%,Easy,87.1, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+26,Remove Duplicates from Sorted Array,64.0%,Easy,87.1, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+11,Container With Most Water,61.1%,Medium,81, https://leetcode.com/problems/container-with-most-water
+509,Fibonacci Number,74.7%,Easy,81, https://leetcode.com/problems/fibonacci-number
+206,Reverse Linked List,81.2%,Easy,81, https://leetcode.com/problems/reverse-linked-list
+125,Valid Palindrome,54.6%,Easy,81, https://leetcode.com/problems/valid-palindrome
+9,Palindrome Number,61.1%,Easy,73.1, https://leetcode.com/problems/palindrome-number
+176,Second Highest Salary,48.8%,Medium,73.1, https://leetcode.com/problems/second-highest-salary
+167,Two Sum II - Input Array Is Sorted,66.1%,Medium,73.1, https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
+20,Valid Parentheses,45.4%,Easy,73.1, https://leetcode.com/problems/valid-parentheses
+3731,Find Missing Elements,88.2%,Easy,73.1, https://leetcode.com/problems/find-missing-elements
+852,Peak Index in a Mountain Array,66.6%,Medium,73.1, https://leetcode.com/problems/peak-index-in-a-mountain-array
+343,Integer Break,62.9%,Medium,73.1, https://leetcode.com/problems/integer-break
+14,Longest Common Prefix,48.6%,Easy,62, https://leetcode.com/problems/longest-common-prefix
+15,3Sum,40.1%,Medium,62, https://leetcode.com/problems/3sum
+1331,Rank Transform of an Array,74.0%,Easy,62, https://leetcode.com/problems/rank-transform-of-an-array
+12,Integer to Roman,71.9%,Medium,62, https://leetcode.com/problems/integer-to-roman
+3,Longest Substring Without Repeating Characters,40.0%,Medium,62, https://leetcode.com/problems/longest-substring-without-repeating-characters
+7,Reverse Integer,32.7%,Medium,62, https://leetcode.com/problems/reverse-integer
+49,Group Anagrams,73.5%,Medium,62, https://leetcode.com/problems/group-anagrams
+128,Longest Consecutive Sequence,47.3%,Medium,62, https://leetcode.com/problems/longest-consecutive-sequence
+162,Find Peak Element,47.3%,Medium,62, https://leetcode.com/problems/find-peak-element
+230,Kth Smallest Element in a BST,77.5%,Medium,62, https://leetcode.com/problems/kth-smallest-element-in-a-bst
+215,Kth Largest Element in an Array,69.4%,Medium,62, https://leetcode.com/problems/kth-largest-element-in-an-array
+345,Reverse Vowels of a String,62.6%,Easy,62, https://leetcode.com/problems/reverse-vowels-of-a-string
+23,Merge k Sorted Lists,60.8%,Hard,62, https://leetcode.com/problems/merge-k-sorted-lists
+143,Reorder List,66.5%,Medium,62, https://leetcode.com/problems/reorder-list
+110,Balanced Binary Tree,59.4%,Easy,62, https://leetcode.com/problems/balanced-binary-tree
+21,Merge Two Sorted Lists,69.0%,Easy,62, https://leetcode.com/problems/merge-two-sorted-lists
+150,Evaluate Reverse Polish Notation,59.0%,Medium,62, https://leetcode.com/problems/evaluate-reverse-polish-notation
+33,Search in Rotated Sorted Array,45.8%,Medium,62, https://leetcode.com/problems/search-in-rotated-sorted-array
+111,Minimum Depth of Binary Tree,54.0%,Easy,62, https://leetcode.com/problems/minimum-depth-of-binary-tree
+234,Palindrome Linked List,59.0%,Easy,62, https://leetcode.com/problems/palindrome-linked-list

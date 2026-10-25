@@ -1,2 +1,9 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1227,Airplane Seat Assignment Probability,61.0%,Medium,0, https://leetcode.com/problems/airplane-seat-assignment-probability
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+844,Backspace String Compare,50.3%,Easy,78.3, https://leetcode.com/problems/backspace-string-compare
+347,Top K Frequent Elements,67.6%,Medium,69.3, https://leetcode.com/problems/top-k-frequent-elements
+419,Battleships in a Board,77.9%,Medium,69.3, https://leetcode.com/problems/battleships-in-a-board
+2184,Number of Ways to Build Sturdy Brick Wall,49.4%,Medium,69.3, https://leetcode.com/problems/number-of-ways-to-build-sturdy-brick-wall
+46,Permutations,82.4%,Medium,69.3, https://leetcode.com/problems/permutations
+1963,Minimum Number of Swaps to Make the String Balanced,78.1%,Medium,69.3, https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced
+1227,Airplane Seat Assignment Probability,67.8%,Medium,0, https://leetcode.com/problems/airplane-seat-assignment-probability

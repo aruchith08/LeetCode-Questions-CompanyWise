@@ -9,6 +9,7 @@ import { useAllQuestions } from '../hooks/useAllQuestions';
 import { useProgress } from '../hooks/useProgress';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import CompanyLogo from '../components/ui/CompanyLogo';
+import CompaniesHeroIllustration from '../components/ui/CompaniesHeroIllustration';
 
 type SortBy = 'name' | 'questions' | 'solved' | 'completion';
 type SortDir = 'asc' | 'desc';
@@ -187,13 +188,18 @@ export default function CompaniesPage() {
     <div className="space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#43433F]">
-        <div>
+        <div className="max-w-md lg:max-w-lg shrink-0">
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
             Companies
           </h1>
-          <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1 max-w-2xl">
+          <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1">
             Curated LeetCode problem sets for {data.totalCompanies} employers with verified interview frequency and difficulty distributions.
           </p>
+        </div>
+
+        {/* Center: Apple-Google-Meta Animated Hero Illustration */}
+        <div className="hidden md:flex items-center justify-center flex-1 min-w-0 h-16 lg:h-20 max-w-sm lg:max-w-md mx-auto pointer-events-none select-none overflow-hidden">
+          <CompaniesHeroIllustration />
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 font-mono text-xs font-semibold">
@@ -280,7 +286,7 @@ export default function CompaniesPage() {
       </div>
 
       {/* Filter Controls Row 2: Alphabet Jump Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] px-4 py-2 shadow-2xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full sm:w-fit max-w-full rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] px-4 py-2 shadow-2xs">
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
           <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider shrink-0 mr-1.5">
             JUMP TO:

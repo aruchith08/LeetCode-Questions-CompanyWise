@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+283,Move Zeroes,64.5%,Easy,100, https://leetcode.com/problems/move-zeroes
+91,Decode Ways,38.8%,Medium,95.4, https://leetcode.com/problems/decode-ways
+1004,Max Consecutive Ones III,68.6%,Medium,89.7, https://leetcode.com/problems/max-consecutive-ones-iii
+88,Merge Sorted Array,55.9%,Easy,82.5, https://leetcode.com/problems/merge-sorted-array
+49,Group Anagrams,73.5%,Medium,82.5, https://leetcode.com/problems/group-anagrams
+2343,Query Kth Smallest Trimmed Number,48.4%,Medium,82.5, https://leetcode.com/problems/query-kth-smallest-trimmed-number
+329,Longest Increasing Path in a Matrix,57.2%,Hard,72.2, https://leetcode.com/problems/longest-increasing-path-in-a-matrix
+402,Remove K Digits,37.9%,Medium,72.2, https://leetcode.com/problems/remove-k-digits
+387,First Unique Character in a String,66.6%,Easy,72.2, https://leetcode.com/problems/first-unique-character-in-a-string
+146,LRU Cache,48.3%,Medium,72.2, https://leetcode.com/problems/lru-cache
+345,Reverse Vowels of a String,62.6%,Easy,72.2, https://leetcode.com/problems/reverse-vowels-of-a-string
+214,Shortest Palindrome,43.3%,Hard,72.2, https://leetcode.com/problems/shortest-palindrome

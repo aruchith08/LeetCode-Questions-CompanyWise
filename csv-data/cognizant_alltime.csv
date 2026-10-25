@@ -1,0 +1,52 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+829,Consecutive Numbers Sum,43.1%,Hard,100, https://leetcode.com/problems/consecutive-numbers-sum
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+28,Find the Index of the First Occurrence in a String,47.5%,Easy,100, https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+5,Longest Palindromic Substring,38.9%,Medium,100, https://leetcode.com/problems/longest-palindromic-substring
+3392,Count Subarrays of Length Three With a Condition,61.0%,Easy,100, https://leetcode.com/problems/count-subarrays-of-length-three-with-a-condition
+9,Palindrome Number,61.1%,Easy,89.3, https://leetcode.com/problems/palindrome-number
+283,Move Zeroes,64.5%,Easy,88.6, https://leetcode.com/problems/move-zeroes
+178,Rank Scores,69.2%,Medium,87.5, https://leetcode.com/problems/rank-scores
+584,Find Customer Referee,73.7%,Easy,87.5, https://leetcode.com/problems/find-customer-referee
+2165,Smallest Value of the Rearranged Number,53.8%,Medium,79.8, https://leetcode.com/problems/smallest-value-of-the-rearranged-number
+3667,Sort Array By Absolute Value,87.0%,Easy,79.8, https://leetcode.com/problems/sort-array-by-absolute-value
+176,Second Highest Salary,48.8%,Medium,76.7, https://leetcode.com/problems/second-highest-salary
+20,Valid Parentheses,45.4%,Easy,73.1, https://leetcode.com/problems/valid-parentheses
+121,Best Time to Buy and Sell Stock,57.5%,Easy,73.1, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+509,Fibonacci Number,74.7%,Easy,68.8, https://leetcode.com/problems/fibonacci-number
+242,Valid Anagram,68.8%,Easy,68.8, https://leetcode.com/problems/valid-anagram
+4,Median of Two Sorted Arrays,47.9%,Hard,68.8, https://leetcode.com/problems/median-of-two-sorted-arrays
+125,Valid Palindrome,54.6%,Easy,63.7, https://leetcode.com/problems/valid-palindrome
+560,Subarray Sum Equals K,48.4%,Medium,63.7, https://leetcode.com/problems/subarray-sum-equals-k
+7,Reverse Integer,32.7%,Medium,57, https://leetcode.com/problems/reverse-integer
+26,Remove Duplicates from Sorted Array,64.0%,Easy,57, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+88,Merge Sorted Array,55.9%,Easy,57, https://leetcode.com/problems/merge-sorted-array
+41,First Missing Positive,44.0%,Hard,57, https://leetcode.com/problems/first-missing-positive
+1378,Replace Employee ID With The Unique Identifier,83.9%,Easy,57, https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier
+1148,Article Views I,77.0%,Easy,57, https://leetcode.com/problems/article-views-i
+136,Single Number,78.4%,Easy,57, https://leetcode.com/problems/single-number
+175,Combine Two Tables,80.1%,Easy,57, https://leetcode.com/problems/combine-two-tables
+70,Climbing Stairs,54.4%,Easy,57, https://leetcode.com/problems/climbing-stairs
+485,Max Consecutive Ones,66.3%,Easy,57, https://leetcode.com/problems/max-consecutive-ones
+169,Majority Element,66.5%,Easy,57, https://leetcode.com/problems/majority-element
+197,Rising Temperature,52.5%,Easy,47.6, https://leetcode.com/problems/rising-temperature
+55,Jump Game,41.7%,Medium,47.6, https://leetcode.com/problems/jump-game
+181,Employees Earning More Than Their Managers,74.0%,Easy,47.6, https://leetcode.com/problems/employees-earning-more-than-their-managers
+1732,Find the Highest Altitude,84.6%,Easy,47.6, https://leetcode.com/problems/find-the-highest-altitude
+443,String Compression,61.0%,Medium,47.6, https://leetcode.com/problems/string-compression
+1200,Minimum Absolute Difference,75.2%,Easy,47.6, https://leetcode.com/problems/minimum-absolute-difference
+141,Linked List Cycle,55.3%,Easy,47.6, https://leetcode.com/problems/linked-list-cycle
+31,Next Permutation,46.4%,Medium,47.6, https://leetcode.com/problems/next-permutation
+1741,Find Total Time Spent by Each Employee,86.5%,Easy,47.6, https://leetcode.com/problems/find-total-time-spent-by-each-employee
+177,Nth Highest Salary,40.5%,Medium,47.6, https://leetcode.com/problems/nth-highest-salary
+414,Third Maximum Number,40.6%,Easy,47.6, https://leetcode.com/problems/third-maximum-number
+2785,Sort Vowels in a String,83.0%,Medium,47.6, https://leetcode.com/problems/sort-vowels-in-a-string
+994,Rotting Oranges,59.6%,Medium,47.6, https://leetcode.com/problems/rotting-oranges
+647,Palindromic Substrings,73.3%,Medium,47.6, https://leetcode.com/problems/palindromic-substrings
+1164,Product Price at a Given Date,59.0%,Medium,47.6, https://leetcode.com/problems/product-price-at-a-given-date
+185,Department Top Three Salaries,62.2%,Hard,47.6, https://leetcode.com/problems/department-top-three-salaries
+183,Customers Who Never Order,72.6%,Easy,47.6, https://leetcode.com/problems/customers-who-never-order
+15,3Sum,40.1%,Medium,47.6, https://leetcode.com/problems/3sum
+128,Longest Consecutive Sequence,47.3%,Medium,47.6, https://leetcode.com/problems/longest-consecutive-sequence
+881,Boats to Save People,62.7%,Medium,47.6, https://leetcode.com/problems/boats-to-save-people

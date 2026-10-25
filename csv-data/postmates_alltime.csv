@@ -1,10 +1,13 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-301,Remove Invalid Parentheses,43.3%,Hard,0.13310393847431484, https://leetcode.com/problems/remove-invalid-parentheses
-1190,Reverse Substrings Between Each Pair of Parentheses,61.5%,Medium,0.09928670042921932, https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses
-55,Jump Game,34.6%,Medium,0.059854228581496645, https://leetcode.com/problems/jump-game
-253,Meeting Rooms II,45.7%,Medium,0.04945628059066218, https://leetcode.com/problems/meeting-rooms-ii
-227,Basic Calculator II,36.9%,Medium,0.04870104158125306, https://leetcode.com/problems/basic-calculator-ii
-759,Employee Free Time,66.3%,Hard,0.04861224405509378, https://leetcode.com/problems/employee-free-time
-56,Merge Intervals,39.3%,Medium,0.04173304225331761, https://leetcode.com/problems/merge-intervals
-20,Valid Parentheses,39.0%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses
-15,3Sum,26.8%,Medium,0.0021990113314367685, https://leetcode.com/problems/3sum
+2070,Most Beautiful Item for Each Query,62.0%,Medium,100, https://leetcode.com/problems/most-beautiful-item-for-each-query
+2269,Find the K-Beauty of a Number,64.0%,Easy,100, https://leetcode.com/problems/find-the-k-beauty-of-a-number
+1657,Determine if Two Strings Are Close,54.5%,Medium,100, https://leetcode.com/problems/determine-if-two-strings-are-close
+301,Remove Invalid Parentheses,52.6%,Hard,0.13310393847431484, https://leetcode.com/problems/remove-invalid-parentheses
+1190,Reverse Substrings Between Each Pair of Parentheses,75.3%,Medium,0.09928670042921932, https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses
+55,Jump Game,41.7%,Medium,0.059854228581496645, https://leetcode.com/problems/jump-game
+253,Meeting Rooms II,52.8%,Medium,0.04945628059066218, https://leetcode.com/problems/meeting-rooms-ii
+227,Basic Calculator II,47.3%,Medium,0.04870104158125306, https://leetcode.com/problems/basic-calculator-ii
+759,Employee Free Time,73.0%,Hard,0.04861224405509378, https://leetcode.com/problems/employee-free-time
+56,Merge Intervals,53.0%,Medium,0.04173304225331761, https://leetcode.com/problems/merge-intervals
+20,Valid Parentheses,45.4%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses
+15,3Sum,40.1%,Medium,0.0021990113314367685, https://leetcode.com/problems/3sum

@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1423,Maximum Points You Can Obtain from Cards,58.6%,Medium,100, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards
+394,Decode String,63.4%,Medium,100, https://leetcode.com/problems/decode-string
+864,Shortest Path to Get All Keys,55.2%,Hard,100, https://leetcode.com/problems/shortest-path-to-get-all-keys
+347,Top K Frequent Elements,67.6%,Medium,100, https://leetcode.com/problems/top-k-frequent-elements
+983,Minimum Cost For Tickets,67.5%,Medium,100, https://leetcode.com/problems/minimum-cost-for-tickets
+146,LRU Cache,48.3%,Medium,86.9, https://leetcode.com/problems/lru-cache
+844,Backspace String Compare,50.3%,Easy,86.9, https://leetcode.com/problems/backspace-string-compare
+43,Multiply Strings,44.9%,Medium,86.9, https://leetcode.com/problems/multiply-strings
+679,24 Game,59.7%,Hard,86.9, https://leetcode.com/problems/24-game
+680,Valid Palindrome II,44.9%,Easy,86.9, https://leetcode.com/problems/valid-palindrome-ii
+678,Valid Parenthesis String,43.0%,Medium,86.9, https://leetcode.com/problems/valid-parenthesis-string
+695,Max Area of Island,74.3%,Medium,86.9, https://leetcode.com/problems/max-area-of-island
+15,3Sum,40.1%,Medium,86.9, https://leetcode.com/problems/3sum
+987,Vertical Order Traversal of a Binary Tree,54.9%,Hard,86.9, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree
+735,Asteroid Collision,49.4%,Medium,86.9, https://leetcode.com/problems/asteroid-collision
+32,Longest Valid Parentheses,41.4%,Hard,86.9, https://leetcode.com/problems/longest-valid-parentheses
+927,Three Equal Parts,41.9%,Hard,86.9, https://leetcode.com/problems/three-equal-parts
+716,Max Stack,46.1%,Hard,86.9, https://leetcode.com/problems/max-stack

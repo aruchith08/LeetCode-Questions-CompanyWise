@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+3919,Minimum Cost to Move Between Indices,49.3%,Medium,100, https://leetcode.com/problems/minimum-cost-to-move-between-indices
+928,Minimize Malware Spread II,46.3%,Hard,92.2, https://leetcode.com/problems/minimize-malware-spread-ii
+924,Minimize Malware Spread,43.6%,Hard,92.2, https://leetcode.com/problems/minimize-malware-spread
+56,Merge Intervals,53.0%,Medium,81.2, https://leetcode.com/problems/merge-intervals
+210,Course Schedule II,56.5%,Medium,81.2, https://leetcode.com/problems/course-schedule-ii
+329,Longest Increasing Path in a Matrix,57.2%,Hard,81.2, https://leetcode.com/problems/longest-increasing-path-in-a-matrix

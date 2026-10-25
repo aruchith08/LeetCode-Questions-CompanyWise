@@ -1,23 +1,80 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-759,Employee Free Time,66.3%,Hard,1.429184272146321, https://leetcode.com/problems/employee-free-time
-1359,Count All Valid Pickup and Delivery Options,57.9%,Hard,1.2093743507330705, https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options
-695,Max Area of Island,62.7%,Medium,1.0938588036906711, https://leetcode.com/problems/max-area-of-island
-1229,Meeting Scheduler,52.7%,Medium,0.7486612660050764, https://leetcode.com/problems/meeting-scheduler
-355,Design Twitter,30.3%,Medium,0.6726996677085982, https://leetcode.com/problems/design-twitter
-121,Best Time to Buy and Sell Stock,50.5%,Easy,0.3275021300230036, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-227,Basic Calculator II,36.9%,Medium,0.14222709959207652, https://leetcode.com/problems/basic-calculator-ii
-210,Course Schedule II,40.7%,Medium,0.12930146274938759, https://leetcode.com/problems/course-schedule-ii
-1174,Immediate Food Delivery II,58.5%,Medium,0.12555653398976382, https://leetcode.com/problems/immediate-food-delivery-ii
-56,Merge Intervals,39.3%,Medium,0.06807635025869622, https://leetcode.com/problems/merge-intervals
-1173,Immediate Food Delivery I,80.4%,Easy,0.06592172080482424, https://leetcode.com/problems/immediate-food-delivery-i
-37,Sudoku Solver,43.6%,Hard,0.040527833612118376, https://leetcode.com/problems/sudoku-solver
-528,Random Pick with Weight,43.9%,Medium,0.03306693626657339, https://leetcode.com/problems/random-pick-with-weight
-15,3Sum,26.8%,Medium,0.02661031301111795, https://leetcode.com/problems/3sum
-348,Design Tic-Tac-Toe,54.3%,Medium,0.024214258120594613, https://leetcode.com/problems/design-tic-tac-toe
-269,Alien Dictionary,33.3%,Hard,0.012730916694039954, https://leetcode.com/problems/alien-dictionary
-986,Interval List Intersections,67.3%,Medium,0.011969023795320735, https://leetcode.com/problems/interval-list-intersections
-200,Number of Islands,46.8%,Medium,0.011509262420590827, https://leetcode.com/problems/number-of-islands
-146,LRU Cache,33.2%,Medium,0.010321192540274932, https://leetcode.com/problems/lru-cache
-36,Valid Sudoku,48.7%,Medium,0.007258242715805398, https://leetcode.com/problems/valid-sudoku
-20,Valid Parentheses,39.0%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses
-772,Basic Calculator III,41.3%,Hard,0, https://leetcode.com/problems/basic-calculator-iii
+456,132 Pattern,35.2%,Medium,100, https://leetcode.com/problems/132-pattern
+286,Walls and Gates,64.3%,Medium,100, https://leetcode.com/problems/walls-and-gates
+329,Longest Increasing Path in a Matrix,57.2%,Hard,92.3, https://leetcode.com/problems/longest-increasing-path-in-a-matrix
+124,Binary Tree Maximum Path Sum,42.9%,Hard,88.5, https://leetcode.com/problems/binary-tree-maximum-path-sum
+1268,Search Suggestions System,65.3%,Medium,84.7, https://leetcode.com/problems/search-suggestions-system
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,77.3, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+875,Koko Eating Bananas,50.7%,Medium,75.5, https://leetcode.com/problems/koko-eating-bananas
+1166,Design File System,65.2%,Medium,74.2, https://leetcode.com/problems/design-file-system
+317,Shortest Distance from All Buildings,45.0%,Hard,72, https://leetcode.com/problems/shortest-distance-from-all-buildings
+1834,Single-Threaded CPU,48.3%,Medium,71.2, https://leetcode.com/problems/single-threaded-cpu
+588,Design In-Memory File System,48.3%,Hard,66.6, https://leetcode.com/problems/design-in-memory-file-system
+556,Next Greater Element III,35.7%,Medium,65.5, https://leetcode.com/problems/next-greater-element-iii
+658,Find K Closest Elements,50.2%,Medium,65.5, https://leetcode.com/problems/find-k-closest-elements
+826,Most Profit Assigning Work,56.4%,Medium,63.2, https://leetcode.com/problems/most-profit-assigning-work
+2049,Count Nodes With the Highest Score,53.1%,Medium,60.4, https://leetcode.com/problems/count-nodes-with-the-highest-score
+1347,Minimum Number of Steps to Make Two Strings Anagram,82.6%,Medium,60.4, https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram
+827,Making A Large Island,57.3%,Hard,57.2, https://leetcode.com/problems/making-a-large-island
+1790,Check if One String Swap Can Make Strings Equal,49.6%,Easy,57.2, https://leetcode.com/problems/check-if-one-string-swap-can-make-strings-equal
+2565,Subsequence With the Minimum Score,33.9%,Hard,53.2, https://leetcode.com/problems/subsequence-with-the-minimum-score
+2611,Mice and Cheese,49.2%,Medium,53.2, https://leetcode.com/problems/mice-and-cheese
+987,Vertical Order Traversal of a Binary Tree,54.9%,Hard,50.9, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree
+84,Largest Rectangle in Histogram,51.1%,Hard,50.9, https://leetcode.com/problems/largest-rectangle-in-histogram
+542,01 Matrix,55.1%,Medium,50.9, https://leetcode.com/problems/01-matrix
+209,Minimum Size Subarray Sum,53.2%,Medium,50.9, https://leetcode.com/problems/minimum-size-subarray-sum
+224,Basic Calculator,47.3%,Hard,48.1, https://leetcode.com/problems/basic-calculator
+1779,Find Nearest Point That Has the Same X or Y Coordinate,70.2%,Easy,48.1, https://leetcode.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate
+859,Buddy Strings,34.3%,Easy,48.1, https://leetcode.com/problems/buddy-strings
+1,Two Sum,58.1%,Easy,44.9, https://leetcode.com/problems/two-sum
+31,Next Permutation,46.4%,Medium,44.9, https://leetcode.com/problems/next-permutation
+1143,Longest Common Subsequence,59.7%,Medium,44.9, https://leetcode.com/problems/longest-common-subsequence
+297,Serialize and Deserialize Binary Tree,61.3%,Hard,44.9, https://leetcode.com/problems/serialize-and-deserialize-binary-tree
+735,Asteroid Collision,49.4%,Medium,44.9, https://leetcode.com/problems/asteroid-collision
+212,Word Search II,39.1%,Hard,41, https://leetcode.com/problems/word-search-ii
+239,Sliding Window Maximum,49.4%,Hard,41, https://leetcode.com/problems/sliding-window-maximum
+296,Best Meeting Point,61.5%,Hard,41, https://leetcode.com/problems/best-meeting-point
+1664,Ways to Make a Fair Array,67.8%,Medium,41, https://leetcode.com/problems/ways-to-make-a-fair-array
+924,Minimize Malware Spread,43.6%,Hard,41, https://leetcode.com/problems/minimize-malware-spread
+480,Sliding Window Median,39.2%,Hard,41, https://leetcode.com/problems/sliding-window-median
+207,Course Schedule,52.4%,Medium,41, https://leetcode.com/problems/course-schedule
+55,Jump Game,41.7%,Medium,35.9, https://leetcode.com/problems/jump-game
+2065,Maximum Path Quality of a Graph,63.3%,Hard,35.9, https://leetcode.com/problems/maximum-path-quality-of-a-graph
+314,Binary Tree Vertical Order Traversal,57.9%,Medium,35.9, https://leetcode.com/problems/binary-tree-vertical-order-traversal
+18,4Sum,42.0%,Medium,35.9, https://leetcode.com/problems/4sum
+380,Insert Delete GetRandom O(1),55.6%,Medium,35.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+23,Merge k Sorted Lists,60.8%,Hard,35.9, https://leetcode.com/problems/merge-k-sorted-lists
+839,Similar String Groups,56.7%,Hard,35.9, https://leetcode.com/problems/similar-string-groups
+12,Integer to Roman,71.9%,Medium,35.9, https://leetcode.com/problems/integer-to-roman
+45,Jump Game II,43.7%,Medium,28.9, https://leetcode.com/problems/jump-game-ii
+1730,Shortest Path to Get Food,57.8%,Medium,28.9, https://leetcode.com/problems/shortest-path-to-get-food
+778,Swim in Rising Water,68.4%,Hard,28.9, https://leetcode.com/problems/swim-in-rising-water
+1087,Brace Expansion,66.9%,Medium,28.9, https://leetcode.com/problems/brace-expansion
+5,Longest Palindromic Substring,38.9%,Medium,28.9, https://leetcode.com/problems/longest-palindromic-substring
+13,Roman to Integer,67.3%,Easy,28.9, https://leetcode.com/problems/roman-to-integer
+3123,Find Edges in Shortest Paths,47.0%,Hard,28.9, https://leetcode.com/problems/find-edges-in-shortest-paths
+994,Rotting Oranges,59.6%,Medium,28.9, https://leetcode.com/problems/rotting-oranges
+2,Add Two Numbers,49.6%,Medium,28.9, https://leetcode.com/problems/add-two-numbers
+543,Diameter of Binary Tree,66.4%,Easy,28.9, https://leetcode.com/problems/diameter-of-binary-tree
+759,Employee Free Time,73.0%,Hard,1.429184272146321, https://leetcode.com/problems/employee-free-time
+1359,Count All Valid Pickup and Delivery Options,65.0%,Hard,1.2093743507330705, https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options
+695,Max Area of Island,74.3%,Medium,1.0938588036906711, https://leetcode.com/problems/max-area-of-island
+1229,Meeting Scheduler,55.2%,Medium,0.7486612660050764, https://leetcode.com/problems/meeting-scheduler
+355,Design Twitter,45.8%,Medium,0.6726996677085982, https://leetcode.com/problems/design-twitter
+121,Best Time to Buy and Sell Stock,57.5%,Easy,0.3275021300230036, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+227,Basic Calculator II,47.3%,Medium,0.14222709959207652, https://leetcode.com/problems/basic-calculator-ii
+210,Course Schedule II,56.5%,Medium,0.12930146274938759, https://leetcode.com/problems/course-schedule-ii
+1174,Immediate Food Delivery II,57.4%,Medium,0.12555653398976382, https://leetcode.com/problems/immediate-food-delivery-ii
+56,Merge Intervals,53.0%,Medium,0.06807635025869622, https://leetcode.com/problems/merge-intervals
+1173,Immediate Food Delivery I,80.6%,Easy,0.06592172080482424, https://leetcode.com/problems/immediate-food-delivery-i
+37,Sudoku Solver,65.6%,Hard,0.040527833612118376, https://leetcode.com/problems/sudoku-solver
+528,Random Pick with Weight,49.3%,Medium,0.03306693626657339, https://leetcode.com/problems/random-pick-with-weight
+15,3Sum,40.1%,Medium,0.02661031301111795, https://leetcode.com/problems/3sum
+348,Design Tic-Tac-Toe,58.8%,Medium,0.024214258120594613, https://leetcode.com/problems/design-tic-tac-toe
+269,Alien Dictionary,37.4%,Hard,0.012730916694039954, https://leetcode.com/problems/alien-dictionary
+986,Interval List Intersections,73.3%,Medium,0.011969023795320735, https://leetcode.com/problems/interval-list-intersections
+200,Number of Islands,65.3%,Medium,0.011509262420590827, https://leetcode.com/problems/number-of-islands
+146,LRU Cache,48.3%,Medium,0.010321192540274932, https://leetcode.com/problems/lru-cache
+36,Valid Sudoku,65.3%,Medium,0.007258242715805398, https://leetcode.com/problems/valid-sudoku
+20,Valid Parentheses,45.4%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses
+772,Basic Calculator III,53.6%,Hard,0, https://leetcode.com/problems/basic-calculator-iii

@@ -1,3 +1,5 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1,Two Sum,45.6%,Easy,0.003278422738041615, https://leetcode.com/problems/two-sum
-697,Degree of an Array,53.8%,Easy,0, https://leetcode.com/problems/degree-of-an-array
+2162,Minimum Cost to Set Cooking Time,45.2%,Medium,80, https://leetcode.com/problems/minimum-cost-to-set-cooking-time
+1249,Minimum Remove to Make Valid Parentheses,71.7%,Medium,71.7, https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses
+1,Two Sum,58.1%,Easy,0.003278422738041615, https://leetcode.com/problems/two-sum
+697,Degree of an Array,58.8%,Easy,0, https://leetcode.com/problems/degree-of-an-array

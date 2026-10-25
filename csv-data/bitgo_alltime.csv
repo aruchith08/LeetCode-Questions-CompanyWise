@@ -1,0 +1,14 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2060,Check if an Original String Exists Given Two Encoded Strings,43.6%,Hard,100, https://leetcode.com/problems/check-if-an-original-string-exists-given-two-encoded-strings
+200,Number of Islands,65.3%,Medium,89, https://leetcode.com/problems/number-of-islands
+134,Gas Station,48.9%,Medium,83.7, https://leetcode.com/problems/gas-station
+146,LRU Cache,48.3%,Medium,83.7, https://leetcode.com/problems/lru-cache
+815,Bus Routes,47.6%,Hard,77, https://leetcode.com/problems/bus-routes
+5,Longest Palindromic Substring,38.9%,Medium,77, https://leetcode.com/problems/longest-palindromic-substring
+340,Longest Substring with At Most K Distinct Characters,50.2%,Medium,67.5, https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+42,Trapping Rain Water,68.4%,Hard,67.5, https://leetcode.com/problems/trapping-rain-water
+236,Lowest Common Ancestor of a Binary Tree,70.3%,Medium,67.5, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
+84,Largest Rectangle in Histogram,51.1%,Hard,67.5, https://leetcode.com/problems/largest-rectangle-in-histogram
+207,Course Schedule,52.4%,Medium,67.5, https://leetcode.com/problems/course-schedule
+3,Longest Substring Without Repeating Characters,40.0%,Medium,67.5, https://leetcode.com/problems/longest-substring-without-repeating-characters
+128,Longest Consecutive Sequence,47.3%,Medium,67.5, https://leetcode.com/problems/longest-consecutive-sequence

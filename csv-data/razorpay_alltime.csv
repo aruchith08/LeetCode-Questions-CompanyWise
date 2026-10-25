@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2499,Minimum Total Cost to Make Arrays Unequal,41.8%,Hard,100, https://leetcode.com/problems/minimum-total-cost-to-make-arrays-unequal
+2054,Two Best Non-Overlapping Events,63.9%,Medium,97.2, https://leetcode.com/problems/two-best-non-overlapping-events
+2070,Most Beautiful Item for Each Query,62.0%,Medium,97.2, https://leetcode.com/problems/most-beautiful-item-for-each-query
+1574,Shortest Subarray to be Removed to Make Array Sorted,51.4%,Medium,97.2, https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted
+146,LRU Cache,48.3%,Medium,90.4, https://leetcode.com/problems/lru-cache
+394,Decode String,63.4%,Medium,86.1, https://leetcode.com/problems/decode-string
+56,Merge Intervals,53.0%,Medium,64.5, https://leetcode.com/problems/merge-intervals
+189,Rotate Array,45.7%,Medium,64.5, https://leetcode.com/problems/rotate-array
+387,First Unique Character in a String,66.6%,Easy,64.5, https://leetcode.com/problems/first-unique-character-in-a-string
+62,Unique Paths,67.4%,Medium,64.5, https://leetcode.com/problems/unique-paths
+483,Smallest Good Base,47.9%,Hard,64.5, https://leetcode.com/problems/smallest-good-base

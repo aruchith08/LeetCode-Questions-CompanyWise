@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+49,Group Anagrams,73.5%,Medium,100, https://leetcode.com/problems/group-anagrams
+215,Kth Largest Element in an Array,69.4%,Medium,95.6, https://leetcode.com/problems/kth-largest-element-in-an-array
+88,Merge Sorted Array,55.9%,Easy,83.3, https://leetcode.com/problems/merge-sorted-array
+907,Sum of Subarray Minimums,39.1%,Medium,83.3, https://leetcode.com/problems/sum-of-subarray-minimums
+22,Generate Parentheses,79.7%,Medium,73.6, https://leetcode.com/problems/generate-parentheses
+347,Top K Frequent Elements,67.6%,Medium,73.6, https://leetcode.com/problems/top-k-frequent-elements
+104,Maximum Depth of Binary Tree,78.7%,Easy,73.6, https://leetcode.com/problems/maximum-depth-of-binary-tree
+238,Product of Array Except Self,69.4%,Medium,73.6, https://leetcode.com/problems/product-of-array-except-self

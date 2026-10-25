@@ -1,0 +1,34 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+3498,Reverse Degree of a String,91.9%,Easy,89.2, https://leetcode.com/problems/reverse-degree-of-a-string
+2356,Number of Unique Subjects Taught by Each Teacher,89.4%,Easy,84, https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher
+283,Move Zeroes,64.5%,Easy,73.2, https://leetcode.com/problems/move-zeroes
+26,Remove Duplicates from Sorted Array,64.0%,Easy,68.1, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+14,Longest Common Prefix,48.6%,Easy,68.1, https://leetcode.com/problems/longest-common-prefix
+242,Valid Anagram,68.8%,Easy,68.1, https://leetcode.com/problems/valid-anagram
+3,Longest Substring Without Repeating Characters,40.0%,Medium,68.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+217,Contains Duplicate,64.8%,Easy,68.1, https://leetcode.com/problems/contains-duplicate
+121,Best Time to Buy and Sell Stock,57.5%,Easy,61.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+189,Rotate Array,45.7%,Medium,61.5, https://leetcode.com/problems/rotate-array
+4,Median of Two Sorted Arrays,47.9%,Hard,61.5, https://leetcode.com/problems/median-of-two-sorted-arrays
+560,Subarray Sum Equals K,48.4%,Medium,61.5, https://leetcode.com/problems/subarray-sum-equals-k
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,61.5, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+21,Merge Two Sorted Lists,69.0%,Easy,61.5, https://leetcode.com/problems/merge-two-sorted-lists
+28,Find the Index of the First Occurrence in a String,47.5%,Easy,61.5, https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+18,4Sum,42.0%,Medium,61.5, https://leetcode.com/problems/4sum
+2,Add Two Numbers,49.6%,Medium,52.2, https://leetcode.com/problems/add-two-numbers
+9,Palindrome Number,61.1%,Easy,52.2, https://leetcode.com/problems/palindrome-number
+42,Trapping Rain Water,68.4%,Hard,52.2, https://leetcode.com/problems/trapping-rain-water
+75,Sort Colors,70.3%,Medium,52.2, https://leetcode.com/problems/sort-colors
+7,Reverse Integer,32.7%,Medium,52.2, https://leetcode.com/problems/reverse-integer
+11,Container With Most Water,61.1%,Medium,52.2, https://leetcode.com/problems/container-with-most-water
+13,Roman to Integer,67.3%,Easy,52.2, https://leetcode.com/problems/roman-to-integer
+176,Second Highest Salary,48.8%,Medium,52.2, https://leetcode.com/problems/second-highest-salary
+49,Group Anagrams,73.5%,Medium,52.2, https://leetcode.com/problems/group-anagrams
+2677,Chunk Array,84.5%,Easy,52.2, https://leetcode.com/problems/chunk-array
+66,Plus One,50.8%,Easy,52.2, https://leetcode.com/problems/plus-one
+1877,Minimize Maximum Pair Sum in Array,83.3%,Medium,52.2, https://leetcode.com/problems/minimize-maximum-pair-sum-in-array
+67,Add Binary,58.8%,Easy,52.2, https://leetcode.com/problems/add-binary
+658,Find K Closest Elements,50.2%,Medium,52.2, https://leetcode.com/problems/find-k-closest-elements
+83,Remove Duplicates from Sorted List,57.7%,Easy,52.2, https://leetcode.com/problems/remove-duplicates-from-sorted-list
+151,Reverse Words in a String,58.2%,Medium,52.2, https://leetcode.com/problems/reverse-words-in-a-string

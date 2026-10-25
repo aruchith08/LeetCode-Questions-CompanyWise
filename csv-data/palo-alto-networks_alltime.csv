@@ -1,0 +1,51 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+146,LRU Cache,48.3%,Medium,94.4, https://leetcode.com/problems/lru-cache
+2831,Find the Longest Equal Subarray,38.3%,Medium,85.6, https://leetcode.com/problems/find-the-longest-equal-subarray
+359,Logger Rate Limiter,76.9%,Easy,76.9, https://leetcode.com/problems/logger-rate-limiter
+355,Design Twitter,45.8%,Medium,76.9, https://leetcode.com/problems/design-twitter
+25,Reverse Nodes in k-Group,67.5%,Hard,76.9, https://leetcode.com/problems/reverse-nodes-in-k-group
+752,Open the Lock,61.6%,Medium,76.9, https://leetcode.com/problems/open-the-lock
+3,Longest Substring Without Repeating Characters,40.0%,Medium,70.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+49,Group Anagrams,73.5%,Medium,65.1, https://leetcode.com/problems/group-anagrams
+443,String Compression,61.0%,Medium,65.1, https://leetcode.com/problems/string-compression
+706,Design HashMap,66.8%,Easy,65.1, https://leetcode.com/problems/design-hashmap
+33,Search in Rotated Sorted Array,45.8%,Medium,65.1, https://leetcode.com/problems/search-in-rotated-sorted-array
+2086,Minimum Number of Food Buckets to Feed the Hamsters,48.6%,Medium,65.1, https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters
+394,Decode String,63.4%,Medium,65.1, https://leetcode.com/problems/decode-string
+88,Merge Sorted Array,55.9%,Easy,65.1, https://leetcode.com/problems/merge-sorted-array
+4,Median of Two Sorted Arrays,47.9%,Hard,58.7, https://leetcode.com/problems/median-of-two-sorted-arrays
+102,Binary Tree Level Order Traversal,73.7%,Medium,58.7, https://leetcode.com/problems/binary-tree-level-order-traversal
+155,Min Stack,58.8%,Medium,58.7, https://leetcode.com/problems/min-stack
+12,Integer to Roman,71.9%,Medium,58.7, https://leetcode.com/problems/integer-to-roman
+692,Top K Frequent Words,60.8%,Medium,58.7, https://leetcode.com/problems/top-k-frequent-words
+380,Insert Delete GetRandom O(1),55.6%,Medium,58.7, https://leetcode.com/problems/insert-delete-getrandom-o1
+93,Restore IP Addresses,57.4%,Medium,58.7, https://leetcode.com/problems/restore-ip-addresses
+14,Longest Common Prefix,48.6%,Easy,58.7, https://leetcode.com/problems/longest-common-prefix
+870,Advantage Shuffle,55.2%,Medium,58.7, https://leetcode.com/problems/advantage-shuffle
+92,Reverse Linked List II,52.7%,Medium,58.7, https://leetcode.com/problems/reverse-linked-list-ii
+141,Linked List Cycle,55.3%,Easy,58.7, https://leetcode.com/problems/linked-list-cycle
+2,Add Two Numbers,49.6%,Medium,58.7, https://leetcode.com/problems/add-two-numbers
+560,Subarray Sum Equals K,48.4%,Medium,58.7, https://leetcode.com/problems/subarray-sum-equals-k
+252,Meeting Rooms,59.6%,Easy,49.7, https://leetcode.com/problems/meeting-rooms
+139,Word Break,50.0%,Medium,49.7, https://leetcode.com/problems/word-break
+21,Merge Two Sorted Lists,69.0%,Easy,49.7, https://leetcode.com/problems/merge-two-sorted-lists
+239,Sliding Window Maximum,49.4%,Hard,49.7, https://leetcode.com/problems/sliding-window-maximum
+224,Basic Calculator,47.3%,Hard,49.7, https://leetcode.com/problems/basic-calculator
+226,Invert Binary Tree,80.6%,Easy,49.7, https://leetcode.com/problems/invert-binary-tree
+20,Valid Parentheses,45.4%,Easy,49.7, https://leetcode.com/problems/valid-parentheses
+227,Basic Calculator II,47.3%,Medium,49.7, https://leetcode.com/problems/basic-calculator-ii
+43,Multiply Strings,44.9%,Medium,49.7, https://leetcode.com/problems/multiply-strings
+112,Path Sum,55.9%,Easy,49.7, https://leetcode.com/problems/path-sum
+113,Path Sum II,63.1%,Medium,49.7, https://leetcode.com/problems/path-sum-ii
+332,Reconstruct Itinerary,45.2%,Hard,49.7, https://leetcode.com/problems/reconstruct-itinerary
+875,Koko Eating Bananas,50.7%,Medium,49.7, https://leetcode.com/problems/koko-eating-bananas
+1239,Maximum Length of a Concatenated String with Unique Characters,55.0%,Medium,49.7, https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters
+5,Longest Palindromic Substring,38.9%,Medium,49.7, https://leetcode.com/problems/longest-palindromic-substring
+103,Binary Tree Zigzag Level Order Traversal,64.7%,Medium,49.7, https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,49.7, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+1171,Remove Zero Sum Consecutive Nodes from Linked List,53.4%,Medium,49.7, https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list
+543,Diameter of Binary Tree,66.4%,Easy,49.7, https://leetcode.com/problems/diameter-of-binary-tree
+765,Couples Holding Hands,59.9%,Hard,49.7, https://leetcode.com/problems/couples-holding-hands
+125,Valid Palindrome,54.6%,Easy,49.7, https://leetcode.com/problems/valid-palindrome
+121,Best Time to Buy and Sell Stock,57.5%,Easy,49.7, https://leetcode.com/problems/best-time-to-buy-and-sell-stock

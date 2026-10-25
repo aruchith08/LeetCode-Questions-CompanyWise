@@ -1,5 +1,15 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-811,Subdomain Visit Count,69.9%,Easy,1.0710122881269506, https://leetcode.com/problems/subdomain-visit-count
-224,Basic Calculator,36.8%,Hard,0.5668534552356532, https://leetcode.com/problems/basic-calculator
-718,Maximum Length of Repeated Subarray,49.4%,Medium,0.06269462234435588, https://leetcode.com/problems/maximum-length-of-repeated-subarray
-85,Maximal Rectangle,37.7%,Hard,0.013333530869465187, https://leetcode.com/problems/maximal-rectangle
+68,Text Justification,52.5%,Hard,100, https://leetcode.com/problems/text-justification
+2133,Check if Every Row and Column Contains All Numbers,54.5%,Easy,96.4, https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers
+1160,Find Words That Can Be Formed by Characters,71.8%,Easy,87.9, https://leetcode.com/problems/find-words-that-can-be-formed-by-characters
+1604,Alert Using Same Key-Card Three or More Times in a One Hour Period,46.4%,Medium,87.9, https://leetcode.com/problems/alert-using-same-key-card-three-or-more-times-in-a-one-hour-period
+79,Word Search,48.3%,Medium,84.6, https://leetcode.com/problems/word-search
+383,Ransom Note,66.6%,Easy,75.6, https://leetcode.com/problems/ransom-note
+221,Maximal Square,51.1%,Medium,64.6, https://leetcode.com/problems/maximal-square
+36,Valid Sudoku,65.3%,Medium,58.9, https://leetcode.com/problems/valid-sudoku
+55,Jump Game,41.7%,Medium,50.9, https://leetcode.com/problems/jump-game
+2933,High-Access Employees,48.1%,Medium,50.9, https://leetcode.com/problems/high-access-employees
+811,Subdomain Visit Count,77.3%,Medium,1.0710122881269506, https://leetcode.com/problems/subdomain-visit-count
+224,Basic Calculator,47.3%,Hard,0.5668534552356532, https://leetcode.com/problems/basic-calculator
+718,Maximum Length of Repeated Subarray,51.6%,Medium,0.06269462234435588, https://leetcode.com/problems/maximum-length-of-repeated-subarray
+85,Maximal Rectangle,60.1%,Hard,0.013333530869465187, https://leetcode.com/problems/maximal-rectangle

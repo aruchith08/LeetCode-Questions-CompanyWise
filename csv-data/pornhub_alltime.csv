@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+31,Next Permutation,46.4%,Medium,100, https://leetcode.com/problems/next-permutation
+518,Coin Change II,59.1%,Medium,86.5, https://leetcode.com/problems/coin-change-ii
+54,Spiral Matrix,58.2%,Medium,86.5, https://leetcode.com/problems/spiral-matrix
+1907,Count Salary Categories,65.9%,Medium,86.5, https://leetcode.com/problems/count-salary-categories
+678,Valid Parenthesis String,43.0%,Medium,86.5, https://leetcode.com/problems/valid-parenthesis-string
+9,Palindrome Number,61.1%,Easy,86.5, https://leetcode.com/problems/palindrome-number
+11,Container With Most Water,61.1%,Medium,86.5, https://leetcode.com/problems/container-with-most-water
+5,Longest Palindromic Substring,38.9%,Medium,86.5, https://leetcode.com/problems/longest-palindromic-substring
+130,Surrounded Regions,46.5%,Medium,86.5, https://leetcode.com/problems/surrounded-regions
+78,Subsets,82.9%,Medium,86.5, https://leetcode.com/problems/subsets
+42,Trapping Rain Water,68.4%,Hard,86.5, https://leetcode.com/problems/trapping-rain-water

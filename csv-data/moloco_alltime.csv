@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+1048,Longest String Chain,63.6%,Medium,92, https://leetcode.com/problems/longest-string-chain
+42,Trapping Rain Water,68.4%,Hard,80.7, https://leetcode.com/problems/trapping-rain-water
+827,Making A Large Island,57.3%,Hard,80.7, https://leetcode.com/problems/making-a-large-island
+2116,Check if a Parentheses String Can Be Valid,45.3%,Medium,80.7, https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid
+210,Course Schedule II,56.5%,Medium,80.7, https://leetcode.com/problems/course-schedule-ii
+394,Decode String,63.4%,Medium,80.7, https://leetcode.com/problems/decode-string
+76,Minimum Window Substring,48.7%,Hard,80.7, https://leetcode.com/problems/minimum-window-substring
+305,Number of Islands II,40.8%,Hard,80.7, https://leetcode.com/problems/number-of-islands-ii
+994,Rotting Oranges,59.6%,Medium,80.7, https://leetcode.com/problems/rotting-oranges
+23,Merge k Sorted Lists,60.8%,Hard,80.7, https://leetcode.com/problems/merge-k-sorted-lists

@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+6,Zigzag Conversion,55.4%,Medium,100, https://leetcode.com/problems/zigzag-conversion
+394,Decode String,63.4%,Medium,89.2, https://leetcode.com/problems/decode-string
+42,Trapping Rain Water,68.4%,Hard,83.6, https://leetcode.com/problems/trapping-rain-water
+3602,Hexadecimal and Hexatrigesimal Conversion,79.3%,Easy,80, https://leetcode.com/problems/hexadecimal-and-hexatrigesimal-conversion
+2074,Reverse Nodes in Even Length Groups,65.6%,Medium,75.7, https://leetcode.com/problems/reverse-nodes-in-even-length-groups
+93,Restore IP Addresses,57.4%,Medium,62.5, https://leetcode.com/problems/restore-ip-addresses
+25,Reverse Nodes in k-Group,67.5%,Hard,62.5, https://leetcode.com/problems/reverse-nodes-in-k-group
+299,Bulls and Cows,53.1%,Medium,62.3, https://leetcode.com/problems/bulls-and-cows
+151,Reverse Words in a String,58.2%,Medium,62.3, https://leetcode.com/problems/reverse-words-in-a-string
+402,Remove K Digits,37.9%,Medium,56.7, https://leetcode.com/problems/remove-k-digits
+17,Letter Combinations of a Phone Number,67.1%,Medium,56.7, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+991,Broken Calculator,56.6%,Medium,56.7, https://leetcode.com/problems/broken-calculator
+5,Longest Palindromic Substring,38.9%,Medium,48.9, https://leetcode.com/problems/longest-palindromic-substring
+242,Valid Anagram,68.8%,Easy,48.9, https://leetcode.com/problems/valid-anagram

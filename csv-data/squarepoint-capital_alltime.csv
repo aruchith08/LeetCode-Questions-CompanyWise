@@ -1,0 +1,30 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+924,Minimize Malware Spread,43.6%,Hard,100, https://leetcode.com/problems/minimize-malware-spread
+2296,Design a Text Editor,52.3%,Hard,100, https://leetcode.com/problems/design-a-text-editor
+2939,Maximum Xor Product,30.7%,Medium,100, https://leetcode.com/problems/maximum-xor-product
+1268,Search Suggestions System,65.3%,Medium,95.8, https://leetcode.com/problems/search-suggestions-system
+53,Maximum Subarray,54.0%,Medium,90.8, https://leetcode.com/problems/maximum-subarray
+224,Basic Calculator,47.3%,Hard,90.8, https://leetcode.com/problems/basic-calculator
+3649,Number of Perfect Pairs,34.7%,Medium,90.8, https://leetcode.com/problems/number-of-perfect-pairs
+3399,Smallest Substring With Identical Characters II,39.1%,Hard,90.1, https://leetcode.com/problems/smallest-substring-with-identical-characters-ii
+870,Advantage Shuffle,55.2%,Medium,89.5, https://leetcode.com/problems/advantage-shuffle
+713,Subarray Product Less Than K,54.9%,Medium,88.9, https://leetcode.com/problems/subarray-product-less-than-k
+1824,Minimum Sideway Jumps,52.0%,Medium,88.9, https://leetcode.com/problems/minimum-sideway-jumps
+49,Group Anagrams,73.5%,Medium,88.9, https://leetcode.com/problems/group-anagrams
+146,LRU Cache,48.3%,Medium,84.7, https://leetcode.com/problems/lru-cache
+1669,Merge In Between Linked Lists,83.2%,Medium,84.7, https://leetcode.com/problems/merge-in-between-linked-lists
+42,Trapping Rain Water,68.4%,Hard,84.7, https://leetcode.com/problems/trapping-rain-water
+121,Best Time to Buy and Sell Stock,57.5%,Easy,76.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+300,Longest Increasing Subsequence,60.1%,Medium,76.9, https://leetcode.com/problems/longest-increasing-subsequence
+403,Frog Jump,47.8%,Hard,76.9, https://leetcode.com/problems/frog-jump
+2771,Longest Non-decreasing Subarray From Two Arrays,31.4%,Medium,76.9, https://leetcode.com/problems/longest-non-decreasing-subarray-from-two-arrays
+2466,Count Ways To Build Good Strings,58.8%,Medium,76.9, https://leetcode.com/problems/count-ways-to-build-good-strings
+3035,Maximum Palindromes After Operations,47.5%,Medium,76.9, https://leetcode.com/problems/maximum-palindromes-after-operations
+200,Number of Islands,65.3%,Medium,65.9, https://leetcode.com/problems/number-of-islands
+1605,Find Valid Matrix Given Row and Column Sums,82.5%,Medium,65.9, https://leetcode.com/problems/find-valid-matrix-given-row-and-column-sums
+2918,Minimum Equal Sum of Two Arrays After Replacing Zeros,50.1%,Medium,65.9, https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros
+765,Couples Holding Hands,59.9%,Hard,65.9, https://leetcode.com/problems/couples-holding-hands
+1326,Minimum Number of Taps to Open to Water a Garden,51.1%,Hard,65.9, https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden
+992,Subarrays with K Different Integers,69.2%,Hard,65.9, https://leetcode.com/problems/subarrays-with-k-different-integers
+746,Min Cost Climbing Stairs,68.9%,Easy,65.9, https://leetcode.com/problems/min-cost-climbing-stairs
+451,Sort Characters By Frequency,75.9%,Medium,65.9, https://leetcode.com/problems/sort-characters-by-frequency

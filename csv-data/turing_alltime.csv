@@ -1,0 +1,30 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+264,Ugly Number II,49.9%,Medium,100, https://leetcode.com/problems/ugly-number-ii
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+468,Validate IP Address,28.6%,Medium,92.2, https://leetcode.com/problems/validate-ip-address
+4007,Widest Possible Fence,17.4%,Hard,87, https://leetcode.com/problems/widest-possible-fence
+983,Minimum Cost For Tickets,67.5%,Medium,83.9, https://leetcode.com/problems/minimum-cost-for-tickets
+875,Koko Eating Bananas,50.7%,Medium,80.3, https://leetcode.com/problems/koko-eating-bananas
+3138,Minimum Length of Anagram Concatenation,39.8%,Medium,80.3, https://leetcode.com/problems/minimum-length-of-anagram-concatenation
+1027,Longest Arithmetic Subsequence,50.2%,Medium,76.1, https://leetcode.com/problems/longest-arithmetic-subsequence
+20,Valid Parentheses,45.4%,Easy,70.9, https://leetcode.com/problems/valid-parentheses
+3091,Apply Operations to Make Sum of Array Greater Than or Equal to k,44.6%,Medium,70.9, https://leetcode.com/problems/apply-operations-to-make-sum-of-array-greater-than-or-equal-to-k
+3122,Minimum Number of Operations to Satisfy Conditions,42.3%,Medium,70.9, https://leetcode.com/problems/minimum-number-of-operations-to-satisfy-conditions
+1703,Minimum Adjacent Swaps for K Consecutive Ones,42.9%,Hard,70.9, https://leetcode.com/problems/minimum-adjacent-swaps-for-k-consecutive-ones
+5,Longest Palindromic Substring,38.9%,Medium,64.3, https://leetcode.com/problems/longest-palindromic-substring
+121,Best Time to Buy and Sell Stock,57.5%,Easy,64.3, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1,Two Sum,58.1%,Easy,64.3, https://leetcode.com/problems/two-sum
+3108,Minimum Cost Walk in Weighted Graph,68.0%,Hard,64.3, https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph
+53,Maximum Subarray,54.0%,Medium,54.9, https://leetcode.com/problems/maximum-subarray
+56,Merge Intervals,53.0%,Medium,54.9, https://leetcode.com/problems/merge-intervals
+697,Degree of an Array,58.8%,Easy,54.9, https://leetcode.com/problems/degree-of-an-array
+200,Number of Islands,65.3%,Medium,54.9, https://leetcode.com/problems/number-of-islands
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,54.9, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+818,Race Car,45.3%,Hard,54.9, https://leetcode.com/problems/race-car
+55,Jump Game,41.7%,Medium,54.9, https://leetcode.com/problems/jump-game
+3153,Sum of Digit Differences of All Pairs,43.1%,Medium,54.9, https://leetcode.com/problems/sum-of-digit-differences-of-all-pairs
+15,3Sum,40.1%,Medium,54.9, https://leetcode.com/problems/3sum
+2261,K Divisible Elements Subarrays,55.4%,Medium,54.9, https://leetcode.com/problems/k-divisible-elements-subarrays
+1925,Count Square Sum Triples,77.2%,Easy,54.9, https://leetcode.com/problems/count-square-sum-triples
+665,Non-decreasing Array,25.7%,Medium,54.9, https://leetcode.com/problems/non-decreasing-array
+60,Permutation Sequence,54.6%,Hard,54.9, https://leetcode.com/problems/permutation-sequence

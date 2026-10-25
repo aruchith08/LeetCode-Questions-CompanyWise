@@ -1,2 +1,4 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-934,Shortest Bridge,48.2%,Medium,0.03607244121670154, https://leetcode.com/problems/shortest-bridge
+2530,Maximal Score After Applying K Operations,64.2%,Medium,100, https://leetcode.com/problems/maximal-score-after-applying-k-operations
+1208,Get Equal Substrings Within Budget,60.4%,Medium,69.5, https://leetcode.com/problems/get-equal-substrings-within-budget
+934,Shortest Bridge,59.9%,Medium,0.03607244121670154, https://leetcode.com/problems/shortest-bridge

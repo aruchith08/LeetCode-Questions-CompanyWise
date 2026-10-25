@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+283,Move Zeroes,64.5%,Easy,100, https://leetcode.com/problems/move-zeroes
+2343,Query Kth Smallest Trimmed Number,48.4%,Medium,100, https://leetcode.com/problems/query-kth-smallest-trimmed-number
+1004,Max Consecutive Ones III,68.6%,Medium,100, https://leetcode.com/problems/max-consecutive-ones-iii
+345,Reverse Vowels of a String,62.6%,Easy,88.6, https://leetcode.com/problems/reverse-vowels-of-a-string
+49,Group Anagrams,73.5%,Medium,88.6, https://leetcode.com/problems/group-anagrams
+214,Shortest Palindrome,43.3%,Hard,88.6, https://leetcode.com/problems/shortest-palindrome

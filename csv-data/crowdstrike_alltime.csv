@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+49,Group Anagrams,73.5%,Medium,100, https://leetcode.com/problems/group-anagrams
+443,String Compression,61.0%,Medium,100, https://leetcode.com/problems/string-compression
+200,Number of Islands,65.3%,Medium,97.2, https://leetcode.com/problems/number-of-islands
+271,Encode and Decode Strings,52.1%,Medium,90.5, https://leetcode.com/problems/encode-and-decode-strings
+56,Merge Intervals,53.0%,Medium,74.3, https://leetcode.com/problems/merge-intervals
+981,Time Based Key-Value Store,50.3%,Medium,64.9, https://leetcode.com/problems/time-based-key-value-store
+42,Trapping Rain Water,68.4%,Hard,64.9, https://leetcode.com/problems/trapping-rain-water
+977,Squares of a Sorted Array,74.2%,Easy,64.9, https://leetcode.com/problems/squares-of-a-sorted-array
+207,Course Schedule,52.4%,Medium,64.9, https://leetcode.com/problems/course-schedule
+20,Valid Parentheses,45.4%,Easy,64.9, https://leetcode.com/problems/valid-parentheses
+133,Clone Graph,66.4%,Medium,64.9, https://leetcode.com/problems/clone-graph
+3815,Design Auction System,42.1%,Medium,64.9, https://leetcode.com/problems/design-auction-system

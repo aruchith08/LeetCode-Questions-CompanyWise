@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+503,Next Greater Element II,69.4%,Medium,100, https://leetcode.com/problems/next-greater-element-ii
+3584,Maximum Product of First and Last Elements of a Subsequence,31.9%,Medium,100, https://leetcode.com/problems/maximum-product-of-first-and-last-elements-of-a-subsequence
+146,LRU Cache,48.3%,Medium,93.5, https://leetcode.com/problems/lru-cache
+2106,Maximum Fruits Harvested After at Most K Steps,61.0%,Hard,84.2, https://leetcode.com/problems/maximum-fruits-harvested-after-at-most-k-steps
+554,Brick Wall,55.9%,Medium,84.2, https://leetcode.com/problems/brick-wall
+780,Reaching Points,34.9%,Hard,68.5, https://leetcode.com/problems/reaching-points
+1,Two Sum,58.1%,Easy,68.5, https://leetcode.com/problems/two-sum
+295,Find Median from Data Stream,55.1%,Hard,68.5, https://leetcode.com/problems/find-median-from-data-stream

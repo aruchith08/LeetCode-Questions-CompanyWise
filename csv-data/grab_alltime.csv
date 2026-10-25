@@ -1,15 +1,29 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-984,String Without AAA or BBB,37.7%,Medium,0.4954247677613364, https://leetcode.com/problems/string-without-aaa-or-bbb
-915,Partition Array into Disjoint Intervals,45.4%,Medium,0.37292635232139065, https://leetcode.com/problems/partition-array-into-disjoint-intervals
-983,Minimum Cost For Tickets,60.5%,Medium,0.26701398643191887, https://leetcode.com/problems/minimum-cost-for-tickets
-527,Word Abbreviation,54.3%,Hard,0.24362208265775043, https://leetcode.com/problems/word-abbreviation
-1017,Convert to Base -2,59.0%,Medium,0.17904823144898546, https://leetcode.com/problems/convert-to-base-2
-1253,Reconstruct a 2-Row Binary Matrix,40.4%,Medium,0.16098937604759944, https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix
-42,Trapping Rain Water,48.9%,Hard,0.038490960607653675, https://leetcode.com/problems/trapping-rain-water
-2,Add Two Numbers,33.9%,Medium,0.020491663368639005, https://leetcode.com/problems/add-two-numbers
-41,First Missing Positive,32.0%,Hard,0.014368063266920193, https://leetcode.com/problems/first-missing-positive
-121,Best Time to Buy and Sell Stock,50.5%,Easy,0.00846879565300311, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-234,Palindrome Linked List,39.3%,Easy,0.004533613114828982, https://leetcode.com/problems/palindrome-linked-list
-238,Product of Array Except Self,60.1%,Medium,0.003930436424724545, https://leetcode.com/problems/product-of-array-except-self
-215,Kth Largest Element in an Array,55.4%,Medium,0.003902443976931749, https://leetcode.com/problems/kth-largest-element-in-an-array
-1073,Adding Two Negabinary Numbers,34.2%,Medium,0, https://leetcode.com/problems/adding-two-negabinary-numbers
+322,Coin Change,49.3%,Medium,100, https://leetcode.com/problems/coin-change
+2086,Minimum Number of Food Buckets to Feed the Hamsters,48.6%,Medium,100, https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters
+721,Accounts Merge,62.2%,Medium,82.8, https://leetcode.com/problems/accounts-merge
+71,Simplify Path,51.7%,Medium,75.7, https://leetcode.com/problems/simplify-path
+739,Daily Temperatures,69.3%,Medium,75.7, https://leetcode.com/problems/daily-temperatures
+198,House Robber,53.7%,Medium,75.7, https://leetcode.com/problems/house-robber
+459,Repeated Substring Pattern,49.0%,Easy,75.7, https://leetcode.com/problems/repeated-substring-pattern
+1,Two Sum,58.1%,Easy,65.7, https://leetcode.com/problems/two-sum
+20,Valid Parentheses,45.4%,Easy,65.7, https://leetcode.com/problems/valid-parentheses
+1404,Number of Steps to Reduce a Number in Binary Representation to One,63.7%,Medium,65.7, https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one
+560,Subarray Sum Equals K,48.4%,Medium,65.7, https://leetcode.com/problems/subarray-sum-equals-k
+45,Jump Game II,43.7%,Medium,65.7, https://leetcode.com/problems/jump-game-ii
+5,Longest Palindromic Substring,38.9%,Medium,65.7, https://leetcode.com/problems/longest-palindromic-substring
+49,Group Anagrams,73.5%,Medium,65.7, https://leetcode.com/problems/group-anagrams
+984,String Without AAA or BBB,45.8%,Medium,0.4954247677613364, https://leetcode.com/problems/string-without-aaa-or-bbb
+915,Partition Array into Disjoint Intervals,49.8%,Medium,0.37292635232139065, https://leetcode.com/problems/partition-array-into-disjoint-intervals
+983,Minimum Cost For Tickets,67.5%,Medium,0.26701398643191887, https://leetcode.com/problems/minimum-cost-for-tickets
+527,Word Abbreviation,62.8%,Hard,0.24362208265775043, https://leetcode.com/problems/word-abbreviation
+1017,Convert to Base -2,63.6%,Medium,0.17904823144898546, https://leetcode.com/problems/convert-to-base-2
+1253,Reconstruct a 2-Row Binary Matrix,49.5%,Medium,0.16098937604759944, https://leetcode.com/problems/reconstruct-a-2-row-binary-matrix
+42,Trapping Rain Water,68.4%,Hard,0.038490960607653675, https://leetcode.com/problems/trapping-rain-water
+2,Add Two Numbers,49.6%,Medium,0.020491663368639005, https://leetcode.com/problems/add-two-numbers
+41,First Missing Positive,44.0%,Hard,0.014368063266920193, https://leetcode.com/problems/first-missing-positive
+121,Best Time to Buy and Sell Stock,57.5%,Easy,0.00846879565300311, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+234,Palindrome Linked List,59.0%,Easy,0.004533613114828982, https://leetcode.com/problems/palindrome-linked-list
+238,Product of Array Except Self,69.4%,Medium,0.003930436424724545, https://leetcode.com/problems/product-of-array-except-self
+215,Kth Largest Element in an Array,69.4%,Medium,0.003902443976931749, https://leetcode.com/problems/kth-largest-element-in-an-array
+1073,Adding Two Negabinary Numbers,38.3%,Medium,0, https://leetcode.com/problems/adding-two-negabinary-numbers

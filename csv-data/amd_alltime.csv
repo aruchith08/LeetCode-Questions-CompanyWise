@@ -1,0 +1,18 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+13,Roman to Integer,67.3%,Easy,100, https://leetcode.com/problems/roman-to-integer
+54,Spiral Matrix,58.2%,Medium,78.7, https://leetcode.com/problems/spiral-matrix
+1,Two Sum,58.1%,Easy,78.7, https://leetcode.com/problems/two-sum
+560,Subarray Sum Equals K,48.4%,Medium,78.7, https://leetcode.com/problems/subarray-sum-equals-k
+200,Number of Islands,65.3%,Medium,78.7, https://leetcode.com/problems/number-of-islands
+56,Merge Intervals,53.0%,Medium,68.5, https://leetcode.com/problems/merge-intervals
+9,Palindrome Number,61.1%,Easy,68.5, https://leetcode.com/problems/palindrome-number
+88,Merge Sorted Array,55.9%,Easy,68.5, https://leetcode.com/problems/merge-sorted-array
+283,Move Zeroes,64.5%,Easy,68.5, https://leetcode.com/problems/move-zeroes
+347,Top K Frequent Elements,67.6%,Medium,68.5, https://leetcode.com/problems/top-k-frequent-elements
+12,Integer to Roman,71.9%,Medium,68.5, https://leetcode.com/problems/integer-to-roman
+234,Palindrome Linked List,59.0%,Easy,68.5, https://leetcode.com/problems/palindrome-linked-list
+70,Climbing Stairs,54.4%,Easy,68.5, https://leetcode.com/problems/climbing-stairs
+15,3Sum,40.1%,Medium,68.5, https://leetcode.com/problems/3sum
+876,Middle of the Linked List,82.5%,Easy,68.5, https://leetcode.com/problems/middle-of-the-linked-list
+155,Min Stack,58.8%,Medium,68.5, https://leetcode.com/problems/min-stack
+20,Valid Parentheses,45.4%,Easy,68.5, https://leetcode.com/problems/valid-parentheses

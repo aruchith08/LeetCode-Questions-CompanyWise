@@ -1,2 +1,18 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1234,Replace the Substring for Balanced String,33.2%,Medium,0, https://leetcode.com/problems/replace-the-substring-for-balanced-string
+20,Valid Parentheses,45.4%,Easy,100, https://leetcode.com/problems/valid-parentheses
+3819,Rotate Non Negative Elements,47.7%,Medium,87.6, https://leetcode.com/problems/rotate-non-negative-elements
+2422,Merge Operations to Turn Array Into a Palindrome,68.9%,Medium,85, https://leetcode.com/problems/merge-operations-to-turn-array-into-a-palindrome
+3,Longest Substring Without Repeating Characters,40.0%,Medium,78.8, https://leetcode.com/problems/longest-substring-without-repeating-characters
+1,Two Sum,58.1%,Easy,70, https://leetcode.com/problems/two-sum
+134,Gas Station,48.9%,Medium,70, https://leetcode.com/problems/gas-station
+5,Longest Palindromic Substring,38.9%,Medium,63.8, https://leetcode.com/problems/longest-palindromic-substring
+70,Climbing Stairs,54.4%,Easy,63.8, https://leetcode.com/problems/climbing-stairs
+11,Container With Most Water,61.1%,Medium,63.8, https://leetcode.com/problems/container-with-most-water
+735,Asteroid Collision,49.4%,Medium,63.8, https://leetcode.com/problems/asteroid-collision
+321,Create Maximum Number,37.6%,Hard,63.8, https://leetcode.com/problems/create-maximum-number
+322,Coin Change,49.3%,Medium,63.8, https://leetcode.com/problems/coin-change
+80,Remove Duplicates from Sorted Array II,65.4%,Medium,55.1, https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+1654,Minimum Jumps to Reach Home,31.2%,Medium,55.1, https://leetcode.com/problems/minimum-jumps-to-reach-home
+49,Group Anagrams,73.5%,Medium,55.1, https://leetcode.com/problems/group-anagrams
+53,Maximum Subarray,54.0%,Medium,55.1, https://leetcode.com/problems/maximum-subarray
+1234,Replace the Substring for Balanced String,41.7%,Medium,0, https://leetcode.com/problems/replace-the-substring-for-balanced-string

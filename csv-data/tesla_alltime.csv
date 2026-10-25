@@ -1,14 +1,49 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1189,Maximum Number of Balloons,61.2%,Easy,0.10316224371942753, https://leetcode.com/problems/maximum-number-of-balloons
-1239,Maximum Length of a Concatenated String with Unique Characters,47.8%,Medium,0.0766985653316095, https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters
-146,LRU Cache,33.2%,Medium,0.054946555458745445, https://leetcode.com/problems/lru-cache
-724,Find Pivot Index,44.0%,Easy,0.05428741283782842, https://leetcode.com/problems/find-pivot-index
-20,Valid Parentheses,39.0%,Easy,0.02782373445001039, https://leetcode.com/problems/valid-parentheses
-41,First Missing Positive,32.0%,Hard,0.02540222313806603, https://leetcode.com/problems/first-missing-positive
-728,Self Dividing Numbers,74.3%,Easy,0.024662162384069, https://leetcode.com/problems/self-dividing-numbers
-127,Word Ladder,29.6%,Medium,0.013403030127340374, https://leetcode.com/problems/word-ladder
-767,Reorganize String,48.7%,Medium,0.01329806830463147, https://leetcode.com/problems/reorganize-string
-273,Integer to English Words,27.1%,Hard,0.012081089250339716, https://leetcode.com/problems/integer-to-english-words
-49,Group Anagrams,56.9%,Medium,0.008538951314232168, https://leetcode.com/problems/group-anagrams
-33,Search in Rotated Sorted Array,34.5%,Medium,0.003229976968332634, https://leetcode.com/problems/search-in-rotated-sorted-array
-283,Move Zeroes,57.8%,Easy,0.0028853803470673955, https://leetcode.com/problems/move-zeroes
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+909,Snakes and Ladders,48.3%,Medium,100, https://leetcode.com/problems/snakes-and-ladders
+2115,Find All Possible Recipes from Given Supplies,57.2%,Medium,100, https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+626,Exchange Seats,75.2%,Medium,100, https://leetcode.com/problems/exchange-seats
+200,Number of Islands,65.3%,Medium,87.8, https://leetcode.com/problems/number-of-islands
+227,Basic Calculator II,47.3%,Medium,87.8, https://leetcode.com/problems/basic-calculator-ii
+1729,Find Followers Count,69.7%,Easy,84.9, https://leetcode.com/problems/find-followers-count
+1758,Minimum Changes To Make Alternating Binary String,67.9%,Easy,84.9, https://leetcode.com/problems/minimum-changes-to-make-alternating-binary-string
+622,Design Circular Queue,55.7%,Medium,81.7, https://leetcode.com/problems/design-circular-queue
+1117,Building H2O,58.7%,Medium,81.7, https://leetcode.com/problems/building-h2o
+42,Trapping Rain Water,68.4%,Hard,78, https://leetcode.com/problems/trapping-rain-water
+17,Letter Combinations of a Phone Number,67.1%,Medium,73.7, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+15,3Sum,40.1%,Medium,68.3, https://leetcode.com/problems/3sum
+223,Rectangle Area,50.4%,Medium,68.3, https://leetcode.com/problems/rectangle-area
+11,Container With Most Water,61.1%,Medium,61.5, https://leetcode.com/problems/container-with-most-water
+347,Top K Frequent Elements,67.6%,Medium,61.5, https://leetcode.com/problems/top-k-frequent-elements
+53,Maximum Subarray,54.0%,Medium,61.5, https://leetcode.com/problems/maximum-subarray
+1,Two Sum,58.1%,Easy,61.5, https://leetcode.com/problems/two-sum
+934,Shortest Bridge,59.9%,Medium,61.5, https://leetcode.com/problems/shortest-bridge
+393,UTF-8 Validation,46.9%,Medium,61.5, https://leetcode.com/problems/utf-8-validation
+128,Longest Consecutive Sequence,47.3%,Medium,51.8, https://leetcode.com/problems/longest-consecutive-sequence
+207,Course Schedule,52.4%,Medium,51.8, https://leetcode.com/problems/course-schedule
+48,Rotate Image,80.8%,Medium,51.8, https://leetcode.com/problems/rotate-image
+150,Evaluate Reverse Polish Notation,59.0%,Medium,51.8, https://leetcode.com/problems/evaluate-reverse-polish-notation
+202,Happy Number,60.4%,Easy,51.8, https://leetcode.com/problems/happy-number
+399,Evaluate Division,64.7%,Medium,51.8, https://leetcode.com/problems/evaluate-division
+1603,Design Parking System,87.2%,Easy,51.8, https://leetcode.com/problems/design-parking-system
+126,Word Ladder II,28.2%,Hard,51.8, https://leetcode.com/problems/word-ladder-ii
+2502,Design Memory Allocator,51.1%,Medium,51.8, https://leetcode.com/problems/design-memory-allocator
+4,Median of Two Sorted Arrays,47.9%,Hard,51.8, https://leetcode.com/problems/median-of-two-sorted-arrays
+341,Flatten Nested List Iterator,65.9%,Medium,51.8, https://leetcode.com/problems/flatten-nested-list-iterator
+359,Logger Rate Limiter,76.9%,Easy,51.8, https://leetcode.com/problems/logger-rate-limiter
+224,Basic Calculator,47.3%,Hard,51.8, https://leetcode.com/problems/basic-calculator
+1189,Maximum Number of Balloons,64.4%,Easy,0.10316224371942753, https://leetcode.com/problems/maximum-number-of-balloons
+1239,Maximum Length of a Concatenated String with Unique Characters,55.0%,Medium,0.0766985653316095, https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters
+146,LRU Cache,48.3%,Medium,0.054946555458745445, https://leetcode.com/problems/lru-cache
+724,Find Pivot Index,64.2%,Easy,0.05428741283782842, https://leetcode.com/problems/find-pivot-index
+20,Valid Parentheses,45.4%,Easy,0.02782373445001039, https://leetcode.com/problems/valid-parentheses
+41,First Missing Positive,44.0%,Hard,0.02540222313806603, https://leetcode.com/problems/first-missing-positive
+728,Self Dividing Numbers,81.4%,Easy,0.024662162384069, https://leetcode.com/problems/self-dividing-numbers
+127,Word Ladder,46.8%,Hard,0.013403030127340374, https://leetcode.com/problems/word-ladder
+767,Reorganize String,57.7%,Medium,0.01329806830463147, https://leetcode.com/problems/reorganize-string
+273,Integer to English Words,35.3%,Hard,0.012081089250339716, https://leetcode.com/problems/integer-to-english-words
+49,Group Anagrams,73.5%,Medium,0.008538951314232168, https://leetcode.com/problems/group-anagrams
+33,Search in Rotated Sorted Array,45.8%,Medium,0.003229976968332634, https://leetcode.com/problems/search-in-rotated-sorted-array
+283,Move Zeroes,64.5%,Easy,0.0028853803470673955, https://leetcode.com/problems/move-zeroes

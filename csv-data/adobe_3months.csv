@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2444,Count Subarrays With Fixed Bounds,69.2%,Hard,100, https://leetcode.com/problems/count-subarrays-with-fixed-bounds
+295,Find Median from Data Stream,55.1%,Hard,92.3, https://leetcode.com/problems/find-median-from-data-stream
+1797,Design Authentication Manager,58.9%,Medium,92.3, https://leetcode.com/problems/design-authentication-manager
+849,Maximize Distance to Closest Person,50.1%,Medium,81.4, https://leetcode.com/problems/maximize-distance-to-closest-person
+1739,Building Boxes,52.8%,Hard,81.4, https://leetcode.com/problems/building-boxes
+176,Second Highest Salary,48.8%,Medium,81.4, https://leetcode.com/problems/second-highest-salary
+5,Longest Palindromic Substring,38.9%,Medium,81.4, https://leetcode.com/problems/longest-palindromic-substring
+162,Find Peak Element,47.3%,Medium,81.4, https://leetcode.com/problems/find-peak-element

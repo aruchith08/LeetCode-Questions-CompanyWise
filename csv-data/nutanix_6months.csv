@@ -1,7 +1,12 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-991,Broken Calculator,45.6%,Medium,0.3917108530690627, https://leetcode.com/problems/broken-calculator
-1052,Grumpy Bookstore Owner,55.4%,Medium,0.20881791529768876, https://leetcode.com/problems/grumpy-bookstore-owner
-403,Frog Jump,39.7%,Hard,0.0259249775263148, https://leetcode.com/problems/frog-jump
-55,Jump Game,34.6%,Medium,0.011265609194218986, https://leetcode.com/problems/jump-game
-45,Jump Game II,30.6%,Hard,0.009546611883579968, https://leetcode.com/problems/jump-game-ii
-5,Longest Palindromic Substring,29.5%,Medium,0.002279333142507479, https://leetcode.com/problems/longest-palindromic-substring
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+735,Asteroid Collision,49.4%,Medium,100, https://leetcode.com/problems/asteroid-collision
+2208,Minimum Operations to Halve Array Sum,50.6%,Medium,100, https://leetcode.com/problems/minimum-operations-to-halve-array-sum
+2065,Maximum Path Quality of a Graph,63.3%,Hard,100, https://leetcode.com/problems/maximum-path-quality-of-a-graph
+239,Sliding Window Maximum,49.4%,Hard,100, https://leetcode.com/problems/sliding-window-maximum
+991,Broken Calculator,56.6%,Medium,0.3917108530690627, https://leetcode.com/problems/broken-calculator
+1052,Grumpy Bookstore Owner,64.2%,Medium,0.20881791529768876, https://leetcode.com/problems/grumpy-bookstore-owner
+403,Frog Jump,47.8%,Hard,0.0259249775263148, https://leetcode.com/problems/frog-jump
+55,Jump Game,41.7%,Medium,0.011265609194218986, https://leetcode.com/problems/jump-game
+45,Jump Game II,43.7%,Medium,0.009546611883579968, https://leetcode.com/problems/jump-game-ii
+5,Longest Palindromic Substring,38.9%,Medium,0.002279333142507479, https://leetcode.com/problems/longest-palindromic-substring

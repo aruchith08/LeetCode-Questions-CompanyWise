@@ -1,14 +1,99 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-741,Cherry Pickup,33.9%,Hard,0.14706899424089495, https://leetcode.com/problems/cherry-pickup
-42,Trapping Rain Water,48.9%,Hard,0.10346205022559302, https://leetcode.com/problems/trapping-rain-water
-380,Insert Delete GetRandom O(1),47.5%,Medium,0.05985510621029109, https://leetcode.com/problems/insert-delete-getrandom-o1
-269,Alien Dictionary,33.3%,Hard,0.04997917057465883, https://leetcode.com/problems/alien-dictionary
-10,Regular Expression Matching,26.8%,Hard,0.02844130559772196, https://leetcode.com/problems/regular-expression-matching
-2,Add Two Numbers,33.9%,Medium,0.02668158945866115, https://leetcode.com/problems/add-two-numbers
-84,Largest Rectangle in Histogram,35.2%,Hard,0.01866112622166295, https://leetcode.com/problems/largest-rectangle-in-histogram
-123,Best Time to Buy and Sell Stock III,37.5%,Hard,0.011261380272539033, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-994,Rotting Oranges,49.2%,Medium,0.007630712341163886, https://leetcode.com/problems/rotting-oranges
-155,Min Stack,44.5%,Easy,0.00474891074128171, https://leetcode.com/problems/min-stack
-967,Numbers With Same Consecutive Differences,39.4%,Medium,0, https://leetcode.com/problems/numbers-with-same-consecutive-differences
-982,Triples with Bitwise AND Equal To Zero,55.6%,Hard,0, https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero
-1423,Maximum Points You Can Obtain from Cards,42.6%,Medium,0, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards
+11,Container With Most Water,61.1%,Medium,100, https://leetcode.com/problems/container-with-most-water
+749,Contain Virus,56.6%,Hard,100, https://leetcode.com/problems/contain-virus
+3576,Transform Array to All Equal Elements,33.5%,Medium,82.6, https://leetcode.com/problems/transform-array-to-all-equal-elements
+2952,Minimum Number of Coins to be Added,58.3%,Medium,77.8, https://leetcode.com/problems/minimum-number-of-coins-to-be-added
+1912,Design Movie Rental System,62.0%,Hard,77.8, https://leetcode.com/problems/design-movie-rental-system
+1,Two Sum,58.1%,Easy,75, https://leetcode.com/problems/two-sum
+2019,The Score of Students Solving Math Expression,34.9%,Hard,75, https://leetcode.com/problems/the-score-of-students-solving-math-expression
+2093,Minimum Cost to Reach City With Discounts,62.3%,Medium,75, https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts
+1760,Minimum Limit of Balls in a Bag,65.8%,Medium,75, https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag
+3663,Find The Least Frequent Digit,68.9%,Easy,75, https://leetcode.com/problems/find-the-least-frequent-digit
+4039,Sum of Decoded Numbers,44.8%,Medium,75, https://leetcode.com/problems/sum-of-decoded-numbers
+851,Loud and Rich,64.3%,Medium,74, https://leetcode.com/problems/loud-and-rich
+1482,Minimum Number of Days to Make m Bouquets,57.3%,Medium,74, https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets
+496,Next Greater Element I,77.0%,Easy,74, https://leetcode.com/problems/next-greater-element-i
+134,Gas Station,48.9%,Medium,71.9, https://leetcode.com/problems/gas-station
+215,Kth Largest Element in an Array,69.4%,Medium,58.7, https://leetcode.com/problems/kth-largest-element-in-an-array
+321,Create Maximum Number,37.6%,Hard,58.7, https://leetcode.com/problems/create-maximum-number
+875,Koko Eating Bananas,50.7%,Medium,58.7, https://leetcode.com/problems/koko-eating-bananas
+33,Search in Rotated Sorted Array,45.8%,Medium,58.7, https://leetcode.com/problems/search-in-rotated-sorted-array
+675,Cut Off Trees for Golf Event,37.1%,Hard,58.7, https://leetcode.com/problems/cut-off-trees-for-golf-event
+295,Find Median from Data Stream,55.1%,Hard,58.7, https://leetcode.com/problems/find-median-from-data-stream
+907,Sum of Subarray Minimums,39.1%,Medium,58.7, https://leetcode.com/problems/sum-of-subarray-minimums
+62,Unique Paths,67.4%,Medium,58.7, https://leetcode.com/problems/unique-paths
+850,Rectangle Area II,56.9%,Hard,58.7, https://leetcode.com/problems/rectangle-area-ii
+787,Cheapest Flights Within K Stops,42.7%,Medium,55.4, https://leetcode.com/problems/cheapest-flights-within-k-stops
+121,Best Time to Buy and Sell Stock,57.5%,Easy,55.4, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+45,Jump Game II,43.7%,Medium,55.4, https://leetcode.com/problems/jump-game-ii
+72,Edit Distance,61.5%,Medium,52, https://leetcode.com/problems/edit-distance
+207,Course Schedule,52.4%,Medium,52, https://leetcode.com/problems/course-schedule
+2385,Amount of Time for Binary Tree to Be Infected,66.2%,Medium,52, https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected
+735,Asteroid Collision,49.4%,Medium,52, https://leetcode.com/problems/asteroid-collision
+939,Minimum Area Rectangle,55.6%,Medium,52, https://leetcode.com/problems/minimum-area-rectangle
+1463,Cherry Pickup II,72.7%,Hard,52, https://leetcode.com/problems/cherry-pickup-ii
+56,Merge Intervals,53.0%,Medium,52, https://leetcode.com/problems/merge-intervals
+332,Reconstruct Itinerary,45.2%,Hard,52, https://leetcode.com/problems/reconstruct-itinerary
+127,Word Ladder,46.8%,Hard,52, https://leetcode.com/problems/word-ladder
+22,Generate Parentheses,79.7%,Medium,52, https://leetcode.com/problems/generate-parentheses
+31,Next Permutation,46.4%,Medium,52, https://leetcode.com/problems/next-permutation
+1192,Critical Connections in a Network,60.8%,Hard,52, https://leetcode.com/problems/critical-connections-in-a-network
+407,Trapping Rain Water II,64.3%,Hard,52, https://leetcode.com/problems/trapping-rain-water-ii
+503,Next Greater Element II,69.4%,Medium,52, https://leetcode.com/problems/next-greater-element-ii
+15,3Sum,40.1%,Medium,52, https://leetcode.com/problems/3sum
+417,Pacific Atlantic Water Flow,61.6%,Medium,52, https://leetcode.com/problems/pacific-atlantic-water-flow
+5,Longest Palindromic Substring,38.9%,Medium,52, https://leetcode.com/problems/longest-palindromic-substring
+23,Merge k Sorted Lists,60.8%,Hard,52, https://leetcode.com/problems/merge-k-sorted-lists
+54,Spiral Matrix,58.2%,Medium,52, https://leetcode.com/problems/spiral-matrix
+4,Median of Two Sorted Arrays,47.9%,Hard,42.5, https://leetcode.com/problems/median-of-two-sorted-arrays
+124,Binary Tree Maximum Path Sum,42.9%,Hard,42.5, https://leetcode.com/problems/binary-tree-maximum-path-sum
+174,Dungeon Game,42.6%,Hard,42.5, https://leetcode.com/problems/dungeon-game
+200,Number of Islands,65.3%,Medium,42.5, https://leetcode.com/problems/number-of-islands
+560,Subarray Sum Equals K,48.4%,Medium,42.5, https://leetcode.com/problems/subarray-sum-equals-k
+632,Smallest Range Covering Elements from K Lists,70.4%,Hard,42.5, https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists
+662,Maximum Width of Binary Tree,46.2%,Medium,42.5, https://leetcode.com/problems/maximum-width-of-binary-tree
+934,Shortest Bridge,59.9%,Medium,42.5, https://leetcode.com/problems/shortest-bridge
+1011,Capacity To Ship Packages Within D Days,74.8%,Medium,42.5, https://leetcode.com/problems/capacity-to-ship-packages-within-d-days
+1094,Car Pooling,56.6%,Medium,42.5, https://leetcode.com/problems/car-pooling
+75,Sort Colors,70.3%,Medium,42.5, https://leetcode.com/problems/sort-colors
+48,Rotate Image,80.8%,Medium,42.5, https://leetcode.com/problems/rotate-image
+450,Delete Node in a BST,55.6%,Medium,42.5, https://leetcode.com/problems/delete-node-in-a-bst
+2750,Ways to Split Array Into Good Subarrays,35.4%,Medium,42.5, https://leetcode.com/problems/ways-to-split-array-into-good-subarrays
+399,Evaluate Division,64.7%,Medium,42.5, https://leetcode.com/problems/evaluate-division
+16,3Sum Closest,47.7%,Medium,42.5, https://leetcode.com/problems/3sum-closest
+210,Course Schedule II,56.5%,Medium,42.5, https://leetcode.com/problems/course-schedule-ii
+895,Maximum Frequency Stack,67.2%,Hard,42.5, https://leetcode.com/problems/maximum-frequency-stack
+1552,Magnetic Force Between Two Balls,72.8%,Medium,42.5, https://leetcode.com/problems/magnetic-force-between-two-balls
+451,Sort Characters By Frequency,75.9%,Medium,42.5, https://leetcode.com/problems/sort-characters-by-frequency
+366,Find Leaves of Binary Tree,81.4%,Medium,42.5, https://leetcode.com/problems/find-leaves-of-binary-tree
+658,Find K Closest Elements,50.2%,Medium,42.5, https://leetcode.com/problems/find-k-closest-elements
+726,Number of Atoms,65.3%,Hard,42.5, https://leetcode.com/problems/number-of-atoms
+221,Maximal Square,51.1%,Medium,42.5, https://leetcode.com/problems/maximal-square
+297,Serialize and Deserialize Binary Tree,61.3%,Hard,42.5, https://leetcode.com/problems/serialize-and-deserialize-binary-tree
+91,Decode Ways,38.8%,Medium,42.5, https://leetcode.com/problems/decode-ways
+287,Find the Duplicate Number,65.0%,Medium,42.5, https://leetcode.com/problems/find-the-duplicate-number
+20,Valid Parentheses,45.4%,Easy,42.5, https://leetcode.com/problems/valid-parentheses
+543,Diameter of Binary Tree,66.4%,Easy,42.5, https://leetcode.com/problems/diameter-of-binary-tree
+146,LRU Cache,48.3%,Medium,42.5, https://leetcode.com/problems/lru-cache
+78,Subsets,82.9%,Medium,42.5, https://leetcode.com/problems/subsets
+677,Map Sum Pairs,57.5%,Medium,42.5, https://leetcode.com/problems/map-sum-pairs
+410,Split Array Largest Sum,61.7%,Hard,42.5, https://leetcode.com/problems/split-array-largest-sum
+354,Russian Doll Envelopes,38.3%,Hard,42.5, https://leetcode.com/problems/russian-doll-envelopes
+19,Remove Nth Node From End of List,52.9%,Medium,42.5, https://leetcode.com/problems/remove-nth-node-from-end-of-list
+55,Jump Game,41.7%,Medium,42.5, https://leetcode.com/problems/jump-game
+138,Copy List with Random Pointer,63.9%,Medium,42.5, https://leetcode.com/problems/copy-list-with-random-pointer
+739,Daily Temperatures,69.3%,Medium,42.5, https://leetcode.com/problems/daily-temperatures
+63,Unique Paths II,45.3%,Medium,42.5, https://leetcode.com/problems/unique-paths-ii
+741,Cherry Pickup,40.8%,Hard,0.14706899424089495, https://leetcode.com/problems/cherry-pickup
+42,Trapping Rain Water,68.4%,Hard,0.10346205022559302, https://leetcode.com/problems/trapping-rain-water
+380,Insert Delete GetRandom O(1),55.6%,Medium,0.05985510621029109, https://leetcode.com/problems/insert-delete-getrandom-o1
+269,Alien Dictionary,37.4%,Hard,0.04997917057465883, https://leetcode.com/problems/alien-dictionary
+10,Regular Expression Matching,32.0%,Hard,0.02844130559772196, https://leetcode.com/problems/regular-expression-matching
+2,Add Two Numbers,49.6%,Medium,0.02668158945866115, https://leetcode.com/problems/add-two-numbers
+84,Largest Rectangle in Histogram,51.1%,Hard,0.01866112622166295, https://leetcode.com/problems/largest-rectangle-in-histogram
+123,Best Time to Buy and Sell Stock III,55.0%,Hard,0.011261380272539033, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+994,Rotting Oranges,59.6%,Medium,0.007630712341163886, https://leetcode.com/problems/rotting-oranges
+155,Min Stack,58.8%,Medium,0.00474891074128171, https://leetcode.com/problems/min-stack
+967,Numbers With Same Consecutive Differences,59.4%,Medium,0, https://leetcode.com/problems/numbers-with-same-consecutive-differences
+982,Triples with Bitwise AND Equal To Zero,60.7%,Hard,0, https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero
+1423,Maximum Points You Can Obtain from Cards,58.6%,Medium,0, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards

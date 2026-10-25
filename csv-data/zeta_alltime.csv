@@ -1,0 +1,28 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2896,Apply Operations to Make Two Strings Equal,27.9%,Medium,100, https://leetcode.com/problems/apply-operations-to-make-two-strings-equal
+410,Split Array Largest Sum,61.7%,Hard,81.9, https://leetcode.com/problems/split-array-largest-sum
+621,Task Scheduler,64.0%,Medium,74.4, https://leetcode.com/problems/task-scheduler
+1011,Capacity To Ship Packages Within D Days,74.8%,Medium,74.4, https://leetcode.com/problems/capacity-to-ship-packages-within-d-days
+42,Trapping Rain Water,68.4%,Hard,74.4, https://leetcode.com/problems/trapping-rain-water
+76,Minimum Window Substring,48.7%,Hard,74.4, https://leetcode.com/problems/minimum-window-substring
+132,Palindrome Partitioning II,38.2%,Hard,74.4, https://leetcode.com/problems/palindrome-partitioning-ii
+546,Remove Boxes,50.0%,Hard,74.4, https://leetcode.com/problems/remove-boxes
+3,Longest Substring Without Repeating Characters,40.0%,Medium,63.9, https://leetcode.com/problems/longest-substring-without-repeating-characters
+250,Count Univalue Subtrees,57.6%,Medium,63.9, https://leetcode.com/problems/count-univalue-subtrees
+380,Insert Delete GetRandom O(1),55.6%,Medium,63.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+402,Remove K Digits,37.9%,Medium,63.9, https://leetcode.com/problems/remove-k-digits
+85,Maximal Rectangle,60.1%,Hard,63.9, https://leetcode.com/problems/maximal-rectangle
+475,Heaters,42.8%,Medium,63.9, https://leetcode.com/problems/heaters
+53,Maximum Subarray,54.0%,Medium,63.9, https://leetcode.com/problems/maximum-subarray
+2115,Find All Possible Recipes from Given Supplies,57.2%,Medium,63.9, https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies
+239,Sliding Window Maximum,49.4%,Hard,63.9, https://leetcode.com/problems/sliding-window-maximum
+2616,Minimize the Maximum Difference of Pairs,50.9%,Medium,63.9, https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs
+968,Binary Tree Cameras,48.3%,Hard,63.9, https://leetcode.com/problems/binary-tree-cameras
+698,Partition to K Equal Sum Subsets,39.0%,Medium,63.9, https://leetcode.com/problems/partition-to-k-equal-sum-subsets
+375,Guess Number Higher or Lower II,53.8%,Medium,63.9, https://leetcode.com/problems/guess-number-higher-or-lower-ii
+2381,Shifting Letters II,53.9%,Medium,63.9, https://leetcode.com/problems/shifting-letters-ii
+56,Merge Intervals,53.0%,Medium,63.9, https://leetcode.com/problems/merge-intervals
+4,Median of Two Sorted Arrays,47.9%,Hard,63.9, https://leetcode.com/problems/median-of-two-sorted-arrays
+979,Distribute Coins in Binary Tree,77.4%,Medium,63.9, https://leetcode.com/problems/distribute-coins-in-binary-tree
+139,Word Break,50.0%,Medium,63.9, https://leetcode.com/problems/word-break
+3607,Power Grid Maintenance,55.9%,Medium,63.9, https://leetcode.com/problems/power-grid-maintenance

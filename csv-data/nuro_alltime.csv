@@ -1,0 +1,14 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+529,Minesweeper,69.0%,Medium,100, https://leetcode.com/problems/minesweeper
+528,Random Pick with Weight,49.3%,Medium,100, https://leetcode.com/problems/random-pick-with-weight
+1610,Maximum Number of Visible Points,38.6%,Hard,100, https://leetcode.com/problems/maximum-number-of-visible-points
+1476,Subrectangle Queries,86.5%,Medium,89.6, https://leetcode.com/problems/subrectangle-queries
+399,Evaluate Division,64.7%,Medium,74.8, https://leetcode.com/problems/evaluate-division
+1293,Shortest Path in a Grid with Obstacles Elimination,46.8%,Hard,60, https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination
+986,Interval List Intersections,73.3%,Medium,60, https://leetcode.com/problems/interval-list-intersections
+735,Asteroid Collision,49.4%,Medium,60, https://leetcode.com/problems/asteroid-collision
+311,Sparse Matrix Multiplication,69.4%,Medium,60, https://leetcode.com/problems/sparse-matrix-multiplication
+494,Target Sum,53.0%,Medium,60, https://leetcode.com/problems/target-sum
+269,Alien Dictionary,37.4%,Hard,60, https://leetcode.com/problems/alien-dictionary
+1233,Remove Sub-Folders from the Filesystem,78.6%,Medium,60, https://leetcode.com/problems/remove-sub-folders-from-the-filesystem
+1570,Dot Product of Two Sparse Vectors,89.9%,Medium,60, https://leetcode.com/problems/dot-product-of-two-sparse-vectors

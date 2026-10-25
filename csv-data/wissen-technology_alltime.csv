@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+128,Longest Consecutive Sequence,47.3%,Medium,100, https://leetcode.com/problems/longest-consecutive-sequence
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+36,Valid Sudoku,65.3%,Medium,100, https://leetcode.com/problems/valid-sudoku
+76,Minimum Window Substring,48.7%,Hard,100, https://leetcode.com/problems/minimum-window-substring
+15,3Sum,40.1%,Medium,100, https://leetcode.com/problems/3sum
+80,Remove Duplicates from Sorted Array II,65.4%,Medium,100, https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+54,Spiral Matrix,58.2%,Medium,100, https://leetcode.com/problems/spiral-matrix
+26,Remove Duplicates from Sorted Array,64.0%,Easy,100, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+74,Search a 2D Matrix,54.3%,Medium,88, https://leetcode.com/problems/search-a-2d-matrix
+451,Sort Characters By Frequency,75.9%,Medium,88, https://leetcode.com/problems/sort-characters-by-frequency
+49,Group Anagrams,73.5%,Medium,88, https://leetcode.com/problems/group-anagrams

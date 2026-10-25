@@ -1,14 +1,53 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1296,Divide Array in Sets of K Consecutive Numbers,53.8%,Medium,0.06650266441668072, https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers
-759,Employee Free Time,66.3%,Hard,0.046358242602104555, https://leetcode.com/problems/employee-free-time
-114,Flatten Binary Tree to Linked List,49.3%,Medium,0.026213820787528385, https://leetcode.com/problems/flatten-binary-tree-to-linked-list
-394,Decode String,50.0%,Medium,0.0077851697215559675, https://leetcode.com/problems/decode-string
-56,Merge Intervals,39.3%,Medium,0.0074386655924217485, https://leetcode.com/problems/merge-intervals
-79,Word Search,35.6%,Medium,0.006548007844690591, https://leetcode.com/problems/word-search
-3,Longest Substring Without Repeating Characters,30.4%,Medium,0.0014852223137141987, https://leetcode.com/problems/longest-substring-without-repeating-characters
-78,Subsets,62.0%,Medium,0, https://leetcode.com/problems/subsets
-139,Word Break,40.1%,Medium,0, https://leetcode.com/problems/word-break
-340,Longest Substring with At Most K Distinct Characters,44.1%,Hard,0, https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
-715,Range Module,38.5%,Hard,0, https://leetcode.com/problems/range-module
-724,Find Pivot Index,44.0%,Easy,0, https://leetcode.com/problems/find-pivot-index
-776,Split BST,55.8%,Medium,0, https://leetcode.com/problems/split-bst
+402,Remove K Digits,37.9%,Medium,100, https://leetcode.com/problems/remove-k-digits
+460,LFU Cache,50.5%,Hard,94.1, https://leetcode.com/problems/lfu-cache
+207,Course Schedule,52.4%,Medium,86.6, https://leetcode.com/problems/course-schedule
+934,Shortest Bridge,59.9%,Medium,86.6, https://leetcode.com/problems/shortest-bridge
+146,LRU Cache,48.3%,Medium,81.8, https://leetcode.com/problems/lru-cache
+638,Shopping Offers,52.9%,Medium,81.8, https://leetcode.com/problems/shopping-offers
+1044,Longest Duplicate Substring,31.5%,Hard,76, https://leetcode.com/problems/longest-duplicate-substring
+44,Wildcard Matching,33.1%,Hard,76, https://leetcode.com/problems/wildcard-matching
+658,Find K Closest Elements,50.2%,Medium,76, https://leetcode.com/problems/find-k-closest-elements
+84,Largest Rectangle in Histogram,51.1%,Hard,76, https://leetcode.com/problems/largest-rectangle-in-histogram
+588,Design In-Memory File System,48.3%,Hard,68.4, https://leetcode.com/problems/design-in-memory-file-system
+239,Sliding Window Maximum,49.4%,Hard,68.4, https://leetcode.com/problems/sliding-window-maximum
+1062,Longest Repeating Substring,63.4%,Medium,68.4, https://leetcode.com/problems/longest-repeating-substring
+49,Group Anagrams,73.5%,Medium,68.4, https://leetcode.com/problems/group-anagrams
+694,Number of Distinct Islands,63.0%,Medium,68.4, https://leetcode.com/problems/number-of-distinct-islands
+295,Find Median from Data Stream,55.1%,Hard,68.4, https://leetcode.com/problems/find-median-from-data-stream
+362,Design Hit Counter,69.8%,Medium,68.4, https://leetcode.com/problems/design-hit-counter
+1146,Snapshot Array,36.8%,Medium,68.4, https://leetcode.com/problems/snapshot-array
+269,Alien Dictionary,37.4%,Hard,68.4, https://leetcode.com/problems/alien-dictionary
+131,Palindrome Partitioning,74.8%,Medium,68.4, https://leetcode.com/problems/palindrome-partitioning
+3026,Maximum Good Subarray Sum,22.9%,Medium,68.4, https://leetcode.com/problems/maximum-good-subarray-sum
+10,Regular Expression Matching,32.0%,Hard,57.9, https://leetcode.com/problems/regular-expression-matching
+200,Number of Islands,65.3%,Medium,57.9, https://leetcode.com/problems/number-of-islands
+355,Design Twitter,45.8%,Medium,57.9, https://leetcode.com/problems/design-twitter
+540,Single Element in a Sorted Array,59.5%,Medium,57.9, https://leetcode.com/problems/single-element-in-a-sorted-array
+752,Open the Lock,61.6%,Medium,57.9, https://leetcode.com/problems/open-the-lock
+2788,Split Strings by Separator,76.6%,Easy,57.9, https://leetcode.com/problems/split-strings-by-separator
+115,Distinct Subsequences,54.4%,Hard,57.9, https://leetcode.com/problems/distinct-subsequences
+215,Kth Largest Element in an Array,69.4%,Medium,57.9, https://leetcode.com/problems/kth-largest-element-in-an-array
+2441,Largest Positive Integer That Exists With Its Negative,74.5%,Easy,57.9, https://leetcode.com/problems/largest-positive-integer-that-exists-with-its-negative
+380,Insert Delete GetRandom O(1),55.6%,Medium,57.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+53,Maximum Subarray,54.0%,Medium,57.9, https://leetcode.com/problems/maximum-subarray
+772,Basic Calculator III,53.6%,Hard,57.9, https://leetcode.com/problems/basic-calculator-iii
+23,Merge k Sorted Lists,60.8%,Hard,57.9, https://leetcode.com/problems/merge-k-sorted-lists
+621,Task Scheduler,64.0%,Medium,57.9, https://leetcode.com/problems/task-scheduler
+528,Random Pick with Weight,49.3%,Medium,57.9, https://leetcode.com/problems/random-pick-with-weight
+15,3Sum,40.1%,Medium,57.9, https://leetcode.com/problems/3sum
+875,Koko Eating Bananas,50.7%,Medium,57.9, https://leetcode.com/problems/koko-eating-bananas
+2861,Maximum Number of Alloys,41.2%,Medium,57.9, https://leetcode.com/problems/maximum-number-of-alloys
+1296,Divide Array in Sets of K Consecutive Numbers,59.6%,Medium,0.06650266441668072, https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers
+759,Employee Free Time,73.0%,Hard,0.046358242602104555, https://leetcode.com/problems/employee-free-time
+114,Flatten Binary Tree to Linked List,71.7%,Medium,0.026213820787528385, https://leetcode.com/problems/flatten-binary-tree-to-linked-list
+394,Decode String,63.4%,Medium,0.0077851697215559675, https://leetcode.com/problems/decode-string
+56,Merge Intervals,53.0%,Medium,0.0074386655924217485, https://leetcode.com/problems/merge-intervals
+79,Word Search,48.3%,Medium,0.006548007844690591, https://leetcode.com/problems/word-search
+3,Longest Substring Without Repeating Characters,40.0%,Medium,0.0014852223137141987, https://leetcode.com/problems/longest-substring-without-repeating-characters
+78,Subsets,82.9%,Medium,0, https://leetcode.com/problems/subsets
+139,Word Break,50.0%,Medium,0, https://leetcode.com/problems/word-break
+340,Longest Substring with At Most K Distinct Characters,50.2%,Medium,0, https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+715,Range Module,45.7%,Hard,0, https://leetcode.com/problems/range-module
+724,Find Pivot Index,64.2%,Easy,0, https://leetcode.com/problems/find-pivot-index
+776,Split BST,82.1%,Medium,0, https://leetcode.com/problems/split-bst

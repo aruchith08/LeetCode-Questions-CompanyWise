@@ -1,5 +1,8 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-29,Divide Two Integers,16.4%,Medium,0.14250148324930875, https://leetcode.com/problems/divide-two-integers
-495,Teemo Attacking,53.6%,Medium,0.08934510033584994, https://leetcode.com/problems/teemo-attacking
-20,Valid Parentheses,39.0%,Easy,0.03618871742239114, https://leetcode.com/problems/valid-parentheses
-37,Sudoku Solver,43.6%,Hard,0.01821543989134118, https://leetcode.com/problems/sudoku-solver
+3167,Better Compression of String,75.4%,Medium,75.9, https://leetcode.com/problems/better-compression-of-string
+289,Game of Life,73.2%,Medium,67.8, https://leetcode.com/problems/game-of-life
+36,Valid Sudoku,65.3%,Medium,67.8, https://leetcode.com/problems/valid-sudoku
+29,Divide Two Integers,20.4%,Medium,0.14250148324930875, https://leetcode.com/problems/divide-two-integers
+495,Teemo Attacking,58.4%,Easy,0.08934510033584994, https://leetcode.com/problems/teemo-attacking
+20,Valid Parentheses,45.4%,Easy,0.03618871742239114, https://leetcode.com/problems/valid-parentheses
+37,Sudoku Solver,65.6%,Hard,0.01821543989134118, https://leetcode.com/problems/sudoku-solver

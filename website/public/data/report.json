@@ -1,15 +1,17 @@
 {
-  "timestamp": "2026-10-25T14:36:32.360Z",
-  "totalFiles": 537,
-  "totalFilesProcessed": 537,
+  "timestamp": "2026-10-25T15:14:22.914Z",
+  "totalFiles": 1112,
+  "totalFilesProcessed": 1112,
   "totalFilesSkipped": 0,
-  "totalRecords": 20453,
-  "totalValidRecords": 20453,
+  "totalRecords": 38825,
+  "totalValidRecords": 38825,
   "totalInvalidRecords": 0,
   "totalDuplicateRecords": 0,
-  "uniqueQuestions": 1446,
-  "uniqueCompanies": 200,
+  "uniqueQuestions": 3411,
+  "uniqueCompanies": 490,
   "timePeriods": [
+    "30days",
+    "3months",
     "6months",
     "1year",
     "2year",
@@ -17,11 +19,81 @@
   ],
   "files": [
     {
+      "file": "accenture_30days.csv",
+      "company": "accenture",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "accenture_3months.csv",
+      "company": "accenture",
+      "period": "3months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "accenture_6months.csv",
+      "company": "accenture",
+      "period": "6months",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "accenture_alltime.csv",
+      "company": "accenture",
+      "period": "alltime",
+      "totalRows": 101,
+      "validRows": 101,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "accolite_6months.csv",
+      "company": "accolite",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "accolite_alltime.csv",
       "company": "accolite",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "acko_alltime.csv",
+      "company": "acko",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "activision_alltime.csv",
+      "company": "activision",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -47,11 +119,31 @@
       "warnings": []
     },
     {
+      "file": "adobe_30days.csv",
+      "company": "adobe",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "adobe_3months.csv",
+      "company": "adobe",
+      "period": "3months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "adobe_6months.csv",
       "company": "adobe",
       "period": "6months",
-      "totalRows": 78,
-      "validRows": 78,
+      "totalRows": 89,
+      "validRows": 89,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -60,8 +152,8 @@
       "file": "adobe_alltime.csv",
       "company": "adobe",
       "period": "alltime",
-      "totalRows": 235,
-      "validRows": 235,
+      "totalRows": 301,
+      "validRows": 301,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -130,8 +222,48 @@
       "file": "affirm_alltime.csv",
       "company": "affirm",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "agoda_30days.csv",
+      "company": "agoda",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "agoda_3months.csv",
+      "company": "agoda",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "agoda_6months.csv",
+      "company": "agoda",
+      "period": "6months",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "agoda_alltime.csv",
+      "company": "agoda",
+      "period": "alltime",
+      "totalRows": 38,
+      "validRows": 38,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -157,11 +289,21 @@
       "warnings": []
     },
     {
+      "file": "airbnb_3months.csv",
+      "company": "airbnb",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "airbnb_6months.csv",
       "company": "airbnb",
       "period": "6months",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 10,
+      "validRows": 10,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -170,8 +312,18 @@
       "file": "airbnb_alltime.csv",
       "company": "airbnb",
       "period": "alltime",
-      "totalRows": 59,
-      "validRows": 59,
+      "totalRows": 79,
+      "validRows": 79,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airbus-se_alltime.csv",
+      "company": "airbus-se",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -180,8 +332,18 @@
       "file": "airtel_alltime.csv",
       "company": "airtel",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airwallex_alltime.csv",
+      "company": "airwallex",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -190,8 +352,8 @@
       "file": "akamai_alltime.csv",
       "company": "akamai",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 15,
+      "validRows": 15,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -217,11 +379,31 @@
       "warnings": []
     },
     {
+      "file": "akuna-capital_30days.csv",
+      "company": "akuna-capital",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna-capital_3months.csv",
+      "company": "akuna-capital",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "akuna-capital_6months.csv",
       "company": "akuna-capital",
       "period": "6months",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -230,8 +412,8 @@
       "file": "akuna-capital_alltime.csv",
       "company": "akuna-capital",
       "period": "alltime",
-      "totalRows": 23,
-      "validRows": 23,
+      "totalRows": 30,
+      "validRows": 30,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -317,6 +499,36 @@
       "warnings": []
     },
     {
+      "file": "altimetrik_6months.csv",
+      "company": "altimetrik",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "altimetrik_alltime.csv",
+      "company": "altimetrik",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amadeus_alltime.csv",
+      "company": "amadeus",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "amazon_1year.csv",
       "company": "amazon",
       "period": "1year",
@@ -337,11 +549,31 @@
       "warnings": []
     },
     {
+      "file": "amazon_30days.csv",
+      "company": "amazon",
+      "period": "30days",
+      "totalRows": 114,
+      "validRows": 114,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amazon_3months.csv",
+      "company": "amazon",
+      "period": "3months",
+      "totalRows": 443,
+      "validRows": 443,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "amazon_6months.csv",
       "company": "amazon",
       "period": "6months",
-      "totalRows": 466,
-      "validRows": 466,
+      "totalRows": 878,
+      "validRows": 878,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -350,8 +582,48 @@
       "file": "amazon_alltime.csv",
       "company": "amazon",
       "period": "alltime",
-      "totalRows": 780,
-      "validRows": 780,
+      "totalRows": 2080,
+      "validRows": 2080,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amdocs_alltime.csv",
+      "company": "amdocs",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amd_alltime.csv",
+      "company": "amd",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "american-express_3months.csv",
+      "company": "american-express",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "american-express_6months.csv",
+      "company": "american-express",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -360,8 +632,78 @@
       "file": "american-express_alltime.csv",
       "company": "american-express",
       "period": "alltime",
+      "totalRows": 28,
+      "validRows": 28,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "analytics-quotient_alltime.csv",
+      "company": "analytics-quotient",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "anduril_30days.csv",
+      "company": "anduril",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "anduril_3months.csv",
+      "company": "anduril",
+      "period": "3months",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "anduril_6months.csv",
+      "company": "anduril",
+      "period": "6months",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "anduril_alltime.csv",
+      "company": "anduril",
+      "period": "alltime",
+      "totalRows": 56,
+      "validRows": 56,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "aon_alltime.csv",
+      "company": "aon",
+      "period": "alltime",
       "totalRows": 3,
       "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apollo-io_alltime.csv",
+      "company": "apollo-io",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -400,8 +742,18 @@
       "file": "appdynamics_alltime.csv",
       "company": "appdynamics",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "appfolio_alltime.csv",
+      "company": "appfolio",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -427,11 +779,31 @@
       "warnings": []
     },
     {
+      "file": "apple_30days.csv",
+      "company": "apple",
+      "period": "30days",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apple_3months.csv",
+      "company": "apple",
+      "period": "3months",
+      "totalRows": 26,
+      "validRows": 26,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "apple_6months.csv",
       "company": "apple",
       "period": "6months",
-      "totalRows": 203,
-      "validRows": 203,
+      "totalRows": 232,
+      "validRows": 232,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -440,8 +812,68 @@
       "file": "apple_alltime.csv",
       "company": "apple",
       "period": "alltime",
-      "totalRows": 366,
-      "validRows": 366,
+      "totalRows": 461,
+      "validRows": 461,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "applied-intuition_6months.csv",
+      "company": "applied-intuition",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "applied-intuition_alltime.csv",
+      "company": "applied-intuition",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "aqr-capital-management_alltime.csv",
+      "company": "aqr-capital-management",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arcesium_3months.csv",
+      "company": "arcesium",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arcesium_6months.csv",
+      "company": "arcesium",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arcesium_alltime.csv",
+      "company": "arcesium",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -467,11 +899,31 @@
       "warnings": []
     },
     {
+      "file": "arista-networks_3months.csv",
+      "company": "arista-networks",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arista-networks_6months.csv",
+      "company": "arista-networks",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "arista-networks_alltime.csv",
       "company": "arista-networks",
       "period": "alltime",
-      "totalRows": 5,
-      "validRows": 5,
+      "totalRows": 41,
+      "validRows": 41,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -520,8 +972,18 @@
       "file": "asana_alltime.csv",
       "company": "asana",
       "period": "alltime",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "athenahealth_alltime.csv",
+      "company": "athenahealth",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -547,11 +1009,21 @@
       "warnings": []
     },
     {
+      "file": "atlassian_3months.csv",
+      "company": "atlassian",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "atlassian_6months.csv",
       "company": "atlassian",
       "period": "6months",
-      "totalRows": 22,
-      "validRows": 22,
+      "totalRows": 28,
+      "validRows": 28,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -560,8 +1032,28 @@
       "file": "atlassian_alltime.csv",
       "company": "atlassian",
       "period": "alltime",
-      "totalRows": 53,
-      "validRows": 53,
+      "totalRows": 101,
+      "validRows": 101,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "attentive_6months.csv",
+      "company": "attentive",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "attentive_alltime.csv",
+      "company": "attentive",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -590,8 +1082,8 @@
       "file": "audible_6months.csv",
       "company": "audible",
       "period": "6months",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 8,
+      "validRows": 8,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -600,8 +1092,78 @@
       "file": "audible_alltime.csv",
       "company": "audible",
       "period": "alltime",
-      "totalRows": 16,
-      "validRows": 16,
+      "totalRows": 20,
+      "validRows": 20,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "aurora_alltime.csv",
+      "company": "aurora",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "autodesk_6months.csv",
+      "company": "autodesk",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "autodesk_alltime.csv",
+      "company": "autodesk",
+      "period": "alltime",
+      "totalRows": 32,
+      "validRows": 32,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "avalara_alltime.csv",
+      "company": "avalara",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "avito_alltime.csv",
+      "company": "avito",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "axon_6months.csv",
+      "company": "axon",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "axon_alltime.csv",
+      "company": "axon",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -627,6 +1189,36 @@
       "warnings": []
     },
     {
+      "file": "bank-of-america_3months.csv",
+      "company": "bank-of-america",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bank-of-america_6months.csv",
+      "company": "bank-of-america",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bank-of-america_alltime.csv",
+      "company": "bank-of-america",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "barclays_1year.csv",
       "company": "barclays",
       "period": "1year",
@@ -647,11 +1239,41 @@
       "warnings": []
     },
     {
+      "file": "barclays_3months.csv",
+      "company": "barclays",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "barclays_6months.csv",
+      "company": "barclays",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "barclays_alltime.csv",
       "company": "barclays",
       "period": "alltime",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bitgo_alltime.csv",
+      "company": "bitgo",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -677,11 +1299,61 @@
       "warnings": []
     },
     {
+      "file": "blackrock_30days.csv",
+      "company": "blackrock",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackrock_3months.csv",
+      "company": "blackrock",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackrock_6months.csv",
+      "company": "blackrock",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "blackrock_alltime.csv",
       "company": "blackrock",
       "period": "alltime",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackstone_alltime.csv",
+      "company": "blackstone",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blinkit_alltime.csv",
+      "company": "blinkit",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -727,11 +1399,31 @@
       "warnings": []
     },
     {
+      "file": "bloomberg_30days.csv",
+      "company": "bloomberg",
+      "period": "30days",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomberg_3months.csv",
+      "company": "bloomberg",
+      "period": "3months",
+      "totalRows": 180,
+      "validRows": 180,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "bloomberg_6months.csv",
       "company": "bloomberg",
       "period": "6months",
-      "totalRows": 146,
-      "validRows": 146,
+      "totalRows": 454,
+      "validRows": 454,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -740,8 +1432,8 @@
       "file": "bloomberg_alltime.csv",
       "company": "bloomberg",
       "period": "alltime",
-      "totalRows": 348,
-      "validRows": 348,
+      "totalRows": 1281,
+      "validRows": 1281,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -757,6 +1449,46 @@
       "warnings": []
     },
     {
+      "file": "bny-mellon_3months.csv",
+      "company": "bny-mellon",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bny-mellon_6months.csv",
+      "company": "bny-mellon",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bny-mellon_alltime.csv",
+      "company": "bny-mellon",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bolt_alltime.csv",
+      "company": "bolt",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "bookingcom_2year.csv",
       "company": "bookingcom",
       "period": "2year",
@@ -767,11 +1499,31 @@
       "warnings": []
     },
     {
+      "file": "bookingcom_3months.csv",
+      "company": "bookingcom",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bookingcom_6months.csv",
+      "company": "bookingcom",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "bookingcom_alltime.csv",
       "company": "bookingcom",
       "period": "alltime",
-      "totalRows": 5,
-      "validRows": 5,
+      "totalRows": 21,
+      "validRows": 21,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -779,6 +1531,16 @@
     {
       "file": "booking_alltime.csv",
       "company": "booking",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bosch_alltime.csv",
+      "company": "bosch",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
@@ -810,8 +1572,8 @@
       "file": "box_6months.csv",
       "company": "box",
       "period": "6months",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -820,8 +1582,28 @@
       "file": "box_alltime.csv",
       "company": "box",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "braze_alltime.csv",
+      "company": "braze",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bridgewater-associates_alltime.csv",
+      "company": "bridgewater-associates",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -857,11 +1639,21 @@
       "warnings": []
     },
     {
+      "file": "bytedance_3months.csv",
+      "company": "bytedance",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "bytedance_6months.csv",
       "company": "bytedance",
       "period": "6months",
-      "totalRows": 83,
-      "validRows": 83,
+      "totalRows": 84,
+      "validRows": 84,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -870,8 +1662,8 @@
       "file": "bytedance_alltime.csv",
       "company": "bytedance",
       "period": "alltime",
-      "totalRows": 116,
-      "validRows": 116,
+      "totalRows": 145,
+      "validRows": 145,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -897,6 +1689,46 @@
       "warnings": []
     },
     {
+      "file": "cadence_alltime.csv",
+      "company": "cadence",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "canonical_alltime.csv",
+      "company": "canonical",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capgemini_6months.csv",
+      "company": "capgemini",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capgemini_alltime.csv",
+      "company": "capgemini",
+      "period": "alltime",
+      "totalRows": 33,
+      "validRows": 33,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "capital-one_1year.csv",
       "company": "capital-one",
       "period": "1year",
@@ -917,11 +1749,31 @@
       "warnings": []
     },
     {
+      "file": "capital-one_30days.csv",
+      "company": "capital-one",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capital-one_3months.csv",
+      "company": "capital-one",
+      "period": "3months",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "capital-one_6months.csv",
       "company": "capital-one",
       "period": "6months",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 22,
+      "validRows": 22,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -930,8 +1782,98 @@
       "file": "capital-one_alltime.csv",
       "company": "capital-one",
       "period": "alltime",
-      "totalRows": 17,
-      "validRows": 17,
+      "totalRows": 75,
+      "validRows": 75,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "careem_alltime.csv",
+      "company": "careem",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cars24_alltime.csv",
+      "company": "cars24",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "carwale_alltime.csv",
+      "company": "carwale",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cashfree_alltime.csv",
+      "company": "cashfree",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "chewy_alltime.csv",
+      "company": "chewy",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "chime_3months.csv",
+      "company": "chime",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "chime_6months.csv",
+      "company": "chime",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "chime_alltime.csv",
+      "company": "chime",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ciena_alltime.csv",
+      "company": "ciena",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -957,11 +1899,21 @@
       "warnings": []
     },
     {
+      "file": "cisco_3months.csv",
+      "company": "cisco",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "cisco_6months.csv",
       "company": "cisco",
       "period": "6months",
-      "totalRows": 25,
-      "validRows": 25,
+      "totalRows": 29,
+      "validRows": 29,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -970,8 +1922,8 @@
       "file": "cisco_alltime.csv",
       "company": "cisco",
       "period": "alltime",
-      "totalRows": 68,
-      "validRows": 68,
+      "totalRows": 115,
+      "validRows": 115,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -997,11 +1949,31 @@
       "warnings": []
     },
     {
+      "file": "citadel_30days.csv",
+      "company": "citadel",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citadel_3months.csv",
+      "company": "citadel",
+      "period": "3months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "citadel_6months.csv",
       "company": "citadel",
       "period": "6months",
-      "totalRows": 15,
-      "validRows": 15,
+      "totalRows": 22,
+      "validRows": 22,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1010,8 +1982,18 @@
       "file": "citadel_alltime.csv",
       "company": "citadel",
       "period": "alltime",
-      "totalRows": 41,
-      "validRows": 41,
+      "totalRows": 99,
+      "validRows": 99,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citigroup_alltime.csv",
+      "company": "citigroup",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1050,8 +2032,28 @@
       "file": "citrix_alltime.csv",
       "company": "citrix",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "clari_alltime.csv",
+      "company": "clari",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cleartrip_alltime.csv",
+      "company": "cleartrip",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1097,6 +2099,16 @@
       "warnings": []
     },
     {
+      "file": "cloudflare_alltime.csv",
+      "company": "cloudflare",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "clutter_alltime.csv",
       "company": "clutter",
       "period": "alltime",
@@ -1107,11 +2119,91 @@
       "warnings": []
     },
     {
+      "file": "cme-group_30days.csv",
+      "company": "cme-group",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cme-group_3months.csv",
+      "company": "cme-group",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cme-group_6months.csv",
+      "company": "cme-group",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cme-group_alltime.csv",
+      "company": "cme-group",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "codenation_alltime.csv",
       "company": "codenation",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cognizant_30days.csv",
+      "company": "cognizant",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cognizant_3months.csv",
+      "company": "cognizant",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cognizant_6months.csv",
+      "company": "cognizant",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cognizant_alltime.csv",
+      "company": "cognizant",
+      "period": "alltime",
+      "totalRows": 51,
+      "validRows": 51,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1140,8 +2232,88 @@
       "file": "cohesity_alltime.csv",
       "company": "cohesity",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coinbase_alltime.csv",
+      "company": "coinbase",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "comcast_alltime.csv",
+      "company": "comcast",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "commvault_alltime.csv",
+      "company": "commvault",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "compass_3months.csv",
+      "company": "compass",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "compass_6months.csv",
+      "company": "compass",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "compass_alltime.csv",
+      "company": "compass",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "confluent_6months.csv",
+      "company": "confluent",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "confluent_alltime.csv",
+      "company": "confluent",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1167,11 +2339,21 @@
       "warnings": []
     },
     {
+      "file": "coupang_3months.csv",
+      "company": "coupang",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "coupang_6months.csv",
       "company": "coupang",
       "period": "6months",
-      "totalRows": 3,
-      "validRows": 3,
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1180,8 +2362,8 @@
       "file": "coupang_alltime.csv",
       "company": "coupang",
       "period": "alltime",
-      "totalRows": 13,
-      "validRows": 13,
+      "totalRows": 52,
+      "validRows": 52,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1220,8 +2402,58 @@
       "file": "coursera_alltime.csv",
       "company": "coursera",
       "period": "alltime",
-      "totalRows": 15,
-      "validRows": 15,
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cred_alltime.csv",
+      "company": "cred",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "criteo_6months.csv",
+      "company": "criteo",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "criteo_alltime.csv",
+      "company": "criteo",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "crowdstrike_6months.csv",
+      "company": "crowdstrike",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "crowdstrike_alltime.csv",
+      "company": "crowdstrike",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1267,6 +2499,46 @@
       "warnings": []
     },
     {
+      "file": "cruise_alltime.csv",
+      "company": "cruise",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "curefit_alltime.csv",
+      "company": "curefit",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cvent_alltime.csv",
+      "company": "cvent",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "darwinbox_alltime.csv",
+      "company": "darwinbox",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "databricks_1year.csv",
       "company": "databricks",
       "period": "1year",
@@ -1287,11 +2559,21 @@
       "warnings": []
     },
     {
+      "file": "databricks_3months.csv",
+      "company": "databricks",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "databricks_6months.csv",
       "company": "databricks",
       "period": "6months",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1300,8 +2582,18 @@
       "file": "databricks_alltime.csv",
       "company": "databricks",
       "period": "alltime",
-      "totalRows": 18,
-      "validRows": 18,
+      "totalRows": 41,
+      "validRows": 41,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "datadog_alltime.csv",
+      "company": "datadog",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1330,8 +2622,28 @@
       "file": "dataminr_alltime.csv",
       "company": "dataminr",
       "period": "alltime",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "de-shaw_3months.csv",
+      "company": "de-shaw",
+      "period": "3months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "de-shaw_6months.csv",
+      "company": "de-shaw",
+      "period": "6months",
+      "totalRows": 15,
+      "validRows": 15,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1339,6 +2651,36 @@
     {
       "file": "de-shaw_alltime.csv",
       "company": "de-shaw",
+      "period": "alltime",
+      "totalRows": 107,
+      "validRows": 107,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "delhivery_alltime.csv",
+      "company": "delhivery",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deliveroo_6months.csv",
+      "company": "deliveroo",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deliveroo_alltime.csv",
+      "company": "deliveroo",
       "period": "alltime",
       "totalRows": 3,
       "validRows": 3,
@@ -1380,8 +2722,48 @@
       "file": "dell_alltime.csv",
       "company": "dell",
       "period": "alltime",
-      "totalRows": 3,
-      "validRows": 3,
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deloitte_3months.csv",
+      "company": "deloitte",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deloitte_6months.csv",
+      "company": "deloitte",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deloitte_alltime.csv",
+      "company": "deloitte",
+      "period": "alltime",
+      "totalRows": 40,
+      "validRows": 40,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deltax_alltime.csv",
+      "company": "deltax",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1397,11 +2779,61 @@
       "warnings": []
     },
     {
+      "file": "deutsche-bank_6months.csv",
+      "company": "deutsche-bank",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "deutsche-bank_alltime.csv",
       "company": "deutsche-bank",
       "period": "alltime",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "devrev_3months.csv",
+      "company": "devrev",
+      "period": "3months",
       "totalRows": 3,
       "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "devrev_6months.csv",
+      "company": "devrev",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "devrev_alltime.csv",
+      "company": "devrev",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "devsinc_alltime.csv",
+      "company": "devsinc",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1447,6 +2879,36 @@
       "warnings": []
     },
     {
+      "file": "directi_alltime.csv",
+      "company": "directi",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "disney_6months.csv",
+      "company": "disney",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "disney_alltime.csv",
+      "company": "disney",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "docusign_1year.csv",
       "company": "docusign",
       "period": "1year",
@@ -1480,8 +2942,8 @@
       "file": "docusign_alltime.csv",
       "company": "docusign",
       "period": "alltime",
-      "totalRows": 9,
-      "validRows": 9,
+      "totalRows": 35,
+      "validRows": 35,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1510,8 +2972,8 @@
       "file": "doordash_6months.csv",
       "company": "doordash",
       "period": "6months",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 9,
+      "validRows": 9,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1520,8 +2982,18 @@
       "file": "doordash_alltime.csv",
       "company": "doordash",
       "period": "alltime",
-      "totalRows": 22,
-      "validRows": 22,
+      "totalRows": 79,
+      "validRows": 79,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dp-world_alltime.csv",
+      "company": "dp-world",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1542,6 +3014,16 @@
       "period": "alltime",
       "totalRows": 6,
       "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dream11_alltime.csv",
+      "company": "dream11",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1580,8 +3062,8 @@
       "file": "dropbox_alltime.csv",
       "company": "dropbox",
       "period": "alltime",
-      "totalRows": 22,
-      "validRows": 22,
+      "totalRows": 28,
+      "validRows": 28,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1592,6 +3074,56 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "drw_alltime.csv",
+      "company": "drw",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dunzo_alltime.csv",
+      "company": "dunzo",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "duolingo_6months.csv",
+      "company": "duolingo",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "duolingo_alltime.csv",
+      "company": "duolingo",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "earnin_alltime.csv",
+      "company": "earnin",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1617,11 +3149,31 @@
       "warnings": []
     },
     {
+      "file": "ebay_30days.csv",
+      "company": "ebay",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ebay_3months.csv",
+      "company": "ebay",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "ebay_6months.csv",
       "company": "ebay",
       "period": "6months",
-      "totalRows": 77,
-      "validRows": 77,
+      "totalRows": 84,
+      "validRows": 84,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1630,8 +3182,18 @@
       "file": "ebay_alltime.csv",
       "company": "ebay",
       "period": "alltime",
-      "totalRows": 123,
-      "validRows": 123,
+      "totalRows": 160,
+      "validRows": 160,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "edelweiss-group_alltime.csv",
+      "company": "edelweiss-group",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1687,6 +3249,36 @@
       "warnings": []
     },
     {
+      "file": "epam-systems_3months.csv",
+      "company": "epam-systems",
+      "period": "3months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epam-systems_6months.csv",
+      "company": "epam-systems",
+      "period": "6months",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epam-systems_alltime.csv",
+      "company": "epam-systems",
+      "period": "alltime",
+      "totalRows": 52,
+      "validRows": 52,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "epic-systems_1year.csv",
       "company": "epic-systems",
       "period": "1year",
@@ -1707,11 +3299,31 @@
       "warnings": []
     },
     {
+      "file": "epic-systems_3months.csv",
+      "company": "epic-systems",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epic-systems_6months.csv",
+      "company": "epic-systems",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "epic-systems_alltime.csv",
       "company": "epic-systems",
       "period": "alltime",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 17,
+      "validRows": 17,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1767,11 +3379,61 @@
       "warnings": []
     },
     {
+      "file": "expedia_3months.csv",
+      "company": "expedia",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "expedia_6months.csv",
+      "company": "expedia",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "expedia_alltime.csv",
       "company": "expedia",
       "period": "alltime",
-      "totalRows": 47,
-      "validRows": 47,
+      "totalRows": 95,
+      "validRows": 95,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ey_3months.csv",
+      "company": "ey",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ey_6months.csv",
+      "company": "ey",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ey_alltime.csv",
+      "company": "ey",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1860,8 +3522,28 @@
       "file": "factset_alltime.csv",
       "company": "factset",
       "period": "alltime",
-      "totalRows": 7,
-      "validRows": 7,
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "faire_6months.csv",
+      "company": "faire",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "faire_alltime.csv",
+      "company": "faire",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1877,6 +3559,16 @@
       "warnings": []
     },
     {
+      "file": "fidelity_alltime.csv",
+      "company": "fidelity",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "fidessa_alltime.csv",
       "company": "fidessa",
       "period": "alltime",
@@ -1887,11 +3579,31 @@
       "warnings": []
     },
     {
-      "file": "flexport_alltime.csv",
-      "company": "flexport",
+      "file": "fiverr_alltime.csv",
+      "company": "fiverr",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flexera_alltime.csv",
+      "company": "flexera",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flexport_alltime.csv",
+      "company": "flexport",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1917,11 +3629,51 @@
       "warnings": []
     },
     {
+      "file": "flipkart_30days.csv",
+      "company": "flipkart",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flipkart_3months.csv",
+      "company": "flipkart",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flipkart_6months.csv",
+      "company": "flipkart",
+      "period": "6months",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "flipkart_alltime.csv",
       "company": "flipkart",
       "period": "alltime",
-      "totalRows": 13,
-      "validRows": 13,
+      "totalRows": 98,
+      "validRows": 98,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "fortinet_alltime.csv",
+      "company": "fortinet",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -1947,6 +3699,66 @@
       "warnings": []
     },
     {
+      "file": "fourkites_alltime.csv",
+      "company": "fourkites",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "fpt_alltime.csv",
+      "company": "fpt",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "freecharge_alltime.csv",
+      "company": "freecharge",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "freshworks_6months.csv",
+      "company": "freshworks",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "freshworks_alltime.csv",
+      "company": "freshworks",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "gameskraft_alltime.csv",
+      "company": "gameskraft",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "garena_2year.csv",
       "company": "garena",
       "period": "2year",
@@ -1967,6 +3779,16 @@
       "warnings": []
     },
     {
+      "file": "garmin_alltime.csv",
+      "company": "garmin",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "ge-digital_2year.csv",
       "company": "ge-digital",
       "period": "2year",
@@ -1980,8 +3802,68 @@
       "file": "ge-digital_alltime.csv",
       "company": "ge-digital",
       "period": "alltime",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ge-healthcare_alltime.csv",
+      "company": "ge-healthcare",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "geico_alltime.csv",
+      "company": "geico",
+      "period": "alltime",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "general-motors_30days.csv",
+      "company": "general-motors",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "general-motors_3months.csv",
+      "company": "general-motors",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "general-motors_6months.csv",
+      "company": "general-motors",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "general-motors_alltime.csv",
+      "company": "general-motors",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2017,11 +3899,21 @@
       "warnings": []
     },
     {
+      "file": "godaddy_3months.csv",
+      "company": "godaddy",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "godaddy_6months.csv",
       "company": "godaddy",
       "period": "6months",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2030,8 +3922,8 @@
       "file": "godaddy_alltime.csv",
       "company": "godaddy",
       "period": "alltime",
-      "totalRows": 17,
-      "validRows": 17,
+      "totalRows": 19,
+      "validRows": 19,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2057,11 +3949,31 @@
       "warnings": []
     },
     {
+      "file": "goldman-sachs_30days.csv",
+      "company": "goldman-sachs",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "goldman-sachs_3months.csv",
+      "company": "goldman-sachs",
+      "period": "3months",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "goldman-sachs_6months.csv",
       "company": "goldman-sachs",
       "period": "6months",
-      "totalRows": 58,
-      "validRows": 58,
+      "totalRows": 79,
+      "validRows": 79,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2070,8 +3982,8 @@
       "file": "goldman-sachs_alltime.csv",
       "company": "goldman-sachs",
       "period": "alltime",
-      "totalRows": 112,
-      "validRows": 112,
+      "totalRows": 282,
+      "validRows": 282,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2097,11 +4009,31 @@
       "warnings": []
     },
     {
+      "file": "google_30days.csv",
+      "company": "google",
+      "period": "30days",
+      "totalRows": 154,
+      "validRows": 154,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "google_3months.csv",
+      "company": "google",
+      "period": "3months",
+      "totalRows": 452,
+      "validRows": 452,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "google_6months.csv",
       "company": "google",
       "period": "6months",
-      "totalRows": 350,
-      "validRows": 350,
+      "totalRows": 919,
+      "validRows": 919,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2110,8 +4042,8 @@
       "file": "google_alltime.csv",
       "company": "google",
       "period": "alltime",
-      "totalRows": 865,
-      "validRows": 865,
+      "totalRows": 2360,
+      "validRows": 2360,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2137,11 +4069,51 @@
       "warnings": []
     },
     {
+      "file": "grab_6months.csv",
+      "company": "grab",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "grab_alltime.csv",
       "company": "grab",
       "period": "alltime",
-      "totalRows": 14,
-      "validRows": 14,
+      "totalRows": 28,
+      "validRows": 28,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grammarly_3months.csv",
+      "company": "grammarly",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grammarly_6months.csv",
+      "company": "grammarly",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grammarly_alltime.csv",
+      "company": "grammarly",
+      "period": "alltime",
+      "totalRows": 27,
+      "validRows": 27,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2180,8 +4152,58 @@
       "file": "groupon_alltime.csv",
       "company": "groupon",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groww_3months.csv",
+      "company": "groww",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groww_6months.csv",
+      "company": "groww",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groww_alltime.csv",
+      "company": "groww",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grubhub_alltime.csv",
+      "company": "grubhub",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "gsa-capital_alltime.csv",
+      "company": "gsa-capital",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2192,6 +4214,106 @@
       "period": "alltime",
       "totalRows": 5,
       "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "guidewire_3months.csv",
+      "company": "guidewire",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "guidewire_6months.csv",
+      "company": "guidewire",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "guidewire_alltime.csv",
+      "company": "guidewire",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "gusto_alltime.csv",
+      "company": "gusto",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "harness_30days.csv",
+      "company": "harness",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "harness_3months.csv",
+      "company": "harness",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "harness_6months.csv",
+      "company": "harness",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "harness_alltime.csv",
+      "company": "harness",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hashedin_6months.csv",
+      "company": "hashedin",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hashedin_alltime.csv",
+      "company": "hashedin",
+      "period": "alltime",
+      "totalRows": 28,
+      "validRows": 28,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2217,11 +4339,91 @@
       "warnings": []
     },
     {
+      "file": "hcl_30days.csv",
+      "company": "hcl",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hcl_3months.csv",
+      "company": "hcl",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hcl_6months.csv",
+      "company": "hcl",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hcl_alltime.csv",
+      "company": "hcl",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "helix_alltime.csv",
       "company": "helix",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hilabs_alltime.csv",
+      "company": "hilabs",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hive_6months.csv",
+      "company": "hive",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hive_alltime.csv",
+      "company": "hive",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "honeywell_alltime.csv",
+      "company": "honeywell",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2240,8 +4442,8 @@
       "file": "hotstar_alltime.csv",
       "company": "hotstar",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2277,11 +4479,51 @@
       "warnings": []
     },
     {
+      "file": "hpe_alltime.csv",
+      "company": "hpe",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hp_alltime.csv",
+      "company": "hp",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "hrt_alltime.csv",
       "company": "hrt",
       "period": "alltime",
       "totalRows": 3,
       "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hsbc_6months.csv",
+      "company": "hsbc",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hsbc_alltime.csv",
+      "company": "hsbc",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2320,8 +4562,48 @@
       "file": "huawei_alltime.csv",
       "company": "huawei",
       "period": "alltime",
-      "totalRows": 17,
-      "validRows": 17,
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hubspot_alltime.csv",
+      "company": "hubspot",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hudson-river-trading_3months.csv",
+      "company": "hudson-river-trading",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hudson-river-trading_6months.csv",
+      "company": "hudson-river-trading",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hudson-river-trading_alltime.csv",
+      "company": "hudson-river-trading",
+      "period": "alltime",
+      "totalRows": 16,
+      "validRows": 16,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2387,11 +4669,31 @@
       "warnings": []
     },
     {
+      "file": "ibm_30days.csv",
+      "company": "ibm",
+      "period": "30days",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ibm_3months.csv",
+      "company": "ibm",
+      "period": "3months",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "ibm_6months.csv",
       "company": "ibm",
       "period": "6months",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 25,
+      "validRows": 25,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2400,8 +4702,8 @@
       "file": "ibm_alltime.csv",
       "company": "ibm",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 169,
+      "validRows": 169,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2412,6 +4714,26 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "imc_6months.csv",
+      "company": "imc",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "imc_alltime.csv",
+      "company": "imc",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2450,8 +4772,48 @@
       "file": "indeed_alltime.csv",
       "company": "indeed",
       "period": "alltime",
-      "totalRows": 25,
-      "validRows": 25,
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "info-edge_alltime.csv",
+      "company": "info-edge",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "infosys_30days.csv",
+      "company": "infosys",
+      "period": "30days",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "infosys_3months.csv",
+      "company": "infosys",
+      "period": "3months",
+      "totalRows": 77,
+      "validRows": 77,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "infosys_6months.csv",
+      "company": "infosys",
+      "period": "6months",
+      "totalRows": 119,
+      "validRows": 119,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2460,8 +4822,38 @@
       "file": "infosys_alltime.csv",
       "company": "infosys",
       "period": "alltime",
+      "totalRows": 254,
+      "validRows": 254,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "inmobi_30days.csv",
+      "company": "inmobi",
+      "period": "30days",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "inmobi_3months.csv",
+      "company": "inmobi",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "inmobi_6months.csv",
+      "company": "inmobi",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2470,8 +4862,38 @@
       "file": "inmobi_alltime.csv",
       "company": "inmobi",
       "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "instabase_alltime.csv",
+      "company": "instabase",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "instacart_6months.csv",
+      "company": "instacart",
+      "period": "6months",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "instacart_alltime.csv",
+      "company": "instacart",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2500,8 +4922,8 @@
       "file": "intel_alltime.csv",
       "company": "intel",
       "period": "alltime",
-      "totalRows": 11,
-      "validRows": 11,
+      "totalRows": 23,
+      "validRows": 23,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2527,11 +4949,21 @@
       "warnings": []
     },
     {
+      "file": "intuit_3months.csv",
+      "company": "intuit",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "intuit_6months.csv",
       "company": "intuit",
       "period": "6months",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2540,8 +4972,18 @@
       "file": "intuit_alltime.csv",
       "company": "intuit",
       "period": "alltime",
-      "totalRows": 24,
-      "validRows": 24,
+      "totalRows": 69,
+      "validRows": 69,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ivp_alltime.csv",
+      "company": "ivp",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2567,11 +5009,21 @@
       "warnings": []
     },
     {
+      "file": "ixl_3months.csv",
+      "company": "ixl",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "ixl_6months.csv",
       "company": "ixl",
       "period": "6months",
-      "totalRows": 3,
-      "validRows": 3,
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2580,8 +5032,8 @@
       "file": "ixl_alltime.csv",
       "company": "ixl",
       "period": "alltime",
-      "totalRows": 15,
-      "validRows": 15,
+      "totalRows": 22,
+      "validRows": 22,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2590,8 +5042,8 @@
       "file": "jane-street_alltime.csv",
       "company": "jane-street",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 14,
+      "validRows": 14,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2602,6 +5054,46 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jio_alltime.csv",
+      "company": "jio",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "josh-technology_3months.csv",
+      "company": "josh-technology",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "josh-technology_6months.csv",
+      "company": "josh-technology",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "josh-technology_alltime.csv",
+      "company": "josh-technology",
+      "period": "alltime",
+      "totalRows": 34,
+      "validRows": 34,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2670,8 +5162,48 @@
       "file": "jump-trading_alltime.csv",
       "company": "jump-trading",
       "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "juniper-networks_alltime.csv",
+      "company": "juniper-networks",
+      "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "juspay_3months.csv",
+      "company": "juspay",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "juspay_6months.csv",
+      "company": "juspay",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "juspay_alltime.csv",
+      "company": "juspay",
+      "period": "alltime",
+      "totalRows": 19,
+      "validRows": 19,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2680,8 +5212,8 @@
       "file": "kakao_alltime.csv",
       "company": "kakao",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2720,8 +5252,38 @@
       "file": "karat_alltime.csv",
       "company": "karat",
       "period": "alltime",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "kla_6months.csv",
+      "company": "kla",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "kla_alltime.csv",
+      "company": "kla",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "larsen-toubro_alltime.csv",
+      "company": "larsen-toubro",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2737,11 +5299,61 @@
       "warnings": []
     },
     {
+      "file": "lendingkart-technologies_alltime.csv",
+      "company": "lendingkart-technologies",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lenskart_6months.csv",
+      "company": "lenskart",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lenskart_alltime.csv",
+      "company": "lenskart",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "liftoff_alltime.csv",
+      "company": "liftoff",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "limebike_alltime.csv",
       "company": "limebike",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "line_alltime.csv",
+      "company": "line",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2767,11 +5379,31 @@
       "warnings": []
     },
     {
+      "file": "linkedin_30days.csv",
+      "company": "linkedin",
+      "period": "30days",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "linkedin_3months.csv",
+      "company": "linkedin",
+      "period": "3months",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "linkedin_6months.csv",
       "company": "linkedin",
       "period": "6months",
-      "totalRows": 38,
-      "validRows": 38,
+      "totalRows": 45,
+      "validRows": 45,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2780,8 +5412,8 @@
       "file": "linkedin_alltime.csv",
       "company": "linkedin",
       "period": "alltime",
-      "totalRows": 140,
-      "validRows": 140,
+      "totalRows": 208,
+      "validRows": 208,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2810,8 +5442,48 @@
       "file": "liveramp_alltime.csv",
       "company": "liveramp",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lowe-s_alltime.csv",
+      "company": "lowe-s",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lti_alltime.csv",
+      "company": "lti",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lucid_alltime.csv",
+      "company": "lucid",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "luxoft_alltime.csv",
+      "company": "luxoft",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2837,11 +5509,21 @@
       "warnings": []
     },
     {
+      "file": "lyft_3months.csv",
+      "company": "lyft",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "lyft_6months.csv",
       "company": "lyft",
       "period": "6months",
-      "totalRows": 17,
-      "validRows": 17,
+      "totalRows": 18,
+      "validRows": 18,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2850,8 +5532,8 @@
       "file": "lyft_alltime.csv",
       "company": "lyft",
       "period": "alltime",
-      "totalRows": 53,
-      "validRows": 53,
+      "totalRows": 63,
+      "validRows": 63,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2877,11 +5559,61 @@
       "warnings": []
     },
     {
-      "file": "maq-software_alltime.csv",
-      "company": "maq-software",
+      "file": "makemytrip_alltime.csv",
+      "company": "makemytrip",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mapbox_alltime.csv",
+      "company": "mapbox",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "maq-software_alltime.csv",
+      "company": "maq-software",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mastercard_3months.csv",
+      "company": "mastercard",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mastercard_6months.csv",
+      "company": "mastercard",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mastercard_alltime.csv",
+      "company": "mastercard",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2907,11 +5639,21 @@
       "warnings": []
     },
     {
+      "file": "mathworks_3months.csv",
+      "company": "mathworks",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "mathworks_6months.csv",
       "company": "mathworks",
       "period": "6months",
-      "totalRows": 10,
-      "validRows": 10,
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2920,8 +5662,8 @@
       "file": "mathworks_alltime.csv",
       "company": "mathworks",
       "period": "alltime",
-      "totalRows": 40,
-      "validRows": 40,
+      "totalRows": 61,
+      "validRows": 61,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2930,8 +5672,48 @@
       "file": "mckinsey_alltime.csv",
       "company": "mckinsey",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "media-net_30days.csv",
+      "company": "media-net",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "media-net_3months.csv",
+      "company": "media-net",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "media-net_6months.csv",
+      "company": "media-net",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "media-net_alltime.csv",
+      "company": "media-net",
+      "period": "alltime",
+      "totalRows": 39,
+      "validRows": 39,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2942,6 +5724,46 @@
       "period": "alltime",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meesho_30days.csv",
+      "company": "meesho",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meesho_3months.csv",
+      "company": "meesho",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meesho_6months.csv",
+      "company": "meesho",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meesho_alltime.csv",
+      "company": "meesho",
+      "period": "alltime",
+      "totalRows": 36,
+      "validRows": 36,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -2967,6 +5789,66 @@
       "warnings": []
     },
     {
+      "file": "mercari_6months.csv",
+      "company": "mercari",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mercari_alltime.csv",
+      "company": "mercari",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meta_30days.csv",
+      "company": "meta",
+      "period": "30days",
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meta_3months.csv",
+      "company": "meta",
+      "period": "3months",
+      "totalRows": 162,
+      "validRows": 162,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meta_6months.csv",
+      "company": "meta",
+      "period": "6months",
+      "totalRows": 353,
+      "validRows": 353,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meta_alltime.csv",
+      "company": "meta",
+      "period": "alltime",
+      "totalRows": 1396,
+      "validRows": 1396,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "microsoft_1year.csv",
       "company": "microsoft",
       "period": "1year",
@@ -2987,11 +5869,31 @@
       "warnings": []
     },
     {
+      "file": "microsoft_30days.csv",
+      "company": "microsoft",
+      "period": "30days",
+      "totalRows": 47,
+      "validRows": 47,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microsoft_3months.csv",
+      "company": "microsoft",
+      "period": "3months",
+      "totalRows": 207,
+      "validRows": 207,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "microsoft_6months.csv",
       "company": "microsoft",
       "period": "6months",
-      "totalRows": 241,
-      "validRows": 241,
+      "totalRows": 485,
+      "validRows": 485,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3000,8 +5902,18 @@
       "file": "microsoft_alltime.csv",
       "company": "microsoft",
       "period": "alltime",
-      "totalRows": 514,
-      "validRows": 514,
+      "totalRows": 1431,
+      "validRows": 1431,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microstrategy_6months.csv",
+      "company": "microstrategy",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3010,8 +5922,118 @@
       "file": "microstrategy_alltime.csv",
       "company": "microstrategy",
       "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "millennium_alltime.csv",
+      "company": "millennium",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mindtickle_alltime.csv",
+      "company": "mindtickle",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mindtree_alltime.csv",
+      "company": "mindtree",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mitsogo_alltime.csv",
+      "company": "mitsogo",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mixpanel_alltime.csv",
+      "company": "mixpanel",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "moengage_alltime.csv",
+      "company": "moengage",
+      "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "moloco_alltime.csv",
+      "company": "moloco",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mongodb_30days.csv",
+      "company": "mongodb",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mongodb_3months.csv",
+      "company": "mongodb",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mongodb_6months.csv",
+      "company": "mongodb",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mongodb_alltime.csv",
+      "company": "mongodb",
+      "period": "alltime",
+      "totalRows": 25,
+      "validRows": 25,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3037,11 +6059,71 @@
       "warnings": []
     },
     {
+      "file": "morgan-stanley_3months.csv",
+      "company": "morgan-stanley",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "morgan-stanley_6months.csv",
+      "company": "morgan-stanley",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "morgan-stanley_alltime.csv",
       "company": "morgan-stanley",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 67,
+      "validRows": 67,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "moveworks_6months.csv",
+      "company": "moveworks",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "moveworks_alltime.csv",
+      "company": "moveworks",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "myntra_alltime.csv",
+      "company": "myntra",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nagarro_alltime.csv",
+      "company": "nagarro",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3052,6 +6134,76 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "national-payments-corporation-of-india_alltime.csv",
+      "company": "national-payments-corporation-of-india",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "navan_alltime.csv",
+      "company": "navan",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "navi_alltime.csv",
+      "company": "navi",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ncr_alltime.csv",
+      "company": "ncr",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netapp_3months.csv",
+      "company": "netapp",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netapp_6months.csv",
+      "company": "netapp",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netapp_alltime.csv",
+      "company": "netapp",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3100,8 +6252,8 @@
       "file": "netflix_6months.csv",
       "company": "netflix",
       "period": "6months",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3110,8 +6262,18 @@
       "file": "netflix_alltime.csv",
       "company": "netflix",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 34,
+      "validRows": 34,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netskope_alltime.csv",
+      "company": "netskope",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3122,6 +6284,156 @@
       "period": "alltime",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nextdoor_alltime.csv",
+      "company": "nextdoor",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "niantic_alltime.csv",
+      "company": "niantic",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nielsen_30days.csv",
+      "company": "nielsen",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nielsen_3months.csv",
+      "company": "nielsen",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nielsen_6months.csv",
+      "company": "nielsen",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nielsen_alltime.csv",
+      "company": "nielsen",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nike_alltime.csv",
+      "company": "nike",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nokia_30days.csv",
+      "company": "nokia",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nokia_3months.csv",
+      "company": "nokia",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nokia_6months.csv",
+      "company": "nokia",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nokia_alltime.csv",
+      "company": "nokia",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nordstrom_alltime.csv",
+      "company": "nordstrom",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nuro_3months.csv",
+      "company": "nuro",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nuro_6months.csv",
+      "company": "nuro",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nuro_alltime.csv",
+      "company": "nuro",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3147,11 +6459,21 @@
       "warnings": []
     },
     {
+      "file": "nutanix_3months.csv",
+      "company": "nutanix",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "nutanix_6months.csv",
       "company": "nutanix",
       "period": "6months",
-      "totalRows": 6,
-      "validRows": 6,
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3160,8 +6482,8 @@
       "file": "nutanix_alltime.csv",
       "company": "nutanix",
       "period": "alltime",
-      "totalRows": 38,
-      "validRows": 38,
+      "totalRows": 92,
+      "validRows": 92,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3187,11 +6509,31 @@
       "warnings": []
     },
     {
+      "file": "nvidia_30days.csv",
+      "company": "nvidia",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nvidia_3months.csv",
+      "company": "nvidia",
+      "period": "3months",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "nvidia_6months.csv",
       "company": "nvidia",
       "period": "6months",
-      "totalRows": 3,
-      "validRows": 3,
+      "totalRows": 21,
+      "validRows": 21,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3200,8 +6542,118 @@
       "file": "nvidia_alltime.csv",
       "company": "nvidia",
       "period": "alltime",
+      "totalRows": 137,
+      "validRows": 137,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nykaa_alltime.csv",
+      "company": "nykaa",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "odoo_alltime.csv",
+      "company": "odoo",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "okta_6months.csv",
+      "company": "okta",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "okta_alltime.csv",
+      "company": "okta",
+      "period": "alltime",
+      "totalRows": 23,
+      "validRows": 23,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "okx_alltime.csv",
+      "company": "okx",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ola-cabs_30days.csv",
+      "company": "ola-cabs",
+      "period": "30days",
       "totalRows": 24,
       "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ola-cabs_alltime.csv",
+      "company": "ola-cabs",
+      "period": "alltime",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "openai_30days.csv",
+      "company": "openai",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "openai_3months.csv",
+      "company": "openai",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "openai_6months.csv",
+      "company": "openai",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "openai_alltime.csv",
+      "company": "openai",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3237,6 +6689,86 @@
       "warnings": []
     },
     {
+      "file": "opentext_6months.csv",
+      "company": "opentext",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "opentext_alltime.csv",
+      "company": "opentext",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optiver_30days.csv",
+      "company": "optiver",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optiver_3months.csv",
+      "company": "optiver",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optiver_6months.csv",
+      "company": "optiver",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optiver_alltime.csv",
+      "company": "optiver",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optum_6months.csv",
+      "company": "optum",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "optum_alltime.csv",
+      "company": "optum",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "oracle_1year.csv",
       "company": "oracle",
       "period": "1year",
@@ -3257,11 +6789,31 @@
       "warnings": []
     },
     {
+      "file": "oracle_30days.csv",
+      "company": "oracle",
+      "period": "30days",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oracle_3months.csv",
+      "company": "oracle",
+      "period": "3months",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "oracle_6months.csv",
       "company": "oracle",
       "period": "6months",
-      "totalRows": 86,
-      "validRows": 86,
+      "totalRows": 91,
+      "validRows": 91,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3270,8 +6822,68 @@
       "file": "oracle_alltime.csv",
       "company": "oracle",
       "period": "alltime",
-      "totalRows": 214,
-      "validRows": 214,
+      "totalRows": 372,
+      "validRows": 372,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "otter-ai_alltime.csv",
+      "company": "otter-ai",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oyo_6months.csv",
+      "company": "oyo",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oyo_alltime.csv",
+      "company": "oyo",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ozon_3months.csv",
+      "company": "ozon",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ozon_6months.csv",
+      "company": "ozon",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ozon_alltime.csv",
+      "company": "ozon",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3327,6 +6939,46 @@
       "warnings": []
     },
     {
+      "file": "palo-alto-networks_6months.csv",
+      "company": "palo-alto-networks",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palo-alto-networks_alltime.csv",
+      "company": "palo-alto-networks",
+      "period": "alltime",
+      "totalRows": 50,
+      "validRows": 50,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "patreon_alltime.csv",
+      "company": "patreon",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paycom_alltime.csv",
+      "company": "paycom",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "paypal_1year.csv",
       "company": "paypal",
       "period": "1year",
@@ -3347,11 +6999,21 @@
       "warnings": []
     },
     {
+      "file": "paypal_3months.csv",
+      "company": "paypal",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "paypal_6months.csv",
       "company": "paypal",
       "period": "6months",
-      "totalRows": 18,
-      "validRows": 18,
+      "totalRows": 20,
+      "validRows": 20,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3360,8 +7022,48 @@
       "file": "paypal_alltime.csv",
       "company": "paypal",
       "period": "alltime",
-      "totalRows": 59,
-      "validRows": 59,
+      "totalRows": 127,
+      "validRows": 127,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypay_6months.csv",
+      "company": "paypay",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypay_alltime.csv",
+      "company": "paypay",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paytm_3months.csv",
+      "company": "paytm",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paytm_6months.csv",
+      "company": "paytm",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3370,8 +7072,78 @@
       "file": "paytm_alltime.csv",
       "company": "paytm",
       "period": "alltime",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "payu_alltime.csv",
+      "company": "payu",
+      "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "peak6_alltime.csv",
+      "company": "peak6",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "peloton_alltime.csv",
+      "company": "peloton",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "persistent-systems_6months.csv",
+      "company": "persistent-systems",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "persistent-systems_alltime.csv",
+      "company": "persistent-systems",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "phonepe_3months.csv",
+      "company": "phonepe",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "phonepe_6months.csv",
+      "company": "phonepe",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3380,8 +7152,8 @@
       "file": "phonepe_alltime.csv",
       "company": "phonepe",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 92,
+      "validRows": 92,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3407,11 +7179,21 @@
       "warnings": []
     },
     {
+      "file": "pinterest_3months.csv",
+      "company": "pinterest",
+      "period": "3months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "pinterest_6months.csv",
       "company": "pinterest",
       "period": "6months",
-      "totalRows": 3,
-      "validRows": 3,
+      "totalRows": 15,
+      "validRows": 15,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3420,8 +7202,8 @@
       "file": "pinterest_alltime.csv",
       "company": "pinterest",
       "period": "alltime",
-      "totalRows": 42,
-      "validRows": 42,
+      "totalRows": 77,
+      "validRows": 77,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3470,8 +7252,8 @@
       "file": "point72_alltime.csv",
       "company": "point72",
       "period": "alltime",
-      "totalRows": 5,
-      "validRows": 5,
+      "totalRows": 6,
+      "validRows": 6,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3490,8 +7272,18 @@
       "file": "ponyai_alltime.csv",
       "company": "ponyai",
       "period": "alltime",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pornhub_alltime.csv",
+      "company": "pornhub",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3500,8 +7292,8 @@
       "file": "poshmark_alltime.csv",
       "company": "poshmark",
       "period": "alltime",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3540,8 +7332,8 @@
       "file": "postmates_alltime.csv",
       "company": "postmates",
       "period": "alltime",
-      "totalRows": 9,
-      "validRows": 9,
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3562,6 +7354,36 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "publicis-sapient_6months.csv",
+      "company": "publicis-sapient",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "publicis-sapient_alltime.csv",
+      "company": "publicis-sapient",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pubmatic_alltime.csv",
+      "company": "pubmatic",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3600,8 +7422,18 @@
       "file": "pure-storage_alltime.csv",
       "company": "pure-storage",
       "period": "alltime",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pwc_alltime.csv",
+      "company": "pwc",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3630,8 +7462,8 @@
       "file": "qualcomm_6months.csv",
       "company": "qualcomm",
       "period": "6months",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3640,8 +7472,8 @@
       "file": "qualcomm_alltime.csv",
       "company": "qualcomm",
       "period": "alltime",
-      "totalRows": 11,
-      "validRows": 11,
+      "totalRows": 57,
+      "validRows": 57,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3680,8 +7512,8 @@
       "file": "qualtrics_alltime.csv",
       "company": "qualtrics",
       "period": "alltime",
-      "totalRows": 27,
-      "validRows": 27,
+      "totalRows": 31,
+      "validRows": 31,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3770,8 +7602,8 @@
       "file": "quora_alltime.csv",
       "company": "quora",
       "period": "alltime",
-      "totalRows": 30,
-      "validRows": 30,
+      "totalRows": 37,
+      "validRows": 37,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3802,6 +7634,56 @@
       "period": "alltime",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rakuten_6months.csv",
+      "company": "rakuten",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rakuten_alltime.csv",
+      "company": "rakuten",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "razorpay_alltime.csv",
+      "company": "razorpay",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rbc_alltime.csv",
+      "company": "rbc",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "redbus_alltime.csv",
+      "company": "redbus",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3840,8 +7722,8 @@
       "file": "reddit_alltime.csv",
       "company": "reddit",
       "period": "alltime",
-      "totalRows": 5,
-      "validRows": 5,
+      "totalRows": 9,
+      "validRows": 9,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3872,6 +7754,36 @@
       "period": "alltime",
       "totalRows": 9,
       "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "remitly_alltime.csv",
+      "company": "remitly",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "revolut_6months.csv",
+      "company": "revolut",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "revolut_alltime.csv",
+      "company": "revolut",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3910,8 +7822,58 @@
       "file": "riot-games_alltime.csv",
       "company": "riot-games",
       "period": "alltime",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ripple_alltime.csv",
+      "company": "ripple",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rippling_3months.csv",
+      "company": "rippling",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rippling_6months.csv",
+      "company": "rippling",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rippling_alltime.csv",
+      "company": "rippling",
+      "period": "alltime",
+      "totalRows": 30,
+      "validRows": 30,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rivian_alltime.csv",
+      "company": "rivian",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3940,8 +7902,8 @@
       "file": "robinhood_6months.csv",
       "company": "robinhood",
       "period": "6months",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3950,8 +7912,8 @@
       "file": "robinhood_alltime.csv",
       "company": "robinhood",
       "period": "alltime",
-      "totalRows": 11,
-      "validRows": 11,
+      "totalRows": 23,
+      "validRows": 23,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3977,11 +7939,31 @@
       "warnings": []
     },
     {
+      "file": "roblox_30days.csv",
+      "company": "roblox",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roblox_3months.csv",
+      "company": "roblox",
+      "period": "3months",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "roblox_6months.csv",
       "company": "roblox",
       "period": "6months",
-      "totalRows": 15,
-      "validRows": 15,
+      "totalRows": 28,
+      "validRows": 28,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -3990,8 +7972,48 @@
       "file": "roblox_alltime.csv",
       "company": "roblox",
       "period": "alltime",
-      "totalRows": 22,
-      "validRows": 22,
+      "totalRows": 71,
+      "validRows": 71,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rokt_alltime.csv",
+      "company": "rokt",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roku_3months.csv",
+      "company": "roku",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roku_6months.csv",
+      "company": "roku",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roku_alltime.csv",
+      "company": "roku",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4010,8 +8032,8 @@
       "file": "rubrik_alltime.csv",
       "company": "rubrik",
       "period": "alltime",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 37,
+      "validRows": 37,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4037,11 +8059,31 @@
       "warnings": []
     },
     {
+      "file": "salesforce_30days.csv",
+      "company": "salesforce",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "salesforce_3months.csv",
+      "company": "salesforce",
+      "period": "3months",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "salesforce_6months.csv",
       "company": "salesforce",
       "period": "6months",
-      "totalRows": 9,
-      "validRows": 9,
+      "totalRows": 41,
+      "validRows": 41,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4050,8 +8092,18 @@
       "file": "salesforce_alltime.csv",
       "company": "salesforce",
       "period": "alltime",
-      "totalRows": 70,
-      "validRows": 70,
+      "totalRows": 233,
+      "validRows": 233,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "samsara_alltime.csv",
+      "company": "samsara",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4090,8 +8142,8 @@
       "file": "samsung_alltime.csv",
       "company": "samsung",
       "period": "alltime",
-      "totalRows": 25,
-      "validRows": 25,
+      "totalRows": 68,
+      "validRows": 68,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4140,8 +8192,28 @@
       "file": "sap_alltime.csv",
       "company": "sap",
       "period": "alltime",
-      "totalRows": 38,
-      "validRows": 38,
+      "totalRows": 61,
+      "validRows": 61,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "scale-ai_alltime.csv",
+      "company": "scale-ai",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sentry_alltime.csv",
+      "company": "sentry",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4167,11 +8239,21 @@
       "warnings": []
     },
     {
+      "file": "servicenow_3months.csv",
+      "company": "servicenow",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "servicenow_6months.csv",
       "company": "servicenow",
       "period": "6months",
-      "totalRows": 14,
-      "validRows": 14,
+      "totalRows": 16,
+      "validRows": 16,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4180,8 +8262,148 @@
       "file": "servicenow_alltime.csv",
       "company": "servicenow",
       "period": "alltime",
-      "totalRows": 24,
-      "validRows": 24,
+      "totalRows": 80,
+      "validRows": 80,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sharechat_alltime.csv",
+      "company": "sharechat",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "shopee_alltime.csv",
+      "company": "shopee",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "shopify_6months.csv",
+      "company": "shopify",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "shopify_alltime.csv",
+      "company": "shopify",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "siemens_3months.csv",
+      "company": "siemens",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "siemens_6months.csv",
+      "company": "siemens",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "siemens_alltime.csv",
+      "company": "siemens",
+      "period": "alltime",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sigmoid_alltime.csv",
+      "company": "sigmoid",
+      "period": "alltime",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sig_6months.csv",
+      "company": "sig",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sig_alltime.csv",
+      "company": "sig",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "slice_alltime.csv",
+      "company": "slice",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "smartnews_alltime.csv",
+      "company": "smartnews",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "smartsheet_6months.csv",
+      "company": "smartsheet",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "smartsheet_alltime.csv",
+      "company": "smartsheet",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4237,6 +8459,136 @@
       "warnings": []
     },
     {
+      "file": "snap_3months.csv",
+      "company": "snap",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snap_6months.csv",
+      "company": "snap",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snap_alltime.csv",
+      "company": "snap",
+      "period": "alltime",
+      "totalRows": 83,
+      "validRows": 83,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snowflake_3months.csv",
+      "company": "snowflake",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snowflake_6months.csv",
+      "company": "snowflake",
+      "period": "6months",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snowflake_alltime.csv",
+      "company": "snowflake",
+      "period": "alltime",
+      "totalRows": 100,
+      "validRows": 100,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "societe-generale_alltime.csv",
+      "company": "societe-generale",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sofi_alltime.csv",
+      "company": "sofi",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "softwire_alltime.csv",
+      "company": "softwire",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sony_6months.csv",
+      "company": "sony",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sony_alltime.csv",
+      "company": "sony",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "soti_alltime.csv",
+      "company": "soti",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "soundhound_alltime.csv",
+      "company": "soundhound",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "splunk_1year.csv",
       "company": "splunk",
       "period": "1year",
@@ -4270,8 +8622,8 @@
       "file": "splunk_alltime.csv",
       "company": "splunk",
       "period": "alltime",
-      "totalRows": 18,
-      "validRows": 18,
+      "totalRows": 23,
+      "validRows": 23,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4297,11 +8649,21 @@
       "warnings": []
     },
     {
+      "file": "spotify_3months.csv",
+      "company": "spotify",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "spotify_6months.csv",
       "company": "spotify",
       "period": "6months",
-      "totalRows": 12,
-      "validRows": 12,
+      "totalRows": 15,
+      "validRows": 15,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4310,8 +8672,88 @@
       "file": "spotify_alltime.csv",
       "company": "spotify",
       "period": "alltime",
-      "totalRows": 18,
-      "validRows": 18,
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sprinklr_3months.csv",
+      "company": "sprinklr",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sprinklr_6months.csv",
+      "company": "sprinklr",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sprinklr_alltime.csv",
+      "company": "sprinklr",
+      "period": "alltime",
+      "totalRows": 45,
+      "validRows": 45,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "squarepoint-capital_30days.csv",
+      "company": "squarepoint-capital",
+      "period": "30days",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "squarepoint-capital_3months.csv",
+      "company": "squarepoint-capital",
+      "period": "3months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "squarepoint-capital_6months.csv",
+      "company": "squarepoint-capital",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "squarepoint-capital_alltime.csv",
+      "company": "squarepoint-capital",
+      "period": "alltime",
+      "totalRows": 29,
+      "validRows": 29,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "squarespace_alltime.csv",
+      "company": "squarespace",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4357,6 +8799,66 @@
       "warnings": []
     },
     {
+      "file": "stackadapt_6months.csv",
+      "company": "stackadapt",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "stackadapt_alltime.csv",
+      "company": "stackadapt",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "stackline_alltime.csv",
+      "company": "stackline",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "stripe_6months.csv",
+      "company": "stripe",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "stripe_alltime.csv",
+      "company": "stripe",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sumo-logic_alltime.csv",
+      "company": "sumo-logic",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "sumologic_1year.csv",
       "company": "sumologic",
       "period": "1year",
@@ -4387,6 +8889,36 @@
       "warnings": []
     },
     {
+      "file": "swiggy_3months.csv",
+      "company": "swiggy",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "swiggy_6months.csv",
+      "company": "swiggy",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "swiggy_alltime.csv",
+      "company": "swiggy",
+      "period": "alltime",
+      "totalRows": 35,
+      "validRows": 35,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "symantec_2year.csv",
       "company": "symantec",
       "period": "2year",
@@ -4399,6 +8931,16 @@
     {
       "file": "symantec_alltime.csv",
       "company": "symantec",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "synopsys_alltime.csv",
+      "company": "synopsys",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
@@ -4457,6 +8999,106 @@
       "warnings": []
     },
     {
+      "file": "tanium_alltime.csv",
+      "company": "tanium",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "target_alltime.csv",
+      "company": "target",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tcs_30days.csv",
+      "company": "tcs",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tcs_3months.csv",
+      "company": "tcs",
+      "period": "3months",
+      "totalRows": 39,
+      "validRows": 39,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tcs_6months.csv",
+      "company": "tcs",
+      "period": "6months",
+      "totalRows": 95,
+      "validRows": 95,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tcs_alltime.csv",
+      "company": "tcs",
+      "period": "alltime",
+      "totalRows": 264,
+      "validRows": 264,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tech-mahindra_alltime.csv",
+      "company": "tech-mahindra",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tekion_3months.csv",
+      "company": "tekion",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tekion_6months.csv",
+      "company": "tekion",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tekion_alltime.csv",
+      "company": "tekion",
+      "period": "alltime",
+      "totalRows": 28,
+      "validRows": 28,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "tencent_1year.csv",
       "company": "tencent",
       "period": "1year",
@@ -4497,6 +9139,56 @@
       "warnings": []
     },
     {
+      "file": "teradata_30days.csv",
+      "company": "teradata",
+      "period": "30days",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "teradata_3months.csv",
+      "company": "teradata",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "teradata_6months.csv",
+      "company": "teradata",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "teradata_alltime.csv",
+      "company": "teradata",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tesco_alltime.csv",
+      "company": "tesco",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "tesla_1year.csv",
       "company": "tesla",
       "period": "1year",
@@ -4517,11 +9209,21 @@
       "warnings": []
     },
     {
+      "file": "tesla_3months.csv",
+      "company": "tesla",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "tesla_6months.csv",
       "company": "tesla",
       "period": "6months",
-      "totalRows": 8,
-      "validRows": 8,
+      "totalRows": 15,
+      "validRows": 15,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4530,8 +9232,88 @@
       "file": "tesla_alltime.csv",
       "company": "tesla",
       "period": "alltime",
-      "totalRows": 13,
-      "validRows": 13,
+      "totalRows": 48,
+      "validRows": 48,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "texas-instruments_alltime.csv",
+      "company": "texas-instruments",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "the-trade-desk_alltime.csv",
+      "company": "the-trade-desk",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thomson-reuters_alltime.csv",
+      "company": "thomson-reuters",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thoughtspot_3months.csv",
+      "company": "thoughtspot",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thoughtspot_6months.csv",
+      "company": "thoughtspot",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thoughtspot_alltime.csv",
+      "company": "thoughtspot",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thoughtworks_alltime.csv",
+      "company": "thoughtworks",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thousandeyes_alltime.csv",
+      "company": "thousandeyes",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4547,11 +9329,161 @@
       "warnings": []
     },
     {
+      "file": "tiger-analytics_alltime.csv",
+      "company": "tiger-analytics",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tiktok_30days.csv",
+      "company": "tiktok",
+      "period": "30days",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tiktok_3months.csv",
+      "company": "tiktok",
+      "period": "3months",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tiktok_6months.csv",
+      "company": "tiktok",
+      "period": "6months",
+      "totalRows": 36,
+      "validRows": 36,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tiktok_alltime.csv",
+      "company": "tiktok",
+      "period": "alltime",
+      "totalRows": 317,
+      "validRows": 317,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tinder_alltime.csv",
+      "company": "tinder",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tinkoff_6months.csv",
+      "company": "tinkoff",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tinkoff_alltime.csv",
+      "company": "tinkoff",
+      "period": "alltime",
+      "totalRows": 19,
+      "validRows": 19,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "toast_alltime.csv",
+      "company": "toast",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "toptal_alltime.csv",
+      "company": "toptal",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tower-research-capital_3months.csv",
+      "company": "tower-research-capital",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tower-research-capital_6months.csv",
+      "company": "tower-research-capital",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tower-research-capital_alltime.csv",
+      "company": "tower-research-capital",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "traveloka_alltime.csv",
       "company": "traveloka",
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "trexquant_alltime.csv",
+      "company": "trexquant",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "trilogy_alltime.csv",
+      "company": "trilogy",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4577,11 +9509,31 @@
       "warnings": []
     },
     {
+      "file": "tripadvisor_3months.csv",
+      "company": "tripadvisor",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tripadvisor_6months.csv",
+      "company": "tripadvisor",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "tripadvisor_alltime.csv",
       "company": "tripadvisor",
       "period": "alltime",
-      "totalRows": 16,
-      "validRows": 16,
+      "totalRows": 19,
+      "validRows": 19,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4627,11 +9579,41 @@
       "warnings": []
     },
     {
+      "file": "turing_6months.csv",
+      "company": "turing",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "turing_alltime.csv",
+      "company": "turing",
+      "period": "alltime",
+      "totalRows": 29,
+      "validRows": 29,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "turvo_alltime.csv",
       "company": "turvo",
       "period": "alltime",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tusimple_alltime.csv",
+      "company": "tusimple",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4657,11 +9639,21 @@
       "warnings": []
     },
     {
+      "file": "twilio_3months.csv",
+      "company": "twilio",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "twilio_6months.csv",
       "company": "twilio",
       "period": "6months",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4670,8 +9662,8 @@
       "file": "twilio_alltime.csv",
       "company": "twilio",
       "period": "alltime",
-      "totalRows": 17,
-      "validRows": 17,
+      "totalRows": 25,
+      "validRows": 25,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4710,8 +9702,8 @@
       "file": "twitch_alltime.csv",
       "company": "twitch",
       "period": "alltime",
-      "totalRows": 14,
-      "validRows": 14,
+      "totalRows": 16,
+      "validRows": 16,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4790,8 +9782,8 @@
       "file": "two-sigma_alltime.csv",
       "company": "two-sigma",
       "period": "alltime",
-      "totalRows": 19,
-      "validRows": 19,
+      "totalRows": 30,
+      "validRows": 30,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4817,11 +9809,31 @@
       "warnings": []
     },
     {
+      "file": "uber_30days.csv",
+      "company": "uber",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uber_3months.csv",
+      "company": "uber",
+      "period": "3months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "uber_6months.csv",
       "company": "uber",
       "period": "6months",
-      "totalRows": 59,
-      "validRows": 59,
+      "totalRows": 87,
+      "validRows": 87,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4830,8 +9842,28 @@
       "file": "uber_alltime.csv",
       "company": "uber",
       "period": "alltime",
-      "totalRows": 308,
-      "validRows": 308,
+      "totalRows": 490,
+      "validRows": 490,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ubs_alltime.csv",
+      "company": "ubs",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uipath_6months.csv",
+      "company": "uipath",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4840,8 +9872,28 @@
       "file": "uipath_alltime.csv",
       "company": "uipath",
       "period": "alltime",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ukg_6months.csv",
+      "company": "ukg",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ukg_alltime.csv",
+      "company": "ukg",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4852,6 +9904,66 @@
       "period": "alltime",
       "totalRows": 2,
       "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "unity_alltime.csv",
+      "company": "unity",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "upstart_3months.csv",
+      "company": "upstart",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "upstart_6months.csv",
+      "company": "upstart",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "upstart_alltime.csv",
+      "company": "upstart",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "urban-company_alltime.csv",
+      "company": "urban-company",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "usaa_alltime.csv",
+      "company": "usaa",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4870,8 +9982,138 @@
       "file": "valve_alltime.csv",
       "company": "valve",
       "period": "alltime",
-      "totalRows": 2,
-      "validRows": 2,
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "veeva-systems_alltime.csv",
+      "company": "veeva-systems",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "verily_3months.csv",
+      "company": "verily",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "verily_6months.csv",
+      "company": "verily",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "verily_alltime.csv",
+      "company": "verily",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "veritas_alltime.csv",
+      "company": "veritas",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "verkada_6months.csv",
+      "company": "verkada",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "verkada_alltime.csv",
+      "company": "verkada",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vimeo_alltime.csv",
+      "company": "vimeo",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu-financial_30days.csv",
+      "company": "virtu-financial",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu-financial_3months.csv",
+      "company": "virtu-financial",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu-financial_6months.csv",
+      "company": "virtu-financial",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu-financial_alltime.csv",
+      "company": "virtu-financial",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtusa_alltime.csv",
+      "company": "virtusa",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4937,11 +10179,31 @@
       "warnings": []
     },
     {
+      "file": "visa_30days.csv",
+      "company": "visa",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "visa_3months.csv",
+      "company": "visa",
+      "period": "3months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "visa_6months.csv",
       "company": "visa",
       "period": "6months",
-      "totalRows": 4,
-      "validRows": 4,
+      "totalRows": 28,
+      "validRows": 28,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4950,8 +10212,18 @@
       "file": "visa_alltime.csv",
       "company": "visa",
       "period": "alltime",
-      "totalRows": 39,
-      "validRows": 39,
+      "totalRows": 168,
+      "validRows": 168,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vk_alltime.csv",
+      "company": "vk",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -4990,8 +10262,48 @@
       "file": "vmware_alltime.csv",
       "company": "vmware",
       "period": "alltime",
-      "totalRows": 102,
-      "validRows": 102,
+      "totalRows": 104,
+      "validRows": 104,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "walmart-labs_30days.csv",
+      "company": "walmart-labs",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "walmart-labs_3months.csv",
+      "company": "walmart-labs",
+      "period": "3months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "walmart-labs_6months.csv",
+      "company": "walmart-labs",
+      "period": "6months",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "walmart-labs_alltime.csv",
+      "company": "walmart-labs",
+      "period": "alltime",
+      "totalRows": 135,
+      "validRows": 135,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5002,6 +10314,16 @@
       "period": "alltime",
       "totalRows": 1,
       "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "warnermedia_alltime.csv",
+      "company": "warnermedia",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5040,8 +10362,168 @@
       "file": "wayfair_alltime.csv",
       "company": "wayfair",
       "period": "alltime",
-      "totalRows": 23,
-      "validRows": 23,
+      "totalRows": 32,
+      "validRows": 32,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "waymo_6months.csv",
+      "company": "waymo",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "waymo_alltime.csv",
+      "company": "waymo",
+      "period": "alltime",
+      "totalRows": 28,
+      "validRows": 28,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wealthfront_alltime.csv",
+      "company": "wealthfront",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wells-fargo_3months.csv",
+      "company": "wells-fargo",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wells-fargo_6months.csv",
+      "company": "wells-fargo",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wells-fargo_alltime.csv",
+      "company": "wells-fargo",
+      "period": "alltime",
+      "totalRows": 20,
+      "validRows": 20,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "weride_alltime.csv",
+      "company": "weride",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "western-digital_alltime.csv",
+      "company": "western-digital",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "whatnot_3months.csv",
+      "company": "whatnot",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "whatnot_6months.csv",
+      "company": "whatnot",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "whatnot_alltime.csv",
+      "company": "whatnot",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wipro_3months.csv",
+      "company": "wipro",
+      "period": "3months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wipro_6months.csv",
+      "company": "wipro",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wipro_alltime.csv",
+      "company": "wipro",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wise_6months.csv",
+      "company": "wise",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wise_alltime.csv",
+      "company": "wise",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5080,8 +10562,48 @@
       "file": "wish_alltime.csv",
       "company": "wish",
       "period": "alltime",
-      "totalRows": 33,
-      "validRows": 33,
+      "totalRows": 35,
+      "validRows": 35,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wissen-technology_alltime.csv",
+      "company": "wissen-technology",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wix_alltime.csv",
+      "company": "wix",
+      "period": "alltime",
+      "totalRows": 51,
+      "validRows": 51,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "workday_6months.csv",
+      "company": "workday",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "workday_alltime.csv",
+      "company": "workday",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5102,6 +10624,26 @@
       "period": "alltime",
       "totalRows": 5,
       "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "worldquant_alltime.csv",
+      "company": "worldquant",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "x_alltime.csv",
+      "company": "x",
+      "period": "alltime",
+      "totalRows": 51,
+      "validRows": 51,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5140,8 +10682,8 @@
       "file": "yahoo_alltime.csv",
       "company": "yahoo",
       "period": "alltime",
-      "totalRows": 114,
-      "validRows": 114,
+      "totalRows": 120,
+      "validRows": 120,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5167,11 +10709,31 @@
       "warnings": []
     },
     {
+      "file": "yandex_30days.csv",
+      "company": "yandex",
+      "period": "30days",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yandex_3months.csv",
+      "company": "yandex",
+      "period": "3months",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "yandex_6months.csv",
       "company": "yandex",
       "period": "6months",
-      "totalRows": 18,
-      "validRows": 18,
+      "totalRows": 36,
+      "validRows": 36,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5180,8 +10742,8 @@
       "file": "yandex_alltime.csv",
       "company": "yandex",
       "period": "alltime",
-      "totalRows": 46,
-      "validRows": 46,
+      "totalRows": 128,
+      "validRows": 128,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5220,8 +10782,8 @@
       "file": "yelp_alltime.csv",
       "company": "yelp",
       "period": "alltime",
-      "totalRows": 37,
-      "validRows": 37,
+      "totalRows": 40,
+      "validRows": 40,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5230,8 +10792,8 @@
       "file": "zalando_alltime.csv",
       "company": "zalando",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5267,11 +10829,61 @@
       "warnings": []
     },
     {
+      "file": "zendesk_alltime.csv",
+      "company": "zendesk",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "zenefits_alltime.csv",
       "company": "zenefits",
       "period": "alltime",
       "totalRows": 21,
       "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zepto_6months.csv",
+      "company": "zepto",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zepto_alltime.csv",
+      "company": "zepto",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zeta-suite_alltime.csv",
+      "company": "zeta-suite",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zeta_alltime.csv",
+      "company": "zeta",
+      "period": "alltime",
+      "totalRows": 27,
+      "validRows": 27,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5317,6 +10929,26 @@
       "warnings": []
     },
     {
+      "file": "ziprecruiter_alltime.csv",
+      "company": "ziprecruiter",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zluri_alltime.csv",
+      "company": "zluri",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "zoho_1year.csv",
       "company": "zoho",
       "period": "1year",
@@ -5337,8 +10969,118 @@
       "warnings": []
     },
     {
+      "file": "zoho_3months.csv",
+      "company": "zoho",
+      "period": "3months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoho_6months.csv",
+      "company": "zoho",
+      "period": "6months",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
       "file": "zoho_alltime.csv",
       "company": "zoho",
+      "period": "alltime",
+      "totalRows": 144,
+      "validRows": 144,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zomato_30days.csv",
+      "company": "zomato",
+      "period": "30days",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zomato_3months.csv",
+      "company": "zomato",
+      "period": "3months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zomato_6months.csv",
+      "company": "zomato",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zomato_alltime.csv",
+      "company": "zomato",
+      "period": "alltime",
+      "totalRows": 30,
+      "validRows": 30,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoom_alltime.csv",
+      "company": "zoom",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoox_alltime.csv",
+      "company": "zoox",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zopsmart_6months.csv",
+      "company": "zopsmart",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zopsmart_alltime.csv",
+      "company": "zopsmart",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zs-associates_alltime.csv",
+      "company": "zs-associates",
       "period": "alltime",
       "totalRows": 5,
       "validRows": 5,
@@ -5350,8 +11092,8 @@
       "file": "zscaler_alltime.csv",
       "company": "zscaler",
       "period": "alltime",
-      "totalRows": 1,
-      "validRows": 1,
+      "totalRows": 16,
+      "validRows": 16,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []
@@ -5382,6 +11124,16 @@
       "period": "alltime",
       "totalRows": 10,
       "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zynga_alltime.csv",
+      "company": "zynga",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
       "invalidRows": 0,
       "duplicateRows": 0,
       "warnings": []

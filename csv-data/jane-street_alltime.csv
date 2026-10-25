@@ -1,2 +1,15 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-874,Walking Robot Simulation,35.2%,Easy,0.09860197680453955, https://leetcode.com/problems/walking-robot-simulation
+2085,Count Common Words With One Occurrence,73.9%,Easy,100, https://leetcode.com/problems/count-common-words-with-one-occurrence
+2809,Minimum Time to Make Array Sum At Most x,27.5%,Hard,93.3, https://leetcode.com/problems/minimum-time-to-make-array-sum-at-most-x
+2296,Design a Text Editor,52.3%,Hard,74.5, https://leetcode.com/problems/design-a-text-editor
+495,Teemo Attacking,58.4%,Easy,74.5, https://leetcode.com/problems/teemo-attacking
+146,LRU Cache,48.3%,Medium,74.5, https://leetcode.com/problems/lru-cache
+415,Add Strings,52.3%,Easy,67.8, https://leetcode.com/problems/add-strings
+1,Two Sum,58.1%,Easy,67.8, https://leetcode.com/problems/two-sum
+1801,Number of Orders in the Backlog,54.9%,Medium,67.8, https://leetcode.com/problems/number-of-orders-in-the-backlog
+2,Add Two Numbers,49.6%,Medium,67.8, https://leetcode.com/problems/add-two-numbers
+14,Longest Common Prefix,48.6%,Easy,58.5, https://leetcode.com/problems/longest-common-prefix
+1032,Stream of Characters,53.0%,Hard,58.5, https://leetcode.com/problems/stream-of-characters
+2235,Add Two Integers,88.0%,Easy,58.5, https://leetcode.com/problems/add-two-integers
+20,Valid Parentheses,45.4%,Easy,58.5, https://leetcode.com/problems/valid-parentheses
+874,Walking Robot Simulation,64.6%,Medium,0.09860197680453955, https://leetcode.com/problems/walking-robot-simulation

@@ -1,0 +1,29 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+149,Max Points on a Line,31.7%,Hard,100, https://leetcode.com/problems/max-points-on-a-line
+871,Minimum Number of Refueling Stops,42.1%,Hard,88.4, https://leetcode.com/problems/minimum-number-of-refueling-stops
+359,Logger Rate Limiter,76.9%,Easy,88.4, https://leetcode.com/problems/logger-rate-limiter
+528,Random Pick with Weight,49.3%,Medium,88.4, https://leetcode.com/problems/random-pick-with-weight
+164,Maximum Gap,53.4%,Medium,88.4, https://leetcode.com/problems/maximum-gap
+317,Shortest Distance from All Buildings,45.0%,Hard,88.4, https://leetcode.com/problems/shortest-distance-from-all-buildings
+489,Robot Room Cleaner,78.0%,Hard,88.4, https://leetcode.com/problems/robot-room-cleaner
+253,Meeting Rooms II,52.8%,Medium,79.2, https://leetcode.com/problems/meeting-rooms-ii
+1944,Number of Visible People in a Queue,73.8%,Hard,73.9, https://leetcode.com/problems/number-of-visible-people-in-a-queue
+348,Design Tic-Tac-Toe,58.8%,Medium,67.1, https://leetcode.com/problems/design-tic-tac-toe
+1197,Minimum Knight Moves,42.1%,Medium,67.1, https://leetcode.com/problems/minimum-knight-moves
+68,Text Justification,52.5%,Hard,67.1, https://leetcode.com/problems/text-justification
+631,Design Excel Sum Formula,39.3%,Hard,67.1, https://leetcode.com/problems/design-excel-sum-formula
+939,Minimum Area Rectangle,55.6%,Medium,67.1, https://leetcode.com/problems/minimum-area-rectangle
+1631,Path With Minimum Effort,64.2%,Medium,67.1, https://leetcode.com/problems/path-with-minimum-effort
+10,Regular Expression Matching,32.0%,Hard,67.1, https://leetcode.com/problems/regular-expression-matching
+269,Alien Dictionary,37.4%,Hard,67.1, https://leetcode.com/problems/alien-dictionary
+304,Range Sum Query 2D - Immutable,59.2%,Medium,67.1, https://leetcode.com/problems/range-sum-query-2d-immutable
+1296,Divide Array in Sets of K Consecutive Numbers,59.6%,Medium,57.6, https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers
+162,Find Peak Element,47.3%,Medium,57.6, https://leetcode.com/problems/find-peak-element
+84,Largest Rectangle in Histogram,51.1%,Hard,57.6, https://leetcode.com/problems/largest-rectangle-in-histogram
+2008,Maximum Earnings From Taxi,47.0%,Medium,57.6, https://leetcode.com/problems/maximum-earnings-from-taxi
+305,Number of Islands II,40.8%,Hard,57.6, https://leetcode.com/problems/number-of-islands-ii
+853,Car Fleet,55.8%,Medium,57.6, https://leetcode.com/problems/car-fleet
+64,Minimum Path Sum,69.0%,Medium,57.6, https://leetcode.com/problems/minimum-path-sum
+229,Majority Element II,56.9%,Medium,57.6, https://leetcode.com/problems/majority-element-ii
+622,Design Circular Queue,55.7%,Medium,57.6, https://leetcode.com/problems/design-circular-queue

@@ -1,19 +1,28 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-128,Longest Consecutive Sequence,45.1%,Hard,0.12090519978650899, https://leetcode.com/problems/longest-consecutive-sequence
-383,Ransom Note,53.1%,Easy,0.1053605156578263, https://leetcode.com/problems/ransom-note
-286,Walls and Gates,54.5%,Medium,0.089897664246389, https://leetcode.com/problems/walls-and-gates
-480,Sliding Window Median,37.2%,Hard,0.0743529801177063, https://leetcode.com/problems/sliding-window-median
-20,Valid Parentheses,39.0%,Easy,0.06735240264428982, https://leetcode.com/problems/valid-parentheses
-22,Generate Parentheses,62.7%,Medium,0.05215612134598845, https://leetcode.com/problems/generate-parentheses
-146,LRU Cache,33.2%,Medium,0.040660598211268925, https://leetcode.com/problems/lru-cache
-215,Kth Largest Element in an Array,55.4%,Medium,0.03458557964977998, https://leetcode.com/problems/kth-largest-element-in-an-array
-443,String Compression,41.3%,Easy,0.031026273563100573, https://leetcode.com/problems/string-compression
-66,Plus One,43.0%,Easy,0.028982869090985654, https://leetcode.com/problems/plus-one
-200,Number of Islands,46.8%,Medium,0.025712029212602353, https://leetcode.com/problems/number-of-islands
-784,Letter Case Permutation,64.6%,Medium,0.02026411791905559, https://leetcode.com/problems/letter-case-permutation
-127,Word Ladder,29.6%,Medium,0.013403030127340374, https://leetcode.com/problems/word-ladder
-3,Longest Substring Without Repeating Characters,30.4%,Medium,0.009683242444739549, https://leetcode.com/problems/longest-substring-without-repeating-characters
-206,Reverse Linked List,62.5%,Easy,0.009326794511974934, https://leetcode.com/problems/reverse-linked-list
-1,Two Sum,45.6%,Easy,0.0073613942765888805, https://leetcode.com/problems/two-sum
-412,Fizz Buzz,62.3%,Easy,0.007165921026143679, https://leetcode.com/problems/fizz-buzz
-347,Top K Frequent Elements,61.2%,Medium,0.0033396446491217604, https://leetcode.com/problems/top-k-frequent-elements
+295,Find Median from Data Stream,55.1%,Hard,100, https://leetcode.com/problems/find-median-from-data-stream
+1152,Analyze User Website Visit Pattern,44.4%,Medium,84.5, https://leetcode.com/problems/analyze-user-website-visit-pattern
+1917,Leetcodify Friends Recommendations,29.0%,Hard,78.6, https://leetcode.com/problems/leetcodify-friends-recommendations
+1919,Leetcodify Similar Friends,43.5%,Hard,78.6, https://leetcode.com/problems/leetcodify-similar-friends
+346,Moving Average from Data Stream,80.2%,Easy,75.4, https://leetcode.com/problems/moving-average-from-data-stream
+509,Fibonacci Number,74.7%,Easy,58.8, https://leetcode.com/problems/fibonacci-number
+104,Maximum Depth of Binary Tree,78.7%,Easy,50.7, https://leetcode.com/problems/maximum-depth-of-binary-tree
+125,Valid Palindrome,54.6%,Easy,50.7, https://leetcode.com/problems/valid-palindrome
+242,Valid Anagram,68.8%,Easy,50.7, https://leetcode.com/problems/valid-anagram
+128,Longest Consecutive Sequence,47.3%,Medium,0.12090519978650899, https://leetcode.com/problems/longest-consecutive-sequence
+383,Ransom Note,66.6%,Easy,0.1053605156578263, https://leetcode.com/problems/ransom-note
+286,Walls and Gates,64.3%,Medium,0.089897664246389, https://leetcode.com/problems/walls-and-gates
+480,Sliding Window Median,39.2%,Hard,0.0743529801177063, https://leetcode.com/problems/sliding-window-median
+20,Valid Parentheses,45.4%,Easy,0.06735240264428982, https://leetcode.com/problems/valid-parentheses
+22,Generate Parentheses,79.7%,Medium,0.05215612134598845, https://leetcode.com/problems/generate-parentheses
+146,LRU Cache,48.3%,Medium,0.040660598211268925, https://leetcode.com/problems/lru-cache
+215,Kth Largest Element in an Array,69.4%,Medium,0.03458557964977998, https://leetcode.com/problems/kth-largest-element-in-an-array
+443,String Compression,61.0%,Medium,0.031026273563100573, https://leetcode.com/problems/string-compression
+66,Plus One,50.8%,Easy,0.028982869090985654, https://leetcode.com/problems/plus-one
+200,Number of Islands,65.3%,Medium,0.025712029212602353, https://leetcode.com/problems/number-of-islands
+784,Letter Case Permutation,76.2%,Medium,0.02026411791905559, https://leetcode.com/problems/letter-case-permutation
+127,Word Ladder,46.8%,Hard,0.013403030127340374, https://leetcode.com/problems/word-ladder
+3,Longest Substring Without Repeating Characters,40.0%,Medium,0.009683242444739549, https://leetcode.com/problems/longest-substring-without-repeating-characters
+206,Reverse Linked List,81.2%,Easy,0.009326794511974934, https://leetcode.com/problems/reverse-linked-list
+1,Two Sum,58.1%,Easy,0.0073613942765888805, https://leetcode.com/problems/two-sum
+412,Fizz Buzz,76.0%,Easy,0.007165921026143679, https://leetcode.com/problems/fizz-buzz
+347,Top K Frequent Elements,67.6%,Medium,0.0033396446491217604, https://leetcode.com/problems/top-k-frequent-elements

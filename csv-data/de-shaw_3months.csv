@@ -1,0 +1,8 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+696,Count Binary Substrings,70.6%,Easy,100, https://leetcode.com/problems/count-binary-substrings
+239,Sliding Window Maximum,49.4%,Hard,92.1, https://leetcode.com/problems/sliding-window-maximum
+2062,Count Vowel Substrings of a String,73.8%,Easy,92.1, https://leetcode.com/problems/count-vowel-substrings-of-a-string
+735,Asteroid Collision,49.4%,Medium,92.1, https://leetcode.com/problems/asteroid-collision
+871,Minimum Number of Refueling Stops,42.1%,Hard,80.9, https://leetcode.com/problems/minimum-number-of-refueling-stops
+2171,Removing Minimum Number of Magic Beans,45.1%,Medium,80.9, https://leetcode.com/problems/removing-minimum-number-of-magic-beans
+1642,Furthest Building You Can Reach,51.2%,Medium,80.9, https://leetcode.com/problems/furthest-building-you-can-reach

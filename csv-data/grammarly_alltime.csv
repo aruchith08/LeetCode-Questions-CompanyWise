@@ -1,0 +1,28 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1028,Recover a Tree From Preorder Traversal,83.2%,Hard,100, https://leetcode.com/problems/recover-a-tree-from-preorder-traversal
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+1047,Remove All Adjacent Duplicates In String,74.3%,Easy,97.1, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+1209,Remove All Adjacent Duplicates in String II,62.1%,Medium,95.5, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
+380,Insert Delete GetRandom O(1),55.6%,Medium,95.5, https://leetcode.com/problems/insert-delete-getrandom-o1
+966,Vowel Spellchecker,61.5%,Medium,92, https://leetcode.com/problems/vowel-spellchecker
+139,Word Break,50.0%,Medium,90.1, https://leetcode.com/problems/word-break
+35,Search Insert Position,52.5%,Easy,90.1, https://leetcode.com/problems/search-insert-position
+2054,Two Best Non-Overlapping Events,63.9%,Medium,90.1, https://leetcode.com/problems/two-best-non-overlapping-events
+435,Non-overlapping Intervals,57.9%,Medium,90.1, https://leetcode.com/problems/non-overlapping-intervals
+33,Search in Rotated Sorted Array,45.8%,Medium,90, https://leetcode.com/problems/search-in-rotated-sorted-array
+187,Repeated DNA Sequences,54.2%,Medium,87.8, https://leetcode.com/problems/repeated-dna-sequences
+70,Climbing Stairs,54.4%,Easy,87.8, https://leetcode.com/problems/climbing-stairs
+3144,Minimum Substring Partition of Equal Character Frequency,40.6%,Medium,87.2, https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency
+22,Generate Parentheses,79.7%,Medium,82.7, https://leetcode.com/problems/generate-parentheses
+69,Sqrt(x),42.4%,Easy,82.7, https://leetcode.com/problems/sqrtx
+507,Perfect Number,50.7%,Easy,79.6, https://leetcode.com/problems/perfect-number
+359,Logger Rate Limiter,76.9%,Easy,76.1, https://leetcode.com/problems/logger-rate-limiter
+404,Sum of Left Leaves,63.2%,Easy,76.1, https://leetcode.com/problems/sum-of-left-leaves
+79,Word Search,48.3%,Medium,67.1, https://leetcode.com/problems/word-search
+150,Evaluate Reverse Polish Notation,59.0%,Medium,66.8, https://leetcode.com/problems/evaluate-reverse-polish-notation
+208,Implement Trie (Prefix Tree),70.2%,Medium,60.2, https://leetcode.com/problems/implement-trie-prefix-tree
+1461,Check If a String Contains All Binary Codes of Size K,61.7%,Medium,60.2, https://leetcode.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k
+200,Number of Islands,65.3%,Medium,51, https://leetcode.com/problems/number-of-islands
+2075,Decode the Slanted Ciphertext,67.7%,Medium,51, https://leetcode.com/problems/decode-the-slanted-ciphertext
+42,Trapping Rain Water,68.4%,Hard,51, https://leetcode.com/problems/trapping-rain-water
+62,Unique Paths,67.4%,Medium,51, https://leetcode.com/problems/unique-paths

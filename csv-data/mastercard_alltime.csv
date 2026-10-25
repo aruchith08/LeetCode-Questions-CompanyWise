@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+664,Strange Printer,61.0%,Hard,100, https://leetcode.com/problems/strange-printer
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+121,Best Time to Buy and Sell Stock,57.5%,Easy,93.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+51,N-Queens,76.7%,Hard,93.9, https://leetcode.com/problems/n-queens
+749,Contain Virus,56.6%,Hard,88.7, https://leetcode.com/problems/contain-virus
+20,Valid Parentheses,45.4%,Easy,86, https://leetcode.com/problems/valid-parentheses
+322,Coin Change,49.3%,Medium,86, https://leetcode.com/problems/coin-change
+412,Fizz Buzz,76.0%,Easy,86, https://leetcode.com/problems/fizz-buzz
+518,Coin Change II,59.1%,Medium,79.7, https://leetcode.com/problems/coin-change-ii
+134,Gas Station,48.9%,Medium,74.9, https://leetcode.com/problems/gas-station
+79,Word Search,48.3%,Medium,74.9, https://leetcode.com/problems/word-search
+48,Rotate Image,80.8%,Medium,74.9, https://leetcode.com/problems/rotate-image
+53,Maximum Subarray,54.0%,Medium,74.9, https://leetcode.com/problems/maximum-subarray
+55,Jump Game,41.7%,Medium,74.9, https://leetcode.com/problems/jump-game

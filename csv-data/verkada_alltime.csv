@@ -1,0 +1,18 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+986,Interval List Intersections,73.3%,Medium,100, https://leetcode.com/problems/interval-list-intersections
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,91, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+146,LRU Cache,48.3%,Medium,88, https://leetcode.com/problems/lru-cache
+435,Non-overlapping Intervals,57.9%,Medium,84.6, https://leetcode.com/problems/non-overlapping-intervals
+981,Time Based Key-Value Store,50.3%,Medium,80.6, https://leetcode.com/problems/time-based-key-value-store
+1146,Snapshot Array,36.8%,Medium,75.6, https://leetcode.com/problems/snapshot-array
+227,Basic Calculator II,47.3%,Medium,75.6, https://leetcode.com/problems/basic-calculator-ii
+1233,Remove Sub-Folders from the Filesystem,78.6%,Medium,75.6, https://leetcode.com/problems/remove-sub-folders-from-the-filesystem
+867,Transpose Matrix,77.4%,Easy,75.6, https://leetcode.com/problems/transpose-matrix
+36,Valid Sudoku,65.3%,Medium,75.6, https://leetcode.com/problems/valid-sudoku
+12,Integer to Roman,71.9%,Medium,75.6, https://leetcode.com/problems/integer-to-roman
+56,Merge Intervals,53.0%,Medium,69.2, https://leetcode.com/problems/merge-intervals
+843,Guess the Word,36.5%,Hard,60.3, https://leetcode.com/problems/guess-the-word
+772,Basic Calculator III,53.6%,Hard,60.3, https://leetcode.com/problems/basic-calculator-iii
+543,Diameter of Binary Tree,66.4%,Easy,60.3, https://leetcode.com/problems/diameter-of-binary-tree
+191,Number of 1 Bits,77.8%,Easy,60.3, https://leetcode.com/problems/number-of-1-bits
+88,Merge Sorted Array,55.9%,Easy,60.3, https://leetcode.com/problems/merge-sorted-array

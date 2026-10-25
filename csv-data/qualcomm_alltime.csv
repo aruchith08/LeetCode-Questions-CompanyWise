@@ -1,12 +1,58 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-160,Intersection of Two Linked Lists,40.6%,Easy,0.06134946801354206, https://leetcode.com/problems/intersection-of-two-linked-lists
-191,Number of 1 Bits,49.8%,Easy,0.05484219764644818, https://leetcode.com/problems/number-of-1-bits
-206,Reverse Linked List,62.5%,Easy,0.044250172926515494, https://leetcode.com/problems/reverse-linked-list
-72,Edit Distance,44.8%,Hard,0.037749233217789446, https://leetcode.com/problems/edit-distance
-237,Delete Node in a Linked List,63.8%,Easy,0.03025400151925316, https://leetcode.com/problems/delete-node-in-a-linked-list
-2,Add Two Numbers,33.9%,Medium,0.019661976799320476, https://leetcode.com/problems/add-two-numbers
-1,Two Sum,45.6%,Easy,0.01946268277092695, https://leetcode.com/problems/two-sum
-283,Move Zeroes,57.8%,Easy,0.017117843516968597, https://leetcode.com/problems/move-zeroes
-151,Reverse Words in a String,21.9%,Medium,0.00949999544777714, https://leetcode.com/problems/reverse-words-in-a-string
-53,Maximum Subarray,46.5%,Easy,0.008272628741228982, https://leetcode.com/problems/maximum-subarray
-1183,Maximum Number of Ones,54.5%,Hard,0, https://leetcode.com/problems/maximum-number-of-ones
+25,Reverse Nodes in k-Group,67.5%,Hard,100, https://leetcode.com/problems/reverse-nodes-in-k-group
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+344,Reverse String,81.5%,Easy,100, https://leetcode.com/problems/reverse-string
+3163,String Compression III,67.1%,Medium,97.2, https://leetcode.com/problems/string-compression-iii
+3,Longest Substring Without Repeating Characters,40.0%,Medium,90.5, https://leetcode.com/problems/longest-substring-without-repeating-characters
+146,LRU Cache,48.3%,Medium,86.5, https://leetcode.com/problems/lru-cache
+9,Palindrome Number,61.1%,Easy,75.7, https://leetcode.com/problems/palindrome-number
+20,Valid Parentheses,45.4%,Easy,75.7, https://leetcode.com/problems/valid-parentheses
+48,Rotate Image,80.8%,Medium,75.7, https://leetcode.com/problems/rotate-image
+232,Implement Queue using Stacks,70.3%,Easy,75.7, https://leetcode.com/problems/implement-queue-using-stacks
+836,Rectangle Overlap,53.5%,Easy,75.7, https://leetcode.com/problems/rectangle-overlap
+169,Majority Element,66.5%,Easy,75.7, https://leetcode.com/problems/majority-element
+42,Trapping Rain Water,68.4%,Hard,75.7, https://leetcode.com/problems/trapping-rain-water
+2183,Count Array Pairs Divisible by K,31.2%,Hard,75.7, https://leetcode.com/problems/count-array-pairs-divisible-by-k
+15,3Sum,40.1%,Medium,75.7, https://leetcode.com/problems/3sum
+70,Climbing Stairs,54.4%,Easy,68.1, https://leetcode.com/problems/climbing-stairs
+231,Power of Two,50.7%,Easy,68.1, https://leetcode.com/problems/power-of-two
+190,Reverse Bits,69.6%,Easy,68.1, https://leetcode.com/problems/reverse-bits
+19,Remove Nth Node From End of List,52.9%,Medium,68.1, https://leetcode.com/problems/remove-nth-node-from-end-of-list
+622,Design Circular Queue,55.7%,Medium,68.1, https://leetcode.com/problems/design-circular-queue
+141,Linked List Cycle,55.3%,Easy,68.1, https://leetcode.com/problems/linked-list-cycle
+2563,Count the Number of Fair Pairs,52.6%,Medium,68.1, https://leetcode.com/problems/count-the-number-of-fair-pairs
+4,Median of Two Sorted Arrays,47.9%,Hard,68.1, https://leetcode.com/problems/median-of-two-sorted-arrays
+21,Merge Two Sorted Lists,69.0%,Easy,68.1, https://leetcode.com/problems/merge-two-sorted-lists
+50,"Pow(x, n)",39.2%,Medium,57.5, https://leetcode.com/problems/powx-n
+104,Maximum Depth of Binary Tree,78.7%,Easy,57.5, https://leetcode.com/problems/maximum-depth-of-binary-tree
+210,Course Schedule II,56.5%,Medium,57.5, https://leetcode.com/problems/course-schedule-ii
+8,String to Integer (atoi),21.9%,Medium,57.5, https://leetcode.com/problems/string-to-integer-atoi
+46,Permutations,82.4%,Medium,57.5, https://leetcode.com/problems/permutations
+88,Merge Sorted Array,55.9%,Easy,57.5, https://leetcode.com/problems/merge-sorted-array
+136,Single Number,78.4%,Easy,57.5, https://leetcode.com/problems/single-number
+215,Kth Largest Element in an Array,69.4%,Medium,57.5, https://leetcode.com/problems/kth-largest-element-in-an-array
+28,Find the Index of the First Occurrence in a String,47.5%,Easy,57.5, https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+22,Generate Parentheses,79.7%,Medium,57.5, https://leetcode.com/problems/generate-parentheses
+225,Implement Stack using Queues,70.5%,Easy,57.5, https://leetcode.com/problems/implement-stack-using-queues
+1163,Last Substring in Lexicographical Order,35.3%,Hard,57.5, https://leetcode.com/problems/last-substring-in-lexicographical-order
+23,Merge k Sorted Lists,60.8%,Hard,57.5, https://leetcode.com/problems/merge-k-sorted-lists
+11,Container With Most Water,61.1%,Medium,57.5, https://leetcode.com/problems/container-with-most-water
+346,Moving Average from Data Stream,80.2%,Easy,57.5, https://leetcode.com/problems/moving-average-from-data-stream
+14,Longest Common Prefix,48.6%,Easy,57.5, https://leetcode.com/problems/longest-common-prefix
+338,Counting Bits,80.8%,Easy,57.5, https://leetcode.com/problems/counting-bits
+852,Peak Index in a Mountain Array,66.6%,Medium,57.5, https://leetcode.com/problems/peak-index-in-a-mountain-array
+152,Maximum Product Subarray,37.2%,Medium,57.5, https://leetcode.com/problems/maximum-product-subarray
+62,Unique Paths,67.4%,Medium,57.5, https://leetcode.com/problems/unique-paths
+1019,Next Greater Node In Linked List,65.0%,Medium,57.5, https://leetcode.com/problems/next-greater-node-in-linked-list
+322,Coin Change,49.3%,Medium,57.5, https://leetcode.com/problems/coin-change
+160,Intersection of Two Linked Lists,64.9%,Easy,0.06134946801354206, https://leetcode.com/problems/intersection-of-two-linked-lists
+191,Number of 1 Bits,77.8%,Easy,0.05484219764644818, https://leetcode.com/problems/number-of-1-bits
+206,Reverse Linked List,81.2%,Easy,0.044250172926515494, https://leetcode.com/problems/reverse-linked-list
+72,Edit Distance,61.5%,Medium,0.037749233217789446, https://leetcode.com/problems/edit-distance
+237,Delete Node in a Linked List,84.5%,Medium,0.03025400151925316, https://leetcode.com/problems/delete-node-in-a-linked-list
+2,Add Two Numbers,49.6%,Medium,0.019661976799320476, https://leetcode.com/problems/add-two-numbers
+1,Two Sum,58.1%,Easy,0.01946268277092695, https://leetcode.com/problems/two-sum
+283,Move Zeroes,64.5%,Easy,0.017117843516968597, https://leetcode.com/problems/move-zeroes
+151,Reverse Words in a String,58.2%,Medium,0.00949999544777714, https://leetcode.com/problems/reverse-words-in-a-string
+53,Maximum Subarray,54.0%,Medium,0.008272628741228982, https://leetcode.com/problems/maximum-subarray
+1183,Maximum Number of Ones,70.1%,Hard,0, https://leetcode.com/problems/maximum-number-of-ones

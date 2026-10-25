@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Sparkles, Heart, Code2, Github, Linkedin,
-  Globe, CheckCircle2, ArrowUpRight
+  Heart, Code2, Github, Linkedin,
+  Globe, CheckCircle2, ArrowUpRight, Layers
 } from 'lucide-react';
 
 export default function AboutSection() {
@@ -9,10 +9,6 @@ export default function AboutSection() {
     <section id="about" className="space-y-8 pt-10 border-t border-slate-200/80 dark:border-[#43433F]/80">
       {/* Section Header */}
       <div className="space-y-3 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#0F1B3D]/5 dark:bg-[#D97757]/10 text-[#0F1B3D] dark:text-[#D97757] border border-[#0F1B3D]/10 dark:border-[#D97757]/20">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>The Story Behind CompanyWise</span>
-        </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
           The Story Behind CompanyWise
         </h2>
@@ -72,15 +68,15 @@ export default function AboutSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1">
                     <span className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs block">
-                      1,446 unique problems
+                      3,411 unique problems
                     </span>
                     <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block">
-                      Across 200 tech companies.
+                      Across 490 tech companies.
                     </span>
                   </div>
                   <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1">
                     <span className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs block">
-                      4 time windows
+                      6 time windows
                     </span>
                     <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block">
                       Explore question frequency shifts.
@@ -183,7 +179,90 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* CHAPTER 03 — THE CREATION */}
+        {/* CHAPTER 03 — THE EXPANSION */}
+        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+            {/* Left Column: Chapter Meta */}
+            <div className="lg:col-span-4 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-[#1F1E1D] text-emerald-600 dark:text-[#8FBF78] flex items-center justify-center border border-emerald-100 dark:border-[#43433F] shrink-0">
+                  <Layers className="w-5 h-5 text-emerald-600 dark:text-[#8FBF78]" />
+                </div>
+                <span className="font-mono text-xs font-semibold text-slate-500 dark:text-[#A8A69C] tracking-wider uppercase">
+                  CHAPTER 03 — THE EXPANSION
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <img
+                  src="/liquidslr.png"
+                  alt="liquidslr"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
+                />
+                <div className="space-y-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
+                    The Contributor: liquidslr
+                  </h3>
+                  <p className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+                    @liquidslr · Data Contributor
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-100 dark:border-[#43433F] space-y-1.5">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
+                  Updated & Expanded Dataset
+                </span>
+                <div className="font-mono text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                  liquidslr/leetcode-company-wise-problems
+                </div>
+                <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block">
+                  470+ company folders · 3,400+ indexed problems · 30-day &amp; 3-month recency
+                </span>
+              </div>
+
+              <div>
+                <a
+                  href="https://github.com/liquidslr/leetcode-company-wise-problems"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] text-white dark:text-[#FAF9F5] border border-transparent dark:border-[#43433F] transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>Explore & Star liquidslr&apos;s Repository</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right Column: Narrative Content */}
+            <div className="lg:col-span-8 space-y-4 text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] leading-relaxed lg:border-l lg:border-slate-100 dark:lg:border-[#43433F]/80 lg:pl-10">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-slate-800 dark:text-[#FAF9F5] font-medium">
+                Technical interview patterns continuously shift. Keeping problem frequency rankings current and reflecting recent hiring trends is essential.
+              </div>
+
+              <p>
+                To expand and refresh the catalog, CompanyWise integrated the comprehensive dataset maintained by{' '}
+                <strong className="text-slate-900 dark:text-[#FAF9F5]">liquidslr (@liquidslr)</strong> from their repository{' '}
+                <strong className="text-slate-900 dark:text-[#FAF9F5]">liquidslr/leetcode-company-wise-problems</strong>.
+              </p>
+
+              <p>
+                Their repository brought in <strong className="text-slate-900 dark:text-[#FAF9F5]">290 newly covered companies</strong> and <strong className="text-slate-900 dark:text-[#FAF9F5]">1,965 newly indexed problems</strong>, substantially expanding CompanyWise to 490 employers and 3,411 canonical LeetCode questions.
+              </p>
+
+              <p>
+                In addition, their dataset provided high-signal recency windows—specifically <strong className="text-slate-900 dark:text-[#FAF9F5]">Last 30 Days</strong> and <strong className="text-slate-900 dark:text-[#FAF9F5]">Last 3 Months</strong>—enabling developers to target what top tech teams are asking right now.
+              </p>
+
+              <p className="pt-2 border-t border-slate-100 dark:border-[#43433F]/80 text-slate-700 dark:text-[#FAF9F5]">
+                We want to recognize and thank liquidslr for their dedication to openly sharing this valuable and regularly updated collection.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CHAPTER 04 — THE CREATION */}
         <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Chapter Meta */}
@@ -193,7 +272,7 @@ export default function AboutSection() {
                   <Code2 className="w-5 h-5 text-indigo-600 dark:text-[#D97757]" />
                 </div>
                 <span className="font-mono text-xs font-semibold text-slate-500 dark:text-[#A8A69C] tracking-wider uppercase">
-                  CHAPTER 03 — THE CREATION
+                  CHAPTER 04 — THE CREATION
                 </span>
               </div>
 
@@ -306,7 +385,7 @@ export default function AboutSection() {
                 <div className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-[#A8A69C]">
                   <div className="flex items-start gap-2.5">
                     <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold text-sm leading-none mt-0.5">•</span>
-                    <span>Transformed 537 source CSV files into structured, searchable data.</span>
+                    <span>Transformed 1,112 source CSV files into structured, searchable data.</span>
                   </div>
                   <div className="flex items-start gap-2.5">
                     <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold text-sm leading-none mt-0.5">•</span>

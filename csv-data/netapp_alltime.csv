@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+1366,Rank Teams by Votes,60.1%,Medium,89.8, https://leetcode.com/problems/rank-teams-by-votes
+796,Rotate String,66.6%,Easy,89.5, https://leetcode.com/problems/rotate-string
+283,Move Zeroes,64.5%,Easy,78.5, https://leetcode.com/problems/move-zeroes
+423,Reconstruct Original Digits from English,53.5%,Medium,68.3, https://leetcode.com/problems/reconstruct-original-digits-from-english
+54,Spiral Matrix,58.2%,Medium,68.3, https://leetcode.com/problems/spiral-matrix
+39,Combination Sum,77.3%,Medium,68.3, https://leetcode.com/problems/combination-sum
+1124,Longest Well-Performing Interval,38.5%,Medium,68.3, https://leetcode.com/problems/longest-well-performing-interval
+3,Longest Substring Without Repeating Characters,40.0%,Medium,68.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+121,Best Time to Buy and Sell Stock,57.5%,Easy,68.3, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,68.3, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array

@@ -1,0 +1,48 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+20,Valid Parentheses,45.4%,Easy,96.3, https://leetcode.com/problems/valid-parentheses
+14,Longest Common Prefix,48.6%,Easy,80.7, https://leetcode.com/problems/longest-common-prefix
+70,Climbing Stairs,54.4%,Easy,72.7, https://leetcode.com/problems/climbing-stairs
+921,Minimum Add to Make Parentheses Valid,74.4%,Medium,72.7, https://leetcode.com/problems/minimum-add-to-make-parentheses-valid
+26,Remove Duplicates from Sorted Array,64.0%,Easy,72.7, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+121,Best Time to Buy and Sell Stock,57.5%,Easy,61.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+146,LRU Cache,48.3%,Medium,61.5, https://leetcode.com/problems/lru-cache
+485,Max Consecutive Ones,66.3%,Easy,61.5, https://leetcode.com/problems/max-consecutive-ones
+49,Group Anagrams,73.5%,Medium,61.5, https://leetcode.com/problems/group-anagrams
+3883,Count Non Decreasing Arrays With Given Digit Sums,40.5%,Hard,61.5, https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums
+42,Trapping Rain Water,68.4%,Hard,61.5, https://leetcode.com/problems/trapping-rain-water
+7,Reverse Integer,32.7%,Medium,61.5, https://leetcode.com/problems/reverse-integer
+74,Search a 2D Matrix,54.3%,Medium,61.5, https://leetcode.com/problems/search-a-2d-matrix
+175,Combine Two Tables,80.1%,Easy,61.5, https://leetcode.com/problems/combine-two-tables
+560,Subarray Sum Equals K,48.4%,Medium,61.5, https://leetcode.com/problems/subarray-sum-equals-k
+1470,Shuffle the Array,88.6%,Easy,61.5, https://leetcode.com/problems/shuffle-the-array
+25,Reverse Nodes in k-Group,67.5%,Hard,61.5, https://leetcode.com/problems/reverse-nodes-in-k-group
+1111,Maximum Nesting Depth of Two Valid Parentheses Strings,83.0%,Medium,61.5, https://leetcode.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings
+55,Jump Game,41.7%,Medium,61.5, https://leetcode.com/problems/jump-game
+15,3Sum,40.1%,Medium,61.5, https://leetcode.com/problems/3sum
+410,Split Array Largest Sum,61.7%,Hard,61.5, https://leetcode.com/problems/split-array-largest-sum
+283,Move Zeroes,64.5%,Easy,61.5, https://leetcode.com/problems/move-zeroes
+1297,Maximum Number of Occurrences of a Substring,55.1%,Medium,61.5, https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring
+32,Longest Valid Parentheses,41.4%,Hard,61.5, https://leetcode.com/problems/longest-valid-parentheses
+678,Valid Parenthesis String,43.0%,Medium,61.5, https://leetcode.com/problems/valid-parenthesis-string
+169,Majority Element,66.5%,Easy,61.5, https://leetcode.com/problems/majority-element
+234,Palindrome Linked List,59.0%,Easy,61.5, https://leetcode.com/problems/palindrome-linked-list
+416,Partition Equal Subset Sum,50.1%,Medium,61.5, https://leetcode.com/problems/partition-equal-subset-sum
+75,Sort Colors,70.3%,Medium,61.5, https://leetcode.com/problems/sort-colors
+740,Delete and Earn,57.7%,Medium,61.5, https://leetcode.com/problems/delete-and-earn
+5,Longest Palindromic Substring,38.9%,Medium,61.5, https://leetcode.com/problems/longest-palindromic-substring
+1423,Maximum Points You Can Obtain from Cards,58.6%,Medium,61.5, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards
+35,Search Insert Position,52.5%,Easy,61.5, https://leetcode.com/problems/search-insert-position
+1021,Remove Outermost Parentheses,88.4%,Easy,61.5, https://leetcode.com/problems/remove-outermost-parentheses
+1541,Minimum Insertions to Balance a Parentheses String,62.0%,Medium,61.5, https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string
+4,Median of Two Sorted Arrays,47.9%,Hard,61.5, https://leetcode.com/problems/median-of-two-sorted-arrays
+1163,Last Substring in Lexicographical Order,35.3%,Hard,61.5, https://leetcode.com/problems/last-substring-in-lexicographical-order
+100,Same Tree,68.2%,Easy,61.5, https://leetcode.com/problems/same-tree
+21,Merge Two Sorted Lists,69.0%,Easy,61.5, https://leetcode.com/problems/merge-two-sorted-lists
+2333,Minimum Sum of Squared Difference,42.6%,Medium,61.5, https://leetcode.com/problems/minimum-sum-of-squared-difference
+1193,Monthly Transactions I,60.2%,Medium,61.5, https://leetcode.com/problems/monthly-transactions-i
+3,Longest Substring Without Repeating Characters,40.0%,Medium,61.5, https://leetcode.com/problems/longest-substring-without-repeating-characters
+300,Longest Increasing Subsequence,60.1%,Medium,61.5, https://leetcode.com/problems/longest-increasing-subsequence
+1335,Minimum Difficulty of a Job Schedule,59.8%,Hard,61.5, https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule
+525,Contiguous Array,52.6%,Medium,61.5, https://leetcode.com/problems/contiguous-array
+78,Subsets,82.9%,Medium,61.5, https://leetcode.com/problems/subsets

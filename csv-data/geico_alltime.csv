@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2384,Largest Palindromic Number,37.5%,Medium,100, https://leetcode.com/problems/largest-palindromic-number
+1386,Cinema Seat Allocation,57.0%,Medium,96.7, https://leetcode.com/problems/cinema-seat-allocation
+1404,Number of Steps to Reduce a Number in Binary Representation to One,63.7%,Medium,92.9, https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one
+3119,Maximum Number of Potholes That Can Be Fixed,53.8%,Medium,92.9, https://leetcode.com/problems/maximum-number-of-potholes-that-can-be-fixed
+2086,Minimum Number of Food Buckets to Feed the Hamsters,48.6%,Medium,92.9, https://leetcode.com/problems/minimum-number-of-food-buckets-to-feed-the-hamsters
+2061,Number of Spaces Cleaning Robot Cleaned,64.5%,Medium,88.4, https://leetcode.com/problems/number-of-spaces-cleaning-robot-cleaned
+322,Coin Change,49.3%,Medium,88.4, https://leetcode.com/problems/coin-change
+309,Best Time to Buy and Sell Stock with Cooldown,62.9%,Medium,88.4, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+2850,Minimum Moves to Spread Stones Over Grid,46.3%,Medium,75.8, https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid
+1102,Path With Maximum Minimum Value,54.8%,Medium,75.8, https://leetcode.com/problems/path-with-maximum-minimum-value
+41,First Missing Positive,44.0%,Hard,65.8, https://leetcode.com/problems/first-missing-positive
+122,Best Time to Buy and Sell Stock II,71.8%,Medium,65.8, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+1047,Remove All Adjacent Duplicates In String,74.3%,Easy,65.8, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+56,Merge Intervals,53.0%,Medium,65.8, https://leetcode.com/problems/merge-intervals
+12,Integer to Roman,71.9%,Medium,65.8, https://leetcode.com/problems/integer-to-roman
+1910,Remove All Occurrences of a Substring,78.7%,Medium,65.8, https://leetcode.com/problems/remove-all-occurrences-of-a-substring

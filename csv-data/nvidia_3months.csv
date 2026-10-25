@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+121,Best Time to Buy and Sell Stock,57.5%,Easy,87.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+347,Top K Frequent Elements,67.6%,Medium,87.9, https://leetcode.com/problems/top-k-frequent-elements
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,87.9, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+158,Read N Characters Given read4 II - Call Multiple Times,43.4%,Hard,87.9, https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times
+42,Trapping Rain Water,68.4%,Hard,87.9, https://leetcode.com/problems/trapping-rain-water
+200,Number of Islands,65.3%,Medium,87.9, https://leetcode.com/problems/number-of-islands
+23,Merge k Sorted Lists,60.8%,Hard,87.9, https://leetcode.com/problems/merge-k-sorted-lists
+49,Group Anagrams,73.5%,Medium,87.9, https://leetcode.com/problems/group-anagrams
+394,Decode String,63.4%,Medium,87.9, https://leetcode.com/problems/decode-string

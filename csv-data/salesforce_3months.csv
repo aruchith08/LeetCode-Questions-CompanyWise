@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2571,Minimum Operations to Reduce an Integer to 0,63.6%,Medium,100, https://leetcode.com/problems/minimum-operations-to-reduce-an-integer-to-0
+210,Course Schedule II,56.5%,Medium,89.6, https://leetcode.com/problems/course-schedule-ii
+2551,Put Marbles in Bags,72.0%,Hard,89.6, https://leetcode.com/problems/put-marbles-in-bags
+443,String Compression,61.0%,Medium,82.3, https://leetcode.com/problems/string-compression
+465,Optimal Account Balancing,50.9%,Hard,72, https://leetcode.com/problems/optimal-account-balancing
+2204,Distance to a Cycle in Undirected Graph,73.7%,Hard,72, https://leetcode.com/problems/distance-to-a-cycle-in-undirected-graph
+2718,Sum of Matrix After Queries,32.0%,Medium,72, https://leetcode.com/problems/sum-of-matrix-after-queries
+460,LFU Cache,50.5%,Hard,72, https://leetcode.com/problems/lfu-cache
+207,Course Schedule,52.4%,Medium,72, https://leetcode.com/problems/course-schedule
+113,Path Sum II,63.1%,Medium,72, https://leetcode.com/problems/path-sum-ii
+735,Asteroid Collision,49.4%,Medium,72, https://leetcode.com/problems/asteroid-collision

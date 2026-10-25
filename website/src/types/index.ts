@@ -73,10 +73,12 @@ export interface LeetCodeAccount {
 }
 
 export const PERIOD_LABELS: Record<string, string> = {
+  '30days': 'Last 30 Days',
+  '3months': 'Last 3 Months',
   '6months': 'Last 6 Months',
   '1year': 'Last 1 Year',
   '2year': 'Last 2 Years',
   'alltime': 'All Time',
 };
 
-export const PERIOD_ORDER = ['6months', '1year', '2year', 'alltime'];
+export const PERIOD_ORDER = ['30days', '3months', '6months', '1year', '2year', 'alltime'];

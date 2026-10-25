@@ -2,8 +2,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Search, ArrowRight, ArrowUpRight, Clock, Bookmark,
-  Layers, ChevronRight, X, Sparkles, Building2,
-  ExternalLink, BarChart2, Target
+  ChevronRight, X, ExternalLink, Target
 } from 'lucide-react';
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useProgress } from '../hooks/useProgress';
@@ -56,7 +55,7 @@ export default function HomePage() {
   }, []);
 
   // Data calculations
-  const totalQuestions = data?.totalQuestions || 1446;
+  const totalQuestions = data?.totalQuestions || 3411;
   const rawPct = totalQuestions > 0 ? (totalSolved / totalQuestions) * 100 : 0;
   const progressDisplay = totalSolved === 0
     ? '0%'
@@ -83,9 +82,9 @@ export default function HomePage() {
     }
 
     return {
-      easy: { solved: easySolved, total: data?.difficultyCounts.Easy || 350 },
-      medium: { solved: medSolved, total: data?.difficultyCounts.Medium || 799 },
-      hard: { solved: hardSolved, total: data?.difficultyCounts.Hard || 297 },
+      easy: { solved: easySolved, total: data?.difficultyCounts.Easy || 814 },
+      medium: { solved: medSolved, total: data?.difficultyCounts.Medium || 1817 },
+      hard: { solved: hardSolved, total: data?.difficultyCounts.Hard || 780 },
     };
   }, [allQuestions, data, getStatus]);
 
@@ -212,7 +211,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] max-w-2xl leading-relaxed">
-              Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and frequency rankings.
+              Eliminate interview guesswork. {data?.totalQuestions ? data.totalQuestions.toLocaleString() : '3,411'} verified LeetCode problems indexed across {data?.totalCompanies || '490'} tech companies with recency windows and frequency rankings.
             </p>
           </div>
 
@@ -431,7 +430,7 @@ export default function HomePage() {
               to="/companies"
               className="text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] hover:underline flex items-center gap-1 shrink-0"
             >
-              <span>View all 200</span>
+              <span>View all {data?.totalCompanies || 490}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -672,105 +671,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Curated Problem Categories / Tracks */}
-      <section className="space-y-4 pt-2">
-        <div>
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-            Curated Study Tracks
-          </h2>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Focus your preparation on standard interview domains and frequency tiers.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link
-            to="/companies?category=faang"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-[#1F1E1D] text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-center mb-3">
-                <Building2 className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
-                Big Tech Tier
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Google, Amazon, Meta, Microsoft, Apple, Netflix problem sets.
-              </p>
-            </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-between">
-              <span>Explore companies</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </div>
-          </Link>
-
-          <Link
-            to="/problems?difficulty=Medium"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-[#1F1E1D] text-amber-600 dark:text-[#E0B14F] flex items-center justify-center mb-3">
-                <BarChart2 className="w-4 h-4 text-[#F5A524] dark:text-[#E0B14F]" />
-              </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
-                Medium Core (799)
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                The backbone of L4/L5 interview loops. DP, Trees, Graphs, and Hash Tables.
-              </p>
-            </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-amber-600 dark:text-[#E0B14F] flex items-center justify-between">
-              <span>View Medium problems</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </div>
-          </Link>
-
-          <Link
-            to="/companies?category=startups"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-[#1F1E1D] text-purple-600 dark:text-[#D97757] flex items-center justify-center mb-3">
-                <Sparkles className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
-                High-Growth Startups
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Stripe, DoorDash, Databricks, Robinhood, Coupang question sets.
-              </p>
-            </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-between">
-              <span>Explore startups</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </div>
-          </Link>
-
-          <Link
-            to="/problems?q=Dynamic+Programming"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-[#1F1E1D] text-emerald-600 dark:text-[#8FBF78] flex items-center justify-center mb-3">
-                <Layers className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
-                Dynamic Programming
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                Substrings, grid paths, memoization, and optimal substructure problems.
-              </p>
-            </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-emerald-600 dark:text-[#8FBF78] flex items-center justify-between">
-              <span>Search DP problems</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* About Section: Story of the Website, the Curator (Krishna Dey), and the Builder (Alokam Ruchith) */}
+      {/* About Section: Story of the Website, the Foundation (Krishna Dey), the Expansion (liquidslr), and the Builder (Alokam Ruchith) */}
       <AboutSection />
     </div>
   );

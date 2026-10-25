@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+36,Valid Sudoku,65.3%,Medium,100, https://leetcode.com/problems/valid-sudoku
+37,Sudoku Solver,65.6%,Hard,96.9, https://leetcode.com/problems/sudoku-solver
+981,Time Based Key-Value Store,50.3%,Medium,93.4, https://leetcode.com/problems/time-based-key-value-store
+2604,Minimum Time to Eat All Grains,41.1%,Hard,86.6, https://leetcode.com/problems/minimum-time-to-eat-all-grains
+1797,Design Authentication Manager,58.9%,Medium,83.8, https://leetcode.com/problems/design-authentication-manager
+39,Combination Sum,77.3%,Medium,71.8, https://leetcode.com/problems/combination-sum
+765,Couples Holding Hands,59.9%,Hard,65.7, https://leetcode.com/problems/couples-holding-hands
+2622,Cache With Time Limit,76.4%,Medium,57.1, https://leetcode.com/problems/cache-with-time-limit

@@ -1,23 +1,72 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-811,Subdomain Visit Count,69.9%,Easy,2.447028162023433, https://leetcode.com/problems/subdomain-visit-count
-770,Basic Calculator IV,48.1%,Hard,1.9937403768488644, https://leetcode.com/problems/basic-calculator-iv
-829,Consecutive Numbers Sum,37.5%,Hard,1.5906860988778346, https://leetcode.com/problems/consecutive-numbers-sum
-224,Basic Calculator,36.8%,Hard,1.1373983137032662, https://leetcode.com/problems/basic-calculator
-1163,Last Substring in Lexicographical Order,33.9%,Hard,0.7261919753374027, https://leetcode.com/problems/last-substring-in-lexicographical-order
-1297,Maximum Number of Occurrences of a Substring,47.3%,Medium,0.40882645581086924, https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring
-1328,Break a Palindrome,43.3%,Medium,0.21795507637539235, https://leetcode.com/problems/break-a-palindrome
-1248,Count Number of Nice Subarrays,56.4%,Medium,0.17228309044709728, https://leetcode.com/problems/count-number-of-nice-subarrays
-1290,Convert Binary Number in a Linked List to Integer,80.4%,Easy,0.0913181585347874, https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer
-146,LRU Cache,33.2%,Medium,0.07118067822062889, https://leetcode.com/problems/lru-cache
-212,Word Search II,34.9%,Hard,0.05999879858378973, https://leetcode.com/problems/word-search-ii
-239,Sliding Window Maximum,43.0%,Hard,0.0483746857022364, https://leetcode.com/problems/sliding-window-maximum
-647,Palindromic Substrings,60.6%,Medium,0.040968350772541844, https://leetcode.com/problems/palindromic-substrings
-17,Letter Combinations of a Phone Number,46.8%,Medium,0.03893646375009422, https://leetcode.com/problems/letter-combinations-of-a-phone-number
-37,Sudoku Solver,43.6%,Hard,0.01821543989134118, https://leetcode.com/problems/sudoku-solver
-36,Valid Sudoku,48.7%,Medium,0.01625758350956095, https://leetcode.com/problems/valid-sudoku
-5,Longest Palindromic Substring,29.5%,Medium,0.009086325220960808, https://leetcode.com/problems/longest-palindromic-substring
-200,Number of Islands,46.8%,Medium,0.0028897578265903614, https://leetcode.com/problems/number-of-islands
-1,Two Sum,45.6%,Easy,0.0008206138651873125, https://leetcode.com/problems/two-sum
-1282,Group the People Given the Group Size They Belong To,83.9%,Medium,0, https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to
-1280,Students and Examinations,72.2%,Easy,0, https://leetcode.com/problems/students-and-examinations
-1364,Number of Trusted Contacts of a Customer,75.5%,Medium,0, https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer
+994,Rotting Oranges,59.6%,Medium,100, https://leetcode.com/problems/rotting-oranges
+1434,Number of Ways to Wear Different Hats to Each Other,47.1%,Hard,100, https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other
+3161,Block Placement Queries,41.0%,Hard,97.6, https://leetcode.com/problems/block-placement-queries
+543,Diameter of Binary Tree,66.4%,Easy,92, https://leetcode.com/problems/diameter-of-binary-tree
+767,Reorganize String,57.7%,Medium,88.5, https://leetcode.com/problems/reorganize-string
+71,Simplify Path,51.7%,Medium,84.5, https://leetcode.com/problems/simplify-path
+210,Course Schedule II,56.5%,Medium,82.2, https://leetcode.com/problems/course-schedule-ii
+621,Task Scheduler,64.0%,Medium,80, https://leetcode.com/problems/task-scheduler
+68,Text Justification,52.5%,Hard,80, https://leetcode.com/problems/text-justification
+723,Candy Crush,77.6%,Medium,73.1, https://leetcode.com/problems/candy-crush
+270,Closest Binary Search Tree Value,49.1%,Easy,73.1, https://leetcode.com/problems/closest-binary-search-tree-value
+642,Design Search Autocomplete System,50.1%,Hard,71.2, https://leetcode.com/problems/design-search-autocomplete-system
+48,Rotate Image,80.8%,Medium,67.1, https://leetcode.com/problems/rotate-image
+1552,Magnetic Force Between Two Balls,72.8%,Medium,64.8, https://leetcode.com/problems/magnetic-force-between-two-balls
+3071,Minimum Operations to Write the Letter Y on a Grid,64.1%,Medium,64.8, https://leetcode.com/problems/minimum-operations-to-write-the-letter-y-on-a-grid
+359,Logger Rate Limiter,76.9%,Easy,64.8, https://leetcode.com/problems/logger-rate-limiter
+796,Rotate String,66.6%,Easy,64.1, https://leetcode.com/problems/rotate-string
+3078,Match Alphanumerical Pattern in Matrix I,64.6%,Medium,64.1, https://leetcode.com/problems/match-alphanumerical-pattern-in-matrix-i
+2502,Design Memory Allocator,51.1%,Medium,64.1, https://leetcode.com/problems/design-memory-allocator
+2251,Number of Flowers in Full Bloom,58.1%,Hard,64.1, https://leetcode.com/problems/number-of-flowers-in-full-bloom
+362,Design Hit Counter,69.8%,Medium,63.3, https://leetcode.com/problems/design-hit-counter
+849,Maximize Distance to Closest Person,50.1%,Medium,63.3, https://leetcode.com/problems/maximize-distance-to-closest-person
+20,Valid Parentheses,45.4%,Easy,62.1, https://leetcode.com/problems/valid-parentheses
+2817,Minimum Absolute Difference Between Elements With Constraint,37.6%,Medium,62.1, https://leetcode.com/problems/minimum-absolute-difference-between-elements-with-constraint
+207,Course Schedule,52.4%,Medium,62.1, https://leetcode.com/problems/course-schedule
+2768,Number of Black Blocks,41.0%,Medium,62.1, https://leetcode.com/problems/number-of-black-blocks
+273,Integer to English Words,35.3%,Hard,55.3, https://leetcode.com/problems/integer-to-english-words
+2021,Brightest Position on Street,60.6%,Medium,55.3, https://leetcode.com/problems/brightest-position-on-street
+992,Subarrays with K Different Integers,69.2%,Hard,55.3, https://leetcode.com/problems/subarrays-with-k-different-integers
+2672,Number of Adjacent Elements With the Same Color,60.1%,Medium,55.3, https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color
+1861,Rotating the Box,82.5%,Medium,55.3, https://leetcode.com/problems/rotating-the-box
+933,Number of Recent Calls,79.2%,Easy,55.3, https://leetcode.com/problems/number-of-recent-calls
+208,Implement Trie (Prefix Tree),70.2%,Medium,50.9, https://leetcode.com/problems/implement-trie-prefix-tree
+3043,Find the Length of the Longest Common Prefix,62.3%,Medium,50.9, https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix
+42,Trapping Rain Water,68.4%,Hard,50.9, https://leetcode.com/problems/trapping-rain-water
+56,Merge Intervals,53.0%,Medium,45.1, https://leetcode.com/problems/merge-intervals
+2537,Count the Number of Good Subarrays,65.8%,Medium,45.1, https://leetcode.com/problems/count-the-number-of-good-subarrays
+3459,Length of Longest V-Shaped Diagonal Segment,55.9%,Hard,45.1, https://leetcode.com/problems/length-of-longest-v-shaped-diagonal-segment
+14,Longest Common Prefix,48.6%,Easy,37.1, https://leetcode.com/problems/longest-common-prefix
+1419,Minimum Number of Frogs Croaking,51.4%,Medium,37.1, https://leetcode.com/problems/minimum-number-of-frogs-croaking
+54,Spiral Matrix,58.2%,Medium,37.1, https://leetcode.com/problems/spiral-matrix
+3,Longest Substring Without Repeating Characters,40.0%,Medium,37.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+661,Image Smoother,70.0%,Easy,37.1, https://leetcode.com/problems/image-smoother
+1743,Restore the Array From Adjacent Pairs,75.2%,Medium,37.1, https://leetcode.com/problems/restore-the-array-from-adjacent-pairs
+1814,Count Nice Pairs in an Array,48.4%,Medium,37.1, https://leetcode.com/problems/count-nice-pairs-in-an-array
+380,Insert Delete GetRandom O(1),55.6%,Medium,37.1, https://leetcode.com/problems/insert-delete-getrandom-o1
+528,Random Pick with Weight,49.3%,Medium,37.1, https://leetcode.com/problems/random-pick-with-weight
+435,Non-overlapping Intervals,57.9%,Medium,37.1, https://leetcode.com/problems/non-overlapping-intervals
+1878,Get Biggest Three Rhombus Sums in a Grid,71.3%,Medium,37.1, https://leetcode.com/problems/get-biggest-three-rhombus-sums-in-a-grid
+811,Subdomain Visit Count,77.3%,Medium,2.447028162023433, https://leetcode.com/problems/subdomain-visit-count
+770,Basic Calculator IV,49.9%,Hard,1.9937403768488644, https://leetcode.com/problems/basic-calculator-iv
+829,Consecutive Numbers Sum,43.1%,Hard,1.5906860988778346, https://leetcode.com/problems/consecutive-numbers-sum
+224,Basic Calculator,47.3%,Hard,1.1373983137032662, https://leetcode.com/problems/basic-calculator
+1163,Last Substring in Lexicographical Order,35.3%,Hard,0.7261919753374027, https://leetcode.com/problems/last-substring-in-lexicographical-order
+1297,Maximum Number of Occurrences of a Substring,55.1%,Medium,0.40882645581086924, https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring
+1328,Break a Palindrome,51.6%,Medium,0.21795507637539235, https://leetcode.com/problems/break-a-palindrome
+1248,Count Number of Nice Subarrays,75.8%,Medium,0.17228309044709728, https://leetcode.com/problems/count-number-of-nice-subarrays
+1290,Convert Binary Number in a Linked List to Integer,82.5%,Easy,0.0913181585347874, https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer
+146,LRU Cache,48.3%,Medium,0.07118067822062889, https://leetcode.com/problems/lru-cache
+212,Word Search II,39.1%,Hard,0.05999879858378973, https://leetcode.com/problems/word-search-ii
+239,Sliding Window Maximum,49.4%,Hard,0.0483746857022364, https://leetcode.com/problems/sliding-window-maximum
+647,Palindromic Substrings,73.3%,Medium,0.040968350772541844, https://leetcode.com/problems/palindromic-substrings
+17,Letter Combinations of a Phone Number,67.1%,Medium,0.03893646375009422, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+37,Sudoku Solver,65.6%,Hard,0.01821543989134118, https://leetcode.com/problems/sudoku-solver
+36,Valid Sudoku,65.3%,Medium,0.01625758350956095, https://leetcode.com/problems/valid-sudoku
+5,Longest Palindromic Substring,38.9%,Medium,0.009086325220960808, https://leetcode.com/problems/longest-palindromic-substring
+200,Number of Islands,65.3%,Medium,0.0028897578265903614, https://leetcode.com/problems/number-of-islands
+1,Two Sum,58.1%,Easy,0.0008206138651873125, https://leetcode.com/problems/two-sum
+1282,Group the People Given the Group Size They Belong To,87.6%,Medium,0, https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to
+1280,Students and Examinations,62.3%,Easy,0, https://leetcode.com/problems/students-and-examinations
+1364,Number of Trusted Contacts of a Customer,74.6%,Medium,0, https://leetcode.com/problems/number-of-trusted-contacts-of-a-customer

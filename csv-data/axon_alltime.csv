@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+380,Insert Delete GetRandom O(1),55.6%,Medium,100, https://leetcode.com/problems/insert-delete-getrandom-o1
+981,Time Based Key-Value Store,50.3%,Medium,100, https://leetcode.com/problems/time-based-key-value-store
+1396,Design Underground System,74.8%,Medium,93.2, https://leetcode.com/problems/design-underground-system
+636,Exclusive Time of Functions,66.3%,Medium,90.2, https://leetcode.com/problems/exclusive-time-of-functions
+97,Interleaving String,45.0%,Medium,78.4, https://leetcode.com/problems/interleaving-string
+125,Valid Palindrome,54.6%,Easy,64.8, https://leetcode.com/problems/valid-palindrome
+72,Edit Distance,61.5%,Medium,59.1, https://leetcode.com/problems/edit-distance
+973,K Closest Points to Origin,69.5%,Medium,51.2, https://leetcode.com/problems/k-closest-points-to-origin

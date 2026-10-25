@@ -1,2 +1,6 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-160,Intersection of Two Linked Lists,40.6%,Easy,0.01052764431315656, https://leetcode.com/problems/intersection-of-two-linked-lists
+25,Reverse Nodes in k-Group,67.5%,Hard,100, https://leetcode.com/problems/reverse-nodes-in-k-group
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+344,Reverse String,81.5%,Easy,100, https://leetcode.com/problems/reverse-string
+160,Intersection of Two Linked Lists,64.9%,Easy,0.01052764431315656, https://leetcode.com/problems/intersection-of-two-linked-lists

@@ -1,3 +1,14 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1036,Escape a Large Maze,35.4%,Hard,0, https://leetcode.com/problems/escape-a-large-maze
-1162,As Far from Land as Possible,43.5%,Medium,0, https://leetcode.com/problems/as-far-from-land-as-possible
+155,Min Stack,58.8%,Medium,100, https://leetcode.com/problems/min-stack
+2826,Sorting Three Groups,43.7%,Medium,97.2, https://leetcode.com/problems/sorting-three-groups
+12,Integer to Roman,71.9%,Medium,74, https://leetcode.com/problems/integer-to-roman
+827,Making A Large Island,57.3%,Hard,64.4, https://leetcode.com/problems/making-a-large-island
+990,Satisfiability of Equality Equations,52.3%,Medium,64.4, https://leetcode.com/problems/satisfiability-of-equality-equations
+424,Longest Repeating Character Replacement,60.9%,Medium,64.4, https://leetcode.com/problems/longest-repeating-character-replacement
+2603,Collect Coins in a Tree,40.2%,Hard,64.4, https://leetcode.com/problems/collect-coins-in-a-tree
+312,Burst Balloons,64.6%,Hard,64.4, https://leetcode.com/problems/burst-balloons
+90,Subsets II,62.1%,Medium,64.4, https://leetcode.com/problems/subsets-ii
+354,Russian Doll Envelopes,38.3%,Hard,64.4, https://leetcode.com/problems/russian-doll-envelopes
+968,Binary Tree Cameras,48.3%,Hard,64.4, https://leetcode.com/problems/binary-tree-cameras
+1036,Escape a Large Maze,37.3%,Hard,0, https://leetcode.com/problems/escape-a-large-maze
+1162,As Far from Land as Possible,52.6%,Medium,0, https://leetcode.com/problems/as-far-from-land-as-possible

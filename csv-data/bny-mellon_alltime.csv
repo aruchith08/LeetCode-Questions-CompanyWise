@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+741,Cherry Pickup,40.8%,Hard,100, https://leetcode.com/problems/cherry-pickup
+1465,Maximum Area of a Piece of Cake After Horizontal and Vertical Cuts,41.6%,Medium,100, https://leetcode.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts
+2876,Count Visited Nodes in a Directed Graph,31.4%,Hard,100, https://leetcode.com/problems/count-visited-nodes-in-a-directed-graph
+2615,Sum of Distances,50.1%,Medium,100, https://leetcode.com/problems/sum-of-distances
+3012,Minimize Length of Array Using Operations,36.2%,Medium,100, https://leetcode.com/problems/minimize-length-of-array-using-operations
+3948,Lexicographically Maximum MEX Array,53.8%,Hard,88.1, https://leetcode.com/problems/lexicographically-maximum-mex-array
+924,Minimize Malware Spread,43.6%,Hard,87.9, https://leetcode.com/problems/minimize-malware-spread
+460,LFU Cache,50.5%,Hard,78.6, https://leetcode.com/problems/lfu-cache
+3177,Find the Maximum Length of a Good Subsequence II,25.5%,Hard,78.6, https://leetcode.com/problems/find-the-maximum-length-of-a-good-subsequence-ii
+56,Merge Intervals,53.0%,Medium,78.1, https://leetcode.com/problems/merge-intervals
+853,Car Fleet,55.8%,Medium,74.9, https://leetcode.com/problems/car-fleet
+898,Bitwise ORs of Subarrays,57.1%,Medium,74.9, https://leetcode.com/problems/bitwise-ors-of-subarrays
+2044,Count Number of Maximum Bitwise-OR Subsets,89.4%,Medium,64.5, https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets
+121,Best Time to Buy and Sell Stock,57.5%,Easy,64.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+215,Kth Largest Element in an Array,69.4%,Medium,64.5, https://leetcode.com/problems/kth-largest-element-in-an-array
+647,Palindromic Substrings,73.3%,Medium,64.5, https://leetcode.com/problems/palindromic-substrings
+3,Longest Substring Without Repeating Characters,40.0%,Medium,64.5, https://leetcode.com/problems/longest-substring-without-repeating-characters
+3878,Count Good Subarrays,26.2%,Hard,64.5, https://leetcode.com/problems/count-good-subarrays

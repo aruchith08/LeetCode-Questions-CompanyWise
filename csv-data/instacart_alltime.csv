@@ -1,0 +1,10 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+977,Squares of a Sorted Array,74.2%,Easy,100, https://leetcode.com/problems/squares-of-a-sorted-array
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,100, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+1701,Average Waiting Time,73.2%,Medium,92.2, https://leetcode.com/problems/average-waiting-time
+2133,Check if Every Row and Column Contains All Numbers,54.5%,Easy,89.7, https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers
+981,Time Based Key-Value Store,50.3%,Medium,74.9, https://leetcode.com/problems/time-based-key-value-store
+3043,Find the Length of the Longest Common Prefix,62.3%,Medium,74.9, https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix
+44,Wildcard Matching,33.1%,Hard,68.8, https://leetcode.com/problems/wildcard-matching
+2043,Simple Bank System,69.4%,Medium,68.8, https://leetcode.com/problems/simple-bank-system
+49,Group Anagrams,73.5%,Medium,68.8, https://leetcode.com/problems/group-anagrams

@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1648,Sell Diminishing-Valued Colored Balls,30.5%,Medium,100, https://leetcode.com/problems/sell-diminishing-valued-colored-balls
+2948,Make Lexicographically Smallest Array by Swapping Elements,66.5%,Medium,96, https://leetcode.com/problems/make-lexicographically-smallest-array-by-swapping-elements
+42,Trapping Rain Water,68.4%,Hard,91.2, https://leetcode.com/problems/trapping-rain-water
+516,Longest Palindromic Subsequence,66.0%,Medium,77.9, https://leetcode.com/problems/longest-palindromic-subsequence
+790,Domino and Tromino Tiling,51.2%,Medium,77.9, https://leetcode.com/problems/domino-and-tromino-tiling
+1202,Smallest String With Swaps,61.2%,Medium,77.9, https://leetcode.com/problems/smallest-string-with-swaps
+647,Palindromic Substrings,73.3%,Medium,77.9, https://leetcode.com/problems/palindromic-substrings
+64,Minimum Path Sum,69.0%,Medium,67.3, https://leetcode.com/problems/minimum-path-sum
+2791,Count Paths That Can Form a Palindrome in a Tree,52.5%,Hard,67.3, https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree
+74,Search a 2D Matrix,54.3%,Medium,67.3, https://leetcode.com/problems/search-a-2d-matrix
+124,Binary Tree Maximum Path Sum,42.9%,Hard,67.3, https://leetcode.com/problems/binary-tree-maximum-path-sum
+994,Rotting Oranges,59.6%,Medium,67.3, https://leetcode.com/problems/rotting-oranges
+387,First Unique Character in a String,66.6%,Easy,67.3, https://leetcode.com/problems/first-unique-character-in-a-string
+5,Longest Palindromic Substring,38.9%,Medium,67.3, https://leetcode.com/problems/longest-palindromic-substring
+460,LFU Cache,50.5%,Hard,67.3, https://leetcode.com/problems/lfu-cache
+4,Median of Two Sorted Arrays,47.9%,Hard,67.3, https://leetcode.com/problems/median-of-two-sorted-arrays
+11,Container With Most Water,61.1%,Medium,67.3, https://leetcode.com/problems/container-with-most-water
+1086,High Five,74.2%,Easy,67.3, https://leetcode.com/problems/high-five

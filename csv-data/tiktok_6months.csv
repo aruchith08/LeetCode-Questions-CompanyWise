@@ -1,0 +1,37 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+200,Number of Islands,65.3%,Medium,94.7, https://leetcode.com/problems/number-of-islands
+253,Meeting Rooms II,52.8%,Medium,78.4, https://leetcode.com/problems/meeting-rooms-ii
+394,Decode String,63.4%,Medium,74.1, https://leetcode.com/problems/decode-string
+432,All O`one Data Structure,44.7%,Hard,74.1, https://leetcode.com/problems/all-oone-data-structure
+827,Making A Large Island,57.3%,Hard,74.1, https://leetcode.com/problems/making-a-large-island
+56,Merge Intervals,53.0%,Medium,68.9, https://leetcode.com/problems/merge-intervals
+207,Course Schedule,52.4%,Medium,68.9, https://leetcode.com/problems/course-schedule
+787,Cheapest Flights Within K Stops,42.7%,Medium,68.9, https://leetcode.com/problems/cheapest-flights-within-k-stops
+694,Number of Distinct Islands,63.0%,Medium,68.9, https://leetcode.com/problems/number-of-distinct-islands
+25,Reverse Nodes in k-Group,67.5%,Hard,68.9, https://leetcode.com/problems/reverse-nodes-in-k-group
+3161,Block Placement Queries,41.0%,Hard,68.9, https://leetcode.com/problems/block-placement-queries
+54,Spiral Matrix,58.2%,Medium,62.1, https://leetcode.com/problems/spiral-matrix
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,62.1, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+437,Path Sum III,46.7%,Medium,62.1, https://leetcode.com/problems/path-sum-iii
+295,Find Median from Data Stream,55.1%,Hard,62.1, https://leetcode.com/problems/find-median-from-data-stream
+1,Two Sum,58.1%,Easy,62.1, https://leetcode.com/problems/two-sum
+845,Longest Mountain in Array,42.6%,Medium,52.7, https://leetcode.com/problems/longest-mountain-in-array
+189,Rotate Array,45.7%,Medium,52.7, https://leetcode.com/problems/rotate-array
+886,Possible Bipartition,53.2%,Medium,52.7, https://leetcode.com/problems/possible-bipartition
+428,Serialize and Deserialize N-ary Tree,69.0%,Hard,52.7, https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree
+134,Gas Station,48.9%,Medium,52.7, https://leetcode.com/problems/gas-station
+1248,Count Number of Nice Subarrays,75.8%,Medium,52.7, https://leetcode.com/problems/count-number-of-nice-subarrays
+1043,Partition Array for Maximum Sum,77.6%,Medium,52.7, https://leetcode.com/problems/partition-array-for-maximum-sum
+974,Subarray Sums Divisible by K,56.9%,Medium,52.7, https://leetcode.com/problems/subarray-sums-divisible-by-k
+33,Search in Rotated Sorted Array,45.8%,Medium,52.7, https://leetcode.com/problems/search-in-rotated-sorted-array
+340,Longest Substring with At Most K Distinct Characters,50.2%,Medium,52.7, https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+206,Reverse Linked List,81.2%,Easy,52.7, https://leetcode.com/problems/reverse-linked-list
+1834,Single-Threaded CPU,48.3%,Medium,52.7, https://leetcode.com/problems/single-threaded-cpu
+227,Basic Calculator II,47.3%,Medium,52.7, https://leetcode.com/problems/basic-calculator-ii
+199,Binary Tree Right Side View,71.5%,Medium,52.7, https://leetcode.com/problems/binary-tree-right-side-view
+209,Minimum Size Subarray Sum,53.2%,Medium,52.7, https://leetcode.com/problems/minimum-size-subarray-sum
+124,Binary Tree Maximum Path Sum,42.9%,Hard,52.7, https://leetcode.com/problems/binary-tree-maximum-path-sum
+316,Remove Duplicate Letters,54.7%,Medium,52.7, https://leetcode.com/problems/remove-duplicate-letters
+160,Intersection of Two Linked Lists,64.9%,Easy,52.7, https://leetcode.com/problems/intersection-of-two-linked-lists
+863,All Nodes Distance K in Binary Tree,68.2%,Medium,52.7, https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree

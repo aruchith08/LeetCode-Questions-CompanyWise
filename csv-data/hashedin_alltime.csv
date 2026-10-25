@@ -1,0 +1,29 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+49,Group Anagrams,73.5%,Medium,100, https://leetcode.com/problems/group-anagrams
+3143,Maximum Points Inside the Square,39.9%,Medium,100, https://leetcode.com/problems/maximum-points-inside-the-square
+992,Subarrays with K Different Integers,69.2%,Hard,89.6, https://leetcode.com/problems/subarrays-with-k-different-integers
+55,Jump Game,41.7%,Medium,79.3, https://leetcode.com/problems/jump-game
+3,Longest Substring Without Repeating Characters,40.0%,Medium,79.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+42,Trapping Rain Water,68.4%,Hard,72, https://leetcode.com/problems/trapping-rain-water
+45,Jump Game II,43.7%,Medium,72, https://leetcode.com/problems/jump-game-ii
+2594,Minimum Time to Repair Cars,59.2%,Medium,72, https://leetcode.com/problems/minimum-time-to-repair-cars
+5,Longest Palindromic Substring,38.9%,Medium,72, https://leetcode.com/problems/longest-palindromic-substring
+974,Subarray Sums Divisible by K,56.9%,Medium,72, https://leetcode.com/problems/subarray-sums-divisible-by-k
+2448,Minimum Cost to Make Array Equal,47.0%,Hard,61.7, https://leetcode.com/problems/minimum-cost-to-make-array-equal
+31,Next Permutation,46.4%,Medium,61.7, https://leetcode.com/problems/next-permutation
+810,Chalkboard XOR Game,67.4%,Hard,61.7, https://leetcode.com/problems/chalkboard-xor-game
+526,Beautiful Arrangement,65.0%,Medium,61.7, https://leetcode.com/problems/beautiful-arrangement
+200,Number of Islands,65.3%,Medium,61.7, https://leetcode.com/problems/number-of-islands
+152,Maximum Product Subarray,37.2%,Medium,61.7, https://leetcode.com/problems/maximum-product-subarray
+72,Edit Distance,61.5%,Medium,61.7, https://leetcode.com/problems/edit-distance
+11,Container With Most Water,61.1%,Medium,61.7, https://leetcode.com/problems/container-with-most-water
+875,Koko Eating Bananas,50.7%,Medium,61.7, https://leetcode.com/problems/koko-eating-bananas
+14,Longest Common Prefix,48.6%,Easy,61.7, https://leetcode.com/problems/longest-common-prefix
+188,Best Time to Buy and Sell Stock IV,51.6%,Hard,61.7, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+394,Decode String,63.4%,Medium,61.7, https://leetcode.com/problems/decode-string
+1,Two Sum,58.1%,Easy,61.7, https://leetcode.com/problems/two-sum
+1505,Minimum Possible Integer After at Most K Adjacent Swaps On Digits,42.2%,Hard,61.7, https://leetcode.com/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits
+93,Restore IP Addresses,57.4%,Medium,61.7, https://leetcode.com/problems/restore-ip-addresses
+1345,Jump Game IV,51.1%,Hard,61.7, https://leetcode.com/problems/jump-game-iv
+75,Sort Colors,70.3%,Medium,61.7, https://leetcode.com/problems/sort-colors
+322,Coin Change,49.3%,Medium,61.7, https://leetcode.com/problems/coin-change

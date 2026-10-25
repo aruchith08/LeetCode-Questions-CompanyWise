@@ -221,7 +221,7 @@ export default function ProblemsPage() {
             Problems
           </h1>
           <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1">
-            {totalQuestionsCount.toLocaleString()} problems across {index?.totalCompanies || 200} companies
+            {totalQuestionsCount.toLocaleString()} problems across {index?.totalCompanies || 490} companies
           </p>
         </div>
 

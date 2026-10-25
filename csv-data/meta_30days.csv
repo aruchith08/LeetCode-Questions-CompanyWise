@@ -1,0 +1,28 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+4,Median of Two Sorted Arrays,47.9%,Hard,100, https://leetcode.com/problems/median-of-two-sorted-arrays
+15,3Sum,40.1%,Medium,100, https://leetcode.com/problems/3sum
+1,Two Sum,58.1%,Easy,93.2, https://leetcode.com/problems/two-sum
+20,Valid Parentheses,45.4%,Easy,93.2, https://leetcode.com/problems/valid-parentheses
+26,Remove Duplicates from Sorted Array,64.0%,Easy,93.2, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+121,Best Time to Buy and Sell Stock,57.5%,Easy,84.4, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+21,Merge Two Sorted Lists,69.0%,Easy,84.4, https://leetcode.com/problems/merge-two-sorted-lists
+344,Reverse String,81.5%,Easy,84.4, https://leetcode.com/problems/reverse-string
+9,Palindrome Number,61.1%,Easy,84.4, https://leetcode.com/problems/palindrome-number
+2,Add Two Numbers,49.6%,Medium,84.4, https://leetcode.com/problems/add-two-numbers
+1541,Minimum Insertions to Balance a Parentheses String,62.0%,Medium,84.4, https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string
+136,Single Number,78.4%,Easy,72.1, https://leetcode.com/problems/single-number
+125,Valid Palindrome,54.6%,Easy,72.1, https://leetcode.com/problems/valid-palindrome
+175,Combine Two Tables,80.1%,Easy,72.1, https://leetcode.com/problems/combine-two-tables
+88,Merge Sorted Array,55.9%,Easy,72.1, https://leetcode.com/problems/merge-sorted-array
+543,Diameter of Binary Tree,66.4%,Easy,72.1, https://leetcode.com/problems/diameter-of-binary-tree
+862,Shortest Subarray with Sum at Least K,33.3%,Hard,72.1, https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k
+921,Minimum Add to Make Parentheses Valid,74.4%,Medium,72.1, https://leetcode.com/problems/minimum-add-to-make-parentheses-valid
+144,Binary Tree Preorder Traversal,76.9%,Easy,72.1, https://leetcode.com/problems/binary-tree-preorder-traversal
+301,Remove Invalid Parentheses,52.6%,Hard,72.1, https://leetcode.com/problems/remove-invalid-parentheses
+180,Consecutive Numbers,49.8%,Medium,72.1, https://leetcode.com/problems/consecutive-numbers
+904,Fruit Into Baskets,52.8%,Medium,72.1, https://leetcode.com/problems/fruit-into-baskets
+78,Subsets,82.9%,Medium,72.1, https://leetcode.com/problems/subsets
+55,Jump Game,41.7%,Medium,72.1, https://leetcode.com/problems/jump-game
+205,Isomorphic Strings,49.3%,Easy,72.1, https://leetcode.com/problems/isomorphic-strings
+67,Add Binary,58.8%,Easy,72.1, https://leetcode.com/problems/add-binary
+54,Spiral Matrix,58.2%,Medium,72.1, https://leetcode.com/problems/spiral-matrix

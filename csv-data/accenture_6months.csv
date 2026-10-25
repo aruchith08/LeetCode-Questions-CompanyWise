@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+180,Consecutive Numbers,49.8%,Medium,100, https://leetcode.com/problems/consecutive-numbers
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+560,Subarray Sum Equals K,48.4%,Medium,91.4, https://leetcode.com/problems/subarray-sum-equals-k
+169,Majority Element,66.5%,Easy,91.4, https://leetcode.com/problems/majority-element
+176,Second Highest Salary,48.8%,Medium,91.4, https://leetcode.com/problems/second-highest-salary
+84,Largest Rectangle in Histogram,51.1%,Hard,79.3, https://leetcode.com/problems/largest-rectangle-in-histogram
+9,Palindrome Number,61.1%,Easy,79.3, https://leetcode.com/problems/palindrome-number
+15,3Sum,40.1%,Medium,79.3, https://leetcode.com/problems/3sum
+3,Longest Substring Without Repeating Characters,40.0%,Medium,79.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+1280,Students and Examinations,62.3%,Easy,79.3, https://leetcode.com/problems/students-and-examinations
+11,Container With Most Water,61.1%,Medium,79.3, https://leetcode.com/problems/container-with-most-water
+205,Isomorphic Strings,49.3%,Easy,79.3, https://leetcode.com/problems/isomorphic-strings
+31,Next Permutation,46.4%,Medium,79.3, https://leetcode.com/problems/next-permutation
+146,LRU Cache,48.3%,Medium,79.3, https://leetcode.com/problems/lru-cache

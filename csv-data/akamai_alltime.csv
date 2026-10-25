@@ -1,2 +1,16 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-961,N-Repeated Element in Size 2N Array,73.7%,Easy,0, https://leetcode.com/problems/n-repeated-element-in-size-2n-array
+121,Best Time to Buy and Sell Stock,57.5%,Easy,94, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+525,Contiguous Array,52.6%,Medium,85.9, https://leetcode.com/problems/contiguous-array
+2235,Add Two Integers,88.0%,Easy,73.7, https://leetcode.com/problems/add-two-integers
+1,Two Sum,58.1%,Easy,64.1, https://leetcode.com/problems/two-sum
+387,First Unique Character in a String,66.6%,Easy,64.1, https://leetcode.com/problems/first-unique-character-in-a-string
+62,Unique Paths,67.4%,Medium,64.1, https://leetcode.com/problems/unique-paths
+54,Spiral Matrix,58.2%,Medium,64.1, https://leetcode.com/problems/spiral-matrix
+3,Longest Substring Without Repeating Characters,40.0%,Medium,64.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+647,Palindromic Substrings,73.3%,Medium,64.1, https://leetcode.com/problems/palindromic-substrings
+162,Find Peak Element,47.3%,Medium,64.1, https://leetcode.com/problems/find-peak-element
+207,Course Schedule,52.4%,Medium,64.1, https://leetcode.com/problems/course-schedule
+1200,Minimum Absolute Difference,75.2%,Easy,64.1, https://leetcode.com/problems/minimum-absolute-difference
+1652,Defuse the Bomb,79.6%,Easy,64.1, https://leetcode.com/problems/defuse-the-bomb
+409,Longest Palindrome,56.3%,Easy,64.1, https://leetcode.com/problems/longest-palindrome
+961,N-Repeated Element in Size 2N Array,80.0%,Easy,0, https://leetcode.com/problems/n-repeated-element-in-size-2n-array

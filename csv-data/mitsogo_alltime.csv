@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3128,Right Triangles,48.9%,Medium,100, https://leetcode.com/problems/right-triangles
+3131,Find the Integer Added to Array I,82.9%,Easy,97.2, https://leetcode.com/problems/find-the-integer-added-to-array-i
+3132,Find the Integer Added to Array II,33.3%,Medium,97.2, https://leetcode.com/problems/find-the-integer-added-to-array-ii
+3144,Minimum Substring Partition of Equal Character Frequency,40.6%,Medium,97.2, https://leetcode.com/problems/minimum-substring-partition-of-equal-character-frequency
+3213,Construct String with Minimum Cost,18.9%,Hard,97.2, https://leetcode.com/problems/construct-string-with-minimum-cost
+3180,Maximum Total Reward Using Operations I,31.2%,Medium,97.2, https://leetcode.com/problems/maximum-total-reward-using-operations-i
+3181,Maximum Total Reward Using Operations II,22.1%,Hard,97.2, https://leetcode.com/problems/maximum-total-reward-using-operations-ii
+3097,Shortest Subarray With OR at Least K II,50.1%,Medium,97.2, https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-ii
+3095,Shortest Subarray With OR at Least K I,45.0%,Easy,97.2, https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-i
+3837,Delayed Count of Equal Elements,74.6%,Medium,97.2, https://leetcode.com/problems/delayed-count-of-equal-elements

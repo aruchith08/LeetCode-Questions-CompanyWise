@@ -1,0 +1,31 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+4,Median of Two Sorted Arrays,47.9%,Hard,100, https://leetcode.com/problems/median-of-two-sorted-arrays
+3067,Count Pairs of Connectable Servers in a Weighted Tree Network,56.0%,Medium,94.6, https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network
+1614,Maximum Nesting Depth of the Parentheses,86.1%,Easy,87.6, https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses
+2434,Using a Robot to Print the Lexicographically Smallest String,62.2%,Medium,77.8, https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string
+1839,Longest Substring Of All Vowels in Order,52.6%,Medium,77.8, https://leetcode.com/problems/longest-substring-of-all-vowels-in-order
+3484,Design Spreadsheet,73.3%,Medium,76.8, https://leetcode.com/problems/design-spreadsheet
+526,Beautiful Arrangement,65.0%,Medium,75.7, https://leetcode.com/problems/beautiful-arrangement
+23,Merge k Sorted Lists,60.8%,Hard,74.8, https://leetcode.com/problems/merge-k-sorted-lists
+631,Design Excel Sum Formula,39.3%,Hard,66.9, https://leetcode.com/problems/design-excel-sum-formula
+3829,Design Ride Sharing System,62.8%,Medium,66.7, https://leetcode.com/problems/design-ride-sharing-system
+200,Number of Islands,65.3%,Medium,66.7, https://leetcode.com/problems/number-of-islands
+21,Merge Two Sorted Lists,69.0%,Easy,63.4, https://leetcode.com/problems/merge-two-sorted-lists
+399,Evaluate Division,64.7%,Medium,59, https://leetcode.com/problems/evaluate-division
+1944,Number of Visible People in a Queue,73.8%,Hard,59, https://leetcode.com/problems/number-of-visible-people-in-a-queue
+3387,Maximize Amount After Two Days of Conversions,60.9%,Medium,59, https://leetcode.com/problems/maximize-amount-after-two-days-of-conversions
+2939,Maximum Xor Product,30.7%,Medium,53.5, https://leetcode.com/problems/maximum-xor-product
+347,Top K Frequent Elements,67.6%,Medium,53.5, https://leetcode.com/problems/top-k-frequent-elements
+56,Merge Intervals,53.0%,Medium,53.5, https://leetcode.com/problems/merge-intervals
+1258,Synonymous Sentences,57.6%,Medium,45.6, https://leetcode.com/problems/synonymous-sentences
+721,Accounts Merge,62.2%,Medium,45.6, https://leetcode.com/problems/accounts-merge
+460,LFU Cache,50.5%,Hard,45.6, https://leetcode.com/problems/lfu-cache
+1396,Design Underground System,74.8%,Medium,45.6, https://leetcode.com/problems/design-underground-system
+737,Sentence Similarity II,51.4%,Medium,45.6, https://leetcode.com/problems/sentence-similarity-ii
+692,Top K Frequent Words,60.8%,Medium,45.6, https://leetcode.com/problems/top-k-frequent-words
+146,LRU Cache,48.3%,Medium,45.6, https://leetcode.com/problems/lru-cache
+2296,Design a Text Editor,52.3%,Hard,45.6, https://leetcode.com/problems/design-a-text-editor
+3,Longest Substring Without Repeating Characters,40.0%,Medium,45.6, https://leetcode.com/problems/longest-substring-without-repeating-characters
+295,Find Median from Data Stream,55.1%,Hard,45.6, https://leetcode.com/problems/find-median-from-data-stream
+2958,Length of Longest Subarray With at Most K Frequency,60.5%,Medium,45.6, https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency
+981,Time Based Key-Value Store,50.3%,Medium,45.6, https://leetcode.com/problems/time-based-key-value-store

@@ -1,0 +1,15 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+323,Number of Connected Components in an Undirected Graph,65.2%,Medium,100, https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph
+4009,Minimum Possible Maximum Waiting Time,29.9%,Hard,78.8, https://leetcode.com/problems/minimum-possible-maximum-waiting-time
+1404,Number of Steps to Reduce a Number in Binary Representation to One,63.7%,Medium,69.7, https://leetcode.com/problems/number-of-steps-to-reduce-a-number-in-binary-representation-to-one
+208,Implement Trie (Prefix Tree),70.2%,Medium,65.4, https://leetcode.com/problems/implement-trie-prefix-tree
+146,LRU Cache,48.3%,Medium,59.9, https://leetcode.com/problems/lru-cache
+64,Minimum Path Sum,69.0%,Medium,59.9, https://leetcode.com/problems/minimum-path-sum
+1570,Dot Product of Two Sparse Vectors,89.9%,Medium,59.9, https://leetcode.com/problems/dot-product-of-two-sparse-vectors
+689,Maximum Sum of 3 Non-Overlapping Subarrays,60.1%,Hard,59.9, https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+41,First Missing Positive,44.0%,Hard,52.1, https://leetcode.com/problems/first-missing-positive
+297,Serialize and Deserialize Binary Tree,61.3%,Hard,52.1, https://leetcode.com/problems/serialize-and-deserialize-binary-tree
+843,Guess the Word,36.5%,Hard,52.1, https://leetcode.com/problems/guess-the-word
+1647,Minimum Deletions to Make Character Frequencies Unique,61.6%,Medium,52.1, https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique
+200,Number of Islands,65.3%,Medium,52.1, https://leetcode.com/problems/number-of-islands

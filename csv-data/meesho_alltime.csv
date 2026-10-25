@@ -1,0 +1,37 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+45,Jump Game II,43.7%,Medium,100, https://leetcode.com/problems/jump-game-ii
+713,Subarray Product Less Than K,54.9%,Medium,100, https://leetcode.com/problems/subarray-product-less-than-k
+122,Best Time to Buy and Sell Stock II,71.8%,Medium,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+3514,Number of Unique XOR Triplets II,52.7%,Medium,100, https://leetcode.com/problems/number-of-unique-xor-triplets-ii
+3513,Number of Unique XOR Triplets I,57.6%,Medium,97.6, https://leetcode.com/problems/number-of-unique-xor-triplets-i
+2930,Number of Strings Which Can Be Rearranged to Contain Substring,57.2%,Medium,92, https://leetcode.com/problems/number-of-strings-which-can-be-rearranged-to-contain-substring
+2959,Number of Possible Sets of Closing Branches,51.3%,Hard,92, https://leetcode.com/problems/number-of-possible-sets-of-closing-branches
+2953,Count Complete Substrings,31.2%,Hard,92, https://leetcode.com/problems/count-complete-substrings
+3709,Design Exam Scores Tracker,44.1%,Medium,92, https://leetcode.com/problems/design-exam-scores-tracker
+3715,Sum of Perfect Square Ancestors,41.6%,Hard,92, https://leetcode.com/problems/sum-of-perfect-square-ancestors
+197,Rising Temperature,52.5%,Easy,84.7, https://leetcode.com/problems/rising-temperature
+2444,Count Subarrays With Fixed Bounds,69.2%,Hard,80.1, https://leetcode.com/problems/count-subarrays-with-fixed-bounds
+754,Reach a Number,45.9%,Medium,80.1, https://leetcode.com/problems/reach-a-number
+1639,Number of Ways to Form a Target String Given a Dictionary,56.2%,Hard,74.5, https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary
+626,Exchange Seats,75.2%,Medium,74.5, https://leetcode.com/problems/exchange-seats
+2858,Minimum Edge Reversals So Every Node Is Reachable,60.2%,Hard,67.2, https://leetcode.com/problems/minimum-edge-reversals-so-every-node-is-reachable
+355,Design Twitter,45.8%,Medium,67.2, https://leetcode.com/problems/design-twitter
+31,Next Permutation,46.4%,Medium,67.2, https://leetcode.com/problems/next-permutation
+328,Odd Even Linked List,62.9%,Medium,67.2, https://leetcode.com/problems/odd-even-linked-list
+886,Possible Bipartition,53.2%,Medium,67.2, https://leetcode.com/problems/possible-bipartition
+805,Split Array With Same Average,27.8%,Hard,67.2, https://leetcode.com/problems/split-array-with-same-average
+115,Distinct Subsequences,54.4%,Hard,67.2, https://leetcode.com/problems/distinct-subsequences
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,67.2, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+1326,Minimum Number of Taps to Open to Water a Garden,51.1%,Hard,57, https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden
+180,Consecutive Numbers,49.8%,Medium,57, https://leetcode.com/problems/consecutive-numbers
+2187,Minimum Time to Complete Trips,40.1%,Medium,57, https://leetcode.com/problems/minimum-time-to-complete-trips
+735,Asteroid Collision,49.4%,Medium,57, https://leetcode.com/problems/asteroid-collision
+1944,Number of Visible People in a Queue,73.8%,Hard,57, https://leetcode.com/problems/number-of-visible-people-in-a-queue
+200,Number of Islands,65.3%,Medium,57, https://leetcode.com/problems/number-of-islands
+15,3Sum,40.1%,Medium,57, https://leetcode.com/problems/3sum
+2603,Collect Coins in a Tree,40.2%,Hard,57, https://leetcode.com/problems/collect-coins-in-a-tree
+2751,Robot Collisions,61.2%,Hard,57, https://leetcode.com/problems/robot-collisions
+76,Minimum Window Substring,48.7%,Hard,57, https://leetcode.com/problems/minimum-window-substring
+587,Erect the Fence,53.6%,Hard,57, https://leetcode.com/problems/erect-the-fence
+149,Max Points on a Line,31.7%,Hard,57, https://leetcode.com/problems/max-points-on-a-line
+53,Maximum Subarray,54.0%,Medium,57, https://leetcode.com/problems/maximum-subarray

@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3043,Find the Length of the Longest Common Prefix,62.3%,Medium,100, https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix
+127,Word Ladder,46.8%,Hard,78.3, https://leetcode.com/problems/word-ladder
+54,Spiral Matrix,58.2%,Medium,69.3, https://leetcode.com/problems/spiral-matrix
+443,String Compression,61.0%,Medium,69.3, https://leetcode.com/problems/string-compression
+527,Word Abbreviation,62.8%,Hard,69.3, https://leetcode.com/problems/word-abbreviation
+288,Unique Word Abbreviation,28.1%,Medium,69.3, https://leetcode.com/problems/unique-word-abbreviation

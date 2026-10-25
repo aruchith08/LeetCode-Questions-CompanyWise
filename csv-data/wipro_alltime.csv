@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+49,Group Anagrams,73.5%,Medium,100, https://leetcode.com/problems/group-anagrams
+14,Longest Common Prefix,48.6%,Easy,85.4, https://leetcode.com/problems/longest-common-prefix
+3,Longest Substring Without Repeating Characters,40.0%,Medium,72.7, https://leetcode.com/problems/longest-substring-without-repeating-characters
+9,Palindrome Number,61.1%,Easy,72.7, https://leetcode.com/problems/palindrome-number
+242,Valid Anagram,68.8%,Easy,72.7, https://leetcode.com/problems/valid-anagram
+20,Valid Parentheses,45.4%,Easy,62.7, https://leetcode.com/problems/valid-parentheses
+56,Merge Intervals,53.0%,Medium,62.7, https://leetcode.com/problems/merge-intervals
+67,Add Binary,58.8%,Easy,62.7, https://leetcode.com/problems/add-binary
+766,Toeplitz Matrix,69.9%,Easy,62.7, https://leetcode.com/problems/toeplitz-matrix
+118,Pascal's Triangle,79.5%,Easy,62.7, https://leetcode.com/problems/pascals-triangle
+88,Merge Sorted Array,55.9%,Easy,62.7, https://leetcode.com/problems/merge-sorted-array
+1431,Kids With the Greatest Number of Candies,88.0%,Easy,62.7, https://leetcode.com/problems/kids-with-the-greatest-number-of-candies
+485,Max Consecutive Ones,66.3%,Easy,62.7, https://leetcode.com/problems/max-consecutive-ones
+344,Reverse String,81.5%,Easy,62.7, https://leetcode.com/problems/reverse-string
+415,Add Strings,52.3%,Easy,62.7, https://leetcode.com/problems/add-strings
+557,Reverse Words in a String III,84.2%,Easy,62.7, https://leetcode.com/problems/reverse-words-in-a-string-iii

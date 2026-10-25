@@ -71,7 +71,7 @@ interface Report {
 
 // ── Helpers ─────────────────────────────────────────────────────────────────────
 
-const KNOWN_PERIODS = ['6months', '1year', '2year', 'alltime'];
+const KNOWN_PERIODS = ['30days', '3months', '6months', '1year', '2year', 'alltime'];
 
 const SPECIAL_NAMES: Record<string, string> = {
   'ibm': 'IBM',
@@ -331,7 +331,7 @@ function main() {
 
   // Sort periods for each company and build meta
   const companiesMeta: CompanyMeta[] = [];
-  const periodOrder = ['6months', '1year', '2year', 'alltime'];
+  const periodOrder = ['30days', '3months', '6months', '1year', '2year', 'alltime'];
 
   for (const [slug, data] of companyDataMap) {
     const periods = Object.keys(data.periods).sort(

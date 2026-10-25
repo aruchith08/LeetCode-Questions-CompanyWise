@@ -1,3 +1,5 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1159,Market Analysis II,52.9%,Hard,0.15535044001916237, https://leetcode.com/problems/market-analysis-ii
-1158,Market Analysis I,61.7%,Medium,0, https://leetcode.com/problems/market-analysis-i
+2257,Count Unguarded Cells in the Grid,69.2%,Medium,97.5, https://leetcode.com/problems/count-unguarded-cells-in-the-grid
+769,Max Chunks To Make Sorted,64.4%,Medium,76.5, https://leetcode.com/problems/max-chunks-to-make-sorted
+1159,Market Analysis II,57.9%,Hard,0.15535044001916237, https://leetcode.com/problems/market-analysis-ii
+1158,Market Analysis I,58.3%,Medium,0, https://leetcode.com/problems/market-analysis-i

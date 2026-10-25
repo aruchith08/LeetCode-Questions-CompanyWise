@@ -1,0 +1,57 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1557,Minimum Number of Vertices to Reach All Nodes,81.8%,Medium,100, https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes
+694,Number of Distinct Islands,63.0%,Medium,100, https://leetcode.com/problems/number-of-distinct-islands
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+210,Course Schedule II,56.5%,Medium,100, https://leetcode.com/problems/course-schedule-ii
+1091,Shortest Path in Binary Matrix,52.3%,Medium,92.2, https://leetcode.com/problems/shortest-path-in-binary-matrix
+1828,Queries on Number of Points Inside a Circle,86.9%,Medium,92.2, https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle
+383,Ransom Note,66.6%,Easy,82.8, https://leetcode.com/problems/ransom-note
+994,Rotting Oranges,59.6%,Medium,81.2, https://leetcode.com/problems/rotting-oranges
+1610,Maximum Number of Visible Points,38.6%,Hard,81.2, https://leetcode.com/problems/maximum-number-of-visible-points
+1087,Brace Expansion,66.9%,Medium,81.2, https://leetcode.com/problems/brace-expansion
+2360,Longest Cycle in a Graph,51.3%,Hard,81.2, https://leetcode.com/problems/longest-cycle-in-a-graph
+1024,Video Stitching,53.2%,Medium,79.1, https://leetcode.com/problems/video-stitching
+243,Shortest Word Distance,66.4%,Easy,77.5, https://leetcode.com/problems/shortest-word-distance
+827,Making A Large Island,57.3%,Hard,73.8, https://leetcode.com/problems/making-a-large-island
+49,Group Anagrams,73.5%,Medium,66.4, https://leetcode.com/problems/group-anagrams
+1268,Search Suggestions System,65.3%,Medium,66.4, https://leetcode.com/problems/search-suggestions-system
+295,Find Median from Data Stream,55.1%,Hard,66.4, https://leetcode.com/problems/find-median-from-data-stream
+475,Heaters,42.8%,Medium,65.6, https://leetcode.com/problems/heaters
+1762,Buildings With an Ocean View,80.9%,Medium,65.6, https://leetcode.com/problems/buildings-with-an-ocean-view
+701,Insert into a Binary Search Tree,73.7%,Medium,65.6, https://leetcode.com/problems/insert-into-a-binary-search-tree
+94,Binary Tree Inorder Traversal,80.8%,Easy,65.6, https://leetcode.com/problems/binary-tree-inorder-traversal
+110,Balanced Binary Tree,59.4%,Easy,65.6, https://leetcode.com/problems/balanced-binary-tree
+207,Course Schedule,52.4%,Medium,65.6, https://leetcode.com/problems/course-schedule
+838,Push Dominoes,63.1%,Medium,65.6, https://leetcode.com/problems/push-dominoes
+91,Decode Ways,38.8%,Medium,65.6, https://leetcode.com/problems/decode-ways
+1145,Binary Tree Coloring Game,53.2%,Medium,65.6, https://leetcode.com/problems/binary-tree-coloring-game
+739,Daily Temperatures,69.3%,Medium,65.6, https://leetcode.com/problems/daily-temperatures
+56,Merge Intervals,53.0%,Medium,63.3, https://leetcode.com/problems/merge-intervals
+818,Race Car,45.3%,Hard,63.3, https://leetcode.com/problems/race-car
+244,Shortest Word Distance II,63.1%,Medium,59.6, https://leetcode.com/problems/shortest-word-distance-ii
+981,Time Based Key-Value Store,50.3%,Medium,59.6, https://leetcode.com/problems/time-based-key-value-store
+54,Spiral Matrix,58.2%,Medium,59.6, https://leetcode.com/problems/spiral-matrix
+23,Merge k Sorted Lists,60.8%,Hard,59.6, https://leetcode.com/problems/merge-k-sorted-lists
+253,Meeting Rooms II,52.8%,Medium,59.6, https://leetcode.com/problems/meeting-rooms-ii
+443,String Compression,61.0%,Medium,55, https://leetcode.com/problems/string-compression
+2244,Minimum Rounds to Complete All Tasks,63.5%,Medium,55, https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks
+150,Evaluate Reverse Polish Notation,59.0%,Medium,55, https://leetcode.com/problems/evaluate-reverse-polish-notation
+289,Game of Life,73.2%,Medium,49.2, https://leetcode.com/problems/game-of-life
+33,Search in Rotated Sorted Array,45.8%,Medium,49.2, https://leetcode.com/problems/search-in-rotated-sorted-array
+287,Find the Duplicate Number,65.0%,Medium,49.2, https://leetcode.com/problems/find-the-duplicate-number
+708,Insert into a Sorted Circular Linked List,38.6%,Medium,49.2, https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list
+529,Minesweeper,69.0%,Medium,49.2, https://leetcode.com/problems/minesweeper
+1,Two Sum,58.1%,Easy,49.2, https://leetcode.com/problems/two-sum
+721,Accounts Merge,62.2%,Medium,49.2, https://leetcode.com/problems/accounts-merge
+647,Palindromic Substrings,73.3%,Medium,49.2, https://leetcode.com/problems/palindromic-substrings
+953,Verifying an Alien Dictionary,56.2%,Easy,49.2, https://leetcode.com/problems/verifying-an-alien-dictionary
+140,Word Break II,56.4%,Hard,49.2, https://leetcode.com/problems/word-break-ii
+130,Surrounded Regions,46.5%,Medium,49.2, https://leetcode.com/problems/surrounded-regions
+909,Snakes and Ladders,48.3%,Medium,40.9, https://leetcode.com/problems/snakes-and-ladders
+20,Valid Parentheses,45.4%,Easy,40.9, https://leetcode.com/problems/valid-parentheses
+314,Binary Tree Vertical Order Traversal,57.9%,Medium,40.9, https://leetcode.com/problems/binary-tree-vertical-order-traversal
+146,LRU Cache,48.3%,Medium,40.9, https://leetcode.com/problems/lru-cache
+48,Rotate Image,80.8%,Medium,40.9, https://leetcode.com/problems/rotate-image
+198,House Robber,53.7%,Medium,40.9, https://leetcode.com/problems/house-robber
+76,Minimum Window Substring,48.7%,Hard,40.9, https://leetcode.com/problems/minimum-window-substring
+190,Reverse Bits,69.6%,Easy,40.9, https://leetcode.com/problems/reverse-bits

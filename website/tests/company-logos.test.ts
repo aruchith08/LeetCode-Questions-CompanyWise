@@ -8,17 +8,17 @@ describe('Company Logos Assets & Mapping', () => {
   const indexJsonPath = path.join(publicDir, 'data/index.json');
   const manifestPath = path.join(logosDir, 'manifest.json');
 
-  it('contains the manifest file with all 200 company definitions', () => {
+  it('contains the manifest file with all 490 company definitions', () => {
     expect(fs.existsSync(manifestPath)).toBe(true);
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     expect(Array.isArray(manifest)).toBe(true);
-    expect(manifest.length).toBe(200);
+    expect(manifest.length).toBe(490);
   });
 
   it('ensures every company in index.json has PNG, PNG-on-dark, and SVG logo files', () => {
     expect(fs.existsSync(indexJsonPath)).toBe(true);
     const indexData = JSON.parse(fs.readFileSync(indexJsonPath, 'utf8'));
-    expect(indexData.companies.length).toBe(200);
+    expect(indexData.companies.length).toBe(490);
 
     const missingPng: string[] = [];
     const missingPngDark: string[] = [];

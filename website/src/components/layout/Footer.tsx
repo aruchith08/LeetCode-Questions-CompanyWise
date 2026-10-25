@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CompanyWiseLogo from '../ui/CompanyWiseLogo';
+import { useDataIndex } from '../../hooks/useDataIndex';
 
 export default function Footer() {
+  const { data } = useDataIndex();
+  const totalQuestions = data?.totalQuestions ? data.totalQuestions.toLocaleString() : '3,411';
+  const totalCompanies = data?.totalCompanies || 490;
+
   return (
     <footer className="border-t border-slate-200 dark:border-[#43433F] bg-[#F7F8FB] dark:bg-[#262624] text-slate-500 dark:text-[#A8A69C] text-xs py-8 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
@@ -16,7 +21,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-[#A8A69C] max-w-sm">
-              Curated company-wise LeetCode problems indexed for technical interview loops across 200 tech companies.
+              Curated company-wise LeetCode problems indexed for technical interview loops across {totalCompanies} tech companies.
             </p>
           </div>
 
@@ -44,7 +49,7 @@ export default function Footer() {
         <div className="pt-4 border-t border-slate-200/80 dark:border-[#43433F]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-[#8FBF78]" />
-            <span>1,446 Questions · 200 Companies · 4 Recency Windows</span>
+            <span>{totalQuestions} Questions · {totalCompanies} Companies · 6 Recency Windows</span>
           </div>
 
           <div className="flex items-center gap-3">

@@ -1,9 +1,38 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-166,Fraction to Recurring Decimal,21.6%,Medium,0.3244670481307201, https://leetcode.com/problems/fraction-to-recurring-decimal
-51,N-Queens,46.6%,Hard,0.18438554101480611, https://leetcode.com/problems/n-queens
-123,Best Time to Buy and Sell Stock III,37.5%,Hard,0.04430403389889214, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-528,Random Pick with Weight,43.9%,Medium,0.014831565905995232, https://leetcode.com/problems/random-pick-with-weight
-31,Next Permutation,32.6%,Medium,0.013427025530888667, https://leetcode.com/problems/next-permutation
-4,Median of Two Sorted Arrays,29.6%,Hard,0.008754068159914991, https://leetcode.com/problems/median-of-two-sorted-arrays
-64,Minimum Path Sum,54.5%,Medium,0.006127470152097104, https://leetcode.com/problems/minimum-path-sum
-723,Candy Crush,69.2%,Medium,0, https://leetcode.com/problems/candy-crush
+3410,Maximize Subarray Sum After Removing All Occurrences of One Element,23.5%,Hard,100, https://leetcode.com/problems/maximize-subarray-sum-after-removing-all-occurrences-of-one-element
+3426,Manhattan Distances of All Arrangements of Pieces,34.0%,Hard,100, https://leetcode.com/problems/manhattan-distances-of-all-arrangements-of-pieces
+2249,Count Lattice Points Inside a Circle,57.4%,Medium,95.8, https://leetcode.com/problems/count-lattice-points-inside-a-circle
+2132,Stamping the Grid,36.4%,Hard,88.7, https://leetcode.com/problems/stamping-the-grid
+3525,Find X Value of Array II,70.0%,Hard,88.7, https://leetcode.com/problems/find-x-value-of-array-ii
+3524,Find X Value of Array I,66.1%,Medium,86.6, https://leetcode.com/problems/find-x-value-of-array-i
+3021,Alice and Bob Playing Flower Game,60.0%,Medium,84.2, https://leetcode.com/problems/alice-and-bob-playing-flower-game
+2928,Distribute Candies Among Children I,75.8%,Easy,81.5, https://leetcode.com/problems/distribute-candies-among-children-i
+2929,Distribute Candies Among Children II,55.4%,Medium,81.5, https://leetcode.com/problems/distribute-candies-among-children-ii
+2927,Distribute Candies Among Children III,57.0%,Hard,81.5, https://leetcode.com/problems/distribute-candies-among-children-iii
+3098,Find the Sum of Subsequence Powers,25.5%,Hard,81.5, https://leetcode.com/problems/find-the-sum-of-subsequence-powers
+3083,Existence of a Substring in a String and Its Reverse,66.4%,Easy,81.5, https://leetcode.com/problems/existence-of-a-substring-in-a-string-and-its-reverse
+146,LRU Cache,48.3%,Medium,70.7, https://leetcode.com/problems/lru-cache
+1146,Snapshot Array,36.8%,Medium,65.7, https://leetcode.com/problems/snapshot-array
+2193,Minimum Number of Moves to Make Palindrome,53.2%,Hard,65.7, https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome
+1242,Web Crawler Multithreaded,51.5%,Medium,59.1, https://leetcode.com/problems/web-crawler-multithreaded
+2365,Task Scheduler II,55.1%,Medium,59.1, https://leetcode.com/problems/task-scheduler-ii
+621,Task Scheduler,64.0%,Medium,49.9, https://leetcode.com/problems/task-scheduler
+3207,Maximum Points After Enemy Battles,33.6%,Medium,49.9, https://leetcode.com/problems/maximum-points-after-enemy-battles
+301,Remove Invalid Parentheses,52.6%,Hard,49.9, https://leetcode.com/problems/remove-invalid-parentheses
+1236,Web Crawler,69.2%,Medium,49.9, https://leetcode.com/problems/web-crawler
+2502,Design Memory Allocator,51.1%,Medium,49.9, https://leetcode.com/problems/design-memory-allocator
+622,Design Circular Queue,55.7%,Medium,49.9, https://leetcode.com/problems/design-circular-queue
+761,Special Binary String,79.4%,Hard,49.9, https://leetcode.com/problems/special-binary-string
+2747,Count Zero Request Servers,36.4%,Medium,49.9, https://leetcode.com/problems/count-zero-request-servers
+276,Paint Fence,48.6%,Medium,49.9, https://leetcode.com/problems/paint-fence
+1202,Smallest String With Swaps,61.2%,Medium,49.9, https://leetcode.com/problems/smallest-string-with-swaps
+15,3Sum,40.1%,Medium,49.9, https://leetcode.com/problems/3sum
+715,Range Module,45.7%,Hard,49.9, https://leetcode.com/problems/range-module
+166,Fraction to Recurring Decimal,31.6%,Medium,0.3244670481307201, https://leetcode.com/problems/fraction-to-recurring-decimal
+51,N-Queens,76.7%,Hard,0.18438554101480611, https://leetcode.com/problems/n-queens
+123,Best Time to Buy and Sell Stock III,55.0%,Hard,0.04430403389889214, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+528,Random Pick with Weight,49.3%,Medium,0.014831565905995232, https://leetcode.com/problems/random-pick-with-weight
+31,Next Permutation,46.4%,Medium,0.013427025530888667, https://leetcode.com/problems/next-permutation
+4,Median of Two Sorted Arrays,47.9%,Hard,0.008754068159914991, https://leetcode.com/problems/median-of-two-sorted-arrays
+64,Minimum Path Sum,69.0%,Medium,0.006127470152097104, https://leetcode.com/problems/minimum-path-sum
+723,Candy Crush,77.6%,Medium,0, https://leetcode.com/problems/candy-crush

@@ -1,0 +1,52 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+433,Minimum Genetic Mutation,57.3%,Medium,100, https://leetcode.com/problems/minimum-genetic-mutation
+42,Trapping Rain Water,68.4%,Hard,97, https://leetcode.com/problems/trapping-rain-water
+56,Merge Intervals,53.0%,Medium,97, https://leetcode.com/problems/merge-intervals
+146,LRU Cache,48.3%,Medium,97, https://leetcode.com/problems/lru-cache
+341,Flatten Nested List Iterator,65.9%,Medium,97, https://leetcode.com/problems/flatten-nested-list-iterator
+355,Design Twitter,45.8%,Medium,97, https://leetcode.com/problems/design-twitter
+1348,Tweet Counts Per Frequency,46.7%,Medium,97, https://leetcode.com/problems/tweet-counts-per-frequency
+1683,Invalid Tweets,85.3%,Easy,97, https://leetcode.com/problems/invalid-tweets
+10,Regular Expression Matching,32.0%,Hard,93.7, https://leetcode.com/problems/regular-expression-matching
+12,Integer to Roman,71.9%,Medium,93.7, https://leetcode.com/problems/integer-to-roman
+20,Valid Parentheses,45.4%,Easy,93.7, https://leetcode.com/problems/valid-parentheses
+23,Merge k Sorted Lists,60.8%,Hard,93.7, https://leetcode.com/problems/merge-k-sorted-lists
+43,Multiply Strings,44.9%,Medium,93.7, https://leetcode.com/problems/multiply-strings
+44,Wildcard Matching,33.1%,Hard,93.7, https://leetcode.com/problems/wildcard-matching
+60,Permutation Sequence,54.6%,Hard,93.7, https://leetcode.com/problems/permutation-sequence
+118,Pascal's Triangle,79.5%,Easy,93.7, https://leetcode.com/problems/pascals-triangle
+140,Word Break II,56.4%,Hard,93.7, https://leetcode.com/problems/word-break-ii
+2073,Time Needed to Buy Tickets,73.5%,Easy,93.7, https://leetcode.com/problems/time-needed-to-buy-tickets
+149,Max Points on a Line,31.7%,Hard,93.7, https://leetcode.com/problems/max-points-on-a-line
+161,One Edit Distance,34.6%,Medium,93.7, https://leetcode.com/problems/one-edit-distance
+202,Happy Number,60.4%,Easy,93.7, https://leetcode.com/problems/happy-number
+206,Reverse Linked List,81.2%,Easy,93.7, https://leetcode.com/problems/reverse-linked-list
+208,Implement Trie (Prefix Tree),70.2%,Medium,93.7, https://leetcode.com/problems/implement-trie-prefix-tree
+218,The Skyline Problem,46.2%,Hard,93.7, https://leetcode.com/problems/the-skyline-problem
+235,Lowest Common Ancestor of a Binary Search Tree,71.6%,Medium,93.7, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
+251,Flatten 2D Vector,50.6%,Medium,93.7, https://leetcode.com/problems/flatten-2d-vector
+269,Alien Dictionary,37.4%,Hard,93.7, https://leetcode.com/problems/alien-dictionary
+296,Best Meeting Point,61.5%,Hard,93.7, https://leetcode.com/problems/best-meeting-point
+1206,Design Skiplist,59.7%,Hard,93.7, https://leetcode.com/problems/design-skiplist
+323,Number of Connected Components in an Undirected Graph,65.2%,Medium,93.7, https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph
+378,Kth Smallest Element in a Sorted Matrix,65.2%,Medium,93.7, https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix
+380,Insert Delete GetRandom O(1),55.6%,Medium,93.7, https://leetcode.com/problems/insert-delete-getrandom-o1
+407,Trapping Rain Water II,64.3%,Hard,93.7, https://leetcode.com/problems/trapping-rain-water-ii
+1347,Minimum Number of Steps to Make Two Strings Anagram,82.6%,Medium,93.7, https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram
+468,Validate IP Address,28.6%,Medium,93.7, https://leetcode.com/problems/validate-ip-address
+580,Count Student Number in Departments,60.1%,Medium,93.7, https://leetcode.com/problems/count-student-number-in-departments
+1459,Rectangles Area,68.7%,Medium,93.7, https://leetcode.com/problems/rectangles-area
+585,Investments in 2016,52.2%,Medium,93.7, https://leetcode.com/problems/investments-in-2016
+586,Customer Placing the Largest Number of Orders,65.0%,Easy,93.7, https://leetcode.com/problems/customer-placing-the-largest-number-of-orders
+608,Tree Node,76.9%,Medium,93.7, https://leetcode.com/problems/tree-node
+2768,Number of Black Blocks,41.0%,Medium,93.7, https://leetcode.com/problems/number-of-black-blocks
+831,Masking Personal Information,56.7%,Medium,93.7, https://leetcode.com/problems/masking-personal-information
+1797,Design Authentication Manager,58.9%,Medium,93.7, https://leetcode.com/problems/design-authentication-manager
+1785,Minimum Elements to Add to Form a Given Sum,45.6%,Medium,93.7, https://leetcode.com/problems/minimum-elements-to-add-to-form-a-given-sum
+868,Binary Gap,74.4%,Easy,93.7, https://leetcode.com/problems/binary-gap
+1817,Finding the Users Active Minutes,81.0%,Medium,93.7, https://leetcode.com/problems/finding-the-users-active-minutes
+1882,Process Tasks Using Servers,42.3%,Medium,93.7, https://leetcode.com/problems/process-tasks-using-servers
+1910,Remove All Occurrences of a Substring,78.7%,Medium,93.7, https://leetcode.com/problems/remove-all-occurrences-of-a-substring
+1905,Count Sub Islands,73.1%,Medium,93.7, https://leetcode.com/problems/count-sub-islands
+764,Largest Plus Sign,49.7%,Medium,66.1, https://leetcode.com/problems/largest-plus-sign
+1167,Minimum Cost to Connect Sticks,72.1%,Medium,54.8, https://leetcode.com/problems/minimum-cost-to-connect-sticks

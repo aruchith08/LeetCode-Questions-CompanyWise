@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+609,Find Duplicate File in System,67.5%,Medium,100, https://leetcode.com/problems/find-duplicate-file-in-system
+2502,Design Memory Allocator,51.1%,Medium,100, https://leetcode.com/problems/design-memory-allocator
+2408,Design SQL,63.4%,Medium,96.5, https://leetcode.com/problems/design-sql
+271,Encode and Decode Strings,52.1%,Medium,86.7, https://leetcode.com/problems/encode-and-decode-strings
+981,Time Based Key-Value Store,50.3%,Medium,79.2, https://leetcode.com/problems/time-based-key-value-store
+751,IP to CIDR,54.2%,Medium,76.8, https://leetcode.com/problems/ip-to-cidr
+341,Flatten Nested List Iterator,65.9%,Medium,74.1, https://leetcode.com/problems/flatten-nested-list-iterator
+994,Rotting Oranges,59.6%,Medium,67, https://leetcode.com/problems/rotting-oranges
+1797,Design Authentication Manager,58.9%,Medium,66, https://leetcode.com/problems/design-authentication-manager
+71,Simplify Path,51.7%,Medium,62.7, https://leetcode.com/problems/simplify-path
+2373,Largest Local Values in a Matrix,87.7%,Easy,56.9, https://leetcode.com/problems/largest-local-values-in-a-matrix
+631,Design Excel Sum Formula,39.3%,Hard,48.7, https://leetcode.com/problems/design-excel-sum-formula
+735,Asteroid Collision,49.4%,Medium,48.7, https://leetcode.com/problems/asteroid-collision
+42,Trapping Rain Water,68.4%,Hard,48.7, https://leetcode.com/problems/trapping-rain-water
+3484,Design Spreadsheet,73.3%,Medium,48.7, https://leetcode.com/problems/design-spreadsheet
+362,Design Hit Counter,69.8%,Medium,48.7, https://leetcode.com/problems/design-hit-counter
+1146,Snapshot Array,36.8%,Medium,48.7, https://leetcode.com/problems/snapshot-array
+146,LRU Cache,48.3%,Medium,48.7, https://leetcode.com/problems/lru-cache

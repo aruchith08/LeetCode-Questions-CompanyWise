@@ -1,2 +1,14 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-754,Reach a Number,34.7%,Medium,0, https://leetcode.com/problems/reach-a-number
+3640,Trionic Array II,47.2%,Hard,100, https://leetcode.com/problems/trionic-array-ii
+741,Cherry Pickup,40.8%,Hard,94.4, https://leetcode.com/problems/cherry-pickup
+1248,Count Number of Nice Subarrays,75.8%,Medium,88, https://leetcode.com/problems/count-number-of-nice-subarrays
+488,Zuma Game,28.9%,Hard,83.7, https://leetcode.com/problems/zuma-game
+664,Strange Printer,61.0%,Hard,83.7, https://leetcode.com/problems/strange-printer
+1192,Critical Connections in a Network,60.8%,Hard,81.9, https://leetcode.com/problems/critical-connections-in-a-network
+1377,Frog Position After T Seconds,38.9%,Hard,78.5, https://leetcode.com/problems/frog-position-after-t-seconds
+3948,Lexicographically Maximum MEX Array,53.8%,Hard,66.5, https://leetcode.com/problems/lexicographically-maximum-mex-array
+32,Longest Valid Parentheses,41.4%,Hard,62.2, https://leetcode.com/problems/longest-valid-parentheses
+1011,Capacity To Ship Packages Within D Days,74.8%,Medium,62.2, https://leetcode.com/problems/capacity-to-ship-packages-within-d-days
+424,Longest Repeating Character Replacement,60.9%,Medium,62.2, https://leetcode.com/problems/longest-repeating-character-replacement
+3594,Minimum Time to Transport All Individuals,28.7%,Hard,62.2, https://leetcode.com/problems/minimum-time-to-transport-all-individuals
+754,Reach a Number,45.9%,Medium,0, https://leetcode.com/problems/reach-a-number

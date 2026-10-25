@@ -1,0 +1,5 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+874,Walking Robot Simulation,64.6%,Medium,100, https://leetcode.com/problems/walking-robot-simulation
+146,LRU Cache,48.3%,Medium,83.3, https://leetcode.com/problems/lru-cache
+256,Paint House,64.6%,Medium,69.9, https://leetcode.com/problems/paint-house
+535,Encode and Decode TinyURL,86.3%,Medium,64.3, https://leetcode.com/problems/encode-and-decode-tinyurl

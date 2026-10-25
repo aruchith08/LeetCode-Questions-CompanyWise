@@ -1,7 +1,13 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-68,Text Justification,27.7%,Hard,0.15100810299709522, https://leetcode.com/problems/text-justification
-811,Subdomain Visit Count,69.9%,Easy,0.09613042044188254, https://leetcode.com/problems/subdomain-visit-count
-729,My Calendar I,51.8%,Medium,0.06976137056995267, https://leetcode.com/problems/my-calendar-i
-79,Word Search,35.6%,Medium,0.014883688014740005, https://leetcode.com/problems/word-search
-146,LRU Cache,33.2%,Medium,0.004600353139061353, https://leetcode.com/problems/lru-cache
-20,Valid Parentheses,39.0%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses
+174,Dungeon Game,42.6%,Hard,100, https://leetcode.com/problems/dungeon-game
+70,Climbing Stairs,54.4%,Easy,76.8, https://leetcode.com/problems/climbing-stairs
+295,Find Median from Data Stream,55.1%,Hard,76.8, https://leetcode.com/problems/find-median-from-data-stream
+772,Basic Calculator III,53.6%,Hard,62.2, https://leetcode.com/problems/basic-calculator-iii
+269,Alien Dictionary,37.4%,Hard,62.2, https://leetcode.com/problems/alien-dictionary
+185,Department Top Three Salaries,62.2%,Hard,62.2, https://leetcode.com/problems/department-top-three-salaries
+68,Text Justification,52.5%,Hard,0.15100810299709522, https://leetcode.com/problems/text-justification
+811,Subdomain Visit Count,77.3%,Medium,0.09613042044188254, https://leetcode.com/problems/subdomain-visit-count
+729,My Calendar I,58.4%,Medium,0.06976137056995267, https://leetcode.com/problems/my-calendar-i
+79,Word Search,48.3%,Medium,0.014883688014740005, https://leetcode.com/problems/word-search
+146,LRU Cache,48.3%,Medium,0.004600353139061353, https://leetcode.com/problems/lru-cache
+20,Valid Parentheses,45.4%,Easy,0.0023005704055949323, https://leetcode.com/problems/valid-parentheses

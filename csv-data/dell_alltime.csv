@@ -1,4 +1,18 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-706,Design HashMap,61.3%,Easy,0.009836719431831216, https://leetcode.com/problems/design-hashmap
-283,Move Zeroes,57.8%,Easy,0.006196233249543158, https://leetcode.com/problems/move-zeroes
-2,Add Two Numbers,33.9%,Medium,0.003640486182288058, https://leetcode.com/problems/add-two-numbers
+696,Count Binary Substrings,70.6%,Easy,100, https://leetcode.com/problems/count-binary-substrings
+1328,Break a Palindrome,51.6%,Medium,81.3, https://leetcode.com/problems/break-a-palindrome
+1413,Minimum Value to Get Positive Step by Step Sum,65.0%,Easy,72.3, https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum
+3,Longest Substring Without Repeating Characters,40.0%,Medium,66, https://leetcode.com/problems/longest-substring-without-repeating-characters
+49,Group Anagrams,73.5%,Medium,66, https://leetcode.com/problems/group-anagrams
+1,Two Sum,58.1%,Easy,66, https://leetcode.com/problems/two-sum
+53,Maximum Subarray,54.0%,Medium,66, https://leetcode.com/problems/maximum-subarray
+196,Delete Duplicate Emails,67.2%,Easy,57.1, https://leetcode.com/problems/delete-duplicate-emails
+185,Department Top Three Salaries,62.2%,Hard,57.1, https://leetcode.com/problems/department-top-three-salaries
+20,Valid Parentheses,45.4%,Easy,57.1, https://leetcode.com/problems/valid-parentheses
+242,Valid Anagram,68.8%,Easy,57.1, https://leetcode.com/problems/valid-anagram
+22,Generate Parentheses,79.7%,Medium,57.1, https://leetcode.com/problems/generate-parentheses
+21,Merge Two Sorted Lists,69.0%,Easy,57.1, https://leetcode.com/problems/merge-two-sorted-lists
+42,Trapping Rain Water,68.4%,Hard,57.1, https://leetcode.com/problems/trapping-rain-water
+706,Design HashMap,66.8%,Easy,0.009836719431831216, https://leetcode.com/problems/design-hashmap
+283,Move Zeroes,64.5%,Easy,0.006196233249543158, https://leetcode.com/problems/move-zeroes
+2,Add Two Numbers,49.6%,Medium,0.003640486182288058, https://leetcode.com/problems/add-two-numbers

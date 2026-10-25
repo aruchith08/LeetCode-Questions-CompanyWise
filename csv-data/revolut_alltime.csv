@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+300,Longest Increasing Subsequence,60.1%,Medium,100, https://leetcode.com/problems/longest-increasing-subsequence
+14,Longest Common Prefix,48.6%,Easy,100, https://leetcode.com/problems/longest-common-prefix
+279,Perfect Squares,57.0%,Medium,93.4, https://leetcode.com/problems/perfect-squares
+713,Subarray Product Less Than K,54.9%,Medium,90.6, https://leetcode.com/problems/subarray-product-less-than-k
+92,Reverse Linked List II,52.7%,Medium,89.2, https://leetcode.com/problems/reverse-linked-list-ii
+257,Binary Tree Paths,69.5%,Easy,89.2, https://leetcode.com/problems/binary-tree-paths
+438,Find All Anagrams in a String,54.7%,Medium,77.4, https://leetcode.com/problems/find-all-anagrams-in-a-string
+1321,Restaurant Growth,60.3%,Medium,77.4, https://leetcode.com/problems/restaurant-growth
+268,Missing Number,72.9%,Easy,68, https://leetcode.com/problems/missing-number
+2043,Simple Bank System,69.4%,Medium,68, https://leetcode.com/problems/simple-bank-system

@@ -1,12 +1,24 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-418,Sentence Screen Fitting,32.6%,Medium,0.7267557746113953, https://leetcode.com/problems/sentence-screen-fitting
-755,Pour Water,43.3%,Medium,0.5580780410684244, https://leetcode.com/problems/pour-water
-224,Basic Calculator,36.8%,Hard,0.4513597728444436, https://leetcode.com/problems/basic-calculator
-54,Spiral Matrix,34.1%,Medium,0.346812263982709, https://leetcode.com/problems/spiral-matrix
-59,Spiral Matrix II,53.9%,Medium,0.1781345304397381, https://leetcode.com/problems/spiral-matrix-ii
-68,Text Justification,27.7%,Hard,0.16143214434637243, https://leetcode.com/problems/text-justification
-697,Degree of an Array,53.8%,Easy,0.07117627846789498, https://leetcode.com/problems/degree-of-an-array
-525,Contiguous Array,42.8%,Medium,0.01975372873623256, https://leetcode.com/problems/contiguous-array
-438,Find All Anagrams in a String,43.3%,Medium,0.008126822460497498, https://leetcode.com/problems/find-all-anagrams-in-a-string
-1391,Check if There is a Valid Path in a Grid,44.5%,Medium,0, https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid
-1393,Capital Gain/Loss,89.4%,Medium,0, https://leetcode.com/problems/capital-gainloss
+692,Top K Frequent Words,60.8%,Medium,100, https://leetcode.com/problems/top-k-frequent-words
+1712,Ways to Split Array Into Three Subarrays,34.7%,Medium,95.3, https://leetcode.com/problems/ways-to-split-array-into-three-subarrays
+1743,Restore the Array From Adjacent Pairs,75.2%,Medium,95.3, https://leetcode.com/problems/restore-the-array-from-adjacent-pairs
+2021,Brightest Position on Street,60.6%,Medium,92.6, https://leetcode.com/problems/brightest-position-on-street
+1711,Count Good Meals,33.3%,Medium,92.6, https://leetcode.com/problems/count-good-meals
+1801,Number of Orders in the Backlog,54.9%,Medium,92.6, https://leetcode.com/problems/number-of-orders-in-the-backlog
+1684,Count the Number of Consistent Strings,88.6%,Easy,92.6, https://leetcode.com/problems/count-the-number-of-consistent-strings
+529,Minesweeper,69.0%,Medium,76.5, https://leetcode.com/problems/minesweeper
+347,Top K Frequent Elements,67.6%,Medium,76.5, https://leetcode.com/problems/top-k-frequent-elements
+690,Employee Importance,69.9%,Medium,69.8, https://leetcode.com/problems/employee-importance
+121,Best Time to Buy and Sell Stock,57.5%,Easy,60.4, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1108,Defanging an IP Address,90.2%,Easy,60.4, https://leetcode.com/problems/defanging-an-ip-address
+418,Sentence Screen Fitting,36.4%,Medium,0.7267557746113953, https://leetcode.com/problems/sentence-screen-fitting
+755,Pour Water,49.1%,Medium,0.5580780410684244, https://leetcode.com/problems/pour-water
+224,Basic Calculator,47.3%,Hard,0.4513597728444436, https://leetcode.com/problems/basic-calculator
+54,Spiral Matrix,58.2%,Medium,0.346812263982709, https://leetcode.com/problems/spiral-matrix
+59,Spiral Matrix II,76.0%,Medium,0.1781345304397381, https://leetcode.com/problems/spiral-matrix-ii
+68,Text Justification,52.5%,Hard,0.16143214434637243, https://leetcode.com/problems/text-justification
+697,Degree of an Array,58.8%,Easy,0.07117627846789498, https://leetcode.com/problems/degree-of-an-array
+525,Contiguous Array,52.6%,Medium,0.01975372873623256, https://leetcode.com/problems/contiguous-array
+438,Find All Anagrams in a String,54.7%,Medium,0.008126822460497498, https://leetcode.com/problems/find-all-anagrams-in-a-string
+1391,Check if There is a Valid Path in a Grid,64.5%,Medium,0, https://leetcode.com/problems/check-if-there-is-a-valid-path-in-a-grid
+1393,Capital Gain/Loss,84.7%,Medium,0, https://leetcode.com/problems/capital-gainloss

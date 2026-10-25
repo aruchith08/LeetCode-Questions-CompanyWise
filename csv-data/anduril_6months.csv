@@ -1,0 +1,22 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+210,Course Schedule II,56.5%,Medium,96.7, https://leetcode.com/problems/course-schedule-ii
+1091,Shortest Path in Binary Matrix,52.3%,Medium,92.9, https://leetcode.com/problems/shortest-path-in-binary-matrix
+1828,Queries on Number of Points Inside a Circle,86.9%,Medium,88.3, https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle
+1610,Maximum Number of Visible Points,38.6%,Hard,88.3, https://leetcode.com/problems/maximum-number-of-visible-points
+994,Rotting Oranges,59.6%,Medium,88.3, https://leetcode.com/problems/rotting-oranges
+1087,Brace Expansion,66.9%,Medium,82.8, https://leetcode.com/problems/brace-expansion
+383,Ransom Note,66.6%,Easy,82.8, https://leetcode.com/problems/ransom-note
+2360,Longest Cycle in a Graph,51.3%,Hard,75.7, https://leetcode.com/problems/longest-cycle-in-a-graph
+694,Number of Distinct Islands,63.0%,Medium,75.7, https://leetcode.com/problems/number-of-distinct-islands
+475,Heaters,42.8%,Medium,65.6, https://leetcode.com/problems/heaters
+1762,Buildings With an Ocean View,80.9%,Medium,65.6, https://leetcode.com/problems/buildings-with-an-ocean-view
+701,Insert into a Binary Search Tree,73.7%,Medium,65.6, https://leetcode.com/problems/insert-into-a-binary-search-tree
+94,Binary Tree Inorder Traversal,80.8%,Easy,65.6, https://leetcode.com/problems/binary-tree-inorder-traversal
+110,Balanced Binary Tree,59.4%,Easy,65.6, https://leetcode.com/problems/balanced-binary-tree
+207,Course Schedule,52.4%,Medium,65.6, https://leetcode.com/problems/course-schedule
+838,Push Dominoes,63.1%,Medium,65.6, https://leetcode.com/problems/push-dominoes
+91,Decode Ways,38.8%,Medium,65.6, https://leetcode.com/problems/decode-ways
+1145,Binary Tree Coloring Game,53.2%,Medium,65.6, https://leetcode.com/problems/binary-tree-coloring-game
+739,Daily Temperatures,69.3%,Medium,65.6, https://leetcode.com/problems/daily-temperatures
+1557,Minimum Number of Vertices to Reach All Nodes,81.8%,Medium,65.6, https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes

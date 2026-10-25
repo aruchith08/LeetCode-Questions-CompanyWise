@@ -1,6 +1,10 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-289,Game of Life,54.5%,Medium,0.20761483400383401, https://leetcode.com/problems/game-of-life
-314,Binary Tree Vertical Order Traversal,45.3%,Medium,0.15148600467306356, https://leetcode.com/problems/binary-tree-vertical-order-traversal
-706,Design HashMap,61.3%,Easy,0.10482987091202353, https://leetcode.com/problems/design-hashmap
-227,Basic Calculator II,36.9%,Medium,0.04870104158125306, https://leetcode.com/problems/basic-calculator-ii
-987,Vertical Order Traversal of a Binary Tree,36.6%,Medium,0.011601058182762062, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree
+2240,Number of Ways to Buy Pens and Pencils,57.3%,Medium,100, https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils
+127,Word Ladder,46.8%,Hard,89.7, https://leetcode.com/problems/word-ladder
+362,Design Hit Counter,69.8%,Medium,78.6, https://leetcode.com/problems/design-hit-counter
+359,Logger Rate Limiter,76.9%,Easy,69.7, https://leetcode.com/problems/logger-rate-limiter
+289,Game of Life,73.2%,Medium,0.20761483400383401, https://leetcode.com/problems/game-of-life
+314,Binary Tree Vertical Order Traversal,57.9%,Medium,0.15148600467306356, https://leetcode.com/problems/binary-tree-vertical-order-traversal
+706,Design HashMap,66.8%,Easy,0.10482987091202353, https://leetcode.com/problems/design-hashmap
+227,Basic Calculator II,47.3%,Medium,0.04870104158125306, https://leetcode.com/problems/basic-calculator-ii
+987,Vertical Order Traversal of a Binary Tree,54.9%,Hard,0.011601058182762062, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree

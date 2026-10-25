@@ -1,0 +1,20 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+2087,Minimum Cost Homecoming of a Robot in a Grid,51.9%,Medium,100, https://leetcode.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid
+2009,Minimum Number of Operations to Make Array Continuous,51.7%,Hard,92.9, https://leetcode.com/problems/minimum-number-of-operations-to-make-array-continuous
+1993,Operations on Tree,46.3%,Medium,92.9, https://leetcode.com/problems/operations-on-tree
+239,Sliding Window Maximum,49.4%,Hard,82.9, https://leetcode.com/problems/sliding-window-maximum
+3409,Longest Subsequence With Decreasing Adjacent Difference,17.4%,Medium,81, https://leetcode.com/problems/longest-subsequence-with-decreasing-adjacent-difference
+2359,Find Closest Node to Given Two Nodes,53.1%,Medium,77.9, https://leetcode.com/problems/find-closest-node-to-given-two-nodes
+2360,Longest Cycle in a Graph,51.3%,Hard,76.9, https://leetcode.com/problems/longest-cycle-in-a-graph
+2374,Node With Highest Edge Score,49.8%,Medium,74.6, https://leetcode.com/problems/node-with-highest-edge-score
+3842,Toggle Light Bulbs,71.2%,Easy,74.6, https://leetcode.com/problems/toggle-light-bulbs
+1857,Largest Color Value in a Directed Graph,57.1%,Hard,60.5, https://leetcode.com/problems/largest-color-value-in-a-directed-graph
+3515,Shortest Path in a Weighted Tree,41.8%,Hard,54.7, https://leetcode.com/problems/shortest-path-in-a-weighted-tree
+73,Set Matrix Zeroes,63.8%,Medium,46.5, https://leetcode.com/problems/set-matrix-zeroes
+1717,Maximum Score From Removing Substrings,66.4%,Medium,46.5, https://leetcode.com/problems/maximum-score-from-removing-substrings
+134,Gas Station,48.9%,Medium,46.5, https://leetcode.com/problems/gas-station
+735,Asteroid Collision,49.4%,Medium,46.5, https://leetcode.com/problems/asteroid-collision
+56,Merge Intervals,53.0%,Medium,46.5, https://leetcode.com/problems/merge-intervals
+152,Maximum Product Subarray,37.2%,Medium,46.5, https://leetcode.com/problems/maximum-product-subarray
+11,Container With Most Water,61.1%,Medium,46.5, https://leetcode.com/problems/container-with-most-water
+200,Number of Islands,65.3%,Medium,46.5, https://leetcode.com/problems/number-of-islands

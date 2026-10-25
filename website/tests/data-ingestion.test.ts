@@ -79,12 +79,12 @@ describe('Data Ingestion & Normalization', () => {
     expect(fs.existsSync(reportPath)).toBe(true);
 
     const report = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
-    expect(report.totalFiles).toBe(537);
-    expect(report.totalFilesProcessed).toBe(537);
+    expect(report.totalFiles).toBe(1112);
+    expect(report.totalFilesProcessed).toBe(1112);
     expect(report.totalFilesSkipped).toBe(0);
-    expect(report.uniqueCompanies).toBe(200);
-    expect(report.uniqueQuestions).toBe(1446);
-    expect(report.totalValidRecords).toBe(20453);
+    expect(report.uniqueCompanies).toBe(490);
+    expect(report.uniqueQuestions).toBe(3411);
+    expect(report.totalValidRecords).toBe(38825);
     expect(report.errors.length).toBe(0);
   });
 
@@ -95,13 +95,13 @@ describe('Data Ingestion & Normalization', () => {
     const index = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
     const questions = JSON.parse(fs.readFileSync(questionsPath, 'utf-8'));
 
-    expect(index.totalCompanies).toBe(200);
-    expect(index.totalQuestions).toBe(1446);
-    expect(questions.length).toBe(1446);
+    expect(index.totalCompanies).toBe(490);
+    expect(index.totalQuestions).toBe(3411);
+    expect(questions.length).toBe(3411);
 
     // Verify difficulty sum matches total
     const sumDiff = index.difficultyCounts.Easy + index.difficultyCounts.Medium + index.difficultyCounts.Hard;
-    expect(sumDiff).toBe(1446);
+    expect(sumDiff).toBe(3411);
 
     // Check random question has valid fields
     const sample = questions[0];

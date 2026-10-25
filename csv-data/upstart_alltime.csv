@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+53,Maximum Subarray,54.0%,Medium,100, https://leetcode.com/problems/maximum-subarray
+36,Valid Sudoku,65.3%,Medium,66.5, https://leetcode.com/problems/valid-sudoku
+71,Simplify Path,51.7%,Medium,61.2, https://leetcode.com/problems/simplify-path
+304,Range Sum Query 2D - Immutable,59.2%,Medium,61.2, https://leetcode.com/problems/range-sum-query-2d-immutable
+120,Triangle,60.0%,Medium,53.8, https://leetcode.com/problems/triangle
+49,Group Anagrams,73.5%,Medium,53.8, https://leetcode.com/problems/group-anagrams

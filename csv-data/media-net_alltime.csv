@@ -1,0 +1,40 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+407,Trapping Rain Water II,64.3%,Hard,100, https://leetcode.com/problems/trapping-rain-water-ii
+2538,Difference Between Maximum and Minimum Price Sum,34.7%,Hard,88.4, https://leetcode.com/problems/difference-between-maximum-and-minimum-price-sum
+2572,Count the Number of Square-Free Subsets,27.1%,Medium,86.4, https://leetcode.com/problems/count-the-number-of-square-free-subsets
+1959,Minimum Total Space Wasted With K Resizing Operations,44.6%,Medium,81.8, https://leetcode.com/problems/minimum-total-space-wasted-with-k-resizing-operations
+1938,Maximum Genetic Difference Query,48.6%,Hard,79.2, https://leetcode.com/problems/maximum-genetic-difference-query
+2473,Minimum Cost to Buy Apples,67.4%,Medium,79.2, https://leetcode.com/problems/minimum-cost-to-buy-apples
+2479,Maximum XOR of Two Non-Overlapping Subtrees,51.7%,Hard,79.2, https://leetcode.com/problems/maximum-xor-of-two-non-overlapping-subtrees
+2852,Sum of Remoteness of All Cells,70.8%,Medium,79.2, https://leetcode.com/problems/sum-of-remoteness-of-all-cells
+2874,Maximum Value of an Ordered Triplet II,56.2%,Medium,79.2, https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-ii
+2873,Maximum Value of an Ordered Triplet I,58.1%,Easy,79.2, https://leetcode.com/problems/maximum-value-of-an-ordered-triplet-i
+1642,Furthest Building You Can Reach,51.2%,Medium,79.2, https://leetcode.com/problems/furthest-building-you-can-reach
+1222,Queens That Can Attack the King,73.0%,Medium,79.2, https://leetcode.com/problems/queens-that-can-attack-the-king
+1266,Minimum Time Visiting All Points,84.9%,Easy,79.2, https://leetcode.com/problems/minimum-time-visiting-all-points
+1787,Make the XOR of All Segments Equal to Zero,41.6%,Hard,79.2, https://leetcode.com/problems/make-the-xor-of-all-segments-equal-to-zero
+1879,Minimum XOR Sum of Two Arrays,52.5%,Hard,79.2, https://leetcode.com/problems/minimum-xor-sum-of-two-arrays
+2835,Minimum Operations to Form Subsequence With Target Sum,32.7%,Hard,79.2, https://leetcode.com/problems/minimum-operations-to-form-subsequence-with-target-sum
+3660,Jump Game IX,46.3%,Medium,79.2, https://leetcode.com/problems/jump-game-ix
+4051,Count Subarrays with Distant Sums,33.3%,Hard,79.2, https://leetcode.com/problems/count-subarrays-with-distant-sums
+4059,Lexicographically Largest Power Array,25.0%,Hard,79.2, https://leetcode.com/problems/lexicographically-largest-power-array
+42,Trapping Rain Water,68.4%,Hard,77.4, https://leetcode.com/problems/trapping-rain-water
+354,Russian Doll Envelopes,38.3%,Hard,76.1, https://leetcode.com/problems/russian-doll-envelopes
+3,Longest Substring Without Repeating Characters,40.0%,Medium,73.7, https://leetcode.com/problems/longest-substring-without-repeating-characters
+121,Best Time to Buy and Sell Stock,57.5%,Easy,73.7, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+105,Construct Binary Tree from Preorder and Inorder Traversal,69.7%,Medium,73.7, https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+947,Most Stones Removed with Same Row or Column,63.6%,Medium,68.5, https://leetcode.com/problems/most-stones-removed-with-same-row-or-column
+2382,Maximum Segment Sum After Removals,50.5%,Hard,56.9, https://leetcode.com/problems/maximum-segment-sum-after-removals
+668,Kth Smallest Number in Multiplication Table,55.3%,Hard,56.9, https://leetcode.com/problems/kth-smallest-number-in-multiplication-table
+2945,Find Maximum Non-decreasing Array Length,19.4%,Hard,56.9, https://leetcode.com/problems/find-maximum-non-decreasing-array-length
+3291,Minimum Number of Valid Strings to Form Target I,22.3%,Medium,56.9, https://leetcode.com/problems/minimum-number-of-valid-strings-to-form-target-i
+70,Climbing Stairs,54.4%,Easy,56.9, https://leetcode.com/problems/climbing-stairs
+1376,Time Needed to Inform All Employees,60.6%,Medium,47.8, https://leetcode.com/problems/time-needed-to-inform-all-employees
+406,Queue Reconstruction by Height,75.1%,Medium,47.8, https://leetcode.com/problems/queue-reconstruction-by-height
+1994,The Number of Good Subsets,38.2%,Hard,47.8, https://leetcode.com/problems/the-number-of-good-subsets
+827,Making A Large Island,57.3%,Hard,47.8, https://leetcode.com/problems/making-a-large-island
+99,Recover Binary Search Tree,61.3%,Medium,47.8, https://leetcode.com/problems/recover-binary-search-tree
+53,Maximum Subarray,54.0%,Medium,47.8, https://leetcode.com/problems/maximum-subarray
+2,Add Two Numbers,49.6%,Medium,47.8, https://leetcode.com/problems/add-two-numbers
+567,Permutation in String,49.9%,Medium,47.8, https://leetcode.com/problems/permutation-in-string
+1021,Remove Outermost Parentheses,88.4%,Easy,47.8, https://leetcode.com/problems/remove-outermost-parentheses

@@ -1,2 +1,8 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-981,Time Based Key-Value Store,53.1%,Medium,0, https://leetcode.com/problems/time-based-key-value-store
+394,Decode String,63.4%,Medium,100, https://leetcode.com/problems/decode-string
+133,Clone Graph,66.4%,Medium,98.2, https://leetcode.com/problems/clone-graph
+17,Letter Combinations of a Phone Number,67.1%,Medium,77.1, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+729,My Calendar I,58.4%,Medium,62.6, https://leetcode.com/problems/my-calendar-i
+468,Validate IP Address,28.6%,Medium,62.6, https://leetcode.com/problems/validate-ip-address
+299,Bulls and Cows,53.1%,Medium,62.6, https://leetcode.com/problems/bulls-and-cows
+981,Time Based Key-Value Store,50.3%,Medium,0, https://leetcode.com/problems/time-based-key-value-store

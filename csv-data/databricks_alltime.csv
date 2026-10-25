@@ -1,19 +1,42 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-742,Closest Leaf in a Binary Tree,43.6%,Medium,1.1768018409410708, https://leetcode.com/problems/closest-leaf-in-a-binary-tree
-380,Insert Delete GetRandom O(1),47.5%,Medium,0.9812917663172286, https://leetcode.com/problems/insert-delete-getrandom-o1
-41,First Missing Positive,32.0%,Hard,0.9732633179401787, https://leetcode.com/problems/first-missing-positive
-314,Binary Tree Vertical Order Traversal,45.3%,Medium,0.9050510649594637, https://leetcode.com/problems/binary-tree-vertical-order-traversal
-722,Remove Comments,34.6%,Medium,0.7095409903356217, https://leetcode.com/problems/remove-comments
-1242,Web Crawler Multithreaded,45.9%,Medium,0.6971713308596708, https://leetcode.com/problems/web-crawler-multithreaded
-91,Decode Ways,24.7%,Medium,0.5448409073756266, https://leetcode.com/problems/decode-ways
-218,The Skyline Problem,34.6%,Hard,0.42040668810636345, https://leetcode.com/problems/the-skyline-problem
-614,Second Degree Follower,30.3%,Medium,0.3030501026800949, https://leetcode.com/problems/second-degree-follower
-239,Sliding Window Maximum,43.0%,Hard,0.18086662630782, https://leetcode.com/problems/sliding-window-maximum
-426,Convert Binary Search Tree to Sorted Doubly Linked List,59.1%,Medium,0.09352605801082346, https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list
-381,Insert Delete GetRandom O(1) - Duplicates allowed,34.1%,Hard,0.09106388892287375, https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed
-987,Vertical Order Traversal of a Binary Tree,36.6%,Medium,0.070392125446596, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree
-42,Trapping Rain Water,48.9%,Hard,0.0674365414927314, https://leetcode.com/problems/trapping-rain-water
-350,Intersection of Two Arrays II,51.4%,Easy,0.01168540951877908, https://leetcode.com/problems/intersection-of-two-arrays-ii
-10,Regular Expression Matching,26.8%,Hard,0.0071865203293987245, https://leetcode.com/problems/regular-expression-matching
-114,Flatten Binary Tree to Linked List,49.3%,Medium,0.006896579059060353, https://leetcode.com/problems/flatten-binary-tree-to-linked-list
-981,Time Based Key-Value Store,53.1%,Medium,0, https://leetcode.com/problems/time-based-key-value-store
+362,Design Hit Counter,69.8%,Medium,100, https://leetcode.com/problems/design-hit-counter
+438,Find All Anagrams in a String,54.7%,Medium,100, https://leetcode.com/problems/find-all-anagrams-in-a-string
+348,Design Tic-Tac-Toe,58.8%,Medium,93.2, https://leetcode.com/problems/design-tic-tac-toe
+2096,Step-By-Step Directions From a Binary Tree Node to Another,56.5%,Medium,84, https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another
+198,House Robber,53.7%,Medium,79.8, https://leetcode.com/problems/house-robber
+213,House Robber II,45.7%,Medium,76.8, https://leetcode.com/problems/house-robber-ii
+751,IP to CIDR,54.2%,Medium,70.3, https://leetcode.com/problems/ip-to-cidr
+933,Number of Recent Calls,79.2%,Easy,64.9, https://leetcode.com/problems/number-of-recent-calls
+1293,Shortest Path in a Grid with Obstacles Elimination,46.8%,Hard,64.9, https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination
+900,RLE Iterator,59.7%,Medium,64.9, https://leetcode.com/problems/rle-iterator
+2131,Longest Palindrome by Concatenating Two Letter Words,53.4%,Medium,62.7, https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words
+1146,Snapshot Array,36.8%,Medium,62.7, https://leetcode.com/problems/snapshot-array
+980,Unique Paths III,83.0%,Hard,53.9, https://leetcode.com/problems/unique-paths-iii
+567,Permutation in String,49.9%,Medium,53.9, https://leetcode.com/problems/permutation-in-string
+1091,Shortest Path in Binary Matrix,52.3%,Medium,44.4, https://leetcode.com/problems/shortest-path-in-binary-matrix
+1928,Minimum Cost to Reach Destination in Time,42.7%,Hard,44.4, https://leetcode.com/problems/minimum-cost-to-reach-destination-in-time
+2276,Count Integers in Intervals,36.4%,Hard,44.4, https://leetcode.com/problems/count-integers-in-intervals
+1197,Minimum Knight Moves,42.1%,Medium,44.4, https://leetcode.com/problems/minimum-knight-moves
+994,Rotting Oranges,59.6%,Medium,44.4, https://leetcode.com/problems/rotting-oranges
+68,Text Justification,52.5%,Hard,36.9, https://leetcode.com/problems/text-justification
+8,String to Integer (atoi),21.9%,Medium,36.9, https://leetcode.com/problems/string-to-integer-atoi
+56,Merge Intervals,53.0%,Medium,36.9, https://leetcode.com/problems/merge-intervals
+1,Two Sum,58.1%,Easy,36.9, https://leetcode.com/problems/two-sum
+742,Closest Leaf in a Binary Tree,47.5%,Medium,1.1768018409410708, https://leetcode.com/problems/closest-leaf-in-a-binary-tree
+380,Insert Delete GetRandom O(1),55.6%,Medium,0.9812917663172286, https://leetcode.com/problems/insert-delete-getrandom-o1
+41,First Missing Positive,44.0%,Hard,0.9732633179401787, https://leetcode.com/problems/first-missing-positive
+314,Binary Tree Vertical Order Traversal,57.9%,Medium,0.9050510649594637, https://leetcode.com/problems/binary-tree-vertical-order-traversal
+722,Remove Comments,40.6%,Medium,0.7095409903356217, https://leetcode.com/problems/remove-comments
+1242,Web Crawler Multithreaded,51.5%,Medium,0.6971713308596708, https://leetcode.com/problems/web-crawler-multithreaded
+91,Decode Ways,38.8%,Medium,0.5448409073756266, https://leetcode.com/problems/decode-ways
+218,The Skyline Problem,46.2%,Hard,0.42040668810636345, https://leetcode.com/problems/the-skyline-problem
+614,Second Degree Follower,41.0%,Medium,0.3030501026800949, https://leetcode.com/problems/second-degree-follower
+239,Sliding Window Maximum,49.4%,Hard,0.18086662630782, https://leetcode.com/problems/sliding-window-maximum
+426,Convert Binary Search Tree to Sorted Doubly Linked List,65.6%,Medium,0.09352605801082346, https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list
+381,Insert Delete GetRandom O(1) - Duplicates allowed,37.2%,Hard,0.09106388892287375, https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed
+987,Vertical Order Traversal of a Binary Tree,54.9%,Hard,0.070392125446596, https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree
+42,Trapping Rain Water,68.4%,Hard,0.0674365414927314, https://leetcode.com/problems/trapping-rain-water
+350,Intersection of Two Arrays II,60.5%,Easy,0.01168540951877908, https://leetcode.com/problems/intersection-of-two-arrays-ii
+10,Regular Expression Matching,32.0%,Hard,0.0071865203293987245, https://leetcode.com/problems/regular-expression-matching
+114,Flatten Binary Tree to Linked List,71.7%,Medium,0.006896579059060353, https://leetcode.com/problems/flatten-binary-tree-to-linked-list
+981,Time Based Key-Value Store,50.3%,Medium,0, https://leetcode.com/problems/time-based-key-value-store

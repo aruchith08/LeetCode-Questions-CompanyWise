@@ -1,0 +1,27 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+857,Minimum Cost to Hire K Workers,63.9%,Hard,100, https://leetcode.com/problems/minimum-cost-to-hire-k-workers
+146,LRU Cache,48.3%,Medium,78.3, https://leetcode.com/problems/lru-cache
+1049,Last Stone Weight II,61.3%,Medium,75, https://leetcode.com/problems/last-stone-weight-ii
+1143,Longest Common Subsequence,59.7%,Medium,71, https://leetcode.com/problems/longest-common-subsequence
+198,House Robber,53.7%,Medium,71, https://leetcode.com/problems/house-robber
+2402,Meeting Rooms III,51.3%,Hard,71, https://leetcode.com/problems/meeting-rooms-iii
+56,Merge Intervals,53.0%,Medium,66.2, https://leetcode.com/problems/merge-intervals
+49,Group Anagrams,73.5%,Medium,66.2, https://leetcode.com/problems/group-anagrams
+127,Word Ladder,46.8%,Hard,66.2, https://leetcode.com/problems/word-ladder
+1146,Snapshot Array,36.8%,Medium,66.2, https://leetcode.com/problems/snapshot-array
+380,Insert Delete GetRandom O(1),55.6%,Medium,59.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+121,Best Time to Buy and Sell Stock,57.5%,Easy,59.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+981,Time Based Key-Value Store,50.3%,Medium,59.9, https://leetcode.com/problems/time-based-key-value-store
+3,Longest Substring Without Repeating Characters,40.0%,Medium,59.9, https://leetcode.com/problems/longest-substring-without-repeating-characters
+713,Subarray Product Less Than K,54.9%,Medium,59.9, https://leetcode.com/problems/subarray-product-less-than-k
+210,Course Schedule II,56.5%,Medium,51.2, https://leetcode.com/problems/course-schedule-ii
+14,Longest Common Prefix,48.6%,Easy,51.2, https://leetcode.com/problems/longest-common-prefix
+15,3Sum,40.1%,Medium,51.2, https://leetcode.com/problems/3sum
+200,Number of Islands,65.3%,Medium,51.2, https://leetcode.com/problems/number-of-islands
+1046,Last Stone Weight,66.9%,Easy,51.2, https://leetcode.com/problems/last-stone-weight
+189,Rotate Array,45.7%,Medium,51.2, https://leetcode.com/problems/rotate-array
+206,Reverse Linked List,81.2%,Easy,51.2, https://leetcode.com/problems/reverse-linked-list
+443,String Compression,61.0%,Medium,51.2, https://leetcode.com/problems/string-compression
+1650,Lowest Common Ancestor of a Binary Tree III,83.0%,Medium,51.2, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii
+1038,Binary Search Tree to Greater Sum Tree,88.4%,Medium,51.2, https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree
+528,Random Pick with Weight,49.3%,Medium,51.2, https://leetcode.com/problems/random-pick-with-weight

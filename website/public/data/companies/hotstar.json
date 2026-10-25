@@ -1,1 +1,1 @@
-{"slug":"hotstar","name":"Hotstar","periods":{"alltime":[{"id":927,"title":"Three Equal Parts","acceptance":"33.6%","difficulty":"Hard","frequency":0,"link":"https://leetcode.com/problems/three-equal-parts"}]}}
+{"slug":"hotstar","name":"Hotstar","periods":{"alltime":[{"id":198,"title":"House Robber","acceptance":"53.7%","difficulty":"Medium","frequency":71,"link":"https://leetcode.com/problems/house-robber"},{"id":927,"title":"Three Equal Parts","acceptance":"41.9%","difficulty":"Hard","frequency":0,"link":"https://leetcode.com/problems/three-equal-parts"}]}}

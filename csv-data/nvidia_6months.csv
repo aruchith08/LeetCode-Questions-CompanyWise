@@ -1,4 +1,22 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-231,Power of Two,43.7%,Easy,0.008651812139809367, https://leetcode.com/problems/power-of-two
-146,LRU Cache,33.2%,Medium,0.004600353139061353, https://leetcode.com/problems/lru-cache
-23,Merge k Sorted Lists,40.2%,Hard,0.004051459000748015, https://leetcode.com/problems/merge-k-sorted-lists
+49,Group Anagrams,73.5%,Medium,100, https://leetcode.com/problems/group-anagrams
+93,Restore IP Addresses,57.4%,Medium,93.6, https://leetcode.com/problems/restore-ip-addresses
+743,Network Delay Time,61.8%,Medium,85.3, https://leetcode.com/problems/network-delay-time
+875,Koko Eating Bananas,50.7%,Medium,85.3, https://leetcode.com/problems/koko-eating-bananas
+121,Best Time to Buy and Sell Stock,57.5%,Easy,85.3, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+347,Top K Frequent Elements,67.6%,Medium,85.3, https://leetcode.com/problems/top-k-frequent-elements
+200,Number of Islands,65.3%,Medium,85.3, https://leetcode.com/problems/number-of-islands
+394,Decode String,63.4%,Medium,85.3, https://leetcode.com/problems/decode-string
+622,Design Circular Queue,55.7%,Medium,73.7, https://leetcode.com/problems/design-circular-queue
+138,Copy List with Random Pointer,63.9%,Medium,73.7, https://leetcode.com/problems/copy-list-with-random-pointer
+141,Linked List Cycle,55.3%,Easy,73.7, https://leetcode.com/problems/linked-list-cycle
+1,Two Sum,58.1%,Easy,73.7, https://leetcode.com/problems/two-sum
+3,Longest Substring Without Repeating Characters,40.0%,Medium,73.7, https://leetcode.com/problems/longest-substring-without-repeating-characters
+239,Sliding Window Maximum,49.4%,Hard,73.7, https://leetcode.com/problems/sliding-window-maximum
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,73.7, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+158,Read N Characters Given read4 II - Call Multiple Times,43.4%,Hard,73.7, https://leetcode.com/problems/read-n-characters-given-read4-ii-call-multiple-times
+48,Rotate Image,80.8%,Medium,73.7, https://leetcode.com/problems/rotate-image
+42,Trapping Rain Water,68.4%,Hard,73.7, https://leetcode.com/problems/trapping-rain-water
+231,Power of Two,50.7%,Easy,0.008651812139809367, https://leetcode.com/problems/power-of-two
+146,LRU Cache,48.3%,Medium,0.004600353139061353, https://leetcode.com/problems/lru-cache
+23,Merge k Sorted Lists,60.8%,Hard,0.004051459000748015, https://leetcode.com/problems/merge-k-sorted-lists

@@ -1,0 +1,78 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+860,Lemonade Change,59.6%,Easy,100, https://leetcode.com/problems/lemonade-change
+1,Two Sum,58.1%,Easy,79.8, https://leetcode.com/problems/two-sum
+1563,Stone Game V,59.0%,Hard,71.6, https://leetcode.com/problems/stone-game-v
+1004,Max Consecutive Ones III,68.6%,Medium,71.6, https://leetcode.com/problems/max-consecutive-ones-iii
+3,Longest Substring Without Repeating Characters,40.0%,Medium,66.2, https://leetcode.com/problems/longest-substring-without-repeating-characters
+121,Best Time to Buy and Sell Stock,57.5%,Easy,66.2, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+70,Climbing Stairs,54.4%,Easy,66.2, https://leetcode.com/problems/climbing-stairs
+72,Edit Distance,61.5%,Medium,66.2, https://leetcode.com/problems/edit-distance
+53,Maximum Subarray,54.0%,Medium,66.2, https://leetcode.com/problems/maximum-subarray
+42,Trapping Rain Water,68.4%,Hard,66.2, https://leetcode.com/problems/trapping-rain-water
+122,Best Time to Buy and Sell Stock II,71.8%,Medium,66.2, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+403,Frog Jump,47.8%,Hard,66.2, https://leetcode.com/problems/frog-jump
+55,Jump Game,41.7%,Medium,66.2, https://leetcode.com/problems/jump-game
+134,Gas Station,48.9%,Medium,66.2, https://leetcode.com/problems/gas-station
+169,Majority Element,66.5%,Easy,66.2, https://leetcode.com/problems/majority-element
+875,Koko Eating Bananas,50.7%,Medium,59.2, https://leetcode.com/problems/koko-eating-bananas
+2279,Maximum Bags With Full Capacity of Rocks,68.4%,Medium,59.2, https://leetcode.com/problems/maximum-bags-with-full-capacity-of-rocks
+714,Best Time to Buy and Sell Stock with Transaction Fee,72.7%,Medium,59.2, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+91,Decode Ways,38.8%,Medium,59.2, https://leetcode.com/problems/decode-ways
+135,Candy,49.4%,Hard,59.2, https://leetcode.com/problems/candy
+152,Maximum Product Subarray,37.2%,Medium,59.2, https://leetcode.com/problems/maximum-product-subarray
+17,Letter Combinations of a Phone Number,67.1%,Medium,59.2, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+179,Largest Number,44.0%,Medium,59.2, https://leetcode.com/problems/largest-number
+1043,Partition Array for Maximum Sum,77.6%,Medium,59.2, https://leetcode.com/problems/partition-array-for-maximum-sum
+1775,Equal Sum Arrays With Minimum Number of Operations,55.0%,Medium,59.2, https://leetcode.com/problems/equal-sum-arrays-with-minimum-number-of-operations
+735,Asteroid Collision,49.4%,Medium,59.2, https://leetcode.com/problems/asteroid-collision
+146,LRU Cache,48.3%,Medium,59.2, https://leetcode.com/problems/lru-cache
+518,Coin Change II,59.1%,Medium,59.2, https://leetcode.com/problems/coin-change-ii
+1872,Stone Game VIII,74.8%,Hard,59.2, https://leetcode.com/problems/stone-game-viii
+983,Minimum Cost For Tickets,67.5%,Medium,59.2, https://leetcode.com/problems/minimum-cost-for-tickets
+239,Sliding Window Maximum,49.4%,Hard,59.2, https://leetcode.com/problems/sliding-window-maximum
+64,Minimum Path Sum,69.0%,Medium,59.2, https://leetcode.com/problems/minimum-path-sum
+1029,Two City Scheduling,69.1%,Medium,59.2, https://leetcode.com/problems/two-city-scheduling
+176,Second Highest Salary,48.8%,Medium,49.5, https://leetcode.com/problems/second-highest-salary
+283,Move Zeroes,64.5%,Easy,49.5, https://leetcode.com/problems/move-zeroes
+198,House Robber,53.7%,Medium,49.5, https://leetcode.com/problems/house-robber
+131,Palindrome Partitioning,74.8%,Medium,49.5, https://leetcode.com/problems/palindrome-partitioning
+132,Palindrome Partitioning II,38.2%,Hard,49.5, https://leetcode.com/problems/palindrome-partitioning-ii
+329,Longest Increasing Path in a Matrix,57.2%,Hard,49.5, https://leetcode.com/problems/longest-increasing-path-in-a-matrix
+1049,Last Stone Weight II,61.3%,Medium,49.5, https://leetcode.com/problems/last-stone-weight-ii
+871,Minimum Number of Refueling Stops,42.1%,Hard,49.5, https://leetcode.com/problems/minimum-number-of-refueling-stops
+1838,Frequency of the Most Frequent Element,45.3%,Medium,49.5, https://leetcode.com/problems/frequency-of-the-most-frequent-element
+1963,Minimum Number of Swaps to Make the String Balanced,78.1%,Medium,49.5, https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced
+188,Best Time to Buy and Sell Stock IV,51.6%,Hard,49.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+123,Best Time to Buy and Sell Stock III,55.0%,Hard,49.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+1221,Split a String in Balanced Strings,87.7%,Easy,49.5, https://leetcode.com/problems/split-a-string-in-balanced-strings
+1510,Stone Game IV,65.2%,Hard,49.5, https://leetcode.com/problems/stone-game-iv
+327,Count of Range Sum,40.3%,Hard,49.5, https://leetcode.com/problems/count-of-range-sum
+1438,Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit,58.2%,Medium,49.5, https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit
+453,Minimum Moves to Equal Array Elements,59.3%,Medium,49.5, https://leetcode.com/problems/minimum-moves-to-equal-array-elements
+1217,Minimum Cost to Move Chips to The Same Position,73.3%,Easy,49.5, https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position
+1710,Maximum Units on a Truck,75.4%,Easy,49.5, https://leetcode.com/problems/maximum-units-on-a-truck
+1094,Car Pooling,56.6%,Medium,49.5, https://leetcode.com/problems/car-pooling
+215,Kth Largest Element in an Array,69.4%,Medium,49.5, https://leetcode.com/problems/kth-largest-element-in-an-array
+141,Linked List Cycle,55.3%,Easy,49.5, https://leetcode.com/problems/linked-list-cycle
+918,Maximum Sum Circular Subarray,51.8%,Medium,49.5, https://leetcode.com/problems/maximum-sum-circular-subarray
+354,Russian Doll Envelopes,38.3%,Hard,49.5, https://leetcode.com/problems/russian-doll-envelopes
+1048,Longest String Chain,63.6%,Medium,49.5, https://leetcode.com/problems/longest-string-chain
+1423,Maximum Points You Can Obtain from Cards,58.6%,Medium,49.5, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards
+2370,Longest Ideal Subsequence,46.6%,Medium,49.5, https://leetcode.com/problems/longest-ideal-subsequence
+3901,Good Subsequence Queries,20.1%,Hard,49.5, https://leetcode.com/problems/good-subsequence-queries
+583,Delete Operation for Two Strings,66.3%,Medium,49.5, https://leetcode.com/problems/delete-operation-for-two-strings
+1388,Pizza With 3n Slices,54.5%,Hard,49.5, https://leetcode.com/problems/pizza-with-3n-slices
+16,3Sum Closest,47.7%,Medium,49.5, https://leetcode.com/problems/3sum-closest
+1827,Minimum Operations to Make the Array Increasing,82.5%,Easy,49.5, https://leetcode.com/problems/minimum-operations-to-make-the-array-increasing
+1526,Minimum Number of Increments on Subarrays to Form a Target Array,78.3%,Hard,49.5, https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array
+213,House Robber II,45.7%,Medium,49.5, https://leetcode.com/problems/house-robber-ii
+309,Best Time to Buy and Sell Stock with Cooldown,62.9%,Medium,49.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+312,Burst Balloons,64.6%,Hard,49.5, https://leetcode.com/problems/burst-balloons
+560,Subarray Sum Equals K,48.4%,Medium,49.5, https://leetcode.com/problems/subarray-sum-equals-k
+1547,Minimum Cost to Cut a Stick,63.5%,Hard,49.5, https://leetcode.com/problems/minimum-cost-to-cut-a-stick
+1824,Minimum Sideway Jumps,52.0%,Medium,49.5, https://leetcode.com/problems/minimum-sideway-jumps
+300,Longest Increasing Subsequence,60.1%,Medium,49.5, https://leetcode.com/problems/longest-increasing-subsequence
+22,Generate Parentheses,79.7%,Medium,49.5, https://leetcode.com/problems/generate-parentheses
+151,Reverse Words in a String,58.2%,Medium,49.5, https://leetcode.com/problems/reverse-words-in-a-string
+128,Longest Consecutive Sequence,47.3%,Medium,49.5, https://leetcode.com/problems/longest-consecutive-sequence
+4,Median of Two Sorted Arrays,47.9%,Hard,49.5, https://leetcode.com/problems/median-of-two-sorted-arrays

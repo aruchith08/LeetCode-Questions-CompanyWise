@@ -1,0 +1,31 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+924,Minimize Malware Spread,43.6%,Hard,100, https://leetcode.com/problems/minimize-malware-spread
+2931,Maximum Spending After Buying Items,60.3%,Hard,100, https://leetcode.com/problems/maximum-spending-after-buying-items
+2584,Split the Array to Make Coprime Products,29.5%,Hard,100, https://leetcode.com/problems/split-the-array-to-make-coprime-products
+2505,Bitwise OR of All Subsequence Sums,63.5%,Medium,100, https://leetcode.com/problems/bitwise-or-of-all-subsequence-sums
+2608,Shortest Cycle in a Graph,40.8%,Hard,100, https://leetcode.com/problems/shortest-cycle-in-a-graph
+2147,Number of Ways to Divide a Long Corridor,54.5%,Hard,100, https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor
+2145,Count the Hidden Sequences,56.7%,Medium,96.4, https://leetcode.com/problems/count-the-hidden-sequences
+2939,Maximum Xor Product,30.7%,Medium,88.9, https://leetcode.com/problems/maximum-xor-product
+626,Exchange Seats,75.2%,Medium,88.4, https://leetcode.com/problems/exchange-seats
+146,LRU Cache,48.3%,Medium,88.4, https://leetcode.com/problems/lru-cache
+218,The Skyline Problem,46.2%,Hard,81.1, https://leetcode.com/problems/the-skyline-problem
+53,Maximum Subarray,54.0%,Medium,73.3, https://leetcode.com/problems/maximum-subarray
+3,Longest Substring Without Repeating Characters,40.0%,Medium,73.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+540,Single Element in a Sorted Array,59.5%,Medium,73.3, https://leetcode.com/problems/single-element-in-a-sorted-array
+41,First Missing Positive,44.0%,Hard,62.4, https://leetcode.com/problems/first-missing-positive
+200,Number of Islands,65.3%,Medium,62.4, https://leetcode.com/problems/number-of-islands
+909,Snakes and Ladders,48.3%,Medium,62.4, https://leetcode.com/problems/snakes-and-ladders
+260,Single Number III,70.1%,Medium,62.4, https://leetcode.com/problems/single-number-iii
+221,Maximal Square,51.1%,Medium,62.4, https://leetcode.com/problems/maximal-square
+205,Isomorphic Strings,49.3%,Easy,62.4, https://leetcode.com/problems/isomorphic-strings
+207,Course Schedule,52.4%,Medium,62.4, https://leetcode.com/problems/course-schedule
+358,Rearrange String k Distance Apart,40.0%,Hard,62.4, https://leetcode.com/problems/rearrange-string-k-distance-apart
+46,Permutations,82.4%,Medium,62.4, https://leetcode.com/problems/permutations
+283,Move Zeroes,64.5%,Easy,62.4, https://leetcode.com/problems/move-zeroes
+39,Combination Sum,77.3%,Medium,62.4, https://leetcode.com/problems/combination-sum
+240,Search a 2D Matrix II,58.3%,Medium,62.4, https://leetcode.com/problems/search-a-2d-matrix-ii
+56,Merge Intervals,53.0%,Medium,62.4, https://leetcode.com/problems/merge-intervals
+354,Russian Doll Envelopes,38.3%,Hard,62.4, https://leetcode.com/problems/russian-doll-envelopes
+2812,Find the Safest Path in a Grid,57.2%,Medium,62.4, https://leetcode.com/problems/find-the-safest-path-in-a-grid
+1537,Get the Maximum Score,41.6%,Hard,62.4, https://leetcode.com/problems/get-the-maximum-score

@@ -1,0 +1,46 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1031,Maximum Sum of Two Non-Overlapping Subarrays,61.6%,Medium,100, https://leetcode.com/problems/maximum-sum-of-two-non-overlapping-subarrays
+2440,Create Components With Same Value,54.4%,Hard,100, https://leetcode.com/problems/create-components-with-same-value
+134,Gas Station,48.9%,Medium,96.6, https://leetcode.com/problems/gas-station
+3414,Maximum Score of Non-overlapping Intervals,65.6%,Hard,95.3, https://leetcode.com/problems/maximum-score-of-non-overlapping-intervals
+2846,Minimum Edge Weight Equilibrium Queries in a Tree,46.7%,Hard,89.6, https://leetcode.com/problems/minimum-edge-weight-equilibrium-queries-in-a-tree
+2518,Number of Great Partitions,34.0%,Hard,89.6, https://leetcode.com/problems/number-of-great-partitions
+2546,Apply Bitwise Operations to Make Strings Equal,43.1%,Medium,89.6, https://leetcode.com/problems/apply-bitwise-operations-to-make-strings-equal
+2897,Apply Operations on Array to Maximize Sum of Squares,73.8%,Hard,89.6, https://leetcode.com/problems/apply-operations-on-array-to-maximize-sum-of-squares
+2048,Next Greater Numerically Balanced Number,63.1%,Medium,89.6, https://leetcode.com/problems/next-greater-numerically-balanced-number
+2999,Count the Number of Powerful Integers,46.0%,Hard,89.6, https://leetcode.com/problems/count-the-number-of-powerful-integers
+2955,Number of Same-End Substrings,60.2%,Medium,89.6, https://leetcode.com/problems/number-of-same-end-substrings
+3031,Minimum Time to Revert Word to Initial State II,35.4%,Hard,89.6, https://leetcode.com/problems/minimum-time-to-revert-word-to-initial-state-ii
+3029,Minimum Time to Revert Word to Initial State I,42.8%,Medium,89.6, https://leetcode.com/problems/minimum-time-to-revert-word-to-initial-state-i
+1755,Closest Subsequence Sum,45.4%,Hard,89.6, https://leetcode.com/problems/closest-subsequence-sum
+1746,Maximum Subarray Sum After One Operation,65.1%,Medium,89.6, https://leetcode.com/problems/maximum-subarray-sum-after-one-operation
+1799,Maximize Score After N Operations,57.9%,Hard,89.6, https://leetcode.com/problems/maximize-score-after-n-operations
+2378,Choose Edges to Maximize Score in a Tree,57.1%,Medium,89.6, https://leetcode.com/problems/choose-edges-to-maximize-score-in-a-tree
+735,Asteroid Collision,49.4%,Medium,72, https://leetcode.com/problems/asteroid-collision
+907,Sum of Subarray Minimums,39.1%,Medium,72, https://leetcode.com/problems/sum-of-subarray-minimums
+205,Isomorphic Strings,49.3%,Easy,72, https://leetcode.com/problems/isomorphic-strings
+560,Subarray Sum Equals K,48.4%,Medium,72, https://leetcode.com/problems/subarray-sum-equals-k
+975,Odd Even Jump,41.7%,Hard,64.6, https://leetcode.com/problems/odd-even-jump
+1463,Cherry Pickup II,72.7%,Hard,64.6, https://leetcode.com/problems/cherry-pickup-ii
+295,Find Median from Data Stream,55.1%,Hard,64.6, https://leetcode.com/problems/find-median-from-data-stream
+149,Max Points on a Line,31.7%,Hard,54.4, https://leetcode.com/problems/max-points-on-a-line
+10,Regular Expression Matching,32.0%,Hard,54.4, https://leetcode.com/problems/regular-expression-matching
+552,Student Attendance Record II,57.1%,Hard,54.4, https://leetcode.com/problems/student-attendance-record-ii
+1129,Shortest Path with Alternating Colors,48.4%,Medium,54.4, https://leetcode.com/problems/shortest-path-with-alternating-colors
+687,Longest Univalue Path,44.6%,Medium,54.4, https://leetcode.com/problems/longest-univalue-path
+918,Maximum Sum Circular Subarray,51.8%,Medium,54.4, https://leetcode.com/problems/maximum-sum-circular-subarray
+85,Maximal Rectangle,60.1%,Hard,54.4, https://leetcode.com/problems/maximal-rectangle
+32,Longest Valid Parentheses,41.4%,Hard,54.4, https://leetcode.com/problems/longest-valid-parentheses
+403,Frog Jump,47.8%,Hard,54.4, https://leetcode.com/problems/frog-jump
+456,132 Pattern,35.2%,Medium,54.4, https://leetcode.com/problems/132-pattern
+337,House Robber III,56.5%,Medium,54.4, https://leetcode.com/problems/house-robber-iii
+239,Sliding Window Maximum,49.4%,Hard,54.4, https://leetcode.com/problems/sliding-window-maximum
+72,Edit Distance,61.5%,Medium,54.4, https://leetcode.com/problems/edit-distance
+1423,Maximum Points You Can Obtain from Cards,58.6%,Medium,54.4, https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards
+42,Trapping Rain Water,68.4%,Hard,54.4, https://leetcode.com/problems/trapping-rain-water
+863,All Nodes Distance K in Binary Tree,68.2%,Medium,54.4, https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree
+146,LRU Cache,48.3%,Medium,54.4, https://leetcode.com/problems/lru-cache
+1526,Minimum Number of Increments on Subarrays to Form a Target Array,78.3%,Hard,54.4, https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array
+373,Find K Pairs with Smallest Sums,42.6%,Medium,54.4, https://leetcode.com/problems/find-k-pairs-with-smallest-sums
+56,Merge Intervals,53.0%,Medium,54.4, https://leetcode.com/problems/merge-intervals
+4,Median of Two Sorted Arrays,47.9%,Hard,54.4, https://leetcode.com/problems/median-of-two-sorted-arrays

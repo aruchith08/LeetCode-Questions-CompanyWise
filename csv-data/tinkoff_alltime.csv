@@ -1,0 +1,20 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+5,Longest Palindromic Substring,38.9%,Medium,100, https://leetcode.com/problems/longest-palindromic-substring
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,100, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+33,Search in Rotated Sorted Array,45.8%,Medium,94, https://leetcode.com/problems/search-in-rotated-sorted-array
+1,Two Sum,58.1%,Easy,86.3, https://leetcode.com/problems/two-sum
+71,Simplify Path,51.7%,Medium,86.3, https://leetcode.com/problems/simplify-path
+392,Is Subsequence,49.5%,Easy,86.3, https://leetcode.com/problems/is-subsequence
+394,Decode String,63.4%,Medium,86.3, https://leetcode.com/problems/decode-string
+2609,Find the Longest Balanced Substring of a Binary String,46.2%,Easy,86.3, https://leetcode.com/problems/find-the-longest-balanced-substring-of-a-binary-string
+3,Longest Substring Without Repeating Characters,40.0%,Medium,75.4, https://leetcode.com/problems/longest-substring-without-repeating-characters
+155,Min Stack,58.8%,Medium,75.4, https://leetcode.com/problems/min-stack
+419,Battleships in a Board,77.9%,Medium,75.4, https://leetcode.com/problems/battleships-in-a-board
+2694,Event Emitter,75.3%,Medium,75.4, https://leetcode.com/problems/event-emitter
+200,Number of Islands,65.3%,Medium,75.4, https://leetcode.com/problems/number-of-islands
+1984,Minimum Difference Between Highest and Lowest of K Scores,66.5%,Easy,75.4, https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores
+19,Remove Nth Node From End of List,52.9%,Medium,75.4, https://leetcode.com/problems/remove-nth-node-from-end-of-list
+228,Summary Ranges,54.9%,Easy,75.4, https://leetcode.com/problems/summary-ranges
+13,Roman to Integer,67.3%,Easy,75.4, https://leetcode.com/problems/roman-to-integer
+443,String Compression,61.0%,Medium,75.4, https://leetcode.com/problems/string-compression
+356,Line Reflection,36.4%,Medium,75.4, https://leetcode.com/problems/line-reflection

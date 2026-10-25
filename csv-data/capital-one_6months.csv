@@ -1,9 +1,23 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-228,Summary Ranges,39.5%,Medium,0.16290155097997208, https://leetcode.com/problems/summary-ranges
-1071,Greatest Common Divisor of Strings,52.9%,Easy,0.12182344519338843, https://leetcode.com/problems/greatest-common-divisor-of-strings
-290,Word Pattern,37.0%,Easy,0.10980743793876432, https://leetcode.com/problems/word-pattern
-814,Binary Tree Pruning,74.5%,Medium,0.06872933215218067, https://leetcode.com/problems/binary-tree-pruning
-328,Odd Even Linked List,55.7%,Medium,0.04684258362761172, https://leetcode.com/problems/odd-even-linked-list
-204,Count Primes,31.5%,Easy,0.02799343042200216, https://leetcode.com/problems/count-primes
-138,Copy List with Random Pointer,36.4%,Medium,0.02453734514188008, https://leetcode.com/problems/copy-list-with-random-pointer
-66,Plus One,43.0%,Easy,0.00326211347832938, https://leetcode.com/problems/plus-one
+2232,Minimize Result by Adding Parentheses to Expression,68.7%,Medium,100, https://leetcode.com/problems/minimize-result-by-adding-parentheses-to-expression
+3161,Block Placement Queries,41.0%,Hard,100, https://leetcode.com/problems/block-placement-queries
+2043,Simple Bank System,69.4%,Medium,86.3, https://leetcode.com/problems/simple-bank-system
+2502,Design Memory Allocator,51.1%,Medium,78.8, https://leetcode.com/problems/design-memory-allocator
+2237,Count Positions on Street With Required Brightness,62.4%,Medium,78.8, https://leetcode.com/problems/count-positions-on-street-with-required-brightness
+3208,Alternating Groups II,60.0%,Medium,73.9, https://leetcode.com/problems/alternating-groups-ii
+68,Text Justification,52.5%,Hard,67.5, https://leetcode.com/problems/text-justification
+3043,Find the Length of the Longest Common Prefix,62.3%,Medium,67.5, https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix
+2672,Number of Adjacent Elements With the Same Color,60.1%,Medium,67.5, https://leetcode.com/problems/number-of-adjacent-elements-with-the-same-color
+2243,Calculate Digit Sum of a String,68.1%,Easy,67.5, https://leetcode.com/problems/calculate-digit-sum-of-a-string
+2021,Brightest Position on Street,60.6%,Medium,67.5, https://leetcode.com/problems/brightest-position-on-street
+257,Binary Tree Paths,69.5%,Easy,58.6, https://leetcode.com/problems/binary-tree-paths
+56,Merge Intervals,53.0%,Medium,58.6, https://leetcode.com/problems/merge-intervals
+759,Employee Free Time,73.0%,Hard,58.6, https://leetcode.com/problems/employee-free-time
+228,Summary Ranges,54.9%,Easy,0.16290155097997208, https://leetcode.com/problems/summary-ranges
+1071,Greatest Common Divisor of Strings,54.6%,Easy,0.12182344519338843, https://leetcode.com/problems/greatest-common-divisor-of-strings
+290,Word Pattern,44.8%,Easy,0.10980743793876432, https://leetcode.com/problems/word-pattern
+814,Binary Tree Pruning,72.6%,Medium,0.06872933215218067, https://leetcode.com/problems/binary-tree-pruning
+328,Odd Even Linked List,62.9%,Medium,0.04684258362761172, https://leetcode.com/problems/odd-even-linked-list
+204,Count Primes,35.8%,Medium,0.02799343042200216, https://leetcode.com/problems/count-primes
+138,Copy List with Random Pointer,63.9%,Medium,0.02453734514188008, https://leetcode.com/problems/copy-list-with-random-pointer
+66,Plus One,50.8%,Easy,0.00326211347832938, https://leetcode.com/problems/plus-one

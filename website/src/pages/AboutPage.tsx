@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function AboutPage() {
   return (
     <div className="space-y-12 animate-fade-in pb-16">
-      {/* Main 3 Horizontal Chapters */}
+      {/* Main 4 Horizontal Chapters */}
       <AboutSection />
 
       {/* Deep-Dive Technical Blueprint */}
@@ -29,7 +29,7 @@ export default function AboutPage() {
               <span>Offline-First Ingest Pipeline</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-              All 537 CSV files in the repository are ingested through an offline TypeScript pipeline that parses 20,453 entries, validates every LeetCode problem URL, deduplicates records, and outputs unified, compressed static index files served directly via Vite.
+              All 1,112 CSV files in the repository are ingested through an offline TypeScript pipeline that parses 38,825 entries, validates every LeetCode problem URL, deduplicates records, and outputs unified, compressed static index files served directly via Vite.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
           Ready to target your interview questions?
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] max-w-xl mx-auto">
-          Explore 200 tech companies and start practicing the problems that matter most.
+          Explore 490 tech companies and start practicing the problems that matter most.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link

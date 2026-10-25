@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+210,Course Schedule II,56.5%,Medium,100, https://leetcode.com/problems/course-schedule-ii
+1091,Shortest Path in Binary Matrix,52.3%,Medium,92.2, https://leetcode.com/problems/shortest-path-in-binary-matrix
+1828,Queries on Number of Points Inside a Circle,86.9%,Medium,92.2, https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle
+694,Number of Distinct Islands,63.0%,Medium,92.2, https://leetcode.com/problems/number-of-distinct-islands
+994,Rotting Oranges,59.6%,Medium,81.2, https://leetcode.com/problems/rotting-oranges
+1610,Maximum Number of Visible Points,38.6%,Hard,81.2, https://leetcode.com/problems/maximum-number-of-visible-points
+1087,Brace Expansion,66.9%,Medium,81.2, https://leetcode.com/problems/brace-expansion
+1557,Minimum Number of Vertices to Reach All Nodes,81.8%,Medium,81.2, https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes
+2360,Longest Cycle in a Graph,51.3%,Hard,81.2, https://leetcode.com/problems/longest-cycle-in-a-graph

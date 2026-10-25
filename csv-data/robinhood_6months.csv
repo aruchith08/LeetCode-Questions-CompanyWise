@@ -1,3 +1,5 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-224,Basic Calculator,36.8%,Hard,0.012377921514712346, https://leetcode.com/problems/basic-calculator
-54,Spiral Matrix,34.1%,Medium,0.006188960757356173, https://leetcode.com/problems/spiral-matrix
+68,Text Justification,52.5%,Hard,100, https://leetcode.com/problems/text-justification
+692,Top K Frequent Words,60.8%,Medium,100, https://leetcode.com/problems/top-k-frequent-words
+224,Basic Calculator,47.3%,Hard,0.012377921514712346, https://leetcode.com/problems/basic-calculator
+54,Spiral Matrix,58.2%,Medium,0.006188960757356173, https://leetcode.com/problems/spiral-matrix

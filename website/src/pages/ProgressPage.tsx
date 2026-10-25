@@ -37,7 +37,7 @@ export default function ProgressPage() {
   const [importNotice, setImportNotice] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const totalQuestions = index?.totalQuestions || 1446;
+  const totalQuestions = index?.totalQuestions || 3411;
   const overallPctRaw = totalQuestions > 0 ? (totalSolved / totalQuestions) * 100 : 0;
   const overallPctFormatted = totalSolved === 0
     ? '0%'
@@ -62,9 +62,9 @@ export default function ProgressPage() {
     let medAttempted = 0;
     let hardAttempted = 0;
 
-    const easyTotal = index?.difficultyCounts.Easy || 350;
-    const medTotal = index?.difficultyCounts.Medium || 799;
-    const hardTotal = index?.difficultyCounts.Hard || 297;
+    const easyTotal = index?.difficultyCounts.Easy || 814;
+    const medTotal = index?.difficultyCounts.Medium || 1817;
+    const hardTotal = index?.difficultyCounts.Hard || 780;
 
     if (allQuestions) {
       for (const q of allQuestions) {

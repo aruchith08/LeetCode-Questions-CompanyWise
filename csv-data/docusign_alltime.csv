@@ -1,10 +1,36 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-92,Reverse Linked List II,38.8%,Medium,0.06299677669844994, https://leetcode.com/problems/reverse-linked-list-ii
-49,Group Anagrams,56.9%,Medium,0.058734162515069785, https://leetcode.com/problems/group-anagrams
-71,Simplify Path,32.6%,Medium,0.03622126343431837, https://leetcode.com/problems/simplify-path
-146,LRU Cache,33.2%,Medium,0.028411001832779885, https://leetcode.com/problems/lru-cache
-73,Set Matrix Zeroes,43.1%,Medium,0.027769920533553028, https://leetcode.com/problems/set-matrix-zeroes
-206,Reverse Linked List,62.5%,Easy,0.005257021452801617, https://leetcode.com/problems/reverse-linked-list
-242,Valid Anagram,56.9%,Easy,0.004154123743115972, https://leetcode.com/problems/valid-anagram
-2,Add Two Numbers,33.9%,Medium,0.00379539105290024, https://leetcode.com/problems/add-two-numbers
-79,Word Search,35.6%,Medium,0.003741741363018696, https://leetcode.com/problems/word-search
+3883,Count Non Decreasing Arrays With Given Digit Sums,40.5%,Hard,100, https://leetcode.com/problems/count-non-decreasing-arrays-with-given-digit-sums
+1797,Design Authentication Manager,58.9%,Medium,96.5, https://leetcode.com/problems/design-authentication-manager
+208,Implement Trie (Prefix Tree),70.2%,Medium,92.5, https://leetcode.com/problems/implement-trie-prefix-tree
+3588,Find Maximum Area of a Triangle,29.6%,Medium,87.7, https://leetcode.com/problems/find-maximum-area-of-a-triangle
+3,Longest Substring Without Repeating Characters,40.0%,Medium,81.9, https://leetcode.com/problems/longest-substring-without-repeating-characters
+380,Insert Delete GetRandom O(1),55.6%,Medium,81.9, https://leetcode.com/problems/insert-delete-getrandom-o1
+1268,Search Suggestions System,65.3%,Medium,81.9, https://leetcode.com/problems/search-suggestions-system
+347,Top K Frequent Elements,67.6%,Medium,74.4, https://leetcode.com/problems/top-k-frequent-elements
+12,Integer to Roman,71.9%,Medium,74.4, https://leetcode.com/problems/integer-to-roman
+253,Meeting Rooms II,52.8%,Medium,74.4, https://leetcode.com/problems/meeting-rooms-ii
+200,Number of Islands,65.3%,Medium,74.4, https://leetcode.com/problems/number-of-islands
+359,Logger Rate Limiter,76.9%,Easy,74.4, https://leetcode.com/problems/logger-rate-limiter
+621,Task Scheduler,64.0%,Medium,74.4, https://leetcode.com/problems/task-scheduler
+726,Number of Atoms,65.3%,Hard,63.9, https://leetcode.com/problems/number-of-atoms
+213,House Robber II,45.7%,Medium,63.9, https://leetcode.com/problems/house-robber-ii
+337,House Robber III,56.5%,Medium,63.9, https://leetcode.com/problems/house-robber-iii
+1368,Minimum Cost to Make at Least One Valid Path in a Grid,71.3%,Hard,63.9, https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid
+127,Word Ladder,46.8%,Hard,63.9, https://leetcode.com/problems/word-ladder
+21,Merge Two Sorted Lists,69.0%,Easy,63.9, https://leetcode.com/problems/merge-two-sorted-lists
+2326,Spiral Matrix IV,82.3%,Medium,63.9, https://leetcode.com/problems/spiral-matrix-iv
+42,Trapping Rain Water,68.4%,Hard,63.9, https://leetcode.com/problems/trapping-rain-water
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,63.9, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+162,Find Peak Element,47.3%,Medium,63.9, https://leetcode.com/problems/find-peak-element
+721,Accounts Merge,62.2%,Medium,63.9, https://leetcode.com/problems/accounts-merge
+696,Count Binary Substrings,70.6%,Easy,63.9, https://leetcode.com/problems/count-binary-substrings
+2296,Design a Text Editor,52.3%,Hard,63.9, https://leetcode.com/problems/design-a-text-editor
+92,Reverse Linked List II,52.7%,Medium,0.06299677669844994, https://leetcode.com/problems/reverse-linked-list-ii
+49,Group Anagrams,73.5%,Medium,0.058734162515069785, https://leetcode.com/problems/group-anagrams
+71,Simplify Path,51.7%,Medium,0.03622126343431837, https://leetcode.com/problems/simplify-path
+146,LRU Cache,48.3%,Medium,0.028411001832779885, https://leetcode.com/problems/lru-cache
+73,Set Matrix Zeroes,63.8%,Medium,0.027769920533553028, https://leetcode.com/problems/set-matrix-zeroes
+206,Reverse Linked List,81.2%,Easy,0.005257021452801617, https://leetcode.com/problems/reverse-linked-list
+242,Valid Anagram,68.8%,Easy,0.004154123743115972, https://leetcode.com/problems/valid-anagram
+2,Add Two Numbers,49.6%,Medium,0.00379539105290024, https://leetcode.com/problems/add-two-numbers
+79,Word Search,48.3%,Medium,0.003741741363018696, https://leetcode.com/problems/word-search

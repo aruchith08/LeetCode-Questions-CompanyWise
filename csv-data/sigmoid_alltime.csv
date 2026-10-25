@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+283,Move Zeroes,64.5%,Easy,100, https://leetcode.com/problems/move-zeroes
+103,Binary Tree Zigzag Level Order Traversal,64.7%,Medium,87.3, https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
+25,Reverse Nodes in k-Group,67.5%,Hard,87.3, https://leetcode.com/problems/reverse-nodes-in-k-group
+881,Boats to Save People,62.7%,Medium,87.3, https://leetcode.com/problems/boats-to-save-people
+155,Min Stack,58.8%,Medium,87.3, https://leetcode.com/problems/min-stack
+122,Best Time to Buy and Sell Stock II,71.8%,Medium,87.3, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+49,Group Anagrams,73.5%,Medium,87.3, https://leetcode.com/problems/group-anagrams
+14,Longest Common Prefix,48.6%,Easy,87.3, https://leetcode.com/problems/longest-common-prefix
+994,Rotting Oranges,59.6%,Medium,87.3, https://leetcode.com/problems/rotting-oranges
+200,Number of Islands,65.3%,Medium,87.3, https://leetcode.com/problems/number-of-islands
+503,Next Greater Element II,69.4%,Medium,87.3, https://leetcode.com/problems/next-greater-element-ii
+56,Merge Intervals,53.0%,Medium,87.3, https://leetcode.com/problems/merge-intervals
+42,Trapping Rain Water,68.4%,Hard,87.3, https://leetcode.com/problems/trapping-rain-water
+3,Longest Substring Without Repeating Characters,40.0%,Medium,87.3, https://leetcode.com/problems/longest-substring-without-repeating-characters

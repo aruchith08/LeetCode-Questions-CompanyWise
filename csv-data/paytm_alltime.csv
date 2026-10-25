@@ -1,2 +1,26 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1047,Remove All Adjacent Duplicates In String,68.6%,Easy,0, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+316,Remove Duplicate Letters,54.7%,Medium,100, https://leetcode.com/problems/remove-duplicate-letters
+1081,Smallest Subsequence of Distinct Characters,70.7%,Medium,100, https://leetcode.com/problems/smallest-subsequence-of-distinct-characters
+155,Min Stack,58.8%,Medium,100, https://leetcode.com/problems/min-stack
+3816,Lexicographically Smallest String After Deleting Duplicate Characters,21.1%,Hard,100, https://leetcode.com/problems/lexicographically-smallest-string-after-deleting-duplicate-characters
+2903,Find Indices With Index and Value Difference I,60.2%,Easy,96.9, https://leetcode.com/problems/find-indices-with-index-and-value-difference-i
+2905,Find Indices With Index and Value Difference II,33.0%,Medium,96.9, https://leetcode.com/problems/find-indices-with-index-and-value-difference-ii
+2401,Longest Nice Subarray,64.9%,Medium,96.9, https://leetcode.com/problems/longest-nice-subarray
+2439,Minimize Maximum of Array,46.6%,Medium,96.9, https://leetcode.com/problems/minimize-maximum-of-array
+2475,Number of Unequal Triplets in Array,73.7%,Easy,96.9, https://leetcode.com/problems/number-of-unequal-triplets-in-array
+3711,Maximum Transactions Without Negative Balance,46.4%,Medium,96.9, https://leetcode.com/problems/maximum-transactions-without-negative-balance
+128,Longest Consecutive Sequence,47.3%,Medium,84.6, https://leetcode.com/problems/longest-consecutive-sequence
+142,Linked List Cycle II,59.5%,Medium,78.8, https://leetcode.com/problems/linked-list-cycle-ii
+42,Trapping Rain Water,68.4%,Hard,71.3, https://leetcode.com/problems/trapping-rain-water
+206,Reverse Linked List,81.2%,Easy,71.3, https://leetcode.com/problems/reverse-linked-list
+33,Search in Rotated Sorted Array,45.8%,Medium,71.3, https://leetcode.com/problems/search-in-rotated-sorted-array
+3,Longest Substring Without Repeating Characters,40.0%,Medium,71.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+443,String Compression,61.0%,Medium,71.3, https://leetcode.com/problems/string-compression
+74,Search a 2D Matrix,54.3%,Medium,60.7, https://leetcode.com/problems/search-a-2d-matrix
+312,Burst Balloons,64.6%,Hard,60.7, https://leetcode.com/problems/burst-balloons
+1094,Car Pooling,56.6%,Medium,60.7, https://leetcode.com/problems/car-pooling
+264,Ugly Number II,49.9%,Medium,60.7, https://leetcode.com/problems/ugly-number-ii
+121,Best Time to Buy and Sell Stock,57.5%,Easy,60.7, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+146,LRU Cache,48.3%,Medium,60.7, https://leetcode.com/problems/lru-cache
+54,Spiral Matrix,58.2%,Medium,60.7, https://leetcode.com/problems/spiral-matrix
+1047,Remove All Adjacent Duplicates In String,74.3%,Easy,0, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string

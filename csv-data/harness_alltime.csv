@@ -1,0 +1,7 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+741,Cherry Pickup,40.8%,Hard,100, https://leetcode.com/problems/cherry-pickup
+16,3Sum Closest,47.7%,Medium,100, https://leetcode.com/problems/3sum-closest
+76,Minimum Window Substring,48.7%,Hard,88.8, https://leetcode.com/problems/minimum-window-substring
+3878,Count Good Subarrays,26.2%,Hard,88.8, https://leetcode.com/problems/count-good-subarrays
+395,Longest Substring with At Least K Repeating Characters,46.9%,Medium,88.8, https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters
+146,LRU Cache,48.3%,Medium,88.8, https://leetcode.com/problems/lru-cache

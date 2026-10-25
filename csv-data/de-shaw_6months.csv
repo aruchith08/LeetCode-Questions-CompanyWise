@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+767,Reorganize String,57.7%,Medium,100, https://leetcode.com/problems/reorganize-string
+239,Sliding Window Maximum,49.4%,Hard,100, https://leetcode.com/problems/sliding-window-maximum
+696,Count Binary Substrings,70.6%,Easy,100, https://leetcode.com/problems/count-binary-substrings
+1642,Furthest Building You Can Reach,51.2%,Medium,91.4, https://leetcode.com/problems/furthest-building-you-can-reach
+779,K-th Symbol in Grammar,48.9%,Medium,91.4, https://leetcode.com/problems/k-th-symbol-in-grammar
+424,Longest Repeating Character Replacement,60.9%,Medium,91.4, https://leetcode.com/problems/longest-repeating-character-replacement
+2062,Count Vowel Substrings of a String,73.8%,Easy,91.4, https://leetcode.com/problems/count-vowel-substrings-of-a-string
+735,Asteroid Collision,49.4%,Medium,91.4, https://leetcode.com/problems/asteroid-collision
+2171,Removing Minimum Number of Magic Beans,45.1%,Medium,91.4, https://leetcode.com/problems/removing-minimum-number-of-magic-beans
+1293,Shortest Path in a Grid with Obstacles Elimination,46.8%,Hard,79.2, https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination
+1004,Max Consecutive Ones III,68.6%,Medium,79.2, https://leetcode.com/problems/max-consecutive-ones-iii
+871,Minimum Number of Refueling Stops,42.1%,Hard,79.2, https://leetcode.com/problems/minimum-number-of-refueling-stops
+295,Find Median from Data Stream,55.1%,Hard,79.2, https://leetcode.com/problems/find-median-from-data-stream
+968,Binary Tree Cameras,48.3%,Hard,79.2, https://leetcode.com/problems/binary-tree-cameras
+380,Insert Delete GetRandom O(1),55.6%,Medium,79.2, https://leetcode.com/problems/insert-delete-getrandom-o1

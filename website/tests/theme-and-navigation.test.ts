@@ -57,7 +57,10 @@ describe('Theme & Navigation Behavior', () => {
   });
 
   it('supports the required time period taxonomy and display labels', () => {
-    expect(PERIOD_ORDER).toEqual(['6months', '1year', '2year', 'alltime']);
+    expect(PERIOD_ORDER).toEqual(['30days', '3months', '6months', '1year', '2year', 'alltime']);
+
+    expect(PERIOD_LABELS['30days']).toBe('Last 30 Days');
+    expect(PERIOD_LABELS['3months']).toBe('Last 3 Months');
 
     expect(PERIOD_LABELS['6months']).toBe('Last 6 Months');
     expect(PERIOD_LABELS['1year']).toBe('Last 1 Year');

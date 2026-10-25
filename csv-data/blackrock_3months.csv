@@ -1,0 +1,5 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+20,Valid Parentheses,45.4%,Easy,100, https://leetcode.com/problems/valid-parentheses
+235,Lowest Common Ancestor of a Binary Search Tree,71.6%,Medium,77, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
+236,Lowest Common Ancestor of a Binary Tree,70.3%,Medium,67.4, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
+3998,Transform Binary String Using Subsequence Sort,38.2%,Medium,67.4, https://leetcode.com/problems/transform-binary-string-using-subsequence-sort

@@ -1,5 +1,29 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1353,Maximum Number of Events That Can Be Attended,30.5%,Medium,0.006473832517571056, https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended
-42,Trapping Rain Water,48.9%,Hard,0.004350670338744988, https://leetcode.com/problems/trapping-rain-water
-98,Validate Binary Search Tree,27.8%,Medium,0.002943776044013381, https://leetcode.com/problems/validate-binary-search-tree
-1,Two Sum,45.6%,Easy,0.0008206138651873125, https://leetcode.com/problems/two-sum
+526,Beautiful Arrangement,65.0%,Medium,100, https://leetcode.com/problems/beautiful-arrangement
+636,Exclusive Time of Functions,66.3%,Medium,100, https://leetcode.com/problems/exclusive-time-of-functions
+3,Longest Substring Without Repeating Characters,40.0%,Medium,93.5, https://leetcode.com/problems/longest-substring-without-repeating-characters
+2484,Count Palindromic Subsequences,42.2%,Hard,93.5, https://leetcode.com/problems/count-palindromic-subsequences
+3919,Minimum Cost to Move Between Indices,49.3%,Medium,93.5, https://leetcode.com/problems/minimum-cost-to-move-between-indices
+2964,Number of Divisible Triplet Sums,67.6%,Medium,85.2, https://leetcode.com/problems/number-of-divisible-triplet-sums
+56,Merge Intervals,53.0%,Medium,85.2, https://leetcode.com/problems/merge-intervals
+2680,Maximum OR,43.2%,Medium,85.2, https://leetcode.com/problems/maximum-or
+1963,Minimum Number of Swaps to Make the String Balanced,78.1%,Medium,85.2, https://leetcode.com/problems/minimum-number-of-swaps-to-make-the-string-balanced
+32,Longest Valid Parentheses,41.4%,Hard,85.2, https://leetcode.com/problems/longest-valid-parentheses
+928,Minimize Malware Spread II,46.3%,Hard,85.2, https://leetcode.com/problems/minimize-malware-spread-ii
+924,Minimize Malware Spread,43.6%,Hard,85.2, https://leetcode.com/problems/minimize-malware-spread
+5,Longest Palindromic Substring,38.9%,Medium,73.5, https://leetcode.com/problems/longest-palindromic-substring
+2439,Minimize Maximum of Array,46.6%,Medium,73.5, https://leetcode.com/problems/minimize-maximum-of-array
+200,Number of Islands,65.3%,Medium,73.5, https://leetcode.com/problems/number-of-islands
+2466,Count Ways To Build Good Strings,58.8%,Medium,73.5, https://leetcode.com/problems/count-ways-to-build-good-strings
+560,Subarray Sum Equals K,48.4%,Medium,73.5, https://leetcode.com/problems/subarray-sum-equals-k
+49,Group Anagrams,73.5%,Medium,73.5, https://leetcode.com/problems/group-anagrams
+2434,Using a Robot to Print the Lexicographically Smallest String,62.2%,Medium,73.5, https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string
+1143,Longest Common Subsequence,59.7%,Medium,73.5, https://leetcode.com/problems/longest-common-subsequence
+735,Asteroid Collision,49.4%,Medium,73.5, https://leetcode.com/problems/asteroid-collision
+210,Course Schedule II,56.5%,Medium,73.5, https://leetcode.com/problems/course-schedule-ii
+329,Longest Increasing Path in a Matrix,57.2%,Hard,73.5, https://leetcode.com/problems/longest-increasing-path-in-a-matrix
+146,LRU Cache,48.3%,Medium,73.5, https://leetcode.com/problems/lru-cache
+1353,Maximum Number of Events That Can Be Attended,39.2%,Medium,0.006473832517571056, https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended
+42,Trapping Rain Water,68.4%,Hard,0.004350670338744988, https://leetcode.com/problems/trapping-rain-water
+98,Validate Binary Search Tree,36.5%,Medium,0.002943776044013381, https://leetcode.com/problems/validate-binary-search-tree
+1,Two Sum,58.1%,Easy,0.0008206138651873125, https://leetcode.com/problems/two-sum

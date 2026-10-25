@@ -1,0 +1,16 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+364,Nested List Weight Sum II,67.2%,Medium,100, https://leetcode.com/problems/nested-list-weight-sum-ii
+319,Bulb Switcher,56.7%,Medium,91.7, https://leetcode.com/problems/bulb-switcher
+716,Max Stack,46.1%,Hard,91.7, https://leetcode.com/problems/max-stack
+605,Can Place Flowers,29.3%,Easy,91.7, https://leetcode.com/problems/can-place-flowers
+17,Letter Combinations of a Phone Number,67.1%,Medium,83.9, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+53,Maximum Subarray,54.0%,Medium,78.7, https://leetcode.com/problems/maximum-subarray
+381,Insert Delete GetRandom O(1) - Duplicates allowed,37.2%,Hard,78.7, https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed
+244,Shortest Word Distance II,63.1%,Medium,72, https://leetcode.com/problems/shortest-word-distance-ii
+152,Maximum Product Subarray,37.2%,Medium,72, https://leetcode.com/problems/maximum-product-subarray
+20,Valid Parentheses,45.4%,Easy,72, https://leetcode.com/problems/valid-parentheses
+215,Kth Largest Element in an Array,69.4%,Medium,62.6, https://leetcode.com/problems/kth-largest-element-in-an-array
+272,Closest Binary Search Tree Value II,61.4%,Hard,62.6, https://leetcode.com/problems/closest-binary-search-tree-value-ii
+104,Maximum Depth of Binary Tree,78.7%,Easy,62.6, https://leetcode.com/problems/maximum-depth-of-binary-tree
+373,Find K Pairs with Smallest Sums,42.6%,Medium,62.6, https://leetcode.com/problems/find-k-pairs-with-smallest-sums
+671,Second Minimum Node In a Binary Tree,46.5%,Easy,62.6, https://leetcode.com/problems/second-minimum-node-in-a-binary-tree

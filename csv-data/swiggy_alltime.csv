@@ -1,0 +1,36 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+115,Distinct Subsequences,54.4%,Hard,100, https://leetcode.com/problems/distinct-subsequences
+2943,Maximize Area of Square Hole in Grid,61.8%,Medium,100, https://leetcode.com/problems/maximize-area-of-square-hole-in-grid
+1711,Count Good Meals,33.3%,Medium,97.3, https://leetcode.com/problems/count-good-meals
+1413,Minimum Value to Get Positive Step by Step Sum,65.0%,Easy,94.3, https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum
+496,Next Greater Element I,77.0%,Easy,82.3, https://leetcode.com/problems/next-greater-element-i
+202,Happy Number,60.4%,Easy,82.3, https://leetcode.com/problems/happy-number
+207,Course Schedule,52.4%,Medium,76.7, https://leetcode.com/problems/course-schedule
+72,Edit Distance,61.5%,Medium,76.7, https://leetcode.com/problems/edit-distance
+121,Best Time to Buy and Sell Stock,57.5%,Easy,76.7, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+88,Merge Sorted Array,55.9%,Easy,69.3, https://leetcode.com/problems/merge-sorted-array
+12,Integer to Roman,71.9%,Medium,69.3, https://leetcode.com/problems/integer-to-roman
+739,Daily Temperatures,69.3%,Medium,69.3, https://leetcode.com/problems/daily-temperatures
+888,Fair Candy Swap,65.9%,Easy,69.3, https://leetcode.com/problems/fair-candy-swap
+42,Trapping Rain Water,68.4%,Hard,69.3, https://leetcode.com/problems/trapping-rain-water
+875,Koko Eating Bananas,50.7%,Medium,69.3, https://leetcode.com/problems/koko-eating-bananas
+3,Longest Substring Without Repeating Characters,40.0%,Medium,69.3, https://leetcode.com/problems/longest-substring-without-repeating-characters
+96,Unique Binary Search Trees,64.4%,Medium,69.3, https://leetcode.com/problems/unique-binary-search-trees
+3169,Count Days Without Meetings,48.3%,Medium,69.3, https://leetcode.com/problems/count-days-without-meetings
+75,Sort Colors,70.3%,Medium,59.1, https://leetcode.com/problems/sort-colors
+1235,Maximum Profit in Job Scheduling,54.9%,Hard,59.1, https://leetcode.com/problems/maximum-profit-in-job-scheduling
+41,First Missing Positive,44.0%,Hard,59.1, https://leetcode.com/problems/first-missing-positive
+1174,Immediate Food Delivery II,57.4%,Medium,59.1, https://leetcode.com/problems/immediate-food-delivery-ii
+1717,Maximum Score From Removing Substrings,66.4%,Medium,59.1, https://leetcode.com/problems/maximum-score-from-removing-substrings
+973,K Closest Points to Origin,69.5%,Medium,59.1, https://leetcode.com/problems/k-closest-points-to-origin
+1986,Minimum Number of Work Sessions to Finish the Tasks,35.6%,Medium,59.1, https://leetcode.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks
+1029,Two City Scheduling,69.1%,Medium,59.1, https://leetcode.com/problems/two-city-scheduling
+76,Minimum Window Substring,48.7%,Hard,59.1, https://leetcode.com/problems/minimum-window-substring
+152,Maximum Product Subarray,37.2%,Medium,59.1, https://leetcode.com/problems/maximum-product-subarray
+371,Sum of Two Integers,55.7%,Medium,59.1, https://leetcode.com/problems/sum-of-two-integers
+146,LRU Cache,48.3%,Medium,59.1, https://leetcode.com/problems/lru-cache
+53,Maximum Subarray,54.0%,Medium,59.1, https://leetcode.com/problems/maximum-subarray
+5,Longest Palindromic Substring,38.9%,Medium,59.1, https://leetcode.com/problems/longest-palindromic-substring
+355,Design Twitter,45.8%,Medium,59.1, https://leetcode.com/problems/design-twitter
+128,Longest Consecutive Sequence,47.3%,Medium,59.1, https://leetcode.com/problems/longest-consecutive-sequence
+56,Merge Intervals,53.0%,Medium,59.1, https://leetcode.com/problems/merge-intervals

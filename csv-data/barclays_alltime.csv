@@ -1,7 +1,25 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-115,Distinct Subsequences,38.3%,Hard,0.10259092868139033, https://leetcode.com/problems/distinct-subsequences
-509,Fibonacci Number,67.2%,Easy,0.07958999426900074, https://leetcode.com/problems/fibonacci-number
-273,Integer to English Words,27.1%,Hard,0.06896929475435468, https://leetcode.com/problems/integer-to-english-words
-20,Valid Parentheses,39.0%,Easy,0.0631039942300807, https://leetcode.com/problems/valid-parentheses
-91,Decode Ways,24.7%,Medium,0.03248261950458574, https://leetcode.com/problems/decode-ways
-7,Reverse Integer,25.8%,Easy,0.0018612447790907708, https://leetcode.com/problems/reverse-integer
+452,Minimum Number of Arrows to Burst Balloons,62.0%,Medium,100, https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons
+546,Remove Boxes,50.0%,Hard,100, https://leetcode.com/problems/remove-boxes
+176,Second Highest Salary,48.8%,Medium,100, https://leetcode.com/problems/second-highest-salary
+3474,Lexicographically Smallest Generated String,53.5%,Hard,100, https://leetcode.com/problems/lexicographically-smallest-generated-string
+2961,Double Modular Exponentiation,48.3%,Medium,86.4, https://leetcode.com/problems/double-modular-exponentiation
+2833,Furthest Point From Origin,76.9%,Easy,84.2, https://leetcode.com/problems/furthest-point-from-origin
+3070,Count Submatrices with Top-Left Element and Sum Less Than k,74.7%,Medium,81.7, https://leetcode.com/problems/count-submatrices-with-top-left-element-and-sum-less-than-k
+3080,Mark Elements on Array by Performing Queries,49.4%,Medium,81.7, https://leetcode.com/problems/mark-elements-on-array-by-performing-queries
+763,Partition Labels,82.1%,Medium,61, https://leetcode.com/problems/partition-labels
+1,Two Sum,58.1%,Easy,61, https://leetcode.com/problems/two-sum
+56,Merge Intervals,53.0%,Medium,61, https://leetcode.com/problems/merge-intervals
+200,Number of Islands,65.3%,Medium,52.5, https://leetcode.com/problems/number-of-islands
+14,Longest Common Prefix,48.6%,Easy,52.5, https://leetcode.com/problems/longest-common-prefix
+496,Next Greater Element I,77.0%,Easy,52.5, https://leetcode.com/problems/next-greater-element-i
+151,Reverse Words in a String,58.2%,Medium,52.5, https://leetcode.com/problems/reverse-words-in-a-string
+1482,Minimum Number of Days to Make m Bouquets,57.3%,Medium,52.5, https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets
+2241,Design an ATM Machine,46.7%,Medium,52.5, https://leetcode.com/problems/design-an-atm-machine
+2127,Maximum Employees to Be Invited to a Meeting,61.8%,Hard,52.5, https://leetcode.com/problems/maximum-employees-to-be-invited-to-a-meeting
+115,Distinct Subsequences,54.4%,Hard,0.10259092868139033, https://leetcode.com/problems/distinct-subsequences
+509,Fibonacci Number,74.7%,Easy,0.07958999426900074, https://leetcode.com/problems/fibonacci-number
+273,Integer to English Words,35.3%,Hard,0.06896929475435468, https://leetcode.com/problems/integer-to-english-words
+20,Valid Parentheses,45.4%,Easy,0.0631039942300807, https://leetcode.com/problems/valid-parentheses
+91,Decode Ways,38.8%,Medium,0.03248261950458574, https://leetcode.com/problems/decode-ways
+7,Reverse Integer,32.7%,Medium,0.0018612447790907708, https://leetcode.com/problems/reverse-integer

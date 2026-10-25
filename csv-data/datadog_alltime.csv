@@ -1,0 +1,14 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+819,Most Common Word,45.5%,Easy,100, https://leetcode.com/problems/most-common-word
+322,Coin Change,49.3%,Medium,92.1, https://leetcode.com/problems/coin-change
+1229,Meeting Scheduler,55.2%,Medium,90.5, https://leetcode.com/problems/meeting-scheduler
+408,Valid Word Abbreviation,37.0%,Easy,86.7, https://leetcode.com/problems/valid-word-abbreviation
+211,Design Add and Search Words Data Structure,49.2%,Medium,86.7, https://leetcode.com/problems/design-add-and-search-words-data-structure
+559,Maximum Depth of N-ary Tree,73.9%,Easy,82, https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+622,Design Circular Queue,55.7%,Medium,72.3, https://leetcode.com/problems/design-circular-queue
+1452,People Whose List of Favorite Companies Is Not a Subset of Another List,61.0%,Medium,72.3, https://leetcode.com/problems/people-whose-list-of-favorite-companies-is-not-a-subset-of-another-list
+198,House Robber,53.7%,Medium,72.3, https://leetcode.com/problems/house-robber
+568,Maximum Vacation Days,46.8%,Hard,61.7, https://leetcode.com/problems/maximum-vacation-days
+213,House Robber II,45.7%,Medium,61.7, https://leetcode.com/problems/house-robber-ii
+480,Sliding Window Median,39.2%,Hard,53.3, https://leetcode.com/problems/sliding-window-median
+124,Binary Tree Maximum Path Sum,42.9%,Hard,53.3, https://leetcode.com/problems/binary-tree-maximum-path-sum

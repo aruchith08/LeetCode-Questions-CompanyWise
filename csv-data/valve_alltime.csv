@@ -1,3 +1,6 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1,Two Sum,45.6%,Easy,0.0073613942765888805, https://leetcode.com/problems/two-sum
-649,Dota2 Senate,39.2%,Medium,0, https://leetcode.com/problems/dota2-senate
+8,String to Integer (atoi),21.9%,Medium,90.2, https://leetcode.com/problems/string-to-integer-atoi
+2755,Deep Merge of Two Objects,62.8%,Medium,71.2, https://leetcode.com/problems/deep-merge-of-two-objects
+1603,Design Parking System,87.2%,Easy,71.2, https://leetcode.com/problems/design-parking-system
+1,Two Sum,58.1%,Easy,0.0073613942765888805, https://leetcode.com/problems/two-sum
+649,Dota2 Senate,50.7%,Medium,0, https://leetcode.com/problems/dota2-senate

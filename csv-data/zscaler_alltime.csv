@@ -1,2 +1,17 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1154,Day of the Year,49.3%,Easy,0, https://leetcode.com/problems/day-of-the-year
+3091,Apply Operations to Make Sum of Array Greater Than or Equal to k,44.6%,Medium,100, https://leetcode.com/problems/apply-operations-to-make-sum-of-array-greater-than-or-equal-to-k
+2932,Maximum Strong Pair XOR I,76.0%,Easy,97.1, https://leetcode.com/problems/maximum-strong-pair-xor-i
+2935,Maximum Strong Pair XOR II,33.3%,Hard,97.1, https://leetcode.com/problems/maximum-strong-pair-xor-ii
+2231,Largest Number After Digit Swaps by Parity,65.8%,Easy,97.1, https://leetcode.com/problems/largest-number-after-digit-swaps-by-parity
+465,Optimal Account Balancing,50.9%,Hard,85.6, https://leetcode.com/problems/optimal-account-balancing
+2366,Minimum Replacements to Sort the Array,53.0%,Hard,85.6, https://leetcode.com/problems/minimum-replacements-to-sort-the-array
+945,Minimum Increment to Make Array Unique,60.9%,Medium,73.1, https://leetcode.com/problems/minimum-increment-to-make-array-unique
+73,Set Matrix Zeroes,63.8%,Medium,73.1, https://leetcode.com/problems/set-matrix-zeroes
+146,LRU Cache,48.3%,Medium,73.1, https://leetcode.com/problems/lru-cache
+2964,Number of Divisible Triplet Sums,67.6%,Medium,63.2, https://leetcode.com/problems/number-of-divisible-triplet-sums
+127,Word Ladder,46.8%,Hard,63.2, https://leetcode.com/problems/word-ladder
+273,Integer to English Words,35.3%,Hard,63.2, https://leetcode.com/problems/integer-to-english-words
+25,Reverse Nodes in k-Group,67.5%,Hard,63.2, https://leetcode.com/problems/reverse-nodes-in-k-group
+33,Search in Rotated Sorted Array,45.8%,Medium,63.2, https://leetcode.com/problems/search-in-rotated-sorted-array
+217,Contains Duplicate,64.8%,Easy,63.2, https://leetcode.com/problems/contains-duplicate
+1154,Day of the Year,50.8%,Easy,0, https://leetcode.com/problems/day-of-the-year

@@ -1,2 +1,26 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-88,Merge Sorted Array,39.4%,Easy,0.0030102370714243072, https://leetcode.com/problems/merge-sorted-array
+3820,Pythagorean Distance Nodes in a Tree,56.5%,Medium,100, https://leetcode.com/problems/pythagorean-distance-nodes-in-a-tree
+20,Valid Parentheses,45.4%,Easy,87.7, https://leetcode.com/problems/valid-parentheses
+1648,Sell Diminishing-Valued Colored Balls,30.5%,Medium,87.7, https://leetcode.com/problems/sell-diminishing-valued-colored-balls
+56,Merge Intervals,53.0%,Medium,81.9, https://leetcode.com/problems/merge-intervals
+1797,Design Authentication Manager,58.9%,Medium,81.9, https://leetcode.com/problems/design-authentication-manager
+412,Fizz Buzz,76.0%,Easy,74.4, https://leetcode.com/problems/fizz-buzz
+12,Integer to Roman,71.9%,Medium,74.4, https://leetcode.com/problems/integer-to-roman
+11,Container With Most Water,61.1%,Medium,74.4, https://leetcode.com/problems/container-with-most-water
+242,Valid Anagram,68.8%,Easy,74.4, https://leetcode.com/problems/valid-anagram
+2645,Minimum Additions to Make Valid String,50.7%,Medium,74.4, https://leetcode.com/problems/minimum-additions-to-make-valid-string
+324,Wiggle Sort II,38.6%,Medium,74.4, https://leetcode.com/problems/wiggle-sort-ii
+5,Longest Palindromic Substring,38.9%,Medium,74.4, https://leetcode.com/problems/longest-palindromic-substring
+740,Delete and Earn,57.7%,Medium,74.4, https://leetcode.com/problems/delete-and-earn
+647,Palindromic Substrings,73.3%,Medium,74.4, https://leetcode.com/problems/palindromic-substrings
+3,Longest Substring Without Repeating Characters,40.0%,Medium,63.9, https://leetcode.com/problems/longest-substring-without-repeating-characters
+121,Best Time to Buy and Sell Stock,57.5%,Easy,63.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+2414,Length of the Longest Alphabetical Continuous Substring,61.4%,Medium,63.9, https://leetcode.com/problems/length-of-the-longest-alphabetical-continuous-substring
+696,Count Binary Substrings,70.6%,Easy,63.9, https://leetcode.com/problems/count-binary-substrings
+14,Longest Common Prefix,48.6%,Easy,63.9, https://leetcode.com/problems/longest-common-prefix
+876,Middle of the Linked List,82.5%,Easy,63.9, https://leetcode.com/problems/middle-of-the-linked-list
+142,Linked List Cycle II,59.5%,Medium,63.9, https://leetcode.com/problems/linked-list-cycle-ii
+2697,Lexicographically Smallest Palindrome,82.0%,Easy,63.9, https://leetcode.com/problems/lexicographically-smallest-palindrome
+13,Roman to Integer,67.3%,Easy,63.9, https://leetcode.com/problems/roman-to-integer
+2551,Put Marbles in Bags,72.0%,Hard,63.9, https://leetcode.com/problems/put-marbles-in-bags
+88,Merge Sorted Array,55.9%,Easy,0.0030102370714243072, https://leetcode.com/problems/merge-sorted-array

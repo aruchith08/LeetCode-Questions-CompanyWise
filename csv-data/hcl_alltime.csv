@@ -1,0 +1,18 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+20,Valid Parentheses,45.4%,Easy,81.3, https://leetcode.com/problems/valid-parentheses
+3,Longest Substring Without Repeating Characters,40.0%,Medium,76.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+88,Merge Sorted Array,55.9%,Easy,76.1, https://leetcode.com/problems/merge-sorted-array
+125,Valid Palindrome,54.6%,Easy,76.1, https://leetcode.com/problems/valid-palindrome
+176,Second Highest Salary,48.8%,Medium,69.3, https://leetcode.com/problems/second-highest-salary
+53,Maximum Subarray,54.0%,Medium,69.3, https://leetcode.com/problems/maximum-subarray
+42,Trapping Rain Water,68.4%,Hard,69.3, https://leetcode.com/problems/trapping-rain-water
+344,Reverse String,81.5%,Easy,59.7, https://leetcode.com/problems/reverse-string
+185,Department Top Three Salaries,62.2%,Hard,59.7, https://leetcode.com/problems/department-top-three-salaries
+647,Palindromic Substrings,73.3%,Medium,59.7, https://leetcode.com/problems/palindromic-substrings
+268,Missing Number,72.9%,Easy,59.7, https://leetcode.com/problems/missing-number
+209,Minimum Size Subarray Sum,53.2%,Medium,59.7, https://leetcode.com/problems/minimum-size-subarray-sum
+367,Valid Perfect Square,45.1%,Easy,59.7, https://leetcode.com/problems/valid-perfect-square
+9,Palindrome Number,61.1%,Easy,59.7, https://leetcode.com/problems/palindrome-number
+49,Group Anagrams,73.5%,Medium,59.7, https://leetcode.com/problems/group-anagrams

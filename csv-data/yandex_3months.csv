@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+680,Valid Palindrome II,44.9%,Easy,100, https://leetcode.com/problems/valid-palindrome-ii
+849,Maximize Distance to Closest Person,50.1%,Medium,87.3, https://leetcode.com/problems/maximize-distance-to-closest-person
+443,String Compression,61.0%,Medium,87.3, https://leetcode.com/problems/string-compression
+1493,Longest Subarray of 1's After Deleting One Element,71.7%,Medium,77.2, https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element
+3105,Longest Strictly Increasing or Strictly Decreasing Subarray,64.8%,Easy,77.2, https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray
+658,Find K Closest Elements,50.2%,Medium,77.2, https://leetcode.com/problems/find-k-closest-elements
+380,Insert Delete GetRandom O(1),55.6%,Medium,77.2, https://leetcode.com/problems/insert-delete-getrandom-o1
+424,Longest Repeating Character Replacement,60.9%,Medium,77.2, https://leetcode.com/problems/longest-repeating-character-replacement
+1004,Max Consecutive Ones III,68.6%,Medium,77.2, https://leetcode.com/problems/max-consecutive-ones-iii
+986,Interval List Intersections,73.3%,Medium,77.2, https://leetcode.com/problems/interval-list-intersections
+567,Permutation in String,49.9%,Medium,77.2, https://leetcode.com/problems/permutation-in-string

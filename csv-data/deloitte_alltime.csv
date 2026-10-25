@@ -1,0 +1,41 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+1,Two Sum,58.1%,Easy,95.8, https://leetcode.com/problems/two-sum
+49,Group Anagrams,73.5%,Medium,87.3, https://leetcode.com/problems/group-anagrams
+2388,Change Null Values in a Table to the Previous Value,51.6%,Medium,81.3, https://leetcode.com/problems/change-null-values-in-a-table-to-the-previous-value
+20,Valid Parentheses,45.4%,Easy,78.3, https://leetcode.com/problems/valid-parentheses
+176,Second Highest Salary,48.8%,Medium,78.3, https://leetcode.com/problems/second-highest-salary
+23,Merge k Sorted Lists,60.8%,Hard,77.2, https://leetcode.com/problems/merge-k-sorted-lists
+177,Nth Highest Salary,40.5%,Medium,77.2, https://leetcode.com/problems/nth-highest-salary
+5,Longest Palindromic Substring,38.9%,Medium,74.7, https://leetcode.com/problems/longest-palindromic-substring
+9,Palindrome Number,61.1%,Easy,70.5, https://leetcode.com/problems/palindrome-number
+121,Best Time to Buy and Sell Stock,57.5%,Easy,70.5, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+14,Longest Common Prefix,48.6%,Easy,65.4, https://leetcode.com/problems/longest-common-prefix
+11,Container With Most Water,61.1%,Medium,65.4, https://leetcode.com/problems/container-with-most-water
+56,Merge Intervals,53.0%,Medium,65.4, https://leetcode.com/problems/merge-intervals
+570,Managers with at Least 5 Direct Reports,49.8%,Medium,58.8, https://leetcode.com/problems/managers-with-at-least-5-direct-reports
+2594,Minimum Time to Repair Cars,59.2%,Medium,58.8, https://leetcode.com/problems/minimum-time-to-repair-cars
+53,Maximum Subarray,54.0%,Medium,58.8, https://leetcode.com/problems/maximum-subarray
+387,First Unique Character in a String,66.6%,Easy,58.8, https://leetcode.com/problems/first-unique-character-in-a-string
+15,3Sum,40.1%,Medium,58.8, https://leetcode.com/problems/3sum
+26,Remove Duplicates from Sorted Array,64.0%,Easy,58.8, https://leetcode.com/problems/remove-duplicates-from-sorted-array
+67,Add Binary,58.8%,Easy,58.8, https://leetcode.com/problems/add-binary
+242,Valid Anagram,68.8%,Easy,58.8, https://leetcode.com/problems/valid-anagram
+70,Climbing Stairs,54.4%,Easy,58.8, https://leetcode.com/problems/climbing-stairs
+125,Valid Palindrome,54.6%,Easy,58.8, https://leetcode.com/problems/valid-palindrome
+197,Rising Temperature,52.5%,Easy,49.6, https://leetcode.com/problems/rising-temperature
+215,Kth Largest Element in an Array,69.4%,Medium,49.6, https://leetcode.com/problems/kth-largest-element-in-an-array
+183,Customers Who Never Order,72.6%,Easy,49.6, https://leetcode.com/problems/customers-who-never-order
+13,Roman to Integer,67.3%,Easy,49.6, https://leetcode.com/problems/roman-to-integer
+128,Longest Consecutive Sequence,47.3%,Medium,49.6, https://leetcode.com/problems/longest-consecutive-sequence
+3703,Remove K-Balanced Substrings,32.9%,Medium,49.6, https://leetcode.com/problems/remove-k-balanced-substrings
+410,Split Array Largest Sum,61.7%,Hard,49.6, https://leetcode.com/problems/split-array-largest-sum
+581,Shortest Unsorted Continuous Subarray,38.7%,Medium,49.6, https://leetcode.com/problems/shortest-unsorted-continuous-subarray
+189,Rotate Array,45.7%,Medium,49.6, https://leetcode.com/problems/rotate-array
+402,Remove K Digits,37.9%,Medium,49.6, https://leetcode.com/problems/remove-k-digits
+1047,Remove All Adjacent Duplicates In String,74.3%,Easy,49.6, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string
+560,Subarray Sum Equals K,48.4%,Medium,49.6, https://leetcode.com/problems/subarray-sum-equals-k
+31,Next Permutation,46.4%,Medium,49.6, https://leetcode.com/problems/next-permutation
+345,Reverse Vowels of a String,62.6%,Easy,49.6, https://leetcode.com/problems/reverse-vowels-of-a-string
+313,Super Ugly Number,46.8%,Medium,49.6, https://leetcode.com/problems/super-ugly-number
+735,Asteroid Collision,49.4%,Medium,49.6, https://leetcode.com/problems/asteroid-collision

@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+42,Trapping Rain Water,68.4%,Hard,100, https://leetcode.com/problems/trapping-rain-water
+40,Combination Sum II,60.4%,Medium,100, https://leetcode.com/problems/combination-sum-ii
+146,LRU Cache,48.3%,Medium,88, https://leetcode.com/problems/lru-cache
+48,Rotate Image,80.8%,Medium,88, https://leetcode.com/problems/rotate-image
+443,String Compression,61.0%,Medium,88, https://leetcode.com/problems/string-compression
+994,Rotting Oranges,59.6%,Medium,88, https://leetcode.com/problems/rotting-oranges
+70,Climbing Stairs,54.4%,Easy,88, https://leetcode.com/problems/climbing-stairs
+3,Longest Substring Without Repeating Characters,40.0%,Medium,88, https://leetcode.com/problems/longest-substring-without-repeating-characters

@@ -1,0 +1,17 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3161,Block Placement Queries,41.0%,Hard,100, https://leetcode.com/problems/block-placement-queries
+1566,Detect Pattern of Length M Repeated K or More Times,44.3%,Easy,100, https://leetcode.com/problems/detect-pattern-of-length-m-repeated-k-or-more-times
+1317,Convert Integer to the Sum of Two No-Zero Integers,59.1%,Easy,100, https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers
+3225,Maximum Score From Grid Operations,63.3%,Hard,100, https://leetcode.com/problems/maximum-score-from-grid-operations
+2275,Largest Combination With Bitwise AND Greater Than Zero,80.7%,Medium,100, https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero
+2508,Add Edges to Make Degrees of All Nodes Even,37.5%,Hard,97.1, https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even
+2246,Longest Path With Different Adjacent Characters,54.0%,Hard,97.1, https://leetcode.com/problems/longest-path-with-different-adjacent-characters
+2285,Maximum Total Importance of Roads,69.2%,Medium,97.1, https://leetcode.com/problems/maximum-total-importance-of-roads
+1342,Number of Steps to Reduce a Number to Zero,85.9%,Easy,97.1, https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero
+1323,Maximum 69 Number,84.6%,Easy,97.1, https://leetcode.com/problems/maximum-69-number
+2772,Apply Operations to Make All Array Elements Equal to Zero,33.3%,Medium,97.1, https://leetcode.com/problems/apply-operations-to-make-all-array-elements-equal-to-zero
+2257,Count Unguarded Cells in the Grid,69.2%,Medium,97.1, https://leetcode.com/problems/count-unguarded-cells-in-the-grid
+14,Longest Common Prefix,48.6%,Easy,62.5, https://leetcode.com/problems/longest-common-prefix
+68,Text Justification,52.5%,Hard,62.5, https://leetcode.com/problems/text-justification
+2502,Design Memory Allocator,51.1%,Medium,62.5, https://leetcode.com/problems/design-memory-allocator
+243,Shortest Word Distance,66.4%,Easy,62.5, https://leetcode.com/problems/shortest-word-distance

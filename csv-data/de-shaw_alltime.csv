@@ -1,4 +1,108 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1358,Number of Substrings Containing All Three Characters,58.2%,Medium,0.2856959744801515, https://leetcode.com/problems/number-of-substrings-containing-all-three-characters
-1122,Relative Sort Array,67.7%,Easy,0, https://leetcode.com/problems/relative-sort-array
-1262,Greatest Sum Divisible by Three,47.6%,Medium,0, https://leetcode.com/problems/greatest-sum-divisible-by-three
+696,Count Binary Substrings,70.6%,Easy,100, https://leetcode.com/problems/count-binary-substrings
+767,Reorganize String,57.7%,Medium,100, https://leetcode.com/problems/reorganize-string
+239,Sliding Window Maximum,49.4%,Hard,92.1, https://leetcode.com/problems/sliding-window-maximum
+2062,Count Vowel Substrings of a String,73.8%,Easy,92.1, https://leetcode.com/problems/count-vowel-substrings-of-a-string
+735,Asteroid Collision,49.4%,Medium,92.1, https://leetcode.com/problems/asteroid-collision
+779,K-th Symbol in Grammar,48.9%,Medium,91.4, https://leetcode.com/problems/k-th-symbol-in-grammar
+424,Longest Repeating Character Replacement,60.9%,Medium,91.4, https://leetcode.com/problems/longest-repeating-character-replacement
+3469,Find Minimum Cost to Remove Array Elements,22.5%,Medium,88.3, https://leetcode.com/problems/find-minimum-cost-to-remove-array-elements
+3628,Maximum Number of Subsequences After One Inserting,32.1%,Medium,84.4, https://leetcode.com/problems/maximum-number-of-subsequences-after-one-inserting
+871,Minimum Number of Refueling Stops,42.1%,Hard,80.9, https://leetcode.com/problems/minimum-number-of-refueling-stops
+2171,Removing Minimum Number of Magic Beans,45.1%,Medium,80.9, https://leetcode.com/problems/removing-minimum-number-of-magic-beans
+1642,Furthest Building You Can Reach,51.2%,Medium,80.9, https://leetcode.com/problems/furthest-building-you-can-reach
+1293,Shortest Path in a Grid with Obstacles Elimination,46.8%,Hard,79.2, https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination
+1004,Max Consecutive Ones III,68.6%,Medium,79.2, https://leetcode.com/problems/max-consecutive-ones-iii
+295,Find Median from Data Stream,55.1%,Hard,79.2, https://leetcode.com/problems/find-median-from-data-stream
+968,Binary Tree Cameras,48.3%,Hard,79.2, https://leetcode.com/problems/binary-tree-cameras
+380,Insert Delete GetRandom O(1),55.6%,Medium,79.2, https://leetcode.com/problems/insert-delete-getrandom-o1
+1326,Minimum Number of Taps to Open to Water a Garden,51.1%,Hard,77.9, https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden
+2875,Minimum Size Subarray in Infinite Array,32.5%,Medium,77.9, https://leetcode.com/problems/minimum-size-subarray-in-infinite-array
+2920,Maximum Points After Collecting Coins From All Nodes,37.1%,Hard,76, https://leetcode.com/problems/maximum-points-after-collecting-coins-from-all-nodes
+2542,Maximum Subsequence Score,55.1%,Medium,76, https://leetcode.com/problems/maximum-subsequence-score
+3332,Maximum Points Tourist Can Earn,47.7%,Medium,76, https://leetcode.com/problems/maximum-points-tourist-can-earn
+3383,Minimum Runes to Add to Cast Spell,45.4%,Hard,73.8, https://leetcode.com/problems/minimum-runes-to-add-to-cast-spell
+17,Letter Combinations of a Phone Number,67.1%,Medium,71.4, https://leetcode.com/problems/letter-combinations-of-a-phone-number
+3108,Minimum Cost Walk in Weighted Graph,68.0%,Hard,71.4, https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph
+3209,Number of Subarrays With AND Value of K,35.5%,Hard,71.4, https://leetcode.com/problems/number-of-subarrays-with-and-value-of-k
+3077,Maximum Strength of K Disjoint Subarrays,28.1%,Hard,68.8, https://leetcode.com/problems/maximum-strength-of-k-disjoint-subarrays
+3082,Find the Sum of the Power of All Subsequences,39.0%,Hard,68.8, https://leetcode.com/problems/find-the-sum-of-the-power-of-all-subsequences
+3085,Minimum Deletions to Make String K-Special,66.9%,Medium,68.8, https://leetcode.com/problems/minimum-deletions-to-make-string-k-special
+2343,Query Kth Smallest Trimmed Number,48.4%,Medium,68.8, https://leetcode.com/problems/query-kth-smallest-trimmed-number
+2352,Equal Row and Column Pairs,71.4%,Medium,68.8, https://leetcode.com/problems/equal-row-and-column-pairs
+2430,Maximum Deletions on a String,36.6%,Hard,68.8, https://leetcode.com/problems/maximum-deletions-on-a-string
+2387,Median of a Row Wise Sorted Matrix,71.4%,Medium,68.8, https://leetcode.com/problems/median-of-a-row-wise-sorted-matrix
+2660,Determine the Winner of a Bowling Game,38.1%,Easy,68.8, https://leetcode.com/problems/determine-the-winner-of-a-bowling-game
+2558,Take Gifts From the Richest Pile,75.5%,Easy,68.8, https://leetcode.com/problems/take-gifts-from-the-richest-pile
+2644,Find the Maximum Divisibility Score,52.4%,Easy,68.8, https://leetcode.com/problems/find-the-maximum-divisibility-score
+1679,Max Number of K-Sum Pairs,57.5%,Medium,68.8, https://leetcode.com/problems/max-number-of-k-sum-pairs
+2800,Shortest String That Contains Three Strings,32.5%,Medium,68.8, https://leetcode.com/problems/shortest-string-that-contains-three-strings
+1927,Sum Game,63.2%,Medium,68.8, https://leetcode.com/problems/sum-game
+4002,Count Valid Sequences,42.4%,Medium,68.8, https://leetcode.com/problems/count-valid-sequences
+42,Trapping Rain Water,68.4%,Hard,58.3, https://leetcode.com/problems/trapping-rain-water
+152,Maximum Product Subarray,37.2%,Medium,58.3, https://leetcode.com/problems/maximum-product-subarray
+668,Kth Smallest Number in Multiplication Table,55.3%,Hard,58.3, https://leetcode.com/problems/kth-smallest-number-in-multiplication-table
+4,Median of Two Sorted Arrays,47.9%,Hard,53.3, https://leetcode.com/problems/median-of-two-sorted-arrays
+20,Valid Parentheses,45.4%,Easy,53.3, https://leetcode.com/problems/valid-parentheses
+475,Heaters,42.8%,Medium,53.3, https://leetcode.com/problems/heaters
+2434,Using a Robot to Print the Lexicographically Smallest String,62.2%,Medium,53.3, https://leetcode.com/problems/using-a-robot-to-print-the-lexicographically-smallest-string
+440,K-th Smallest in Lexicographical Order,46.7%,Hard,46.9, https://leetcode.com/problems/k-th-smallest-in-lexicographical-order
+169,Majority Element,66.5%,Easy,46.9, https://leetcode.com/problems/majority-element
+410,Split Array Largest Sum,61.7%,Hard,46.9, https://leetcode.com/problems/split-array-largest-sum
+829,Consecutive Numbers Sum,43.1%,Hard,46.9, https://leetcode.com/problems/consecutive-numbers-sum
+1048,Longest String Chain,63.6%,Medium,46.9, https://leetcode.com/problems/longest-string-chain
+2104,Sum of Subarray Ranges,62.1%,Medium,46.9, https://leetcode.com/problems/sum-of-subarray-ranges
+2221,Find Triangular Sum of an Array,82.0%,Medium,46.9, https://leetcode.com/problems/find-triangular-sum-of-an-array
+200,Number of Islands,65.3%,Medium,46.9, https://leetcode.com/problems/number-of-islands
+32,Longest Valid Parentheses,41.4%,Hard,46.9, https://leetcode.com/problems/longest-valid-parentheses
+146,LRU Cache,48.3%,Medium,46.9, https://leetcode.com/problems/lru-cache
+994,Rotting Oranges,59.6%,Medium,46.9, https://leetcode.com/problems/rotting-oranges
+1000,Minimum Cost to Merge Stones,47.3%,Hard,46.9, https://leetcode.com/problems/minimum-cost-to-merge-stones
+3,Longest Substring Without Repeating Characters,40.0%,Medium,46.9, https://leetcode.com/problems/longest-substring-without-repeating-characters
+74,Search a 2D Matrix,54.3%,Medium,46.9, https://leetcode.com/problems/search-a-2d-matrix
+221,Maximal Square,51.1%,Medium,46.9, https://leetcode.com/problems/maximal-square
+128,Longest Consecutive Sequence,47.3%,Medium,37.9, https://leetcode.com/problems/longest-consecutive-sequence
+227,Basic Calculator II,47.3%,Medium,37.9, https://leetcode.com/problems/basic-calculator-ii
+2551,Put Marbles in Bags,72.0%,Hard,37.9, https://leetcode.com/problems/put-marbles-in-bags
+752,Open the Lock,61.6%,Medium,37.9, https://leetcode.com/problems/open-the-lock
+2972,Count the Number of Incremovable Subarrays II,40.1%,Hard,37.9, https://leetcode.com/problems/count-the-number-of-incremovable-subarrays-ii
+18,4Sum,42.0%,Medium,37.9, https://leetcode.com/problems/4sum
+1283,Find the Smallest Divisor Given a Threshold,66.9%,Medium,37.9, https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold
+34,Find First and Last Position of Element in Sorted Array,49.8%,Medium,37.9, https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
+518,Coin Change II,59.1%,Medium,37.9, https://leetcode.com/problems/coin-change-ii
+341,Flatten Nested List Iterator,65.9%,Medium,37.9, https://leetcode.com/problems/flatten-nested-list-iterator
+168,Excel Sheet Column Title,47.9%,Easy,37.9, https://leetcode.com/problems/excel-sheet-column-title
+3281,Maximize Score of Numbers in Ranges,35.9%,Medium,37.9, https://leetcode.com/problems/maximize-score-of-numbers-in-ranges
+1244,Design A Leaderboard,68.0%,Medium,37.9, https://leetcode.com/problems/design-a-leaderboard
+91,Decode Ways,38.8%,Medium,37.9, https://leetcode.com/problems/decode-ways
+68,Text Justification,52.5%,Hard,37.9, https://leetcode.com/problems/text-justification
+1434,Number of Ways to Wear Different Hats to Each Other,47.1%,Hard,37.9, https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other
+44,Wildcard Matching,33.1%,Hard,37.9, https://leetcode.com/problems/wildcard-matching
+2222,Number of Ways to Select Buildings,51.0%,Medium,37.9, https://leetcode.com/problems/number-of-ways-to-select-buildings
+962,Maximum Width Ramp,56.0%,Medium,37.9, https://leetcode.com/problems/maximum-width-ramp
+851,Loud and Rich,64.3%,Medium,37.9, https://leetcode.com/problems/loud-and-rich
+1,Two Sum,58.1%,Easy,37.9, https://leetcode.com/problems/two-sum
+88,Merge Sorted Array,55.9%,Easy,37.9, https://leetcode.com/problems/merge-sorted-array
+316,Remove Duplicate Letters,54.7%,Medium,37.9, https://leetcode.com/problems/remove-duplicate-letters
+213,House Robber II,45.7%,Medium,37.9, https://leetcode.com/problems/house-robber-ii
+99,Recover Binary Search Tree,61.3%,Medium,37.9, https://leetcode.com/problems/recover-binary-search-tree
+242,Valid Anagram,68.8%,Easy,37.9, https://leetcode.com/problems/valid-anagram
+881,Boats to Save People,62.7%,Medium,37.9, https://leetcode.com/problems/boats-to-save-people
+863,All Nodes Distance K in Binary Tree,68.2%,Medium,37.9, https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree
+322,Coin Change,49.3%,Medium,37.9, https://leetcode.com/problems/coin-change
+131,Palindrome Partitioning,74.8%,Medium,37.9, https://leetcode.com/problems/palindrome-partitioning
+1898,Maximum Number of Removable Characters,48.0%,Medium,37.9, https://leetcode.com/problems/maximum-number-of-removable-characters
+215,Kth Largest Element in an Array,69.4%,Medium,37.9, https://leetcode.com/problems/kth-largest-element-in-an-array
+3316,Find Maximum Removals From Source String,39.2%,Medium,37.9, https://leetcode.com/problems/find-maximum-removals-from-source-string
+543,Diameter of Binary Tree,66.4%,Easy,37.9, https://leetcode.com/problems/diameter-of-binary-tree
+486,Predict the Winner,60.0%,Medium,37.9, https://leetcode.com/problems/predict-the-winner
+658,Find K Closest Elements,50.2%,Medium,37.9, https://leetcode.com/problems/find-k-closest-elements
+121,Best Time to Buy and Sell Stock,57.5%,Easy,37.9, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1579,Remove Max Number of Edges to Keep Graph Fully Traversable,70.1%,Hard,37.9, https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable
+253,Meeting Rooms II,52.8%,Medium,37.9, https://leetcode.com/problems/meeting-rooms-ii
+321,Create Maximum Number,37.6%,Hard,37.9, https://leetcode.com/problems/create-maximum-number
+141,Linked List Cycle,55.3%,Easy,37.9, https://leetcode.com/problems/linked-list-cycle
+85,Maximal Rectangle,60.1%,Hard,37.9, https://leetcode.com/problems/maximal-rectangle
+1358,Number of Substrings Containing All Three Characters,74.4%,Medium,0.2856959744801515, https://leetcode.com/problems/number-of-substrings-containing-all-three-characters
+1122,Relative Sort Array,75.5%,Easy,0, https://leetcode.com/problems/relative-sort-array
+1262,Greatest Sum Divisible by Three,57.0%,Medium,0, https://leetcode.com/problems/greatest-sum-divisible-by-three

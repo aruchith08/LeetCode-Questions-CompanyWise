@@ -1,0 +1,9 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+283,Move Zeroes,64.5%,Easy,100, https://leetcode.com/problems/move-zeroes
+28,Find the Index of the First Occurrence in a String,47.5%,Easy,100, https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+5,Longest Palindromic Substring,38.9%,Medium,100, https://leetcode.com/problems/longest-palindromic-substring
+829,Consecutive Numbers Sum,43.1%,Hard,100, https://leetcode.com/problems/consecutive-numbers-sum
+178,Rank Scores,69.2%,Medium,87.5, https://leetcode.com/problems/rank-scores
+584,Find Customer Referee,73.7%,Easy,87.5, https://leetcode.com/problems/find-customer-referee

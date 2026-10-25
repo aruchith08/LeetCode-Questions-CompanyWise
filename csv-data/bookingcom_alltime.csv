@@ -1,6 +1,22 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-49,Group Anagrams,56.9%,Medium,0.04730812692103113, https://leetcode.com/problems/group-anagrams
-253,Meeting Rooms II,45.7%,Medium,0.03193246767820989, https://leetcode.com/problems/meeting-rooms-ii
-362,Design Hit Counter,63.7%,Medium,0.025382073271417165, https://leetcode.com/problems/design-hit-counter
-1,Two Sum,45.6%,Easy,0.010006414028595919, https://leetcode.com/problems/two-sum
-140,Word Break II,32.6%,Hard,0.006080688960926012, https://leetcode.com/problems/word-break-ii
+2512,Reward Top K Students,47.8%,Medium,100, https://leetcode.com/problems/reward-top-k-students
+2032,Two Out of Three,77.9%,Easy,82, https://leetcode.com/problems/two-out-of-three
+1948,Delete Duplicate Folders in System,77.2%,Hard,79.5, https://leetcode.com/problems/delete-duplicate-folders-in-system
+1034,Coloring A Border,51.8%,Medium,79.5, https://leetcode.com/problems/coloring-a-border
+2146,K Highest Ranked Items Within a Price Range,47.4%,Medium,79.5, https://leetcode.com/problems/k-highest-ranked-items-within-a-price-range
+2159,Order Two Columns Independently,62.0%,Medium,79.5, https://leetcode.com/problems/order-two-columns-independently
+239,Sliding Window Maximum,49.4%,Hard,69.5, https://leetcode.com/problems/sliding-window-maximum
+46,Permutations,82.4%,Medium,69.5, https://leetcode.com/problems/permutations
+332,Reconstruct Itinerary,45.2%,Hard,64.8, https://leetcode.com/problems/reconstruct-itinerary
+12,Integer to Roman,71.9%,Medium,64.8, https://leetcode.com/problems/integer-to-roman
+146,LRU Cache,48.3%,Medium,58.7, https://leetcode.com/problems/lru-cache
+13,Roman to Integer,67.3%,Easy,58.7, https://leetcode.com/problems/roman-to-integer
+221,Maximal Square,51.1%,Medium,50.2, https://leetcode.com/problems/maximal-square
+32,Longest Valid Parentheses,41.4%,Hard,50.2, https://leetcode.com/problems/longest-valid-parentheses
+207,Course Schedule,52.4%,Medium,50.2, https://leetcode.com/problems/course-schedule
+20,Valid Parentheses,45.4%,Easy,50.2, https://leetcode.com/problems/valid-parentheses
+49,Group Anagrams,73.5%,Medium,0.04730812692103113, https://leetcode.com/problems/group-anagrams
+253,Meeting Rooms II,52.8%,Medium,0.03193246767820989, https://leetcode.com/problems/meeting-rooms-ii
+362,Design Hit Counter,69.8%,Medium,0.025382073271417165, https://leetcode.com/problems/design-hit-counter
+1,Two Sum,58.1%,Easy,0.010006414028595919, https://leetcode.com/problems/two-sum
+140,Word Break II,56.4%,Hard,0.006080688960926012, https://leetcode.com/problems/word-break-ii

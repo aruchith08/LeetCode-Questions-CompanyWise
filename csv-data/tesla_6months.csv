@@ -1,9 +1,16 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-1189,Maximum Number of Balloons,61.2%,Easy,0.05135701470607597, https://leetcode.com/problems/maximum-number-of-balloons
-1239,Maximum Length of a Concatenated String with Unique Characters,47.8%,Medium,0.0348163973224064, https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters
-146,LRU Cache,33.2%,Medium,0.01827577993873683, https://leetcode.com/problems/lru-cache
-273,Integer to English Words,27.1%,Hard,0.012081089250339716, https://leetcode.com/problems/integer-to-english-words
-41,First Missing Positive,32.0%,Hard,0.0064113058208121855, https://leetcode.com/problems/first-missing-positive
-20,Valid Parentheses,39.0%,Easy,0.005168860577665306, https://leetcode.com/problems/valid-parentheses
-49,Group Anagrams,56.9%,Medium,0.0038040939835560453, https://leetcode.com/problems/group-anagrams
-283,Move Zeroes,57.8%,Easy,0.0028853803470673955, https://leetcode.com/problems/move-zeroes
+767,Reorganize String,57.7%,Medium,100, https://leetcode.com/problems/reorganize-string
+909,Snakes and Ladders,48.3%,Medium,100, https://leetcode.com/problems/snakes-and-ladders
+2115,Find All Possible Recipes from Given Supplies,57.2%,Medium,100, https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies
+3,Longest Substring Without Repeating Characters,40.0%,Medium,100, https://leetcode.com/problems/longest-substring-without-repeating-characters
+626,Exchange Seats,75.2%,Medium,100, https://leetcode.com/problems/exchange-seats
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+121,Best Time to Buy and Sell Stock,57.5%,Easy,100, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1189,Maximum Number of Balloons,64.4%,Easy,0.05135701470607597, https://leetcode.com/problems/maximum-number-of-balloons
+1239,Maximum Length of a Concatenated String with Unique Characters,55.0%,Medium,0.0348163973224064, https://leetcode.com/problems/maximum-length-of-a-concatenated-string-with-unique-characters
+146,LRU Cache,48.3%,Medium,0.01827577993873683, https://leetcode.com/problems/lru-cache
+273,Integer to English Words,35.3%,Hard,0.012081089250339716, https://leetcode.com/problems/integer-to-english-words
+41,First Missing Positive,44.0%,Hard,0.0064113058208121855, https://leetcode.com/problems/first-missing-positive
+20,Valid Parentheses,45.4%,Easy,0.005168860577665306, https://leetcode.com/problems/valid-parentheses
+49,Group Anagrams,73.5%,Medium,0.0038040939835560453, https://leetcode.com/problems/group-anagrams
+283,Move Zeroes,64.5%,Easy,0.0028853803470673955, https://leetcode.com/problems/move-zeroes

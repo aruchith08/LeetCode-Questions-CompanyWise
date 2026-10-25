@@ -1,0 +1,25 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+88,Merge Sorted Array,55.9%,Easy,77, https://leetcode.com/problems/merge-sorted-array
+22,Generate Parentheses,79.7%,Medium,69.8, https://leetcode.com/problems/generate-parentheses
+118,Pascal's Triangle,79.5%,Easy,69.8, https://leetcode.com/problems/pascals-triangle
+1929,Concatenation of Array,89.9%,Easy,69.8, https://leetcode.com/problems/concatenation-of-array
+347,Top K Frequent Elements,67.6%,Medium,59.6, https://leetcode.com/problems/top-k-frequent-elements
+35,Search Insert Position,52.5%,Easy,59.6, https://leetcode.com/problems/search-insert-position
+209,Minimum Size Subarray Sum,53.2%,Medium,59.6, https://leetcode.com/problems/minimum-size-subarray-sum
+560,Subarray Sum Equals K,48.4%,Medium,59.6, https://leetcode.com/problems/subarray-sum-equals-k
+239,Sliding Window Maximum,49.4%,Hard,59.6, https://leetcode.com/problems/sliding-window-maximum
+28,Find the Index of the First Occurrence in a String,47.5%,Easy,59.6, https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string
+16,3Sum Closest,47.7%,Medium,59.6, https://leetcode.com/problems/3sum-closest
+1658,Minimum Operations to Reduce X to Zero,45.1%,Medium,59.6, https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero
+84,Largest Rectangle in Histogram,51.1%,Hard,59.6, https://leetcode.com/problems/largest-rectangle-in-histogram
+704,Binary Search,61.4%,Easy,59.6, https://leetcode.com/problems/binary-search
+1541,Minimum Insertions to Balance a Parentheses String,62.0%,Medium,59.6, https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string
+9,Palindrome Number,61.1%,Easy,59.6, https://leetcode.com/problems/palindrome-number
+2778,Sum of Squares of Special Elements ,86.9%,Easy,59.6, https://leetcode.com/problems/sum-of-squares-of-special-elements
+875,Koko Eating Bananas,50.7%,Medium,59.6, https://leetcode.com/problems/koko-eating-bananas
+1581,Customer Who Visited but Did Not Make Any Transactions,68.9%,Easy,59.6, https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions
+815,Bus Routes,47.6%,Hard,59.6, https://leetcode.com/problems/bus-routes
+20,Valid Parentheses,45.4%,Easy,59.6, https://leetcode.com/problems/valid-parentheses
+121,Best Time to Buy and Sell Stock,57.5%,Easy,59.6, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+215,Kth Largest Element in an Array,69.4%,Medium,59.6, https://leetcode.com/problems/kth-largest-element-in-an-array

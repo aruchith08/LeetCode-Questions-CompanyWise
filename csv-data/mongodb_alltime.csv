@@ -1,0 +1,26 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+1146,Snapshot Array,36.8%,Medium,100, https://leetcode.com/problems/snapshot-array
+2591,Distribute Money to Maximum Children,20.8%,Easy,100, https://leetcode.com/problems/distribute-money-to-maximum-children
+1,Two Sum,58.1%,Easy,100, https://leetcode.com/problems/two-sum
+208,Implement Trie (Prefix Tree),70.2%,Medium,100, https://leetcode.com/problems/implement-trie-prefix-tree
+349,Intersection of Two Arrays,78.5%,Easy,94.5, https://leetcode.com/problems/intersection-of-two-arrays
+139,Word Break,50.0%,Medium,91.3, https://leetcode.com/problems/word-break
+1438,Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit,58.2%,Medium,89.4, https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit
+1488,Avoid Flood in The City,39.0%,Medium,89.4, https://leetcode.com/problems/avoid-flood-in-the-city
+146,LRU Cache,48.3%,Medium,88.6, https://leetcode.com/problems/lru-cache
+56,Merge Intervals,53.0%,Medium,88.6, https://leetcode.com/problems/merge-intervals
+210,Course Schedule II,56.5%,Medium,88.6, https://leetcode.com/problems/course-schedule-ii
+68,Text Justification,52.5%,Hard,83.1, https://leetcode.com/problems/text-justification
+1242,Web Crawler Multithreaded,51.5%,Medium,77.6, https://leetcode.com/problems/web-crawler-multithreaded
+2759,Convert JSON String to Object,53.4%,Hard,77.6, https://leetcode.com/problems/convert-json-string-to-object
+23,Merge k Sorted Lists,60.8%,Hard,70.6, https://leetcode.com/problems/merge-k-sorted-lists
+642,Design Search Autocomplete System,50.1%,Hard,70.6, https://leetcode.com/problems/design-search-autocomplete-system
+981,Time Based Key-Value Store,50.3%,Medium,70.6, https://leetcode.com/problems/time-based-key-value-store
+617,Merge Two Binary Trees,79.2%,Easy,60.7, https://leetcode.com/problems/merge-two-binary-trees
+2034,Stock Price Fluctuation ,49.5%,Medium,60.7, https://leetcode.com/problems/stock-price-fluctuation
+239,Sliding Window Maximum,49.4%,Hard,60.7, https://leetcode.com/problems/sliding-window-maximum
+1650,Lowest Common Ancestor of a Binary Tree III,83.0%,Medium,60.7, https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii
+443,String Compression,61.0%,Medium,60.7, https://leetcode.com/problems/string-compression
+133,Clone Graph,66.4%,Medium,60.7, https://leetcode.com/problems/clone-graph
+165,Compare Version Numbers,47.1%,Medium,60.7, https://leetcode.com/problems/compare-version-numbers
+207,Course Schedule,52.4%,Medium,60.7, https://leetcode.com/problems/course-schedule

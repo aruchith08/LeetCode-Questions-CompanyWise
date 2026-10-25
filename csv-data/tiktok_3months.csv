@@ -1,0 +1,19 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+200,Number of Islands,65.3%,Medium,100, https://leetcode.com/problems/number-of-islands
+146,LRU Cache,48.3%,Medium,100, https://leetcode.com/problems/lru-cache
+827,Making A Large Island,57.3%,Hard,95, https://leetcode.com/problems/making-a-large-island
+253,Meeting Rooms II,52.8%,Medium,95, https://leetcode.com/problems/meeting-rooms-ii
+3161,Block Placement Queries,41.0%,Hard,88.9, https://leetcode.com/problems/block-placement-queries
+54,Spiral Matrix,58.2%,Medium,80.9, https://leetcode.com/problems/spiral-matrix
+1,Two Sum,58.1%,Easy,80.9, https://leetcode.com/problems/two-sum
+394,Decode String,63.4%,Medium,80.9, https://leetcode.com/problems/decode-string
+56,Merge Intervals,53.0%,Medium,80.9, https://leetcode.com/problems/merge-intervals
+694,Number of Distinct Islands,63.0%,Medium,69.8, https://leetcode.com/problems/number-of-distinct-islands
+295,Find Median from Data Stream,55.1%,Hard,69.8, https://leetcode.com/problems/find-median-from-data-stream
+340,Longest Substring with At Most K Distinct Characters,50.2%,Medium,69.8, https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters
+189,Rotate Array,45.7%,Medium,69.8, https://leetcode.com/problems/rotate-array
+1834,Single-Threaded CPU,48.3%,Medium,69.8, https://leetcode.com/problems/single-threaded-cpu
+227,Basic Calculator II,47.3%,Medium,69.8, https://leetcode.com/problems/basic-calculator-ii
+316,Remove Duplicate Letters,54.7%,Medium,69.8, https://leetcode.com/problems/remove-duplicate-letters
+787,Cheapest Flights Within K Stops,42.7%,Medium,69.8, https://leetcode.com/problems/cheapest-flights-within-k-stops
+863,All Nodes Distance K in Binary Tree,68.2%,Medium,69.8, https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree

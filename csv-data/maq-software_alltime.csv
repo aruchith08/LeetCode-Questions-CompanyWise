@@ -1,2 +1,6 @@
 ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
-467,Unique Substrings in Wraparound String,35.6%,Medium,0, https://leetcode.com/problems/unique-substrings-in-wraparound-string
+3,Longest Substring Without Repeating Characters,40.0%,Medium,77.8, https://leetcode.com/problems/longest-substring-without-repeating-characters
+516,Longest Palindromic Subsequence,66.0%,Medium,68.6, https://leetcode.com/problems/longest-palindromic-subsequence
+196,Delete Duplicate Emails,67.2%,Easy,68.6, https://leetcode.com/problems/delete-duplicate-emails
+32,Longest Valid Parentheses,41.4%,Hard,68.6, https://leetcode.com/problems/longest-valid-parentheses
+467,Unique Substrings in Wraparound String,44.3%,Medium,0, https://leetcode.com/problems/unique-substrings-in-wraparound-string

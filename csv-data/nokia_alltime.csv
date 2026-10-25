@@ -1,0 +1,12 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+468,Validate IP Address,28.6%,Medium,100, https://leetcode.com/problems/validate-ip-address
+2144,Minimum Cost of Buying Candies With Discount,71.6%,Easy,100, https://leetcode.com/problems/minimum-cost-of-buying-candies-with-discount
+242,Valid Anagram,68.8%,Easy,100, https://leetcode.com/problems/valid-anagram
+206,Reverse Linked List,81.2%,Easy,89.4, https://leetcode.com/problems/reverse-linked-list
+146,LRU Cache,48.3%,Medium,87.4, https://leetcode.com/problems/lru-cache
+1250,Check If It Is a Good Array,66.0%,Hard,87.4, https://leetcode.com/problems/check-if-it-is-a-good-array
+14,Longest Common Prefix,48.6%,Easy,87.4, https://leetcode.com/problems/longest-common-prefix
+20,Valid Parentheses,45.4%,Easy,87.4, https://leetcode.com/problems/valid-parentheses
+2751,Robot Collisions,61.2%,Hard,87.4, https://leetcode.com/problems/robot-collisions
+875,Koko Eating Bananas,50.7%,Medium,87.4, https://leetcode.com/problems/koko-eating-bananas
+412,Fizz Buzz,76.0%,Easy,87.4, https://leetcode.com/problems/fizz-buzz

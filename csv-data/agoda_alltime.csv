@@ -1,0 +1,39 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+697,Degree of an Array,58.8%,Easy,100, https://leetcode.com/problems/degree-of-an-array
+726,Number of Atoms,65.3%,Hard,100, https://leetcode.com/problems/number-of-atoms
+1200,Minimum Absolute Difference,75.2%,Easy,96.3, https://leetcode.com/problems/minimum-absolute-difference
+1921,Eliminate Maximum Number of Monsters,51.3%,Medium,96.3, https://leetcode.com/problems/eliminate-maximum-number-of-monsters
+121,Best Time to Buy and Sell Stock,57.5%,Easy,92, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+1209,Remove All Adjacent Duplicates in String II,62.1%,Medium,86.9, https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii
+739,Daily Temperatures,69.3%,Medium,86.6, https://leetcode.com/problems/daily-temperatures
+3787,Find Diameter Endpoints of a Tree,65.9%,Medium,82, https://leetcode.com/problems/find-diameter-endpoints-of-a-tree
+1331,Rank Transform of an Array,74.0%,Easy,80.1, https://leetcode.com/problems/rank-transform-of-an-array
+3178,Find the Child Who Has the Ball After K Seconds,62.0%,Easy,79.4, https://leetcode.com/problems/find-the-child-who-has-the-ball-after-k-seconds
+75,Sort Colors,70.3%,Medium,78.7, https://leetcode.com/problems/sort-colors
+198,House Robber,53.7%,Medium,70.6, https://leetcode.com/problems/house-robber
+3,Longest Substring Without Repeating Characters,40.0%,Medium,70.6, https://leetcode.com/problems/longest-substring-without-repeating-characters
+78,Subsets,82.9%,Medium,70.6, https://leetcode.com/problems/subsets
+560,Subarray Sum Equals K,48.4%,Medium,70.6, https://leetcode.com/problems/subarray-sum-equals-k
+1011,Capacity To Ship Packages Within D Days,74.8%,Medium,70.6, https://leetcode.com/problems/capacity-to-ship-packages-within-d-days
+15,3Sum,40.1%,Medium,68.8, https://leetcode.com/problems/3sum
+394,Decode String,63.4%,Medium,68.8, https://leetcode.com/problems/decode-string
+63,Unique Paths II,45.3%,Medium,63.8, https://leetcode.com/problems/unique-paths-ii
+844,Backspace String Compare,50.3%,Easy,63.8, https://leetcode.com/problems/backspace-string-compare
+724,Find Pivot Index,64.2%,Easy,57.4, https://leetcode.com/problems/find-pivot-index
+70,Climbing Stairs,54.4%,Easy,57.4, https://leetcode.com/problems/climbing-stairs
+239,Sliding Window Maximum,49.4%,Hard,57.4, https://leetcode.com/problems/sliding-window-maximum
+322,Coin Change,49.3%,Medium,57.4, https://leetcode.com/problems/coin-change
+875,Koko Eating Bananas,50.7%,Medium,57.4, https://leetcode.com/problems/koko-eating-bananas
+20,Valid Parentheses,45.4%,Easy,48.4, https://leetcode.com/problems/valid-parentheses
+12,Integer to Roman,71.9%,Medium,48.4, https://leetcode.com/problems/integer-to-roman
+496,Next Greater Element I,77.0%,Easy,48.4, https://leetcode.com/problems/next-greater-element-i
+1283,Find the Smallest Divisor Given a Threshold,66.9%,Medium,48.4, https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold
+713,Subarray Product Less Than K,54.9%,Medium,48.4, https://leetcode.com/problems/subarray-product-less-than-k
+300,Longest Increasing Subsequence,60.1%,Medium,48.4, https://leetcode.com/problems/longest-increasing-subsequence
+1048,Longest String Chain,63.6%,Medium,48.4, https://leetcode.com/problems/longest-string-chain
+767,Reorganize String,57.7%,Medium,48.4, https://leetcode.com/problems/reorganize-string
+202,Happy Number,60.4%,Easy,48.4, https://leetcode.com/problems/happy-number
+122,Best Time to Buy and Sell Stock II,71.8%,Medium,48.4, https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+55,Jump Game,41.7%,Medium,48.4, https://leetcode.com/problems/jump-game
+3893,Maximum Team Size with Overlapping Intervals,42.6%,Medium,48.4, https://leetcode.com/problems/maximum-team-size-with-overlapping-intervals
+408,Valid Word Abbreviation,37.0%,Easy,48.4, https://leetcode.com/problems/valid-word-abbreviation

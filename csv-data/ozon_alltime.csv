@@ -1,0 +1,13 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+56,Merge Intervals,53.0%,Medium,100, https://leetcode.com/problems/merge-intervals
+896,Monotonic Array,62.8%,Easy,100, https://leetcode.com/problems/monotonic-array
+20,Valid Parentheses,45.4%,Easy,86.7, https://leetcode.com/problems/valid-parentheses
+394,Decode String,63.4%,Medium,79.8, https://leetcode.com/problems/decode-string
+1,Two Sum,58.1%,Easy,70.1, https://leetcode.com/problems/two-sum
+977,Squares of a Sorted Array,74.2%,Easy,70.1, https://leetcode.com/problems/squares-of-a-sorted-array
+185,Department Top Three Salaries,62.2%,Hard,70.1, https://leetcode.com/problems/department-top-three-salaries
+121,Best Time to Buy and Sell Stock,57.5%,Easy,70.1, https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+242,Valid Anagram,68.8%,Easy,70.1, https://leetcode.com/problems/valid-anagram
+3,Longest Substring Without Repeating Characters,40.0%,Medium,70.1, https://leetcode.com/problems/longest-substring-without-repeating-characters
+155,Min Stack,58.8%,Medium,70.1, https://leetcode.com/problems/min-stack
+184,Department Highest Salary,60.0%,Medium,70.1, https://leetcode.com/problems/department-highest-salary

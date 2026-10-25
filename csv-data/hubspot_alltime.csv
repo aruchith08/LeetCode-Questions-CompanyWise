@@ -1,0 +1,11 @@
+ID,Title,Acceptance,Difficulty,Frequency,Leetcode Question Link
+277,Find the Celebrity,49.1%,Medium,100, https://leetcode.com/problems/find-the-celebrity
+2043,Simple Bank System,69.4%,Medium,81.3, https://leetcode.com/problems/simple-bank-system
+88,Merge Sorted Array,55.9%,Easy,79.5, https://leetcode.com/problems/merge-sorted-array
+56,Merge Intervals,53.0%,Medium,77.5, https://leetcode.com/problems/merge-intervals
+1,Two Sum,58.1%,Easy,72.8, https://leetcode.com/problems/two-sum
+1297,Maximum Number of Occurrences of a Substring,55.1%,Medium,66.6, https://leetcode.com/problems/maximum-number-of-occurrences-of-a-substring
+21,Merge Two Sorted Lists,69.0%,Easy,66.6, https://leetcode.com/problems/merge-two-sorted-lists
+253,Meeting Rooms II,52.8%,Medium,62.4, https://leetcode.com/problems/meeting-rooms-ii
+2386,Find the K-Sum of an Array,42.2%,Hard,49.5, https://leetcode.com/problems/find-the-k-sum-of-an-array
+2623,Memoize,65.4%,Medium,49.5, https://leetcode.com/problems/memoize
