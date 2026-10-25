@@ -9,6 +9,7 @@ const CompaniesPage = lazy(() => import('./pages/CompaniesPage'));
 const CompanyDetailPage = lazy(() => import('./pages/CompanyDetailPage'));
 const ProblemsPage = lazy(() => import('./pages/ProblemsPage'));
 const ProgressPage = lazy(() => import('./pages/ProgressPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 export default function App() {
   const { isDark, toggle } = useTheme();
@@ -54,6 +55,14 @@ export default function App() {
             element={
               <Suspense fallback={<LoadingSpinner />}>
                 <ProgressPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <AboutPage />
               </Suspense>
             }
           />

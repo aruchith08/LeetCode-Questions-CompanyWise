@@ -24,6 +24,7 @@ const navItems = [
   { to: '/companies', label: 'Companies' },
   { to: '/problems', label: 'Problems' },
   { to: '/progress', label: 'My Progress' },
+  { to: '/about', label: 'About' },
 ];
 
 export default function Header({

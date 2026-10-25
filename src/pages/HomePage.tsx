@@ -13,6 +13,7 @@ import CompanyLogo from '../components/ui/CompanyLogo';
 import StatusToggle from '../components/ui/StatusToggle';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
 import CompanyWiseGlobe from '../components/ui/CompanyWiseGlobe';
+import AboutSection from '../components/ui/AboutSection';
 
 export default function HomePage() {
   const { data, loading: loadingIndex } = useDataIndex();
@@ -768,6 +769,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* About Section: Story of the Website, the Curator (Krishna Dey), and the Builder (Aruchith) */}
+      <AboutSection />
     </div>
   );
 }
