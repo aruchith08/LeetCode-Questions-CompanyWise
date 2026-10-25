@@ -26,6 +26,14 @@ LeetCode-Questions-CompanyWise/
 │   ├── meta_alltime.csv
 │   └── ... (all 537 datasets across 200 companies)
 │
+├── others/                    # Design specifications, documentation, and tooling
+│   ├── DESIGN.md              # Design system and typography specifications
+│   ├── PRODUCT.md             # Product requirements and feature roadmap
+│   ├── live-poll.mjs          # Live polling utilities
+│   ├── .impeccable/           # Design review checkpoints
+│   └── api/                   # Serverless function references
+│
+├── .gitignore
 ├── package.json               # Root monorepo forwarder scripts
 ├── vercel.json                # Root Vercel deployment configuration
 └── README.md
