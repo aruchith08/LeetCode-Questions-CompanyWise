@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="grad_target" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284C7" />
-      <stop offset="100%" stop-color="#0369A1" />
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" fill="url(#grad_target)" />
-  <text x="256" y="325" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="210" fill="#FFFFFF" letter-spacing="-2">TA</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512" fill="#CC0000" role="img" aria-label="Target logo"><path fill-rule="evenodd" d="M12 0a12 12 0 1 1 0 24A12 12 0 0 1 12 0zM12 4.174a7.826 7.826 0 1 0 0 15.652 7.826 7.826 0 0 0 0-15.652zM12 8.16a3.84 3.84 0 1 1 0 7.68 3.84 3.84 0 0 1 0-7.68z"/></svg>

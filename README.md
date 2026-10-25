@@ -16,7 +16,7 @@ LeetCode-Questions-CompanyWise/
 │   ├── api/                   # Serverless functions (LeetCode GraphQL proxy)
 │   ├── public/                # Static assets, company brand logos, and generated datasets
 │   │   ├── data/              # Ingested datasets (index.json, questions.json, report.json, companies/)
-│   │   └── logos/             # High-res company logos in SVG & PNG
+│   │   └── logos/             # High-res company logos in SVG & PNG (512x512 transparent)
 │   ├── scripts/               # Offline CSV ingestion and normalization pipeline
 │   ├── src/                   # React components, pages, hooks, services, and design system
 │   ├── tests/                 # Vitest automated test suite (25 passing tests)
@@ -24,11 +24,11 @@ LeetCode-Questions-CompanyWise/
 │   ├── vite.config.ts         # Vite bundler configuration
 │   └── vercel.json            # Vercel deployment configuration
 │
-├── csv-data/                  # The original 537 company-wise CSV files
+├── csv-data/                  # Complete archive of 1,112 company-wise CSV files
 │   ├── google_1year.csv
 │   ├── amazon_6months.csv
 │   ├── meta_alltime.csv
-│   └── ... (all 537 datasets across 200 companies)
+│   └── ... (1,112 datasets across 490 companies & 6 time intervals)
 │
 ├── others/                    # Design specifications, documentation, and tooling
 │   ├── DESIGN.md              # Design system and typography specifications
@@ -49,37 +49,37 @@ LeetCode-Questions-CompanyWise/
 
 - **Zero-Password Client-Side Connection**: Connect your public LeetCode profile directly from the top navigation bar.
 - **Local Persistence**: Your LeetCode profile, avatar, ranking, and solved metrics are saved locally in browser `localStorage`.
-- **Automatic Solved Problem Sync**: Fetches your accepted LeetCode submissions and automatically marks matching problems as completed across all 200 companies in real time.
+- **Automatic Solved Problem Sync**: Fetches your accepted LeetCode submissions and automatically marks matching problems as completed across all 490 companies in real time.
 - **Global Cross-Company Synchronization**: When a question is solved (whether via LeetCode sync or manual marking), it is instantly marked as completed everywhere it appears across every company, every time period, and the global problem catalog.
 
 ---
 
 ## 📊 Dataset Ingestion & Audit Summary
 
-The platform operates on a data pipeline (`website/scripts/build-data.ts`) that parses, normalizes, validates, and deduplicates all 537 CSV files in `csv-data/`.
+The platform operates on an offline data pipeline (`website/scripts/build-data.ts`) that parses, normalizes, validates, and deduplicates all 1,112 CSV files in `csv-data/`.
 
 | Metric | Value |
 |---|---|
-| **Total CSV Files in `csv-data/`** | **537 / 537 (100%)** |
-| **Total Records Parsed** | **20,453** |
-| **Valid Records** | **20,453** |
+| **Total CSV Files in `csv-data/`** | **1,112 / 1,112 (100%)** |
+| **Total Records Parsed** | **38,825** |
+| **Valid Records** | **38,825** |
 | **Invalid Records** | **0** |
 | **Duplicate Records Within Files** | **0** |
-| **Unique Companies Represented** | **200** |
-| **Unique Canonical LeetCode Questions** | **1,446** |
-| **Supported Time-Period Filters** | **6 Months, 1 Year, 2 Years, All Time** |
-| **Questions with Valid Direct Links** | **1,446 (100%)** |
+| **Unique Companies Represented** | **490** |
+| **Unique Canonical LeetCode Questions** | **3,411** |
+| **Supported Time-Period Filters** | **30 Days, 3 Months, 6 Months, 1 Year, 2 Years, All Time** |
+| **Questions with Valid Direct Links** | **3,411 (100%)** |
 
 ---
 
 ## 🎨 Key Features & Pages
 
 1. **Home Dashboard (`/`)**: Real-time KPIs, progress breakdown gauge, 3D interactive globe, popular companies grid, and quick resume shortcuts.
-2. **Company Catalog (`/companies`)**: Filter by category (FAANG, Product-Based, High-Growth, Service-Based), brand logos, and completion status.
-3. **Company Hub (`/companies/:slug`)**: Dynamic recency filters (6M, 1Y, 2Y, All Time), question tables with difficulty markers, acceptance rates, and frequency scores.
-4. **Global Problem Catalog (`/problems`)**: All 1,446 unique questions with multi-filter search, direct LeetCode solve links, and company tag pills.
+2. **Company Catalog (`/companies`)**: Browse 490 companies with interactive Apple–Google–Meta animated hero illustration, category tabs, alphabet quick-jump navigation, authentic brand logos, and completion indicators.
+3. **Company Hub (`/companies/:slug`)**: Dynamic recency filters (30D, 3M, 6M, 1Y, 2Y, All Time), question tables with difficulty markers, acceptance rates, and frequency scores.
+4. **Global Problem Catalog (`/problems`)**: All 3,411 unique questions with multi-filter search, direct LeetCode solve links, frequency ratings, and company tag pills.
 5. **My Progress (`/progress`)**: Live LeetCode account sync, per-difficulty completion rates, company completion leaderboard, bookmarks, and JSON export/import.
-6. **About Page (`/about`)**: Complete project story, dataset curator acknowledgement (Krishna Dey), and developer profile (Alokam Ruchith).
+6. **About Page (`/about`)**: Complete project story, dataset curator acknowledgements (Krishna Dey & Liquidslr), and developer profile (Alokam Ruchith).
 
 ---
 
@@ -89,7 +89,7 @@ The platform operates on a data pipeline (`website/scripts/build-data.ts`) that 
 - **Bundler & Tooling**: Vite 6, TSX
 - **Styling**: Tailwind CSS, PostCSS, Autoprefixer
 - **Routing**: React Router DOM 6
-- **Icons**: Lucide React
+- **Icons**: Lucide React & High-Res Brand SVG/PNG Logos
 - **CSV Ingestion**: Papa Parse
 - **Testing**: Vitest with JSDOM
 - **State & Storage**: React Hooks, LocalStorage

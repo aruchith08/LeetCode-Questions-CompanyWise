@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="grad_palo-alto-networks" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4F46E5" />
-      <stop offset="100%" stop-color="#4338CA" />
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" fill="url(#grad_palo-alto-networks)" />
-  <text x="256" y="325" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="160" fill="#FFFFFF" letter-spacing="-2">PAN</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512" role="img" aria-label="Palo Alto Networks brand symbol"><path fill="#F04E23" d="M18.134666666666668 7.416833333333333 10.466333333333333 15.067333333333334 11.982166666666668 16.583166666666667 8.932666666666666 19.6505 5.883166666666667 16.583166666666667 13.533666666666667 8.932666666666666 12.017833333333334 7.416833333333333 15.067333333333334 4.349499999999999 18.134666666666668 7.416833333333333ZM8.968333333333334 4.349499999999999 1.3000000000000007 12.017833333333332 4.349500000000001 15.067333333333334 12.017833333333334 7.416833333333333 8.968333333333334 4.349499999999999ZM19.6505 8.932666666666666 11.982166666666668 16.583166666666667 15.031666666666666 19.6505 22.7 11.982166666666666 19.6505 8.932666666666666Z"/></svg>

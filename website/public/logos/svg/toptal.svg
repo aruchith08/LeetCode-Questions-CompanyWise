@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <defs>
-    <linearGradient id="grad_toptal" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C3AED" />
-      <stop offset="100%" stop-color="#6D28D9" />
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="112" fill="url(#grad_toptal)" />
-  <text x="256" y="325" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="210" fill="#FFFFFF" letter-spacing="-2">TO</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512" role="img" aria-label="Toptal brand symbol"><path fill="#3863A0" d="M19.347333333333335 10.252333333333333H19.3295L10.377166666666668 1.3000000000000007L8.558166666666667 3.1189999999999998L11.928666666666667 6.471666666666668L4.652666666666667 13.747666666666666L13.605 22.7L15.424000000000001 20.881L12.071333333333333 17.5105L19.347333333333335 10.252333333333333ZM8.700833333333334 14.033V14.015166666666666L14.104333333333333 8.611666666666666L15.21 9.699499999999999L9.788666666666668 15.1565L8.700833333333334 14.033Z"/></svg>
