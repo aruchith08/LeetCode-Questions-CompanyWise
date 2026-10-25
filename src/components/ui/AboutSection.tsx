@@ -185,9 +185,21 @@ export default function AboutSection() {
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-                The Builder: Aruchith
-              </h3>
+              <div className="flex items-center gap-4">
+                <img
+                  src="/alokam-ruchith.png"
+                  alt="Alokam Ruchith"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
+                />
+                <div className="space-y-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
+                    The Builder: Alokam Ruchith
+                  </h3>
+                  <p className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+                    @aruchith08 · BVRIT
+                  </p>
+                </div>
+              </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-100 dark:border-[#43433F] text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
                 Driven by the same idea that started it:{' '}
@@ -213,7 +225,7 @@ export default function AboutSection() {
             {/* Right Column: Narrative Content */}
             <div className="lg:col-span-8 space-y-4 text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] leading-relaxed lg:border-l lg:border-slate-100 dark:lg:border-[#43433F]/80 lg:pl-10">
               <p>
-                I&apos;m <strong className="text-slate-900 dark:text-[#FAF9F5]">Aruchith (@aruchith08)</strong>, an engineering student at BVRIT and the developer behind CompanyWise.
+                I&apos;m <strong className="text-slate-900 dark:text-[#FAF9F5]">Alokam Ruchith (@aruchith08)</strong>, an engineering student at BVRIT and the developer behind CompanyWise.
               </p>
 
               <p>

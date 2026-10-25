@@ -770,7 +770,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Section: Story of the Website, the Curator (Krishna Dey), and the Builder (Aruchith) */}
+      {/* About Section: Story of the Website, the Curator (Krishna Dey), and the Builder (Alokam Ruchith) */}
       <AboutSection />
     </div>
   );
