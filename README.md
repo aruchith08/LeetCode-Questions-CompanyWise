@@ -2,7 +2,7 @@
 
 > **CompanyWise** is an interactive, engineering-grade interview intelligence platform with real-time LeetCode profile synchronization, coupled with the complete archive of company-specific problem frequency datasets.
 
-🔗 **Live Platform**: [companywise-beryl.vercel.app](https://companywise-arh.vercel.app)
+🔗 **Live Platform**: [companywise-arh.vercel.app](https://companywise-arh.vercel.app)
 
 ![CompanyWise Platform Preview](website/public/preview.png)
 
