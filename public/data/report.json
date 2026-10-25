@@ -1,0 +1,5391 @@
+{
+  "timestamp": "2026-10-25T08:37:03.381Z",
+  "totalFiles": 537,
+  "totalFilesProcessed": 537,
+  "totalFilesSkipped": 0,
+  "totalRecords": 20453,
+  "totalValidRecords": 20453,
+  "totalInvalidRecords": 0,
+  "totalDuplicateRecords": 0,
+  "uniqueQuestions": 1446,
+  "uniqueCompanies": 200,
+  "timePeriods": [
+    "6months",
+    "1year",
+    "2year",
+    "alltime"
+  ],
+  "files": [
+    {
+      "file": "accolite_alltime.csv",
+      "company": "accolite",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "adobe_1year.csv",
+      "company": "adobe",
+      "period": "1year",
+      "totalRows": 140,
+      "validRows": 140,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "adobe_2year.csv",
+      "company": "adobe",
+      "period": "2year",
+      "totalRows": 228,
+      "validRows": 228,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "adobe_6months.csv",
+      "company": "adobe",
+      "period": "6months",
+      "totalRows": 78,
+      "validRows": 78,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "adobe_alltime.csv",
+      "company": "adobe",
+      "period": "alltime",
+      "totalRows": 235,
+      "validRows": 235,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "aetion_2year.csv",
+      "company": "aetion",
+      "period": "2year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "aetion_alltime.csv",
+      "company": "aetion",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "affinity_alltime.csv",
+      "company": "affinity",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "affirm_1year.csv",
+      "company": "affirm",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "affirm_2year.csv",
+      "company": "affirm",
+      "period": "2year",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "affirm_6months.csv",
+      "company": "affirm",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "affirm_alltime.csv",
+      "company": "affirm",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airbnb_1year.csv",
+      "company": "airbnb",
+      "period": "1year",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airbnb_2year.csv",
+      "company": "airbnb",
+      "period": "2year",
+      "totalRows": 38,
+      "validRows": 38,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airbnb_6months.csv",
+      "company": "airbnb",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airbnb_alltime.csv",
+      "company": "airbnb",
+      "period": "alltime",
+      "totalRows": 59,
+      "validRows": 59,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "airtel_alltime.csv",
+      "company": "airtel",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akamai_alltime.csv",
+      "company": "akamai",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna-capital_1year.csv",
+      "company": "akuna-capital",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna-capital_2year.csv",
+      "company": "akuna-capital",
+      "period": "2year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna-capital_6months.csv",
+      "company": "akuna-capital",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna-capital_alltime.csv",
+      "company": "akuna-capital",
+      "period": "alltime",
+      "totalRows": 23,
+      "validRows": 23,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "akuna_alltime.csv",
+      "company": "akuna",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alation_1year.csv",
+      "company": "alation",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alation_2year.csv",
+      "company": "alation",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alation_alltime.csv",
+      "company": "alation",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alibaba_1year.csv",
+      "company": "alibaba",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alibaba_2year.csv",
+      "company": "alibaba",
+      "period": "2year",
+      "totalRows": 32,
+      "validRows": 32,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alibaba_6months.csv",
+      "company": "alibaba",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "alibaba_alltime.csv",
+      "company": "alibaba",
+      "period": "alltime",
+      "totalRows": 35,
+      "validRows": 35,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amazon_1year.csv",
+      "company": "amazon",
+      "period": "1year",
+      "totalRows": 605,
+      "validRows": 605,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amazon_2year.csv",
+      "company": "amazon",
+      "period": "2year",
+      "totalRows": 708,
+      "validRows": 708,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amazon_6months.csv",
+      "company": "amazon",
+      "period": "6months",
+      "totalRows": 466,
+      "validRows": 466,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "amazon_alltime.csv",
+      "company": "amazon",
+      "period": "alltime",
+      "totalRows": 780,
+      "validRows": 780,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "american-express_alltime.csv",
+      "company": "american-express",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "appdynamics_1year.csv",
+      "company": "appdynamics",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "appdynamics_2year.csv",
+      "company": "appdynamics",
+      "period": "2year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "appdynamics_6months.csv",
+      "company": "appdynamics",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "appdynamics_alltime.csv",
+      "company": "appdynamics",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apple_1year.csv",
+      "company": "apple",
+      "period": "1year",
+      "totalRows": 288,
+      "validRows": 288,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apple_2year.csv",
+      "company": "apple",
+      "period": "2year",
+      "totalRows": 364,
+      "validRows": 364,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apple_6months.csv",
+      "company": "apple",
+      "period": "6months",
+      "totalRows": 203,
+      "validRows": 203,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "apple_alltime.csv",
+      "company": "apple",
+      "period": "alltime",
+      "totalRows": 366,
+      "validRows": 366,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arista-networks_1year.csv",
+      "company": "arista-networks",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arista-networks_2year.csv",
+      "company": "arista-networks",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arista-networks_alltime.csv",
+      "company": "arista-networks",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "arista_alltime.csv",
+      "company": "arista",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "asana_1year.csv",
+      "company": "asana",
+      "period": "1year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "asana_2year.csv",
+      "company": "asana",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "asana_6months.csv",
+      "company": "asana",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "asana_alltime.csv",
+      "company": "asana",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "atlassian_1year.csv",
+      "company": "atlassian",
+      "period": "1year",
+      "totalRows": 38,
+      "validRows": 38,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "atlassian_2year.csv",
+      "company": "atlassian",
+      "period": "2year",
+      "totalRows": 52,
+      "validRows": 52,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "atlassian_6months.csv",
+      "company": "atlassian",
+      "period": "6months",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "atlassian_alltime.csv",
+      "company": "atlassian",
+      "period": "alltime",
+      "totalRows": 53,
+      "validRows": 53,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "audible_1year.csv",
+      "company": "audible",
+      "period": "1year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "audible_2year.csv",
+      "company": "audible",
+      "period": "2year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "audible_6months.csv",
+      "company": "audible",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "audible_alltime.csv",
+      "company": "audible",
+      "period": "alltime",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "baidu_2year.csv",
+      "company": "baidu",
+      "period": "2year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "baidu_alltime.csv",
+      "company": "baidu",
+      "period": "alltime",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "barclays_1year.csv",
+      "company": "barclays",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "barclays_2year.csv",
+      "company": "barclays",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "barclays_alltime.csv",
+      "company": "barclays",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackrock_1year.csv",
+      "company": "blackrock",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackrock_2year.csv",
+      "company": "blackrock",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blackrock_alltime.csv",
+      "company": "blackrock",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blizzard_2year.csv",
+      "company": "blizzard",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "blizzard_alltime.csv",
+      "company": "blizzard",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomberg_1year.csv",
+      "company": "bloomberg",
+      "period": "1year",
+      "totalRows": 242,
+      "validRows": 242,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomberg_2year.csv",
+      "company": "bloomberg",
+      "period": "2year",
+      "totalRows": 333,
+      "validRows": 333,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomberg_6months.csv",
+      "company": "bloomberg",
+      "period": "6months",
+      "totalRows": 146,
+      "validRows": 146,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomberg_alltime.csv",
+      "company": "bloomberg",
+      "period": "alltime",
+      "totalRows": 348,
+      "validRows": 348,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bloomreach_alltime.csv",
+      "company": "bloomreach",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bookingcom_2year.csv",
+      "company": "bookingcom",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bookingcom_alltime.csv",
+      "company": "bookingcom",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "booking_alltime.csv",
+      "company": "booking",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "box_1year.csv",
+      "company": "box",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "box_2year.csv",
+      "company": "box",
+      "period": "2year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "box_6months.csv",
+      "company": "box",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "box_alltime.csv",
+      "company": "box",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bytedancetoutiao_alltime.csv",
+      "company": "bytedancetoutiao",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bytedance_1year.csv",
+      "company": "bytedance",
+      "period": "1year",
+      "totalRows": 97,
+      "validRows": 97,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bytedance_2year.csv",
+      "company": "bytedance",
+      "period": "2year",
+      "totalRows": 116,
+      "validRows": 116,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bytedance_6months.csv",
+      "company": "bytedance",
+      "period": "6months",
+      "totalRows": 83,
+      "validRows": 83,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "bytedance_alltime.csv",
+      "company": "bytedance",
+      "period": "alltime",
+      "totalRows": 116,
+      "validRows": 116,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "c3-iot_alltime.csv",
+      "company": "c3-iot",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "c3ai_alltime.csv",
+      "company": "c3ai",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capital-one_1year.csv",
+      "company": "capital-one",
+      "period": "1year",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capital-one_2year.csv",
+      "company": "capital-one",
+      "period": "2year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capital-one_6months.csv",
+      "company": "capital-one",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "capital-one_alltime.csv",
+      "company": "capital-one",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cisco_1year.csv",
+      "company": "cisco",
+      "period": "1year",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cisco_2year.csv",
+      "company": "cisco",
+      "period": "2year",
+      "totalRows": 68,
+      "validRows": 68,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cisco_6months.csv",
+      "company": "cisco",
+      "period": "6months",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cisco_alltime.csv",
+      "company": "cisco",
+      "period": "alltime",
+      "totalRows": 68,
+      "validRows": 68,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citadel_1year.csv",
+      "company": "citadel",
+      "period": "1year",
+      "totalRows": 29,
+      "validRows": 29,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citadel_2year.csv",
+      "company": "citadel",
+      "period": "2year",
+      "totalRows": 39,
+      "validRows": 39,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citadel_6months.csv",
+      "company": "citadel",
+      "period": "6months",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citadel_alltime.csv",
+      "company": "citadel",
+      "period": "alltime",
+      "totalRows": 41,
+      "validRows": 41,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citrix_1year.csv",
+      "company": "citrix",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citrix_2year.csv",
+      "company": "citrix",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citrix_6months.csv",
+      "company": "citrix",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "citrix_alltime.csv",
+      "company": "citrix",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cloudera_1year.csv",
+      "company": "cloudera",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cloudera_2year.csv",
+      "company": "cloudera",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cloudera_6months.csv",
+      "company": "cloudera",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cloudera_alltime.csv",
+      "company": "cloudera",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "clutter_alltime.csv",
+      "company": "clutter",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "codenation_alltime.csv",
+      "company": "codenation",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cohesity_1year.csv",
+      "company": "cohesity",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cohesity_2year.csv",
+      "company": "cohesity",
+      "period": "2year",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cohesity_alltime.csv",
+      "company": "cohesity",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coupang_1year.csv",
+      "company": "coupang",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coupang_2year.csv",
+      "company": "coupang",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coupang_6months.csv",
+      "company": "coupang",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coupang_alltime.csv",
+      "company": "coupang",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coursera_1year.csv",
+      "company": "coursera",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coursera_2year.csv",
+      "company": "coursera",
+      "period": "2year",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coursera_6months.csv",
+      "company": "coursera",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "coursera_alltime.csv",
+      "company": "coursera",
+      "period": "alltime",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cruise-automation_1year.csv",
+      "company": "cruise-automation",
+      "period": "1year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cruise-automation_2year.csv",
+      "company": "cruise-automation",
+      "period": "2year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cruise-automation_6months.csv",
+      "company": "cruise-automation",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "cruise-automation_alltime.csv",
+      "company": "cruise-automation",
+      "period": "alltime",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "databricks_1year.csv",
+      "company": "databricks",
+      "period": "1year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "databricks_2year.csv",
+      "company": "databricks",
+      "period": "2year",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "databricks_6months.csv",
+      "company": "databricks",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "databricks_alltime.csv",
+      "company": "databricks",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dataminr_1year.csv",
+      "company": "dataminr",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dataminr_2year.csv",
+      "company": "dataminr",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dataminr_alltime.csv",
+      "company": "dataminr",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "de-shaw_alltime.csv",
+      "company": "de-shaw",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deliveryhero_alltime.csv",
+      "company": "deliveryhero",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dell_1year.csv",
+      "company": "dell",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dell_2year.csv",
+      "company": "dell",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dell_alltime.csv",
+      "company": "dell",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deutsche-bank_2year.csv",
+      "company": "deutsche-bank",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "deutsche-bank_alltime.csv",
+      "company": "deutsche-bank",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "didi_1year.csv",
+      "company": "didi",
+      "period": "1year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "didi_2year.csv",
+      "company": "didi",
+      "period": "2year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "didi_6months.csv",
+      "company": "didi",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "didi_alltime.csv",
+      "company": "didi",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "docusign_1year.csv",
+      "company": "docusign",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "docusign_2year.csv",
+      "company": "docusign",
+      "period": "2year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "docusign_6months.csv",
+      "company": "docusign",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "docusign_alltime.csv",
+      "company": "docusign",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "doordash_1year.csv",
+      "company": "doordash",
+      "period": "1year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "doordash_2year.csv",
+      "company": "doordash",
+      "period": "2year",
+      "totalRows": 20,
+      "validRows": 20,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "doordash_6months.csv",
+      "company": "doordash",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "doordash_alltime.csv",
+      "company": "doordash",
+      "period": "alltime",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "drawbridge_2year.csv",
+      "company": "drawbridge",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "drawbridge_alltime.csv",
+      "company": "drawbridge",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dropbox_1year.csv",
+      "company": "dropbox",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dropbox_2year.csv",
+      "company": "dropbox",
+      "period": "2year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dropbox_6months.csv",
+      "company": "dropbox",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "dropbox_alltime.csv",
+      "company": "dropbox",
+      "period": "alltime",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "druva_alltime.csv",
+      "company": "druva",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ebay_1year.csv",
+      "company": "ebay",
+      "period": "1year",
+      "totalRows": 88,
+      "validRows": 88,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ebay_2year.csv",
+      "company": "ebay",
+      "period": "2year",
+      "totalRows": 118,
+      "validRows": 118,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ebay_6months.csv",
+      "company": "ebay",
+      "period": "6months",
+      "totalRows": 77,
+      "validRows": 77,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ebay_alltime.csv",
+      "company": "ebay",
+      "period": "alltime",
+      "totalRows": 123,
+      "validRows": 123,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "electronic-arts_1year.csv",
+      "company": "electronic-arts",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "electronic-arts_2year.csv",
+      "company": "electronic-arts",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "electronic-arts_alltime.csv",
+      "company": "electronic-arts",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "emc_2year.csv",
+      "company": "emc",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "emc_alltime.csv",
+      "company": "emc",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epic-systems_1year.csv",
+      "company": "epic-systems",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epic-systems_2year.csv",
+      "company": "epic-systems",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "epic-systems_alltime.csv",
+      "company": "epic-systems",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "evernote_1year.csv",
+      "company": "evernote",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "evernote_2year.csv",
+      "company": "evernote",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "evernote_alltime.csv",
+      "company": "evernote",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "expedia_1year.csv",
+      "company": "expedia",
+      "period": "1year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "expedia_2year.csv",
+      "company": "expedia",
+      "period": "2year",
+      "totalRows": 41,
+      "validRows": 41,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "expedia_alltime.csv",
+      "company": "expedia",
+      "period": "alltime",
+      "totalRows": 47,
+      "validRows": 47,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "f5-networks_alltime.csv",
+      "company": "f5-networks",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "facebook_1year.csv",
+      "company": "facebook",
+      "period": "1year",
+      "totalRows": 428,
+      "validRows": 428,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "facebook_2year.csv",
+      "company": "facebook",
+      "period": "2year",
+      "totalRows": 517,
+      "validRows": 517,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "facebook_6months.csv",
+      "company": "facebook",
+      "period": "6months",
+      "totalRows": 342,
+      "validRows": 342,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "facebook_alltime.csv",
+      "company": "facebook",
+      "period": "alltime",
+      "totalRows": 556,
+      "validRows": 556,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "factset_1year.csv",
+      "company": "factset",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "factset_2year.csv",
+      "company": "factset",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "factset_6months.csv",
+      "company": "factset",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "factset_alltime.csv",
+      "company": "factset",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "fallible_alltime.csv",
+      "company": "fallible",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "fidessa_alltime.csv",
+      "company": "fidessa",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flexport_alltime.csv",
+      "company": "flexport",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flipkart_1year.csv",
+      "company": "flipkart",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flipkart_2year.csv",
+      "company": "flipkart",
+      "period": "2year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "flipkart_alltime.csv",
+      "company": "flipkart",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "forusall_2year.csv",
+      "company": "forusall",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "forusall_alltime.csv",
+      "company": "forusall",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "garena_2year.csv",
+      "company": "garena",
+      "period": "2year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "garena_alltime.csv",
+      "company": "garena",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ge-digital_2year.csv",
+      "company": "ge-digital",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ge-digital_alltime.csv",
+      "company": "ge-digital",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "gilt-groupe_alltime.csv",
+      "company": "gilt-groupe",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "godaddy_1year.csv",
+      "company": "godaddy",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "godaddy_2year.csv",
+      "company": "godaddy",
+      "period": "2year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "godaddy_6months.csv",
+      "company": "godaddy",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "godaddy_alltime.csv",
+      "company": "godaddy",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "goldman-sachs_1year.csv",
+      "company": "goldman-sachs",
+      "period": "1year",
+      "totalRows": 87,
+      "validRows": 87,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "goldman-sachs_2year.csv",
+      "company": "goldman-sachs",
+      "period": "2year",
+      "totalRows": 109,
+      "validRows": 109,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "goldman-sachs_6months.csv",
+      "company": "goldman-sachs",
+      "period": "6months",
+      "totalRows": 58,
+      "validRows": 58,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "goldman-sachs_alltime.csv",
+      "company": "goldman-sachs",
+      "period": "alltime",
+      "totalRows": 112,
+      "validRows": 112,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "google_1year.csv",
+      "company": "google",
+      "period": "1year",
+      "totalRows": 534,
+      "validRows": 534,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "google_2year.csv",
+      "company": "google",
+      "period": "2year",
+      "totalRows": 717,
+      "validRows": 717,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "google_6months.csv",
+      "company": "google",
+      "period": "6months",
+      "totalRows": 350,
+      "validRows": 350,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "google_alltime.csv",
+      "company": "google",
+      "period": "alltime",
+      "totalRows": 865,
+      "validRows": 865,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grab_1year.csv",
+      "company": "grab",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grab_2year.csv",
+      "company": "grab",
+      "period": "2year",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "grab_alltime.csv",
+      "company": "grab",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groupon_1year.csv",
+      "company": "groupon",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groupon_2year.csv",
+      "company": "groupon",
+      "period": "2year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groupon_6months.csv",
+      "company": "groupon",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "groupon_alltime.csv",
+      "company": "groupon",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "gsn-games_alltime.csv",
+      "company": "gsn-games",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hbo_2year.csv",
+      "company": "hbo",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hbo_alltime.csv",
+      "company": "hbo",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "helix_alltime.csv",
+      "company": "helix",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "honey_alltime.csv",
+      "company": "honey",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hotstar_alltime.csv",
+      "company": "hotstar",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "houzz_1year.csv",
+      "company": "houzz",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "houzz_2year.csv",
+      "company": "houzz",
+      "period": "2year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "houzz_alltime.csv",
+      "company": "houzz",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hrt_alltime.csv",
+      "company": "hrt",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "huawei_1year.csv",
+      "company": "huawei",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "huawei_2year.csv",
+      "company": "huawei",
+      "period": "2year",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "huawei_6months.csv",
+      "company": "huawei",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "huawei_alltime.csv",
+      "company": "huawei",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hulu_1year.csv",
+      "company": "hulu",
+      "period": "1year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hulu_2year.csv",
+      "company": "hulu",
+      "period": "2year",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hulu_6months.csv",
+      "company": "hulu",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "hulu_alltime.csv",
+      "company": "hulu",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ibm_1year.csv",
+      "company": "ibm",
+      "period": "1year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ibm_2year.csv",
+      "company": "ibm",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ibm_6months.csv",
+      "company": "ibm",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ibm_alltime.csv",
+      "company": "ibm",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "iit-bombay_alltime.csv",
+      "company": "iit-bombay",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "indeed_1year.csv",
+      "company": "indeed",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "indeed_2year.csv",
+      "company": "indeed",
+      "period": "2year",
+      "totalRows": 23,
+      "validRows": 23,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "indeed_6months.csv",
+      "company": "indeed",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "indeed_alltime.csv",
+      "company": "indeed",
+      "period": "alltime",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "infosys_alltime.csv",
+      "company": "infosys",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "inmobi_alltime.csv",
+      "company": "inmobi",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intel_1year.csv",
+      "company": "intel",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intel_2year.csv",
+      "company": "intel",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intel_alltime.csv",
+      "company": "intel",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intuit_1year.csv",
+      "company": "intuit",
+      "period": "1year",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intuit_2year.csv",
+      "company": "intuit",
+      "period": "2year",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intuit_6months.csv",
+      "company": "intuit",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "intuit_alltime.csv",
+      "company": "intuit",
+      "period": "alltime",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ixl_1year.csv",
+      "company": "ixl",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ixl_2year.csv",
+      "company": "ixl",
+      "period": "2year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ixl_6months.csv",
+      "company": "ixl",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ixl_alltime.csv",
+      "company": "ixl",
+      "period": "alltime",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jane-street_alltime.csv",
+      "company": "jane-street",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jingchi_alltime.csv",
+      "company": "jingchi",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jp-morgan-chase_alltime.csv",
+      "company": "jp-morgan-chase",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jpmorgan_1year.csv",
+      "company": "jpmorgan",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jpmorgan_2year.csv",
+      "company": "jpmorgan",
+      "period": "2year",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jpmorgan_6months.csv",
+      "company": "jpmorgan",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jpmorgan_alltime.csv",
+      "company": "jpmorgan",
+      "period": "alltime",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jump-trading_2year.csv",
+      "company": "jump-trading",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "jump-trading_alltime.csv",
+      "company": "jump-trading",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "kakao_alltime.csv",
+      "company": "kakao",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "karat_1year.csv",
+      "company": "karat",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "karat_2year.csv",
+      "company": "karat",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "karat_6months.csv",
+      "company": "karat",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "karat_alltime.csv",
+      "company": "karat",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "leap-motion_alltime.csv",
+      "company": "leap-motion",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "limebike_alltime.csv",
+      "company": "limebike",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "linkedin_1year.csv",
+      "company": "linkedin",
+      "period": "1year",
+      "totalRows": 88,
+      "validRows": 88,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "linkedin_2year.csv",
+      "company": "linkedin",
+      "period": "2year",
+      "totalRows": 129,
+      "validRows": 129,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "linkedin_6months.csv",
+      "company": "linkedin",
+      "period": "6months",
+      "totalRows": 38,
+      "validRows": 38,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "linkedin_alltime.csv",
+      "company": "linkedin",
+      "period": "alltime",
+      "totalRows": 140,
+      "validRows": 140,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "liveramp_1year.csv",
+      "company": "liveramp",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "liveramp_2year.csv",
+      "company": "liveramp",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "liveramp_alltime.csv",
+      "company": "liveramp",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lyft_1year.csv",
+      "company": "lyft",
+      "period": "1year",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lyft_2year.csv",
+      "company": "lyft",
+      "period": "2year",
+      "totalRows": 50,
+      "validRows": 50,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lyft_6months.csv",
+      "company": "lyft",
+      "period": "6months",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "lyft_alltime.csv",
+      "company": "lyft",
+      "period": "alltime",
+      "totalRows": 53,
+      "validRows": 53,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "machine-zone_alltime.csv",
+      "company": "machine-zone",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "machinezone_alltime.csv",
+      "company": "machinezone",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "maq-software_alltime.csv",
+      "company": "maq-software",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mathworks_1year.csv",
+      "company": "mathworks",
+      "period": "1year",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mathworks_2year.csv",
+      "company": "mathworks",
+      "period": "2year",
+      "totalRows": 39,
+      "validRows": 39,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mathworks_6months.csv",
+      "company": "mathworks",
+      "period": "6months",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mathworks_alltime.csv",
+      "company": "mathworks",
+      "period": "alltime",
+      "totalRows": 40,
+      "validRows": 40,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "mckinsey_alltime.csv",
+      "company": "mckinsey",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "medianet_alltime.csv",
+      "company": "medianet",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meituan_2year.csv",
+      "company": "meituan",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "meituan_alltime.csv",
+      "company": "meituan",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microsoft_1year.csv",
+      "company": "microsoft",
+      "period": "1year",
+      "totalRows": 356,
+      "validRows": 356,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microsoft_2year.csv",
+      "company": "microsoft",
+      "period": "2year",
+      "totalRows": 469,
+      "validRows": 469,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microsoft_6months.csv",
+      "company": "microsoft",
+      "period": "6months",
+      "totalRows": 241,
+      "validRows": 241,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microsoft_alltime.csv",
+      "company": "microsoft",
+      "period": "alltime",
+      "totalRows": 514,
+      "validRows": 514,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "microstrategy_alltime.csv",
+      "company": "microstrategy",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "morgan-stanley_1year.csv",
+      "company": "morgan-stanley",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "morgan-stanley_2year.csv",
+      "company": "morgan-stanley",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "morgan-stanley_alltime.csv",
+      "company": "morgan-stanley",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "national-instruments_alltime.csv",
+      "company": "national-instruments",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netease_2year.csv",
+      "company": "netease",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netease_alltime.csv",
+      "company": "netease",
+      "period": "alltime",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netflix_1year.csv",
+      "company": "netflix",
+      "period": "1year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netflix_2year.csv",
+      "company": "netflix",
+      "period": "2year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netflix_6months.csv",
+      "company": "netflix",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netflix_alltime.csv",
+      "company": "netflix",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "netsuite_alltime.csv",
+      "company": "netsuite",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nutanix_1year.csv",
+      "company": "nutanix",
+      "period": "1year",
+      "totalRows": 19,
+      "validRows": 19,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nutanix_2year.csv",
+      "company": "nutanix",
+      "period": "2year",
+      "totalRows": 35,
+      "validRows": 35,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nutanix_6months.csv",
+      "company": "nutanix",
+      "period": "6months",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nutanix_alltime.csv",
+      "company": "nutanix",
+      "period": "alltime",
+      "totalRows": 38,
+      "validRows": 38,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nvidia_1year.csv",
+      "company": "nvidia",
+      "period": "1year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nvidia_2year.csv",
+      "company": "nvidia",
+      "period": "2year",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nvidia_6months.csv",
+      "company": "nvidia",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "nvidia_alltime.csv",
+      "company": "nvidia",
+      "period": "alltime",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "opendoor_1year.csv",
+      "company": "opendoor",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "opendoor_2year.csv",
+      "company": "opendoor",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "opendoor_alltime.csv",
+      "company": "opendoor",
+      "period": "alltime",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oracle_1year.csv",
+      "company": "oracle",
+      "period": "1year",
+      "totalRows": 174,
+      "validRows": 174,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oracle_2year.csv",
+      "company": "oracle",
+      "period": "2year",
+      "totalRows": 212,
+      "validRows": 212,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oracle_6months.csv",
+      "company": "oracle",
+      "period": "6months",
+      "totalRows": 86,
+      "validRows": 86,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "oracle_alltime.csv",
+      "company": "oracle",
+      "period": "alltime",
+      "totalRows": 214,
+      "validRows": 214,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palantir-technologies_1year.csv",
+      "company": "palantir-technologies",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palantir-technologies_2year.csv",
+      "company": "palantir-technologies",
+      "period": "2year",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palantir-technologies_6months.csv",
+      "company": "palantir-technologies",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palantir-technologies_alltime.csv",
+      "company": "palantir-technologies",
+      "period": "alltime",
+      "totalRows": 20,
+      "validRows": 20,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "palantir_alltime.csv",
+      "company": "palantir",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypal_1year.csv",
+      "company": "paypal",
+      "period": "1year",
+      "totalRows": 26,
+      "validRows": 26,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypal_2year.csv",
+      "company": "paypal",
+      "period": "2year",
+      "totalRows": 58,
+      "validRows": 58,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypal_6months.csv",
+      "company": "paypal",
+      "period": "6months",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paypal_alltime.csv",
+      "company": "paypal",
+      "period": "alltime",
+      "totalRows": 59,
+      "validRows": 59,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "paytm_alltime.csv",
+      "company": "paytm",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "phonepe_alltime.csv",
+      "company": "phonepe",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pinterest_1year.csv",
+      "company": "pinterest",
+      "period": "1year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pinterest_2year.csv",
+      "company": "pinterest",
+      "period": "2year",
+      "totalRows": 40,
+      "validRows": 40,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pinterest_6months.csv",
+      "company": "pinterest",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pinterest_alltime.csv",
+      "company": "pinterest",
+      "period": "alltime",
+      "totalRows": 42,
+      "validRows": 42,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pocket-gems_1year.csv",
+      "company": "pocket-gems",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pocket-gems_2year.csv",
+      "company": "pocket-gems",
+      "period": "2year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pocket-gems_6months.csv",
+      "company": "pocket-gems",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pocket-gems_alltime.csv",
+      "company": "pocket-gems",
+      "period": "alltime",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "point72_alltime.csv",
+      "company": "point72",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ponyai_2year.csv",
+      "company": "ponyai",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "ponyai_alltime.csv",
+      "company": "ponyai",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "poshmark_alltime.csv",
+      "company": "poshmark",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "postmates_1year.csv",
+      "company": "postmates",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "postmates_2year.csv",
+      "company": "postmates",
+      "period": "2year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "postmates_6months.csv",
+      "company": "postmates",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "postmates_alltime.csv",
+      "company": "postmates",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "poynt_alltime.csv",
+      "company": "poynt",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pramp_alltime.csv",
+      "company": "pramp",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pure-storage_1year.csv",
+      "company": "pure-storage",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pure-storage_2year.csv",
+      "company": "pure-storage",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pure-storage_6months.csv",
+      "company": "pure-storage",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "pure-storage_alltime.csv",
+      "company": "pure-storage",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualcomm_1year.csv",
+      "company": "qualcomm",
+      "period": "1year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualcomm_2year.csv",
+      "company": "qualcomm",
+      "period": "2year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualcomm_6months.csv",
+      "company": "qualcomm",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualcomm_alltime.csv",
+      "company": "qualcomm",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualtrics_1year.csv",
+      "company": "qualtrics",
+      "period": "1year",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualtrics_2year.csv",
+      "company": "qualtrics",
+      "period": "2year",
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualtrics_6months.csv",
+      "company": "qualtrics",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "qualtrics_alltime.csv",
+      "company": "qualtrics",
+      "period": "alltime",
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quantcast_2year.csv",
+      "company": "quantcast",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quantcast_alltime.csv",
+      "company": "quantcast",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quip_1year.csv",
+      "company": "quip",
+      "period": "1year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quip_2year.csv",
+      "company": "quip",
+      "period": "2year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quip_6months.csv",
+      "company": "quip",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quip_alltime.csv",
+      "company": "quip",
+      "period": "alltime",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quora_1year.csv",
+      "company": "quora",
+      "period": "1year",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quora_2year.csv",
+      "company": "quora",
+      "period": "2year",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "quora_alltime.csv",
+      "company": "quora",
+      "period": "alltime",
+      "totalRows": 30,
+      "validRows": 30,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rackspace_alltime.csv",
+      "company": "rackspace",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "radius_2year.csv",
+      "company": "radius",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "radius_alltime.csv",
+      "company": "radius",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "reddit_1year.csv",
+      "company": "reddit",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "reddit_2year.csv",
+      "company": "reddit",
+      "period": "2year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "reddit_6months.csv",
+      "company": "reddit",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "reddit_alltime.csv",
+      "company": "reddit",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "redfin_1year.csv",
+      "company": "redfin",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "redfin_2year.csv",
+      "company": "redfin",
+      "period": "2year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "redfin_alltime.csv",
+      "company": "redfin",
+      "period": "alltime",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "riot-games_1year.csv",
+      "company": "riot-games",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "riot-games_2year.csv",
+      "company": "riot-games",
+      "period": "2year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "riot-games_6months.csv",
+      "company": "riot-games",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "riot-games_alltime.csv",
+      "company": "riot-games",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "robinhood_1year.csv",
+      "company": "robinhood",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "robinhood_2year.csv",
+      "company": "robinhood",
+      "period": "2year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "robinhood_6months.csv",
+      "company": "robinhood",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "robinhood_alltime.csv",
+      "company": "robinhood",
+      "period": "alltime",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roblox_1year.csv",
+      "company": "roblox",
+      "period": "1year",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roblox_2year.csv",
+      "company": "roblox",
+      "period": "2year",
+      "totalRows": 19,
+      "validRows": 19,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roblox_6months.csv",
+      "company": "roblox",
+      "period": "6months",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "roblox_alltime.csv",
+      "company": "roblox",
+      "period": "alltime",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rubrik_2year.csv",
+      "company": "rubrik",
+      "period": "2year",
+      "totalRows": 6,
+      "validRows": 6,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "rubrik_alltime.csv",
+      "company": "rubrik",
+      "period": "alltime",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "salesforce_1year.csv",
+      "company": "salesforce",
+      "period": "1year",
+      "totalRows": 26,
+      "validRows": 26,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "salesforce_2year.csv",
+      "company": "salesforce",
+      "period": "2year",
+      "totalRows": 68,
+      "validRows": 68,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "salesforce_6months.csv",
+      "company": "salesforce",
+      "period": "6months",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "salesforce_alltime.csv",
+      "company": "salesforce",
+      "period": "alltime",
+      "totalRows": 70,
+      "validRows": 70,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "samsung_1year.csv",
+      "company": "samsung",
+      "period": "1year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "samsung_2year.csv",
+      "company": "samsung",
+      "period": "2year",
+      "totalRows": 19,
+      "validRows": 19,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "samsung_6months.csv",
+      "company": "samsung",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "samsung_alltime.csv",
+      "company": "samsung",
+      "period": "alltime",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sapient_alltime.csv",
+      "company": "sapient",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sap_1year.csv",
+      "company": "sap",
+      "period": "1year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sap_2year.csv",
+      "company": "sap",
+      "period": "2year",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sap_6months.csv",
+      "company": "sap",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sap_alltime.csv",
+      "company": "sap",
+      "period": "alltime",
+      "totalRows": 38,
+      "validRows": 38,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "servicenow_1year.csv",
+      "company": "servicenow",
+      "period": "1year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "servicenow_2year.csv",
+      "company": "servicenow",
+      "period": "2year",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "servicenow_6months.csv",
+      "company": "servicenow",
+      "period": "6months",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "servicenow_alltime.csv",
+      "company": "servicenow",
+      "period": "alltime",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snapchat_1year.csv",
+      "company": "snapchat",
+      "period": "1year",
+      "totalRows": 31,
+      "validRows": 31,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snapchat_2year.csv",
+      "company": "snapchat",
+      "period": "2year",
+      "totalRows": 68,
+      "validRows": 68,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snapchat_6months.csv",
+      "company": "snapchat",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snapchat_alltime.csv",
+      "company": "snapchat",
+      "period": "alltime",
+      "totalRows": 88,
+      "validRows": 88,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "snapdeal_alltime.csv",
+      "company": "snapdeal",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "splunk_1year.csv",
+      "company": "splunk",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "splunk_2year.csv",
+      "company": "splunk",
+      "period": "2year",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "splunk_6months.csv",
+      "company": "splunk",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "splunk_alltime.csv",
+      "company": "splunk",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "spotify_1year.csv",
+      "company": "spotify",
+      "period": "1year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "spotify_2year.csv",
+      "company": "spotify",
+      "period": "2year",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "spotify_6months.csv",
+      "company": "spotify",
+      "period": "6months",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "spotify_alltime.csv",
+      "company": "spotify",
+      "period": "alltime",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "square_1year.csv",
+      "company": "square",
+      "period": "1year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "square_2year.csv",
+      "company": "square",
+      "period": "2year",
+      "totalRows": 22,
+      "validRows": 22,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "square_6months.csv",
+      "company": "square",
+      "period": "6months",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "square_alltime.csv",
+      "company": "square",
+      "period": "alltime",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sumologic_1year.csv",
+      "company": "sumologic",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sumologic_2year.csv",
+      "company": "sumologic",
+      "period": "2year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "sumologic_alltime.csv",
+      "company": "sumologic",
+      "period": "alltime",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "symantec_2year.csv",
+      "company": "symantec",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "symantec_alltime.csv",
+      "company": "symantec",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tableau_1year.csv",
+      "company": "tableau",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tableau_2year.csv",
+      "company": "tableau",
+      "period": "2year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tableau_6months.csv",
+      "company": "tableau",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tableau_alltime.csv",
+      "company": "tableau",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tandemg_alltime.csv",
+      "company": "tandemg",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tencent_1year.csv",
+      "company": "tencent",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tencent_2year.csv",
+      "company": "tencent",
+      "period": "2year",
+      "totalRows": 25,
+      "validRows": 25,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tencent_6months.csv",
+      "company": "tencent",
+      "period": "6months",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tencent_alltime.csv",
+      "company": "tencent",
+      "period": "alltime",
+      "totalRows": 27,
+      "validRows": 27,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tesla_1year.csv",
+      "company": "tesla",
+      "period": "1year",
+      "totalRows": 9,
+      "validRows": 9,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tesla_2year.csv",
+      "company": "tesla",
+      "period": "2year",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tesla_6months.csv",
+      "company": "tesla",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tesla_alltime.csv",
+      "company": "tesla",
+      "period": "alltime",
+      "totalRows": 13,
+      "validRows": 13,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "thumbtack_alltime.csv",
+      "company": "thumbtack",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "traveloka_alltime.csv",
+      "company": "traveloka",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tripadvisor_1year.csv",
+      "company": "tripadvisor",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tripadvisor_2year.csv",
+      "company": "tripadvisor",
+      "period": "2year",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "tripadvisor_alltime.csv",
+      "company": "tripadvisor",
+      "period": "alltime",
+      "totalRows": 16,
+      "validRows": 16,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "triplebyte_1year.csv",
+      "company": "triplebyte",
+      "period": "1year",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "triplebyte_2year.csv",
+      "company": "triplebyte",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "triplebyte_6months.csv",
+      "company": "triplebyte",
+      "period": "6months",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "triplebyte_alltime.csv",
+      "company": "triplebyte",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "turvo_alltime.csv",
+      "company": "turvo",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twilio_1year.csv",
+      "company": "twilio",
+      "period": "1year",
+      "totalRows": 7,
+      "validRows": 7,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twilio_2year.csv",
+      "company": "twilio",
+      "period": "2year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twilio_6months.csv",
+      "company": "twilio",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twilio_alltime.csv",
+      "company": "twilio",
+      "period": "alltime",
+      "totalRows": 17,
+      "validRows": 17,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitch_1year.csv",
+      "company": "twitch",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitch_2year.csv",
+      "company": "twitch",
+      "period": "2year",
+      "totalRows": 11,
+      "validRows": 11,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitch_6months.csv",
+      "company": "twitch",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitch_alltime.csv",
+      "company": "twitch",
+      "period": "alltime",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitter_1year.csv",
+      "company": "twitter",
+      "period": "1year",
+      "totalRows": 28,
+      "validRows": 28,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitter_2year.csv",
+      "company": "twitter",
+      "period": "2year",
+      "totalRows": 52,
+      "validRows": 52,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitter_6months.csv",
+      "company": "twitter",
+      "period": "6months",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "twitter_alltime.csv",
+      "company": "twitter",
+      "period": "alltime",
+      "totalRows": 82,
+      "validRows": 82,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "two-sigma_1year.csv",
+      "company": "two-sigma",
+      "period": "1year",
+      "totalRows": 8,
+      "validRows": 8,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "two-sigma_2year.csv",
+      "company": "two-sigma",
+      "period": "2year",
+      "totalRows": 15,
+      "validRows": 15,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "two-sigma_6months.csv",
+      "company": "two-sigma",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "two-sigma_alltime.csv",
+      "company": "two-sigma",
+      "period": "alltime",
+      "totalRows": 19,
+      "validRows": 19,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uber_1year.csv",
+      "company": "uber",
+      "period": "1year",
+      "totalRows": 161,
+      "validRows": 161,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uber_2year.csv",
+      "company": "uber",
+      "period": "2year",
+      "totalRows": 281,
+      "validRows": 281,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uber_6months.csv",
+      "company": "uber",
+      "period": "6months",
+      "totalRows": 59,
+      "validRows": 59,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uber_alltime.csv",
+      "company": "uber",
+      "period": "alltime",
+      "totalRows": 308,
+      "validRows": 308,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "uipath_alltime.csv",
+      "company": "uipath",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "united-health-group_alltime.csv",
+      "company": "united-health-group",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "valve_2year.csv",
+      "company": "valve",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "valve_alltime.csv",
+      "company": "valve",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu_1year.csv",
+      "company": "virtu",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu_2year.csv",
+      "company": "virtu",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu_6months.csv",
+      "company": "virtu",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "virtu_alltime.csv",
+      "company": "virtu",
+      "period": "alltime",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "visa_1year.csv",
+      "company": "visa",
+      "period": "1year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "visa_2year.csv",
+      "company": "visa",
+      "period": "2year",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "visa_6months.csv",
+      "company": "visa",
+      "period": "6months",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "visa_alltime.csv",
+      "company": "visa",
+      "period": "alltime",
+      "totalRows": 39,
+      "validRows": 39,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vmware_1year.csv",
+      "company": "vmware",
+      "period": "1year",
+      "totalRows": 47,
+      "validRows": 47,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vmware_2year.csv",
+      "company": "vmware",
+      "period": "2year",
+      "totalRows": 102,
+      "validRows": 102,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vmware_6months.csv",
+      "company": "vmware",
+      "period": "6months",
+      "totalRows": 24,
+      "validRows": 24,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "vmware_alltime.csv",
+      "company": "vmware",
+      "period": "alltime",
+      "totalRows": 102,
+      "validRows": 102,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "walmart_alltime.csv",
+      "company": "walmart",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wayfair_1year.csv",
+      "company": "wayfair",
+      "period": "1year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wayfair_2year.csv",
+      "company": "wayfair",
+      "period": "2year",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wayfair_6months.csv",
+      "company": "wayfair",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wayfair_alltime.csv",
+      "company": "wayfair",
+      "period": "alltime",
+      "totalRows": 23,
+      "validRows": 23,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wish_1year.csv",
+      "company": "wish",
+      "period": "1year",
+      "totalRows": 20,
+      "validRows": 20,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wish_2year.csv",
+      "company": "wish",
+      "period": "2year",
+      "totalRows": 30,
+      "validRows": 30,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wish_6months.csv",
+      "company": "wish",
+      "period": "6months",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "wish_alltime.csv",
+      "company": "wish",
+      "period": "alltime",
+      "totalRows": 33,
+      "validRows": 33,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "works-applications_2year.csv",
+      "company": "works-applications",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "works-applications_alltime.csv",
+      "company": "works-applications",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yahoo_1year.csv",
+      "company": "yahoo",
+      "period": "1year",
+      "totalRows": 45,
+      "validRows": 45,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yahoo_2year.csv",
+      "company": "yahoo",
+      "period": "2year",
+      "totalRows": 105,
+      "validRows": 105,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yahoo_6months.csv",
+      "company": "yahoo",
+      "period": "6months",
+      "totalRows": 12,
+      "validRows": 12,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yahoo_alltime.csv",
+      "company": "yahoo",
+      "period": "alltime",
+      "totalRows": 114,
+      "validRows": 114,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yandex_1year.csv",
+      "company": "yandex",
+      "period": "1year",
+      "totalRows": 29,
+      "validRows": 29,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yandex_2year.csv",
+      "company": "yandex",
+      "period": "2year",
+      "totalRows": 45,
+      "validRows": 45,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yandex_6months.csv",
+      "company": "yandex",
+      "period": "6months",
+      "totalRows": 18,
+      "validRows": 18,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yandex_alltime.csv",
+      "company": "yandex",
+      "period": "alltime",
+      "totalRows": 46,
+      "validRows": 46,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yatra_alltime.csv",
+      "company": "yatra",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yelp_1year.csv",
+      "company": "yelp",
+      "period": "1year",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yelp_2year.csv",
+      "company": "yelp",
+      "period": "2year",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "yelp_alltime.csv",
+      "company": "yelp",
+      "period": "alltime",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zalando_alltime.csv",
+      "company": "zalando",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zappos_1year.csv",
+      "company": "zappos",
+      "period": "1year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zappos_2year.csv",
+      "company": "zappos",
+      "period": "2year",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zappos_alltime.csv",
+      "company": "zappos",
+      "period": "alltime",
+      "totalRows": 2,
+      "validRows": 2,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zenefits_alltime.csv",
+      "company": "zenefits",
+      "period": "alltime",
+      "totalRows": 21,
+      "validRows": 21,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zillow_1year.csv",
+      "company": "zillow",
+      "period": "1year",
+      "totalRows": 14,
+      "validRows": 14,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zillow_2year.csv",
+      "company": "zillow",
+      "period": "2year",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zillow_6months.csv",
+      "company": "zillow",
+      "period": "6months",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zillow_alltime.csv",
+      "company": "zillow",
+      "period": "alltime",
+      "totalRows": 37,
+      "validRows": 37,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoho_1year.csv",
+      "company": "zoho",
+      "period": "1year",
+      "totalRows": 3,
+      "validRows": 3,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoho_2year.csv",
+      "company": "zoho",
+      "period": "2year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zoho_alltime.csv",
+      "company": "zoho",
+      "period": "alltime",
+      "totalRows": 5,
+      "validRows": 5,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zscaler_alltime.csv",
+      "company": "zscaler",
+      "period": "alltime",
+      "totalRows": 1,
+      "validRows": 1,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zulily_1year.csv",
+      "company": "zulily",
+      "period": "1year",
+      "totalRows": 4,
+      "validRows": 4,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zulily_2year.csv",
+      "company": "zulily",
+      "period": "2year",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    },
+    {
+      "file": "zulily_alltime.csv",
+      "company": "zulily",
+      "period": "alltime",
+      "totalRows": 10,
+      "validRows": 10,
+      "invalidRows": 0,
+      "duplicateRows": 0,
+      "warnings": []
+    }
+  ],
+  "errors": []
+}

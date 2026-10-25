@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --surface-hover: #F4F4F5;
+    --border: #E4E4E7;
+    --text-primary: #09090B;
+    --text-secondary: #71717A;
+    --accent: #2563EB;
+  }
+
+  .dark {
+    --bg: #0A0A0B;
+    --surface: #121214;
+    --surface-hover: #18181B;
+    --border: #27272A;
+    --text-primary: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --accent: #3B82F6;
+    color-scheme: dark;
+  }
+
+  .light {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased font-sans text-sm selection:bg-blue-500/20 selection:text-blue-400;
+  }
+
+  /* Compact restrained scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-300 dark:bg-neutral-800 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-400 dark:bg-neutral-700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-medium text-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/40;
+  }
+
+  .btn-ghost {
+    @apply px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-md font-medium text-xs transition-colors duration-150;
+  }
+}

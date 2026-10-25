@@ -1,0 +1,201 @@
+number,company,slug,status,source,source_icon,suggested_color,svg,png,png_on_dark
+1,Accolite,accolite,unverified-wordmark-fallback,wordmark-fallback,,#F47C20,svg/accolite.svg,png/accolite.png,png-on-dark/accolite.png
+2,Adobe,adobe,unverified-wordmark-fallback,wordmark-fallback,,#EB1000,svg/adobe.svg,png/adobe.png,png-on-dark/adobe.png
+3,Aetion,aetion,unverified-wordmark-fallback,wordmark-fallback,,#3470E3,svg/aetion.svg,png/aetion.png,png-on-dark/aetion.png
+4,Affinity,affinity,unverified-wordmark-fallback,wordmark-fallback,,#3855A6,svg/affinity.svg,png/affinity.png,png-on-dark/affinity.png
+5,Affirm,affirm,unverified-wordmark-fallback,wordmark-fallback,,#4A4AF4,svg/affirm.svg,png/affirm.png,png-on-dark/affirm.png
+6,Airbnb,airbnb,sourced-brand-vector,simple-icons,airbnb,#FF385C,svg/airbnb.svg,png/airbnb.png,png-on-dark/airbnb.png
+7,Airtel,airtel,sourced-brand-vector,simple-icons,airtel,#EC1C24,svg/airtel.svg,png/airtel.png,png-on-dark/airtel.png
+8,Akamai,akamai,sourced-brand-vector,simple-icons,akamai,#0099D8,svg/akamai.svg,png/akamai.png,png-on-dark/akamai.png
+9,Akuna,akuna,unverified-wordmark-fallback,wordmark-fallback,,#0055AF,svg/akuna.svg,png/akuna.png,png-on-dark/akuna.png
+10,Akuna Capital,akuna-capital,unverified-wordmark-fallback,wordmark-fallback,,#0D87BE,svg/akuna-capital.svg,png/akuna-capital.png,png-on-dark/akuna-capital.png
+11,Alation,alation,unverified-wordmark-fallback,wordmark-fallback,,#ED7626,svg/alation.svg,png/alation.png,png-on-dark/alation.png
+12,Alibaba,alibaba,sourced-brand-vector,simple-icons,alibabadotcom,#FF6A00,svg/alibaba.svg,png/alibaba.png,png-on-dark/alibaba.png
+13,Amazon,amazon,sourced-brand-vector,simple-icons,amazon,#FF9900,svg/amazon.svg,png/amazon.png,png-on-dark/amazon.png
+14,American Express,american-express,sourced-brand-vector,simple-icons,americanexpress,#006FCF,svg/american-express.svg,png/american-express.png,png-on-dark/american-express.png
+15,Appdynamics,appdynamics,unverified-wordmark-fallback,wordmark-fallback,,#22A5D1,svg/appdynamics.svg,png/appdynamics.png,png-on-dark/appdynamics.png
+16,Apple,apple,sourced-brand-vector,simple-icons,apple,#171717,svg/apple.svg,png/apple.png,png-on-dark/apple.png
+17,Arista,arista,unverified-wordmark-fallback,wordmark-fallback,,#287FBD,svg/arista.svg,png/arista.png,png-on-dark/arista.png
+18,Arista Networks,arista-networks,unverified-wordmark-fallback,wordmark-fallback,,#287FBD,svg/arista-networks.svg,png/arista-networks.png,png-on-dark/arista-networks.png
+19,Asana,asana,sourced-brand-vector,simple-icons,asana,#F06A6A,svg/asana.svg,png/asana.png,png-on-dark/asana.png
+20,Atlassian,atlassian,sourced-brand-vector,simple-icons,atlassian,#0052CC,svg/atlassian.svg,png/atlassian.png,png-on-dark/atlassian.png
+21,Audible,audible,sourced-brand-vector,simple-icons,audible,#F8991C,svg/audible.svg,png/audible.png,png-on-dark/audible.png
+22,Baidu,baidu,sourced-brand-vector,simple-icons,baidu,#2932E1,svg/baidu.svg,png/baidu.png,png-on-dark/baidu.png
+23,Barclays,barclays,sourced-brand-vector,simple-icons,barclays,#00AEEF,svg/barclays.svg,png/barclays.png,png-on-dark/barclays.png
+24,Blackrock,blackrock,unverified-wordmark-fallback,wordmark-fallback,,#161616,svg/blackrock.svg,png/blackrock.png,png-on-dark/blackrock.png
+25,Blizzard,blizzard,unverified-wordmark-fallback,wordmark-fallback,,#0082C6,svg/blizzard.svg,png/blizzard.png,png-on-dark/blizzard.png
+26,Bloomberg,bloomberg,unverified-wordmark-fallback,wordmark-fallback,,#161616,svg/bloomberg.svg,png/bloomberg.png,png-on-dark/bloomberg.png
+27,Bloomreach,bloomreach,unverified-wordmark-fallback,wordmark-fallback,,#6D36D2,svg/bloomreach.svg,png/bloomreach.png,png-on-dark/bloomreach.png
+28,Booking,booking,unverified-wordmark-fallback,wordmark-fallback,,#003580,svg/booking.svg,png/booking.png,png-on-dark/booking.png
+29,Booking.com,bookingcom,unverified-wordmark-fallback,wordmark-fallback,,#003580,svg/bookingcom.svg,png/bookingcom.png,png-on-dark/bookingcom.png
+30,Box,box,sourced-brand-vector,simple-icons,box,#0061D5,svg/box.svg,png/box.png,png-on-dark/box.png
+31,Bytedance,bytedance,sourced-brand-vector,simple-icons,bytedance,#2A4CFF,svg/bytedance.svg,png/bytedance.png,png-on-dark/bytedance.png
+32,ByteDance/Toutiao,bytedancetoutiao,sourced-brand-vector,simple-icons,bytedance,#2A4CFF,svg/bytedancetoutiao.svg,png/bytedancetoutiao.png,png-on-dark/bytedancetoutiao.png
+33,C3 IoT,c3-iot,unverified-wordmark-fallback,wordmark-fallback,,#1C70B5,svg/c3-iot.svg,png/c3-iot.png,png-on-dark/c3-iot.png
+34,C3.ai,c3ai,unverified-wordmark-fallback,wordmark-fallback,,#1C70B5,svg/c3ai.svg,png/c3ai.png,png-on-dark/c3ai.png
+35,Capital One,capital-one,unverified-wordmark-fallback,wordmark-fallback,,#004977,svg/capital-one.svg,png/capital-one.png,png-on-dark/capital-one.png
+36,Cisco,cisco,sourced-brand-vector,simple-icons,cisco,#1BA0D7,svg/cisco.svg,png/cisco.png,png-on-dark/cisco.png
+37,Citadel,citadel,unverified-wordmark-fallback,wordmark-fallback,,#1477BB,svg/citadel.svg,png/citadel.png,png-on-dark/citadel.png
+38,Citrix,citrix,sourced-brand-vector,simple-icons,citrix,#502E91,svg/citrix.svg,png/citrix.png,png-on-dark/citrix.png
+39,Cloudera,cloudera,sourced-brand-vector,simple-icons,cloudera,#E99123,svg/cloudera.svg,png/cloudera.png,png-on-dark/cloudera.png
+40,Clutter,clutter,unverified-wordmark-fallback,wordmark-fallback,,#346FC7,svg/clutter.svg,png/clutter.png,png-on-dark/clutter.png
+41,Codenation,codenation,unverified-wordmark-fallback,wordmark-fallback,,#111111,svg/codenation.svg,png/codenation.png,png-on-dark/codenation.png
+42,Cohesity,cohesity,unverified-wordmark-fallback,wordmark-fallback,,#239BD6,svg/cohesity.svg,png/cohesity.png,png-on-dark/cohesity.png
+43,Coupang,coupang,unverified-wordmark-fallback,wordmark-fallback,,#E9433F,svg/coupang.svg,png/coupang.png,png-on-dark/coupang.png
+44,Coursera,coursera,sourced-brand-vector,simple-icons,coursera,#0056D2,svg/coursera.svg,png/coursera.png,png-on-dark/coursera.png
+45,Cruise Automation,cruise-automation,unverified-wordmark-fallback,wordmark-fallback,,#FF5C35,svg/cruise-automation.svg,png/cruise-automation.png,png-on-dark/cruise-automation.png
+46,D. E. Shaw,de-shaw,unverified-wordmark-fallback,wordmark-fallback,,#1A4474,svg/de-shaw.svg,png/de-shaw.png,png-on-dark/de-shaw.png
+47,Databricks,databricks,sourced-brand-vector,simple-icons,databricks,#FF3621,svg/databricks.svg,png/databricks.png,png-on-dark/databricks.png
+48,Dataminr,dataminr,unverified-wordmark-fallback,wordmark-fallback,,#0089D0,svg/dataminr.svg,png/dataminr.png,png-on-dark/dataminr.png
+49,Deliveryhero,deliveryhero,unverified-wordmark-fallback,wordmark-fallback,,#D4145A,svg/deliveryhero.svg,png/deliveryhero.png,png-on-dark/deliveryhero.png
+50,Dell,dell,sourced-brand-vector,simple-icons,dell,#007DB8,svg/dell.svg,png/dell.png,png-on-dark/dell.png
+51,Deutsche Bank,deutsche-bank,sourced-brand-vector,simple-icons,deutschebank,#0018A8,svg/deutsche-bank.svg,png/deutsche-bank.png,png-on-dark/deutsche-bank.png
+52,Didi,didi,unverified-wordmark-fallback,wordmark-fallback,,#FF7D0C,svg/didi.svg,png/didi.png,png-on-dark/didi.png
+53,Docusign,docusign,unverified-wordmark-fallback,wordmark-fallback,,#2B65E2,svg/docusign.svg,png/docusign.png,png-on-dark/docusign.png
+54,Doordash,doordash,sourced-brand-vector,simple-icons,doordash,#FF3008,svg/doordash.svg,png/doordash.png,png-on-dark/doordash.png
+55,Drawbridge,drawbridge,unverified-wordmark-fallback,wordmark-fallback,,#3064C1,svg/drawbridge.svg,png/drawbridge.png,png-on-dark/drawbridge.png
+56,Dropbox,dropbox,sourced-brand-vector,simple-icons,dropbox,#0061FF,svg/dropbox.svg,png/dropbox.png,png-on-dark/dropbox.png
+57,Druva,druva,unverified-wordmark-fallback,wordmark-fallback,,#296BC8,svg/druva.svg,png/druva.png,png-on-dark/druva.png
+58,Ebay,ebay,sourced-brand-vector,simple-icons,ebay,#3667D6,svg/ebay.svg,png/ebay.png,png-on-dark/ebay.png
+59,Electronic Arts,electronic-arts,sourced-brand-vector,simple-icons,ea,#141414,svg/electronic-arts.svg,png/electronic-arts.png,png-on-dark/electronic-arts.png
+60,EMC,emc,unverified-wordmark-fallback,wordmark-fallback,,#0067A5,svg/emc.svg,png/emc.png,png-on-dark/emc.png
+61,Epic Systems,epic-systems,unverified-wordmark-fallback,wordmark-fallback,,#62259A,svg/epic-systems.svg,png/epic-systems.png,png-on-dark/epic-systems.png
+62,Evernote,evernote,sourced-brand-vector,simple-icons,evernote,#00A82D,svg/evernote.svg,png/evernote.png,png-on-dark/evernote.png
+63,Expedia,expedia,sourced-brand-vector,simple-icons,expedia,#1B365D,svg/expedia.svg,png/expedia.png,png-on-dark/expedia.png
+64,F5 Networks,f5-networks,sourced-brand-vector,simple-icons,f5,#E4002B,svg/f5-networks.svg,png/f5-networks.png,png-on-dark/f5-networks.png
+65,Facebook / Meta,facebook,sourced-brand-vector,simple-icons,facebook,#0866FF,svg/facebook.svg,png/facebook.png,png-on-dark/facebook.png
+66,Factset,factset,unverified-wordmark-fallback,wordmark-fallback,,#16A9B4,svg/factset.svg,png/factset.png,png-on-dark/factset.png
+67,Fallible,fallible,unverified-wordmark-fallback,wordmark-fallback,,#5349A8,svg/fallible.svg,png/fallible.png,png-on-dark/fallible.png
+68,Fidessa,fidessa,unverified-wordmark-fallback,wordmark-fallback,,#006A97,svg/fidessa.svg,png/fidessa.png,png-on-dark/fidessa.png
+69,Flexport,flexport,unverified-wordmark-fallback,wordmark-fallback,,#2769B5,svg/flexport.svg,png/flexport.png,png-on-dark/flexport.png
+70,Flipkart,flipkart,sourced-brand-vector,simple-icons,flipkart,#2874F0,svg/flipkart.svg,png/flipkart.png,png-on-dark/flipkart.png
+71,Forusall,forusall,unverified-wordmark-fallback,wordmark-fallback,,#20A17A,svg/forusall.svg,png/forusall.png,png-on-dark/forusall.png
+72,Garena,garena,unverified-wordmark-fallback,wordmark-fallback,,#DA2D2F,svg/garena.svg,png/garena.png,png-on-dark/garena.png
+73,GE Digital,ge-digital,unverified-wordmark-fallback,wordmark-fallback,,#0870B9,svg/ge-digital.svg,png/ge-digital.png,png-on-dark/ge-digital.png
+74,Gilt Groupe,gilt-groupe,unverified-wordmark-fallback,wordmark-fallback,,#343434,svg/gilt-groupe.svg,png/gilt-groupe.png,png-on-dark/gilt-groupe.png
+75,Godaddy,godaddy,sourced-brand-vector,simple-icons,godaddy,#1BDBDB,svg/godaddy.svg,png/godaddy.png,png-on-dark/godaddy.png
+76,Goldman Sachs,goldman-sachs,sourced-brand-vector,simple-icons,goldmansachs,#6BA5D9,svg/goldman-sachs.svg,png/goldman-sachs.png,png-on-dark/goldman-sachs.png
+77,Google,google,sourced-brand-vector,simple-icons,google,#4285F4,svg/google.svg,png/google.png,png-on-dark/google.png
+78,Grab,grab,sourced-brand-vector,simple-icons,grab,#00B14F,svg/grab.svg,png/grab.png,png-on-dark/grab.png
+79,Groupon,groupon,sourced-brand-vector,simple-icons,groupon,#53A318,svg/groupon.svg,png/groupon.png,png-on-dark/groupon.png
+80,GSN Games,gsn-games,unverified-wordmark-fallback,wordmark-fallback,,#3366CC,svg/gsn-games.svg,png/gsn-games.png,png-on-dark/gsn-games.png
+81,HBO,hbo,sourced-brand-vector,simple-icons,hbo,#7E39B2,svg/hbo.svg,png/hbo.png,png-on-dark/hbo.png
+82,Helix,helix,unverified-wordmark-fallback,wordmark-fallback,,#239F90,svg/helix.svg,png/helix.png,png-on-dark/helix.png
+83,Honey,honey,sourced-brand-vector,simple-icons,honey,#FFB733,svg/honey.svg,png/honey.png,png-on-dark/honey.png
+84,Hotstar,hotstar,unverified-wordmark-fallback,wordmark-fallback,,#1559CE,svg/hotstar.svg,png/hotstar.png,png-on-dark/hotstar.png
+85,Houzz,houzz,sourced-brand-vector,simple-icons,houzz,#4DBC15,svg/houzz.svg,png/houzz.png,png-on-dark/houzz.png
+86,HRT,hrt,unverified-wordmark-fallback,wordmark-fallback,,#1B5CA8,svg/hrt.svg,png/hrt.png,png-on-dark/hrt.png
+87,Huawei,huawei,sourced-brand-vector,simple-icons,huawei,#FF0000,svg/huawei.svg,png/huawei.png,png-on-dark/huawei.png
+88,Hulu,hulu,unverified-wordmark-fallback,wordmark-fallback,,#1CE783,svg/hulu.svg,png/hulu.png,png-on-dark/hulu.png
+89,IBM,ibm,unverified-wordmark-fallback,wordmark-fallback,,#0F62FE,svg/ibm.svg,png/ibm.png,png-on-dark/ibm.png
+90,IIT Bombay,iit-bombay,unverified-wordmark-fallback,wordmark-fallback,,#214F8C,svg/iit-bombay.svg,png/iit-bombay.png,png-on-dark/iit-bombay.png
+91,Indeed,indeed,sourced-brand-vector,simple-icons,indeed,#2164F3,svg/indeed.svg,png/indeed.png,png-on-dark/indeed.png
+92,Infosys,infosys,sourced-brand-vector,simple-icons,infosys,#007CC3,svg/infosys.svg,png/infosys.png,png-on-dark/infosys.png
+93,Inmobi,inmobi,unverified-wordmark-fallback,wordmark-fallback,,#006FD5,svg/inmobi.svg,png/inmobi.png,png-on-dark/inmobi.png
+94,Intel,intel,sourced-brand-vector,simple-icons,intel,#0071C5,svg/intel.svg,png/intel.png,png-on-dark/intel.png
+95,Intuit,intuit,sourced-brand-vector,simple-icons,intuit,#236CFF,svg/intuit.svg,png/intuit.png,png-on-dark/intuit.png
+96,IXL,ixl,unverified-wordmark-fallback,wordmark-fallback,,#046ED0,svg/ixl.svg,png/ixl.png,png-on-dark/ixl.png
+97,Jane Street,jane-street,unverified-wordmark-fallback,wordmark-fallback,,#0078C8,svg/jane-street.svg,png/jane-street.png,png-on-dark/jane-street.png
+98,Jingchi,jingchi,unverified-wordmark-fallback,wordmark-fallback,,#1B8BD3,svg/jingchi.svg,png/jingchi.png,png-on-dark/jingchi.png
+99,JP Morgan Chase,jp-morgan-chase,unverified-wordmark-fallback,wordmark-fallback,,#0F3D60,svg/jp-morgan-chase.svg,png/jp-morgan-chase.png,png-on-dark/jp-morgan-chase.png
+100,JPMorgan,jpmorgan,unverified-wordmark-fallback,wordmark-fallback,,#0F3D60,svg/jpmorgan.svg,png/jpmorgan.png,png-on-dark/jpmorgan.png
+101,Jump Trading,jump-trading,unverified-wordmark-fallback,wordmark-fallback,,#D2182F,svg/jump-trading.svg,png/jump-trading.png,png-on-dark/jump-trading.png
+102,Kakao,kakao,sourced-brand-vector,simple-icons,kakao,#F4C500,svg/kakao.svg,png/kakao.png,png-on-dark/kakao.png
+103,Karat,karat,unverified-wordmark-fallback,wordmark-fallback,,#5A4BF8,svg/karat.svg,png/karat.png,png-on-dark/karat.png
+104,Leap Motion,leap-motion,unverified-wordmark-fallback,wordmark-fallback,,#30A5D8,svg/leap-motion.svg,png/leap-motion.png,png-on-dark/leap-motion.png
+105,Limebike,limebike,unverified-wordmark-fallback,wordmark-fallback,,#1BBD58,svg/limebike.svg,png/limebike.png,png-on-dark/limebike.png
+106,Linkedin,linkedin,sourced-brand-vector,font-awesome,linkedin,#0A66C2,svg/linkedin.svg,png/linkedin.png,png-on-dark/linkedin.png
+107,Liveramp,liveramp,unverified-wordmark-fallback,wordmark-fallback,,#2C7ABF,svg/liveramp.svg,png/liveramp.png,png-on-dark/liveramp.png
+108,Lyft,lyft,sourced-brand-vector,simple-icons,lyft,#FF00BF,svg/lyft.svg,png/lyft.png,png-on-dark/lyft.png
+109,Machine Zone,machine-zone,unverified-wordmark-fallback,wordmark-fallback,,#1C1D2B,svg/machine-zone.svg,png/machine-zone.png,png-on-dark/machine-zone.png
+110,Machinezone,machinezone,unverified-wordmark-fallback,wordmark-fallback,,#1C1D2B,svg/machinezone.svg,png/machinezone.png,png-on-dark/machinezone.png
+111,MAQ Software,maq-software,unverified-wordmark-fallback,wordmark-fallback,,#156AB0,svg/maq-software.svg,png/maq-software.png,png-on-dark/maq-software.png
+112,Mathworks,mathworks,unverified-wordmark-fallback,wordmark-fallback,,#DA6A2A,svg/mathworks.svg,png/mathworks.png,png-on-dark/mathworks.png
+113,Mckinsey,mckinsey,unverified-wordmark-fallback,wordmark-fallback,,#084B75,svg/mckinsey.svg,png/mckinsey.png,png-on-dark/mckinsey.png
+114,Medianet,medianet,unverified-wordmark-fallback,wordmark-fallback,,#1274AD,svg/medianet.svg,png/medianet.png,png-on-dark/medianet.png
+115,Meituan,meituan,sourced-brand-vector,simple-icons,meituan,#FFD100,svg/meituan.svg,png/meituan.png,png-on-dark/meituan.png
+116,Microsoft,microsoft,recreated-recognizable-symbol,custom-recreation,microsoft,#737373,svg/microsoft.svg,png/microsoft.png,png-on-dark/microsoft.png
+117,Microstrategy,microstrategy,sourced-brand-vector,simple-icons,microstrategy,#EE3124,svg/microstrategy.svg,png/microstrategy.png,png-on-dark/microstrategy.png
+118,Morgan Stanley,morgan-stanley,unverified-wordmark-fallback,wordmark-fallback,,#232A31,svg/morgan-stanley.svg,png/morgan-stanley.png,png-on-dark/morgan-stanley.png
+119,National Instruments,national-instruments,unverified-wordmark-fallback,wordmark-fallback,,#E3AB00,svg/national-instruments.svg,png/national-instruments.png,png-on-dark/national-instruments.png
+120,Netease,netease,unverified-wordmark-fallback,wordmark-fallback,,#D9332B,svg/netease.svg,png/netease.png,png-on-dark/netease.png
+121,Netflix,netflix,sourced-brand-vector,simple-icons,netflix,#E50914,svg/netflix.svg,png/netflix.png,png-on-dark/netflix.png
+122,Netsuite,netsuite,unverified-wordmark-fallback,wordmark-fallback,,#4870A8,svg/netsuite.svg,png/netsuite.png,png-on-dark/netsuite.png
+123,Nutanix,nutanix,sourced-brand-vector,simple-icons,nutanix,#024DB2,svg/nutanix.svg,png/nutanix.png,png-on-dark/nutanix.png
+124,Nvidia,nvidia,sourced-brand-vector,simple-icons,nvidia,#76B900,svg/nvidia.svg,png/nvidia.png,png-on-dark/nvidia.png
+125,Opendoor,opendoor,unverified-wordmark-fallback,wordmark-fallback,,#2257F3,svg/opendoor.svg,png/opendoor.png,png-on-dark/opendoor.png
+126,Oracle,oracle,unverified-wordmark-fallback,wordmark-fallback,,#F80000,svg/oracle.svg,png/oracle.png,png-on-dark/oracle.png
+127,Palantir,palantir,sourced-brand-vector,simple-icons,palantir,#121212,svg/palantir.svg,png/palantir.png,png-on-dark/palantir.png
+128,Palantir Technologies,palantir-technologies,sourced-brand-vector,simple-icons,palantir,#121212,svg/palantir-technologies.svg,png/palantir-technologies.png,png-on-dark/palantir-technologies.png
+129,Paypal,paypal,sourced-brand-vector,simple-icons,paypal,#003087,svg/paypal.svg,png/paypal.png,png-on-dark/paypal.png
+130,Paytm,paytm,sourced-brand-vector,simple-icons,paytm,#00B9F5,svg/paytm.svg,png/paytm.png,png-on-dark/paytm.png
+131,Phonepe,phonepe,sourced-brand-vector,simple-icons,phonepe,#5F259F,svg/phonepe.svg,png/phonepe.png,png-on-dark/phonepe.png
+132,Pinterest,pinterest,sourced-brand-vector,simple-icons,pinterest,#E60023,svg/pinterest.svg,png/pinterest.png,png-on-dark/pinterest.png
+133,Pocket Gems,pocket-gems,unverified-wordmark-fallback,wordmark-fallback,,#2A8BE0,svg/pocket-gems.svg,png/pocket-gems.png,png-on-dark/pocket-gems.png
+134,Point72,point72,unverified-wordmark-fallback,wordmark-fallback,,#2268A6,svg/point72.svg,png/point72.png,png-on-dark/point72.png
+135,Pony.ai,ponyai,unverified-wordmark-fallback,wordmark-fallback,,#30C2AC,svg/ponyai.svg,png/ponyai.png,png-on-dark/ponyai.png
+136,Poshmark,poshmark,unverified-wordmark-fallback,wordmark-fallback,,#822432,svg/poshmark.svg,png/poshmark.png,png-on-dark/poshmark.png
+137,Postmates,postmates,sourced-brand-vector,simple-icons,postmates,#111111,svg/postmates.svg,png/postmates.png,png-on-dark/postmates.png
+138,Poynt,poynt,unverified-wordmark-fallback,wordmark-fallback,,#398CCE,svg/poynt.svg,png/poynt.png,png-on-dark/poynt.png
+139,Pramp,pramp,unverified-wordmark-fallback,wordmark-fallback,,#46B2AC,svg/pramp.svg,png/pramp.png,png-on-dark/pramp.png
+140,Pure Storage,pure-storage,unverified-wordmark-fallback,wordmark-fallback,,#FA5D29,svg/pure-storage.svg,png/pure-storage.png,png-on-dark/pure-storage.png
+141,Qualcomm,qualcomm,sourced-brand-vector,simple-icons,qualcomm,#3253DC,svg/qualcomm.svg,png/qualcomm.png,png-on-dark/qualcomm.png
+142,Qualtrics,qualtrics,sourced-brand-vector,simple-icons,qualtrics,#00B4EE,svg/qualtrics.svg,png/qualtrics.png,png-on-dark/qualtrics.png
+143,Quantcast,quantcast,sourced-brand-vector,simple-icons,quantcast,#2B68CF,svg/quantcast.svg,png/quantcast.png,png-on-dark/quantcast.png
+144,Quip,quip,sourced-brand-vector,simple-icons,quip,#F27557,svg/quip.svg,png/quip.png,png-on-dark/quip.png
+145,Quora,quora,sourced-brand-vector,simple-icons,quora,#B92B27,svg/quora.svg,png/quora.png,png-on-dark/quora.png
+146,Rackspace,rackspace,unverified-wordmark-fallback,wordmark-fallback,,#E41E26,svg/rackspace.svg,png/rackspace.png,png-on-dark/rackspace.png
+147,Radius,radius,unverified-wordmark-fallback,wordmark-fallback,,#2F86E0,svg/radius.svg,png/radius.png,png-on-dark/radius.png
+148,Reddit,reddit,sourced-brand-vector,simple-icons,reddit,#FF4500,svg/reddit.svg,png/reddit.png,png-on-dark/reddit.png
+149,Redfin,redfin,unverified-wordmark-fallback,wordmark-fallback,,#D9202E,svg/redfin.svg,png/redfin.png,png-on-dark/redfin.png
+150,Riot Games,riot-games,sourced-brand-vector,simple-icons,riotgames,#D32936,svg/riot-games.svg,png/riot-games.png,png-on-dark/riot-games.png
+151,Robinhood,robinhood,sourced-brand-vector,simple-icons,robinhood,#00C805,svg/robinhood.svg,png/robinhood.png,png-on-dark/robinhood.png
+152,Roblox,roblox,sourced-brand-vector,simple-icons,roblox,#101010,svg/roblox.svg,png/roblox.png,png-on-dark/roblox.png
+153,Rubrik,rubrik,unverified-wordmark-fallback,wordmark-fallback,,#2185C5,svg/rubrik.svg,png/rubrik.png,png-on-dark/rubrik.png
+154,Salesforce,salesforce,sourced-brand-vector,simple-icons,salesforce,#00A1E0,svg/salesforce.svg,png/salesforce.png,png-on-dark/salesforce.png
+155,Samsung,samsung,sourced-brand-vector,simple-icons,samsung,#1428A0,svg/samsung.svg,png/samsung.png,png-on-dark/samsung.png
+156,SAP,sap,sourced-brand-vector,simple-icons,sap,#0C80CF,svg/sap.svg,png/sap.png,png-on-dark/sap.png
+157,Sapient,sapient,unverified-wordmark-fallback,wordmark-fallback,,#151515,svg/sapient.svg,png/sapient.png,png-on-dark/sapient.png
+158,Servicenow,servicenow,unverified-wordmark-fallback,wordmark-fallback,,#62D84E,svg/servicenow.svg,png/servicenow.png,png-on-dark/servicenow.png
+159,Snapchat,snapchat,sourced-brand-vector,simple-icons,snapchat,#FFFC00,svg/snapchat.svg,png/snapchat.png,png-on-dark/snapchat.png
+160,Snapdeal,snapdeal,unverified-wordmark-fallback,wordmark-fallback,,#E50046,svg/snapdeal.svg,png/snapdeal.png,png-on-dark/snapdeal.png
+161,Splunk,splunk,sourced-brand-vector,simple-icons,splunk,#000000,svg/splunk.svg,png/splunk.png,png-on-dark/splunk.png
+162,Spotify,spotify,sourced-brand-vector,simple-icons,spotify,#1DB954,svg/spotify.svg,png/spotify.png,png-on-dark/spotify.png
+163,Square,square,sourced-brand-vector,simple-icons,square,#3E4348,svg/square.svg,png/square.png,png-on-dark/square.png
+164,Sumologic,sumologic,sourced-brand-vector,simple-icons,sumologic,#1266D4,svg/sumologic.svg,png/sumologic.png,png-on-dark/sumologic.png
+165,Symantec,symantec,sourced-brand-vector,simple-icons,symantec,#FDB511,svg/symantec.svg,png/symantec.png,png-on-dark/symantec.png
+166,Tableau,tableau,unverified-wordmark-fallback,wordmark-fallback,,#267ED7,svg/tableau.svg,png/tableau.png,png-on-dark/tableau.png
+167,Tandemg,tandemg,unverified-wordmark-fallback,wordmark-fallback,,#5B48AB,svg/tandemg.svg,png/tandemg.png,png-on-dark/tandemg.png
+168,Tencent,tencent,unverified-wordmark-fallback,wordmark-fallback,,#0052D9,svg/tencent.svg,png/tencent.png,png-on-dark/tencent.png
+169,Tesla,tesla,sourced-brand-vector,simple-icons,tesla,#E82127,svg/tesla.svg,png/tesla.png,png-on-dark/tesla.png
+170,Thumbtack,thumbtack,sourced-brand-vector,simple-icons,thumbtack,#009FD9,svg/thumbtack.svg,png/thumbtack.png,png-on-dark/thumbtack.png
+171,Traveloka,traveloka,unverified-wordmark-fallback,wordmark-fallback,,#207DE3,svg/traveloka.svg,png/traveloka.png,png-on-dark/traveloka.png
+172,Tripadvisor,tripadvisor,sourced-brand-vector,simple-icons,tripadvisor,#34E0A1,svg/tripadvisor.svg,png/tripadvisor.png,png-on-dark/tripadvisor.png
+173,Triplebyte,triplebyte,unverified-wordmark-fallback,wordmark-fallback,,#A443F5,svg/triplebyte.svg,png/triplebyte.png,png-on-dark/triplebyte.png
+174,Turvo,turvo,unverified-wordmark-fallback,wordmark-fallback,,#0077E6,svg/turvo.svg,png/turvo.png,png-on-dark/turvo.png
+175,Twilio,twilio,sourced-brand-vector,simple-icons,twilio,#F22F46,svg/twilio.svg,png/twilio.png,png-on-dark/twilio.png
+176,Twitch,twitch,sourced-brand-vector,simple-icons,twitch,#9146FF,svg/twitch.svg,png/twitch.png,png-on-dark/twitch.png
+177,Twitter,twitter,sourced-brand-vector,font-awesome,twitter,#1DA1F2,svg/twitter.svg,png/twitter.png,png-on-dark/twitter.png
+178,Two Sigma,two-sigma,unverified-wordmark-fallback,wordmark-fallback,,#225B95,svg/two-sigma.svg,png/two-sigma.png,png-on-dark/two-sigma.png
+179,Uber,uber,sourced-brand-vector,simple-icons,uber,#121212,svg/uber.svg,png/uber.png,png-on-dark/uber.png
+180,UiPath,uipath,sourced-brand-vector,simple-icons,uipath,#FA4616,svg/uipath.svg,png/uipath.png,png-on-dark/uipath.png
+181,United Health Group,united-health-group,unverified-wordmark-fallback,wordmark-fallback,,#0074B9,svg/united-health-group.svg,png/united-health-group.png,png-on-dark/united-health-group.png
+182,Valve,valve,sourced-brand-vector,simple-icons,valve,#151515,svg/valve.svg,png/valve.png,png-on-dark/valve.png
+183,Virtu,virtu,unverified-wordmark-fallback,wordmark-fallback,,#369ACE,svg/virtu.svg,png/virtu.png,png-on-dark/virtu.png
+184,Visa,visa,sourced-brand-vector,simple-icons,visa,#1A1F71,svg/visa.svg,png/visa.png,png-on-dark/visa.png
+185,VMware,vmware,sourced-brand-vector,simple-icons,vmware,#607078,svg/vmware.svg,png/vmware.png,png-on-dark/vmware.png
+186,Walmart,walmart,sourced-brand-vector,simple-icons,walmart,#0071CE,svg/walmart.svg,png/walmart.png,png-on-dark/walmart.png
+187,Wayfair,wayfair,unverified-wordmark-fallback,wordmark-fallback,,#7B189F,svg/wayfair.svg,png/wayfair.png,png-on-dark/wayfair.png
+188,Wish,wish,sourced-brand-vector,simple-icons,wish,#2FB7EC,svg/wish.svg,png/wish.png,png-on-dark/wish.png
+189,Works Applications,works-applications,unverified-wordmark-fallback,wordmark-fallback,,#1A62A3,svg/works-applications.svg,png/works-applications.png,png-on-dark/works-applications.png
+190,Yahoo,yahoo,sourced-brand-vector,font-awesome,yahoo,#6001D2,svg/yahoo.svg,png/yahoo.png,png-on-dark/yahoo.png
+191,Yandex,yandex,sourced-brand-vector,font-awesome,yandex,#FC3F1D,svg/yandex.svg,png/yandex.png,png-on-dark/yandex.png
+192,Yatra,yatra,unverified-wordmark-fallback,wordmark-fallback,,#C0232F,svg/yatra.svg,png/yatra.png,png-on-dark/yatra.png
+193,Yelp,yelp,sourced-brand-vector,simple-icons,yelp,#FF1A1A,svg/yelp.svg,png/yelp.png,png-on-dark/yelp.png
+194,Zalando,zalando,sourced-brand-vector,simple-icons,zalando,#FF6900,svg/zalando.svg,png/zalando.png,png-on-dark/zalando.png
+195,Zappos,zappos,unverified-wordmark-fallback,wordmark-fallback,,#177E94,svg/zappos.svg,png/zappos.png,png-on-dark/zappos.png
+196,Zenefits,zenefits,unverified-wordmark-fallback,wordmark-fallback,,#F25C57,svg/zenefits.svg,png/zenefits.png,png-on-dark/zenefits.png
+197,Zillow,zillow,sourced-brand-vector,simple-icons,zillow,#006AFF,svg/zillow.svg,png/zillow.png,png-on-dark/zillow.png
+198,Zoho,zoho,sourced-brand-vector,simple-icons,zoho,#E42527,svg/zoho.svg,png/zoho.png,png-on-dark/zoho.png
+199,Zscaler,zscaler,unverified-wordmark-fallback,wordmark-fallback,,#008ECC,svg/zscaler.svg,png/zscaler.png,png-on-dark/zscaler.png
+200,Zulily,zulily,unverified-wordmark-fallback,wordmark-fallback,,#EB2188,svg/zulily.svg,png/zulily.png,png-on-dark/zulily.png
