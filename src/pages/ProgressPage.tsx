@@ -230,7 +230,7 @@ export default function ProgressPage() {
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pt-1 border-b border-slate-200/80 dark:border-[#43433F] pb-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5]">
+            <h1 className="text-2xl sm:text-3xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5]">
               My <span className="text-[#0F1B3D] dark:text-[#D97757]">Progress</span>
             </h1>
             <span className="w-2.5 h-2.5 rounded-full bg-[#F5A524]" title="CompanyWise live progress" />
@@ -277,7 +277,7 @@ export default function ProgressPage() {
             </div>
 
             <div className="mt-3 flex items-baseline gap-1.5 font-sans">
-              <span className="text-3xl font-extrabold text-[#0F1B3D] dark:text-[#FAF9F5] font-mono">{totalSolved}</span>
+              <span className="text-3xl font-extrabold text-[#0F1B3D] dark:text-[#FAF9F5] font-mono dark:font-serif dark:font-normal font-stat-number">{totalSolved}</span>
               <span className="text-sm font-medium text-slate-500 dark:text-[#A8A69C]">/ {totalQuestions.toLocaleString()} solved</span>
             </div>
 
@@ -299,7 +299,7 @@ export default function ProgressPage() {
           </div>
 
           <div className="text-right shrink-0">
-            <span className="text-3xl font-extrabold font-mono text-[#0F1B3D] dark:text-[#D97757] block">
+            <span className="text-3xl font-extrabold font-mono dark:font-serif dark:font-normal font-stat-number text-[#0F1B3D] dark:text-[#D97757] block">
               {overallPctFormatted}
             </span>
             <span className="text-[11px] font-mono text-slate-400 block mt-0.5">accuracy</span>
@@ -313,7 +313,7 @@ export default function ProgressPage() {
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+            <span className="text-2xl font-extrabold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5]">
               {difficultyStats.easy.solved}
             </span>
             <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.easy.total}</span>
@@ -338,7 +338,7 @@ export default function ProgressPage() {
             <span className="w-2 h-2 rounded-full bg-[#F5A524]" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+            <span className="text-2xl font-extrabold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5]">
               {difficultyStats.medium.solved}
             </span>
             <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.medium.total}</span>
@@ -363,7 +363,7 @@ export default function ProgressPage() {
             <span className="w-2 h-2 rounded-full bg-rose-500" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+            <span className="text-2xl font-extrabold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5]">
               {difficultyStats.hard.solved}
             </span>
             <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.hard.total}</span>
@@ -397,7 +397,7 @@ export default function ProgressPage() {
 
           <div className="flex items-center gap-3 text-xs font-mono font-medium">
             <span className="text-slate-500 dark:text-[#A8A69C]">
-              <strong className="text-slate-900 dark:text-[#FAF9F5]">{activityData.totalThisWeek}</strong> solved this week
+              <strong className="text-slate-900 dark:text-[#FAF9F5] dark:font-serif dark:font-normal font-stat-number">{activityData.totalThisWeek}</strong> solved this week
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-[#F5A524] border border-[#F5A524]/20 font-bold">

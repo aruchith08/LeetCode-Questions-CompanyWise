@@ -27,6 +27,7 @@
     --brand-amber: #D97757;
     --accent: #D97757;
     color-scheme: dark;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   }
 
   .light {
@@ -39,6 +40,31 @@
 
   body {
     @apply antialiased font-sans text-sm selection:bg-[#D97757]/25 selection:text-neutral-900 dark:selection:text-[#FAF9F5];
+  }
+
+  /* Dark mode font stacks (No external fonts loaded - device-native) */
+  .dark body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  .dark input,
+  .dark button,
+  .dark select,
+  .dark textarea {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  /* Serif headings & editorial tokens in dark mode (400 regular weight) */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark .font-serif-heading,
+  .dark .font-stat-number,
+  .dark .logo-wordmark,
+  .dark .quick-jump-letter {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    font-weight: 400;
   }
 
   /* Compact restrained scrollbar styled to warm charcoal */

@@ -24,25 +24,14 @@ colors:
   medium-dark: "#E0B14F"
   hard-dark: "#EE8F78"
 typography:
-  display:
-    fontFamily: "Inter, sans-serif"
-    fontSize: "2.5rem"
-    fontWeight: 800
-    lineHeight: 1.15
-  headline:
-    fontFamily: "Inter, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 700
-    lineHeight: 1.3
-  body:
-    fontFamily: "Inter, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.5
-  mono:
-    fontFamily: "JetBrains Mono, monospace"
-    fontSize: "0.75rem"
-    fontWeight: 500
+  light:
+    headings: "Inter, sans-serif"
+    body: "Inter, sans-serif"
+    mono: "JetBrains Mono, monospace"
+  dark:
+    serif: '"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif'
+    serif-weight: 400
+    sans: 'system-ui, -apple-system, "Segoe UI", sans-serif'
 rounded:
   sm: "6px"
   md: "10px"
@@ -73,7 +62,25 @@ components:
 
 ## Overview
 
-CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic. In dark mode, it uses a signature warm charcoal palette with terracotta accents and organic difficulty markers.
+CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic. In dark mode, it uses a signature warm charcoal palette with terracotta accents, organic difficulty markers, and an editorial typography system driven completely by device-native system fonts (zero internet asset overhead).
+
+## Dark Mode Typography System
+
+Neither font loads from the internet; rendering leverages installed device fonts for instant, zero-latency typography.
+
+1. **Editorial Serif (`400` regular weight)**:
+   - **Stack**: `"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif`
+   - **Used For**:
+     - Main headline (`h1`)
+     - Section titles (`h2`, `h3`, card headings)
+     - The `"CompanyWise"` logo wordmark
+     - Big numbers in stat cards (Catalog count, company count, your solved, accuracy percentage)
+     - Letters in quick-jump circles and alphabet filter bars
+   - **Feel**: Light, elegant, editorial presence (Iowan Old Style on Apple, Palatino on Mac/Windows, Georgia on Windows/Android).
+
+2. **System Sans-Serif (`system-ui, -apple-system, "Segoe UI", sans-serif`)**:
+   - **Used For**: Body copy, buttons, search input, tables, badges, and secondary labels.
+   - **Feel**: Native platform consistency (San Francisco on Apple, Segoe UI on Windows, Roboto on Android).
 
 ## Dark Mode Color System
 

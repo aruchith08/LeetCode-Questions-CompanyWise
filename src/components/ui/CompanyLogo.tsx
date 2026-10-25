@@ -40,7 +40,7 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
       .toUpperCase();
 
     return (
-      <div className={`${baseContainer} font-mono font-semibold text-slate-700 dark:text-[#FAF9F5] bg-slate-100 dark:bg-[#1F1E1D]`}>
+      <div className={`${baseContainer} font-mono dark:font-serif dark:font-normal font-semibold text-slate-700 dark:text-[#FAF9F5] bg-slate-100 dark:bg-[#1F1E1D] quick-jump-letter`}>
         {initials || cleanSlug.slice(0, 2).toUpperCase()}
       </div>
     );

@@ -188,7 +188,7 @@ export default function CompaniesPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#43433F]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
+          <h1 className="text-2xl sm:text-3xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5]">
             Companies
           </h1>
           <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1 max-w-2xl">
@@ -292,10 +292,10 @@ export default function CompaniesPage() {
                 key={letter}
                 type="button"
                 onClick={() => { setSelectedLetter(letter); setPage(1); }}
-                className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 flex items-center justify-center cursor-pointer ${
+                className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold dark:font-serif dark:font-normal quick-jump-letter transition-colors shrink-0 flex items-center justify-center cursor-pointer ${
                   isActive
-                    ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                    ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                 }`}
               >
                 {letter === 'ALL' ? 'All' : letter}
@@ -529,7 +529,7 @@ export default function CompaniesPage() {
                     onClick={() => setPage(pageNum)}
                     className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
                       isCurrent
-                        ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                        ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
                         : 'border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                     }`}
                   >
