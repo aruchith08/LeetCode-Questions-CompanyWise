@@ -127,6 +127,7 @@
   const SURFACE_FS = `
     precision highp float;
     uniform sampler2D uMap;
+    uniform float uDarkMode;
     varying vec2 vUV;
     varying vec3 vNormal;
     void main() {
@@ -134,10 +135,22 @@
       float diffuse = max(dot(normalize(vNormal), normalize(vec3(-0.45,0.65,1.0))), 0.0);
       float illumination = 0.86 + 0.17 * diffuse;
       float rim = pow(1.0 - max(vNormal.z, 0.0), 3.0);
-      vec3 color = textureColor * illumination + vec3(0.025,0.055,0.12) * rim;
+
+      // Light mode: dark steel land on soft ocean
+      vec3 lightColor = textureColor * illumination + vec3(0.025,0.055,0.12) * rim;
       float averageColor = (textureColor.r + textureColor.g + textureColor.b) / 3.0;
       float land = 1.0 - smoothstep(0.4, 0.83, averageColor);
-      gl_FragColor = vec4(color, mix(0.12, 0.98, land));
+      float lightAlpha = mix(0.12, 0.98, land);
+
+      // Dark mode: pure white land with crisp 3D contours and subtle atmosphere
+      vec3 whiteLand = vec3(0.97, 0.97, 0.99) * (0.84 + 0.22 * diffuse) + vec3(0.12, 0.14, 0.18) * rim;
+      vec3 whiteOcean = vec3(0.95, 0.96, 1.0) * rim * 0.45;
+      vec3 darkColor = mix(whiteOcean, whiteLand, land);
+      float darkAlpha = mix(0.02 + 0.18 * rim, 0.98, land);
+
+      vec3 color = mix(lightColor, darkColor, uDarkMode);
+      float alpha = mix(lightAlpha, darkAlpha, uDarkMode);
+      gl_FragColor = vec4(color, alpha);
     }
   `;
   const LINE_VS = `
@@ -154,9 +167,12 @@
   `;
   const LINE_FS = `
     precision mediump float;
+    uniform float uDarkMode;
     varying float vFacing;
     void main() {
-      gl_FragColor = vec4(0.14,0.19,0.27, 0.36 + 0.30 * vFacing);
+      vec4 lightLine = vec4(0.14, 0.19, 0.27, 0.36 + 0.30 * vFacing);
+      vec4 whiteLine = vec4(0.96, 0.97, 1.0, 0.45 + 0.40 * vFacing);
+      gl_FragColor = mix(lightLine, whiteLine, uDarkMode);
     }
   `;
   const NODE_VS = `
@@ -174,17 +190,29 @@
   const NODE_FS = `
     precision mediump float;
     uniform float uChrome;
+    uniform float uDarkMode;
     void main() {
       vec2 uv = gl_PointCoord - vec2(0.5);
       float r = length(uv);
       if (r > 0.5) discard;
       float light = pow(max(0.0,1.0 - length((uv - vec2(-0.18,-0.19))*1.9)), 2.0);
+      
+      // Light mode:
       vec3 ink = mix(vec3(0.085,0.12,0.20), vec3(0.36,0.44,0.55), light);
       vec3 chrome = mix(vec3(0.20,0.27,0.38),vec3(0.78,0.84,0.93),light);
-      vec3 col = mix(ink, chrome, uChrome);
-      col = mix(col, vec3(1.0), pow(light,7.0)*0.8);
-      col *= (1.0 - smoothstep(0.36,0.50,r)*0.55);
-      gl_FragColor = vec4(col,1.0);
+      vec3 lightCol = mix(ink, chrome, uChrome);
+      lightCol = mix(lightCol, vec3(1.0), pow(light,7.0)*0.8);
+      lightCol *= (1.0 - smoothstep(0.36,0.50,r)*0.55);
+
+      // Dark mode: bright white nodes with metallic specular highlight
+      vec3 whiteInk = mix(vec3(0.88, 0.90, 0.96), vec3(1.0, 1.0, 1.0), light);
+      vec3 whiteChrome = mix(vec3(0.95, 0.97, 1.0), vec3(1.0, 1.0, 1.0), light);
+      vec3 darkCol = mix(whiteInk, whiteChrome, uChrome);
+      darkCol = mix(darkCol, vec3(1.0), pow(light, 3.5));
+      darkCol *= (1.0 - smoothstep(0.36, 0.50, r) * 0.45);
+
+      vec3 col = mix(lightCol, darkCol, uDarkMode);
+      gl_FragColor = vec4(col, 1.0);
     }
   `;
 
@@ -198,6 +226,10 @@
       this.yaw = typeof opts.yaw === 'number' ? opts.yaw : 0.52;
       this.pitch = typeof opts.pitch === 'number' ? opts.pitch : -0.12;
       this.draggable = opts.draggable !== false;
+      this.darkMode = opts.darkMode !== undefined
+        ? !!opts.darkMode
+        : (typeof document !== 'undefined' && document.documentElement.classList.contains('dark'));
+      this._currentDark = this.darkMode ? 1.0 : 0.0;
       this.zoom = 3.33;
       this.canvas = document.createElement('canvas');
       this.canvas.className = 'companywise-globe-canvas';
@@ -326,6 +358,10 @@
       gl.uniformMatrix4fv(gl.getUniformLocation(program,'uProjection'),false,this.projection);
       gl.uniformMatrix3fv(gl.getUniformLocation(program,'uRotation'),false,rotation);
       gl.uniform1f(gl.getUniformLocation(program,'uDistance'),this.zoom);
+      const darkLoc = gl.getUniformLocation(program, 'uDarkMode');
+      if (darkLoc !== null) {
+        gl.uniform1f(darkLoc, typeof this._currentDark === 'number' ? this._currentDark : (this.darkMode ? 1.0 : 0.0));
+      }
     }
     _render(){
       const gl=this.gl;
@@ -362,10 +398,17 @@
       if(this._disposed) return;
       const elapsed=this._lastFrame ? clamp((ms-this._lastFrame)/1000,0,.05) : 0;
       this._lastFrame=ms;
+      const targetDark = this.darkMode ? 1.0 : 0.0;
+      if (typeof this._currentDark !== 'number') {
+        this._currentDark = targetDark;
+      } else {
+        this._currentDark += (targetDark - this._currentDark) * Math.min(1.0, (elapsed || 0.016) * 7.5);
+      }
       if(this.autoRotate&&!this.dragging&&ms>(this._interactionUntil||0)) this.yaw += this.speed*elapsed;
       if(!document.hidden) this._render();
       this._requestId=requestAnimationFrame(t=>this._frame(t));
     }
+    setDarkMode(enabled){this.darkMode=!!enabled;return this;}
     setAutoRotate(enabled){this.autoRotate=!!enabled;return this;}
     setSpeed(speed){this.speed=speed;return this;}
     reset(){this.yaw=.52;this.pitch=-.12;this.zoom=3.33;return this;}

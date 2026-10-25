@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../../hooks/useTheme';
 
 export interface GlobeInstance {
   dispose: () => void;
   setAutoRotate: (enabled: boolean) => void;
   setSpeed: (speed: number) => void;
+  setDarkMode: (enabled: boolean) => void;
   reset: () => void;
   autoRotate: boolean;
+  darkMode: boolean;
 }
 
 export type GlobeConstructor = new (
@@ -16,6 +19,7 @@ export type GlobeConstructor = new (
     yaw?: number;
     pitch?: number;
     draggable?: boolean;
+    darkMode?: boolean;
   }
 ) => GlobeInstance;
 
@@ -32,6 +36,7 @@ interface CompanyWiseGlobeProps {
   autoRotate?: boolean;
   speed?: number;
   draggable?: boolean;
+  darkMode?: boolean;
 }
 
 export default function CompanyWiseGlobe({
@@ -40,13 +45,25 @@ export default function CompanyWiseGlobe({
   autoRotate = true,
   speed = 0.17,
   draggable = false,
+  darkMode,
 }: CompanyWiseGlobeProps) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const globeInstanceRef = useRef<GlobeInstance | null>(null);
+  const { isDark } = useTheme();
+
+  // Effective dark mode state: explicit prop if provided, otherwise application theme state
+  const effectiveDark = darkMode !== undefined ? darkMode : isDark;
+
+  // Track and reactively update globe dark/white mode when theme changes
+  useEffect(() => {
+    if (globeInstanceRef.current) {
+      globeInstanceRef.current.setDarkMode(effectiveDark);
+    }
+  }, [effectiveDark]);
 
   useEffect(() => {
     if (!rootRef.current) return;
 
-    let globeInstance: GlobeInstance | null = null;
     let cancelled = false;
 
     // Load /companywise-globe.js dynamically if not already present on window
@@ -83,11 +100,13 @@ export default function CompanyWiseGlobe({
     loadScript
       .then((Widget: GlobeConstructor) => {
         if (cancelled || !rootRef.current || !Widget) return;
-        globeInstance = new Widget(rootRef.current, {
+        const instance = new Widget(rootRef.current, {
           autoRotate,
           speed,
           draggable,
+          darkMode: effectiveDark,
         });
+        globeInstanceRef.current = instance;
       })
       .catch(err => {
         console.warn('CompanyWise 3D Globe initialization notice:', err);
@@ -95,9 +114,9 @@ export default function CompanyWiseGlobe({
 
     return () => {
       cancelled = true;
-      if (globeInstance) {
-        globeInstance.dispose();
-        globeInstance = null;
+      if (globeInstanceRef.current) {
+        globeInstanceRef.current.dispose();
+        globeInstanceRef.current = null;
       }
     };
   }, [autoRotate, speed, draggable]);
