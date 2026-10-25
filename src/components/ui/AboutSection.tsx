@@ -1,30 +1,30 @@
 import React from 'react';
 import {
-  Sparkles, Heart, Code2, Database, Github,
-  ExternalLink, ShieldCheck, Terminal, Globe,
-  CheckCircle2, ArrowUpRight, Cpu
+  Sparkles, Heart, Code2, Github,
+  ExternalLink, Globe, CheckCircle2,
+  ArrowUpRight, Layers
 } from 'lucide-react';
 
 export default function AboutSection() {
   return (
     <section id="about" className="space-y-12 pt-10 border-t border-slate-200/80 dark:border-[#43433F]/80">
       {/* Section Header */}
-      <div className="space-y-2 text-center max-w-2xl mx-auto">
+      <div className="space-y-3 text-center max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#0F1B3D]/5 dark:bg-[#D97757]/10 text-[#0F1B3D] dark:text-[#D97757] border border-[#0F1B3D]/10 dark:border-[#D97757]/20">
           <Sparkles className="w-3.5 h-3.5" />
           <span>The Story Behind CompanyWise</span>
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-          How this platform came to life
+          The Story Behind CompanyWise
         </h2>
-        <p className="text-sm text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-          From an open-source dataset of candidate interview reports to a full-featured, zero-telemetry technical interview workstation.
+        <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+          What started as an open-source collection of company-wise interview questions became a platform designed to make technical interview preparation more focused, organized, and accessible.
         </p>
       </div>
 
       {/* 3 Chapters Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-        {/* Chapter 1: About the Website */}
+        {/* CHAPTER 01 — THE PURPOSE */}
         <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all flex flex-col justify-between shadow-2xs group">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -32,46 +32,59 @@ export default function AboutSection() {
                 <Globe className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
               </div>
               <span className="font-mono text-[11px] font-semibold text-slate-400 dark:text-[#A8A69C] uppercase tracking-wider">
-                Chapter 01
+                CHAPTER 01 — THE PURPOSE
               </span>
             </div>
 
             <div className="space-y-2">
               <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                The Platform
+                A Smarter Way to Prepare
               </h3>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                Technical interview preparation is broken when candidates grind random questions without understanding which problems are actively asked by their target companies.
+                Interview preparation shouldn&apos;t mean solving hundreds of random problems and hoping for the best.
               </p>
             </div>
 
-            <div className="space-y-2.5 pt-2 text-xs text-slate-700 dark:text-[#FAF9F5]">
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
-                <span><strong>1,446 verified problems</strong> across 200 top tech companies.</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
-                <span><strong>4 recency tiers</strong>: 6 months, 1 year, 2 years, and all-time.</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
-                <span><strong>Private client sync</strong>: zero passwords, zero tracking, stored locally.</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
-                <span><strong>3D WebGL Globe</strong> with dynamic light & dark mode shaders.</span>
+            <p className="text-xs text-slate-700 dark:text-[#FAF9F5] leading-relaxed">
+              CompanyWise was built around a simple idea:{' '}
+              <strong className="text-slate-900 dark:text-[#FAF9F5]">
+                know what to practice, understand why it matters, and track how far you&apos;ve come.
+              </strong>
+            </p>
+
+            <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+              Instead of navigating scattered spreadsheets, you can explore company-specific questions, identify frequently reported problems, and focus your preparation using historical interview trends.
+            </p>
+
+            <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-[#43433F]/80">
+              <span className="text-[11px] font-bold text-slate-900 dark:text-[#FAF9F5] block">
+                What CompanyWise brings together:
+              </span>
+              <div className="space-y-2 text-xs text-slate-700 dark:text-[#FAF9F5]">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
+                  <span><strong>1,446 unique problems</strong> across 200 tech companies.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
+                  <span><strong>4 time windows</strong> to explore how question frequency changes.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-[#8FBF78] shrink-0 mt-0.5" />
+                  <span><strong>Personal progress tracking</strong> to stay organized as you practice.</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-[#43433F]/80 flex items-center justify-between text-xs text-slate-500 dark:text-[#A8A69C]">
-            <span className="font-mono text-[11px]">Free & Open Forever</span>
-            <span className="font-mono text-[11px] text-[#0F1B3D] dark:text-[#D97757] font-semibold">100% Client-Side</span>
+          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-[#43433F]/80">
+            <p className="text-[11px] italic text-slate-500 dark:text-[#A8A69C]">
+              Free to explore. Built to make every practice session count.
+            </p>
           </div>
         </div>
 
-        {/* Chapter 2: The Dataset Curator (Krishna Dey) */}
+        {/* CHAPTER 02 — THE FOUNDATION */}
         <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all flex flex-col justify-between shadow-2xs group">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -79,7 +92,7 @@ export default function AboutSection() {
                 <Heart className="w-5 h-5 text-rose-500 dark:text-[#EE8F78]" />
               </div>
               <span className="font-mono text-[11px] font-semibold text-slate-400 dark:text-[#A8A69C] uppercase tracking-wider">
-                Chapter 02
+                CHAPTER 02 — THE FOUNDATION
               </span>
             </div>
 
@@ -87,30 +100,34 @@ export default function AboutSection() {
               <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
                 The Curator: Krishna Dey
               </h3>
-              <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                All gratitude and credits for gathering this wealth of interview data belong to <strong>Krishna Dey</strong> (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-800 dark:text-[#E0B14F] text-[11px]">@krishnadey30</code>).
+              <p className="text-xs font-semibold text-slate-900 dark:text-[#FAF9F5] leading-relaxed">
+                Great projects often begin with someone else&apos;s generous contribution to open source. This one is no exception.
               </p>
             </div>
 
             <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-              Krishna gathered, cataloged, and open-sourced company-wise LeetCode frequency spreadsheets based on real candidate interview reports. His repository provided the canonical 537 CSV files that form the bedrock of this application.
+              The foundation of CompanyWise comes from the work of{' '}
+              <strong className="text-slate-900 dark:text-[#FAF9F5]">Krishna Dey (@krishnadey30)</strong>, who collected, organized, and openly shared company-wise LeetCode question data drawn from candidate interview reports.
+            </p>
+
+            <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+              His repository made an enormous amount of valuable interview information accessible to developers everywhere. The original collection of{' '}
+              <strong className="text-slate-900 dark:text-[#FAF9F5]">537 CSV files</strong> became the data foundation on which CompanyWise was built.
+            </p>
+
+            <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+              CompanyWise is an independent interface built upon that work, and full credit for curating and sharing the original dataset belongs to Krishna.
             </p>
 
             <div className="p-3 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
               <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
-                Original Repository
+                Original open-source project
               </span>
-              <a
-                href="https://github.com/krishnadey30/LeetCode-Questions-CompanyWise"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] hover:underline flex items-center gap-1.5 break-all"
-              >
-                <span>krishnadey30/LeetCode-Questions-CompanyWise</span>
-                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-              </a>
+              <div className="font-mono text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                krishnadey30/LeetCode-Questions-CompanyWise
+              </div>
               <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block">
-                537 CSVs · 20,453 problem occurrences mapped
+                537 source CSV files · 20,453 question occurrences
               </span>
             </div>
           </div>
@@ -120,16 +137,16 @@ export default function AboutSection() {
               href="https://github.com/krishnadey30/LeetCode-Questions-CompanyWise"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] text-white dark:text-[#FAF9F5] border border-transparent dark:border-[#43433F] transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] text-white dark:text-[#FAF9F5] border border-transparent dark:border-[#43433F] transition-colors"
             >
               <Github className="w-4 h-4" />
-              <span>Star Krishna&apos;s Repository</span>
+              <span>Explore & Star Krishna&apos;s Repository</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
             </a>
           </div>
         </div>
 
-        {/* Chapter 3: The Builder (Aruchith) */}
+        {/* CHAPTER 03 — THE CREATION */}
         <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all flex flex-col justify-between shadow-2xs group">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
@@ -137,7 +154,7 @@ export default function AboutSection() {
                 <Code2 className="w-5 h-5 text-indigo-600 dark:text-[#D97757]" />
               </div>
               <span className="font-mono text-[11px] font-semibold text-slate-400 dark:text-[#A8A69C] uppercase tracking-wider">
-                Chapter 03
+                CHAPTER 03 — THE CREATION
               </span>
             </div>
 
@@ -146,39 +163,62 @@ export default function AboutSection() {
                 The Builder: Aruchith
               </h3>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                Built by <strong>Aruchith</strong> (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-800 dark:text-[#E0B14F] text-[11px]">@aruchith08</code>), an engineering student at BVRIT.
+                I&apos;m <strong className="text-slate-900 dark:text-[#FAF9F5]">Aruchith (@aruchith08)</strong>, an engineering student at BVRIT and the developer behind CompanyWise.
               </p>
             </div>
 
             <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-              Frustrated by navigating dozens of static CSV spreadsheets and disconnected folders while prepping for technical interviews, I engineered CompanyWise to transform static tables into an ultra-responsive, enjoyable workspace.
+              While preparing for technical interviews, I came across Krishna&apos;s collection. The information was incredibly useful, but exploring hundreds of CSV files wasn&apos;t exactly the experience I wanted when trying to focus on solving problems.
             </p>
 
-            <div className="space-y-2 text-xs text-slate-700 dark:text-[#A8A69C]">
-              <div className="flex items-start gap-2">
-                <Terminal className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0 mt-0.5" />
-                <span>Wrote the ETL ingest pipeline normalizing 537 CSVs into unified JSON.</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Cpu className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0 mt-0.5" />
-                <span>Created the interactive WebGL globe with dynamic dark-mode white shaders.</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0 mt-0.5" />
-                <span>Built client-side LeetCode profile sync with zero-knowledge local storage.</span>
+            <p className="text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] leading-relaxed">
+              That sparked an idea: what if all this valuable data could become one intuitive, interactive platform?
+            </p>
+
+            <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+              So I started building CompanyWise. What began as a way to make my own preparation easier gradually evolved into a complete web application designed for anyone who wants a more organized approach to interview preparation.
+            </p>
+
+            <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-[#43433F]/80">
+              <span className="text-[11px] font-bold text-slate-900 dark:text-[#FAF9F5] block">
+                Behind the build:
+              </span>
+              <div className="space-y-1.5 text-xs text-slate-700 dark:text-[#A8A69C]">
+                <div className="flex items-start gap-2">
+                  <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold">•</span>
+                  <span>Transformed 537 source CSV files into structured, searchable data.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold">•</span>
+                  <span>Developed a unified interface for discovering and filtering company-wise questions.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold">•</span>
+                  <span>Integrated LeetCode progress tracking with a privacy-conscious approach.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[#0F1B3D] dark:text-[#D97757] font-bold">•</span>
+                  <span>Built an interactive WebGL globe and responsive interface for a more engaging experience.</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-[#43433F]/80">
+          <div className="mt-6 pt-4 border-t border-slate-100 dark:border-[#43433F]/80 space-y-3">
+            <p className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-relaxed">
+              CompanyWise is still evolving, driven by the same idea that started it:{' '}
+              <strong className="text-slate-800 dark:text-[#FAF9F5]">
+                make useful knowledge easier to access and better to use.
+              </strong>
+            </p>
             <a
               href="https://github.com/aruchith08/LeetCode-Questions-CompanyWise"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shadow-xs"
+              className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shadow-xs"
             >
               <Github className="w-4 h-4" />
-              <span>View Project on GitHub</span>
+              <span>Explore CompanyWise on GitHub</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
             </a>
           </div>

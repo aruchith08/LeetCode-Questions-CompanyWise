@@ -1,8 +1,7 @@
 import React from 'react';
 import AboutSection from '../components/ui/AboutSection';
 import {
-  Database, ShieldCheck, Terminal, Globe,
-  CheckCircle2, ArrowRight, ExternalLink, Github, Code2, Heart
+  Database, ShieldCheck, Terminal, Globe
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -12,14 +11,14 @@ export default function AboutPage() {
       {/* Hero Banner */}
       <div className="space-y-4 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#0F1B3D]/5 dark:bg-[#D97757]/10 text-[#0F1B3D] dark:text-[#D97757] border border-[#0F1B3D]/10 dark:border-[#D97757]/20">
-          <Code2 className="w-3.5 h-3.5" />
-          <span>About CompanyWise</span>
+          <Terminal className="w-3.5 h-3.5" />
+          <span>The Story Behind CompanyWise</span>
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12]">
-          Built with care for every engineer preparing for top tech.
+          The Story Behind CompanyWise
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-          CompanyWise was created to transform an open-source archive of 537 company frequency spreadsheets into a blazingly fast, privacy-first technical interview command center.
+          What started as an open-source collection of company-wise interview questions became a platform designed to make technical interview preparation more focused, organized, and accessible.
         </p>
       </div>
 
@@ -71,10 +70,10 @@ export default function AboutPage() {
           <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
             <div className="flex items-center gap-2.5 text-[#0F1B3D] dark:text-[#D97757] font-semibold text-sm">
               <Terminal className="w-4 h-4" />
-              <span>Editorial Dual-Typography</span>
+              <span>Restrained System Typography</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-              Zero web font downloads. Powered by local device font stacks: editorial serif (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Iowan Old Style</code> / <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Georgia</code>) for headlines and high-legibility system sans (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">San Francisco</code> / <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Segoe UI</code>) for problem tables.
+              Zero web font downloads. Powered by local device font stacks: editorial serif (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Iowan Old Style</code> / <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Georgia</code>) specifically for the central hero statement, and high-legibility system sans (<code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">San Francisco</code> / <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-[11px]">Segoe UI</code>) everywhere else.
             </p>
           </div>
         </div>
