@@ -114,9 +114,21 @@ export default function AboutSection() {
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-                The Curator: Krishna Dey
-              </h3>
+              <div className="flex items-center gap-4">
+                <img
+                  src="/krishna-dey.png"
+                  alt="Krishna Dey"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
+                />
+                <div className="space-y-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
+                    The Curator: Krishna Dey
+                  </h3>
+                  <p className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+                    @krishnadey30 · Curator
+                  </p>
+                </div>
+              </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-100 dark:border-[#43433F] space-y-1.5">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
