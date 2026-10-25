@@ -17,7 +17,8 @@ export function useCompanyData() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/data/companies/${slug}.json`);
+      const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+      const res = await fetch(`${basePath}/data/companies/${slug}.json?v=20261025`);
       if (!res.ok) throw new Error(`Company "${slug}" not found`);
       const d: CompanyData = await res.json();
       cache.set(slug, d);

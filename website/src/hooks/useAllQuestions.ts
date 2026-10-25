@@ -10,7 +10,8 @@ export function useAllQuestions() {
 
   useEffect(() => {
     if (cachedQuestions) return;
-    fetch('/data/questions.json')
+    const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+    fetch(`${basePath}/data/questions.json?v=20261025`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load questions');
         return res.json();

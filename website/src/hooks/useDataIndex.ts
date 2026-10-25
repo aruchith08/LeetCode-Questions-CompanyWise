@@ -10,7 +10,8 @@ export function useDataIndex() {
 
   useEffect(() => {
     if (cachedIndex) return;
-    fetch('/data/index.json')
+    const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+    fetch(`${basePath}/data/index.json?v=20261025`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load data index');
         return res.json();

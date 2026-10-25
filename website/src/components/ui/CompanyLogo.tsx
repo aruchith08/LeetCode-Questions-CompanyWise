@@ -47,7 +47,7 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
   }
 
   const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
-  const lightSrc = `${basePath}/logos/png/${cleanSlug}.png`;
+  const lightSrc = `${basePath}/logos/png/${cleanSlug}.png?v=20261025`;
 
   return (
     <div className={baseContainer}>
