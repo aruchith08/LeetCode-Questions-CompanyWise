@@ -5,10 +5,10 @@ export interface GlobeInstance {
   dispose: () => void;
   setAutoRotate: (enabled: boolean) => void;
   setSpeed: (speed: number) => void;
-  setDarkMode: (enabled: boolean) => void;
+  setDarkMode: (enabled?: boolean) => void;
   reset: () => void;
   autoRotate: boolean;
-  darkMode: boolean;
+  darkMode?: boolean;
 }
 
 export type GlobeConstructor = new (
@@ -54,12 +54,35 @@ export default function CompanyWiseGlobe({
   // Effective dark mode state: explicit prop if provided, otherwise application theme state
   const effectiveDark = darkMode !== undefined ? darkMode : isDark;
 
-  // Track and reactively update globe dark/white mode when theme changes
+  // Reactively notify globe instance whenever theme state changes
   useEffect(() => {
     if (globeInstanceRef.current) {
       globeInstanceRef.current.setDarkMode(effectiveDark);
     }
   }, [effectiveDark]);
+
+  // Secondary listener: Watch class mutations on <html> element for immediate synchronization
+  useEffect(() => {
+    function checkTheme() {
+      const isHtmlDark = document.documentElement.classList.contains('dark');
+      if (globeInstanceRef.current) {
+        globeInstanceRef.current.setDarkMode(darkMode !== undefined ? darkMode : isHtmlDark);
+      }
+    }
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+
+    window.addEventListener('companywise-theme-change', checkTheme);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('companywise-theme-change', checkTheme);
+    };
+  }, [darkMode]);
 
   useEffect(() => {
     if (!rootRef.current) return;
@@ -104,7 +127,7 @@ export default function CompanyWiseGlobe({
           autoRotate,
           speed,
           draggable,
-          darkMode: effectiveDark,
+          darkMode: darkMode !== undefined ? darkMode : undefined,
         });
         globeInstanceRef.current = instance;
       })
@@ -119,7 +142,7 @@ export default function CompanyWiseGlobe({
         globeInstanceRef.current = null;
       }
     };
-  }, [autoRotate, speed, draggable]);
+  }, [autoRotate, speed, draggable, darkMode]);
 
   return (
     <div

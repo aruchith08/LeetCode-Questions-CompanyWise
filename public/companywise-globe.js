@@ -226,10 +226,11 @@
       this.yaw = typeof opts.yaw === 'number' ? opts.yaw : 0.52;
       this.pitch = typeof opts.pitch === 'number' ? opts.pitch : -0.12;
       this.draggable = opts.draggable !== false;
-      this.darkMode = opts.darkMode !== undefined
-        ? !!opts.darkMode
+      this.darkMode = (typeof opts.darkMode === 'boolean') ? opts.darkMode : undefined;
+      const initialDark = (this.darkMode !== undefined)
+        ? !!this.darkMode
         : (typeof document !== 'undefined' && document.documentElement.classList.contains('dark'));
-      this._currentDark = this.darkMode ? 1.0 : 0.0;
+      this._currentDark = initialDark ? 1.0 : 0.0;
       this.zoom = 3.33;
       this.canvas = document.createElement('canvas');
       this.canvas.className = 'companywise-globe-canvas';
@@ -398,7 +399,10 @@
       if(this._disposed) return;
       const elapsed=this._lastFrame ? clamp((ms-this._lastFrame)/1000,0,.05) : 0;
       this._lastFrame=ms;
-      const targetDark = this.darkMode ? 1.0 : 0.0;
+      const isDocDark = (typeof document !== 'undefined') && document.documentElement.classList.contains('dark');
+      const targetDark = (typeof this.darkMode === 'boolean')
+        ? (this.darkMode ? 1.0 : 0.0)
+        : (isDocDark ? 1.0 : 0.0);
       if (typeof this._currentDark !== 'number') {
         this._currentDark = targetDark;
       } else {
@@ -408,7 +412,7 @@
       if(!document.hidden) this._render();
       this._requestId=requestAnimationFrame(t=>this._frame(t));
     }
-    setDarkMode(enabled){this.darkMode=!!enabled;return this;}
+    setDarkMode(enabled){this.darkMode=(typeof enabled === "boolean") ? enabled : undefined;return this;}
     setAutoRotate(enabled){this.autoRotate=!!enabled;return this;}
     setSpeed(speed){this.speed=speed;return this;}
     reset(){this.yaw=.52;this.pitch=-.12;this.zoom=3.33;return this;}
