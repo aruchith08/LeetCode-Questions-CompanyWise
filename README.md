@@ -1,6 +1,35 @@
-# CompanyWise — Technical Interview Preparation by Company
+# CompanyWise — Technical Interview Preparation & Company Datasets
 
-> **CompanyWise** is a high-performance web platform that transforms company-specific interview frequency datasets into an interactive preparation tool with real-time LeetCode account synchronization.
+> **CompanyWise** is an interactive, engineering-grade interview intelligence platform with real-time LeetCode profile synchronization, coupled with the complete archive of company-specific problem frequency datasets.
+
+---
+
+## 📁 Repository Structure
+
+```
+LeetCode-Questions-CompanyWise/
+├── website/                   # Full React 18 + Vite 6 + Tailwind web application
+│   ├── api/                   # Serverless functions (LeetCode GraphQL proxy)
+│   ├── public/                # Static assets, company brand logos, and generated datasets
+│   │   ├── data/              # Ingested datasets (index.json, questions.json, report.json, companies/)
+│   │   └── logos/             # High-res company logos in SVG & PNG
+│   ├── scripts/               # Offline CSV ingestion and normalization pipeline
+│   ├── src/                   # React components, pages, hooks, services, and design system
+│   ├── tests/                 # Vitest automated test suite (25 passing tests)
+│   ├── package.json           # Website dependencies and scripts
+│   ├── vite.config.ts         # Vite bundler configuration
+│   └── vercel.json            # Vercel deployment configuration
+│
+├── csv-data/                  # The original 537 company-wise CSV files
+│   ├── google_1year.csv
+│   ├── amazon_6months.csv
+│   ├── meta_alltime.csv
+│   └── ... (all 537 datasets across 200 companies)
+│
+├── package.json               # Root monorepo forwarder scripts
+├── vercel.json                # Root Vercel deployment configuration
+└── README.md
+```
 
 ---
 
@@ -15,11 +44,11 @@
 
 ## 📊 Dataset Ingestion & Audit Summary
 
-The platform operates on a data pipeline that parses, normalizes, validates, and deduplicates all 537 CSV files in this repository.
+The platform operates on a data pipeline (`website/scripts/build-data.ts`) that parses, normalizes, validates, and deduplicates all 537 CSV files in `csv-data/`.
 
 | Metric | Value |
 |---|---|
-| **Total CSV Files Discovered & Processed** | **537 / 537 (100%)** |
+| **Total CSV Files in `csv-data/`** | **537 / 537 (100%)** |
 | **Total Records Parsed** | **20,453** |
 | **Valid Records** | **20,453** |
 | **Invalid Records** | **0** |
@@ -31,36 +60,14 @@ The platform operates on a data pipeline that parses, normalizes, validates, and
 
 ---
 
-## 🎨 Design & Key Pages
+## 🎨 Key Features & Pages
 
-### 1. Home Dashboard (`/`)
-- **Cyber-Sleek Dark Theme**: Glowing cyan/blue typography (`CRACK THE INTERVIEW. ONE PROBLEM AT A TIME.`).
-- **Real-Time KPIs**: Total companies (200+), Unique questions (1,446+), Solved problems, and completion percentage.
-- **Progress Gauge**: Circular SVG progress gauge showing real-time completion with Easy, Medium, and Hard solve breakdowns.
-- **Popular Companies Grid**: Amazon, Google, Microsoft, Meta, Apple, and Netflix with authentic logos and individual progress bars.
-- **Recently Practiced**: Fast shortcuts to jump back into problem solving.
-
-### 2. All Companies Catalog (`/companies`)
-- **Category Tabs**: Filter by `All (200)`, `FAANG & Big Tech`, `Product Based`, `High-Growth Startups`, or `Service Based`.
-- **Company Cards**: Real brand logos, problem counts, time period tags (`6M`, `1Y`, `2Y`, `All`), and real-time progress indicators.
-- **Multi-Factor Sorting**: Sort by question count, completion percentage, or alphabetically.
-
-### 3. Individual Company Hub (`/companies/:slug`)
-- **Company Banner**: Verified dataset badge, description, and key domain topics.
-- **Dynamic Time Periods**: Switch between `6 Months`, `1 Year`, `2 Years`, and `All Time` with dynamic counts.
-- **5 KPI Metric Cards**: Total problems, Easy %, Medium %, Hard %, and Solved %.
-- **Interactive Question Table**: Status toggle, LeetCode problem ID, clickable title, difficulty badge, acceptance %, frequency score, and direct `Solve ->` button.
-
-### 4. Global Problem Library (`/problems`)
-- **1,446 Canonical Problems**: Filter simultaneously by Company, Difficulty, and Solved Status.
-- **Company Association Badges**: Company logo icons showing which companies ask each question (with hover tooltip for all companies).
-- **Pagination**: High-performance client-side pagination.
-
-### 5. My Progress (`/progress`)
-- **Live LeetCode Sync**: Check sync status, trigger manual refresh, or view LeetCode stats.
-- **Difficulty Breakdown Cards**: Progress bars for Easy, Medium, and Hard questions.
-- **Two-Column Analytics**: Company-by-company completion ranking on the left, recently practiced and bookmarked questions on the right.
-- **Data Export & Import**: Backup and restore your progress as JSON.
+1. **Home Dashboard (`/`)**: Real-time KPIs, progress breakdown gauge, 3D interactive globe, popular companies grid, and quick resume shortcuts.
+2. **Company Catalog (`/companies`)**: Filter by category (FAANG, Product-Based, High-Growth, Service-Based), brand logos, and completion status.
+3. **Company Hub (`/companies/:slug`)**: Dynamic recency filters (6M, 1Y, 2Y, All Time), question tables with difficulty markers, acceptance rates, and frequency scores.
+4. **Global Problem Catalog (`/problems`)**: All 1,446 unique questions with multi-filter search, direct LeetCode solve links, and company tag pills.
+5. **My Progress (`/progress`)**: Live LeetCode account sync, per-difficulty completion rates, company completion leaderboard, bookmarks, and JSON export/import.
+6. **About Page (`/about`)**: Complete project story, dataset curator acknowledgement (Krishna Dey), and developer profile (Alokam Ruchith).
 
 ---
 
@@ -79,12 +86,14 @@ The platform operates on a data pipeline that parses, normalizes, validates, and
 
 ## 📦 Getting Started
 
+You can run commands from the root directory or inside `website/`:
+
 ### 1. Installation
 ```bash
-npm install
+npm install --prefix website
 ```
 
-### 2. Run Data Ingestion Pipeline
+### 2. Ingest CSV Data
 ```bash
 npm run data:build
 ```
@@ -97,7 +106,7 @@ Open your browser at `http://localhost:5173`.
 
 ### 4. Run Automated Test Suite
 ```bash
-npm run test
+npm test
 ```
 
 ### 5. Build for Production
@@ -109,27 +118,18 @@ npm run build
 
 ## 🚀 Deploying to Vercel
 
-The application is pre-configured for zero-config Vercel deployment with [`vercel.json`](./vercel.json).
+The project is pre-configured with root and subdirectory `vercel.json` configurations for instant deployment:
 
 ### Option 1: Vercel Dashboard (Recommended)
-
 1. Go to [Vercel Dashboard](https://vercel.com/new).
 2. Import this repository: `https://github.com/aruchith08/LeetCode-Questions-CompanyWise`.
-3. Vercel automatically detects the **Vite** framework preset:
-   - **Build Command**: `npm run build` (or `vite build`)
-   - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
+3. Vercel automatically detects the configuration and deploys.
+   - If setting Root Directory to `website`: it deploys using `website/vercel.json`.
+   - If leaving Root Directory as `./` (default): it deploys using root `vercel.json`.
 4. Click **Deploy**.
 
 ### Option 2: Vercel CLI
-
 ```bash
-npm i -g vercel
-vercel
+cd website
+npx vercel
 ```
-
-### What `vercel.json` provides:
-- **SPA Client-Side Routing**: Automatically rewrites all incoming page routes (`/companies`, `/problems`, `/progress`, `/about`) to `/index.html` preventing 404 errors on browser page reloads.
-- **Serverless API Proxy**: Proxies `/api/leetcode/graphql` requests through a Vercel Serverless Function (`api/leetcode.js`) to support live LeetCode account synchronization.
-- **Optimized Caching & Security Headers**: Sets 1-year immutable caching on bundled assets, daily revalidation for datasets, and security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
-

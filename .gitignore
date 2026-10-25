@@ -1,10 +1,12 @@
 # Dependencies
 node_modules
+website/node_modules
 .pnp
 .pnp.js
 
 # Production build
 dist
+website/dist
 dist-ssr
 *.local
 *.tsbuildinfo

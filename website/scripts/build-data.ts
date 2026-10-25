@@ -168,6 +168,12 @@ function validateLink(link: string): string {
 
 function main() {
   const repoRoot = path.resolve(__dirname, '..');
+  const csvDir = [
+    path.resolve(repoRoot, '../csv-data'),
+    path.resolve(repoRoot, 'csv-data'),
+    repoRoot,
+  ].find(dir => fs.existsSync(dir) && fs.readdirSync(dir).some(f => f.endsWith('.csv'))) || path.resolve(repoRoot, '../csv-data');
+
   const outDir = path.join(repoRoot, 'public', 'data');
   const companiesDir = path.join(outDir, 'companies');
 
@@ -175,8 +181,8 @@ function main() {
   fs.mkdirSync(companiesDir, { recursive: true });
 
   // Discover all CSV files
-  const allFiles = fs.readdirSync(repoRoot).filter(f => f.endsWith('.csv'));
-  console.log(`\n📁 Discovered ${allFiles.length} CSV files\n`);
+  const allFiles = fs.readdirSync(csvDir).filter(f => f.endsWith('.csv'));
+  console.log(`\n📁 Discovered ${allFiles.length} CSV files in ${csvDir}\n`);
 
   const report: Report = {
     timestamp: new Date().toISOString(),
@@ -211,7 +217,7 @@ function main() {
     const { company, period } = parsed;
     allPeriods.add(period);
 
-    const filePath = path.join(repoRoot, file);
+    const filePath = path.join(csvDir, file);
     const csvContent = fs.readFileSync(filePath, 'utf-8');
 
     const result = Papa.parse<CsvRow>(csvContent, {
