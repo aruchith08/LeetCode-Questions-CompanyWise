@@ -204,7 +204,7 @@ export default function HomePage() {
         <div className="w-full order-1 lg:order-2 lg:col-span-7 space-y-6 text-left">
           {/* Headline */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12] hero-title-animate">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12] hero-title-animate">
               <span>Target the exact questions<br className="hidden sm:inline" />top tech companies </span>
               <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#D97757]">
                 actually ask.
@@ -380,7 +380,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-[#43433F]">
               <div className="p-3.5 text-left">
                 <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Catalog</span>
-                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
+                <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
                   {totalQuestions.toLocaleString()}
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">LeetCode problems</span>
@@ -388,7 +388,7 @@ export default function HomePage() {
 
               <div className="p-3.5 text-left">
                 <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Companies</span>
-                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
+                <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
                   {data.totalCompanies}
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">interview loops</span>
@@ -396,7 +396,7 @@ export default function HomePage() {
 
               <div className="p-3.5 text-left bg-[#0F1B3D]/[0.02] dark:bg-amber-500/[0.04]">
                 <span className="text-[10px] font-mono text-[#F5A524] dark:text-[#D97757] uppercase tracking-wider block font-semibold">Your Solved</span>
-                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-[#0F1B3D] dark:text-[#D97757] block mt-0.5 tabular-nums">
+                <span className="text-xl font-bold font-mono text-[#0F1B3D] dark:text-[#D97757] block mt-0.5 tabular-nums">
                   {totalSolved}
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">{progressDisplay} complete</span>
@@ -404,7 +404,7 @@ export default function HomePage() {
 
               <div className="p-3.5 text-left">
                 <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Windows</span>
-                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
+                <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
                   4 Tiers
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">6m · 1y · 2y · All-time</span>
@@ -518,10 +518,10 @@ export default function HomePage() {
             {/* Solved / Total Header */}
             <div>
               <div className="flex items-baseline justify-between mb-1.5">
-                <span className="font-extrabold font-mono dark:font-serif dark:font-normal font-stat-number text-2xl text-slate-900 dark:text-[#FAF9F5]">
+                <span className="font-extrabold font-mono text-2xl text-slate-900 dark:text-[#FAF9F5]">
                   {totalSolved}
                 </span>
-                <span className="font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-sm text-[#0F1B3D] dark:text-[#D97757]">
+                <span className="font-bold font-mono text-sm text-[#0F1B3D] dark:text-[#D97757]">
                   {progressDisplay}
                 </span>
               </div>
@@ -543,7 +543,7 @@ export default function HomePage() {
                   <Clock className="w-3.5 h-3.5 text-[#F5A524]" />
                   <span>Attempted</span>
                 </div>
-                <span className="font-mono font-bold dark:font-serif dark:font-normal font-stat-number text-base text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
+                <span className="font-mono font-bold text-base text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
                   {totalAttempted}
                 </span>
               </div>
@@ -552,7 +552,7 @@ export default function HomePage() {
                   <Bookmark className="w-3.5 h-3.5 text-blue-500" />
                   <span>Saved</span>
                 </div>
-                <span className="font-mono font-bold dark:font-serif dark:font-normal font-stat-number text-base text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
+                <span className="font-mono font-bold text-base text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
                   {totalBookmarked}
                 </span>
               </div>

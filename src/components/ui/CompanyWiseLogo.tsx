@@ -85,7 +85,7 @@ export default function CompanyWiseLogo({
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
       {Mark}
       <span
-        className={`font-bold dark:font-serif dark:font-normal tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5] logo-wordmark transition-colors ${textSizeMap[size]} ${textClassName}`}
+        className={`font-bold tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5] logo-wordmark transition-colors ${textSizeMap[size]} ${textClassName}`}
       >
         CompanyWise
       </span>

@@ -15,7 +15,7 @@ export default function AboutPage() {
           <Code2 className="w-3.5 h-3.5" />
           <span>About CompanyWise</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12]">
           Built with care for every engineer preparing for top tech.
         </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
@@ -29,7 +29,7 @@ export default function AboutPage() {
       {/* Deep-Dive Technical Blueprint */}
       <section className="space-y-6 pt-8 border-t border-slate-200/80 dark:border-[#43433F]/80">
         <div className="space-y-1">
-          <h2 className="text-xl sm:text-2xl font-bold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5]">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
             Engineering & Architecture Decisions
           </h2>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
       {/* Bottom CTA */}
       <div className="p-8 rounded-3xl bg-slate-100 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-center space-y-4">
-        <h3 className="text-xl sm:text-2xl font-bold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5]">
+        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
           Ready to target your interview questions?
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] max-w-xl mx-auto">

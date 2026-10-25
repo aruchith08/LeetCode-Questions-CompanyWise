@@ -54,15 +54,8 @@
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   }
 
-  /* Serif headings & editorial tokens in dark mode (400 regular weight) */
-  .dark h1,
-  .dark h2,
-  .dark h3,
-  .dark h4,
-  .dark .font-serif-heading,
-  .dark .font-stat-number,
-  .dark .logo-wordmark,
-  .dark .quick-jump-letter {
+  /* Editorial serif reserved strictly for the hero statement in both light and dark mode */
+  .hero-serif {
     font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
     font-weight: 400;
   }

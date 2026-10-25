@@ -14,7 +14,7 @@ export default function AboutSection() {
           <Sparkles className="w-3.5 h-3.5" />
           <span>The Story Behind CompanyWise</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
           How this platform came to life
         </h2>
         <p className="text-sm text-slate-600 dark:text-[#A8A69C] leading-relaxed">
@@ -37,7 +37,7 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5]">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
                 The Platform
               </h3>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
@@ -84,7 +84,7 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5]">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
                 The Curator: Krishna Dey
               </h3>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
@@ -142,7 +142,7 @@ export default function AboutSection() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold dark:font-serif dark:font-normal font-serif-heading text-slate-900 dark:text-[#FAF9F5]">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
                 The Builder: Aruchith
               </h3>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">

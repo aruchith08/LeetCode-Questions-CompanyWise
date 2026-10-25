@@ -217,7 +217,7 @@ export default function ProblemsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#43433F]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5]">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
             Problems
           </h1>
           <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1">
@@ -233,7 +233,7 @@ export default function ProblemsPage() {
               <Check className="w-4 h-4 stroke-[3]" />
             </div>
             <div>
-              <div className="font-extrabold text-base text-slate-900 dark:text-[#FAF9F5] leading-tight font-mono dark:font-serif dark:font-normal font-stat-number">
+              <div className="font-extrabold text-base text-slate-900 dark:text-[#FAF9F5] leading-tight font-mono">
                 {totalSolved}
               </div>
               <div className="text-xs text-slate-500 font-medium">solved</div>
@@ -243,7 +243,7 @@ export default function ProblemsPage() {
           {/* Progress % */}
           <div className="flex items-center gap-3 pl-6 border-l border-slate-200 dark:border-[#43433F]">
             <div>
-              <div className="font-extrabold text-base text-[#0F1B3D] dark:text-[#D97757] leading-tight font-mono dark:font-serif dark:font-normal font-stat-number">
+              <div className="font-extrabold text-base text-[#0F1B3D] dark:text-[#D97757] leading-tight font-mono">
                 {overallPctDisplay}
               </div>
               <div className="text-xs text-slate-500 font-medium">complete</div>
