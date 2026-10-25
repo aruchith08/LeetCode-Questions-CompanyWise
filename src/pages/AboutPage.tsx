@@ -8,21 +8,7 @@ import { Link } from 'react-router-dom';
 export default function AboutPage() {
   return (
     <div className="space-y-12 animate-fade-in pb-16">
-      {/* Hero Banner */}
-      <div className="space-y-4 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#0F1B3D]/5 dark:bg-[#D97757]/10 text-[#0F1B3D] dark:text-[#D97757] border border-[#0F1B3D]/10 dark:border-[#D97757]/20">
-          <Terminal className="w-3.5 h-3.5" />
-          <span>The Story Behind CompanyWise</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12]">
-          The Story Behind CompanyWise
-        </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-          What started as an open-source collection of company-wise interview questions became a platform designed to make technical interview preparation more focused, organized, and accessible.
-        </p>
-      </div>
-
-      {/* Main 3 Chapters */}
+      {/* Main 3 Horizontal Chapters */}
       <AboutSection />
 
       {/* Deep-Dive Technical Blueprint */}
