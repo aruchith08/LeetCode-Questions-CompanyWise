@@ -84,4 +84,160 @@
   .btn-primary {
     @apply px-3.5 py-1.5 bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] rounded-xl font-bold text-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#D97757]/40;
   }
+
+  /* -------------------------------------------------------------
+     Hero Headline Animations (HomePage)
+  ------------------------------------------------------------- */
+  @keyframes hero-glide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-underline-draw {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0.95;
+    }
+  }
+
+  @keyframes hero-pulse-glow {
+    0%, 100% {
+      text-shadow: 0 0 0 rgba(245, 165, 36, 0);
+    }
+    50% {
+      text-shadow: 0 0 16px rgba(245, 165, 36, 0.4);
+    }
+  }
+
+  @keyframes hero-pulse-glow-dark {
+    0%, 100% {
+      text-shadow: 0 0 0 rgba(217, 119, 87, 0);
+    }
+    50% {
+      text-shadow: 0 0 18px rgba(217, 119, 87, 0.45);
+    }
+  }
+
+  .hero-title-animate {
+    animation: hero-glide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
+  }
+
+  .hero-accent-badge {
+    animation: hero-pulse-glow 2.4s ease-in-out 0.7s infinite;
+  }
+
+  .dark .hero-accent-badge {
+    animation: hero-pulse-glow-dark 2.4s ease-in-out 0.7s infinite;
+  }
+
+  .hero-accent-underline {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background: currentColor;
+    border-radius: 2px;
+    transform-origin: left center;
+    animation: hero-underline-draw 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  }
+
+  /* -------------------------------------------------------------
+     Practice Activity & Velocity Animations (ProgressPage)
+  ------------------------------------------------------------- */
+  @keyframes velocity-track-in {
+    0% {
+      opacity: 0;
+      transform: translateY(18px) scale(0.92);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes velocity-bar-rise {
+    0% {
+      transform: scaleY(0);
+      opacity: 0.2;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flame-pulse {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.18) rotate(-6deg);
+    }
+  }
+
+  @keyframes today-bar-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 rgba(245, 165, 36, 0);
+    }
+    50% {
+      box-shadow: 0 0 12px rgba(245, 165, 36, 0.5);
+    }
+  }
+
+  .velocity-col {
+    animation: velocity-track-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--col-idx, 0) * 55ms);
+  }
+
+  .velocity-bar {
+    transform-origin: bottom center;
+    animation: velocity-bar-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--col-idx, 0) * 60ms + 100ms);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+  }
+
+  .velocity-col:hover .velocity-bar {
+    filter: brightness(1.18);
+    transform: scaleY(1.04);
+  }
+
+  .flame-streak-animate {
+    display: inline-block;
+    animation: flame-pulse 2.2s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+
+  .today-bar-active {
+    animation: today-bar-glow 2.4s ease-in-out infinite;
+  }
+
+  /* -------------------------------------------------------------
+     Accessibility: Reduced Motion Preference
+  ------------------------------------------------------------- */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-title-animate,
+    .hero-accent-badge,
+    .hero-accent-underline,
+    .velocity-col,
+    .velocity-bar,
+    .flame-streak-animate,
+    .today-bar-active {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      filter: none !important;
+    }
+  }
 }

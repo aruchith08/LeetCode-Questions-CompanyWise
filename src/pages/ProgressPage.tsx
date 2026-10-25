@@ -401,7 +401,7 @@ export default function ProgressPage() {
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-[#F5A524] border border-[#F5A524]/20 font-bold">
-              <Flame className="w-3.5 h-3.5" />
+              <Flame className="w-3.5 h-3.5 flame-streak-animate" />
               <span>{activityData.streak} day streak</span>
             </span>
           </div>
@@ -417,7 +417,7 @@ export default function ProgressPage() {
                     className={`w-full rounded-lg transition-all duration-300 velocity-bar ${
                       d.count > 0
                         ? d.isToday
-                          ? 'bg-[#F5A524]'
+                          ? 'bg-[#F5A524] today-bar-active'
                           : 'bg-[#0F1B3D] dark:bg-[#38BDF8]'
                         : 'bg-slate-200 dark:bg-[#43433F]/40'
                     }`}
