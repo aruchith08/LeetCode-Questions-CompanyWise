@@ -230,7 +230,7 @@ export default function ProgressPage() {
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pt-1 border-b border-slate-200/80 dark:border-[#43433F] pb-4">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-normal hero-serif tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5]">
               My <span className="text-[#0F1B3D] dark:text-[#D97757]">Progress</span>
             </h1>
             <span className="w-2.5 h-2.5 rounded-full bg-[#F5A524]" title="CompanyWise live progress" />

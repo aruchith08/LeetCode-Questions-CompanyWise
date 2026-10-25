@@ -189,7 +189,7 @@ export default function CompaniesPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#43433F]">
         <div className="max-w-md lg:max-w-lg shrink-0">
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5]">
             Companies
           </h1>
           <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1">

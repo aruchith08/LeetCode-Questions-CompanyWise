@@ -9,7 +9,7 @@ export default function AboutSection() {
     <section id="about" className="space-y-8 pt-10 border-t border-slate-200/80 dark:border-[#43433F]/80">
       {/* Section Header */}
       <div className="space-y-3 text-center max-w-3xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
           The Story Behind CompanyWise
         </h2>
         <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
