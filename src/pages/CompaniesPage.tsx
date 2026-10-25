@@ -186,7 +186,7 @@ export default function CompaniesPage() {
   return (
     <div className="space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#1E2E5C]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#282B35]">
         <div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Companies
@@ -197,10 +197,10 @@ export default function CompaniesPage() {
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 font-mono text-xs font-semibold">
-          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#111C3D] border border-slate-200 dark:border-[#1E2E5C] text-[#0F1B3D] dark:text-amber-300">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#17191E] border border-slate-200 dark:border-[#282B35] text-[#0F1B3D] dark:text-amber-300">
             {data.totalCompanies} Companies
           </span>
-          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#111C3D] border border-slate-200 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#17191E] border border-slate-200 dark:border-[#282B35] text-slate-700 dark:text-slate-300">
             {data.totalQuestions.toLocaleString()} Problems
           </span>
         </div>
@@ -223,7 +223,7 @@ export default function CompaniesPage() {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer ${
                 category === tab.id
                   ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                  : 'bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#16244E]'
+                  : 'bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#252832]'
               }`}
             >
               {tab.label}
@@ -241,7 +241,7 @@ export default function CompaniesPage() {
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search companies..."
-              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] transition-colors shadow-2xs"
+              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] transition-colors shadow-2xs"
             />
             {search && (
               <button
@@ -265,7 +265,7 @@ export default function CompaniesPage() {
                 setSortDir(dir);
                 setPage(1);
               }}
-              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] cursor-pointer shadow-2xs"
+              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] cursor-pointer shadow-2xs"
             >
               <option value="questions-desc">Sort: Questions (High to Low)</option>
               <option value="questions-asc">Sort: Questions (Low to High)</option>
@@ -280,7 +280,7 @@ export default function CompaniesPage() {
       </div>
 
       {/* Filter Controls Row 2: Alphabet Jump Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] px-4 py-2 shadow-2xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] px-4 py-2 shadow-2xs">
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
           <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider shrink-0 mr-1.5">
             JUMP TO:
@@ -295,7 +295,7 @@ export default function CompaniesPage() {
                 className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 flex items-center justify-center cursor-pointer ${
                   isActive
                     ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#16244E]'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#252832]'
                 }`}
               >
                 {letter === 'ALL' ? 'All' : letter}
@@ -319,13 +319,13 @@ export default function CompaniesPage() {
 
       {/* Companies Table Card */}
       {filteredCompanies.length === 0 ? (
-        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#111C3D] rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] space-y-3">
+        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#17191E] rounded-2xl border border-slate-200/90 dark:border-[#282B35] space-y-3">
           <p>No companies found matching your filters.</p>
           {isFiltered && (
             <button
               type="button"
               onClick={handleClearFilters}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] bg-slate-100 dark:bg-[#16244E] hover:bg-slate-200 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] bg-slate-100 dark:bg-[#252832] hover:bg-slate-200 transition-colors cursor-pointer"
             >
               Reset all filters
             </button>
@@ -333,10 +333,10 @@ export default function CompaniesPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] shadow-xs">
             <table className="w-full text-xs">
               <thead>
-                <tr className="border-b border-slate-200 dark:border-[#1E2E5C] bg-slate-50/80 dark:bg-[#0E1733]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-slate-200 dark:border-[#282B35] bg-slate-50/80 dark:bg-[#111215]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
                   {/* Company Column */}
                   <th
                     className={`py-3.5 px-5 cursor-pointer select-none transition-colors group ${
@@ -390,7 +390,7 @@ export default function CompaniesPage() {
                   <th className="py-3.5 px-4 w-12 text-right"></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-[#1E2E5C]/60">
+              <tbody className="divide-y divide-slate-100 dark:divide-[#282B35]/60">
                 {pagedCompanies.map(c => {
                   const m = companyMetrics.get(c.slug) || { solved: 0, easy: 0, medium: 0, hard: 0 };
                   const total = m.easy + m.medium + m.hard || c.questionCount || 1;
@@ -404,7 +404,7 @@ export default function CompaniesPage() {
                   return (
                     <tr
                       key={c.slug}
-                      className="h-16 hover:bg-slate-50/80 dark:hover:bg-[#16244E]/60 transition-colors group cursor-pointer"
+                      className="h-16 hover:bg-slate-50/80 dark:hover:bg-[#252832]/60 transition-colors group cursor-pointer"
                     >
                       {/* Company Name & Logo */}
                       <td className="py-3.5 px-5">
@@ -430,7 +430,7 @@ export default function CompaniesPage() {
 
                       {/* Difficulty Split (Stacked Multi-Color Bar + Percentages) */}
                       <td className="py-3.5 px-5">
-                        <div className="w-56 sm:w-60 h-2 rounded-full bg-slate-100 dark:bg-[#16244E] flex overflow-hidden gap-0.5">
+                        <div className="w-56 sm:w-60 h-2 rounded-full bg-slate-100 dark:bg-[#252832] flex overflow-hidden gap-0.5">
                           <div
                             className="bg-emerald-500 transition-all duration-300"
                             style={{ width: `${(m.easy / total) * 100}%` }}
@@ -459,7 +459,7 @@ export default function CompaniesPage() {
                       {/* Your Progress */}
                       <td className="py-3.5 px-5">
                         <div className="w-48 sm:w-52">
-                          <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden mb-1.5">
+                          <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden mb-1.5">
                             <div
                               className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
                               style={{ width: `${Math.max(pctNum, m.solved > 0 ? 4 : 0)}%` }}
@@ -480,7 +480,7 @@ export default function CompaniesPage() {
                       <td className="py-3.5 px-4 text-right">
                         <Link
                           to={`/companies/${c.slug}`}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#16244E] group-hover:translate-x-0.5 transition-all"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#252832] group-hover:translate-x-0.5 transition-all"
                           aria-label={`Open ${c.name}`}
                         >
                           <ChevronRight className="w-4 h-4" />
@@ -505,7 +505,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#282B35] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#252832] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -530,7 +530,7 @@ export default function CompaniesPage() {
                     className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
                       isCurrent
                         ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                        : 'border border-slate-200/90 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#16244E]'
+                        : 'border border-slate-200/90 dark:border-[#282B35] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#252832]'
                     }`}
                   >
                     {pageNum}
@@ -542,7 +542,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#282B35] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#252832] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Next page"
               >
                 <span className="hidden sm:inline">Next</span>

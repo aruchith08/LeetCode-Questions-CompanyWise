@@ -14,13 +14,16 @@ export default {
       colors: {
         brand: {
           navy: '#0F1B3D',
-          'navy-dark': '#0B132B',
-          'navy-surface': '#111C3D',
-          'navy-hover': '#16244E',
-          'navy-border': '#1E2E5C',
           amber: '#F5A524',
           'amber-hover': '#E0921B',
           'amber-subtle': 'rgba(245, 165, 36, 0.12)',
+        },
+        dark: {
+          bg: '#111215',
+          surface: '#17191E',
+          elevated: '#1E2027',
+          hover: '#252832',
+          border: '#282B35',
         },
         accent: {
           DEFAULT: '#0F1B3D',
@@ -29,10 +32,10 @@ export default {
           amber: '#F5A524',
         },
         surface: {
-          DEFAULT: '#111C3D',
-          subtle: '#142044',
-          muted: '#1A2954',
-          border: '#1E2E5C',
+          DEFAULT: '#17191E',
+          subtle: '#1E2027',
+          muted: '#252832',
+          border: '#282B35',
         },
       },
       borderRadius: {

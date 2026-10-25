@@ -186,174 +186,64 @@ export default function HomePage() {
       {/* Search-First Command Desk Hero */}
       <section className="pt-2 sm:pt-6 pb-2 max-w-4xl mx-auto text-center space-y-6">
         {/* Terminal/Diagnostic Tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] text-xs font-mono text-slate-600 dark:text-slate-400 shadow-2xs">
-          <span className="w-2 h-2 rounded-full bg-[#F5A524] animate-pulse" />
-          <span>Curated Interview Intelligence · 200 Companies</span>
+        <div data-impeccable-variants="d2cbe8b2" data-impeccable-variant-count="3" style={{ display: "contents" }}>
+          {/* impeccable-variants-start d2cbe8b2 */}
+          {/* Original */}
+          <div data-impeccable-variant="original">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 dark:border-[#282B35] bg-white dark:bg-[#17191E] text-xs font-mono text-slate-600 dark:text-slate-400 shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#F5A524] animate-pulse" />
+              <span>Curated Interview Intelligence · 200 Companies</span>
+            </div>
+          </div>
+          {/* Variants: insert below this line */}
+          <style data-impeccable-css="d2cbe8b2">{`
+@scope ([data-impeccable-variant="1"]) {
+  :scope > .badge-removed {
+    display: none !important;
+  }
+}
+@scope ([data-impeccable-variant="2"]) {
+  :scope > .badge-whisper {
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+  :scope > .badge-whisper:hover {
+    opacity: 1;
+  }
+}
+@scope ([data-impeccable-variant="3"]) {
+  :scope > .badge-compact {
+    animation: fadeIn 0.3s ease both;
+  }
+}
+`}</style>
+          <div data-impeccable-variant="1">
+            <div className="badge-removed" style={{ display: "none" }} aria-hidden="true" />
+          </div>
+          <div data-impeccable-variant="2" style={{ display: "none" }}>
+            <div className="badge-whisper inline-flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F5A524]" />
+              <span>200 Companies indexed</span>
+            </div>
+          </div>
+          <div data-impeccable-variant="3" style={{ display: "none" }}>
+            <div className="badge-compact inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-[11px] font-mono text-slate-500 dark:text-slate-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>Verified Data</span>
+            </div>
+          </div>
+          {/* impeccable-variants-end d2cbe8b2 */}
         </div>
 
         {/* Headline */}
         <div className="space-y-3">
-          <div data-impeccable-variants="5a69e52b" data-impeccable-variant-count="3" style={{ display: "contents" }}>
-            {/* impeccable-variants-start 5a69e52b */}
-            {/* Original */}
-            <div data-impeccable-variant="original">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-                Target the exact questions<br />
-                top tech companies <span className="text-[#0F1B3D] dark:text-[#F5A524]">actually ask.</span>
-              </h1>
-            </div>
-            {/* Variants: insert below this line */}
-            <style data-impeccable-css="5a69e52b">{`
-@keyframes v1-slide-up {
-  0% {
-    transform: translateY(115%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-@scope ([data-impeccable-variant="1"]) {
-  :scope > h1 .v1-line-1 {
-    animation: v1-slide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  :scope > h1 .v1-line-2 {
-    animation: v1-slide-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
-  }
-}
-
-@keyframes v2-tracking-settle {
-  0% {
-    opacity: 0;
-    transform: translateY(16px);
-    letter-spacing: 0.03em;
-    filter: blur(4px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    letter-spacing: -0.025em;
-    filter: blur(0px);
-  }
-}
-
-@scope ([data-impeccable-variant="2"]) {
-  :scope > h1 {
-    animation: v2-tracking-settle 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-}
-
-@keyframes v3-glide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes v3-underline-draw {
-  0% {
-    transform: scaleX(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scaleX(1);
-    opacity: 0.9;
-  }
-}
-
-@keyframes v3-pulse-glow {
-  0%, 100% {
-    text-shadow: 0 0 0 rgba(245, 165, 36, 0);
-  }
-  50% {
-    text-shadow: 0 0 16px rgba(245, 165, 36, 0.35);
-  }
-}
-
-@scope ([data-impeccable-variant="3"]) {
-  :scope > h1 {
-    animation: v3-glide-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-  :scope > h1 .v3-accent-badge {
-    animation: v3-pulse-glow 2.4s ease-in-out 0.6s infinite;
-  }
-  :scope > h1 .v3-underline {
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 3px;
-    background: currentColor;
-    border-radius: 2px;
-    transform-origin: left center;
-    animation: v3-underline-draw 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  @scope ([data-impeccable-variant="1"]) {
-    :scope > h1 .v1-line-1,
-    :scope > h1 .v1-line-2 {
-      animation: none !important;
-      transform: none !important;
-      opacity: 1 !important;
-    }
-  }
-  @scope ([data-impeccable-variant="2"]) {
-    :scope > h1 {
-      animation: none !important;
-      transform: none !important;
-      filter: none !important;
-      opacity: 1 !important;
-    }
-  }
-  @scope ([data-impeccable-variant="3"]) {
-    :scope > h1,
-    :scope > h1 .v3-accent-badge,
-    :scope > h1 .v3-underline {
-      animation: none !important;
-      transform: none !important;
-      opacity: 1 !important;
-    }
-  }
-}
-`}</style>
-            <div data-impeccable-variant="1">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-                <span className="inline-block overflow-hidden pb-1">
-                  <span className="inline-block v1-line-1">Target the exact questions</span>
-                </span>
-                <br />
-                <span className="inline-block overflow-hidden pt-1">
-                  <span className="inline-block v1-line-2">
-                    top tech companies <span className="text-[#0F1B3D] dark:text-[#F5A524]">actually ask.</span>
-                  </span>
-                </span>
-              </h1>
-            </div>
-            <div data-impeccable-variant="2" style={{ display: "none" }}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-                Target the exact questions<br />
-                top tech companies <span className="text-[#0F1B3D] dark:text-[#F5A524]">actually ask.</span>
-              </h1>
-            </div>
-            <div data-impeccable-variant="3" style={{ display: "none" }}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
-                <span className="v3-base-text">Target the exact questions<br />top tech companies </span>
-                <span className="inline-block relative v3-accent-badge text-[#0F1B3D] dark:text-[#F5A524]">
-                  actually ask.
-                  <span className="v3-underline" aria-hidden="true" />
-                </span>
-              </h1>
-            </div>
-            {/* impeccable-variants-end 5a69e52b */}
-          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12] hero-title-animate">
+            <span>Target the exact questions<br />top tech companies </span>
+            <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#F5A524]">
+              actually ask.
+              <span className="hero-accent-underline" aria-hidden="true" />
+            </span>
+          </h1>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and frequency rankings.
           </p>
@@ -362,10 +252,10 @@ export default function HomePage() {
         {/* Central Command Search Box */}
         <div className="relative max-w-2xl mx-auto text-left" ref={searchContainerRef}>
           <form onSubmit={handleSearchSubmit} className="relative">
-            <div className={`relative flex items-center bg-white dark:bg-[#111C3D] border rounded-2xl shadow-sm transition-all h-14 ${
+            <div className={`relative flex items-center bg-white dark:bg-[#17191E] border rounded-2xl shadow-sm transition-all h-14 ${
               searchFocused
                 ? 'border-[#0F1B3D] dark:border-[#F5A524] ring-4 ring-[#0F1B3D]/10 dark:ring-[#F5A524]/15 shadow-md'
-                : 'border-slate-200/90 dark:border-[#1E2E5C] hover:border-slate-300 dark:hover:border-slate-600'
+                : 'border-slate-200/90 dark:border-[#282B35] hover:border-slate-300 dark:hover:border-slate-600'
             }`}>
               <Search className="w-5 h-5 text-slate-400 ml-4 shrink-0" />
               <input
@@ -391,7 +281,7 @@ export default function HomePage() {
                     <X className="w-4 h-4" />
                   </button>
                 ) : (
-                  <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 text-[11px] font-mono font-semibold text-[#0F1B3D] dark:text-amber-300 bg-slate-100 dark:bg-[#16244E] border border-slate-200 dark:border-[#1E2E5C] rounded-md">
+                  <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 text-[11px] font-mono font-semibold text-[#0F1B3D] dark:text-amber-300 bg-slate-100 dark:bg-[#252832] border border-slate-200 dark:border-[#282B35] rounded-md">
                     /
                   </kbd>
                 )}
@@ -407,7 +297,7 @@ export default function HomePage() {
 
           {/* Interactive Search Dropdown with Typeahead matches */}
           {searchFocused && searchQuery.trim().length > 0 && (
-            <div className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-[#132047] border border-slate-200 dark:border-[#1E2E5C] rounded-2xl shadow-xl overflow-hidden divide-y divide-slate-100 dark:divide-[#1E2E5C]/80 animate-fade-in">
+            <div className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-[#1E2027] border border-slate-200 dark:border-[#282B35] rounded-2xl shadow-xl overflow-hidden divide-y divide-slate-100 dark:divide-[#282B35]/80 animate-fade-in">
               {hasSearchResults ? (
                 <>
                   {/* Matching Companies */}
@@ -421,7 +311,7 @@ export default function HomePage() {
                           key={c.slug}
                           to={`/companies/${c.slug}`}
                           onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#16244E] transition-colors group"
+                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#252832] transition-colors group"
                         >
                           <div className="flex items-center gap-2.5">
                             <CompanyLogo slug={c.slug} name={c.name} size="xs" />
@@ -448,7 +338,7 @@ export default function HomePage() {
                           key={q.id}
                           to={`/problems?q=${encodeURIComponent(q.title)}`}
                           onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#16244E] transition-colors group"
+                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#252832] transition-colors group"
                         >
                           <div className="flex items-center gap-2 min-w-0">
                             <span className="font-mono text-xs text-slate-400">#{q.id}</span>
@@ -468,7 +358,7 @@ export default function HomePage() {
                   )}
 
                   {/* Footer link to view all */}
-                  <div className="p-2.5 bg-slate-50 dark:bg-[#0E1733] text-center">
+                  <div className="p-2.5 bg-slate-50 dark:bg-[#111215] text-center">
                     <button
                       type="button"
                       onClick={handleSearchSubmit}
@@ -497,7 +387,7 @@ export default function HomePage() {
               <Link
                 key={c.slug}
                 to={`/companies/${c.slug}`}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] hover:border-[#F5A524]/60 dark:hover:border-[#F5A524]/60 text-xs font-medium text-slate-700 dark:text-slate-300 transition-all shadow-2xs group"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] hover:border-[#F5A524]/60 dark:hover:border-[#F5A524]/60 text-xs font-medium text-slate-700 dark:text-slate-300 transition-all shadow-2xs group"
               >
                 <CompanyLogo slug={c.slug} name={c.name} size="xs" />
                 <span className="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors">
@@ -519,8 +409,8 @@ export default function HomePage() {
         </div>
 
         {/* Telemetry Strip from Actual Data */}
-        <div className="pt-4 border-t border-slate-200/80 dark:border-[#1E2E5C]/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left max-w-3xl mx-auto">
-          <div className="p-3 rounded-xl bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] shadow-2xs">
+        <div className="pt-4 border-t border-slate-200/80 dark:border-[#282B35]/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left max-w-3xl mx-auto">
+          <div className="p-3 rounded-xl bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] shadow-2xs">
             <span className="text-[11px] font-mono text-slate-500 block uppercase tracking-wider">Catalog</span>
             <span className="text-xl font-bold font-mono text-slate-900 dark:text-white block mt-0.5">
               {totalQuestions.toLocaleString()}
@@ -528,7 +418,7 @@ export default function HomePage() {
             <span className="text-[11px] text-slate-500 font-medium">LeetCode problems</span>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] shadow-2xs">
+          <div className="p-3 rounded-xl bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] shadow-2xs">
             <span className="text-[11px] font-mono text-slate-500 block uppercase tracking-wider">Companies</span>
             <span className="text-xl font-bold font-mono text-slate-900 dark:text-white block mt-0.5">
               {data.totalCompanies}
@@ -536,7 +426,7 @@ export default function HomePage() {
             <span className="text-[11px] text-slate-500 font-medium">interview loops</span>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] shadow-2xs">
+          <div className="p-3 rounded-xl bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] shadow-2xs">
             <span className="text-[11px] font-mono text-slate-500 block uppercase tracking-wider">Your Solved</span>
             <span className="text-xl font-bold font-mono text-[#0F1B3D] dark:text-[#F5A524] block mt-0.5">
               {totalSolved}
@@ -544,7 +434,7 @@ export default function HomePage() {
             <span className="text-[11px] text-slate-500 font-medium">{progressDisplay} complete</span>
           </div>
 
-          <div className="p-3 rounded-xl bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] shadow-2xs">
+          <div className="p-3 rounded-xl bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] shadow-2xs">
             <span className="text-[11px] font-mono text-slate-500 block uppercase tracking-wider">Windows</span>
             <span className="text-xl font-bold font-mono text-slate-900 dark:text-white block mt-0.5">
               4 Tiers
@@ -592,7 +482,7 @@ export default function HomePage() {
                 <Link
                   key={c.slug}
                   to={`/companies/${c.slug}`}
-                  className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] hover:border-[#F5A524]/50 dark:hover:border-[#F5A524]/60 bg-white dark:bg-[#111C3D] transition-all duration-200 group flex flex-col justify-between shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                  className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#282B35] hover:border-[#F5A524]/50 dark:hover:border-[#F5A524]/60 bg-white dark:bg-[#17191E] transition-all duration-200 group flex flex-col justify-between shadow-2xs hover:shadow-md hover:-translate-y-0.5"
                 >
                   <div>
                     <div className="flex items-start justify-between mb-2.5">
@@ -616,7 +506,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Progress Strip */}
-                  <div className="pt-2 border-t border-slate-100 dark:border-[#1E2E5C]/80">
+                  <div className="pt-2 border-t border-slate-100 dark:border-[#282B35]/80">
                     <div className="flex items-center justify-between text-xs mb-1.5 font-sans">
                       <span className="text-slate-500 text-[11px]">
                         {solved} solved of {c.questionCount}
@@ -625,7 +515,7 @@ export default function HomePage() {
                         {compPctDisplay}
                       </span>
                     </div>
-                    <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden">
+                    <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
                         style={{ width: `${Math.max(rawCompPct, solved > 0 ? 2 : 0)}%` }}
@@ -641,7 +531,7 @@ export default function HomePage() {
         {/* Right Column (4 cols): Personal Interview Command Deck */}
         <div className="lg:col-span-4 space-y-4">
           {/* Card 1: Your Target & Real Progress Metrics */}
-          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs space-y-4">
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] shadow-xs space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Target className="w-4 h-4 text-[#F5A524]" />
@@ -665,7 +555,7 @@ export default function HomePage() {
                   {progressDisplay}
                 </span>
               </div>
-              <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden">
+              <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
                   style={{ width: `${Math.max(rawPct, totalSolved > 0 ? 1 : 0)}%` }}
@@ -677,8 +567,8 @@ export default function HomePage() {
             </div>
 
             {/* Secondary telemetry counters */}
-            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 dark:border-[#1E2E5C]/80">
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#0E1733] border border-slate-200/60 dark:border-[#1E2E5C]">
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 dark:border-[#282B35]/80">
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#111215] border border-slate-200/60 dark:border-[#282B35]">
                 <div className="flex items-center gap-1.5 text-xs text-amber-600 dark:text-amber-400 font-semibold">
                   <Clock className="w-3.5 h-3.5 text-[#F5A524]" />
                   <span>Attempted</span>
@@ -687,7 +577,7 @@ export default function HomePage() {
                   {totalAttempted}
                 </span>
               </div>
-              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#0E1733] border border-slate-200/60 dark:border-[#1E2E5C]">
+              <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-[#111215] border border-slate-200/60 dark:border-[#282B35]">
                 <div className="flex items-center gap-1.5 text-xs text-blue-600 dark:text-blue-400 font-semibold">
                   <Bookmark className="w-3.5 h-3.5 text-blue-500" />
                   <span>Saved</span>
@@ -699,7 +589,7 @@ export default function HomePage() {
             </div>
 
             {/* Difficulty Breakdown */}
-            <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-[#1E2E5C]/80">
+            <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-[#282B35]/80">
               <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block">
                 Solved by Difficulty
               </span>
@@ -711,7 +601,7 @@ export default function HomePage() {
                       {difficultyBreakdown.easy.solved} / {difficultyBreakdown.easy.total}
                     </span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden">
                     <div
                       className="h-full bg-emerald-500 rounded-full"
                       style={{ width: `${(difficultyBreakdown.easy.solved / difficultyBreakdown.easy.total) * 100}%` }}
@@ -726,7 +616,7 @@ export default function HomePage() {
                       {difficultyBreakdown.medium.solved} / {difficultyBreakdown.medium.total}
                     </span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden">
                     <div
                       className="h-full bg-[#F5A524] rounded-full"
                       style={{ width: `${(difficultyBreakdown.medium.solved / difficultyBreakdown.medium.total) * 100}%` }}
@@ -741,7 +631,7 @@ export default function HomePage() {
                       {difficultyBreakdown.hard.solved} / {difficultyBreakdown.hard.total}
                     </span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden">
                     <div
                       className="h-full bg-rose-500 rounded-full"
                       style={{ width: `${(difficultyBreakdown.hard.solved / difficultyBreakdown.hard.total) * 100}%` }}
@@ -753,7 +643,7 @@ export default function HomePage() {
           </div>
 
           {/* Card 2: Recently Active / Target Queue */}
-          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs space-y-3">
+          <div className="p-5 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] shadow-xs space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-slate-500" />
@@ -773,7 +663,7 @@ export default function HomePage() {
                 return (
                   <div
                     key={q.id}
-                    className="p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#16244E] flex items-center justify-between gap-2.5 transition-colors group"
+                    className="p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#252832] flex items-center justify-between gap-2.5 transition-colors group"
                   >
                     <div className="flex items-center gap-2 min-w-0">
                       <StatusToggle
@@ -826,10 +716,10 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link
             to="/companies?category=faang"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] hover:border-[#0F1B3D] dark:hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] hover:border-[#0F1B3D] dark:hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
           >
             <div>
-              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-[#16244E] text-[#0F1B3D] dark:text-[#38BDF8] flex items-center justify-center mb-3">
+              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-[#252832] text-[#0F1B3D] dark:text-[#38BDF8] flex items-center justify-center mb-3">
                 <Building2 className="w-4 h-4" />
               </div>
               <h3 className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors">
@@ -839,7 +729,7 @@ export default function HomePage() {
                 Google, Amazon, Meta, Microsoft, Apple, Netflix problem sets.
               </p>
             </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#1E2E5C] text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] flex items-center justify-between">
+            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#282B35] text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] flex items-center justify-between">
               <span>Explore companies</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </div>
@@ -847,7 +737,7 @@ export default function HomePage() {
 
           <Link
             to="/problems?difficulty=Medium"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
           >
             <div>
               <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
@@ -860,7 +750,7 @@ export default function HomePage() {
                 The backbone of L4/L5 interview loops. DP, Trees, Graphs, and Hash Tables.
               </p>
             </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#1E2E5C] text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center justify-between">
+            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#282B35] text-xs font-semibold text-amber-600 dark:text-amber-400 flex items-center justify-between">
               <span>View Medium problems</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </div>
@@ -868,7 +758,7 @@ export default function HomePage() {
 
           <Link
             to="/companies?category=startups"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] hover:border-[#0F1B3D] dark:hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] hover:border-[#0F1B3D] dark:hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
           >
             <div>
               <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
@@ -881,7 +771,7 @@ export default function HomePage() {
                 Stripe, DoorDash, Databricks, Robinhood, Coupang question sets.
               </p>
             </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#1E2E5C] text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] flex items-center justify-between">
+            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#282B35] text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] flex items-center justify-between">
               <span>Explore startups</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </div>
@@ -889,7 +779,7 @@ export default function HomePage() {
 
           <Link
             to="/problems?q=Dynamic+Programming"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] hover:border-emerald-500/50 transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] hover:border-emerald-500/50 transition-all shadow-2xs group flex flex-col justify-between"
           >
             <div>
               <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
@@ -902,7 +792,7 @@ export default function HomePage() {
                 Substrings, grid paths, memoization, and optimal substructure problems.
               </p>
             </div>
-            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#1E2E5C] text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center justify-between">
+            <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#282B35] text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center justify-between">
               <span>Search DP problems</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </div>

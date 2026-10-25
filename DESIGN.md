@@ -3,18 +3,18 @@ name: CompanyWise
 description: Company-Wise LeetCode Interview Preparation & Mastery System
 colors:
   brand-navy: "#0F1B3D"
-  brand-navy-dark: "#0B132B"
-  brand-navy-surface: "#111C3D"
-  brand-navy-hover: "#16244E"
-  brand-navy-border: "#1E2E5C"
+  brand-navy-dark: "#111215"
+  brand-navy-surface: "#17191E"
+  brand-navy-hover: "#252832"
+  brand-navy-border: "#282B35"
   brand-amber: "#F5A524"
   brand-amber-hover: "#E0921B"
   background-light: "#F7F8FB"
-  background-dark: "#0B132B"
+  background-dark: "#111215"
   surface-light: "#FFFFFF"
-  surface-dark: "#111C3D"
+  surface-dark: "#17191E"
   border-light: "#E2E8F0"
-  border-dark: "#1E2E5C"
+  border-dark: "#282B35"
   text-primary-light: "#0F1B3D"
   text-primary-dark: "#FFFFFF"
   text-muted-light: "#64748B"
@@ -77,11 +77,11 @@ CompanyWise adopts an authoritative, engineering-grade interview intelligence ae
 ## Color Palette
 
 - **Brand Anchor**:
-  - **Midnight Navy (`#0F1B3D`)**: Anchors primary buttons, headings, badges, and dark squircle containers.
-  - **Deep Navy Dark Canvas (`#0B132B`)**: Rich midnight dark canvas providing immersive atmosphere without stark dead black.
-  - **Elevated Navy Surface (`#111C3D`)**: Clear card and panel surface separation in dark mode.
-  - **Interactive Hover Slate (`#16244E`)**: Smooth row and button hovers in dark mode.
-  - **Deep Navy Border (`#1E2E5C`)**: Clean, deliberate structural separators and outlines.
+  - **Midnight Navy (`#0F1B3D`)**: Anchors primary buttons, headings, badges, and dark squircle logo containers in light mode.
+  - **Greyish Black Canvas (`#111215`)**: Modern developer-grade dark neutral charcoal canvas without any blueish cast.
+  - **Elevated Greyish Black Surface (`#17191E`)**: Clean card and panel surface separation in dark mode.
+  - **Interactive Hover Charcoal (`#252832`)**: Smooth row and button hovers in dark mode.
+  - **Structural Border (`#282B35`)**: Deliberate, clean structural separators and outlines.
 - **Apex Accent**:
   - **Warm Amber Gold (`#F5A524`)**: Direct from the logo's apex dot. Used for attempted status, target indicators, streak milestones, and focal progress highlights.
 - **Light Mode Canvas**:
@@ -107,4 +107,4 @@ CompanyWise adopts an authoritative, engineering-grade interview intelligence ae
 - 12-column responsive grid on desktop:
   - Main problem table / company matrix: 8 columns.
   - Contextual sidebar / filters / bookmarks: 4 columns.
-- Sticky navigation header with instant command search, LeetCode sync status indicator, and quick links.
+- Sticky navigation header with LeetCode sync status indicator, clear navigation links, and theme toggle.
