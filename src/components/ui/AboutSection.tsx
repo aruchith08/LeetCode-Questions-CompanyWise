@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Sparkles, Heart, Code2, Github,
+  Sparkles, Heart, Code2, Github, Linkedin,
   Globe, CheckCircle2, ArrowUpRight
 } from 'lucide-react';
 
@@ -197,13 +197,60 @@ export default function AboutSection() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <img
-                  src="/alokam-ruchith.png"
-                  alt="Alokam Ruchith"
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
-                />
-                <div className="space-y-1">
+              <div className="flex items-start gap-4">
+                <div className="flex flex-col items-center gap-2 shrink-0">
+                  <img
+                    src="/alokam-ruchith.png"
+                    alt="Alokam Ruchith"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D]"
+                  />
+                  {/* Social links directly under photo */}
+                  <div className="flex items-center justify-center gap-1.5 pt-0.5">
+                    <a
+                      href="https://linkedin.com/in/ruchithalokam"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
+                      className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] flex items-center justify-center text-slate-600 hover:text-[#0F1B3D] dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://github.com/aruchith08"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                      title="GitHub"
+                      className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] flex items-center justify-center text-slate-600 hover:text-[#0F1B3D] dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                    </a>
+                    <a
+                      href="https://x.com/A_Ruchith"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X (formerly Twitter)"
+                      title="X"
+                      className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] flex items-center justify-center text-slate-600 hover:text-[#0F1B3D] dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors"
+                    >
+                      <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://alokam.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Personal Website"
+                      title="Website"
+                      className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-50 hover:bg-slate-100 dark:bg-[#1F1E1D] dark:hover:bg-[#262624] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] flex items-center justify-center text-slate-600 hover:text-[#0F1B3D] dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors"
+                    >
+                      <Globe className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+                <div className="space-y-1 pt-1">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
                     The Builder: Alokam Ruchith
                   </h3>
