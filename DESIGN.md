@@ -1,22 +1,26 @@
 ---
 name: CompanyWise
-description: Company-Wise LeetCode Interview Preparation
+description: Company-Wise LeetCode Interview Preparation & Mastery System
 colors:
-  primary: "#2563EB"
-  primary-hover: "#1D4ED8"
-  primary-light: "#3B82F6"
-  background-light: "#FAFAFA"
-  background-dark: "#0A0A0B"
+  brand-navy: "#0F1B3D"
+  brand-navy-dark: "#0B132B"
+  brand-navy-surface: "#111C3D"
+  brand-navy-hover: "#16244E"
+  brand-navy-border: "#1E2E5C"
+  brand-amber: "#F5A524"
+  brand-amber-hover: "#E0921B"
+  background-light: "#F7F8FB"
+  background-dark: "#0B132B"
   surface-light: "#FFFFFF"
-  surface-dark: "#121214"
-  border-light: "#E5E7EB"
-  border-dark: "#262626"
-  text-primary-light: "#0F172A"
-  text-primary-dark: "#F8FAFC"
+  surface-dark: "#111C3D"
+  border-light: "#E2E8F0"
+  border-dark: "#1E2E5C"
+  text-primary-light: "#0F1B3D"
+  text-primary-dark: "#FFFFFF"
   text-muted-light: "#64748B"
-  text-muted-dark: "#A1A1AA"
+  text-muted-dark: "#94A3B8"
   easy: "#10B981"
-  medium: "#F59E0B"
+  medium: "#F5A524"
   hard: "#EF4444"
 typography:
   display:
@@ -51,13 +55,13 @@ spacing:
   xl: "32px"
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
+    backgroundColor: "{colors.brand-navy}"
     textColor: "#FFFFFF"
     rounded: "{rounded.md}"
     padding: "10px 20px"
-  button-secondary:
-    backgroundColor: "{colors.surface-light}"
-    textColor: "{colors.text-primary-light}"
+  button-accent:
+    backgroundColor: "{colors.brand-amber}"
+    textColor: "{colors.brand-navy-dark}"
     rounded: "{rounded.md}"
     padding: "10px 20px"
   card:
@@ -68,21 +72,24 @@ components:
 
 ## Overview
 
-CompanyWise adopts a developer-focused, high-density utility aesthetic influenced by modern developer toolkits (Linear, Vercel). The design prioritizes scanability, high text contrast, precise data visualization, and frictionless navigation across 200 tech company question collections.
+CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic derived from its signature mark: a dark navy squircle with progressive capability bars crowned by an amber goal-status apex dot. The design prioritizes scanability, high text contrast, precise data visualization, and frictionless navigation across 200+ tech company question collections.
 
-## Colors
+## Color Palette
 
-- **Primary Brand**: Blue (`#2563EB`), Indigo (`#4F46E5`).
-- **Surfaces**:
-  - Light mode: Pure `#FFFFFF` on `#FAFAFA` base.
-  - Dark mode: Near-black `#121214` surface on `#0A0A0B` base.
-- **Borders**:
-  - Light: Subtle gray `border-neutral-200/90` (`#E5E7EB`).
-  - Dark: Sleek slate `dark:border-neutral-800` (`#262626`).
+- **Brand Anchor**:
+  - **Midnight Navy (`#0F1B3D`)**: Anchors primary buttons, headings, badges, and dark squircle containers.
+  - **Deep Navy Dark Canvas (`#0B132B`)**: Rich midnight dark canvas providing immersive atmosphere without stark dead black.
+  - **Elevated Navy Surface (`#111C3D`)**: Clear card and panel surface separation in dark mode.
+  - **Interactive Hover Slate (`#16244E`)**: Smooth row and button hovers in dark mode.
+  - **Deep Navy Border (`#1E2E5C`)**: Clean, deliberate structural separators and outlines.
+- **Apex Accent**:
+  - **Warm Amber Gold (`#F5A524`)**: Direct from the logo's apex dot. Used for attempted status, target indicators, streak milestones, and focal progress highlights.
+- **Light Mode Canvas**:
+  - Pure `#F7F8FB` background (matching the official logo reference canvas) with crisp `#FFFFFF` cards and `#0F1B3D` typography.
 - **Semantic Difficulties**:
-  - Easy: Emerald (`#10B981`, badge text `#047857` in light, `#34D399` in dark).
-  - Medium: Amber (`#F59E0B`, badge text `#B45309` in light, `#FBBF24` in dark).
-  - Hard: Rose (`#EF4444`, badge text `#BE123C` in light, `#FB7185` in dark).
+  - **Easy**: Emerald (`#10B981`, badge text `#047857` in light, `#34D399` in dark).
+  - **Medium**: Amber (`#F5A524`, badge text `#B45309` in light, `#FBBF24` in dark).
+  - **Hard**: Rose (`#EF4444`, badge text `#BE123C` in light, `#FB7185` in dark).
 
 ## Typography
 
@@ -98,37 +105,6 @@ CompanyWise adopts a developer-focused, high-density utility aesthetic influence
 
 - Fluid responsive grid container capped at `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`.
 - 12-column responsive grid on desktop:
-  - Hero Left: 5 columns (`xl:col-span-5`).
-  - Hero Center (Illustration): 3 columns (`xl:col-span-3`).
-  - Hero Right (Dashboard Cards): 4 columns (`xl:col-span-4`).
-- Featured Companies: 4-column responsive grid (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4`).
-
-## Elevation & Depth
-
-- Restrained elevation using multi-layered ambient drop shadows:
-  - Cards: `shadow-xs` / `shadow-2xs` in light, bordered flat in dark.
-  - Hover states: `hover:shadow-md hover:-translate-y-0.5`.
-  - Floating badges: `shadow-lg shadow-slate-200/50` (light), `dark:shadow-black/70` (dark).
-
-## Shapes
-
-- Rounded corners: `rounded-xl` (12px) for cards, `rounded-lg` (8px) for buttons and inputs, `rounded-full` for badges.
-- Avoid razor-sharp 0px borders or exaggerated pill radii for main content blocks.
-
-## Components
-
-- **Navigation**: Sticky top navigation bar with blur backdrop (`backdrop-blur-md`), SVG brand mark, search shortcut, and theme toggle.
-- **Company Cards**: Standardized `w-11 h-11` logo containers, company title, question count, hover arrow, and decimal completion progress bar.
-- **Difficulty Badges**: High-contrast colored pill badges with status dots.
-- **Terminal Illustration**: Theme-aware vector SVG editor window with floating glass company logo badges.
-
-## Do's and Don'ts
-
-- **Do**:
-  - Show precise decimal percentages (`0.23%`, `0.26%`) when completion is below 1%.
-  - Maintain WCAG AA compliant text contrast in both light and dark themes.
-  - Standardize company logo container dimensions.
-- **Don't**:
-  - Do not introduce heavy multi-color neo-brutalism or noisy textures.
-  - Do not display 0% progress when questions have been solved.
-  - Do not use raster screenshots with halos or jagged extraction artifacts.
+  - Main problem table / company matrix: 8 columns.
+  - Contextual sidebar / filters / bookmarks: 4 columns.
+- Sticky navigation header with instant command search, LeetCode sync status indicator, and quick links.

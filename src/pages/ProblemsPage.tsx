@@ -2,8 +2,8 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   Search, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink,
-  ChevronLeft, ChevronRight, Check, X, Filter,
-  Building2, BarChart2, Bookmark, Copy, Clock, ChevronDown
+  ChevronLeft, ChevronRight, Check, X,
+  Building2, BarChart2, Copy, Clock, ChevronDown
 } from 'lucide-react';
 import { useAllQuestions } from '../hooks/useAllQuestions';
 import { useDataIndex } from '../hooks/useDataIndex';
@@ -190,12 +190,12 @@ export default function ProblemsPage() {
 
   const renderSortIcon = (key: SortKey) => {
     if (sortKey !== key) {
-      return <ArrowUpDown className="w-3.5 h-3.5 text-neutral-400 opacity-60 group-hover:opacity-100 transition-opacity" />;
+      return <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity" />;
     }
     return sortDir === 'asc' ? (
-      <ArrowUp className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+      <ArrowUp className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
     ) : (
-      <ArrowDown className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+      <ArrowDown className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
     );
   };
 
@@ -215,38 +215,38 @@ export default function ProblemsPage() {
   return (
     <div className="space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-neutral-200/80 dark:border-neutral-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#1E2E5C]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Problems
           </h1>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
             {totalQuestionsCount.toLocaleString()} problems across {index?.totalCompanies || 200} companies
           </p>
         </div>
 
         {/* Header Progress Widget */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] px-5 py-2.5 shadow-xs flex items-center gap-6 self-start sm:self-auto shrink-0 font-sans">
+        <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] px-5 py-2.5 shadow-xs flex items-center gap-6 self-start sm:self-auto shrink-0 font-sans">
           {/* Solved Stat */}
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-2xs">
               <Check className="w-4 h-4 stroke-[3]" />
             </div>
             <div>
-              <div className="font-extrabold text-base text-neutral-900 dark:text-white leading-tight font-mono">
+              <div className="font-extrabold text-base text-slate-900 dark:text-white leading-tight font-mono">
                 {totalSolved}
               </div>
-              <div className="text-xs text-neutral-500 font-medium">solved</div>
+              <div className="text-xs text-slate-500 font-medium">solved</div>
             </div>
           </div>
 
           {/* Progress % */}
-          <div className="flex items-center gap-3 pl-6 border-l border-neutral-200 dark:border-neutral-800">
+          <div className="flex items-center gap-3 pl-6 border-l border-slate-200 dark:border-[#1E2E5C]">
             <div>
-              <div className="font-extrabold text-base text-blue-600 dark:text-blue-400 leading-tight font-mono">
+              <div className="font-extrabold text-base text-[#0F1B3D] dark:text-[#F5A524] leading-tight font-mono">
                 {overallPctDisplay}
               </div>
-              <div className="text-xs text-neutral-500 font-medium">complete</div>
+              <div className="text-xs text-slate-500 font-medium">complete</div>
             </div>
           </div>
         </div>
@@ -257,19 +257,19 @@ export default function ProblemsPage() {
         <div className="flex flex-wrap items-center gap-2.5">
           {/* Search input */}
           <div className="relative flex-1 min-w-[240px]">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search problems or ID..."
-              className="w-full h-10 pl-10 pr-9 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
+              className="w-full h-10 pl-10 pr-9 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] transition-colors shadow-2xs"
             />
             {search && (
               <button
                 type="button"
                 onClick={() => { setSearch(''); setPage(1); }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
@@ -279,8 +279,8 @@ export default function ProblemsPage() {
 
           {/* Difficulty Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
-              <BarChart2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <BarChart2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <select
                 value={difficultyFilter}
                 onChange={e => { setDifficultyFilter(e.target.value); setPage(1); }}
@@ -291,14 +291,14 @@ export default function ProblemsPage() {
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 
           {/* Company Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
-              <Building2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <select
                 value={companyFilter}
                 onChange={e => { setCompanyFilter(e.target.value); setPage(1); }}
@@ -311,14 +311,14 @@ export default function ProblemsPage() {
                   </option>
                 ))}
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 
           {/* Status Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
-              <Check className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <Check className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <select
                 value={statusFilter}
                 onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
@@ -329,14 +329,14 @@ export default function ProblemsPage() {
                 <option value="attempted">Attempted</option>
                 <option value="unsolved">Unsolved</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 
           {/* Sort Selector */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
-              <ArrowUpDown className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs">
+              <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <select
                 value={`${sortKey}-${sortDir}`}
                 onChange={e => {
@@ -355,7 +355,7 @@ export default function ProblemsPage() {
                 <option value="difficulty-desc">Sort: Difficulty (Hard first)</option>
                 <option value="acceptance-desc">Sort: Highest Acceptance</option>
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
         </div>
@@ -363,35 +363,35 @@ export default function ProblemsPage() {
         {/* Active Filters Pill Bar */}
         {hasActiveFilters && (
           <div className="flex flex-wrap items-center gap-2 pt-1">
-            <span className="text-xs text-neutral-400 font-mono">Filters:</span>
+            <span className="text-xs text-slate-400 font-mono">Filters:</span>
             {search && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#16244E] text-[#0F1B3D] dark:text-[#F5A524] border border-slate-200 dark:border-[#1E2E5C]">
                 Query: &ldquo;{search}&rdquo;
-                <button type="button" onClick={() => setSearch('')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setSearch('')} className="hover:text-rose-600 dark:hover:text-white cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {difficultyFilter !== 'all' && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#16244E] text-[#0F1B3D] dark:text-[#F5A524] border border-slate-200 dark:border-[#1E2E5C]">
                 Difficulty: {difficultyFilter}
-                <button type="button" onClick={() => setDifficultyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setDifficultyFilter('all')} className="hover:text-rose-600 dark:hover:text-white cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {companyFilter !== 'all' && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#16244E] text-[#0F1B3D] dark:text-[#F5A524] border border-slate-200 dark:border-[#1E2E5C]">
                 Company: {companyNameMap.get(companyFilter) || companyFilter}
-                <button type="button" onClick={() => setCompanyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setCompanyFilter('all')} className="hover:text-rose-600 dark:hover:text-white cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             {statusFilter !== 'all' && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#16244E] text-[#0F1B3D] dark:text-[#F5A524] border border-slate-200 dark:border-[#1E2E5C]">
                 Status: {statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)}
-                <button type="button" onClick={() => setStatusFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setStatusFilter('all')} className="hover:text-rose-600 dark:hover:text-white cursor-pointer">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -399,7 +399,7 @@ export default function ProblemsPage() {
             <button
               type="button"
               onClick={handleClearAllFilters}
-              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline ml-1"
+              className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline ml-1 cursor-pointer"
             >
               Clear all
             </button>
@@ -409,16 +409,16 @@ export default function ProblemsPage() {
 
       {/* Floating Bulk Action Bar */}
       {selectedIds.size > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-neutral-900 dark:bg-[#18181b] text-white px-5 py-3 rounded-2xl shadow-xl shadow-black/25 border border-neutral-700 flex items-center gap-4 animate-fade-in">
-          <span className="text-xs font-bold text-neutral-300 font-mono">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-[#0F1B3D] dark:bg-[#132047] text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 dark:border-[#1E2E5C] flex items-center gap-4 animate-fade-in">
+          <span className="text-xs font-bold text-slate-300 font-mono">
             {selectedIds.size} {selectedIds.size === 1 ? 'question' : 'questions'} selected
           </span>
-          <div className="h-4 w-px bg-neutral-700" />
+          <div className="h-4 w-px bg-slate-700" />
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => handleBatchMark('solved')}
-              className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+              className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
             >
               <Check className="w-3.5 h-3.5 stroke-[3]" />
               <span>Mark Solved</span>
@@ -426,22 +426,22 @@ export default function ProblemsPage() {
             <button
               type="button"
               onClick={() => handleBatchMark('attempted')}
-              className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+              className="px-3 py-1.5 rounded-xl bg-[#F5A524] hover:bg-amber-600 text-[#0F1B3D] text-xs font-extrabold flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
             >
-              <Clock className="w-3.5 h-3.5" />
+              <Clock className="w-3.5 h-3.5 stroke-[2.5]" />
               <span>Mark Attempted</span>
             </button>
             <button
               type="button"
               onClick={() => handleBatchMark('unsolved')}
-              className="px-3 py-1.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-bold transition-colors"
+              className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-colors cursor-pointer"
             >
               <span>Mark Unsolved</span>
             </button>
             <button
               type="button"
               onClick={() => setSelectedIds(new Set())}
-              className="p-1.5 text-neutral-400 hover:text-white transition-colors"
+              className="p-1.5 text-slate-400 hover:text-white transition-colors cursor-pointer"
               title="Deselect all"
             >
               <X className="w-4 h-4" />
@@ -452,13 +452,13 @@ export default function ProblemsPage() {
 
       {/* Problems Table Card */}
       {pagedItems.length === 0 ? (
-        <div className="py-16 text-center text-sm text-neutral-500 bg-white dark:bg-[#121214] rounded-2xl border border-neutral-200/90 dark:border-neutral-800 shadow-xs space-y-3">
+        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#111C3D] rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] shadow-xs space-y-3">
           <p>No questions match your current filters.</p>
           {hasActiveFilters && (
             <button
               type="button"
               onClick={handleClearAllFilters}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] bg-slate-100 dark:bg-[#16244E] hover:bg-slate-200 transition-colors cursor-pointer"
             >
               Reset all filters
             </button>
@@ -466,9 +466,9 @@ export default function ProblemsPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs">
             <table className="w-full text-xs">
-              <thead className="bg-neutral-50/80 dark:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800 text-left text-neutral-400 font-bold uppercase text-[11px] tracking-wider">
+              <thead className="bg-slate-50/80 dark:bg-[#0E1733]/80 border-b border-slate-200 dark:border-[#1E2E5C] text-left text-slate-400 font-bold uppercase text-[11px] tracking-wider">
                 <tr>
                   {/* Select All Checkbox */}
                   <th className="py-3.5 px-3 w-12 text-center">
@@ -476,7 +476,7 @@ export default function ProblemsPage() {
                       type="checkbox"
                       checked={selectedIds.size === pagedItems.length && pagedItems.length > 0}
                       onChange={handleToggleSelectAll}
-                      className="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-blue-600 focus:ring-0 cursor-pointer"
+                      className="w-4 h-4 rounded border-slate-300 dark:border-slate-700 text-[#0F1B3D] dark:text-[#F5A524] focus:ring-0 cursor-pointer"
                       aria-label="Select all rows on this page"
                     />
                   </th>
@@ -487,7 +487,7 @@ export default function ProblemsPage() {
                   {/* ID */}
                   <th
                     className={`py-3.5 px-3 w-20 cursor-pointer select-none transition-colors group ${
-                      sortKey === 'id' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortKey === 'id' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('id')}
                   >
@@ -500,7 +500,7 @@ export default function ProblemsPage() {
                   {/* Title */}
                   <th
                     className={`py-3.5 px-4 cursor-pointer select-none transition-colors group min-w-[240px] ${
-                      sortKey === 'title' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortKey === 'title' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('title')}
                   >
@@ -513,7 +513,7 @@ export default function ProblemsPage() {
                   {/* Difficulty */}
                   <th
                     className={`py-3.5 px-3 w-28 cursor-pointer select-none transition-colors group ${
-                      sortKey === 'difficulty' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortKey === 'difficulty' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('difficulty')}
                   >
@@ -526,7 +526,7 @@ export default function ProblemsPage() {
                   {/* Top Companies Asking */}
                   <th
                     className={`py-3.5 px-4 cursor-pointer select-none transition-colors group min-w-[180px] ${
-                      sortKey === 'companies' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortKey === 'companies' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('companies')}
                   >
@@ -539,7 +539,7 @@ export default function ProblemsPage() {
                   {/* Acceptance */}
                   <th
                     className={`py-3.5 px-4 w-28 cursor-pointer select-none transition-colors group ${
-                      sortKey === 'acceptance' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortKey === 'acceptance' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('acceptance')}
                   >
@@ -553,7 +553,7 @@ export default function ProblemsPage() {
                   <th className="py-3.5 px-4 w-32 text-right">ACTION</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60">
+              <tbody className="divide-y divide-slate-100 dark:divide-[#1E2E5C]/60">
                 {pagedItems.map(q => {
                   const status = getStatus(q.id);
                   const isSelected = selectedIds.has(q.id);
@@ -563,8 +563,8 @@ export default function ProblemsPage() {
                   return (
                     <tr
                       key={q.id}
-                      className={`min-h-[48px] hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors group ${
-                        isSelected ? 'bg-blue-50/50 dark:bg-blue-950/20' : ''
+                      className={`min-h-[48px] hover:bg-slate-50/80 dark:hover:bg-[#16244E]/60 transition-colors group ${
+                        isSelected ? 'bg-amber-500/10 dark:bg-[#F5A524]/15' : ''
                       }`}
                     >
                       {/* Checkbox */}
@@ -573,7 +573,7 @@ export default function ProblemsPage() {
                           type="checkbox"
                           checked={isSelected}
                           onChange={() => handleToggleSelectRow(q.id)}
-                          className="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-blue-600 focus:ring-0 cursor-pointer"
+                          className="w-4 h-4 rounded border-slate-300 dark:border-slate-700 text-[#0F1B3D] dark:text-[#F5A524] focus:ring-0 cursor-pointer"
                           aria-label={`Select row for problem #${q.id}`}
                         />
                       </td>
@@ -588,7 +588,7 @@ export default function ProblemsPage() {
                       </td>
 
                       {/* ID */}
-                      <td className="py-3 px-3 font-mono text-neutral-400 text-xs">
+                      <td className="py-3 px-3 font-mono text-slate-400 text-xs">
                         #{q.id}
                       </td>
 
@@ -599,7 +599,7 @@ export default function ProblemsPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => addRecentQuestion(q.id)}
-                          className="font-semibold text-neutral-900 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-block"
+                          className="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors inline-block"
                         >
                           {q.title}
                         </a>
@@ -619,18 +619,18 @@ export default function ProblemsPage() {
                                 key={slug}
                                 slug={slug}
                                 size="xs"
-                                className="border border-white dark:border-[#121214] rounded-md shadow-2xs"
+                                className="border border-white dark:border-[#111C3D] rounded-md shadow-2xs"
                               />
                             ))}
                           </div>
-                          <span className="font-mono text-[11px] text-neutral-500 font-medium">
+                          <span className="font-mono text-[11px] text-slate-500 font-medium">
                             {q.companyCount} {q.companyCount === 1 ? 'co' : 'cos'}
                           </span>
                         </div>
                       </td>
 
                       {/* Acceptance */}
-                      <td className="py-3 px-4 font-mono text-neutral-500">
+                      <td className="py-3 px-4 font-mono text-slate-500">
                         {q.acceptance}
                       </td>
 
@@ -640,7 +640,7 @@ export default function ProblemsPage() {
                           <button
                             type="button"
                             onClick={(e) => handleCopy(q, e)}
-                            className="p-1 rounded text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 opacity-60 group-hover:opacity-100 transition-opacity"
+                            className="p-1 rounded text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#16244E] opacity-60 group-hover:opacity-100 transition-opacity cursor-pointer"
                             title="Copy problem link"
                           >
                             {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
@@ -658,7 +658,7 @@ export default function ProblemsPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => addRecentQuestion(q.id)}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-neutral-700 dark:text-neutral-300 hover:text-white hover:bg-blue-600 rounded-lg transition-colors group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800 dark:group-hover:hover:bg-blue-600 group-hover:hover:text-white"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-white hover:bg-[#0F1B3D] dark:hover:bg-white dark:hover:text-[#0F1B3D] rounded-lg transition-colors group-hover:bg-slate-100 dark:group-hover:bg-[#16244E] group-hover:hover:bg-[#0F1B3D] dark:group-hover:hover:bg-white group-hover:hover:text-white dark:group-hover:hover:text-[#0F1B3D]"
                           >
                             Solve <ExternalLink className="w-3 h-3 opacity-60" />
                           </a>
@@ -672,7 +672,7 @@ export default function ProblemsPage() {
           </div>
 
           {/* Bottom Pagination Strip */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-600 dark:text-neutral-400 px-1 pt-1 font-mono">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 px-1 pt-1 font-mono">
             <span>
               Showing {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredQuestions.length)} of {filteredQuestions.length} questions
             </span>
@@ -682,7 +682,7 @@ export default function ProblemsPage() {
                 type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -697,7 +697,7 @@ export default function ProblemsPage() {
                 type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Next page"
               >
                 <span className="hidden sm:inline">Next</span>

@@ -29,7 +29,7 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
   const rawSlug = (slug || '').toLowerCase().trim().replace(/_/g, '-');
   const cleanSlug = rawSlug === 'meta' ? 'facebook' : rawSlug;
 
-  const baseContainer = `${sizeMap[size]} rounded-md bg-white dark:bg-[#121214] border border-neutral-200 dark:border-neutral-800 flex items-center justify-center shrink-0 overflow-hidden ${className}`;
+  const baseContainer = `${sizeMap[size]} rounded-md bg-white dark:bg-[#111C3D] border border-slate-200 dark:border-[#1E2E5C] flex items-center justify-center shrink-0 overflow-hidden ${className}`;
 
   if (hasError || !cleanSlug) {
     const initials = (name || cleanSlug)
@@ -40,7 +40,7 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
       .toUpperCase();
 
     return (
-      <div className={`${baseContainer} font-mono font-semibold text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/80`}>
+      <div className={`${baseContainer} font-mono font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#16244E]`}>
         {initials || cleanSlug.slice(0, 2).toUpperCase()}
       </div>
     );

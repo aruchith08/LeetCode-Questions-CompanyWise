@@ -4,23 +4,28 @@
 
 @layer base {
   :root {
-    --bg: #FAFAFA;
+    --bg: #F7F8FB;
     --surface: #FFFFFF;
-    --surface-hover: #F4F4F5;
-    --border: #E4E4E7;
-    --text-primary: #09090B;
-    --text-secondary: #71717A;
-    --accent: #2563EB;
+    --surface-hover: #F1F4F9;
+    --border: #E2E8F0;
+    --text-primary: #0F1B3D;
+    --text-secondary: #64748B;
+    --brand-navy: #0F1B3D;
+    --brand-amber: #F5A524;
+    --accent: #0F1B3D;
+    color-scheme: light;
   }
 
   .dark {
-    --bg: #0A0A0B;
-    --surface: #121214;
-    --surface-hover: #18181B;
-    --border: #27272A;
-    --text-primary: #FAFAFA;
-    --text-secondary: #A1A1AA;
-    --accent: #3B82F6;
+    --bg: #0B132B;
+    --surface: #111C3D;
+    --surface-hover: #16244E;
+    --border: #1E2E5C;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --brand-navy: #0F1B3D;
+    --brand-amber: #F5A524;
+    --accent: #F5A524;
     color-scheme: dark;
   }
 
@@ -33,10 +38,10 @@
   }
 
   body {
-    @apply antialiased font-sans text-sm selection:bg-blue-500/20 selection:text-blue-400;
+    @apply antialiased font-sans text-sm selection:bg-[#F5A524]/25 selection:text-neutral-900 dark:selection:text-amber-200;
   }
 
-  /* Compact restrained scrollbar */
+  /* Compact restrained scrollbar styled to brand midnight navy */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -47,20 +52,16 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-neutral-300 dark:bg-neutral-800 rounded-full;
+    @apply bg-slate-300 dark:bg-[#1E2E5C] rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-neutral-400 dark:bg-neutral-700;
+    @apply bg-slate-400 dark:bg-slate-600;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-3.5 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-medium text-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500/40;
-  }
-
-  .btn-ghost {
-    @apply px-3 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-md font-medium text-xs transition-colors duration-150;
+    @apply px-3.5 py-1.5 bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#0F1B3D] rounded-xl font-semibold text-xs transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#F5A524]/40;
   }
 }

@@ -11,11 +11,11 @@ export function useTheme() {
     if (isDark) {
       root.classList.add('dark');
       root.classList.remove('light');
-      document.body.className = 'bg-[#0A0A0B] text-neutral-100';
+      document.body.className = 'bg-[#0B132B] text-neutral-100';
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
-      document.body.className = 'bg-[#FAFAFA] text-neutral-900';
+      document.body.className = 'bg-[#F7F8FB] text-neutral-900';
     }
     localStorage.setItem('companywise-theme', isDark ? 'dark' : 'light');
     localStorage.setItem('codewise-theme', isDark ? 'dark' : 'light');

@@ -171,12 +171,12 @@ export default function CompaniesPage() {
 
   const renderSortIcon = (key: SortBy) => {
     if (sortBy !== key) {
-      return <ArrowUpDown className="w-3.5 h-3.5 text-neutral-400 opacity-60 group-hover:opacity-100 transition-opacity" />;
+      return <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity" />;
     }
     return sortDir === 'asc' ? (
-      <ArrowUp className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+      <ArrowUp className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
     ) : (
-      <ArrowDown className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+      <ArrowDown className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
     );
   };
 
@@ -186,21 +186,21 @@ export default function CompaniesPage() {
   return (
     <div className="space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-neutral-200/80 dark:border-neutral-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#1E2E5C]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Companies
           </h1>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1 max-w-2xl">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
             Curated LeetCode problem sets for {data.totalCompanies} employers with verified interview frequency and difficulty distributions.
           </p>
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 font-mono text-xs font-semibold">
-          <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-900/40 text-blue-700 dark:text-blue-400">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#111C3D] border border-slate-200 dark:border-[#1E2E5C] text-[#0F1B3D] dark:text-amber-300">
             {data.totalCompanies} Companies
           </span>
-          <span className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#111C3D] border border-slate-200 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300">
             {data.totalQuestions.toLocaleString()} Problems
           </span>
         </div>
@@ -220,10 +220,10 @@ export default function CompaniesPage() {
             <button
               key={tab.id}
               onClick={() => { setCategory(tab.id as CategoryFilter); setPage(1); }}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer ${
                 category === tab.id
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                  ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                  : 'bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#16244E]'
               }`}
             >
               {tab.label}
@@ -235,19 +235,19 @@ export default function CompaniesPage() {
         <div className="flex items-center gap-2.5 w-full lg:w-auto">
           {/* Search Input */}
           <div className="relative flex-1 lg:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search companies..."
-              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
+              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] transition-colors shadow-2xs"
             />
             {search && (
               <button
                 type="button"
                 onClick={() => { setSearch(''); setPage(1); }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
@@ -265,7 +265,7 @@ export default function CompaniesPage() {
                 setSortDir(dir);
                 setPage(1);
               }}
-              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 focus:outline-none focus:border-blue-500 cursor-pointer shadow-2xs"
+              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] cursor-pointer shadow-2xs"
             >
               <option value="questions-desc">Sort: Questions (High to Low)</option>
               <option value="questions-asc">Sort: Questions (Low to High)</option>
@@ -274,15 +274,15 @@ export default function CompaniesPage() {
               <option value="solved-desc">Sort: Solved (Most)</option>
               <option value="completion-desc">Sort: Completion %</option>
             </select>
-            <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
         </div>
       </div>
 
       {/* Filter Controls Row 2: Alphabet Jump Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] px-4 py-2 shadow-2xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] px-4 py-2 shadow-2xs">
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
-          <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider shrink-0 mr-1.5">
+          <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider shrink-0 mr-1.5">
             JUMP TO:
           </span>
           {ALPHABET.map(letter => {
@@ -292,10 +292,10 @@ export default function CompaniesPage() {
                 key={letter}
                 type="button"
                 onClick={() => { setSelectedLetter(letter); setPage(1); }}
-                className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 flex items-center justify-center ${
+                className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 flex items-center justify-center cursor-pointer ${
                   isActive
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#16244E]'
                 }`}
               >
                 {letter === 'ALL' ? 'All' : letter}
@@ -309,7 +309,7 @@ export default function CompaniesPage() {
           <button
             type="button"
             onClick={handleClearFilters}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors shrink-0 self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors shrink-0 self-start sm:self-auto cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
             <span>Clear filters</span>
@@ -319,13 +319,13 @@ export default function CompaniesPage() {
 
       {/* Companies Table Card */}
       {filteredCompanies.length === 0 ? (
-        <div className="py-16 text-center text-sm text-neutral-500 bg-white dark:bg-[#121214] rounded-2xl border border-neutral-200/90 dark:border-neutral-800 space-y-3">
+        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#111C3D] rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] space-y-3">
           <p>No companies found matching your filters.</p>
           {isFiltered && (
             <button
               type="button"
               onClick={handleClearFilters}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] bg-slate-100 dark:bg-[#16244E] hover:bg-slate-200 transition-colors cursor-pointer"
             >
               Reset all filters
             </button>
@@ -333,14 +333,14 @@ export default function CompaniesPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs">
             <table className="w-full text-xs">
               <thead>
-                <tr className="border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/80 dark:bg-neutral-900/60 text-left text-neutral-400 font-bold uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-slate-200 dark:border-[#1E2E5C] bg-slate-50/80 dark:bg-[#0E1733]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
                   {/* Company Column */}
                   <th
                     className={`py-3.5 px-5 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'name' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortBy === 'name' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('name')}
                   >
@@ -353,7 +353,7 @@ export default function CompaniesPage() {
                   {/* Questions Column */}
                   <th
                     className={`py-3.5 px-5 w-36 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'questions' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortBy === 'questions' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('questions')}
                   >
@@ -367,7 +367,7 @@ export default function CompaniesPage() {
                   <th className="py-3.5 px-5 w-72">
                     <div className="flex items-center gap-2">
                       <span>DIFFICULTY</span>
-                      <span className="text-[10px] text-neutral-400 dark:text-neutral-500 font-medium normal-case font-mono">
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium normal-case font-mono">
                         (Easy · Med · Hard)
                       </span>
                     </div>
@@ -376,7 +376,7 @@ export default function CompaniesPage() {
                   {/* Progress Column */}
                   <th
                     className={`py-3.5 px-5 w-64 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'solved' || sortBy === 'completion' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                      sortBy === 'solved' || sortBy === 'completion' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('solved')}
                   >
@@ -390,7 +390,7 @@ export default function CompaniesPage() {
                   <th className="py-3.5 px-4 w-12 text-right"></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60">
+              <tbody className="divide-y divide-slate-100 dark:divide-[#1E2E5C]/60">
                 {pagedCompanies.map(c => {
                   const m = companyMetrics.get(c.slug) || { solved: 0, easy: 0, medium: 0, hard: 0 };
                   const total = m.easy + m.medium + m.hard || c.questionCount || 1;
@@ -404,14 +404,14 @@ export default function CompaniesPage() {
                   return (
                     <tr
                       key={c.slug}
-                      className="h-16 hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors group cursor-pointer"
+                      className="h-16 hover:bg-slate-50/80 dark:hover:bg-[#16244E]/60 transition-colors group cursor-pointer"
                     >
                       {/* Company Name & Logo */}
                       <td className="py-3.5 px-5">
                         <Link to={`/companies/${c.slug}`} className="flex items-center gap-3.5">
                           <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs" />
                           <div className="min-w-0">
-                            <span className="font-bold text-sm text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors block truncate">
+                            <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
                               {c.name}
                             </span>
                           </div>
@@ -421,23 +421,23 @@ export default function CompaniesPage() {
                       {/* Question Count */}
                       <td className="py-3.5 px-5">
                         <div className="flex items-baseline gap-1 font-mono">
-                          <span className="font-bold text-sm text-neutral-900 dark:text-white">
+                          <span className="font-bold text-sm text-slate-900 dark:text-white">
                             {c.questionCount}
                           </span>
-                          <span className="text-xs text-neutral-500 font-normal">questions</span>
+                          <span className="text-xs text-slate-500 font-normal">questions</span>
                         </div>
                       </td>
 
                       {/* Difficulty Split (Stacked Multi-Color Bar + Percentages) */}
                       <td className="py-3.5 px-5">
-                        <div className="w-56 sm:w-60 h-2 rounded-full bg-neutral-100 dark:bg-neutral-800 flex overflow-hidden gap-0.5">
+                        <div className="w-56 sm:w-60 h-2 rounded-full bg-slate-100 dark:bg-[#16244E] flex overflow-hidden gap-0.5">
                           <div
                             className="bg-emerald-500 transition-all duration-300"
                             style={{ width: `${(m.easy / total) * 100}%` }}
                             title={`Easy: ${m.easy} (${easyPct}%)`}
                           />
                           <div
-                            className="bg-amber-500 transition-all duration-300"
+                            className="bg-[#F5A524] transition-all duration-300"
                             style={{ width: `${(m.medium / total) * 100}%` }}
                             title={`Medium: ${m.medium} (${medPct}%)`}
                           />
@@ -449,9 +449,9 @@ export default function CompaniesPage() {
                         </div>
                         <div className="flex items-center gap-2 text-xs font-semibold mt-1.5 font-mono">
                           <span className="text-emerald-600 dark:text-emerald-400">{easyPct}% E</span>
-                          <span className="text-neutral-300 dark:text-neutral-700">·</span>
-                          <span className="text-amber-600 dark:text-amber-400">{medPct}% M</span>
-                          <span className="text-neutral-300 dark:text-neutral-700">·</span>
+                          <span className="text-slate-300 dark:text-slate-700">·</span>
+                          <span className="text-[#F5A524]">{medPct}% M</span>
+                          <span className="text-slate-300 dark:text-slate-700">·</span>
                           <span className="text-rose-600 dark:text-rose-400">{hardPct}% H</span>
                         </div>
                       </td>
@@ -459,17 +459,17 @@ export default function CompaniesPage() {
                       {/* Your Progress */}
                       <td className="py-3.5 px-5">
                         <div className="w-48 sm:w-52">
-                          <div className="w-full h-2 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mb-1.5">
+                          <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#16244E] overflow-hidden mb-1.5">
                             <div
-                              className="h-full bg-blue-600 dark:bg-blue-500 rounded-full transition-all duration-300"
+                              className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
                               style={{ width: `${Math.max(pctNum, m.solved > 0 ? 4 : 0)}%` }}
                             />
                           </div>
                           <div className="flex items-center justify-between text-xs font-mono font-medium">
-                            <span className="text-neutral-700 dark:text-neutral-300">
+                            <span className="text-slate-700 dark:text-slate-300">
                               {m.solved} / {c.questionCount}
                             </span>
-                            <span className="font-bold text-blue-600 dark:text-blue-400">
+                            <span className="font-bold text-[#0F1B3D] dark:text-[#F5A524]">
                               {pctDisplay}
                             </span>
                           </div>
@@ -480,7 +480,7 @@ export default function CompaniesPage() {
                       <td className="py-3.5 px-4 text-right">
                         <Link
                           to={`/companies/${c.slug}`}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-neutral-400 dark:text-neutral-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:bg-blue-50 dark:group-hover:bg-blue-950/40 group-hover:translate-x-0.5 transition-all"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#16244E] group-hover:translate-x-0.5 transition-all"
                           aria-label={`Open ${c.name}`}
                         >
                           <ChevronRight className="w-4 h-4" />
@@ -494,9 +494,9 @@ export default function CompaniesPage() {
           </div>
 
           {/* Bottom Pagination Strip */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-600 dark:text-neutral-400 px-1 pt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 px-1 pt-1">
             <span className="font-medium">
-              Showing <strong className="text-neutral-900 dark:text-white">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredCompanies.length)}</strong> of <strong className="text-neutral-900 dark:text-white">{filteredCompanies.length}</strong> companies
+              Showing <strong className="text-slate-900 dark:text-white">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredCompanies.length)}</strong> of <strong className="text-slate-900 dark:text-white">{filteredCompanies.length}</strong> companies
             </span>
 
             {/* Numeric Page Buttons */}
@@ -505,7 +505,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -515,7 +515,7 @@ export default function CompaniesPage() {
               {paginationItems.map((item, idx) => {
                 if (item === '...') {
                   return (
-                    <span key={`ellipsis-${idx}`} className="w-8 h-8 flex items-center justify-center text-neutral-400 font-bold">
+                    <span key={`ellipsis-${idx}`} className="w-8 h-8 flex items-center justify-center text-slate-400 font-bold">
                       ...
                     </span>
                   );
@@ -527,10 +527,10 @@ export default function CompaniesPage() {
                     key={`page-${pageNum}`}
                     type="button"
                     onClick={() => setPage(pageNum)}
-                    className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center ${
+                    className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
                       isCurrent
-                        ? 'bg-blue-600 text-white shadow-xs'
-                        : 'border border-neutral-200/90 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                        ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                        : 'border border-slate-200/90 dark:border-[#1E2E5C] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#16244E]'
                     }`}
                   >
                     {pageNum}
@@ -542,7 +542,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
                 aria-label="Next page"
               >
                 <span className="hidden sm:inline">Next</span>

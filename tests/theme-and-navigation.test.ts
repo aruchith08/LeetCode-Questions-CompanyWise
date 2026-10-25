@@ -41,7 +41,7 @@ describe('Theme & Navigation Behavior', () => {
     expect(result.current.isDark).toBe(false);
     expect(document.documentElement.classList.contains('light')).toBe(true);
     expect(document.documentElement.classList.contains('dark')).toBe(false);
-    expect(document.body.className).toContain('bg-[#FAFAFA]');
+    expect(document.body.className).toContain('bg-[#F7F8FB]');
     expect(localStorage.getItem('codewise-theme')).toBe('light');
 
     // Toggle back to dark mode
@@ -52,7 +52,7 @@ describe('Theme & Navigation Behavior', () => {
     expect(result.current.isDark).toBe(true);
     expect(document.documentElement.classList.contains('dark')).toBe(true);
     expect(document.documentElement.classList.contains('light')).toBe(false);
-    expect(document.body.className).toContain('bg-[#0A0A0B]');
+    expect(document.body.className).toContain('bg-[#0B132B]');
     expect(localStorage.getItem('codewise-theme')).toBe('dark');
   });
 

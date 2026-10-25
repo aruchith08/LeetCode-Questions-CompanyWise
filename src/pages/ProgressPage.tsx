@@ -1,10 +1,10 @@
 import React, { useMemo, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Download, Upload, Trash2, ExternalLink,
-  ChevronRight, X, Target, Check,
-  Bookmark, Clock, Calendar,
-  BarChart2, Search, ArrowRight, ShieldCheck
+  Download, Upload, Trash2,
+  ChevronRight, X, Target,
+  Bookmark, Calendar,
+  Search, ArrowRight, Flame
 } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { useDataIndex } from '../hooks/useDataIndex';
@@ -21,7 +21,7 @@ type CompanyFilter = 'all' | 'in_progress' | 'completed';
 export default function ProgressPage() {
   const {
     progress, totalSolved, totalAttempted, getStatus, toggleSolved,
-    setQuestionStatus, exportProgress, importProgress, resetProgress, toggleBookmark,
+    exportProgress, importProgress, resetProgress, toggleBookmark,
     addRecentQuestion,
   } = useProgress();
 
@@ -227,12 +227,15 @@ export default function ProgressPage() {
   return (
     <div className="space-y-8 animate-fade-in pb-16">
       {/* Top Header Section */}
-      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pt-1 border-b border-neutral-200/80 dark:border-neutral-800 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pt-1 border-b border-slate-200/80 dark:border-[#1E2E5C] pb-4">
         <div className="space-y-1">
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
-            My <span className="text-blue-600 dark:text-blue-400">Progress</span>
-          </h1>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-xl">
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F1B3D] dark:text-white">
+              My <span className="text-[#0F1B3D] dark:text-[#F5A524]">Progress</span>
+            </h1>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#F5A524]" title="CompanyWise live progress" />
+          </div>
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xl">
             Track interview preparation completion, examine company breakdown rates, and maintain practice consistency.
           </p>
         </div>
@@ -247,15 +250,15 @@ export default function ProgressPage() {
           <button
             type="button"
             onClick={() => setShowSettingsModal(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] text-xs font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#16244E] transition-colors shadow-2xs"
           >
-            <Download className="w-3.5 h-3.5 text-neutral-400" />
+            <Download className="w-3.5 h-3.5 text-slate-400" />
             <span>Backup & data</span>
           </button>
 
           <Link
             to="/problems"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-all shadow-sm shadow-blue-500/20"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0F1B3D] hover:bg-[#16244E] dark:bg-[#F5A524] dark:hover:bg-[#E0921B] text-white dark:text-[#0B132B] text-xs font-bold transition-all shadow-sm"
           >
             <span>Explore problems</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -266,110 +269,113 @@ export default function ProgressPage() {
       {/* 4 Cards Stats Grid (Overall + Easy + Medium + Hard) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Card 1: Overall Completion (Spans 2 cols on lg) */}
-        <div className="lg:col-span-2 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] p-5 shadow-xs flex items-center justify-between">
+        <div className="lg:col-span-2 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] p-5 shadow-xs flex items-center justify-between">
           <div className="min-w-0 pr-4">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-neutral-700 dark:text-neutral-300">
-              <Target className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
+            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+              <Target className="w-4 h-4 text-[#0F1B3D] dark:text-[#F5A524] shrink-0" />
               <span>Overall completion</span>
             </div>
 
             <div className="mt-3 flex items-baseline gap-1.5 font-sans">
-              <span className="text-3xl font-extrabold text-neutral-900 dark:text-white font-mono">{totalSolved}</span>
-              <span className="text-sm font-medium text-neutral-500">/ {totalQuestions.toLocaleString()} solved</span>
+              <span className="text-3xl font-extrabold text-[#0F1B3D] dark:text-white font-mono">{totalSolved}</span>
+              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">/ {totalQuestions.toLocaleString()} solved</span>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-300 font-medium mt-1">
-              <span>{totalAttempted} attempted</span>
+            <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">
+              <span className="inline-flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F5A524]" />
+                {totalAttempted} attempted
+              </span>
               <span>·</span>
               <span>{bookmarkedQuestions.length} bookmarked</span>
             </div>
 
-            <div className="w-44 sm:w-48 h-2 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mt-3">
+            <div className="w-44 sm:w-48 h-2 rounded-full bg-slate-100 dark:bg-[#0B132B] overflow-hidden mt-3">
               <div
-                className="h-full bg-blue-600 dark:bg-blue-500 rounded-full transition-all duration-300"
+                className="h-full bg-gradient-to-r from-[#0F1B3D] to-[#F5A524] dark:from-[#38BDF8] dark:to-[#F5A524] rounded-full transition-all duration-300"
                 style={{ width: `${Math.max(overallPctRaw, totalSolved > 0 ? 3 : 0)}%` }}
               />
             </div>
           </div>
 
           <div className="text-right shrink-0">
-            <span className="text-3xl font-extrabold font-mono text-blue-600 dark:text-blue-400 block">
+            <span className="text-3xl font-extrabold font-mono text-[#0F1B3D] dark:text-[#F5A524] block">
               {overallPctFormatted}
             </span>
-            <span className="text-[11px] font-mono text-neutral-400 block mt-0.5">accuracy</span>
+            <span className="text-[11px] font-mono text-slate-400 block mt-0.5">accuracy</span>
           </div>
         </div>
 
         {/* Card 2: Easy */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] p-5 shadow-xs flex flex-col justify-between">
+        <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] p-5 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">Easy</span>
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-neutral-900 dark:text-white">
+            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-white">
               {difficultyStats.easy.solved}
             </span>
-            <span className="text-xs text-neutral-500 font-mono ml-1">/ {difficultyStats.easy.total}</span>
+            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.easy.total}</span>
           </div>
           <div>
-            <div className="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mb-1">
+            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#0B132B] overflow-hidden mb-1">
               <div
                 className="h-full bg-emerald-500 rounded-full transition-all duration-300"
                 style={{ width: `${(difficultyStats.easy.solved / difficultyStats.easy.total) * 100}%` }}
               />
             </div>
-            <span className="text-[10px] font-mono text-neutral-400">
+            <span className="text-[10px] font-mono text-slate-400">
               {difficultyStats.easy.attempted} attempted
             </span>
           </div>
         </div>
 
         {/* Card 3: Medium */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] p-5 shadow-xs flex flex-col justify-between">
+        <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] p-5 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-amber-700 dark:text-amber-400">Medium</span>
-            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="w-2 h-2 rounded-full bg-[#F5A524]" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-neutral-900 dark:text-white">
+            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-white">
               {difficultyStats.medium.solved}
             </span>
-            <span className="text-xs text-neutral-500 font-mono ml-1">/ {difficultyStats.medium.total}</span>
+            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.medium.total}</span>
           </div>
           <div>
-            <div className="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mb-1">
+            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#0B132B] overflow-hidden mb-1">
               <div
-                className="h-full bg-amber-500 rounded-full transition-all duration-300"
+                className="h-full bg-[#F5A524] rounded-full transition-all duration-300"
                 style={{ width: `${(difficultyStats.medium.solved / difficultyStats.medium.total) * 100}%` }}
               />
             </div>
-            <span className="text-[10px] font-mono text-neutral-400">
+            <span className="text-[10px] font-mono text-slate-400">
               {difficultyStats.medium.attempted} attempted
             </span>
           </div>
         </div>
 
         {/* Card 4: Hard */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] p-5 shadow-xs flex flex-col justify-between">
+        <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] p-5 shadow-xs flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-rose-700 dark:text-rose-400">Hard</span>
             <span className="w-2 h-2 rounded-full bg-rose-500" />
           </div>
           <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-neutral-900 dark:text-white">
+            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-white">
               {difficultyStats.hard.solved}
             </span>
-            <span className="text-xs text-neutral-500 font-mono ml-1">/ {difficultyStats.hard.total}</span>
+            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.hard.total}</span>
           </div>
           <div>
-            <div className="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mb-1">
+            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#0B132B] overflow-hidden mb-1">
               <div
                 className="h-full bg-rose-500 rounded-full transition-all duration-300"
                 style={{ width: `${(difficultyStats.hard.solved / difficultyStats.hard.total) * 100}%` }}
               />
             </div>
-            <span className="text-[10px] font-mono text-neutral-400">
+            <span className="text-[10px] font-mono text-slate-400">
               {difficultyStats.hard.attempted} attempted
             </span>
           </div>
@@ -377,25 +383,26 @@ export default function ProgressPage() {
       </div>
 
       {/* Practice Activity Tracker & Weekly Velocity */}
-      <section className="p-5 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] shadow-xs space-y-4">
+      <section className="p-5 rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <h2 className="text-sm font-bold text-neutral-900 dark:text-white flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-[#0F1B3D] dark:text-[#F5A524]" />
               <span>Practice Activity & Velocity</span>
             </h2>
-            <p className="text-xs text-neutral-500 mt-0.5">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Daily problems solved over the past 7 days based on real interactions.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono font-medium">
-            <span className="text-neutral-500">
-              <strong className="text-neutral-900 dark:text-white">{activityData.totalThisWeek}</strong> solved this week
+          <div className="flex items-center gap-3 text-xs font-mono font-medium">
+            <span className="text-slate-500 dark:text-slate-400">
+              <strong className="text-slate-900 dark:text-white">{activityData.totalThisWeek}</strong> solved this week
             </span>
-            <span className="text-neutral-300 dark:text-neutral-700">·</span>
-            <span className="text-blue-600 dark:text-blue-400 font-bold">
-              {activityData.streak} day streak
+            <span className="text-slate-300 dark:text-slate-700">·</span>
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-[#F5A524] border border-[#F5A524]/20 font-bold">
+              <Flame className="w-3.5 h-3.5" />
+              <span>{activityData.streak} day streak</span>
             </span>
           </div>
         </div>
@@ -406,22 +413,24 @@ export default function ProgressPage() {
             const heightPct = Math.max((d.count / activityData.maxCount) * 100, 8);
             return (
               <div key={d.date} className="flex flex-col items-center gap-2 text-center">
-                <div className="w-full h-24 bg-neutral-100 dark:bg-neutral-900 rounded-xl flex items-end p-1 overflow-hidden">
+                <div className="w-full h-24 bg-slate-100 dark:bg-[#0B132B] rounded-xl flex items-end p-1 overflow-hidden border border-slate-200/50 dark:border-[#1E2E5C]/50">
                   <div
                     className={`w-full rounded-lg transition-all duration-500 ${
                       d.count > 0
-                        ? 'bg-blue-600 dark:bg-blue-500'
-                        : 'bg-neutral-200 dark:bg-neutral-800'
+                        ? d.isToday
+                          ? 'bg-[#F5A524]'
+                          : 'bg-[#0F1B3D] dark:bg-[#38BDF8]'
+                        : 'bg-slate-200 dark:bg-[#1E2E5C]/40'
                     }`}
                     style={{ height: `${heightPct}%` }}
                     title={`${d.day}: ${d.count} questions`}
                   />
                 </div>
                 <div className="font-mono text-[11px]">
-                  <span className={`block font-semibold ${d.isToday ? 'text-blue-600 dark:text-blue-400' : 'text-neutral-600 dark:text-neutral-400'}`}>
+                  <span className={`block font-semibold ${d.isToday ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'text-slate-600 dark:text-slate-400'}`}>
                     {d.day}
                   </span>
-                  <span className="text-neutral-400 text-[10px] block mt-0.5 font-bold">
+                  <span className="text-slate-400 text-[10px] block mt-0.5 font-bold">
                     {d.count}
                   </span>
                 </div>
@@ -437,10 +446,10 @@ export default function ProgressPage() {
         <section className="lg:col-span-8 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-neutral-900 dark:text-white">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                 Company Completion Matrix
               </h2>
-              <p className="text-xs text-neutral-500">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
                 Track exact preparation progress for individual target companies.
               </p>
             </div>
@@ -454,8 +463,8 @@ export default function ProgressPage() {
                   onClick={() => setCompanyFilter(f)}
                   className={`px-3 py-1 rounded-xl text-xs font-semibold transition-colors ${
                     companyFilter === f
-                      ? 'bg-blue-600 text-white shadow-2xs'
-                      : 'bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                      ? 'bg-[#0F1B3D] dark:bg-[#F5A524] text-white dark:text-[#0B132B] shadow-2xs font-bold'
+                      : 'bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#16244E]'
                   }`}
                 >
                   {f === 'all' ? 'All' : f === 'in_progress' ? 'In Progress' : 'Completed'}
@@ -467,20 +476,20 @@ export default function ProgressPage() {
           {/* Company Search and Sort Bar */}
           <div className="flex items-center gap-2.5">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
               <input
                 type="text"
                 value={companySearch}
                 onChange={e => setCompanySearch(e.target.value)}
                 placeholder="Search companies in progress..."
-                className="w-full h-9 pl-9 pr-3 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 shadow-2xs"
+                className="w-full h-9 pl-9 pr-3 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#F5A524] shadow-2xs"
               />
             </div>
 
             <select
               value={companySort}
               onChange={e => setCompanySort(e.target.value as CompanySort)}
-              className="h-9 px-3 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-700 dark:text-neutral-300 focus:outline-none cursor-pointer shadow-2xs"
+              className="h-9 px-3 bg-white dark:bg-[#111C3D] border border-slate-200/90 dark:border-[#1E2E5C] rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer shadow-2xs"
             >
               <option value="solved">Sort: Solved (Most)</option>
               <option value="completion">Sort: Completion %</option>
@@ -490,9 +499,9 @@ export default function ProgressPage() {
           </div>
 
           {/* Company Progress Rows */}
-          <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] divide-y divide-neutral-100 dark:divide-neutral-800/80 shadow-xs overflow-hidden">
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] divide-y divide-slate-100 dark:divide-[#1E2E5C]/80 shadow-xs overflow-hidden">
             {displayedCompanies.length === 0 ? (
-              <div className="py-12 text-center text-xs text-neutral-500">
+              <div className="py-12 text-center text-xs text-slate-500">
                 No companies match your filters.
               </div>
             ) : (
@@ -500,15 +509,15 @@ export default function ProgressPage() {
                 <Link
                   key={c.slug}
                   to={`/companies/${c.slug}`}
-                  className="p-4 hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors flex items-center justify-between gap-4 group"
+                  className="p-4 hover:bg-slate-50/80 dark:hover:bg-[#16244E]/60 transition-colors flex items-center justify-between gap-4 group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs" />
                     <div className="min-w-0">
-                      <span className="font-bold text-sm text-neutral-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors block truncate">
+                      <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
                         {c.name}
                       </span>
-                      <span className="text-xs text-neutral-500 font-mono">
+                      <span className="text-xs text-slate-500 font-mono">
                         {c.solved} solved · {c.attempted} attempted of {c.total}
                       </span>
                     </div>
@@ -516,17 +525,17 @@ export default function ProgressPage() {
 
                   <div className="flex items-center gap-4 shrink-0">
                     <div className="w-32 sm:w-40 text-right">
-                      <div className="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden mb-1">
+                      <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#0B132B] overflow-hidden mb-1">
                         <div
-                          className="h-full bg-blue-600 dark:bg-blue-500 rounded-full transition-all duration-300"
+                          className="h-full bg-gradient-to-r from-[#0F1B3D] to-[#F5A524] dark:from-[#38BDF8] dark:to-[#F5A524] rounded-full transition-all duration-300"
                           style={{ width: `${Math.max(c.rawPct, c.solved > 0 ? 3 : 0)}%` }}
                         />
                       </div>
-                      <span className="font-mono font-bold text-xs text-blue-600 dark:text-blue-400">
+                      <span className="font-mono font-bold text-xs text-[#0F1B3D] dark:text-[#F5A524]">
                         {c.pctDisplay}
                       </span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-neutral-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
               ))
@@ -539,7 +548,7 @@ export default function ProgressPage() {
               <button
                 type="button"
                 onClick={() => setExpandedCompanies(!expandedCompanies)}
-                className="px-4 py-2 rounded-xl border border-neutral-200/90 dark:border-neutral-800 text-xs font-semibold text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                className="px-4 py-2 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors"
               >
                 {expandedCompanies ? 'Show top 6 companies only' : `Show all ${companyProgressList.length} companies`}
               </button>
@@ -550,24 +559,24 @@ export default function ProgressPage() {
         {/* Right Column (4 cols): Bookmarked Questions */}
         <section className="lg:col-span-4 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base sm:text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
-              <Bookmark className="w-4 h-4 text-amber-500" />
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <Bookmark className="w-4 h-4 text-[#F5A524]" />
               <span>Bookmarked ({bookmarkedQuestions.length})</span>
             </h2>
             <Link
               to="/problems"
-              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] hover:underline"
             >
               Browse all →
             </Link>
           </div>
 
-          <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] p-4 shadow-xs divide-y divide-neutral-100 dark:divide-neutral-800/80">
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] p-4 shadow-xs divide-y divide-slate-100 dark:divide-[#1E2E5C]/80">
             {bookmarkedQuestions.length === 0 ? (
-              <div className="py-12 text-center text-xs text-neutral-500 space-y-2">
-                <Bookmark className="w-6 h-6 mx-auto text-neutral-300 dark:text-neutral-700" />
+              <div className="py-12 text-center text-xs text-slate-500 space-y-2">
+                <Bookmark className="w-6 h-6 mx-auto text-slate-300 dark:text-slate-700" />
                 <p>No questions bookmarked yet.</p>
-                <p className="text-[11px] text-neutral-400">
+                <p className="text-[11px] text-slate-400">
                   Click the bookmark icon on any problem to save it for quick revision.
                 </p>
               </div>
@@ -584,13 +593,13 @@ export default function ProgressPage() {
                         status={status}
                         onToggleSolved={() => toggleSolved(q.id)}
                       />
-                      <span className="font-mono text-[11px] text-neutral-400 shrink-0">#{q.id}</span>
+                      <span className="font-mono text-[11px] text-slate-400 shrink-0">#{q.id}</span>
                       <a
                         href={q.link || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => addRecentQuestion(q.id)}
-                        className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate transition-colors"
+                        className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] truncate transition-colors"
                       >
                         {q.title}
                       </a>
@@ -614,49 +623,49 @@ export default function ProgressPage() {
       {/* Backup & Data Modal */}
       {showSettingsModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
-          <div className="w-full max-w-md bg-white dark:bg-[#141416] border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl p-6 space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-neutral-100 dark:border-neutral-800">
-              <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
+          <div className="w-full max-w-md bg-white dark:bg-[#132047] border border-slate-200 dark:border-[#1E2E5C] rounded-2xl shadow-2xl p-6 space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-[#1E2E5C]">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                 Progress Backup & Data
               </h3>
               <button
                 type="button"
                 onClick={() => { setShowSettingsModal(false); setShowResetConfirm(false); }}
-                className="p-1 rounded-lg text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {importNotice && (
-              <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900/40 text-xs text-blue-700 dark:text-blue-300">
+              <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/40 text-xs text-amber-800 dark:text-amber-300">
                 {importNotice}
               </div>
             )}
 
             <div className="space-y-3">
-              <div className="p-3.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40 space-y-2">
-                <span className="font-semibold text-xs text-neutral-900 dark:text-white block">
+              <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] bg-slate-50 dark:bg-[#0B132B]/60 space-y-2">
+                <span className="font-semibold text-xs text-slate-900 dark:text-white block">
                   Export Progress
                 </span>
-                <p className="text-[11px] text-neutral-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Download a JSON file containing all your solved problems, attempted questions, and bookmarks.
                 </p>
                 <button
                   type="button"
                   onClick={handleExport}
-                  className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#0F1B3D] hover:bg-[#16244E] dark:bg-[#F5A524] dark:hover:bg-[#E0921B] text-white dark:text-[#0B132B] text-xs font-bold transition-colors flex items-center gap-1.5"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download Backup (.json)</span>
                 </button>
               </div>
 
-              <div className="p-3.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/40 space-y-2">
-                <span className="font-semibold text-xs text-neutral-900 dark:text-white block">
+              <div className="p-3.5 rounded-xl border border-slate-200/90 dark:border-[#1E2E5C] bg-slate-50 dark:bg-[#0B132B]/60 space-y-2">
+                <span className="font-semibold text-xs text-slate-900 dark:text-white block">
                   Import Progress
                 </span>
-                <p className="text-[11px] text-neutral-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Restore your questions and history from an existing CompanyWise backup file.
                 </p>
                 <input
@@ -669,7 +678,7 @@ export default function ProgressPage() {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="px-3.5 py-1.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-[#121214] text-xs font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-[#1E2E5C] bg-white dark:bg-[#111C3D] text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-[#16244E] transition-colors flex items-center gap-1.5"
                 >
                   <Upload className="w-3.5 h-3.5" />
                   <span>Choose File to Import</span>
@@ -681,7 +690,7 @@ export default function ProgressPage() {
                 <span className="font-semibold text-xs text-rose-700 dark:text-rose-400 block">
                   Reset Progress
                 </span>
-                <p className="text-[11px] text-neutral-500 leading-relaxed">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
                   Erase all tracked problem statuses and bookmarks saved in this browser.
                 </p>
                 {showResetConfirm ? (
@@ -700,7 +709,7 @@ export default function ProgressPage() {
                     <button
                       type="button"
                       onClick={() => setShowResetConfirm(false)}
-                      className="px-3 py-1.5 rounded-xl border border-neutral-300 text-xs font-semibold text-neutral-600"
+                      className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-[#1E2E5C] text-xs font-semibold text-slate-600 dark:text-slate-300"
                     >
                       Cancel
                     </button>
