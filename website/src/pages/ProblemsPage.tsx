@@ -13,6 +13,7 @@ import DifficultyBadge from '../components/ui/DifficultyBadge';
 import StatusToggle from '../components/ui/StatusToggle';
 import BookmarkButton from '../components/ui/BookmarkButton';
 import CompanyLogo from '../components/ui/CompanyLogo';
+import CustomDropdown from '../components/ui/CustomDropdown';
 import type { GlobalQuestion, QuestionStatus } from '../types';
 
 type SortKey = 'id' | 'title' | 'difficulty' | 'acceptance' | 'companies';
@@ -279,84 +280,78 @@ export default function ProblemsPage() {
 
           {/* Difficulty Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] shadow-2xs">
-              <BarChart2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={difficultyFilter}
-                onChange={e => { setDifficultyFilter(e.target.value); setPage(1); }}
-                className="appearance-none bg-transparent focus:outline-none cursor-pointer pr-1"
-              >
-                <option value="all">Difficulty: All</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
+            <CustomDropdown
+              value={difficultyFilter}
+              onChange={val => { setDifficultyFilter(val); setPage(1); }}
+              icon={<BarChart2 className="w-3.5 h-3.5 text-slate-400" />}
+              options={[
+                { value: 'all', label: 'All Difficulties' },
+                { value: 'Easy', label: 'Easy' },
+                { value: 'Medium', label: 'Medium' },
+                { value: 'Hard', label: 'Hard' },
+              ]}
+              size="md"
+            />
           </div>
 
-          {/* Company Filter */}
+          {/* Company Filter (with search for 490 companies) */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] shadow-2xs">
-              <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={companyFilter}
-                onChange={e => { setCompanyFilter(e.target.value); setPage(1); }}
-                className="appearance-none bg-transparent focus:outline-none cursor-pointer pr-1 max-w-[150px] truncate"
-              >
-                <option value="all">Company: All ({sortedCompanyList.length})</option>
-                {sortedCompanyList.map(c => (
-                  <option key={c.slug} value={c.slug}>
-                    {c.name} ({c.questionCount})
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
+            <CustomDropdown
+              value={companyFilter}
+              onChange={val => { setCompanyFilter(val); setPage(1); }}
+              icon={<Building2 className="w-3.5 h-3.5 text-slate-400" />}
+              searchable={true}
+              searchPlaceholder="Search company..."
+              options={[
+                { value: 'all', label: 'All Companies', badge: sortedCompanyList.length },
+                ...sortedCompanyList.map(c => ({
+                  value: c.slug,
+                  label: c.name,
+                  badge: c.questionCount,
+                })),
+              ]}
+              size="md"
+            />
           </div>
 
           {/* Status Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] shadow-2xs">
-              <Check className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={statusFilter}
-                onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
-                className="appearance-none bg-transparent focus:outline-none cursor-pointer pr-1"
-              >
-                <option value="all">Status: All</option>
-                <option value="solved">Solved</option>
-                <option value="attempted">Attempted</option>
-                <option value="unsolved">Unsolved</option>
-              </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
+            <CustomDropdown
+              value={statusFilter}
+              onChange={val => { setStatusFilter(val); setPage(1); }}
+              icon={<Check className="w-3.5 h-3.5 text-slate-400" />}
+              options={[
+                { value: 'all', label: 'All Status' },
+                { value: 'solved', label: 'Solved' },
+                { value: 'attempted', label: 'Attempted' },
+                { value: 'unsolved', label: 'Unsolved' },
+              ]}
+              size="md"
+            />
           </div>
 
           {/* Sort Selector */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] shadow-2xs">
-              <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-              <select
-                value={`${sortKey}-${sortDir}`}
-                onChange={e => {
-                  const [k, d] = e.target.value.split('-') as [SortKey, SortDir];
-                  setSortKey(k);
-                  setSortDir(d);
-                  setPage(1);
-                }}
-                className="appearance-none bg-transparent focus:outline-none cursor-pointer pr-1"
-              >
-                <option value="id-asc">Sort: ID (Low to High)</option>
-                <option value="id-desc">Sort: ID (High to Low)</option>
-                <option value="companies-desc">Sort: Most Companies</option>
-                <option value="title-asc">Sort: Title (A–Z)</option>
-                <option value="difficulty-asc">Sort: Difficulty (Easy first)</option>
-                <option value="difficulty-desc">Sort: Difficulty (Hard first)</option>
-                <option value="acceptance-desc">Sort: Highest Acceptance</option>
-              </select>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-            </div>
+            <CustomDropdown
+              value={`${sortKey}-${sortDir}`}
+              onChange={val => {
+                const [k, d] = val.split('-') as [SortKey, SortDir];
+                setSortKey(k);
+                setSortDir(d);
+                setPage(1);
+              }}
+              icon={<ArrowUpDown className="w-3.5 h-3.5 text-slate-400" />}
+              options={[
+                { value: 'id-asc', label: 'ID (Low to High)' },
+                { value: 'id-desc', label: 'ID (High to Low)' },
+                { value: 'companies-desc', label: 'Most Companies' },
+                { value: 'title-asc', label: 'Title (A–Z)' },
+                { value: 'difficulty-asc', label: 'Difficulty (Easy first)' },
+                { value: 'difficulty-desc', label: 'Difficulty (Hard first)' },
+                { value: 'acceptance-desc', label: 'Highest Acceptance' },
+              ]}
+              size="md"
+            />
           </div>
         </div>
 

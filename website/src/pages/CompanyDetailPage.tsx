@@ -11,6 +11,7 @@ import DifficultyBadge from '../components/ui/DifficultyBadge';
 import StatusToggle from '../components/ui/StatusToggle';
 import BookmarkButton from '../components/ui/BookmarkButton';
 import CompanyLogo from '../components/ui/CompanyLogo';
+import CustomDropdown from '../components/ui/CustomDropdown';
 import type { Question } from '../types';
 
 type SortKey = 'frequency' | 'id' | 'title' | 'difficulty' | 'acceptance';
@@ -40,6 +41,7 @@ export default function CompanyDetailPage() {
   const {
     getStatus, setQuestionStatus, toggleSolved, toggleBookmark,
     isBookmarked, addRecentQuestion,
+    isTargeted, toggleTargetCompany,
   } = useProgress();
 
   const [selectedPeriod, setSelectedPeriod] = useState<string>('alltime');
@@ -50,7 +52,7 @@ export default function CompanyDetailPage() {
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [page, setPage] = useState(1);
   const [copiedId, setCopiedId] = useState<number | null>(null);
-  const [isFollowing, setIsFollowing] = useState(false);
+  const targeted = slug ? isTargeted(slug) : false;
 
   // Set default period once data loads
   useEffect(() => {
@@ -187,15 +189,15 @@ export default function CompanyDetailPage() {
 
         <button
           type="button"
-          onClick={() => setIsFollowing(!isFollowing)}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-colors self-start sm:self-auto cursor-pointer ${
-            isFollowing
-              ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-[#E0B14F] border-amber-300 dark:border-amber-800'
+          onClick={() => slug && toggleTargetCompany(slug)}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all duration-200 self-start sm:self-auto cursor-pointer shadow-2xs ${
+            targeted
+              ? 'bg-amber-500/10 text-amber-600 dark:text-[#E0B14F] border-amber-500/30 dark:border-amber-500/30 hover:bg-amber-500/20'
               : 'border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#30302E]'
           }`}
         >
-          <Star className={`w-3.5 h-3.5 ${isFollowing ? 'fill-amber-500 text-amber-500' : ''}`} />
-          {isFollowing ? 'Targeted' : 'Target company'}
+          <Star className={`w-3.5 h-3.5 transition-transform duration-200 ${targeted ? 'fill-amber-500 text-amber-500 scale-110' : ''}`} />
+          <span>{targeted ? 'Targeted' : 'Target company'}</span>
         </button>
       </div>
 
@@ -250,39 +252,42 @@ export default function CompanyDetailPage() {
           />
         </div>
 
-        <select
+        <CustomDropdown
           value={difficultyFilter}
-          onChange={e => { setDifficultyFilter(e.target.value); setPage(1); }}
-          className="h-9 px-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-700 dark:text-[#FAF9F5] focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] font-semibold cursor-pointer shadow-2xs"
-        >
-          <option value="all">Difficulty: All</option>
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard</option>
-        </select>
+          onChange={val => { setDifficultyFilter(val); setPage(1); }}
+          options={[
+            { value: 'all', label: 'Difficulty: All' },
+            { value: 'Easy', label: 'Easy' },
+            { value: 'Medium', label: 'Medium' },
+            { value: 'Hard', label: 'Hard' },
+          ]}
+          size="sm"
+        />
 
-        <select
+        <CustomDropdown
           value={statusFilter}
-          onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
-          className="h-9 px-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-700 dark:text-[#FAF9F5] focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] font-semibold cursor-pointer shadow-2xs"
-        >
-          <option value="all">Status: All</option>
-          <option value="solved">Solved</option>
-          <option value="attempted">Attempted</option>
-          <option value="unsolved">Unsolved</option>
-        </select>
+          onChange={val => { setStatusFilter(val); setPage(1); }}
+          options={[
+            { value: 'all', label: 'Status: All' },
+            { value: 'solved', label: 'Solved' },
+            { value: 'attempted', label: 'Attempted' },
+            { value: 'unsolved', label: 'Unsolved' },
+          ]}
+          size="sm"
+        />
 
-        <select
+        <CustomDropdown
           value={sortKey}
-          onChange={e => setSortKey(e.target.value as SortKey)}
-          className="h-9 px-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-700 dark:text-[#FAF9F5] focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] font-semibold cursor-pointer shadow-2xs"
-        >
-          <option value="frequency">Sort: Frequency</option>
-          <option value="id">Sort: LeetCode ID</option>
-          <option value="title">Sort: Title</option>
-          <option value="difficulty">Sort: Difficulty</option>
-          <option value="acceptance">Sort: Acceptance</option>
-        </select>
+          onChange={val => setSortKey(val as SortKey)}
+          options={[
+            { value: 'frequency', label: 'Sort: Frequency' },
+            { value: 'id', label: 'Sort: LeetCode ID' },
+            { value: 'title', label: 'Sort: Title' },
+            { value: 'difficulty', label: 'Sort: Difficulty' },
+            { value: 'acceptance', label: 'Sort: Acceptance' },
+          ]}
+          size="sm"
+        />
       </div>
 
       {/* Questions Table */}

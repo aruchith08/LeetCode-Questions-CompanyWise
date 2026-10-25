@@ -44,6 +44,7 @@ export type QuestionStatus = 'solved' | 'attempted' | 'unsolved';
 export interface UserProgress {
   solvedQuestions: Record<number, QuestionStatus>;
   bookmarks: number[];
+  targetCompanies?: string[];
   recentCompanies: string[];
   recentQuestions: number[];
   recentQuestionTimestamps?: Record<number, string>;

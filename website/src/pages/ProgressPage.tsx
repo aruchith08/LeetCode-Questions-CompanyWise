@@ -11,12 +11,13 @@ import { useDataIndex } from '../hooks/useDataIndex';
 import { useAllQuestions } from '../hooks/useAllQuestions';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import CompanyLogo from '../components/ui/CompanyLogo';
+import CustomDropdown from '../components/ui/CustomDropdown';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
 import StatusToggle from '../components/ui/StatusToggle';
 import BookmarkButton from '../components/ui/BookmarkButton';
 
 type CompanySort = 'count' | 'solved' | 'completion' | 'name';
-type CompanyFilter = 'all' | 'in_progress' | 'completed';
+type CompanyFilter = 'all' | 'targeted' | 'in_progress' | 'completed';
 
 export default function ProgressPage() {
   const {
@@ -455,7 +456,7 @@ export default function ProgressPage() {
 
             {/* Filter pills */}
             <div className="flex items-center gap-1.5">
-              {(['all', 'in_progress', 'completed'] as CompanyFilter[]).map(f => (
+              {(['all', 'targeted', 'in_progress', 'completed'] as CompanyFilter[]).map(f => (
                 <button
                   key={f}
                   type="button"
@@ -466,7 +467,7 @@ export default function ProgressPage() {
                       : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-600 dark:text-[#A8A69C] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                   }`}
                 >
-                  {f === 'all' ? 'All' : f === 'in_progress' ? 'In Progress' : 'Completed'}
+                  {f === 'all' ? 'All' : f === 'targeted' ? `Targeted (${(progress.targetCompanies || []).length})` : f === 'in_progress' ? 'In Progress' : 'Completed'}
                 </button>
               ))}
             </div>
@@ -485,16 +486,17 @@ export default function ProgressPage() {
               />
             </div>
 
-            <select
+            <CustomDropdown
               value={companySort}
-              onChange={e => setCompanySort(e.target.value as CompanySort)}
-              className="h-9 px-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-700 dark:text-[#FAF9F5] focus:outline-none cursor-pointer shadow-2xs"
-            >
-              <option value="solved">Sort: Solved (Most)</option>
-              <option value="completion">Sort: Completion %</option>
-              <option value="count">Sort: Total Questions</option>
-              <option value="name">Sort: Name (A–Z)</option>
-            </select>
+              onChange={val => setCompanySort(val as CompanySort)}
+              options={[
+                { value: 'solved', label: 'Sort: Solved (Most)' },
+                { value: 'completion', label: 'Sort: Completion %' },
+                { value: 'count', label: 'Sort: Total Questions' },
+                { value: 'name', label: 'Sort: Name (A–Z)' },
+              ]}
+              size="sm"
+            />
           </div>
 
           {/* Company Progress Rows */}

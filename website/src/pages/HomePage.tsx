@@ -96,14 +96,29 @@ export default function HomePage() {
   // Total bookmarked count
   const totalBookmarked = progress.bookmarks.length;
 
-  // Prominent target companies for shortcuts & featured section
+  // Prominent target companies for shortcuts & featured section (user targeted first)
   const targetCompanies = useMemo(() => {
     if (!data) return [];
+    const userTargets = progress.targetCompanies || [];
+    if (userTargets.length > 0) {
+      const userList = userTargets
+        .map(slug => data.companies.find(c => c.slug === slug || (slug === 'meta' && c.slug === 'facebook')))
+        .filter(Boolean) as typeof data.companies;
+
+      const defaultSlugs = ['google', 'amazon', 'meta', 'microsoft', 'apple', 'bloomberg', 'uber', 'bytedance'];
+      const remaining = defaultSlugs
+        .filter(s => !userTargets.includes(s) && !(s === 'meta' && userTargets.includes('facebook')))
+        .map(slug => data.companies.find(c => c.slug === slug || (slug === 'meta' && c.slug === 'facebook')))
+        .filter(Boolean) as typeof data.companies;
+
+      return [...userList, ...remaining].slice(0, Math.max(userList.length, 8));
+    }
+
     const slugs = ['google', 'amazon', 'meta', 'microsoft', 'apple', 'bloomberg', 'uber', 'bytedance'];
     return slugs
       .map(slug => data.companies.find(c => c.slug === slug || (slug === 'meta' && c.slug === 'facebook')))
       .filter(Boolean) as typeof data.companies;
-  }, [data]);
+  }, [data, progress.targetCompanies]);
 
   const companyTopTags: Record<string, string> = {
     google: 'Arrays · DP · Graphs',

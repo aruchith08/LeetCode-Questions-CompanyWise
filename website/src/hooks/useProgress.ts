@@ -11,6 +11,7 @@ function getDefaultProgress(): UserProgress {
   return {
     solvedQuestions: {},
     bookmarks: [],
+    targetCompanies: [],
     recentCompanies: [],
     recentQuestions: [],
     recentQuestionTimestamps: {},
@@ -33,6 +34,7 @@ function loadProgress(): UserProgress {
       return {
         ...getDefaultProgress(),
         ...parsed,
+        targetCompanies: parsed.targetCompanies || [],
         recentQuestionTimestamps: parsed.recentQuestionTimestamps || {},
         activityHistory,
       };
@@ -193,6 +195,21 @@ export function useProgress() {
     [progress]
   );
 
+  const toggleTargetCompany = useCallback((slug: string) => {
+    setProgress(prev => {
+      const current = prev.targetCompanies || [];
+      const updated = current.includes(slug)
+        ? current.filter(s => s !== slug)
+        : [...current, slug];
+      return { ...prev, targetCompanies: updated };
+    });
+  }, []);
+
+  const isTargeted = useCallback(
+    (slug: string) => Boolean(progress.targetCompanies?.includes(slug)),
+    [progress.targetCompanies]
+  );
+
   const addRecentCompany = useCallback((slug: string) => {
     setProgress(prev => {
       const filtered = prev.recentCompanies.filter(s => s !== slug);
@@ -321,6 +338,9 @@ export function useProgress() {
     toggleAttempted,
     toggleBookmark,
     isBookmarked,
+    toggleTargetCompany,
+    isTargeted,
+    targetCompanies: progress.targetCompanies || [],
     addRecentCompany,
     addRecentQuestion,
     connectLeetCode,

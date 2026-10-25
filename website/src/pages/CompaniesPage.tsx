@@ -2,18 +2,19 @@ import React, { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   Search, ArrowUpDown, ArrowUp, ArrowDown,
-  ChevronLeft, ChevronRight, X, ChevronDown
+  ChevronLeft, ChevronRight, X, ChevronDown, Star
 } from 'lucide-react';
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useAllQuestions } from '../hooks/useAllQuestions';
 import { useProgress } from '../hooks/useProgress';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import CompanyLogo from '../components/ui/CompanyLogo';
+import CustomDropdown from '../components/ui/CustomDropdown';
 import CompaniesHeroIllustration from '../components/ui/CompaniesHeroIllustration';
 
 type SortBy = 'name' | 'questions' | 'solved' | 'completion';
 type SortDir = 'asc' | 'desc';
-type CategoryFilter = 'all' | 'faang' | 'product' | 'startups' | 'service';
+type CategoryFilter = 'all' | 'targeted' | 'faang' | 'product' | 'startups' | 'service';
 
 const PAGE_SIZE = 20;
 const ALPHABET = ['ALL', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
@@ -21,6 +22,7 @@ const ALPHABET = ['ALL', ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')];
 // Categorization mapping
 const CATEGORY_MAP: Record<CategoryFilter, string[]> = {
   all: [],
+  targeted: [],
   faang: ['google', 'amazon', 'meta', 'facebook', 'microsoft', 'apple', 'netflix'],
   product: [
     'adobe', 'airbnb', 'atlassian', 'bytedance', 'cisco', 'dropbox',
@@ -42,7 +44,7 @@ const CATEGORY_MAP: Record<CategoryFilter, string[]> = {
 export default function CompaniesPage() {
   const { data, loading: loadingIndex } = useDataIndex();
   const { data: allQuestions } = useAllQuestions();
-  const { getStatus } = useProgress();
+  const { getStatus, targetCompanies, isTargeted, toggleTargetCompany } = useProgress();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [search, setSearch] = useState('');
@@ -81,7 +83,10 @@ export default function CompaniesPage() {
     let list = [...data.companies];
 
     // Category filter
-    if (category !== 'all') {
+    if (category === 'targeted') {
+      const targetSet = new Set(targetCompanies);
+      list = list.filter(c => targetSet.has(c.slug));
+    } else if (category !== 'all') {
       const allowed = new Set(CATEGORY_MAP[category]);
       list = list.filter(c => allowed.has(c.slug));
     }
@@ -124,7 +129,7 @@ export default function CompaniesPage() {
     });
 
     return list;
-  }, [data, category, selectedLetter, search, sortBy, sortDir, companyMetrics]);
+  }, [data, category, selectedLetter, search, sortBy, sortDir, companyMetrics, targetCompanies]);
 
   const totalPages = Math.ceil(filteredCompanies.length / PAGE_SIZE);
   const pagedCompanies = filteredCompanies.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -218,6 +223,7 @@ export default function CompaniesPage() {
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
           {[
             { id: 'all', label: `All (${data.totalCompanies})` },
+            { id: 'targeted', label: `Targeted (${targetCompanies.length})` },
             { id: 'faang', label: 'Big Tech' },
             { id: 'product', label: 'Product' },
             { id: 'startups', label: 'Startups' },
@@ -263,24 +269,24 @@ export default function CompaniesPage() {
 
           {/* Sort Dropdown */}
           <div className="relative shrink-0">
-            <select
+            <CustomDropdown
               value={`${sortBy}-${sortDir}`}
-              onChange={e => {
-                const [by, dir] = e.target.value.split('-') as [SortBy, SortDir];
+              onChange={val => {
+                const [by, dir] = val.split('-') as [SortBy, SortDir];
                 setSortBy(by);
                 setSortDir(dir);
                 setPage(1);
               }}
-              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] cursor-pointer shadow-2xs"
-            >
-              <option value="questions-desc">Sort: Questions (High to Low)</option>
-              <option value="questions-asc">Sort: Questions (Low to High)</option>
-              <option value="name-asc">Sort: Name (A – Z)</option>
-              <option value="name-desc">Sort: Name (Z – A)</option>
-              <option value="solved-desc">Sort: Solved (Most)</option>
-              <option value="completion-desc">Sort: Completion %</option>
-            </select>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              options={[
+                { value: 'questions-desc', label: 'Sort: Questions (High to Low)' },
+                { value: 'questions-asc', label: 'Sort: Questions (Low to High)' },
+                { value: 'name-asc', label: 'Sort: Name (A – Z)' },
+                { value: 'name-desc', label: 'Sort: Name (Z – A)' },
+                { value: 'solved-desc', label: 'Sort: Solved (Most)' },
+                { value: 'completion-desc', label: 'Sort: Completion %' },
+              ]}
+              size="sm"
+            />
           </div>
         </div>
       </div>
@@ -482,15 +488,34 @@ export default function CompaniesPage() {
                         </div>
                       </td>
 
-                      {/* Row Action Arrow */}
+                      {/* Row Action: Target Toggle & Link Arrow */}
                       <td className="py-3.5 px-4 text-right">
-                        <Link
-                          to={`/companies/${c.slug}`}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:translate-x-0.5 transition-all"
-                          aria-label={`Open ${c.name}`}
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </Link>
+                        <div className="inline-flex items-center gap-1">
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              toggleTargetCompany(c.slug);
+                            }}
+                            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                              isTargeted(c.slug)
+                                ? 'text-amber-500 hover:text-amber-600 bg-amber-500/10'
+                                : 'text-slate-300 hover:text-amber-500 dark:text-slate-600 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                            }`}
+                            title={isTargeted(c.slug) ? 'Remove from targets' : 'Target this company'}
+                            aria-label={isTargeted(c.slug) ? 'Remove from targets' : 'Target this company'}
+                          >
+                            <Star className={`w-4 h-4 ${isTargeted(c.slug) ? 'fill-amber-500' : ''}`} />
+                          </button>
+                          <Link
+                            to={`/companies/${c.slug}`}
+                            className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:translate-x-0.5 transition-all"
+                            aria-label={`Open ${c.name}`}
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </Link>
+                        </div>
                       </td>
                     </tr>
                   );
