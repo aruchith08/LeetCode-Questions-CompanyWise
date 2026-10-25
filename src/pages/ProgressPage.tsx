@@ -513,7 +513,7 @@ export default function ProgressPage() {
                   <div className="flex items-center gap-3 min-w-0">
                     <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs" />
                     <div className="min-w-0">
-                      <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
+                      <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] block truncate">
                         {c.name}
                       </span>
                       <span className="text-xs text-slate-500 font-mono">
@@ -534,7 +534,7 @@ export default function ProgressPage() {
                         {c.pctDisplay}
                       </span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </Link>
               ))
@@ -598,7 +598,7 @@ export default function ProgressPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => addRecentQuestion(q.id)}
-                        className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] truncate transition-colors"
+                        className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] truncate transition-colors"
                       >
                         {q.title}
                       </a>

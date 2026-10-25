@@ -265,7 +265,7 @@ export default function HomePage() {
                         >
                           <div className="flex items-center gap-2.5">
                             <CompanyLogo slug={c.slug} name={c.name} size="xs" />
-                            <span className="text-xs font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524]">
+                            <span className="text-xs font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757]">
                               {c.name}
                             </span>
                           </div>
@@ -292,7 +292,7 @@ export default function HomePage() {
                         >
                           <div className="flex items-center gap-2 min-w-0">
                             <span className="font-mono text-xs text-slate-400">#{q.id}</span>
-                            <span className="text-xs font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] truncate">
+                            <span className="text-xs font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] truncate">
                               {q.title}
                             </span>
                           </div>
@@ -337,10 +337,10 @@ export default function HomePage() {
               <Link
                 key={c.slug}
                 to={`/companies/${c.slug}`}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#F5A524]/60 dark:hover:border-[#D97757]/60 text-xs font-medium text-slate-700 dark:text-[#FAF9F5] transition-all shadow-2xs group"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-medium text-slate-700 dark:text-[#FAF9F5] transition-colors shadow-2xs"
               >
                 <CompanyLogo slug={c.slug} name={c.name} size="xs" />
-                <span className="font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors">
+                <span className="font-semibold text-slate-900 dark:text-[#FAF9F5]">
                   {c.name}
                 </span>
                 <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
@@ -350,7 +350,7 @@ export default function HomePage() {
             ))}
             <Link
               to="/companies"
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:border-[#F5A524] hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors"
+              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-dashed border-slate-300 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-semibold text-slate-600 dark:text-[#A8A69C] transition-colors"
             >
               <span>+192 more</span>
               <ArrowRight className="w-3 h-3" />
@@ -378,7 +378,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-3.5 text-left bg-[#0F1B3D]/[0.02] dark:bg-amber-500/[0.04]">
-              <span className="text-[10px] font-mono text-[#F5A524] uppercase tracking-wider block font-semibold">Your Solved</span>
+              <span className="text-[10px] font-mono text-[#F5A524] dark:text-[#D97757] uppercase tracking-wider block font-semibold">Your Solved</span>
               <span className="text-xl font-bold font-mono text-[#0F1B3D] dark:text-[#D97757] block mt-0.5 tabular-nums">
                 {totalSolved}
               </span>
@@ -434,14 +434,14 @@ export default function HomePage() {
                 <Link
                   key={c.slug}
                   to={`/companies/${c.slug}`}
-                  className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] hover:border-[#F5A524]/50 dark:hover:border-[#D97757]/60 bg-white dark:bg-[#30302E] transition-all duration-200 group flex flex-col justify-between shadow-2xs hover:shadow-md hover:-translate-y-0.5"
+                  className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] bg-white dark:bg-[#30302E] transition-colors duration-150 flex flex-col justify-between shadow-2xs"
                 >
                   <div>
                     <div className="flex items-start justify-between mb-2.5">
                       <div className="flex items-center gap-3">
                         <CompanyLogo slug={c.slug} name={c.name} size="md" className="rounded-xl shadow-2xs" />
                         <div className="min-w-0">
-                          <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors truncate">
+                          <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] truncate">
                             {c.name}
                           </h3>
                           <span className="text-xs text-slate-500 font-medium">
@@ -449,7 +449,7 @@ export default function HomePage() {
                           </span>
                         </div>
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                      <ArrowUpRight className="w-4 h-4 text-slate-400 dark:text-[#A8A69C] shrink-0" />
                     </div>
 
                     <p className="text-[11px] font-mono text-slate-500 dark:text-[#A8A69C] truncate mb-3">
@@ -627,7 +627,7 @@ export default function HomePage() {
                         href={q.link || '#'}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] truncate transition-colors"
+                        className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] truncate transition-colors"
                       >
                         {q.title}
                       </a>
@@ -668,13 +668,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link
             to="/companies?category=faang"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-[#1F1E1D] text-[#0F1B3D] dark:text-[#38BDF8] flex items-center justify-center mb-3">
+              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-[#1F1E1D] text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-center mb-3">
                 <Building2 className="w-4 h-4" />
               </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
                 Big Tech Tier
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -683,19 +683,19 @@ export default function HomePage() {
             </div>
             <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-between">
               <span>Explore companies</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
 
           <Link
             to="/problems?difficulty=Medium"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#F5A524] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-[#E0B14F] flex items-center justify-center mb-3">
-                <BarChart2 className="w-4 h-4 text-[#F5A524]" />
+              <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-[#1F1E1D] text-amber-600 dark:text-[#E0B14F] flex items-center justify-center mb-3">
+                <BarChart2 className="w-4 h-4 text-[#F5A524] dark:text-[#E0B14F]" />
               </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#F5A524] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
                 Medium Core (799)
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -704,19 +704,19 @@ export default function HomePage() {
             </div>
             <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-amber-600 dark:text-[#E0B14F] flex items-center justify-between">
               <span>View Medium problems</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
 
           <Link
             to="/companies?category=startups"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
+              <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-[#1F1E1D] text-purple-600 dark:text-[#D97757] flex items-center justify-center mb-3">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-purple-600 dark:group-hover:text-[#F5A524] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
                 High-Growth Startups
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -725,19 +725,19 @@ export default function HomePage() {
             </div>
             <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-between">
               <span>Explore startups</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
 
           <Link
             to="/problems?q=Dynamic+Programming"
-            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-emerald-500/50 transition-all shadow-2xs group flex flex-col justify-between"
+            className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shadow-2xs flex flex-col justify-between"
           >
             <div>
-              <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-[#8FBF78] flex items-center justify-center mb-3">
+              <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-[#1F1E1D] text-emerald-600 dark:text-[#8FBF78] flex items-center justify-center mb-3">
                 <Layers className="w-4 h-4" />
               </div>
-              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
                 Dynamic Programming
               </h3>
               <p className="text-xs text-slate-500 mt-1">
@@ -746,7 +746,7 @@ export default function HomePage() {
             </div>
             <div className="mt-4 pt-2 border-t border-slate-100 dark:border-[#43433F] text-xs font-semibold text-emerald-600 dark:text-[#8FBF78] flex items-center justify-between">
               <span>Search DP problems</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
         </div>

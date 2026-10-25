@@ -411,7 +411,7 @@ export default function CompaniesPage() {
                         <Link to={`/companies/${c.slug}`} className="flex items-center gap-3.5">
                           <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs" />
                           <div className="min-w-0">
-                            <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
+                            <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] block truncate">
                               {c.name}
                             </span>
                           </div>
@@ -480,7 +480,7 @@ export default function CompaniesPage() {
                       <td className="py-3.5 px-4 text-right">
                         <Link
                           to={`/companies/${c.slug}`}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:translate-x-0.5 transition-all"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:translate-x-0.5 transition-all"
                           aria-label={`Open ${c.name}`}
                         >
                           <ChevronRight className="w-4 h-4" />

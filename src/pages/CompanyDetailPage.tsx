@@ -335,7 +335,7 @@ export default function CompanyDetailPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => addRecentQuestion(q.id)}
-                            className="font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors"
+                            className="font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors"
                           >
                             {q.title}
                           </a>
