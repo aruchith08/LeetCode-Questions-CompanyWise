@@ -1,5 +1,5 @@
 ---
-name: CodeWise
+name: CompanyWise
 description: Company-Wise LeetCode Interview Preparation
 colors:
   primary: "#2563EB"
@@ -68,7 +68,7 @@ components:
 
 ## Overview
 
-CodeWise adopts a developer-focused, high-density utility aesthetic influenced by modern developer toolkits (Linear, Vercel). The design prioritizes scanability, high text contrast, precise data visualization, and frictionless navigation across 200 tech company question collections.
+CompanyWise adopts a developer-focused, high-density utility aesthetic influenced by modern developer toolkits (Linear, Vercel). The design prioritizes scanability, high text contrast, precise data visualization, and frictionless navigation across 200 tech company question collections.
 
 ## Colors
 

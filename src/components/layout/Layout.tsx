@@ -33,7 +33,7 @@ export default function Layout({ isDark, onToggleTheme }: LayoutProps) {
         onSyncLC={syncLeetCode}
         onDisconnectLC={disconnectLeetCode}
       />
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-12">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 pb-16">
         <Outlet />
       </main>
       <Footer />

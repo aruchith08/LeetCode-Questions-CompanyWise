@@ -2,8 +2,8 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   Search, ArrowRight, ArrowUpRight, Check, Clock, Bookmark,
-  Layers, ChevronRight, X, Sparkles, Building2, Terminal,
-  ExternalLink, BarChart2, ShieldCheck, Target
+  Layers, ChevronRight, X, Sparkles, Building2,
+  ExternalLink, BarChart2, Target
 } from 'lucide-react';
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useProgress } from '../hooks/useProgress';
@@ -16,13 +16,12 @@ import DifficultyBadge from '../components/ui/DifficultyBadge';
 export default function HomePage() {
   const { data, loading: loadingIndex } = useDataIndex();
   const { data: allQuestions, loading: loadingQuestions } = useAllQuestions();
-  const { totalSolved, progress, getStatus, toggleSolved, toggleBookmark, isBookmarked } = useProgress();
+  const { totalSolved, progress, getStatus, toggleSolved } = useProgress();
   const navigate = useNavigate();
 
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +53,7 @@ export default function HomePage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Data constants & calculations
+  // Data calculations
   const totalQuestions = data?.totalQuestions || 1446;
   const rawPct = totalQuestions > 0 ? (totalSolved / totalQuestions) * 100 : 0;
   const progressDisplay = totalSolved === 0
@@ -88,12 +87,12 @@ export default function HomePage() {
     };
   }, [allQuestions, data, getStatus]);
 
-  // Total attempted questions count
+  // Total attempted count
   const totalAttempted = useMemo(() => {
     return Object.values(progress.solvedQuestions).filter(s => s === 'attempted').length;
   }, [progress.solvedQuestions]);
 
-  // Total bookmarked questions count
+  // Total bookmarked count
   const totalBookmarked = progress.bookmarks.length;
 
   // Prominent target companies for shortcuts & featured section
@@ -140,14 +139,13 @@ export default function HomePage() {
         .filter((q): q is typeof allQuestions[number] => Boolean(q))
         .slice(0, 4);
     }
-    // Default to classic iconic problems
     const defaults = [1, 200, 146, 20];
     return defaults
       .map(id => allQuestions.find(q => q.id === id))
       .filter((q): q is typeof allQuestions[number] => Boolean(q));
   }, [allQuestions, progress.recentQuestions]);
 
-  // Live search results: combine companies + problems
+  // Live search results
   const searchResults = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
     if (!q || q.length < 1) return { companies: [], questions: [] };
@@ -184,30 +182,30 @@ export default function HomePage() {
   if (!data) return null;
 
   return (
-    <div className="space-y-10 sm:space-y-12 animate-fade-in pb-16">
+    <div className="space-y-10 sm:space-y-12 animate-fade-in pb-12">
       {/* Search-First Command Desk Hero */}
       <section className="pt-2 sm:pt-6 pb-2 max-w-4xl mx-auto text-center space-y-6">
-        {/* Terminal/Diagnostic Eyebrow */}
+        {/* Terminal/Diagnostic Tag */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121214] text-xs font-mono text-neutral-600 dark:text-neutral-400 shadow-2xs">
           <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
           <span>Curated Interview Intelligence · 200 Companies</span>
         </div>
 
-        {/* Main Headline */}
+        {/* Headline */}
         <div className="space-y-3">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.12]">
             Target the exact questions<br />
             top tech companies <span className="text-blue-600 dark:text-blue-400">actually ask.</span>
           </h1>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and interview frequency rankings.
+            Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and frequency rankings.
           </p>
         </div>
 
         {/* Central Command Search Box */}
         <div className="relative max-w-2xl mx-auto text-left" ref={searchContainerRef}>
           <form onSubmit={handleSearchSubmit} className="relative">
-            <div className={`relative flex items-center bg-white dark:bg-[#121214] border rounded-2xl shadow-sm transition-all ${
+            <div className={`relative flex items-center bg-white dark:bg-[#121214] border rounded-2xl shadow-xs transition-all ${
               searchFocused
                 ? 'border-blue-500 ring-4 ring-blue-500/10 shadow-md'
                 : 'border-neutral-200/90 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700'
@@ -220,11 +218,10 @@ export default function HomePage() {
                 onChange={e => {
                   setSearchQuery(e.target.value);
                   setSearchFocused(true);
-                  setSelectedIndex(0);
                 }}
                 onFocus={() => setSearchFocused(true)}
                 placeholder="Search companies (e.g. Google, Amazon) or questions (e.g. Two Sum, #146)..."
-                className="w-full h-13 pl-3 pr-28 bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none"
+                className="w-full h-13 pl-3 pr-28 bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none font-sans"
               />
               <div className="absolute right-3 flex items-center gap-1.5">
                 {searchQuery ? (
@@ -243,7 +240,7 @@ export default function HomePage() {
                 )}
                 <button
                   type="submit"
-                  className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors shrink-0"
+                  className="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors shrink-0 shadow-2xs"
                 >
                   Search
                 </button>
@@ -316,6 +313,7 @@ export default function HomePage() {
                   {/* Footer link to view all */}
                   <div className="p-2.5 bg-neutral-50 dark:bg-neutral-900/40 text-center">
                     <button
+                      type="button"
                       onClick={handleSearchSubmit}
                       className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1"
                     >
@@ -335,7 +333,7 @@ export default function HomePage() {
         {/* Quick-Access Company Jump Matrix */}
         <div className="space-y-2 pt-1">
           <div className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider">
-            Quick Jump to Tech Targets
+            Quick Jump to Target Companies
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {targetCompanies.map(c => (
@@ -363,7 +361,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Concise Telemetry Strip: Derived Strictly from Real Data */}
+        {/* Telemetry Strip from Actual Data */}
         <div className="pt-4 border-t border-neutral-200/80 dark:border-neutral-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left max-w-3xl mx-auto">
           <div className="p-3 rounded-xl bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 shadow-2xs">
             <span className="text-[11px] font-mono text-neutral-500 block uppercase tracking-wider">Catalog</span>
@@ -399,7 +397,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Main Workspace Grid: Featured Company Sets (Left) + Personal Command Desk (Right) */}
+      {/* Main Workspace Grid: Featured Company Sets (Left) + Personal Command Deck (Right) */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column (8 cols): Featured Company Sets */}
         <div className="lg:col-span-8 space-y-4">

@@ -1,4 +1,4 @@
-# CodeWise — 200 company logo images
+# CompanyWise — 200 company logo images
 
 This archive contains **200 image assets**, one per company slug in the provided list.
 

@@ -1,108 +1,118 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
-  ExternalLink, Search, Copy, Check, ChevronLeft, ChevronRight, X,
-  BarChart2, Building2, Target, SlidersHorizontal, ChevronDown,
-  ArrowUpDown, ArrowUp, ArrowDown, Clock, CheckCircle2, Bookmark
+  Search, ArrowUpDown, ArrowUp, ArrowDown, ExternalLink,
+  ChevronLeft, ChevronRight, Check, X, Filter,
+  Building2, BarChart2, Bookmark, Copy, Clock, ChevronDown
 } from 'lucide-react';
 import { useAllQuestions } from '../hooks/useAllQuestions';
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useProgress } from '../hooks/useProgress';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
 import StatusToggle from '../components/ui/StatusToggle';
 import BookmarkButton from '../components/ui/BookmarkButton';
-import LoadingSpinner from '../components/ui/LoadingSpinner';
 import CompanyLogo from '../components/ui/CompanyLogo';
 import type { GlobalQuestion, QuestionStatus } from '../types';
 
-type SortKey = 'companies' | 'id' | 'title' | 'difficulty' | 'acceptance';
+type SortKey = 'id' | 'title' | 'difficulty' | 'acceptance' | 'companies';
 type SortDir = 'asc' | 'desc';
 
-export default function ProblemsPage() {
-  const [searchParams] = useSearchParams();
-  const initialQuery = searchParams.get('q') || '';
+const PAGE_SIZE = 30;
 
+export default function ProblemsPage() {
   const { data: questions, loading: loadingQ } = useAllQuestions();
   const { data: index } = useDataIndex();
   const {
-    getStatus, setQuestionStatus, markBatchStatus, toggleBookmark, isBookmarked,
-    addRecentQuestion, totalSolved
+    totalSolved, getStatus, toggleSolved, toggleBookmark,
+    isBookmarked, setQuestionStatus, addRecentQuestion,
   } = useProgress();
 
-  const [search, setSearch] = useState(initialQuery);
-  const [difficultyFilter, setDifficultyFilter] = useState('all');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [companyFilter, setCompanyFilter] = useState('all');
-  const [sortKey, setSortKey] = useState<SortKey>('companies');
-  const [sortDir, setSortDir] = useState<SortDir>('desc');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Filters from query params
+  const [search, setSearch] = useState(searchParams.get('q') || '');
+  const [difficultyFilter, setDifficultyFilter] = useState(searchParams.get('difficulty') || 'all');
+  const [companyFilter, setCompanyFilter] = useState(searchParams.get('company') || 'all');
+  const [statusFilter, setStatusFilter] = useState(searchParams.get('status') || 'all');
+
+  const [sortKey, setSortKey] = useState<SortKey>('id');
+  const [sortDir, setSortDir] = useState<SortDir>('asc');
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState<number>(30);
   const [copiedId, setCopiedId] = useState<number | null>(null);
+
+  // Batch selection
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
 
-  // Company popover modal state for viewing all companies associated with a problem
-  const [companyPopoverQuestion, setCompanyPopoverQuestion] = useState<GlobalQuestion | null>(null);
-  const [popoverSearch, setPopoverSearch] = useState('');
-
+  // Sync state with URL params
   useEffect(() => {
-    if (initialQuery) {
-      setSearch(initialQuery);
-    }
-  }, [initialQuery]);
+    const qParam = searchParams.get('q');
+    if (qParam !== null && qParam !== search) setSearch(qParam);
 
+    const diffParam = searchParams.get('difficulty');
+    if (diffParam !== null && diffParam !== difficultyFilter) setDifficultyFilter(diffParam);
+
+    const compParam = searchParams.get('company');
+    if (compParam !== null && compParam !== companyFilter) setCompanyFilter(compParam);
+
+    const statParam = searchParams.get('status');
+    if (statParam !== null && statParam !== statusFilter) setStatusFilter(statParam);
+  }, [searchParams]);
+
+  // Company names map
   const companyNameMap = useMemo(() => {
-    if (!index) return new Map<string, string>();
     const map = new Map<string, string>();
-    index.companies.forEach(c => map.set(c.slug, c.name));
+    if (index?.companies) {
+      for (const c of index.companies) {
+        map.set(c.slug, c.name);
+      }
+    }
     return map;
   }, [index]);
 
+  // Sorted companies list for dropdown
   const sortedCompanyList = useMemo(() => {
-    if (!index) return [];
-    return [...index.companies].sort((a, b) => a.name.localeCompare(b.name));
+    if (!index?.companies) return [];
+    return [...index.companies].sort((a, b) => b.questionCount - a.questionCount);
   }, [index]);
 
-  const filtered = useMemo(() => {
+  // Filter & sort questions
+  const filteredQuestions = useMemo(() => {
     if (!questions) return [];
     let list = [...questions];
 
+    // Search query
     if (search.trim()) {
-      const q = search.toLowerCase();
+      const q = search.toLowerCase().trim();
       list = list.filter(
-        item => item.title.toLowerCase().includes(q) || item.id.toString().includes(q)
+        item => item.title.toLowerCase().includes(q) || item.id.toString() === q
       );
     }
 
+    // Difficulty filter
     if (difficultyFilter !== 'all') {
       list = list.filter(item => item.difficulty === difficultyFilter);
     }
 
+    // Company filter
     if (companyFilter !== 'all') {
       list = list.filter(item => item.companySlugs.includes(companyFilter));
     }
 
+    // Status filter
     if (statusFilter !== 'all') {
-      list = list.filter(item => {
-        const s = getStatus(item.id);
-        if (statusFilter === 'solved') return s === 'solved';
-        if (statusFilter === 'attempted') return s === 'attempted';
-        if (statusFilter === 'unsolved') return s === 'unsolved';
-        return true;
-      });
+      list = list.filter(item => getStatus(item.id) === statusFilter);
     }
 
+    // Sorting
     list.sort((a, b) => {
       let cmp = 0;
       switch (sortKey) {
-        case 'id':
-          cmp = a.id - b.id;
-          break;
-        case 'title':
-          cmp = a.title.localeCompare(b.title);
-          break;
+        case 'id': cmp = a.id - b.id; break;
+        case 'title': cmp = a.title.localeCompare(b.title); break;
         case 'difficulty': {
-          const ord = { Easy: 0, Medium: 1, Hard: 2 };
-          cmp = ord[a.difficulty] - ord[b.difficulty];
+          const order = { Easy: 1, Medium: 2, Hard: 3 };
+          cmp = (order[a.difficulty] || 0) - (order[b.difficulty] || 0);
           break;
         }
         case 'acceptance': {
@@ -112,51 +122,41 @@ export default function ProblemsPage() {
           break;
         }
         case 'companies':
-        default:
-          cmp = (b.companySlugs?.length || 0) - (a.companySlugs?.length || 0) || (a.id - b.id);
-          return sortDir === 'asc' ? -cmp : cmp;
+          cmp = a.companyCount - b.companyCount;
+          break;
       }
       return sortDir === 'asc' ? cmp : -cmp;
     });
 
     return list;
-  }, [questions, search, difficultyFilter, statusFilter, companyFilter, sortKey, sortDir, getStatus]);
+  }, [questions, search, difficultyFilter, companyFilter, statusFilter, sortKey, sortDir, getStatus]);
 
-  const totalPages = Math.ceil(filtered.length / pageSize) || 1;
-  const pagedItems = filtered.slice((page - 1) * pageSize, page * pageSize);
+  const totalPages = Math.ceil(filteredQuestions.length / PAGE_SIZE);
+  const pagedItems = filteredQuestions.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  // Pagination number builder
-  const paginationItems = useMemo(() => {
-    if (totalPages <= 7) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
-    if (page <= 4) {
-      return [1, 2, 3, 4, 5, '...', totalPages];
-    }
-    if (page >= totalPages - 3) {
-      return [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-    }
-    return [1, '...', page - 1, page, page + 1, '...', totalPages];
-  }, [page, totalPages]);
-
-  const handleCopyLink = (q: GlobalQuestion, e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!q.link) return;
-    navigator.clipboard.writeText(q.link);
-    setCopiedId(q.id);
-    setTimeout(() => setCopiedId(null), 1500);
-  };
-
-  const handleToggleSelectAll = () => {
-    if (selectedIds.size === pagedItems.length) {
-      setSelectedIds(new Set());
+  const handleSortToggle = (key: SortKey) => {
+    if (sortKey === key) {
+      setSortDir(d => (d === 'asc' ? 'desc' : 'asc'));
     } else {
-      setSelectedIds(new Set(pagedItems.map(item => item.id)));
+      setSortKey(key);
+      setSortDir('asc');
     }
+    setPage(1);
   };
 
-  const handleToggleSelectRow = (id: number, e: React.MouseEvent) => {
-    e.stopPropagation();
+  const hasActiveFilters = search !== '' || difficultyFilter !== 'all' || companyFilter !== 'all' || statusFilter !== 'all';
+
+  const handleClearAllFilters = () => {
+    setSearch('');
+    setDifficultyFilter('all');
+    setCompanyFilter('all');
+    setStatusFilter('all');
+    setSearchParams({});
+    setPage(1);
+  };
+
+  // Batch toggle
+  const handleToggleSelectRow = (id: number) => {
     setSelectedIds(prev => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
@@ -165,32 +165,27 @@ export default function ProblemsPage() {
     });
   };
 
-  const handleSortToggle = (key: SortKey) => {
-    if (sortKey === key) {
-      setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+  const handleToggleSelectAll = () => {
+    if (selectedIds.size === pagedItems.length && pagedItems.length > 0) {
+      setSelectedIds(new Set());
     } else {
-      setSortKey(key);
-      setSortDir(key === 'title' || key === 'id' ? 'asc' : 'desc');
+      setSelectedIds(new Set(pagedItems.map(q => q.id)));
     }
-    setPage(1);
   };
 
-  const handleClearAllFilters = () => {
-    setSearch('');
-    setDifficultyFilter('all');
-    setCompanyFilter('all');
-    setStatusFilter('all');
-    setSortKey('companies');
-    setSortDir('desc');
-    setPage(1);
-  };
-
-  const hasActiveFilters = search.trim() !== '' || difficultyFilter !== 'all' || companyFilter !== 'all' || statusFilter !== 'all';
-
-  // Batch actions
   const handleBatchMark = (status: QuestionStatus) => {
-    markBatchStatus(Array.from(selectedIds), status);
+    selectedIds.forEach(id => {
+      setQuestionStatus(id, status);
+    });
     setSelectedIds(new Set());
+  };
+
+  const handleCopy = (q: GlobalQuestion, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!q.link) return;
+    navigator.clipboard.writeText(q.link);
+    setCopiedId(q.id);
+    setTimeout(() => setCopiedId(null), 1500);
   };
 
   const renderSortIcon = (key: SortKey) => {
@@ -222,69 +217,44 @@ export default function ProblemsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-neutral-200/80 dark:border-neutral-800">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
             Problems
           </h1>
-          <p className="text-sm text-slate-600 dark:text-neutral-400 mt-1">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
             {totalQuestionsCount.toLocaleString()} problems across {index?.totalCompanies || 200} companies
           </p>
         </div>
 
-        {/* Header Progress Widget (Solved + Progress Ring) */}
-        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] px-5 py-2.5 shadow-xs flex items-center gap-6 self-start sm:self-auto shrink-0">
+        {/* Header Progress Widget */}
+        <div className="rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] px-5 py-2.5 shadow-xs flex items-center gap-6 self-start sm:self-auto shrink-0 font-sans">
           {/* Solved Stat */}
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-2xs">
               <Check className="w-4 h-4 stroke-[3]" />
             </div>
             <div>
-              <div className="font-extrabold text-base text-slate-900 dark:text-white leading-tight font-sans">
+              <div className="font-extrabold text-base text-neutral-900 dark:text-white leading-tight font-mono">
                 {totalSolved}
               </div>
-              <div className="text-xs text-slate-500 dark:text-neutral-400 font-medium">solved</div>
+              <div className="text-xs text-neutral-500 font-medium">solved</div>
             </div>
           </div>
 
-          {/* Circular Progress Ring with Accurate Fractional % */}
+          {/* Progress % */}
           <div className="flex items-center gap-3 pl-6 border-l border-neutral-200 dark:border-neutral-800">
-            <div className="relative w-8 h-8 flex items-center justify-center shrink-0">
-              <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  className="text-neutral-100 dark:text-neutral-800"
-                />
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeDasharray={2 * Math.PI * 14}
-                  strokeDashoffset={2 * Math.PI * 14 * (1 - (totalSolved > 0 ? Math.max(overallPctNum, 0.5) : 0) / 100)}
-                  strokeLinecap="round"
-                  className="text-blue-600 transition-all duration-500"
-                />
-              </svg>
-            </div>
             <div>
-              <div className="font-extrabold text-base text-slate-900 dark:text-white leading-tight font-sans">
+              <div className="font-extrabold text-base text-blue-600 dark:text-blue-400 leading-tight font-mono">
                 {overallPctDisplay}
               </div>
-              <div className="text-xs text-slate-500 dark:text-neutral-400 font-medium">complete</div>
+              <div className="text-xs text-neutral-500 font-medium">complete</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Filter Toolbar (Search + 4 Styled Dropdowns) */}
+      {/* Filter Toolbar */}
       <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           {/* Search input */}
           <div className="relative flex-1 min-w-[240px]">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
@@ -293,10 +263,11 @@ export default function ProblemsPage() {
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search problems or ID..."
-              className="w-full h-10 pl-10 pr-9 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs text-slate-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
+              className="w-full h-10 pl-10 pr-9 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 transition-colors shadow-2xs"
             />
             {search && (
               <button
+                type="button"
                 onClick={() => { setSearch(''); setPage(1); }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200"
                 aria-label="Clear search"
@@ -308,7 +279,7 @@ export default function ProblemsPage() {
 
           {/* Difficulty Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-slate-800 dark:text-neutral-200 shadow-2xs">
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
               <BarChart2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
               <select
                 value={difficultyFilter}
@@ -326,7 +297,7 @@ export default function ProblemsPage() {
 
           {/* Company Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-slate-800 dark:text-neutral-200 shadow-2xs">
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
               <Building2 className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
               <select
                 value={companyFilter}
@@ -346,8 +317,8 @@ export default function ProblemsPage() {
 
           {/* Status Filter */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-slate-800 dark:text-neutral-200 shadow-2xs">
-              <Target className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
+              <Check className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
               <select
                 value={statusFilter}
                 onChange={e => { setStatusFilter(e.target.value); setPage(1); }}
@@ -362,44 +333,41 @@ export default function ProblemsPage() {
             </div>
           </div>
 
-          {/* Sort Filter */}
+          {/* Sort Selector */}
           <div className="relative shrink-0">
-            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-slate-800 dark:text-neutral-200 shadow-2xs">
-              <SlidersHorizontal className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+            <div className="flex items-center gap-2 h-10 pl-3.5 pr-8 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-xl text-xs font-semibold text-neutral-800 dark:text-neutral-200 shadow-2xs">
+              <ArrowUpDown className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
               <select
                 value={`${sortKey}-${sortDir}`}
                 onChange={e => {
-                  const [key, dir] = e.target.value.split('-') as [SortKey, SortDir];
-                  setSortKey(key);
-                  setSortDir(dir);
+                  const [k, d] = e.target.value.split('-') as [SortKey, SortDir];
+                  setSortKey(k);
+                  setSortDir(d);
                   setPage(1);
                 }}
                 className="appearance-none bg-transparent focus:outline-none cursor-pointer pr-1"
               >
-                <option value="companies-desc">Sort: Most companies</option>
-                <option value="companies-asc">Sort: Least companies</option>
                 <option value="id-asc">Sort: ID (Low to High)</option>
                 <option value="id-desc">Sort: ID (High to Low)</option>
+                <option value="companies-desc">Sort: Most Companies</option>
                 <option value="title-asc">Sort: Title (A–Z)</option>
-                <option value="title-desc">Sort: Title (Z–A)</option>
-                <option value="difficulty-asc">Sort: Difficulty (Easy to Hard)</option>
-                <option value="difficulty-desc">Sort: Difficulty (Hard to Easy)</option>
-                <option value="acceptance-desc">Sort: Acceptance (High to Low)</option>
-                <option value="acceptance-asc">Sort: Acceptance (Low to High)</option>
+                <option value="difficulty-asc">Sort: Difficulty (Easy first)</option>
+                <option value="difficulty-desc">Sort: Difficulty (Hard first)</option>
+                <option value="acceptance-desc">Sort: Highest Acceptance</option>
               </select>
               <ChevronDown className="w-3.5 h-3.5 text-neutral-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
         </div>
 
-        {/* Active Filter Chips Strip */}
+        {/* Active Filters Pill Bar */}
         {hasActiveFilters && (
           <div className="flex flex-wrap items-center gap-2 pt-1">
-            <span className="text-xs font-bold text-neutral-400 uppercase tracking-wider mr-1">Active filters:</span>
+            <span className="text-xs text-neutral-400 font-mono">Filters:</span>
             {search && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
-                Search: &ldquo;{search}&rdquo;
-                <button onClick={() => setSearch('')} className="hover:text-blue-900 dark:hover:text-white">
+                Query: &ldquo;{search}&rdquo;
+                <button type="button" onClick={() => setSearch('')} className="hover:text-blue-900 dark:hover:text-white">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -407,7 +375,7 @@ export default function ProblemsPage() {
             {difficultyFilter !== 'all' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
                 Difficulty: {difficultyFilter}
-                <button onClick={() => setDifficultyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setDifficultyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -415,7 +383,7 @@ export default function ProblemsPage() {
             {companyFilter !== 'all' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
                 Company: {companyNameMap.get(companyFilter) || companyFilter}
-                <button onClick={() => setCompanyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setCompanyFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
                   <X className="w-3 h-3" />
                 </button>
               </span>
@@ -423,12 +391,13 @@ export default function ProblemsPage() {
             {statusFilter !== 'all' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/40">
                 Status: {statusFilter.charAt(0).toUpperCase() + statusFilter.slice(1)}
-                <button onClick={() => setStatusFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
+                <button type="button" onClick={() => setStatusFilter('all')} className="hover:text-blue-900 dark:hover:text-white">
                   <X className="w-3 h-3" />
                 </button>
               </span>
             )}
             <button
+              type="button"
               onClick={handleClearAllFilters}
               className="text-xs font-semibold text-rose-600 dark:text-rose-400 hover:underline ml-1"
             >
@@ -438,15 +407,16 @@ export default function ProblemsPage() {
         )}
       </div>
 
-      {/* Floating Bulk Action Bar (Visible when rows are selected) */}
+      {/* Floating Bulk Action Bar */}
       {selectedIds.size > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-slate-900 dark:bg-[#18181b] text-white px-5 py-3 rounded-2xl shadow-xl shadow-black/25 border border-neutral-700 flex items-center gap-4 animate-fade-in">
-          <span className="text-xs font-bold text-neutral-300">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-neutral-900 dark:bg-[#18181b] text-white px-5 py-3 rounded-2xl shadow-xl shadow-black/25 border border-neutral-700 flex items-center gap-4 animate-fade-in">
+          <span className="text-xs font-bold text-neutral-300 font-mono">
             {selectedIds.size} {selectedIds.size === 1 ? 'question' : 'questions'} selected
           </span>
           <div className="h-4 w-px bg-neutral-700" />
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={() => handleBatchMark('solved')}
               className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
             >
@@ -454,6 +424,7 @@ export default function ProblemsPage() {
               <span>Mark Solved</span>
             </button>
             <button
+              type="button"
               onClick={() => handleBatchMark('attempted')}
               className="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
             >
@@ -461,12 +432,14 @@ export default function ProblemsPage() {
               <span>Mark Attempted</span>
             </button>
             <button
+              type="button"
               onClick={() => handleBatchMark('unsolved')}
               className="px-3 py-1.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs font-bold transition-colors"
             >
               <span>Mark Unsolved</span>
             </button>
             <button
+              type="button"
               onClick={() => setSelectedIds(new Set())}
               className="p-1.5 text-neutral-400 hover:text-white transition-colors"
               title="Deselect all"
@@ -483,6 +456,7 @@ export default function ProblemsPage() {
           <p>No questions match your current filters.</p>
           {hasActiveFilters && (
             <button
+              type="button"
               onClick={handleClearAllFilters}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 transition-colors"
             >
@@ -494,7 +468,7 @@ export default function ProblemsPage() {
         <div className="space-y-4">
           <div className="overflow-x-auto rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-[#121214] shadow-xs">
             <table className="w-full text-xs">
-              <thead className="sticky top-14 z-20 backdrop-blur-md bg-neutral-50/90 dark:bg-neutral-900/90 border-b border-neutral-200 dark:border-neutral-800 text-left text-neutral-400 font-bold uppercase text-[11px] tracking-wider">
+              <thead className="bg-neutral-50/80 dark:bg-neutral-900/60 border-b border-neutral-200 dark:border-neutral-800 text-left text-neutral-400 font-bold uppercase text-[11px] tracking-wider">
                 <tr>
                   {/* Select All Checkbox */}
                   <th className="py-3.5 px-3 w-12 text-center">
@@ -503,18 +477,17 @@ export default function ProblemsPage() {
                       checked={selectedIds.size === pagedItems.length && pagedItems.length > 0}
                       onChange={handleToggleSelectAll}
                       className="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-blue-600 focus:ring-0 cursor-pointer"
+                      aria-label="Select all rows on this page"
                     />
                   </th>
 
                   {/* Status Indicator */}
-                  <th className="py-3.5 px-2 w-14 text-center">
-                    STATUS
-                  </th>
+                  <th className="py-3.5 px-2 w-14 text-center">STATUS</th>
 
                   {/* ID */}
                   <th
                     className={`py-3.5 px-3 w-20 cursor-pointer select-none transition-colors group ${
-                      sortKey === 'id' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortKey === 'id' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('id')}
                   >
@@ -527,7 +500,7 @@ export default function ProblemsPage() {
                   {/* Title */}
                   <th
                     className={`py-3.5 px-4 cursor-pointer select-none transition-colors group min-w-[240px] ${
-                      sortKey === 'title' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortKey === 'title' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('title')}
                   >
@@ -540,33 +513,20 @@ export default function ProblemsPage() {
                   {/* Difficulty */}
                   <th
                     className={`py-3.5 px-3 w-28 cursor-pointer select-none transition-colors group ${
-                      sortKey === 'difficulty' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortKey === 'difficulty' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('difficulty')}
                   >
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1.5">
                       <span>DIFFICULTY</span>
                       {renderSortIcon('difficulty')}
                     </div>
                   </th>
 
-                  {/* Acceptance */}
+                  {/* Top Companies Asking */}
                   <th
-                    className={`py-3.5 px-4 w-36 whitespace-nowrap cursor-pointer select-none transition-colors group ${
-                      sortKey === 'acceptance' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-slate-900 dark:hover:text-white'
-                    }`}
-                    onClick={() => handleSortToggle('acceptance')}
-                  >
-                    <div className="flex items-center gap-1">
-                      <span>ACCEPTANCE</span>
-                      {renderSortIcon('acceptance')}
-                    </div>
-                  </th>
-
-                  {/* Companies */}
-                  <th
-                    className={`py-3.5 px-4 w-56 min-w-[180px] cursor-pointer select-none transition-colors group ${
-                      sortKey === 'companies' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-slate-900 dark:hover:text-white'
+                    className={`py-3.5 px-4 cursor-pointer select-none transition-colors group min-w-[180px] ${
+                      sortKey === 'companies' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSortToggle('companies')}
                   >
@@ -576,145 +536,132 @@ export default function ProblemsPage() {
                     </div>
                   </th>
 
-                  {/* Action */}
-                  <th className="py-3.5 px-4 w-44 text-right">ACTION</th>
+                  {/* Acceptance */}
+                  <th
+                    className={`py-3.5 px-4 w-28 cursor-pointer select-none transition-colors group ${
+                      sortKey === 'acceptance' ? 'text-blue-600 dark:text-blue-400' : 'hover:text-neutral-900 dark:hover:text-white'
+                    }`}
+                    onClick={() => handleSortToggle('acceptance')}
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span>ACCEPTANCE</span>
+                      {renderSortIcon('acceptance')}
+                    </div>
+                  </th>
+
+                  {/* Actions Column */}
+                  <th className="py-3.5 px-4 w-32 text-right">ACTION</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60">
                 {pagedItems.map(q => {
                   const status = getStatus(q.id);
-                  const isCopied = copiedId === q.id;
                   const isSelected = selectedIds.has(q.id);
                   const bookmarked = isBookmarked(q.id);
-                  const topSlugs = q.companySlugs.slice(0, 3);
-                  const remainingCount = q.companySlugs.length - topSlugs.length;
+                  const isCopied = copiedId === q.id;
 
                   return (
                     <tr
                       key={q.id}
-                      className={`h-14 transition-colors group ${
-                        isSelected
-                          ? 'bg-blue-50/70 dark:bg-blue-950/30'
-                          : 'hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40'
+                      className={`min-h-[48px] hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors group ${
+                        isSelected ? 'bg-blue-50/50 dark:bg-blue-950/20' : ''
                       }`}
                     >
-                      {/* Select Checkbox */}
-                      <td className="py-3 px-3 text-center" onClick={(e) => handleToggleSelectRow(q.id, e)}>
+                      {/* Checkbox */}
+                      <td className="py-3 px-3 text-center">
                         <input
                           type="checkbox"
                           checked={isSelected}
-                          onChange={() => {}}
+                          onChange={() => handleToggleSelectRow(q.id)}
                           className="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-blue-600 focus:ring-0 cursor-pointer"
+                          aria-label={`Select row for problem #${q.id}`}
                         />
                       </td>
 
-                      {/* 3-State Status Toggle (Solved / Attempted / Unsolved) */}
+                      {/* Status Toggle */}
                       <td className="py-3 px-2 text-center">
                         <StatusToggle
                           status={status}
                           onSelectStatus={(newStatus) => setQuestionStatus(q.id, newStatus)}
+                          onToggleSolved={() => toggleSolved(q.id)}
                         />
                       </td>
 
-                      {/* Problem ID */}
-                      <td className="py-3 px-3 font-mono text-neutral-400 text-xs font-semibold">
+                      {/* ID */}
+                      <td className="py-3 px-3 font-mono text-neutral-400 text-xs">
                         #{q.id}
                       </td>
 
-                      {/* Title with Link */}
+                      {/* Title */}
                       <td className="py-3 px-4">
-                        {q.link ? (
+                        <a
+                          href={q.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => addRecentQuestion(q.id)}
+                          className="font-semibold text-neutral-900 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors inline-block"
+                        >
+                          {q.title}
+                        </a>
+                      </td>
+
+                      {/* Difficulty Badge */}
+                      <td className="py-3 px-3">
+                        <DifficultyBadge difficulty={q.difficulty} size="sm" />
+                      </td>
+
+                      {/* Companies asking */}
+                      <td className="py-3 px-4">
+                        <div className="flex items-center gap-1.5">
+                          <div className="flex items-center -space-x-1.5 overflow-hidden">
+                            {q.companySlugs.slice(0, 3).map(slug => (
+                              <CompanyLogo
+                                key={slug}
+                                slug={slug}
+                                size="xs"
+                                className="border border-white dark:border-[#121214] rounded-md shadow-2xs"
+                              />
+                            ))}
+                          </div>
+                          <span className="font-mono text-[11px] text-neutral-500 font-medium">
+                            {q.companyCount} {q.companyCount === 1 ? 'co' : 'cos'}
+                          </span>
+                        </div>
+                      </td>
+
+                      {/* Acceptance */}
+                      <td className="py-3 px-4 font-mono text-neutral-500">
+                        {q.acceptance}
+                      </td>
+
+                      {/* Action */}
+                      <td className="py-3 px-4 text-right">
+                        <div className="flex items-center justify-end gap-1">
+                          <button
+                            type="button"
+                            onClick={(e) => handleCopy(q, e)}
+                            className="p-1 rounded text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 opacity-60 group-hover:opacity-100 transition-opacity"
+                            title="Copy problem link"
+                          >
+                            {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                          </button>
+
+                          <div className="opacity-60 group-hover:opacity-100 transition-opacity">
+                            <BookmarkButton
+                              isBookmarked={bookmarked}
+                              onToggle={() => toggleBookmark(q.id)}
+                            />
+                          </div>
+
                           <a
                             href={q.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => addRecentQuestion(q.id)}
-                            className="font-bold text-sm text-slate-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 hover:underline transition-colors block"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-neutral-700 dark:text-neutral-300 hover:text-white hover:bg-blue-600 rounded-lg transition-colors group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800 dark:group-hover:hover:bg-blue-600 group-hover:hover:text-white"
                           >
-                            {q.title}
+                            Solve <ExternalLink className="w-3 h-3 opacity-60" />
                           </a>
-                        ) : (
-                          <span className="font-bold text-sm text-neutral-700 dark:text-neutral-300">{q.title}</span>
-                        )}
-                      </td>
-
-                      {/* Difficulty */}
-                      <td className="py-3 px-3">
-                        <DifficultyBadge difficulty={q.difficulty} size="sm" />
-                      </td>
-
-                      {/* Acceptance Rate */}
-                      <td className="py-3 px-4 font-mono font-semibold text-xs text-slate-600 dark:text-neutral-400 whitespace-nowrap">
-                        {q.acceptance}
-                      </td>
-
-                      {/* Company Logos (24px) + Clickable Popover Count */}
-                      <td className="py-3 px-4">
-                        <div className="flex items-center gap-1.5">
-                          {topSlugs.map(s => (
-                            <CompanyLogo
-                              key={s}
-                              slug={s}
-                              name={companyNameMap.get(s) || s}
-                              size="xs"
-                              className="shadow-2xs"
-                            />
-                          ))}
-                          {remainingCount > 0 && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setCompanyPopoverQuestion(q);
-                                setPopoverSearch('');
-                              }}
-                              className="px-2 py-0.5 rounded-md text-xs font-bold font-mono bg-neutral-100 hover:bg-blue-50 dark:bg-neutral-800 dark:hover:bg-blue-950/50 text-slate-700 hover:text-blue-600 dark:text-neutral-300 dark:hover:text-blue-400 border border-neutral-200/90 dark:border-neutral-700/60 transition-colors shadow-2xs cursor-pointer"
-                              title={`View all ${q.companySlugs.length} companies`}
-                            >
-                              +{remainingCount}
-                            </button>
-                          )}
-                        </div>
-                      </td>
-
-                      {/* Action Column: Copy + Bookmark + Prominent Solve Button */}
-                      <td className="py-3 px-4 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          {/* Copy Link Button */}
-                          {q.link && (
-                            <button
-                              onClick={(e) => handleCopyLink(q, e)}
-                              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-                              title="Copy LeetCode link"
-                            >
-                              {isCopied ? (
-                                <Check className="w-4 h-4 text-emerald-500" />
-                              ) : (
-                                <Copy className="w-4 h-4" />
-                              )}
-                            </button>
-                          )}
-
-                          {/* Bookmark Button */}
-                          <BookmarkButton
-                            isBookmarked={bookmarked}
-                            onToggle={() => toggleBookmark(q.id)}
-                          />
-
-                          {/* Solve Button */}
-                          {q.link ? (
-                            <a
-                              href={q.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => addRecentQuestion(q.id)}
-                              className="h-8 px-3 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white inline-flex items-center gap-1.5 shadow-sm shadow-blue-500/20 active:scale-95 transition-all"
-                            >
-                              <span>Solve</span>
-                              <ExternalLink className="w-3.5 h-3.5 opacity-80" />
-                            </a>
-                          ) : (
-                            <span className="text-[11px] text-neutral-400">No link</span>
-                          )}
                         </div>
                       </td>
                     </tr>
@@ -725,150 +672,37 @@ export default function ProblemsPage() {
           </div>
 
           {/* Bottom Pagination Strip */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-slate-600 dark:text-neutral-400 px-1 pt-1">
-            <div className="flex items-center gap-4">
-              <span className="font-medium">
-                Showing <strong className="text-slate-900 dark:text-white">{(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)}</strong> of <strong className="text-slate-900 dark:text-white">{filtered.length}</strong> questions
-              </span>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-neutral-600 dark:text-neutral-400 px-1 pt-1 font-mono">
+            <span>
+              Showing {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredQuestions.length)} of {filteredQuestions.length} questions
+            </span>
 
-              {/* Rows Per Page Selector */}
-              <div className="flex items-center gap-1.5">
-                <span className="text-neutral-400">Page size:</span>
-                <select
-                  value={pageSize}
-                  onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
-                  className="h-7 px-2 bg-white dark:bg-[#121214] border border-neutral-200/90 dark:border-neutral-800 rounded-lg text-xs font-bold text-slate-800 dark:text-neutral-200 focus:outline-none focus:border-blue-500 shadow-2xs cursor-pointer"
-                >
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                  <option value={50}>50</option>
-                  <option value={100}>100</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Pagination Controls */}
-            <div className="flex items-center gap-1.5 self-start sm:self-auto">
-              {/* Previous */}
+            <div className="flex items-center gap-1.5">
               <button
+                type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-slate-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Prev</span>
               </button>
 
-              {/* Number Buttons */}
-              {paginationItems.map((item, idx) => {
-                if (item === '...') {
-                  return (
-                    <span key={`ellipsis-${idx}`} className="w-8 h-8 flex items-center justify-center text-neutral-400 font-bold">
-                      ...
-                    </span>
-                  );
-                }
-                const pageNum = item as number;
-                const isActive = pageNum === page;
-                return (
-                  <button
-                    key={pageNum}
-                    onClick={() => setPage(pageNum)}
-                    className={`w-8 h-8 rounded-xl text-xs font-bold transition-all flex items-center justify-center shadow-2xs ${
-                      isActive
-                        ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/20'
-                        : 'border border-neutral-200/90 dark:border-neutral-800 text-slate-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-white dark:bg-[#121214]'
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
+              <span className="px-2 font-bold font-sans">
+                Page {page} of {totalPages || 1}
+              </span>
 
-              {/* Next */}
               <button
+                type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-slate-700 dark:text-neutral-300 shadow-2xs"
+                className="h-8 px-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-neutral-700 dark:text-neutral-300 shadow-2xs"
                 aria-label="Next page"
               >
                 <span className="hidden sm:inline">Next</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Company Association Modal / Popover */}
-      {companyPopoverQuestion && (
-        <div
-          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setCompanyPopoverQuestion(null)}
-        >
-          <div
-            className="w-full max-w-lg rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#18181b] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95"
-            onClick={e => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-800">
-              <div>
-                <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
-                  Companies asking #{companyPopoverQuestion.id}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-neutral-400 mt-0.5">
-                  {companyPopoverQuestion.title} · {companyPopoverQuestion.companySlugs.length} verified companies
-                </p>
-              </div>
-              <button
-                onClick={() => setCompanyPopoverQuestion(null)}
-                className="p-1.5 rounded-lg text-neutral-400 hover:text-slate-800 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Search inside companies */}
-            <div className="p-3 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/40">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
-                <input
-                  type="text"
-                  value={popoverSearch}
-                  onChange={e => setPopoverSearch(e.target.value)}
-                  placeholder="Filter companies..."
-                  className="w-full h-8 pl-8 pr-3 bg-white dark:bg-[#121214] border border-neutral-200 dark:border-neutral-800 rounded-lg text-xs text-slate-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-            </div>
-
-            {/* List of Companies */}
-            <div className="max-h-72 overflow-y-auto p-3 grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {companyPopoverQuestion.companySlugs
-                .filter(slug => {
-                  if (!popoverSearch.trim()) return true;
-                  const name = companyNameMap.get(slug) || slug;
-                  return name.toLowerCase().includes(popoverSearch.toLowerCase());
-                })
-                .map(slug => {
-                  const name = companyNameMap.get(slug) || slug;
-                  return (
-                    <Link
-                      key={slug}
-                      to={`/companies/${slug}`}
-                      onClick={() => setCompanyPopoverQuestion(null)}
-                      className="flex items-center gap-2 p-2 rounded-xl border border-neutral-200/80 dark:border-neutral-800 hover:border-blue-400 dark:hover:border-neutral-700 bg-white dark:bg-[#121214] hover:bg-blue-50/40 dark:hover:bg-blue-950/20 transition-all group"
-                    >
-                      <div className="w-7 h-7 rounded-lg border border-neutral-200/80 dark:border-neutral-800 p-0.5 flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 shrink-0">
-                        <CompanyLogo slug={slug} name={name} size="xs" />
-                      </div>
-                      <span className="font-bold text-xs text-slate-800 dark:text-neutral-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
-                        {name}
-                      </span>
-                    </Link>
-                  );
-                })}
             </div>
           </div>
         </div>

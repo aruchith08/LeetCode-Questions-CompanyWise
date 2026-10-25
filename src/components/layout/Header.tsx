@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Sun, Moon, Menu, X, Search, RotateCw, Code2, Check, ChevronDown
+  Sun, Moon, Menu, X, Search, ChevronDown
 } from 'lucide-react';
 import type { LeetCodeAccount } from '../../types';
 import LeetCodeModal from '../leetcode/LeetCodeModal';
+import CompanyWiseLogo from '../ui/CompanyWiseLogo';
 
 interface HeaderProps {
   isDark: boolean;
@@ -46,6 +47,7 @@ export default function Header({
     e.preventDefault();
     if (!headerSearch.trim()) return;
     navigate(`/problems?q=${encodeURIComponent(headerSearch.trim())}`);
+    setHeaderSearch('');
   };
 
   return (
@@ -53,17 +55,17 @@ export default function Header({
       <header className="sticky top-0 z-40 border-b border-neutral-200 dark:border-neutral-800 bg-[#FAFAFA]/90 dark:bg-[#0A0A0B]/90 backdrop-blur-md transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 gap-4">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg">
-              <span className="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-sm shadow-blue-500/25 group-hover:scale-105 transition-transform">
-                <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="15 18 21 12 15 6" />
-                  <polyline points="9 6 3 12 9 18" />
-                </svg>
-              </span>
-              <span className="font-bold text-base tracking-tight text-neutral-900 dark:text-white">
-                Code<span className="text-blue-600 dark:text-blue-400">Wise</span>
-              </span>
+            {/* Brand Logo */}
+            <Link
+              to="/"
+              className="flex items-center group shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg"
+              aria-label="CompanyWise Home"
+            >
+              <CompanyWiseLogo
+                variant="full"
+                size="md"
+                iconClassName="group-hover:scale-105 transition-transform"
+              />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -76,31 +78,28 @@ export default function Header({
                   <Link
                     key={item.to}
                     to={item.to}
-                    className={`relative px-3 py-1.5 text-xs font-medium transition-colors ${
+                    className={`relative px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
                       isActive
-                        ? 'text-neutral-900 dark:text-white'
-                        : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                        ? 'text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-800/70'
+                        : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-900'
                     }`}
                   >
                     {item.label}
-                    {isActive && (
-                      <span className="absolute -bottom-2.5 left-3 right-3 h-[2px] bg-blue-600 dark:bg-blue-500 rounded-full" />
-                    )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Global Search in Header */}
+            {/* Header Search Command Input */}
             <div className="hidden md:flex flex-1 max-w-sm mx-4">
               <form onSubmit={handleSearchSubmit} className="relative w-full">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
                 <input
                   type="text"
                   value={headerSearch}
                   onChange={e => setHeaderSearch(e.target.value)}
-                  placeholder="Search 1,446 problems, companies..."
-                  className="w-full h-8 pl-8 pr-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-md text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-neutral-400 dark:focus:border-neutral-700 transition-colors"
+                  placeholder="Quick search problems or companies..."
+                  className="w-full h-8 pl-8 pr-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500 transition-colors"
                 />
               </form>
             </div>
@@ -109,89 +108,98 @@ export default function Header({
             <div className="flex items-center gap-2 shrink-0">
               {/* Theme Toggle */}
               <button
+                type="button"
                 onClick={onToggleTheme}
-                className="p-1.5 rounded-md text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors"
+                className="p-1.5 rounded-lg text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors focus:outline-none cursor-pointer"
                 title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                 aria-label="Toggle theme"
               >
                 {isDark ? <Sun className="w-4 h-4 text-neutral-300" /> : <Moon className="w-4 h-4 text-neutral-600" />}
               </button>
 
-              {/* LeetCode Sync Button / Profile Pill */}
+              {/* LeetCode Sync Pill */}
               <button
+                type="button"
                 onClick={() => setModalOpen(true)}
-                className="flex items-center gap-2 h-8 px-2.5 rounded-md bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 transition-colors text-xs font-medium text-neutral-700 dark:text-neutral-300"
+                className="flex items-center gap-2 h-8 px-2.5 rounded-lg bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 transition-colors text-xs font-medium text-neutral-700 dark:text-neutral-300 cursor-pointer"
                 title="LeetCode Account Sync"
               >
                 {lcAccount ? (
                   <>
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="truncate max-w-[90px] font-medium">{lcAccount.username}</span>
+                    <span className="truncate max-w-[80px] font-semibold">{lcAccount.username}</span>
                     <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
-                    {isSyncing && <RotateCw className="w-3 h-3 text-blue-500 animate-spin ml-0.5" />}
                   </>
                 ) : (
                   <>
                     <span className="w-2 h-2 rounded-full bg-neutral-400" />
-                    <span>Connect LeetCode</span>
-                    <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                    <span className="hidden sm:inline">Connect LeetCode</span>
+                    <span className="sm:hidden">Sync</span>
                   </>
                 )}
               </button>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle Button */}
               <button
+                type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-1.5 rounded-md text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-900"
-                aria-label="Open menu"
+                className="lg:hidden p-1.5 rounded-lg text-neutral-500 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors cursor-pointer"
+                aria-label="Toggle navigation menu"
               >
-                {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Global Sync Notification Bar */}
-        {syncNotice && (
-          <div className="bg-neutral-900 text-white dark:bg-neutral-800 text-xs py-1.5 px-4 text-center font-medium border-t border-neutral-800 flex items-center justify-center gap-1.5">
-            <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>{syncNotice}</span>
-          </div>
-        )}
-
-        {/* Mobile Navigation Dropdown */}
+        {/* Mobile Dropdown Menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-neutral-200 dark:border-neutral-800 bg-[#FAFAFA] dark:bg-[#0A0A0B] px-4 py-3 space-y-1">
-            {navItems.map(item => {
-              const isActive = item.to === '/'
-                ? location.pathname === '/'
-                : location.pathname.startsWith(item.to);
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-xs font-medium ${
-                    isActive
-                      ? 'bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white font-semibold'
-                      : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+          <div className="lg:hidden border-t border-neutral-200 dark:border-neutral-800 bg-[#FAFAFA] dark:bg-[#0A0A0B] px-4 py-3 space-y-2 animate-fade-in">
+            {/* Mobile Search */}
+            <form onSubmit={handleSearchSubmit} className="relative w-full pb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-neutral-400" />
+              <input
+                type="text"
+                value={headerSearch}
+                onChange={e => setHeaderSearch(e.target.value)}
+                placeholder="Search problems, companies..."
+                className="w-full h-9 pl-9 pr-3 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-lg text-xs text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 focus:outline-none focus:border-blue-500"
+              />
+            </form>
+
+            <nav className="flex flex-col space-y-1">
+              {navItems.map(item => {
+                const isActive = item.to === '/'
+                  ? location.pathname === '/'
+                  : location.pathname.startsWith(item.to);
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setMobileOpen(false)}
+                    className={`px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/40 dark:text-blue-400'
+                        : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         )}
       </header>
 
-      {/* LeetCode Sync Dialog */}
+      {/* LeetCode Sync Modal */}
       <LeetCodeModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         account={lcAccount}
         isSyncing={isSyncing}
         syncError={syncError}
+        syncNotice={syncNotice}
         onConnect={onConnectLC}
         onSync={onSyncLC}
         onDisconnect={onDisconnectLC}

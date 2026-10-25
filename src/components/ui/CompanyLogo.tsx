@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 interface CompanyLogoProps {
   slug: string;
-  name: string;
+  name?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
 }
 
-export default function CompanyLogo({ slug, name, size = 'md', className = '' }: CompanyLogoProps) {
+export default function CompanyLogo({ slug, name = '', size = 'md', className = '' }: CompanyLogoProps) {
   const [hasError, setHasError] = useState(false);
 
   const sizeMap = {

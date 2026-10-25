@@ -1,68 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import CompanyWiseLogo from '../ui/CompanyWiseLogo';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800/80 py-5 mt-auto transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-        <div className="flex items-center gap-2">
-          <span className="w-5 h-5 rounded-md bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-2xs">
-            <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="15 18 21 12 15 6" />
-              <polyline points="9 6 3 12 9 18" />
-            </svg>
-          </span>
-          <p>
-            <span className="font-bold text-slate-900 dark:text-neutral-100">Code<span className="text-blue-600 dark:text-blue-400">Wise</span></span> — Company-wise interview preparation · 1,446 curated questions
-          </p>
+    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FAFAFA] dark:bg-[#0A0A0B] text-neutral-500 text-xs py-8 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          {/* Brand mark and brief */}
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <CompanyWiseLogo variant="full" size="sm" />
+              <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-500 border border-neutral-200 dark:border-neutral-700">
+                v1.0
+              </span>
+            </div>
+            <p className="text-[11px] text-neutral-500 max-w-sm">
+              Curated company-wise LeetCode problems indexed for technical interview loops across 200 tech companies.
+            </p>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
+            <Link to="/" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Home
+            </Link>
+            <Link to="/companies" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Companies
+            </Link>
+            <Link to="/problems" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Problems
+            </Link>
+            <Link to="/progress" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              My Progress
+            </Link>
+          </div>
         </div>
-        <div className="flex items-center gap-5 text-neutral-500 dark:text-neutral-400">
-          <Link to="/companies" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-            Companies
-          </Link>
-          <Link to="/problems" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-            Problems
-          </Link>
-          <Link to="/progress" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-            My Progress
-          </Link>
-          <a
-            href="https://github.com/aruchith08/LeetCode-Questions-CompanyWise"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-600 dark:hover:text-white transition-colors"
-          >
-            GitHub
-          </a>
-          <div className="flex items-center gap-3 pl-2 border-l border-neutral-200 dark:border-neutral-800 text-neutral-400 dark:text-neutral-500">
-            <a
-              href="https://github.com/aruchith08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-800 dark:hover:text-white transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-4 h-4" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-800 dark:hover:text-white transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-4 h-4" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-800 dark:hover:text-white transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
+
+        {/* Telemetry and Shortcuts Strip */}
+        <div className="pt-4 border-t border-neutral-100 dark:border-neutral-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] font-mono text-neutral-400">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>1,446 Questions · 200 Companies · 4 Recency Windows</span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span>Press <kbd className="px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-semibold">/</kbd> to search</span>
+            <span>·</span>
+            <span>Zero trackers</span>
           </div>
         </div>
       </div>

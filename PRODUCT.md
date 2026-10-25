@@ -10,7 +10,7 @@ web
 Software engineers, computer science students, and interview candidates actively preparing for technical coding interviews at top tech companies.
 
 ## Product Purpose
-CodeWise provides curated, company-wise LeetCode problem collections mapped directly to technical interview loops. It enables developers to focus their preparation on the questions companies actually ask, track solving progress, and target high-frequency problem sets across 200 top tech companies.
+CompanyWise provides curated, company-wise LeetCode problem collections mapped directly to technical interview loops. It enables developers to focus their preparation on the questions companies actually ask, track solving progress, and target high-frequency problem sets across 200 top tech companies.
 
 ## Positioning
 Curated company-wise LeetCode problem mapping across 200 companies and 1,446 questions with frequency rankings and progress tracking, eliminating guessing about what companies ask in technical loops.
@@ -27,8 +27,8 @@ Web browser desktop and mobile study sessions, split-screen coding alongside Lee
 - Dataset integrity: Original CSV files are preserved without modification
 
 ## Brand Commitments
-- Name: CodeWise
-- Logo: Code bracket `<>` mark with `#2563EB` to `#4F46E5` gradient
+- Name: CompanyWise
+- Logo: Midnight Navy / White Squircle with three progression bars and Warm Amber peak dot
 - Tone: Focused, developer-centric, minimal, high-utility, zero decorative clutter
 
 ## Evidence on Hand

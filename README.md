@@ -1,6 +1,6 @@
-# CodeWise — Company-Wise LeetCode Interview Preparation
+# CompanyWise — Technical Interview Preparation by Company
 
-> **CodeWise** is a high-performance web platform that transforms company-specific interview frequency datasets into an interactive preparation tool with real-time LeetCode account synchronization.
+> **CompanyWise** is a high-performance web platform that transforms company-specific interview frequency datasets into an interactive preparation tool with real-time LeetCode account synchronization.
 
 ---
 

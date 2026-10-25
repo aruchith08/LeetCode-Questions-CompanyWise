@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 export function useTheme() {
   const [isDark, setIsDark] = useState(() => {
-    const stored = localStorage.getItem('codewise-theme');
+    const stored = localStorage.getItem('companywise-theme') || localStorage.getItem('codewise-theme');
     return stored ? stored === 'dark' : true;
   });
 
@@ -17,6 +17,7 @@ export function useTheme() {
       root.classList.add('light');
       document.body.className = 'bg-[#FAFAFA] text-neutral-900';
     }
+    localStorage.setItem('companywise-theme', isDark ? 'dark' : 'light');
     localStorage.setItem('codewise-theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 

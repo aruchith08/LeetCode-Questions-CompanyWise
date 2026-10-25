@@ -405,7 +405,7 @@ function main() {
 
   // Console summary
   console.log('═══════════════════════════════════════════════════════');
-  console.log('  📊 CodeWise Data Ingestion Report');
+  console.log('  📊 CompanyWise Data Ingestion Report');
   console.log('═══════════════════════════════════════════════════════');
   console.log(`  Total CSV files found:     ${report.totalFiles}`);
   console.log(`  Files processed:           ${report.totalFilesProcessed}`);

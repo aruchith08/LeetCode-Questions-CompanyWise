@@ -2,8 +2,10 @@ import { useState, useCallback, useEffect } from 'react';
 import type { UserProgress, QuestionStatus, LeetCodeAccount } from '../types';
 import { fetchLeetCodeData, matchLeetCodeSubmissionsWithQuestions } from '../services/leetcodeService';
 
-const STORAGE_KEY = 'codewise-progress';
-const LC_STORAGE_KEY = 'codewise-leetcode-account';
+const STORAGE_KEY = 'companywise-progress';
+const LEGACY_STORAGE_KEY = 'codewise-progress';
+const LC_STORAGE_KEY = 'companywise-leetcode-account';
+const LEGACY_LC_STORAGE_KEY = 'codewise-leetcode-account';
 
 function getDefaultProgress(): UserProgress {
   return {
@@ -19,7 +21,7 @@ function getDefaultProgress(): UserProgress {
 
 function loadProgress(): UserProgress {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
       const activityHistory = parsed.activityHistory || {};
@@ -41,7 +43,7 @@ function loadProgress(): UserProgress {
 
 function loadLeetCodeAccount(): LeetCodeAccount | null {
   try {
-    const stored = localStorage.getItem(LC_STORAGE_KEY);
+    const stored = localStorage.getItem(LC_STORAGE_KEY) || localStorage.getItem(LEGACY_LC_STORAGE_KEY);
     if (stored) {
       return JSON.parse(stored);
     }
@@ -52,13 +54,16 @@ function loadLeetCodeAccount(): LeetCodeAccount | null {
 function saveProgress(progress: UserProgress) {
   progress.lastUpdated = new Date().toISOString();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(progress));
 }
 
 function saveLeetCodeAccount(account: LeetCodeAccount | null) {
   if (account) {
     localStorage.setItem(LC_STORAGE_KEY, JSON.stringify(account));
+    localStorage.setItem(LEGACY_LC_STORAGE_KEY, JSON.stringify(account));
   } else {
     localStorage.removeItem(LC_STORAGE_KEY);
+    localStorage.removeItem(LEGACY_LC_STORAGE_KEY);
   }
 }
 
