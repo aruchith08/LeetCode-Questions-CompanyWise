@@ -104,3 +104,32 @@ npm run test
 ```bash
 npm run build
 ```
+
+---
+
+## 🚀 Deploying to Vercel
+
+The application is pre-configured for zero-config Vercel deployment with [`vercel.json`](./vercel.json).
+
+### Option 1: Vercel Dashboard (Recommended)
+
+1. Go to [Vercel Dashboard](https://vercel.com/new).
+2. Import this repository: `https://github.com/aruchith08/LeetCode-Questions-CompanyWise`.
+3. Vercel automatically detects the **Vite** framework preset:
+   - **Build Command**: `npm run build` (or `vite build`)
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+4. Click **Deploy**.
+
+### Option 2: Vercel CLI
+
+```bash
+npm i -g vercel
+vercel
+```
+
+### What `vercel.json` provides:
+- **SPA Client-Side Routing**: Automatically rewrites all incoming page routes (`/companies`, `/problems`, `/progress`, `/about`) to `/index.html` preventing 404 errors on browser page reloads.
+- **Serverless API Proxy**: Proxies `/api/leetcode/graphql` requests through a Vercel Serverless Function (`api/leetcode.js`) to support live LeetCode account synchronization.
+- **Optimized Caching & Security Headers**: Sets 1-year immutable caching on bundled assets, daily revalidation for datasets, and security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
+

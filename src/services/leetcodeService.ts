@@ -47,6 +47,10 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
     });
 
     if (proxyRes.ok) {
+      const contentType = proxyRes.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error('Not JSON response');
+      }
       const data = await proxyRes.json();
       if (data?.data?.matchedUser) {
         const user = data.data.matchedUser;
