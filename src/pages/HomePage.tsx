@@ -12,6 +12,7 @@ import LoadingSpinner from '../components/ui/LoadingSpinner';
 import CompanyLogo from '../components/ui/CompanyLogo';
 import StatusToggle from '../components/ui/StatusToggle';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
+import CompanyWiseGlobe from '../components/ui/CompanyWiseGlobe';
 
 export default function HomePage() {
   const { data, loading: loadingIndex } = useDataIndex();
@@ -183,214 +184,230 @@ export default function HomePage() {
 
   return (
     <div className="space-y-10 sm:space-y-12 animate-fade-in pb-12">
-      {/* Search-First Command Desk Hero */}
-      <section className="pt-2 sm:pt-6 pb-2 max-w-4xl mx-auto text-center space-y-6">
-        {/* Headline */}
-        <div className="space-y-3">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12] hero-title-animate">
-            <span>Target the exact questions<br />top tech companies </span>
-            <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#D97757]">
-              actually ask.
-              <span className="hero-accent-underline" aria-hidden="true" />
-            </span>
-          </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] max-w-2xl mx-auto leading-relaxed">
-            Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and frequency rankings.
-          </p>
+      {/* 2-Column Command Desk Hero: 3D Globe on Left, Command Copy & Controls on Right */}
+      <section className="pt-2 sm:pt-4 pb-2 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Left Column: 3D Network Globe */}
+        <div className="w-full flex items-center justify-center order-2 lg:order-1 lg:col-span-5">
+          <div className="relative w-full max-w-[460px] aspect-square flex items-center justify-center">
+            <CompanyWiseGlobe
+              className="w-full h-full"
+              style={{ width: '100%', height: '100%' }}
+              autoRotate={true}
+              speed={0.17}
+              draggable={false}
+            />
+          </div>
         </div>
 
-        {/* Central Command Search Box */}
-        <div className="relative max-w-2xl mx-auto text-left" ref={searchContainerRef}>
-          <form onSubmit={handleSearchSubmit} className="relative">
-            <div className={`relative flex items-center bg-white dark:bg-[#30302E] border rounded-2xl shadow-sm transition-all h-14 ${
-              searchFocused
-                ? 'border-[#0F1B3D] dark:border-[#D97757] ring-4 ring-[#0F1B3D]/10 dark:ring-[#D97757]/15 shadow-md'
-                : 'border-slate-200/90 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-slate-600'
-            }`}>
-              <Search className="w-5 h-5 text-slate-400 ml-4 shrink-0" />
-              <input
-                ref={searchInputRef}
-                type="text"
-                value={searchQuery}
-                onChange={e => {
-                  setSearchQuery(e.target.value);
-                  setSearchFocused(true);
-                }}
-                onFocus={() => setSearchFocused(true)}
-                placeholder="Search companies (e.g. Google, Amazon) or questions (e.g. Two Sum, #146)..."
-                className="w-full h-full pl-3 pr-28 bg-transparent text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none font-sans"
-              />
-              <div className="absolute right-3 flex items-center gap-2">
-                {searchQuery ? (
-                  <button
-                    type="button"
-                    onClick={() => { setSearchQuery(''); searchInputRef.current?.focus(); }}
-                    className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-                    aria-label="Clear query"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                ) : (
-                  <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 text-[11px] font-mono font-semibold text-[#0F1B3D] dark:text-[#E0B14F] bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] rounded-md">
-                    /
-                  </kbd>
-                )}
-                <button
-                  type="submit"
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs cursor-pointer"
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-          </form>
+        {/* Right Column: Hero Content & Search Desk */}
+        <div className="w-full order-1 lg:order-2 lg:col-span-7 space-y-6 text-left">
+          {/* Headline */}
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold dark:font-serif dark:font-normal font-serif-heading tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12] hero-title-animate">
+              <span>Target the exact questions<br className="hidden sm:inline" />top tech companies </span>
+              <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#D97757]">
+                actually ask.
+                <span className="hero-accent-underline" aria-hidden="true" />
+              </span>
+            </h1>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] max-w-2xl leading-relaxed">
+              Eliminate interview guesswork. 1,446 verified LeetCode problems indexed across 200 tech companies with recency windows and frequency rankings.
+            </p>
+          </div>
 
-          {/* Interactive Search Dropdown with Typeahead matches */}
-          {searchFocused && searchQuery.trim().length > 0 && (
-            <div className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] rounded-2xl shadow-xl overflow-hidden divide-y divide-slate-100 dark:divide-[#43433F]/80 animate-fade-in">
-              {hasSearchResults ? (
-                <>
-                  {/* Matching Companies */}
-                  {searchResults.companies.length > 0 && (
-                    <div className="p-2">
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5">
-                        Companies
-                      </div>
-                      {searchResults.companies.map(c => (
-                        <Link
-                          key={c.slug}
-                          to={`/companies/${c.slug}`}
-                          onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors group"
-                        >
-                          <div className="flex items-center gap-2.5">
-                            <CompanyLogo slug={c.slug} name={c.name} size="xs" />
-                            <span className="text-xs font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757]">
-                              {c.name}
-                            </span>
-                          </div>
-                          <span className="text-[11px] font-mono text-slate-500">
-                            {c.questionCount} questions <ChevronRight className="w-3 h-3 inline ml-0.5 opacity-60" />
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Matching Problems */}
-                  {searchResults.questions.length > 0 && (
-                    <div className="p-2">
-                      <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5">
-                        Problems
-                      </div>
-                      {searchResults.questions.map(q => (
-                        <Link
-                          key={q.id}
-                          to={`/problems?q=${encodeURIComponent(q.title)}`}
-                          onClick={() => setSearchFocused(false)}
-                          className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors group"
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <span className="font-mono text-xs text-slate-400">#{q.id}</span>
-                            <span className="text-xs font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] truncate">
-                              {q.title}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-2 shrink-0">
-                            <DifficultyBadge difficulty={q.difficulty} size="sm" />
-                            <span className="text-[11px] font-mono text-slate-400">
-                              {q.companySlugs.length} cos
-                            </span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Footer link to view all */}
-                  <div className="p-2.5 bg-slate-50 dark:bg-[#262624] text-center">
+          {/* Central Command Search Box */}
+          <div className="relative w-full max-w-2xl text-left" ref={searchContainerRef}>
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <div className={`relative flex items-center bg-white dark:bg-[#30302E] border rounded-2xl shadow-sm transition-all h-14 ${
+                searchFocused
+                  ? 'border-[#0F1B3D] dark:border-[#D97757] ring-4 ring-[#0F1B3D]/10 dark:ring-[#D97757]/15 shadow-md'
+                  : 'border-slate-200/90 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-slate-600'
+              }`}>
+                <Search className="w-5 h-5 text-slate-400 ml-4 shrink-0" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  value={searchQuery}
+                  onChange={e => {
+                    setSearchQuery(e.target.value);
+                    setSearchFocused(true);
+                  }}
+                  onFocus={() => setSearchFocused(true)}
+                  placeholder="Search companies (e.g. Google, Amazon) or questions (e.g. Two Sum, #146)..."
+                  className="w-full h-full pl-3 pr-28 bg-transparent text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none font-sans"
+                />
+                <div className="absolute right-3 flex items-center gap-2">
+                  {searchQuery ? (
                     <button
                       type="button"
-                      onClick={handleSearchSubmit}
-                      className="text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      onClick={() => { setSearchQuery(''); searchInputRef.current?.focus(); }}
+                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                      aria-label="Clear query"
                     >
-                      Press Enter to view all results for &ldquo;{searchQuery}&rdquo; in Problems →
+                      <X className="w-4 h-4" />
                     </button>
-                  </div>
-                </>
-              ) : (
-                <div className="py-8 text-center text-xs text-slate-500">
-                  No matching companies or problems found for &ldquo;{searchQuery}&rdquo;.
+                  ) : (
+                    <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-1 text-[11px] font-mono font-semibold text-[#0F1B3D] dark:text-[#E0B14F] bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] rounded-md">
+                      /
+                    </kbd>
+                  )}
+                  <button
+                    type="submit"
+                    className="px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs cursor-pointer"
+                  >
+                    Search
+                  </button>
                 </div>
-              )}
-            </div>
-          )}
-        </div>
+              </div>
+            </form>
 
-        {/* Quick-Access Company Jump Matrix */}
-        <div className="space-y-2 pt-1">
-          <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-            Quick Jump to Target Companies
+            {/* Interactive Search Dropdown with Typeahead matches */}
+            {searchFocused && searchQuery.trim().length > 0 && (
+              <div className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] rounded-2xl shadow-xl overflow-hidden divide-y divide-slate-100 dark:divide-[#43433F]/80 animate-fade-in">
+                {hasSearchResults ? (
+                  <>
+                    {/* Matching Companies */}
+                    {searchResults.companies.length > 0 && (
+                      <div className="p-2">
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5">
+                          Companies
+                        </div>
+                        {searchResults.companies.map(c => (
+                          <Link
+                            key={c.slug}
+                            to={`/companies/${c.slug}`}
+                            onClick={() => setSearchFocused(false)}
+                            className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors group"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <CompanyLogo slug={c.slug} name={c.name} size="xs" />
+                              <span className="text-xs font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757]">
+                                {c.name}
+                              </span>
+                            </div>
+                            <span className="text-[11px] font-mono text-slate-500">
+                              {c.questionCount} questions <ChevronRight className="w-3 h-3 inline ml-0.5 opacity-60" />
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Matching Problems */}
+                    {searchResults.questions.length > 0 && (
+                      <div className="p-2">
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5">
+                          Problems
+                        </div>
+                        {searchResults.questions.map(q => (
+                          <Link
+                            key={q.id}
+                            to={`/problems?q=${encodeURIComponent(q.title)}`}
+                            onClick={() => setSearchFocused(false)}
+                            className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors group"
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="font-mono text-xs text-slate-400">#{q.id}</span>
+                              <span className="text-xs font-medium text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] truncate">
+                                {q.title}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <DifficultyBadge difficulty={q.difficulty} size="sm" />
+                              <span className="text-[11px] font-mono text-slate-400">
+                                {q.companySlugs.length} cos
+                              </span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Footer link to view all */}
+                    <div className="p-2.5 bg-slate-50 dark:bg-[#262624] text-center">
+                      <button
+                        type="button"
+                        onClick={handleSearchSubmit}
+                        className="text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        Press Enter to view all results for &ldquo;{searchQuery}&rdquo; in Problems →
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="py-8 text-center text-xs text-slate-500">
+                    No matching companies or problems found for &ldquo;{searchQuery}&rdquo;.
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {targetCompanies.map(c => (
+
+          {/* Quick-Access Company Jump Matrix */}
+          <div className="space-y-2 pt-1">
+            <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+              Quick Jump to Target Companies
+            </div>
+            <div className="flex flex-wrap items-center justify-start gap-2">
+              {targetCompanies.map(c => (
+                <Link
+                  key={c.slug}
+                  to={`/companies/${c.slug}`}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-medium text-slate-700 dark:text-[#FAF9F5] transition-colors shadow-2xs"
+                >
+                  <CompanyLogo slug={c.slug} name={c.name} size="xs" />
+                  <span className="font-semibold text-slate-900 dark:text-[#FAF9F5]">
+                    {c.name}
+                  </span>
+                  <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
+                    {c.questionCount}
+                  </span>
+                </Link>
+              ))}
               <Link
-                key={c.slug}
-                to={`/companies/${c.slug}`}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-medium text-slate-700 dark:text-[#FAF9F5] transition-colors shadow-2xs"
+                to="/companies"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-dashed border-slate-300 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-semibold text-slate-600 dark:text-[#A8A69C] transition-colors"
               >
-                <CompanyLogo slug={c.slug} name={c.name} size="xs" />
-                <span className="font-semibold text-slate-900 dark:text-[#FAF9F5]">
-                  {c.name}
-                </span>
-                <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
-                  {c.questionCount}
-                </span>
+                <span>+192 more</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
-            ))}
-            <Link
-              to="/companies"
-              className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-dashed border-slate-300 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-semibold text-slate-600 dark:text-[#A8A69C] transition-colors"
-            >
-              <span>+192 more</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
+            </div>
           </div>
-        </div>
 
-        {/* Telemetry Strip from Actual Data */}
-        <div className="pt-4 border-t border-slate-200/80 dark:border-[#43433F]/80 max-w-3xl mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-[#43433F]">
-            <div className="p-3.5 text-left">
-              <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Catalog</span>
-              <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
-                {totalQuestions.toLocaleString()}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">LeetCode problems</span>
-            </div>
+          {/* Telemetry Strip from Actual Data */}
+          <div className="pt-4 border-t border-slate-200/80 dark:border-[#43433F]/80 w-full max-w-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-[#43433F]">
+              <div className="p-3.5 text-left">
+                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Catalog</span>
+                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
+                  {totalQuestions.toLocaleString()}
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">LeetCode problems</span>
+              </div>
 
-            <div className="p-3.5 text-left">
-              <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Companies</span>
-              <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
-                {data.totalCompanies}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">interview loops</span>
-            </div>
+              <div className="p-3.5 text-left">
+                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Companies</span>
+                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
+                  {data.totalCompanies}
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">interview loops</span>
+              </div>
 
-            <div className="p-3.5 text-left bg-[#0F1B3D]/[0.02] dark:bg-amber-500/[0.04]">
-              <span className="text-[10px] font-mono text-[#F5A524] dark:text-[#D97757] uppercase tracking-wider block font-semibold">Your Solved</span>
-              <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-[#0F1B3D] dark:text-[#D97757] block mt-0.5 tabular-nums">
-                {totalSolved}
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">{progressDisplay} complete</span>
-            </div>
+              <div className="p-3.5 text-left bg-[#0F1B3D]/[0.02] dark:bg-amber-500/[0.04]">
+                <span className="text-[10px] font-mono text-[#F5A524] dark:text-[#D97757] uppercase tracking-wider block font-semibold">Your Solved</span>
+                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-[#0F1B3D] dark:text-[#D97757] block mt-0.5 tabular-nums">
+                  {totalSolved}
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">{progressDisplay} complete</span>
+              </div>
 
-            <div className="p-3.5 text-left">
-              <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Windows</span>
-              <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
-                4 Tiers
-              </span>
-              <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">6m · 1y · 2y · All-time</span>
+              <div className="p-3.5 text-left">
+                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Windows</span>
+                <span className="text-xl font-bold font-mono dark:font-serif dark:font-normal font-stat-number text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
+                  4 Tiers
+                </span>
+                <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">6m · 1y · 2y · All-time</span>
+              </div>
             </div>
           </div>
         </div>
