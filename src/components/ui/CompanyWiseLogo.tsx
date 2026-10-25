@@ -39,23 +39,24 @@ export default function CompanyWiseLogo({
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      {/* Squircle: Midnight Navy in light mode, crisp White in dark mode (as designed in brand system) */}
+      {/* Squircle: Midnight Navy in light mode, Dark Card (#30302E) with border in dark mode */}
       <rect
         width="112"
         height="112"
         rx="26"
-        className="fill-[#0F1B3D] dark:fill-white transition-colors"
+        className="fill-[#0F1B3D] dark:fill-[#30302E] stroke-transparent dark:stroke-[#43433F] transition-colors"
+        strokeWidth="2"
       />
-      {/* Amber Gold Peak Dot */}
-      <circle cx="56" cy="23" r="8" fill="#F5A524" />
-      {/* Three Progression Bars: White in light mode, Midnight Navy in dark mode */}
+      {/* Accent Peak Dot (Spark Logo): Amber Gold in light mode, Terracotta (#D97757) in dark mode */}
+      <circle cx="56" cy="23" r="8" className="fill-[#F5A524] dark:fill-[#D97757] transition-colors" />
+      {/* Three Progression Bars: White in light mode, Warm Off-White in dark mode */}
       <rect
         x="25"
         y="56"
         width="16"
         height="28"
         rx="8"
-        className="fill-white dark:fill-[#0F1B3D] transition-colors"
+        className="fill-white dark:fill-[#FAF9F5] transition-colors"
       />
       <rect
         x="48"
@@ -63,7 +64,7 @@ export default function CompanyWiseLogo({
         width="16"
         height="45"
         rx="8"
-        className="fill-white dark:fill-[#0F1B3D] transition-colors"
+        className="fill-white dark:fill-[#FAF9F5] transition-colors"
       />
       <rect
         x="71"
@@ -71,7 +72,7 @@ export default function CompanyWiseLogo({
         width="16"
         height="36"
         rx="8"
-        className="fill-white dark:fill-[#0F1B3D] transition-colors"
+        className="fill-white dark:fill-[#FAF9F5] transition-colors"
       />
     </svg>
   );
@@ -84,7 +85,7 @@ export default function CompanyWiseLogo({
     <div className={`flex items-center gap-2.5 select-none ${className}`}>
       {Mark}
       <span
-        className={`font-bold tracking-tight text-[#0F1B3D] dark:text-white transition-colors ${textSizeMap[size]} ${textClassName}`}
+        className={`font-bold tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5] transition-colors ${textSizeMap[size]} ${textClassName}`}
       >
         CompanyWise
       </span>

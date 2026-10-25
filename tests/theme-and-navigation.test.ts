@@ -52,7 +52,7 @@ describe('Theme & Navigation Behavior', () => {
     expect(result.current.isDark).toBe(true);
     expect(document.documentElement.classList.contains('dark')).toBe(true);
     expect(document.documentElement.classList.contains('light')).toBe(false);
-    expect(document.body.className).toContain('bg-[#111215]');
+    expect(document.body.className).toContain('bg-[#262624]');
     expect(localStorage.getItem('codewise-theme')).toBe('dark');
   });
 

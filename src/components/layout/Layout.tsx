@@ -21,7 +21,7 @@ export default function Layout({ isDark, onToggleTheme }: LayoutProps) {
   } = useProgress();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F8FB] dark:bg-[#111215] text-neutral-900 dark:text-neutral-100 transition-colors duration-150">
+    <div className="min-h-screen flex flex-col bg-[#F7F8FB] dark:bg-[#262624] text-neutral-900 dark:text-[#FAF9F5] transition-colors duration-150">
       <Header
         isDark={isDark}
         onToggleTheme={onToggleTheme}

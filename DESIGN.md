@@ -3,25 +3,26 @@ name: CompanyWise
 description: Company-Wise LeetCode Interview Preparation & Mastery System
 colors:
   brand-navy: "#0F1B3D"
-  brand-navy-dark: "#111215"
-  brand-navy-surface: "#17191E"
-  brand-navy-hover: "#252832"
-  brand-navy-border: "#282B35"
   brand-amber: "#F5A524"
-  brand-amber-hover: "#E0921B"
   background-light: "#F7F8FB"
-  background-dark: "#111215"
   surface-light: "#FFFFFF"
-  surface-dark: "#17191E"
   border-light: "#E2E8F0"
-  border-dark: "#282B35"
   text-primary-light: "#0F1B3D"
-  text-primary-dark: "#FFFFFF"
   text-muted-light: "#64748B"
-  text-muted-dark: "#94A3B8"
-  easy: "#10B981"
-  medium: "#F5A524"
-  hard: "#EF4444"
+  
+  # Dark Mode Warm Charcoal Specification
+  background-dark: "#262624"
+  surface-dark: "#30302E"
+  soft-surface-dark: "#1F1E1D"
+  border-dark: "#43433F"
+  text-primary-dark: "#FAF9F5"
+  text-muted-dark: "#A8A69C"
+  accent-dark: "#D97757"
+  solve-button-bg: "#D97757"
+  solve-button-text: "#1F1E1D"
+  easy-dark: "#8FBF78"
+  medium-dark: "#E0B14F"
+  hard-dark: "#EE8F78"
 typography:
   display:
     fontFamily: "Inter, sans-serif"
@@ -54,57 +55,45 @@ spacing:
   lg: "24px"
   xl: "32px"
 components:
-  button-primary:
+  button-primary-light:
     backgroundColor: "{colors.brand-navy}"
     textColor: "#FFFFFF"
     rounded: "{rounded.md}"
     padding: "10px 20px"
-  button-accent:
-    backgroundColor: "{colors.brand-amber}"
-    textColor: "{colors.brand-navy-dark}"
+  button-primary-dark:
+    backgroundColor: "{colors.solve-button-bg}"
+    textColor: "{colors.solve-button-text}"
     rounded: "{rounded.md}"
     padding: "10px 20px"
-  card:
-    backgroundColor: "{colors.surface-light}"
+  card-dark:
+    backgroundColor: "{colors.surface-dark}"
     rounded: "{rounded.lg}"
     padding: "20px"
 ---
 
 ## Overview
 
-CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic derived from its signature mark: a dark navy squircle with progressive capability bars crowned by an amber goal-status apex dot. The design prioritizes scanability, high text contrast, precise data visualization, and frictionless navigation across 200+ tech company question collections.
+CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic. In dark mode, it uses a signature warm charcoal palette with terracotta accents and organic difficulty markers.
 
-## Color Palette
+## Dark Mode Color System
 
-- **Brand Anchor**:
-  - **Midnight Navy (`#0F1B3D`)**: Anchors primary buttons, headings, badges, and dark squircle logo containers in light mode.
-  - **Greyish Black Canvas (`#111215`)**: Modern developer-grade dark neutral charcoal canvas without any blueish cast.
-  - **Elevated Greyish Black Surface (`#17191E`)**: Clean card and panel surface separation in dark mode.
-  - **Interactive Hover Charcoal (`#252832`)**: Smooth row and button hovers in dark mode.
-  - **Structural Border (`#282B35`)**: Deliberate, clean structural separators and outlines.
-- **Apex Accent**:
-  - **Warm Amber Gold (`#F5A524`)**: Direct from the logo's apex dot. Used for attempted status, target indicators, streak milestones, and focal progress highlights.
-- **Light Mode Canvas**:
-  - Pure `#F7F8FB` background (matching the official logo reference canvas) with crisp `#FFFFFF` cards and `#0F1B3D` typography.
-- **Semantic Difficulties**:
-  - **Easy**: Emerald (`#10B981`, badge text `#047857` in light, `#34D399` in dark).
-  - **Medium**: Amber (`#F5A524`, badge text `#B45309` in light, `#FBBF24` in dark).
-  - **Hard**: Rose (`#EF4444`, badge text `#BE123C` in light, `#FB7185` in dark).
+| Role | Color | Used for |
+|---|---|---|
+| **Background** | `#262624` | Page background (warm charcoal) |
+| **Cards** | `#30302E` | Cards, inputs, buttons |
+| **Soft surface** | `#1F1E1D` | Quiet fills (progress track, key hint, hover states) |
+| **Text** | `#FAF9F5` | Main text (warm off-white) |
+| **Muted text** | `#A8A69C` | Secondary text and labels |
+| **Borders** | `#43433F` | Dividers and outlines |
+| **Accent** | `#D97757` | Highlighted words, progress bars, the spark logo |
+| **Solve buttons** | `#D97757` with `#1F1E1D` text | Primary action buttons |
+| **Easy** | `#8FBF78` | Easy difficulty (green) |
+| **Medium** | `#E0B14F` | Medium difficulty (amber) |
+| **Hard** | `#EE8F78` | Hard difficulty (coral) |
 
-## Typography
-
-- **Primary Font**: `Inter`, system fallback sans-serif.
-- **Code & Numbers**: `JetBrains Mono`, monospace.
-- Scale:
-  - Display: 32px - 40px, bold 800, tight tracking.
-  - Headings: 18px - 22px, bold 700.
-  - Body: 14px, regular 400 or medium 500.
-  - Captions & Meta: 11px - 12px, semibold 600.
-
-## Layout
-
-- Fluid responsive grid container capped at `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`.
-- 12-column responsive grid on desktop:
-  - Main problem table / company matrix: 8 columns.
-  - Contextual sidebar / filters / bookmarks: 4 columns.
-- Sticky navigation header with LeetCode sync status indicator, clear navigation links, and theme toggle.
+## Light Mode Reference
+- Canvas: `#F7F8FB`
+- Cards: `#FFFFFF`
+- Borders: `#E2E8F0`
+- Primary text & brand anchor: `#0F1B3D`
+- Accent: `#F5A524`

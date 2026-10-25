@@ -6,15 +6,15 @@ interface DifficultyBadgeProps {
 }
 
 const dotColors = {
-  Easy: 'bg-emerald-500',
-  Medium: 'bg-amber-500',
-  Hard: 'bg-rose-500',
+  Easy: 'bg-emerald-500 dark:bg-[#8FBF78]',
+  Medium: 'bg-amber-500 dark:bg-[#E0B14F]',
+  Hard: 'bg-rose-500 dark:bg-[#EE8F78]',
 };
 
 const textColors = {
-  Easy: 'text-emerald-700 dark:text-emerald-400',
-  Medium: 'text-amber-700 dark:text-amber-400',
-  Hard: 'text-rose-700 dark:text-rose-400',
+  Easy: 'text-emerald-700 dark:text-[#8FBF78]',
+  Medium: 'text-amber-700 dark:text-[#E0B14F]',
+  Hard: 'text-rose-700 dark:text-[#EE8F78]',
 };
 
 export default function DifficultyBadge({ difficulty, size = 'md' }: DifficultyBadgeProps) {

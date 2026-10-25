@@ -174,9 +174,9 @@ export default function CompaniesPage() {
       return <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity" />;
     }
     return sortDir === 'asc' ? (
-      <ArrowUp className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
+      <ArrowUp className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
     ) : (
-      <ArrowDown className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#F5A524]" />
+      <ArrowDown className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
     );
   };
 
@@ -186,21 +186,21 @@ export default function CompaniesPage() {
   return (
     <div className="space-y-6 animate-fade-in pb-16">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#282B35]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-[#43433F]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
             Companies
           </h1>
-          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
+          <p className="text-sm text-slate-600 dark:text-[#A8A69C] mt-1 max-w-2xl">
             Curated LeetCode problem sets for {data.totalCompanies} employers with verified interview frequency and difficulty distributions.
           </p>
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto shrink-0 font-mono text-xs font-semibold">
-          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#17191E] border border-slate-200 dark:border-[#282B35] text-[#0F1B3D] dark:text-amber-300">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] text-[#0F1B3D] dark:text-[#E0B14F]">
             {data.totalCompanies} Companies
           </span>
-          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#17191E] border border-slate-200 dark:border-[#282B35] text-slate-700 dark:text-slate-300">
+          <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5]">
             {data.totalQuestions.toLocaleString()} Problems
           </span>
         </div>
@@ -223,7 +223,7 @@ export default function CompaniesPage() {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer ${
                 category === tab.id
                   ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                  : 'bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#252832]'
+                  : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
               }`}
             >
               {tab.label}
@@ -241,7 +241,7 @@ export default function CompaniesPage() {
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search companies..."
-              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] rounded-xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] transition-colors shadow-2xs"
+              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
             />
             {search && (
               <button
@@ -265,7 +265,7 @@ export default function CompaniesPage() {
                 setSortDir(dir);
                 setPage(1);
               }}
-              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#17191E] border border-slate-200/90 dark:border-[#282B35] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#F5A524] cursor-pointer shadow-2xs"
+              className="appearance-none h-9 pl-3 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] cursor-pointer shadow-2xs"
             >
               <option value="questions-desc">Sort: Questions (High to Low)</option>
               <option value="questions-asc">Sort: Questions (Low to High)</option>
@@ -280,7 +280,7 @@ export default function CompaniesPage() {
       </div>
 
       {/* Filter Controls Row 2: Alphabet Jump Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] px-4 py-2 shadow-2xs">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] px-4 py-2 shadow-2xs">
         <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
           <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider shrink-0 mr-1.5">
             JUMP TO:
@@ -295,7 +295,7 @@ export default function CompaniesPage() {
                 className={`h-7 min-w-[28px] px-1.5 rounded-lg text-xs font-semibold transition-colors shrink-0 flex items-center justify-center cursor-pointer ${
                   isActive
                     ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#252832]'
+                    : 'text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                 }`}
               >
                 {letter === 'ALL' ? 'All' : letter}
@@ -309,7 +309,7 @@ export default function CompaniesPage() {
           <button
             type="button"
             onClick={handleClearFilters}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors shrink-0 self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-rose-600 dark:text-[#EE8F78] bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 transition-colors shrink-0 self-start sm:self-auto cursor-pointer"
           >
             <X className="w-3.5 h-3.5" />
             <span>Clear filters</span>
@@ -319,13 +319,13 @@ export default function CompaniesPage() {
 
       {/* Companies Table Card */}
       {filteredCompanies.length === 0 ? (
-        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#17191E] rounded-2xl border border-slate-200/90 dark:border-[#282B35] space-y-3">
+        <div className="py-16 text-center text-sm text-slate-500 bg-white dark:bg-[#30302E] rounded-2xl border border-slate-200/90 dark:border-[#43433F] space-y-3">
           <p>No companies found matching your filters.</p>
           {isFiltered && (
             <button
               type="button"
               onClick={handleClearFilters}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#F5A524] bg-slate-100 dark:bg-[#252832] hover:bg-slate-200 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757] bg-slate-100 dark:bg-[#1F1E1D] hover:bg-slate-200 transition-colors cursor-pointer"
             >
               Reset all filters
             </button>
@@ -333,14 +333,14 @@ export default function CompaniesPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#282B35] bg-white dark:bg-[#17191E] shadow-xs">
+          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-xs">
             <table className="w-full text-xs">
               <thead>
-                <tr className="border-b border-slate-200 dark:border-[#282B35] bg-slate-50/80 dark:bg-[#111215]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
+                <tr className="border-b border-slate-200 dark:border-[#43433F] bg-slate-50/80 dark:bg-[#262624]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
                   {/* Company Column */}
                   <th
                     className={`py-3.5 px-5 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'name' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortBy === 'name' ? 'text-[#0F1B3D] dark:text-[#D97757]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('name')}
                   >
@@ -353,7 +353,7 @@ export default function CompaniesPage() {
                   {/* Questions Column */}
                   <th
                     className={`py-3.5 px-5 w-36 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'questions' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortBy === 'questions' ? 'text-[#0F1B3D] dark:text-[#D97757]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('questions')}
                   >
@@ -376,7 +376,7 @@ export default function CompaniesPage() {
                   {/* Progress Column */}
                   <th
                     className={`py-3.5 px-5 w-64 cursor-pointer select-none transition-colors group ${
-                      sortBy === 'solved' || sortBy === 'completion' ? 'text-[#0F1B3D] dark:text-[#F5A524]' : 'hover:text-slate-900 dark:hover:text-white'
+                      sortBy === 'solved' || sortBy === 'completion' ? 'text-[#0F1B3D] dark:text-[#D97757]' : 'hover:text-slate-900 dark:hover:text-white'
                     }`}
                     onClick={() => handleSort('solved')}
                   >
@@ -390,7 +390,7 @@ export default function CompaniesPage() {
                   <th className="py-3.5 px-4 w-12 text-right"></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-[#282B35]/60">
+              <tbody className="divide-y divide-slate-100 dark:divide-[#43433F]/60">
                 {pagedCompanies.map(c => {
                   const m = companyMetrics.get(c.slug) || { solved: 0, easy: 0, medium: 0, hard: 0 };
                   const total = m.easy + m.medium + m.hard || c.questionCount || 1;
@@ -404,14 +404,14 @@ export default function CompaniesPage() {
                   return (
                     <tr
                       key={c.slug}
-                      className="h-16 hover:bg-slate-50/80 dark:hover:bg-[#252832]/60 transition-colors group cursor-pointer"
+                      className="h-16 hover:bg-slate-50/80 dark:hover:bg-[#1F1E1D]/60 transition-colors group cursor-pointer"
                     >
                       {/* Company Name & Logo */}
                       <td className="py-3.5 px-5">
                         <Link to={`/companies/${c.slug}`} className="flex items-center gap-3.5">
                           <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs" />
                           <div className="min-w-0">
-                            <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
+                            <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] transition-colors block truncate">
                               {c.name}
                             </span>
                           </div>
@@ -421,7 +421,7 @@ export default function CompaniesPage() {
                       {/* Question Count */}
                       <td className="py-3.5 px-5">
                         <div className="flex items-baseline gap-1 font-mono">
-                          <span className="font-bold text-sm text-slate-900 dark:text-white">
+                          <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">
                             {c.questionCount}
                           </span>
                           <span className="text-xs text-slate-500 font-normal">questions</span>
@@ -430,7 +430,7 @@ export default function CompaniesPage() {
 
                       {/* Difficulty Split (Stacked Multi-Color Bar + Percentages) */}
                       <td className="py-3.5 px-5">
-                        <div className="w-56 sm:w-60 h-2 rounded-full bg-slate-100 dark:bg-[#252832] flex overflow-hidden gap-0.5">
+                        <div className="w-56 sm:w-60 h-2 rounded-full bg-slate-100 dark:bg-[#1F1E1D] flex overflow-hidden gap-0.5">
                           <div
                             className="bg-emerald-500 transition-all duration-300"
                             style={{ width: `${(m.easy / total) * 100}%` }}
@@ -448,28 +448,28 @@ export default function CompaniesPage() {
                           />
                         </div>
                         <div className="flex items-center gap-2 text-xs font-semibold mt-1.5 font-mono">
-                          <span className="text-emerald-600 dark:text-emerald-400">{easyPct}% E</span>
+                          <span className="text-emerald-600 dark:text-[#8FBF78]">{easyPct}% E</span>
                           <span className="text-slate-300 dark:text-slate-700">·</span>
                           <span className="text-[#F5A524]">{medPct}% M</span>
                           <span className="text-slate-300 dark:text-slate-700">·</span>
-                          <span className="text-rose-600 dark:text-rose-400">{hardPct}% H</span>
+                          <span className="text-rose-600 dark:text-[#EE8F78]">{hardPct}% H</span>
                         </div>
                       </td>
 
                       {/* Your Progress */}
                       <td className="py-3.5 px-5">
                         <div className="w-48 sm:w-52">
-                          <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#252832] overflow-hidden mb-1.5">
+                          <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#1F1E1D] overflow-hidden mb-1.5">
                             <div
                               className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
                               style={{ width: `${Math.max(pctNum, m.solved > 0 ? 4 : 0)}%` }}
                             />
                           </div>
                           <div className="flex items-center justify-between text-xs font-mono font-medium">
-                            <span className="text-slate-700 dark:text-slate-300">
+                            <span className="text-slate-700 dark:text-[#FAF9F5]">
                               {m.solved} / {c.questionCount}
                             </span>
-                            <span className="font-bold text-[#0F1B3D] dark:text-[#F5A524]">
+                            <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">
                               {pctDisplay}
                             </span>
                           </div>
@@ -480,7 +480,7 @@ export default function CompaniesPage() {
                       <td className="py-3.5 px-4 text-right">
                         <Link
                           to={`/companies/${c.slug}`}
-                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#252832] group-hover:translate-x-0.5 transition-all"
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-400 group-hover:text-[#0F1B3D] dark:group-hover:text-[#F5A524] group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:translate-x-0.5 transition-all"
                           aria-label={`Open ${c.name}`}
                         >
                           <ChevronRight className="w-4 h-4" />
@@ -494,9 +494,9 @@ export default function CompaniesPage() {
           </div>
 
           {/* Bottom Pagination Strip */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400 px-1 pt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-[#A8A69C] px-1 pt-1">
             <span className="font-medium">
-              Showing <strong className="text-slate-900 dark:text-white">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredCompanies.length)}</strong> of <strong className="text-slate-900 dark:text-white">{filteredCompanies.length}</strong> companies
+              Showing <strong className="text-slate-900 dark:text-[#FAF9F5]">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredCompanies.length)}</strong> of <strong className="text-slate-900 dark:text-[#FAF9F5]">{filteredCompanies.length}</strong> companies
             </span>
 
             {/* Numeric Page Buttons */}
@@ -505,7 +505,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#282B35] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#252832] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
@@ -530,7 +530,7 @@ export default function CompaniesPage() {
                     className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
                       isCurrent
                         ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
-                        : 'border border-slate-200/90 dark:border-[#282B35] text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#252832]'
+                        : 'border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                     }`}
                   >
                     {pageNum}
@@ -542,7 +542,7 @@ export default function CompaniesPage() {
                 type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#282B35] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#252832] transition-colors text-slate-700 dark:text-slate-300 shadow-2xs cursor-pointer"
+                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
                 aria-label="Next page"
               >
                 <span className="hidden sm:inline">Next</span>

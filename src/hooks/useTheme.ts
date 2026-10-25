@@ -11,7 +11,7 @@ export function useTheme() {
     if (isDark) {
       root.classList.add('dark');
       root.classList.remove('light');
-      document.body.className = 'bg-[#111215] text-neutral-100';
+      document.body.className = 'bg-[#262624] text-[#FAF9F5]';
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
