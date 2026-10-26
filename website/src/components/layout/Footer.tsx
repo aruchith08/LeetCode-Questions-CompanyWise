@@ -36,6 +36,9 @@ export default function Footer() {
             <Link to="/problems" className="text-slate-600 dark:text-[#A8A69C] hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors">
               Problems
             </Link>
+            <Link to="/patterns" className="text-slate-600 dark:text-[#A8A69C] hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors">
+              Patterns
+            </Link>
             <Link to="/progress" className="text-slate-600 dark:text-[#A8A69C] hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors">
               My Progress
             </Link>
