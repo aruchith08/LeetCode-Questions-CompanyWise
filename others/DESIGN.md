@@ -1,6 +1,12 @@
 ---
 name: CompanyWise
 description: Company-Wise LeetCode Interview Preparation & Mastery System
+dataset-metrics:
+  companies: 490
+  unique-questions: 3411
+  csv-datasets: 1112
+  processed-records: 38825
+  time-periods: 6
 colors:
   brand-navy: "#0F1B3D"
   brand-amber: "#F5A524"
@@ -23,12 +29,19 @@ colors:
   easy-dark: "#8FBF78"
   medium-dark: "#E0B14F"
   hard-dark: "#EE8F78"
+
+  # LeetCode Modal Obsidian Palette
+  modal-bg: "#0E1015"
+  modal-surface: "#14161F"
+  modal-amber-glow: "rgba(245, 158, 11, 0.22)"
+  modal-orange-gradient: "from-[#FFA116] via-[#FF8B1F] to-[#EA580C]"
 typography:
   light:
-    headings: "Inter, sans-serif"
+    headings: "Outfit, Inter, sans-serif"
     body: "Inter, sans-serif"
     mono: "JetBrains Mono, monospace"
   dark:
+    headings: "Outfit, Inter, sans-serif"
     serif: '"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif'
     serif-weight: 400
     sans: 'system-ui, -apple-system, "Segoe UI", sans-serif'
@@ -36,6 +49,7 @@ rounded:
   sm: "6px"
   md: "10px"
   lg: "16px"
+  card: "28px"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -63,6 +77,21 @@ components:
 ## Overview
 
 CompanyWise adopts an authoritative, engineering-grade interview intelligence aesthetic. In dark mode, it uses a signature warm charcoal palette with terracotta accents, organic difficulty markers, and an editorial typography system driven completely by device-native system fonts (zero internet asset overhead).
+
+## Dataset Scope & Verification
+
+Figures verified against `website/public/data/report.json`:
+- **490** Companies
+- **3,411** Unique LeetCode Questions
+- **1,112** CSV Datasets
+- **38,825** Processed Records
+- **6** Supported Time Periods:
+  1. Last 30 Days (`30days`)
+  2. Last 3 Months (`3months`)
+  3. Last 6 Months (`6months`)
+  4. Last 1 Year (`1year`)
+  5. Last 2 Years (`2year`)
+  6. All Time (`alltime`)
 
 ## Dark Mode Typography System
 
@@ -104,3 +133,9 @@ Neither font loads from the internet; rendering leverages installed device fonts
 - Borders: `#E2E8F0`
 - Primary text & brand anchor: `#0F1B3D`
 - Accent: `#F5A524`
+
+## LeetCode Synchronization Architecture
+- **Non-credentialed public sync**: Uses LeetCode GraphQL `recentAcSubmissionList` and mirror endpoints without requiring user credentials or session tokens.
+- **Outcome tracking**: Strictly separates profile connection from question catalog matching.
+- **Public API scope**: Clearly documents that the public API exposes recent accepted submissions (up to 100) while lifetime metrics reflect full profile stats.
+- **Idempotency**: Repeated synchronizations are strictly idempotent and preserve manual user solves.

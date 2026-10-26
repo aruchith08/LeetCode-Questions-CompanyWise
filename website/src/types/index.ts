@@ -48,6 +48,7 @@ export interface UserProgress {
   recentCompanies: string[];
   recentQuestions: number[];
   recentQuestionTimestamps?: Record<number, string>;
+  solvedQuestionTimestamps?: Record<number, string>;
   activityHistory?: Record<string, number>;
   lastUpdated: string;
 }

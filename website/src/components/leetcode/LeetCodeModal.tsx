@@ -9,6 +9,7 @@ import {
   User,
   Link2,
   ArrowRight,
+  AlertCircle,
 } from 'lucide-react';
 import type { LeetCodeAccount } from '../../types';
 import { useAllQuestions } from '../../hooks/useAllQuestions';
@@ -151,15 +152,28 @@ export default function LeetCodeModal({
 
           {/* Notices */}
           {syncNotice && (
-            <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-400 flex items-center gap-2">
-              <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>{syncNotice}</span>
+            <div className="mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-400 flex items-start gap-2">
+              <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <span className="leading-relaxed">{syncNotice}</span>
             </div>
           )}
 
           {syncError && (
-            <div className="mt-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-400">
-              {syncError}
+            <div className="mt-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-xs text-rose-400 flex items-start justify-between gap-2">
+              <div className="flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <span className="leading-relaxed">{syncError}</span>
+              </div>
+              {account && (
+                <button
+                  type="button"
+                  onClick={() => onSync(allQuestions || undefined)}
+                  disabled={isSyncing}
+                  className="text-xs text-amber-400 hover:text-amber-300 font-semibold underline shrink-0 cursor-pointer"
+                >
+                  Retry
+                </button>
+              )}
             </div>
           )}
 
@@ -223,6 +237,11 @@ export default function LeetCodeModal({
                     <div className="text-sm font-bold text-rose-300 mt-0.5">{account.hardSolved ?? 0}</div>
                   </div>
                 </div>
+
+                {/* Public API Scope Disclosure */}
+                <p className="text-[11px] text-slate-400 pt-1 leading-relaxed border-t border-white/[0.04]">
+                  Sync imports your recent public accepted submissions (up to 100). Lifetime totals above reflect your complete profile counts.
+                </p>
               </div>
 
               {/* Actions */}
@@ -271,7 +290,7 @@ export default function LeetCodeModal({
                   />
                 </div>
                 <span className="text-[11px] sm:text-xs text-slate-400 block leading-relaxed pt-0.5">
-                  No password required. We only read your public profile and solved submissions.
+                  No password required. Syncs recent public submissions without credentials.
                 </span>
               </div>
 

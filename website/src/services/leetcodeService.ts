@@ -1,9 +1,31 @@
 import type { LeetCodeAccount, LeetCodeSubmission } from '../types';
 
-export interface LeetCodeSyncResult {
-  account: LeetCodeAccount;
+export interface LeetCodeMatchItem {
+  id: number;
+  timestamp?: string; // Unix epoch seconds string
+}
+
+export interface LeetCodeMatchResult {
+  matchedItems: LeetCodeMatchItem[];
+  matchedIds: number[];
   matchedCount: number;
-  newlySolvedIds: number[];
+  unmatchedSubmissions: LeetCodeSubmission[];
+  totalSubmissions: number;
+}
+
+export type SyncOutcome = 'idle' | 'syncing' | 'connected' | 'completed' | 'partial' | 'failed';
+
+export interface SyncStatusDetails {
+  outcome: SyncOutcome;
+  connectedAt?: string;
+  totalSolvedOnProfile: number;
+  recentSubmissionsCount: number;
+  matchedCount: number;
+  unmatchedCount: number;
+  newlySolvedCount: number;
+  isPartial: boolean;
+  message: string;
+  error?: string | null;
 }
 
 export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccount> {
@@ -64,7 +86,7 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
           id: String(s.id),
           title: s.title,
           titleSlug: s.titleSlug,
-          timestamp: s.timestamp,
+          timestamp: s.timestamp ? String(s.timestamp) : undefined,
         }));
 
         return {
@@ -103,7 +125,7 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
         id: s.id ? String(s.id) : `sub-${idx}`,
         title: s.title,
         titleSlug: s.titleSlug,
-        timestamp: s.timestamp || String(Math.floor(Date.now() / 1000)),
+        timestamp: s.timestamp ? String(s.timestamp) : undefined,
       }));
 
       return {
@@ -127,27 +149,96 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
   throw new Error(`Could not find LeetCode profile for "${cleanUsername}". Please verify your username.`);
 }
 
+function extractSlugFromLink(link: string): string {
+  if (!link) return '';
+  return link
+    .replace(/^https?:\/\/leetcode\.com\/problems\//i, '')
+    .replace(/\/.*$/, '')
+    .toLowerCase()
+    .trim();
+}
+
+function normalizeTitle(title: string): string {
+  if (!title) return '';
+  return title.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+/**
+ * Matches LeetCode accepted submissions with catalog questions.
+ * Handles deduplication, slug/title normalization, and extracts timestamps.
+ */
+export function matchLeetCodeSubmissionsWithDetails(
+  submissions: LeetCodeSubmission[],
+  allQuestions: { id: number; title: string; link: string }[]
+): LeetCodeMatchResult {
+  if (!submissions || !Array.isArray(submissions) || !allQuestions || !Array.isArray(allQuestions)) {
+    return {
+      matchedItems: [],
+      matchedIds: [],
+      matchedCount: 0,
+      unmatchedSubmissions: [],
+      totalSubmissions: 0,
+    };
+  }
+
+  // Pre-index questions by slug and by normalized title for O(N + M) performance
+  const bySlug = new Map<string, { id: number; title: string; link: string }>();
+  const byTitle = new Map<string, { id: number; title: string; link: string }>();
+
+  for (const q of allQuestions) {
+    const slug = extractSlugFromLink(q.link);
+    if (slug && !bySlug.has(slug)) {
+      bySlug.set(slug, q);
+    }
+    const normT = normalizeTitle(q.title);
+    if (normT && !byTitle.has(normT)) {
+      byTitle.set(normT, q);
+    }
+  }
+
+  const matchedItemsMap = new Map<number, LeetCodeMatchItem>();
+  const unmatched: LeetCodeSubmission[] = [];
+
+  for (const sub of submissions) {
+    const subSlug = sub.titleSlug ? sub.titleSlug.toLowerCase().trim() : '';
+    const normSubTitle = sub.title ? normalizeTitle(sub.title) : '';
+
+    let matchedQ = subSlug ? bySlug.get(subSlug) : undefined;
+    if (!matchedQ && normSubTitle) {
+      matchedQ = byTitle.get(normSubTitle);
+    }
+
+    if (matchedQ) {
+      // Deduplicate: if already matched, retain existing or update timestamp if newer
+      if (!matchedItemsMap.has(matchedQ.id)) {
+        matchedItemsMap.set(matchedQ.id, {
+          id: matchedQ.id,
+          timestamp: sub.timestamp,
+        });
+      }
+    } else {
+      unmatched.push(sub);
+    }
+  }
+
+  const matchedItems = Array.from(matchedItemsMap.values());
+  const matchedIds = matchedItems.map(item => item.id);
+
+  return {
+    matchedItems,
+    matchedIds,
+    matchedCount: matchedItems.length,
+    unmatchedSubmissions: unmatched,
+    totalSubmissions: submissions.length,
+  };
+}
+
+/**
+ * Backward-compatible helper returning matched IDs.
+ */
 export function matchLeetCodeSubmissionsWithQuestions(
   submissions: LeetCodeSubmission[],
   allQuestions: { id: number; title: string; link: string }[]
 ): number[] {
-  const solvedIds = new Set<number>();
-
-  for (const sub of submissions) {
-    const subSlug = sub.titleSlug?.toLowerCase().trim();
-    const subTitle = sub.title?.toLowerCase().trim();
-
-    for (const q of allQuestions) {
-      const questionSlug = q.link
-        ? q.link.replace(/^https?:\/\/leetcode\.com\/problems\//i, '').replace(/\/+$/, '').toLowerCase().trim()
-        : '';
-      const questionTitle = q.title?.toLowerCase().trim();
-
-      if ((subSlug && questionSlug && subSlug === questionSlug) || (subTitle && questionTitle && subTitle === questionTitle)) {
-        solvedIds.add(q.id);
-      }
-    }
-  }
-
-  return Array.from(solvedIds);
+  return matchLeetCodeSubmissionsWithDetails(submissions, allQuestions).matchedIds;
 }

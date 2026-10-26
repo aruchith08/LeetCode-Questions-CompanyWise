@@ -1,12 +1,12 @@
 import React, { createContext, useContext } from 'react';
-import { useProgressInternal } from '../hooks/useProgress';
+import { useProgressState, type ProgressStateReturn } from '../hooks/useProgressState';
 
-export type ProgressContextType = ReturnType<typeof useProgressInternal>;
+export type ProgressContextType = ProgressStateReturn;
 
-const ProgressContext = createContext<ProgressContextType | null>(null);
+export const ProgressContext = createContext<ProgressContextType | null>(null);
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
-  const value = useProgressInternal();
+  const value = useProgressState();
   return (
     <ProgressContext.Provider value={value}>
       {children}
@@ -21,5 +21,3 @@ export function useProgressContext(): ProgressContextType {
   }
   return context;
 }
-
-export { ProgressContext };

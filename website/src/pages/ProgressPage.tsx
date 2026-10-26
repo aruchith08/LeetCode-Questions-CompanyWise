@@ -217,9 +217,11 @@ export default function ProgressPage() {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = () => {
-      const success = importProgress(reader.result as string);
-      setImportNotice(success ? 'Progress imported successfully.' : 'Invalid progress backup file.');
-      setTimeout(() => setImportNotice(null), 3500);
+      const res = importProgress(reader.result as string) as any;
+      const isSuccess = typeof res === 'boolean' ? res : Boolean(res?.success);
+      const msg = isSuccess ? 'Progress imported successfully.' : (res?.error || 'Invalid progress backup file.');
+      setImportNotice(msg);
+      setTimeout(() => setImportNotice(null), 4000);
     };
     reader.readAsText(file);
     e.target.value = '';
