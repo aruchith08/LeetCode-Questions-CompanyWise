@@ -29,3 +29,8 @@ pnpm-debug.log*
 *.sln
 *.sw?
 Thumbs.db
+
+# Tooling & scratch
+.impeccable/
+website/.impeccable/
+

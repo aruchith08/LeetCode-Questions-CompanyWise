@@ -289,29 +289,31 @@ export default function LeetCodeModal({
                     required
                   />
                 </div>
-                <span className="text-[11px] sm:text-xs text-slate-500 dark:text-[#A8A69C] block leading-relaxed pt-0.5">
+                <span className="text-[11px] sm:text-xs text-slate-500 dark:text-[#A8A69C] block leading-relaxed pt-0.5 pb-1">
                   No password required. Syncs recent public submissions without credentials.
                 </span>
               </div>
 
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full h-12 sm:h-12.5 rounded-xl bg-gradient-to-r from-[#FFA116] via-[#FF8B1F] to-[#EA580C] hover:brightness-105 active:scale-[0.98] text-slate-950 font-bold text-sm tracking-wide transition-all flex items-center justify-center gap-2.5 shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/30 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {submitting ? (
-                  <>
-                    <RotateCw className="w-4 h-4 animate-spin stroke-[2.5]" />
-                    <span>Connecting...</span>
-                  </>
-                ) : (
-                  <>
-                    <Link2 className="w-4 h-4 stroke-[2.5]" />
-                    <span>Connect Account</span>
-                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                  </>
-                )}
-              </button>
+              <div className="pt-1.5">
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn-leetcode-connect w-full h-10 sm:h-10.5 rounded-lg bg-gradient-to-r from-[#FFA116] via-[#FF8B1F] to-[#EA580C] hover:brightness-105 active:scale-[0.98] text-slate-950 font-semibold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-sm shadow-amber-500/20 hover:shadow-md hover:shadow-amber-500/25 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {submitting ? (
+                    <>
+                      <RotateCw className="w-3.5 h-3.5 animate-spin stroke-[2.5]" />
+                      <span>Connecting...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Link2 className="w-3.5 h-3.5 stroke-[2.5]" />
+                      <span>Connect Account</span>
+                      <ArrowRight className="arrow-icon w-3.5 h-3.5 stroke-[2.5] transition-transform duration-200" />
+                    </>
+                  )}
+                </button>
+              </div>
             </form>
           )}
 

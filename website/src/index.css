@@ -229,6 +229,23 @@
   }
 
   /* -------------------------------------------------------------
+     LeetCode Modal Connect Button Shimmer
+  ------------------------------------------------------------- */
+  @keyframes leetcode-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .btn-leetcode-connect {
+    background-size: 200% auto;
+    animation: leetcode-shimmer 3s ease infinite;
+  }
+  .btn-leetcode-connect:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  /* -------------------------------------------------------------
      Accessibility: Reduced Motion Preference
   ------------------------------------------------------------- */
   @media (prefers-reduced-motion: reduce) {
@@ -238,7 +255,8 @@
     .velocity-col,
     .velocity-bar,
     .flame-streak-animate,
-    .today-bar-active {
+    .today-bar-active,
+    .btn-leetcode-connect {
       animation: none !important;
       transform: none !important;
       opacity: 1 !important;
