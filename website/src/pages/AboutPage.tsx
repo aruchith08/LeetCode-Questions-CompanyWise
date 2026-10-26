@@ -23,7 +23,7 @@ export default function AboutPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
+          <div className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
             <div className="flex items-center gap-2.5 text-[#0F1B3D] dark:text-[#D97757] font-semibold text-sm">
               <Database className="w-4 h-4" />
               <span>Offline-First Ingest Pipeline</span>
@@ -33,7 +33,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
+          <div className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
             <div className="flex items-center gap-2.5 text-[#0F1B3D] dark:text-[#D97757] font-semibold text-sm">
               <ShieldCheck className="w-4 h-4" />
               <span>Zero-Tracking Privacy Design</span>
@@ -43,7 +43,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
+          <div className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
             <div className="flex items-center gap-2.5 text-[#0F1B3D] dark:text-[#D97757] font-semibold text-sm">
               <Globe className="w-4 h-4" />
               <span>Native WebGL 3D Visualization</span>
@@ -53,7 +53,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
+          <div className="p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3">
             <div className="flex items-center gap-2.5 text-[#0F1B3D] dark:text-[#D97757] font-semibold text-sm">
               <Terminal className="w-4 h-4" />
               <span>Restrained System Typography</span>
@@ -66,7 +66,7 @@ export default function AboutPage() {
       </section>
 
       {/* Bottom CTA */}
-      <div className="p-8 rounded-3xl bg-slate-100 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-center space-y-4">
+      <div className="p-5 sm:p-8 rounded-3xl bg-slate-100 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-center space-y-4">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
           Ready to target your interview questions?
         </h3>

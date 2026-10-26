@@ -20,7 +20,7 @@ export default function AboutSection() {
       {/* Horizontal Chapters Flow */}
       <div className="space-y-6">
         {/* CHAPTER 01 — THE PURPOSE */}
-        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
+        <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Chapter Meta */}
             <div className="lg:col-span-4 space-y-4">
@@ -97,7 +97,7 @@ export default function AboutSection() {
         </div>
 
         {/* CHAPTER 02 — THE FOUNDATION */}
-        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
+        <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Chapter Meta */}
             <div className="lg:col-span-4 space-y-4">
@@ -180,7 +180,7 @@ export default function AboutSection() {
         </div>
 
         {/* CHAPTER 03 — THE EXPANSION */}
-        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
+        <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Chapter Meta */}
             <div className="lg:col-span-4 space-y-4">
@@ -263,7 +263,7 @@ export default function AboutSection() {
         </div>
 
         {/* CHAPTER 04 — THE CREATION */}
-        <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
+        <div className="p-4 sm:p-8 md:p-10 rounded-3xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] transition-all shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Chapter Meta */}
             <div className="lg:col-span-4 space-y-4">

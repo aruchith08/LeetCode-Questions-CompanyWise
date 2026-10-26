@@ -244,22 +244,22 @@ export default function CompaniesPage() {
         </div>
 
         {/* Search & Sort Controls */}
-        <div className="flex items-center gap-2.5 w-full lg:w-auto">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full lg:w-auto">
           {/* Search Input */}
           <div className="relative flex-1 lg:w-64">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={e => { setSearch(e.target.value); setPage(1); }}
               placeholder="Search companies..."
-              className="w-full h-9 pl-9 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
+              className="w-full h-10 sm:h-9 pl-9 pr-8 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-sm sm:text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
             />
             {search && (
               <button
                 type="button"
                 onClick={() => { setSearch(''); setPage(1); }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1"
                 aria-label="Clear search"
               >
                 <X className="w-3.5 h-3.5" />
@@ -268,8 +268,9 @@ export default function CompaniesPage() {
           </div>
 
           {/* Sort Dropdown */}
-          <div className="relative shrink-0">
+          <div className="relative shrink-0 w-full sm:w-auto">
             <CustomDropdown
+              className="w-full sm:w-auto"
               value={`${sortBy}-${sortDir}`}
               onChange={val => {
                 const [by, dir] = val.split('-') as [SortBy, SortDir];
@@ -345,7 +346,103 @@ export default function CompaniesPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-xs">
+          {/* Mobile Card List (Screen width < md) */}
+          <div className="block md:hidden space-y-3">
+            {pagedCompanies.map(c => {
+              const m = companyMetrics.get(c.slug) || { solved: 0, easy: 0, medium: 0, hard: 0 };
+              const total = m.easy + m.medium + m.hard || c.questionCount || 1;
+              const easyPct = Math.round((m.easy / total) * 100);
+              const medPct = Math.round((m.medium / total) * 100);
+              const hardPct = Math.max(0, 100 - easyPct - medPct);
+              const pctNum = c.questionCount > 0 ? (m.solved / c.questionCount) * 100 : 0;
+              const pctDisplay = formatPct(m.solved, c.questionCount);
+              const targeted = isTargeted(c.slug);
+
+              return (
+                <div
+                  key={c.slug}
+                  className="p-4 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-2xs space-y-3 transition-colors"
+                >
+                  {/* Card Header: Logo, Name, Question Count, Target Button & Link */}
+                  <div className="flex items-center justify-between gap-2.5">
+                    <Link to={`/companies/${c.slug}`} className="flex items-center gap-3 min-w-0 flex-1">
+                      <CompanyLogo slug={c.slug} name={c.name} size="sm" className="rounded-lg shadow-2xs shrink-0" />
+                      <div className="min-w-0">
+                        <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] block truncate">
+                          {c.name}
+                        </span>
+                        <span className="text-xs text-slate-500 font-mono">
+                          {c.questionCount} questions
+                        </span>
+                      </div>
+                    </Link>
+
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleTargetCompany(c.slug);
+                        }}
+                        className={`p-2 rounded-xl transition-colors cursor-pointer min-w-[38px] min-h-[38px] flex items-center justify-center ${
+                          targeted
+                            ? 'text-amber-500 bg-amber-500/10'
+                            : 'text-slate-400 dark:text-slate-500 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                        }`}
+                        title={targeted ? 'Remove from targets' : 'Target this company'}
+                        aria-label={targeted ? 'Remove from targets' : 'Target this company'}
+                      >
+                        <Star className={`w-4 h-4 ${targeted ? 'fill-amber-500' : ''}`} />
+                      </button>
+                      <Link
+                        to={`/companies/${c.slug}`}
+                        className="p-2 rounded-xl text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1F1E1D] min-w-[38px] min-h-[38px] flex items-center justify-center transition-colors"
+                        aria-label={`Open ${c.name}`}
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Difficulty Distribution Bar */}
+                  <div className="space-y-1.5 pt-1 border-t border-slate-100 dark:border-[#43433F]/60">
+                    <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-[#1F1E1D] flex overflow-hidden gap-0.5">
+                      <div className="bg-emerald-500" style={{ width: `${(m.easy / total) * 100}%` }} title={`Easy: ${m.easy}`} />
+                      <div className="bg-[#F5A524]" style={{ width: `${(m.medium / total) * 100}%` }} title={`Medium: ${m.medium}`} />
+                      <div className="bg-rose-500" style={{ width: `${(m.hard / total) * 100}%` }} title={`Hard: ${m.hard}`} />
+                    </div>
+                    <div className="flex items-center justify-between text-[11px] font-mono font-semibold">
+                      <span className="text-emerald-600 dark:text-[#8FBF78]">{easyPct}% Easy</span>
+                      <span className="text-[#F5A524]">{medPct}% Med</span>
+                      <span className="text-rose-600 dark:text-[#EE8F78]">{hardPct}% Hard</span>
+                    </div>
+                  </div>
+
+                  {/* Solved Progress Bar */}
+                  <div className="pt-2 border-t border-slate-100 dark:border-[#43433F]/60 space-y-1">
+                    <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#1F1E1D] overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-[#F5A524] rounded-full transition-all duration-300"
+                        style={{ width: `${Math.max(pctNum, m.solved > 0 ? 4 : 0)}%` }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <span className="text-slate-500 dark:text-[#A8A69C]">
+                        {m.solved} of {c.questionCount} solved
+                      </span>
+                      <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">
+                        {pctDisplay}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Desktop Table View (Screen width >= md) */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-xs">
             <table className="w-full text-xs">
               <thead>
                 <tr className="border-b border-slate-200 dark:border-[#43433F] bg-slate-50/80 dark:bg-[#262624]/80 text-left text-slate-400 font-bold uppercase tracking-wider text-[11px]">
@@ -530,53 +627,61 @@ export default function CompaniesPage() {
               Showing <strong className="text-slate-900 dark:text-[#FAF9F5]">{(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filteredCompanies.length)}</strong> of <strong className="text-slate-900 dark:text-[#FAF9F5]">{filteredCompanies.length}</strong> companies
             </span>
 
-            {/* Numeric Page Buttons */}
-            <div className="flex items-center gap-1.5">
+            {/* Page Navigation */}
+            <div className="flex items-center gap-1.5 self-center sm:self-auto">
               <button
                 type="button"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
+                className="h-9 sm:h-8 px-3 sm:px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Prev</span>
+                <span>Prev</span>
               </button>
 
-              {paginationItems.map((item, idx) => {
-                if (item === '...') {
+              {/* Mobile Page Indicator */}
+              <span className="sm:hidden px-2 text-xs font-bold font-mono">
+                {page} / {totalPages || 1}
+              </span>
+
+              {/* Desktop Numeric Buttons */}
+              <div className="hidden sm:flex items-center gap-1.5">
+                {paginationItems.map((item, idx) => {
+                  if (item === '...') {
+                    return (
+                      <span key={`ellipsis-${idx}`} className="w-8 h-8 flex items-center justify-center text-slate-400 font-bold">
+                        ...
+                      </span>
+                    );
+                  }
+                  const pageNum = item as number;
+                  const isCurrent = pageNum === page;
                   return (
-                    <span key={`ellipsis-${idx}`} className="w-8 h-8 flex items-center justify-center text-slate-400 font-bold">
-                      ...
-                    </span>
+                    <button
+                      key={`page-${pageNum}`}
+                      type="button"
+                      onClick={() => setPage(pageNum)}
+                      className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
+                        isCurrent
+                          ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
+                          : 'border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
                   );
-                }
-                const pageNum = item as number;
-                const isCurrent = pageNum === page;
-                return (
-                  <button
-                    key={`page-${pageNum}`}
-                    type="button"
-                    onClick={() => setPage(pageNum)}
-                    className={`w-8 h-8 rounded-xl font-mono text-xs font-bold transition-colors flex items-center justify-center cursor-pointer ${
-                      isCurrent
-                        ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
-                        : 'border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
-                    }`}
-                  >
-                    {pageNum}
-                  </button>
-                );
-              })}
+                })}
+              </div>
 
               <button
                 type="button"
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages || totalPages === 0}
-                className="h-8 px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
+                className="h-9 sm:h-8 px-3 sm:px-2.5 rounded-xl border border-slate-200/90 dark:border-[#43433F] flex items-center gap-1 font-semibold disabled:opacity-40 hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors text-slate-700 dark:text-[#FAF9F5] shadow-2xs cursor-pointer"
                 aria-label="Next page"
               >
-                <span className="hidden sm:inline">Next</span>
+                <span>Next</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </button>
             </div>

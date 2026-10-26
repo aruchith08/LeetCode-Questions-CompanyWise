@@ -132,8 +132,9 @@ export default function CustomDropdown({
         <div
           className={`absolute ${
             align === 'right' ? 'right-0' : 'left-0'
-          } top-full mt-1.5 z-50 min-w-[200px] max-w-[280px] sm:max-w-xs max-h-72 overflow-y-auto rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-1.5 shadow-xl shadow-slate-900/10 dark:shadow-black/50 text-xs animate-fade-in divide-y divide-slate-100 dark:divide-[#43433F]/60 ${menuClassName}`}
+          } top-full mt-1.5 z-50 min-w-[190px] w-max max-w-[calc(100vw-2rem)] sm:max-w-xs max-h-72 overflow-y-auto overscroll-contain rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-1.5 shadow-xl shadow-slate-900/10 dark:shadow-black/50 text-xs animate-fade-in divide-y divide-slate-100 dark:divide-[#43433F]/60 ${menuClassName}`}
           role="listbox"
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {/* Optional Search Bar inside dropdown */}
           {searchable && (
@@ -146,7 +147,7 @@ export default function CustomDropdown({
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   placeholder={searchPlaceholder}
-                  className="w-full h-8 pl-8 pr-2.5 text-xs bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] rounded-lg text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757]"
+                  className="w-full h-9 sm:h-8 pl-8 pr-2.5 text-sm sm:text-xs bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] rounded-lg text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757]"
                   onClick={e => e.stopPropagation()}
                 />
               </div>
@@ -156,7 +157,7 @@ export default function CustomDropdown({
           {/* Options List */}
           <div className="py-0.5 space-y-0.5">
             {filteredOptions.length === 0 ? (
-              <div className="px-3 py-2 text-slate-400 dark:text-[#A8A69C] text-center text-xs">
+              <div className="px-3 py-3 text-slate-400 dark:text-[#A8A69C] text-center text-xs">
                 No matching options
               </div>
             ) : (
@@ -167,7 +168,7 @@ export default function CustomDropdown({
                     key={option.value}
                     type="button"
                     onClick={e => handleSelect(option.value, e)}
-                    className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg text-left transition-colors cursor-pointer ${
+                    className={`w-full flex items-center justify-between gap-2 px-3 py-2.5 sm:py-1.5 min-h-[40px] sm:min-h-[32px] rounded-lg text-left transition-colors cursor-pointer ${
                       isSelected
                         ? 'bg-slate-100 dark:bg-[#1F1E1D] text-[#0F1B3D] dark:text-[#D97757] font-bold'
                         : 'text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]/60 font-medium'

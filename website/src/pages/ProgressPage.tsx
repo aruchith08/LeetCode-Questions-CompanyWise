@@ -268,30 +268,30 @@ export default function ProgressPage() {
       </div>
 
       {/* 4 Cards Stats Grid (Overall + Easy + Medium + Hard) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-3.5 sm:gap-4">
         {/* Card 1: Overall Completion (Spans 2 cols on lg) */}
-        <div className="lg:col-span-2 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-5 shadow-xs flex items-center justify-between">
-          <div className="min-w-0 pr-4">
+        <div className="lg:col-span-2 rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs flex items-center justify-between">
+          <div className="min-w-0 pr-3 sm:pr-4">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-[#FAF9F5]">
               <Target className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
               <span>Overall completion</span>
             </div>
 
-            <div className="mt-3 flex items-baseline gap-1.5 font-sans">
-              <span className="text-3xl font-extrabold text-[#0F1B3D] dark:text-[#FAF9F5] font-mono">{totalSolved}</span>
-              <span className="text-sm font-medium text-slate-500 dark:text-[#A8A69C]">/ {totalQuestions.toLocaleString()} solved</span>
+            <div className="mt-2.5 sm:mt-3 flex items-baseline gap-1.5 font-sans">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#0F1B3D] dark:text-[#FAF9F5] font-mono">{totalSolved}</span>
+              <span className="text-xs sm:text-sm font-medium text-slate-500 dark:text-[#A8A69C]">/ {totalQuestions.toLocaleString()} solved</span>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-[#FAF9F5] font-medium mt-1">
+            <div className="flex items-center gap-2 text-[11px] sm:text-xs text-slate-600 dark:text-[#FAF9F5] font-medium mt-1">
               <span className="inline-flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F5A524]" />
                 {totalAttempted} attempted
               </span>
               <span>·</span>
-              <span>{bookmarkedQuestions.length} bookmarked</span>
+              <span>{bookmarkedQuestions.length} saved</span>
             </div>
 
-            <div className="w-44 sm:w-48 h-2 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mt-3">
+            <div className="w-36 sm:w-48 h-2 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mt-2.5 sm:mt-3">
               <div
                 className="h-full bg-gradient-to-r from-[#0F1B3D] to-[#F5A524] dark:from-[#D97757] dark:to-[#D97757] rounded-full transition-all duration-300"
                 style={{ width: `${Math.max(overallPctRaw, totalSolved > 0 ? 3 : 0)}%` }}
@@ -300,85 +300,88 @@ export default function ProgressPage() {
           </div>
 
           <div className="text-right shrink-0">
-            <span className="text-3xl font-extrabold font-mono text-[#0F1B3D] dark:text-[#D97757] block">
+            <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#0F1B3D] dark:text-[#D97757] block">
               {overallPctFormatted}
             </span>
-            <span className="text-[11px] font-mono text-slate-400 block mt-0.5">accuracy</span>
+            <span className="text-[10px] sm:text-[11px] font-mono text-slate-400 block mt-0.5">accuracy</span>
           </div>
         </div>
 
-        {/* Card 2: Easy */}
-        <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-5 shadow-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-emerald-700 dark:text-[#8FBF78]">Easy</span>
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
-          </div>
-          <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
-              {difficultyStats.easy.solved}
-            </span>
-            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.easy.total}</span>
-          </div>
-          <div>
-            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
-              <div
-                className="h-full bg-emerald-500 rounded-full transition-all duration-300"
-                style={{ width: `${(difficultyStats.easy.solved / difficultyStats.easy.total) * 100}%` }}
-              />
+        {/* Difficulty Cards 2, 3, 4: Rendered 3-wide on mobile for immediate side-by-side comparison */}
+        <div className="lg:col-span-3 grid grid-cols-3 gap-2 sm:gap-4">
+          {/* Card 2: Easy */}
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-3 sm:p-5 shadow-xs flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-emerald-700 dark:text-[#8FBF78]">Easy</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
             </div>
-            <span className="text-[10px] font-mono text-slate-400">
-              {difficultyStats.easy.attempted} attempted
-            </span>
+            <div className="my-1.5 sm:my-2">
+              <span className="text-lg sm:text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+                {difficultyStats.easy.solved}
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-mono block sm:inline sm:ml-1">/ {difficultyStats.easy.total}</span>
+            </div>
+            <div>
+              <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
+                <div
+                  className="h-full bg-emerald-500 rounded-full transition-all duration-300"
+                  style={{ width: `${(difficultyStats.easy.solved / difficultyStats.easy.total) * 100}%` }}
+                />
+              </div>
+              <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block truncate">
+                {difficultyStats.easy.attempted} att
+              </span>
+            </div>
           </div>
-        </div>
 
-        {/* Card 3: Medium */}
-        <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-5 shadow-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-amber-700 dark:text-[#E0B14F]">Medium</span>
-            <span className="w-2 h-2 rounded-full bg-[#F5A524]" />
-          </div>
-          <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
-              {difficultyStats.medium.solved}
-            </span>
-            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.medium.total}</span>
-          </div>
-          <div>
-            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
-              <div
-                className="h-full bg-[#F5A524] rounded-full transition-all duration-300"
-                style={{ width: `${(difficultyStats.medium.solved / difficultyStats.medium.total) * 100}%` }}
-              />
+          {/* Card 3: Medium */}
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-3 sm:p-5 shadow-xs flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-amber-700 dark:text-[#E0B14F]">Medium</span>
+              <span className="w-2 h-2 rounded-full bg-[#F5A524]" />
             </div>
-            <span className="text-[10px] font-mono text-slate-400">
-              {difficultyStats.medium.attempted} attempted
-            </span>
+            <div className="my-1.5 sm:my-2">
+              <span className="text-lg sm:text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+                {difficultyStats.medium.solved}
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-mono block sm:inline sm:ml-1">/ {difficultyStats.medium.total}</span>
+            </div>
+            <div>
+              <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
+                <div
+                  className="h-full bg-[#F5A524] rounded-full transition-all duration-300"
+                  style={{ width: `${(difficultyStats.medium.solved / difficultyStats.medium.total) * 100}%` }}
+                />
+              </div>
+              <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block truncate">
+                {difficultyStats.medium.attempted} att
+              </span>
+            </div>
           </div>
-        </div>
 
-        {/* Card 4: Hard */}
-        <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-5 shadow-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-rose-700 dark:text-[#EE8F78]">Hard</span>
-            <span className="w-2 h-2 rounded-full bg-rose-500" />
-          </div>
-          <div className="my-2">
-            <span className="text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
-              {difficultyStats.hard.solved}
-            </span>
-            <span className="text-xs text-slate-500 font-mono ml-1">/ {difficultyStats.hard.total}</span>
-          </div>
-          <div>
-            <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
-              <div
-                className="h-full bg-rose-500 rounded-full transition-all duration-300"
-                style={{ width: `${(difficultyStats.hard.solved / difficultyStats.hard.total) * 100}%` }}
-              />
+          {/* Card 4: Hard */}
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-3 sm:p-5 shadow-xs flex flex-col justify-between">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-rose-700 dark:text-[#EE8F78]">Hard</span>
+              <span className="w-2 h-2 rounded-full bg-rose-500" />
             </div>
-            <span className="text-[10px] font-mono text-slate-400">
-              {difficultyStats.hard.attempted} attempted
-            </span>
+            <div className="my-1.5 sm:my-2">
+              <span className="text-lg sm:text-2xl font-extrabold font-mono text-slate-900 dark:text-[#FAF9F5]">
+                {difficultyStats.hard.solved}
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-mono block sm:inline sm:ml-1">/ {difficultyStats.hard.total}</span>
+            </div>
+            <div>
+              <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
+                <div
+                  className="h-full bg-rose-500 rounded-full transition-all duration-300"
+                  style={{ width: `${(difficultyStats.hard.solved / difficultyStats.hard.total) * 100}%` }}
+                />
+              </div>
+              <span className="text-[9px] sm:text-[10px] font-mono text-slate-400 block truncate">
+                {difficultyStats.hard.attempted} att
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -408,7 +411,7 @@ export default function ProgressPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-7 gap-2 pt-2">
+        <div className="grid grid-cols-7 gap-1.5 sm:gap-2 pt-2">
           {activityData.days.map((d, idx) => {
             const heightPct = Math.max((d.count / activityData.maxCount) * 100, 8);
             return (
@@ -455,7 +458,7 @@ export default function ProgressPage() {
             </div>
 
             {/* Filter pills */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none w-full sm:w-auto">
               {(['all', 'targeted', 'in_progress', 'completed'] as CompanyFilter[]).map(f => (
                 <button
                   key={f}
@@ -474,29 +477,32 @@ export default function ProgressPage() {
           </div>
 
           {/* Company Search and Sort Bar */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
               <input
                 type="text"
                 value={companySearch}
                 onChange={e => setCompanySearch(e.target.value)}
                 placeholder="Search companies in progress..."
-                className="w-full h-9 pl-9 pr-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#F5A524] shadow-2xs"
+                className="w-full h-10 sm:h-9 pl-9 pr-3 bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] rounded-xl text-sm sm:text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#F5A524] shadow-2xs"
               />
             </div>
 
-            <CustomDropdown
-              value={companySort}
-              onChange={val => setCompanySort(val as CompanySort)}
-              options={[
-                { value: 'solved', label: 'Sort: Solved (Most)' },
-                { value: 'completion', label: 'Sort: Completion %' },
-                { value: 'count', label: 'Sort: Total Questions' },
-                { value: 'name', label: 'Sort: Name (A–Z)' },
-              ]}
-              size="sm"
-            />
+            <div className="w-full sm:w-auto">
+              <CustomDropdown
+                className="w-full sm:w-auto"
+                value={companySort}
+                onChange={val => setCompanySort(val as CompanySort)}
+                options={[
+                  { value: 'solved', label: 'Sort: Solved (Most)' },
+                  { value: 'completion', label: 'Sort: Completion %' },
+                  { value: 'count', label: 'Sort: Total Questions' },
+                  { value: 'name', label: 'Sort: Name (A–Z)' },
+                ]}
+                size="sm"
+              />
+            </div>
           </div>
 
           {/* Company Progress Rows */}

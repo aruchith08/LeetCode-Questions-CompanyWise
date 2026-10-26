@@ -203,7 +203,7 @@ export default function HomePage() {
       <section className="pt-2 sm:pt-4 pb-2 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: 3D Network Globe */}
         <div className="w-full flex items-center justify-center order-2 lg:order-1 lg:col-span-5">
-          <div className="relative w-full max-w-[460px] aspect-square flex items-center justify-center">
+          <div className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[460px] aspect-square flex items-center justify-center">
             <CompanyWiseGlobe
               className="w-full h-full"
               style={{ width: '100%', height: '100%' }}
@@ -218,7 +218,7 @@ export default function HomePage() {
         <div className="w-full order-1 lg:order-2 lg:col-span-7 space-y-6 text-left">
           {/* Headline */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.12] hero-title-animate">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.15] hero-title-animate">
               <span>Target the exact questions<br className="hidden sm:inline" />top tech companies </span>
               <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#D97757]">
                 actually ask.
@@ -248,15 +248,15 @@ export default function HomePage() {
                     setSearchFocused(true);
                   }}
                   onFocus={() => setSearchFocused(true)}
-                  placeholder="Search companies (e.g. Google, Amazon) or questions (e.g. Two Sum, #146)..."
-                  className="w-full h-full pl-3 pr-28 bg-transparent text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none font-sans"
+                  placeholder="Search companies (e.g. Google) or problems (e.g. Two Sum)..."
+                  className="w-full h-full pl-3 pr-24 sm:pr-28 bg-transparent text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none font-sans"
                 />
-                <div className="absolute right-3 flex items-center gap-2">
+                <div className="absolute right-2.5 sm:right-3 flex items-center gap-1.5 sm:gap-2">
                   {searchQuery ? (
                     <button
                       type="button"
                       onClick={() => { setSearchQuery(''); searchInputRef.current?.focus(); }}
-                      className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                      className="p-1.5 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer"
                       aria-label="Clear query"
                     >
                       <X className="w-4 h-4" />
@@ -268,7 +268,7 @@ export default function HomePage() {
                   )}
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs cursor-pointer"
+                    className="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs cursor-pointer"
                   >
                     Search
                   </button>
@@ -383,7 +383,7 @@ export default function HomePage() {
                 to="/companies"
                 className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-dashed border-slate-300 dark:border-[#43433F] hover:border-[#D97757] dark:hover:border-[#D97757] text-xs font-semibold text-slate-600 dark:text-[#A8A69C] transition-colors"
               >
-                <span>+192 more</span>
+                <span>+{Math.max(0, (data?.totalCompanies || 490) - targetCompanies.length)} more</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
@@ -391,7 +391,7 @@ export default function HomePage() {
 
           {/* Telemetry Strip from Actual Data */}
           <div className="pt-4 border-t border-slate-200/80 dark:border-[#43433F]/80 w-full max-w-2xl">
-            <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-[#43433F]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-x divide-y sm:divide-y-0 divide-slate-100 dark:divide-[#43433F]">
               <div className="p-3.5 text-left">
                 <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Catalog</span>
                 <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
