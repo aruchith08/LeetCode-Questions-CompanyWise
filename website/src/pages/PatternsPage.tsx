@@ -129,7 +129,7 @@ export default function PatternsPage() {
           <div className="lg:col-span-5 flex items-center justify-center select-none">
             <div className="relative w-full max-w-[420px] flex items-center justify-center">
               <img
-                src="/patterns-hero-3d.webp"
+                src="/patterns-hero-3d.png"
                 alt="DSA Pattern Mastery Journey: Learn, Practice, Master"
                 className="w-full h-auto object-contain drop-shadow-sm select-none pointer-events-none"
               />
