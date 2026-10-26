@@ -219,7 +219,7 @@ export default function HomePage() {
           {/* Headline */}
           <div className="space-y-3">
             <h1 className="text-2xl sm:text-4xl md:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5] leading-[1.15] hero-title-animate">
-              <span>Target the exact questions<br className="hidden sm:inline" />top tech companies </span>
+              <span>Target the exact questions{' '}<br className="hidden sm:inline" />top tech companies </span>
               <span className="inline-block relative hero-accent-badge text-[#0F1B3D] dark:text-[#D97757]">
                 actually ask.
                 <span className="hero-accent-underline" aria-hidden="true" />

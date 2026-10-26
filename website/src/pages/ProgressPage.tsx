@@ -4,7 +4,7 @@ import {
   Download, Upload, Trash2,
   ChevronRight, X, Target,
   Bookmark, Calendar,
-  Search, ArrowRight, Flame
+  Search, ArrowRight, Flame, Star
 } from 'lucide-react';
 import { useProgress } from '../hooks/useProgress';
 import { useDataIndex } from '../hooks/useDataIndex';
@@ -23,7 +23,7 @@ export default function ProgressPage() {
   const {
     progress, totalSolved, totalAttempted, getStatus, toggleSolved,
     exportProgress, importProgress, resetProgress, toggleBookmark,
-    addRecentQuestion,
+    addRecentQuestion, targetCompanies, isTargeted, toggleTargetCompany,
   } = useProgress();
 
   const { data: index, loading: loadingIndex } = useDataIndex();
@@ -133,7 +133,10 @@ export default function ProgressPage() {
     });
 
     // Filtering by status
-    if (companyFilter === 'in_progress') {
+    if (companyFilter === 'targeted') {
+      const targetSet = new Set(targetCompanies);
+      list = list.filter(c => targetSet.has(c.slug));
+    } else if (companyFilter === 'in_progress') {
       list = list.filter(c => c.solved > 0 && c.solved < c.total);
     } else if (companyFilter === 'completed') {
       list = list.filter(c => c.solved === c.total && c.total > 0);
@@ -160,7 +163,7 @@ export default function ProgressPage() {
     });
 
     return list;
-  }, [index, allQuestions, companySort, companyFilter, companySearch, getStatus]);
+  }, [index, allQuestions, companySort, companyFilter, companySearch, getStatus, targetCompanies]);
 
   // Display initial 6 companies (or all filtered if expanded)
   const displayedCompanies = useMemo(() => {
@@ -509,7 +512,14 @@ export default function ProgressPage() {
           <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] divide-y divide-slate-100 dark:divide-[#43433F]/80 shadow-xs overflow-hidden">
             {displayedCompanies.length === 0 ? (
               <div className="py-12 text-center text-xs text-slate-500">
-                No companies match your filters.
+                {companyFilter === 'targeted' ? (
+                  <div className="space-y-2">
+                    <p className="font-semibold text-sm text-slate-700 dark:text-[#FAF9F5]">No target companies selected yet.</p>
+                    <p className="text-slate-500 max-w-sm mx-auto text-xs">Star companies on the <Link to="/companies" className="text-[#0F1B3D] dark:text-[#D97757] font-semibold underline">Companies page</Link> or star them in the list to track your targeted interview prep.</p>
+                  </div>
+                ) : (
+                  'No companies match your filters.'
+                )}
               </div>
             ) : (
               displayedCompanies.map(c => (
@@ -530,8 +540,25 @@ export default function ProgressPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 shrink-0">
-                    <div className="w-32 sm:w-40 text-right">
+                  <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleTargetCompany(c.slug);
+                      }}
+                      className={`p-2 rounded-xl transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center ${
+                        isTargeted(c.slug)
+                          ? 'text-amber-500 hover:text-amber-600 bg-amber-500/10'
+                          : 'text-slate-300 dark:text-slate-600 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                      }`}
+                      title={isTargeted(c.slug) ? 'Remove from targets' : 'Target this company'}
+                      aria-label={isTargeted(c.slug) ? 'Remove from targets' : 'Target this company'}
+                    >
+                      <Star className={`w-4 h-4 ${isTargeted(c.slug) ? 'fill-amber-500' : ''}`} />
+                    </button>
+                    <div className="w-24 sm:w-36 text-right">
                       <div className="w-full h-1.5 rounded-full bg-slate-100 dark:bg-[#262624] overflow-hidden mb-1">
                         <div
                           className="h-full bg-gradient-to-r from-[#0F1B3D] to-[#F5A524] dark:from-[#D97757] dark:to-[#D97757] rounded-full transition-all duration-300"
