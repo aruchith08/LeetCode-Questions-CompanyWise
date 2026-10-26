@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import { useTheme } from './hooks/useTheme';
+import { ProgressProvider } from './hooks/useProgress';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -15,8 +16,9 @@ export default function App() {
   const { isDark, toggle } = useTheme();
 
   return (
-    <BrowserRouter>
-      <Routes>
+    <ProgressProvider>
+      <BrowserRouter>
+        <Routes>
         <Route element={<Layout isDark={isDark} onToggleTheme={toggle} />}>
           <Route
             index
@@ -69,5 +71,6 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+  </ProgressProvider>
   );
 }

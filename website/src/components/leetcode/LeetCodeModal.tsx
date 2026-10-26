@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Check, ExternalLink, RotateCw, Unlink, ShieldCheck } from 'lucide-react';
 import type { LeetCodeAccount } from '../../types';
+import { useAllQuestions } from '../../hooks/useAllQuestions';
 
 interface LeetCodeModalProps {
   isOpen: boolean;
@@ -25,6 +26,7 @@ export default function LeetCodeModal({
   onSync,
   onDisconnect,
 }: LeetCodeModalProps) {
+  const { data: allQuestions } = useAllQuestions();
   const [usernameInput, setUsernameInput] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -36,7 +38,7 @@ export default function LeetCodeModal({
 
     setSubmitting(true);
     try {
-      await onConnect(usernameInput.trim());
+      await onConnect(usernameInput.trim(), allQuestions || undefined);
       setUsernameInput('');
     } catch {
       // error handled in hook
@@ -119,7 +121,7 @@ export default function LeetCodeModal({
             <div className="flex items-center gap-2 pt-2">
               <button
                 type="button"
-                onClick={() => onSync()}
+                onClick={() => onSync(allQuestions || undefined)}
                 disabled={isSyncing}
                 className="flex-1 h-9 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] text-xs font-bold flex items-center justify-center gap-2 transition-colors disabled:opacity-50 cursor-pointer shadow-xs"
               >

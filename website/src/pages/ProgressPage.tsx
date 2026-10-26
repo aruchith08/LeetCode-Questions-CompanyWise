@@ -6,7 +6,7 @@ import {
   Bookmark, Calendar,
   Search, ArrowRight, Flame, Star
 } from 'lucide-react';
-import { useProgress } from '../hooks/useProgress';
+import { useProgress, getLocalDateString } from '../hooks/useProgress';
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useAllQuestions } from '../hooks/useAllQuestions';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
@@ -179,7 +179,7 @@ export default function ProgressPage() {
     for (let i = 6; i >= 0; i--) {
       const d = new Date(now);
       d.setDate(d.getDate() - i);
-      const dateStr = d.toISOString().split('T')[0];
+      const dateStr = getLocalDateString(d);
       const dayLabel = d.toLocaleDateString('en-US', { weekday: 'short' });
       days.push({
         day: dayLabel,

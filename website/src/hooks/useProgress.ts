@@ -1,11 +1,19 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useContext } from 'react';
 import type { UserProgress, QuestionStatus, LeetCodeAccount } from '../types';
 import { fetchLeetCodeData, matchLeetCodeSubmissionsWithQuestions } from '../services/leetcodeService';
+import { ProgressContext, ProgressProvider } from '../context/ProgressContext';
 
 const STORAGE_KEY = 'companywise-progress';
 const LEGACY_STORAGE_KEY = 'codewise-progress';
 const LC_STORAGE_KEY = 'companywise-leetcode-account';
 const LEGACY_LC_STORAGE_KEY = 'codewise-leetcode-account';
+
+export function getLocalDateString(d: Date = new Date()): string {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
 
 function getDefaultProgress(): UserProgress {
   return {
@@ -28,7 +36,7 @@ function loadProgress(): UserProgress {
       const activityHistory = parsed.activityHistory || {};
       const solvedCount = Object.keys(parsed.solvedQuestions || {}).length;
       if (solvedCount > 0 && Object.keys(activityHistory).length === 0) {
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDateString();
         activityHistory[today] = solvedCount;
       }
       return {
@@ -69,7 +77,7 @@ function saveLeetCodeAccount(account: LeetCodeAccount | null) {
   }
 }
 
-export function useProgress() {
+export function useProgressInternal() {
   const [progress, setProgress] = useState<UserProgress>(loadProgress);
   const [lcAccount, setLcAccount] = useState<LeetCodeAccount | null>(loadLeetCodeAccount);
   const [isSyncing, setIsSyncing] = useState(false);
@@ -93,11 +101,14 @@ export function useProgress() {
     setProgress(prev => {
       const current = prev.solvedQuestions[id] || 'unsolved';
       const newQuestions = { ...prev.solvedQuestions };
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateString();
       const activityHistory = { ...(prev.activityHistory || {}) };
 
       if (current === 'solved') {
         delete newQuestions[id];
+        if (activityHistory[today] && activityHistory[today] > 0) {
+          activityHistory[today] = Math.max(0, activityHistory[today] - 1);
+        }
       } else {
         newQuestions[id] = 'solved';
         activityHistory[today] = (activityHistory[today] || 0) + 1;
@@ -109,7 +120,7 @@ export function useProgress() {
   const markBatchSolved = useCallback((ids: number[]) => {
     setProgress(prev => {
       const newQuestions = { ...prev.solvedQuestions };
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateString();
       const activityHistory = { ...(prev.activityHistory || {}) };
       let changed = false;
       for (const id of ids) {
@@ -127,14 +138,16 @@ export function useProgress() {
     setProgress(prev => {
       const current = prev.solvedQuestions[id] || 'unsolved';
       const newQuestions = { ...prev.solvedQuestions };
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateString();
       const activityHistory = { ...(prev.activityHistory || {}) };
 
       if (current === 'attempted') {
         delete newQuestions[id];
       } else {
+        if (current === 'solved' && activityHistory[today] && activityHistory[today] > 0) {
+          activityHistory[today] = Math.max(0, activityHistory[today] - 1);
+        }
         newQuestions[id] = 'attempted';
-        activityHistory[today] = (activityHistory[today] || 0) + 1;
       }
       return { ...prev, solvedQuestions: newQuestions, activityHistory };
     });
@@ -142,15 +155,26 @@ export function useProgress() {
 
   const setQuestionStatus = useCallback((id: number, status: QuestionStatus) => {
     setProgress(prev => {
+      const current = prev.solvedQuestions[id] || 'unsolved';
+      if (current === status) return prev;
+
       const newQuestions = { ...prev.solvedQuestions };
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateString();
       const activityHistory = { ...(prev.activityHistory || {}) };
 
       if (status === 'unsolved') {
         delete newQuestions[id];
-      } else {
-        newQuestions[id] = status;
+        if (current === 'solved' && activityHistory[today] && activityHistory[today] > 0) {
+          activityHistory[today] = Math.max(0, activityHistory[today] - 1);
+        }
+      } else if (status === 'solved') {
+        newQuestions[id] = 'solved';
         activityHistory[today] = (activityHistory[today] || 0) + 1;
+      } else {
+        newQuestions[id] = 'attempted';
+        if (current === 'solved' && activityHistory[today] && activityHistory[today] > 0) {
+          activityHistory[today] = Math.max(0, activityHistory[today] - 1);
+        }
       }
       return { ...prev, solvedQuestions: newQuestions, activityHistory };
     });
@@ -159,22 +183,30 @@ export function useProgress() {
   const markBatchStatus = useCallback((ids: number[], status: QuestionStatus) => {
     setProgress(prev => {
       const newQuestions = { ...prev.solvedQuestions };
-      const today = new Date().toISOString().split('T')[0];
+      const today = getLocalDateString();
       const activityHistory = { ...(prev.activityHistory || {}) };
       let changed = false;
 
       for (const id of ids) {
+        const current = newQuestions[id] || 'unsolved';
+        if (current === status) continue;
+
         if (status === 'unsolved') {
-          if (newQuestions[id]) {
-            delete newQuestions[id];
-            changed = true;
+          delete newQuestions[id];
+          if (current === 'solved' && activityHistory[today] && activityHistory[today] > 0) {
+            activityHistory[today] = Math.max(0, activityHistory[today] - 1);
           }
+          changed = true;
+        } else if (status === 'solved') {
+          newQuestions[id] = 'solved';
+          activityHistory[today] = (activityHistory[today] || 0) + 1;
+          changed = true;
         } else {
-          if (newQuestions[id] !== status) {
-            newQuestions[id] = status;
-            activityHistory[today] = (activityHistory[today] || 0) + 1;
-            changed = true;
+          newQuestions[id] = 'attempted';
+          if (current === 'solved' && activityHistory[today] && activityHistory[today] > 0) {
+            activityHistory[today] = Math.max(0, activityHistory[today] - 1);
           }
+          changed = true;
         }
       }
       return changed ? { ...prev, solvedQuestions: newQuestions, activityHistory } : prev;
@@ -230,7 +262,7 @@ export function useProgress() {
     });
   }, []);
 
-  // LeetCode Account actions
+  // LeetCode Account actions with guaranteed problem matching catalog
   const connectLeetCode = useCallback(async (
     username: string,
     allQuestions?: { id: number; title: string; link: string }[]
@@ -241,9 +273,21 @@ export function useProgress() {
       const acc = await fetchLeetCodeData(username);
       setLcAccount(acc);
 
+      let questionsList = allQuestions;
+      if (!questionsList || questionsList.length === 0) {
+        try {
+          const res = await fetch('/data/questions.json');
+          if (res.ok) {
+            questionsList = await res.json();
+          }
+        } catch {
+          // fallback gracefully if offline
+        }
+      }
+
       let matchedIds: number[] = [];
-      if (allQuestions && acc.recentSubmissions.length > 0) {
-        matchedIds = matchLeetCodeSubmissionsWithQuestions(acc.recentSubmissions, allQuestions);
+      if (questionsList && questionsList.length > 0 && acc.recentSubmissions.length > 0) {
+        matchedIds = matchLeetCodeSubmissionsWithQuestions(acc.recentSubmissions, questionsList);
         if (matchedIds.length > 0) {
           markBatchSolved(matchedIds);
         }
@@ -270,9 +314,21 @@ export function useProgress() {
       const acc = await fetchLeetCodeData(lcAccount.username);
       setLcAccount(acc);
 
+      let questionsList = allQuestions;
+      if (!questionsList || questionsList.length === 0) {
+        try {
+          const res = await fetch('/data/questions.json');
+          if (res.ok) {
+            questionsList = await res.json();
+          }
+        } catch {
+          // fallback gracefully if offline
+        }
+      }
+
       let matchedIds: number[] = [];
-      if (allQuestions && acc.recentSubmissions.length > 0) {
-        matchedIds = matchLeetCodeSubmissionsWithQuestions(acc.recentSubmissions, allQuestions);
+      if (questionsList && questionsList.length > 0 && acc.recentSubmissions.length > 0) {
+        matchedIds = matchLeetCodeSubmissionsWithQuestions(acc.recentSubmissions, questionsList);
         if (matchedIds.length > 0) {
           markBatchSolved(matchedIds);
         }
@@ -300,20 +356,31 @@ export function useProgress() {
     }, null, 2);
   }, [progress, lcAccount]);
 
-  const importProgress = useCallback((json: string): boolean => {
+  const importProgress = useCallback((jsonStr: string) => {
     try {
-      const parsed = JSON.parse(json);
-      if (parsed && typeof parsed.solvedQuestions === 'object') {
-        setProgress({ ...getDefaultProgress(), ...parsed });
+      const parsed = JSON.parse(jsonStr);
+      if (parsed.solvedQuestions && typeof parsed.solvedQuestions === 'object') {
+        const activityHistory = parsed.activityHistory || {};
+        const count = Object.keys(parsed.solvedQuestions).length;
+        if (count > 0 && Object.keys(activityHistory).length === 0) {
+          const today = getLocalDateString();
+          activityHistory[today] = count;
+        }
+
+        const newProg: UserProgress = {
+          ...getDefaultProgress(),
+          ...parsed,
+          targetCompanies: parsed.targetCompanies || [],
+          activityHistory,
+        };
+        setProgress(newProg);
         if (parsed.leetcodeAccount) {
           setLcAccount(parsed.leetcodeAccount);
         }
         return true;
       }
-      return false;
-    } catch {
-      return false;
-    }
+    } catch {}
+    return false;
   }, []);
 
   const resetProgress = useCallback(() => {
@@ -353,3 +420,16 @@ export function useProgress() {
     totalAttempted,
   };
 }
+
+// Unified hook: uses centralized React Context if wrapped in ProgressProvider,
+// or falls back to local instance if rendered outside (e.g. isolated test).
+export function useProgress() {
+  const context = useContext(ProgressContext);
+  if (context) {
+    return context;
+  }
+  return useProgressInternal();
+}
+
+export { ProgressProvider };
+export type ProgressHookReturn = ReturnType<typeof useProgressInternal>;

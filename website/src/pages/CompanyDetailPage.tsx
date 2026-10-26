@@ -13,20 +13,12 @@ import BookmarkButton from '../components/ui/BookmarkButton';
 import CompanyLogo from '../components/ui/CompanyLogo';
 import CustomDropdown from '../components/ui/CustomDropdown';
 import type { Question } from '../types';
+import { PERIOD_LABELS, PERIOD_ORDER } from '../types';
 
 type SortKey = 'frequency' | 'id' | 'title' | 'difficulty' | 'acceptance';
 type SortDir = 'asc' | 'desc';
 
 const PAGE_SIZE = 30;
-
-const PERIOD_LABELS: Record<string, string> = {
-  alltime: 'All Time',
-  '2year': 'Last 2 Years',
-  '1year': 'Last 1 Year',
-  '6months': 'Last 6 Months',
-};
-
-const PERIOD_ORDER = ['alltime', '2year', '1year', '6months'];
 
 export default function CompanyDetailPage() {
   const { slug } = useParams<{ slug: string }>();
