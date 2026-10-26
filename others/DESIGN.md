@@ -30,10 +30,14 @@ colors:
   medium-dark: "#E0B14F"
   hard-dark: "#EE8F78"
 
-  # LeetCode Modal Obsidian Palette
-  modal-bg: "#0E1015"
-  modal-surface: "#14161F"
-  modal-amber-glow: "rgba(245, 158, 11, 0.22)"
+  # LeetCode Modal Palette (Adaptive Dual-Theme)
+  modal-bg-light: "#FFFFFF"
+  modal-surface-light: "#F8FAFC"
+  modal-border-light: "#E2E8F0"
+  modal-bg-dark: "#262624"
+  modal-surface-dark: "#1F1E1D"
+  modal-border-dark: "#43433F"
+  modal-amber-glow: "rgba(245, 165, 36, 0.18)"
   modal-orange-gradient: "from-[#FFA116] via-[#FF8B1F] to-[#EA580C]"
 typography:
   light:
