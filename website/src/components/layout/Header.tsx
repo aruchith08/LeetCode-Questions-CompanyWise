@@ -6,6 +6,8 @@ import {
 import type { LeetCodeAccount } from '../../types';
 import LeetCodeModal from '../leetcode/LeetCodeModal';
 import CompanyWiseLogo from '../ui/CompanyWiseLogo';
+import EcosystemDropdown from './EcosystemDropdown';
+import { ECOSYSTEM_PLATFORMS } from '../../config/ecosystem';
 
 interface HeaderProps {
   isDark: boolean;
@@ -47,18 +49,8 @@ export default function Header({
       <header className="sticky top-0 z-40 border-b border-slate-200 dark:border-[#43433F] bg-[#F7F8FB]/90 dark:bg-[#262624]/90 backdrop-blur-md transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 gap-4">
-            {/* Brand Logo */}
-            <Link
-              to="/"
-              className="flex items-center group shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97757] rounded-lg"
-              aria-label="CompanyWise Home"
-            >
-              <CompanyWiseLogo
-                variant="full"
-                size="md"
-                iconClassName="group-hover:scale-105 transition-transform"
-              />
-            </Link>
+            {/* Brand Logo with Ecosystem Switcher Dropdown */}
+            <EcosystemDropdown />
 
             {/* Desktop Navigation Links (Centered) */}
             <nav className="hidden md:flex items-center gap-1.5">
@@ -184,6 +176,33 @@ export default function Header({
                   </div>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400 -rotate-90" />
                 </button>
+              </div>
+
+              {/* Mobile Companion Platforms */}
+              <div className="pt-2 border-t border-slate-200/80 dark:border-[#43433F]/80 space-y-2">
+                <div className="px-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  Companion Platforms
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {ECOSYSTEM_PLATFORMS.filter(p => !p.isCurrent).map(platform => (
+                    <a
+                      key={platform.id}
+                      href={platform.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2.5 p-2 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] hover:border-[#D97757] transition-all min-h-[44px]"
+                    >
+                      <div className="w-7 h-7 rounded-lg overflow-hidden bg-slate-50 dark:bg-[#262624] p-1 flex items-center justify-center shrink-0 border border-slate-200/50 dark:border-[#43433F]/50">
+                        <img
+                          src={platform.logo}
+                          alt={platform.name}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                      <span className="truncate">{platform.name} ↗</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </>
