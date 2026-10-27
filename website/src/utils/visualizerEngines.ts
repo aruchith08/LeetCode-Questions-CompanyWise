@@ -1,6 +1,6 @@
 import type { GenericVisualizerStep } from '../types/patterns';
 
-// 1. Hashing & Frequency Counting (Two Sum example)
+// 1. Hashing & Frequency Counting (Two Sum)
 export function generateHashingSteps(
   nums: number[] = [2, 7, 11, 15],
   target: number = 9
@@ -149,7 +149,7 @@ export function generateTwoPointersSteps(
       steps.push({
         stepNumber: steps.length + 1,
         title: `Sum (${sum}) > Target (${target}) -> Decrement Right`,
-        explanation: `Sum ${nums[left]} + ${nums[prevR]} = ${sum} is too large. Any pair using nums[${prevR}] will also be > ${target}. Decrement Right from ${prevR} to ${right} to decrease sum.`,
+        explanation: `Sum ${nums[left]} + ${nums[prevR]} = ${sum} is too large. Decrement Right from ${prevR} to ${right} to decrease sum.`,
         elements: nums,
         highlightIndices: [left, right],
         activePointers: [
@@ -217,7 +217,7 @@ export function generatePrefixSumSteps(
   // Range Query Demonstration
   const [L, R] = query;
   const rangeSum = prefix[R + 1] - prefix[L];
-  const queryIndices = [];
+  const queryIndices: number[] = [];
   for (let i = L; i <= R; i++) queryIndices.push(i);
 
   steps.push({
@@ -298,37 +298,37 @@ export function generateBinarySearchSteps(
         highlightIndices: [mid],
         activePointers: [
           { name: 'L', index: left, color: 'indigo' },
-          { name: 'M', index: mid, color: 'amber' },
+          { name: 'Mid', index: mid, color: 'amber' },
           { name: 'R', index: right, color: 'rose' },
         ],
-        auxiliaryData: { left, mid, right, searchRange: `[${left} .. ${right}]`, target },
+        auxiliaryData: { left: mid + 1, right, eliminated: `[${left}..${mid}]` },
         metrics: [
           { label: 'Mid Val', value: midVal },
           { label: 'Target', value: target },
-          { label: 'Next Left', value: mid + 1 },
+          { label: 'New Left', value: mid + 1 },
         ],
-        statusBadge: { label: 'Search Right Half', variant: 'warning' },
+        statusBadge: { label: 'Advance Left ->', variant: 'warning' },
       });
       left = mid + 1;
     } else {
       steps.push({
         stepNumber: steps.length + 1,
         title: `nums[${mid}] (${midVal}) > Target (${target}) -> Discard Right Half`,
-        explanation: `Midpoint ${mid} has value ${midVal} which is greater than ${target}. All elements from index ${mid} to ${right} are also > ${target}. Set Right = ${mid - 1}.`,
+        explanation: `Midpoint ${mid} has value ${midVal} which is greater than ${target}. Discard all elements from index ${mid} to ${right}. Set Right = ${mid - 1}.`,
         elements: nums,
         highlightIndices: [mid],
         activePointers: [
           { name: 'L', index: left, color: 'indigo' },
-          { name: 'M', index: mid, color: 'amber' },
+          { name: 'Mid', index: mid, color: 'amber' },
           { name: 'R', index: right, color: 'rose' },
         ],
-        auxiliaryData: { left, mid, right, searchRange: `[${left} .. ${right}]`, target },
+        auxiliaryData: { left, right: mid - 1, eliminated: `[${mid}..${right}]` },
         metrics: [
           { label: 'Mid Val', value: midVal },
           { label: 'Target', value: target },
-          { label: 'Next Right', value: mid - 1 },
+          { label: 'New Right', value: mid - 1 },
         ],
-        statusBadge: { label: 'Search Left Half', variant: 'warning' },
+        statusBadge: { label: '<- Advance Right', variant: 'warning' },
       });
       right = mid - 1;
     }
@@ -337,143 +337,168 @@ export function generateBinarySearchSteps(
   return steps;
 }
 
-// 5. Fast & Slow Pointers (Floyd's Cycle Detection)
-export function generateFastSlowSteps(): GenericVisualizerStep[] {
-  // Implicit cycle: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 2 (cycle length 4, entry at 2)
-  const list = [0, 1, 2, 3, 4, 5];
+// 5. Fast & Slow Pointers (Floyd's Cycle Detection & Cycle Entrance)
+export function generateFastSlowSteps(
+  list: number[] = [0, 1, 2, 3, 4, 5],
+  cycleEntry: number = 2
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const n = list.length;
+  // Node transition function simulating cycle:
+  // 0 -> 1 -> ... -> (n - 1) -> cycleEntry -> ...
+  const next = (curr: number): number => {
+    if (curr === n - 1) return cycleEntry;
+    return curr + 1;
+  };
 
-  const steps: GenericVisualizerStep[] = [
-    {
-      stepNumber: 1,
-      title: 'Initialize Slow & Fast at Head',
-      explanation: 'Linked list has nodes [0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 2]. Cycle begins at node 2. Both Slow (1 step) and Fast (2 steps) start at node 0.',
-      elements: list,
-      highlightIndices: [0],
-      activePointers: [
-        { name: 'Slow', index: 0, color: 'indigo' },
-        { name: 'Fast', index: 0, color: 'rose' },
-      ],
-      auxiliaryData: { slowNode: 0, fastNode: 0, phase: 'Phase 1: Cycle Detection' },
-      metrics: [
-        { label: 'Slow Pos', value: 0 },
-        { label: 'Fast Pos', value: 0 },
-        { label: 'Status', value: 'Head' },
-      ],
-      statusBadge: { label: 'Initialized', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Step 1: Slow -> 1, Fast -> 2',
-      explanation: 'Slow advances 1 hop (node 1). Fast advances 2 hops (node 2). They are at different nodes.',
-      elements: list,
-      highlightIndices: [1, 2],
-      activePointers: [
-        { name: 'Slow', index: 1, color: 'indigo' },
-        { name: 'Fast', index: 2, color: 'rose' },
-      ],
-      auxiliaryData: { slowNode: 1, fastNode: 2, phase: 'Phase 1: Traversing' },
-      metrics: [
-        { label: 'Slow Pos', value: 1 },
-        { label: 'Fast Pos', value: 2 },
-      ],
-      statusBadge: { label: 'Running', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Step 2: Slow -> 2, Fast -> 4',
-      explanation: 'Slow enters cycle at node 2. Fast advances from 2 -> 3 -> 4.',
-      elements: list,
-      highlightIndices: [2, 4],
-      activePointers: [
-        { name: 'Slow', index: 2, color: 'indigo' },
-        { name: 'Fast', index: 4, color: 'rose' },
-      ],
-      auxiliaryData: { slowNode: 2, fastNode: 4, phase: 'Slow Enters Cycle' },
-      metrics: [
-        { label: 'Slow Pos', value: 2 },
-        { label: 'Fast Pos', value: 4 },
-      ],
-      statusBadge: { label: 'In Cycle', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Step 3: Slow -> 3, Fast -> 2 (Cycle Loop)',
-      explanation: 'Slow moves to node 3. Fast moves from 4 -> 5 -> 2 (looping back in cycle).',
-      elements: list,
-      highlightIndices: [3, 2],
-      activePointers: [
-        { name: 'Fast', index: 2, color: 'rose' },
-        { name: 'Slow', index: 3, color: 'indigo' },
-      ],
-      auxiliaryData: { slowNode: 3, fastNode: 2, phase: 'Fast Loops in Cycle' },
-      metrics: [
-        { label: 'Slow Pos', value: 3 },
-        { label: 'Fast Pos', value: 2 },
-      ],
-      statusBadge: { label: 'Approaching', variant: 'warning' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Step 4: Collision at Node 4!',
-      explanation: 'Slow moves to node 4. Fast moves from 2 -> 3 -> 4. Both pointers collide at node 4! Cycle is definitively confirmed.',
-      elements: list,
-      highlightIndices: [4],
-      activePointers: [
-        { name: 'Slow', index: 4, color: 'emerald' },
-        { name: 'Fast', index: 4, color: 'emerald' },
-      ],
-      auxiliaryData: { slowNode: 4, fastNode: 4, collisionNode: 4, cycleDetected: true },
-      metrics: [
-        { label: 'Collision Node', value: 4 },
-        { label: 'Cycle Found', value: 'Yes' },
-      ],
-      statusBadge: { label: 'Collision!', variant: 'success' },
-    },
-    {
-      stepNumber: 6,
-      title: 'Phase 2: Reset One Pointer to Head to Find Entrance',
-      explanation: 'Reset Pointer 1 to Head (node 0) while keeping Pointer 2 at collision node (4). Move both at 1 step/hop. They will collide at node 2 (the exact cycle entry)!',
-      elements: list,
-      highlightIndices: [0, 4],
+  let slow = 0;
+  let fast = 0;
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Phase 1: Initialize Slow and Fast Pointers at Head',
+    explanation: `Linked List: [${list.join(' -> ')} -> loop to Node ${cycleEntry}]. Initialize Slow and Fast pointers at Head (Node 0). Slow advances 1 hop, Fast advances 2 hops per iteration.`,
+    elements: list.map(val => `Node ${val}`),
+    highlightIndices: [0],
+    activePointers: [
+      { name: 'Slow', index: 0, color: 'indigo' },
+      { name: 'Fast', index: 0, color: 'rose' },
+    ],
+    auxiliaryData: { slowNode: 0, fastNode: 0, phase: 'Phase 1: Cycle Detection' },
+    metrics: [
+      { label: 'Slow Pos', value: 0 },
+      { label: 'Fast Pos', value: 0 },
+      { label: 'Status', value: 'Head' },
+    ],
+    statusBadge: { label: 'Initialized', variant: 'info' },
+  });
+
+  // Phase 1: Detect Cycle
+  let stepCount = 0;
+  const maxIterations = 20;
+  let collisionNode = -1;
+
+  while (stepCount < maxIterations) {
+    stepCount++;
+    slow = next(slow);
+    fast = next(next(fast));
+
+    if (slow === fast) {
+      collisionNode = slow;
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Collision Detected at Node ${slow}!`,
+        explanation: `Slow and Fast pointers collided at Node ${slow}! Because Fast travels at 2x speed and overlapped Slow, a directed cycle is mathematically proven.`,
+        elements: list.map(val => `Node ${val}`),
+        highlightIndices: [slow],
+        activePointers: [
+          { name: 'Slow', index: slow, color: 'emerald' },
+          { name: 'Fast', index: slow, color: 'emerald' },
+        ],
+        auxiliaryData: { slowNode: slow, fastNode: fast, collisionNode: slow, cycleDetected: true },
+        metrics: [
+          { label: 'Collision Node', value: slow },
+          { label: 'Cycle Found', value: 'Yes' },
+        ],
+        statusBadge: { label: 'Collision!', variant: 'success' },
+      });
+      break;
+    } else {
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Iteration ${stepCount}: Slow -> Node ${slow}, Fast -> Node ${fast}`,
+        explanation: `Slow advances 1 hop to Node ${slow}. Fast advances 2 hops to Node ${fast}.`,
+        elements: list.map(val => `Node ${val}`),
+        highlightIndices: [slow, fast],
+        activePointers: [
+          { name: 'Slow', index: slow, color: 'indigo' },
+          { name: 'Fast', index: fast, color: 'rose' },
+        ],
+        auxiliaryData: { slowNode: slow, fastNode: fast, phase: 'Phase 1: Traversing' },
+        metrics: [
+          { label: 'Slow Pos', value: slow },
+          { label: 'Fast Pos', value: fast },
+        ],
+        statusBadge: { label: 'Traversing', variant: 'info' },
+      });
+    }
+  }
+
+  // Phase 2: Find Cycle Entrance
+  if (collisionNode !== -1) {
+    let p1 = 0;
+    let p2 = collisionNode;
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: 'Phase 2: Reset Pointer 1 to Head to Locate Cycle Entrance',
+      explanation: `Reset Pointer 1 to Head (Node 0) while keeping Pointer 2 at collision Node ${collisionNode}. Advance both pointers at the same 1 hop/step pace. By Floyd's cycle theorem, they will meet at the cycle entrance!`,
+      elements: list.map(val => `Node ${val}`),
+      highlightIndices: [0, collisionNode],
       activePointers: [
         { name: 'P1 (Head)', index: 0, color: 'indigo' },
-        { name: 'P2 (Met)', index: 4, color: 'purple' },
+        { name: 'P2 (Met)', index: collisionNode, color: 'purple' },
       ],
-      auxiliaryData: { p1Head: 0, p2Collision: 4, phase: 'Phase 2: Find Entrance' },
+      auxiliaryData: { p1Head: 0, p2Collision: collisionNode, phase: 'Phase 2: Find Entrance' },
       metrics: [
         { label: 'P1 Pos', value: 0 },
-        { label: 'P2 Pos', value: 4 },
+        { label: 'P2 Pos', value: collisionNode },
       ],
       statusBadge: { label: 'Phase 2 Start', variant: 'info' },
-    },
-    {
-      stepNumber: 7,
-      title: 'Cycle Entrance Confirmed at Node 2',
-      explanation: 'After 2 steps: P1 (0 -> 1 -> 2) and P2 (4 -> 5 -> 2) meet at node 2! Node 2 is mathematically proven to be the cycle entrance.',
-      elements: list,
-      highlightIndices: [2],
+    });
+
+    while (p1 !== p2) {
+      p1 = next(p1);
+      p2 = next(p2);
+      if (p1 === p2) break;
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Advance Both 1 Step: P1 -> Node ${p1}, P2 -> Node ${p2}`,
+        explanation: `P1 advances to Node ${p1}. P2 advances to Node ${p2}. Moving toward intersection.`,
+        elements: list.map(val => `Node ${val}`),
+        highlightIndices: [p1, p2],
+        activePointers: [
+          { name: 'P1', index: p1, color: 'indigo' },
+          { name: 'P2', index: p2, color: 'purple' },
+        ],
+        auxiliaryData: { p1, p2, phase: 'Approaching Entrance' },
+        metrics: [
+          { label: 'P1 Pos', value: p1 },
+          { label: 'P2 Pos', value: p2 },
+        ],
+        statusBadge: { label: 'Advancing', variant: 'info' },
+      });
+    }
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Cycle Entrance Confirmed at Node ${p1}!`,
+      explanation: `P1 and P2 collided at Node ${p1}! Node ${p1} is mathematically proven to be the cycle entrance (matching expected entrance ${cycleEntry}).`,
+      elements: list.map(val => `Node ${val}`),
+      highlightIndices: [p1],
       activePointers: [
-        { name: 'P1', index: 2, color: 'emerald' },
-        { name: 'P2', index: 2, color: 'emerald' },
+        { name: 'P1', index: p1, color: 'emerald' },
+        { name: 'P2', index: p1, color: 'emerald' },
       ],
-      auxiliaryData: { p1: 2, p2: 2, cycleEntrance: 2, entranceProven: true },
+      auxiliaryData: { p1, p2, cycleEntrance: p1, entranceProven: true },
       metrics: [
-        { label: 'Cycle Entrance', value: 'Node 2' },
+        { label: 'Cycle Entrance', value: `Node ${p1}` },
         { label: 'Total Space', value: 'O(1)' },
       ],
       statusBadge: { label: 'Entrance Verified', variant: 'success' },
-    },
-  ];
+    });
+  }
 
   return steps;
 }
 
-// 6. Stack & Monotonic Stack (Daily Temperatures / Next Greater)
+// 6. Stack & Monotonic Stack (Daily Temperatures)
 export function generateStackSteps(
   temperatures: number[] = [73, 74, 75, 71, 69, 72, 76, 73]
 ): GenericVisualizerStep[] {
   const steps: GenericVisualizerStep[] = [];
-  const stack: number[] = []; // Store indices
+  const stack: number[] = [];
   const result: number[] = new Array(temperatures.length).fill(0);
 
   steps.push({
@@ -537,791 +562,1077 @@ export function generateStackSteps(
   return steps;
 }
 
-// 7. Intervals & Sweep Line (Merge Overlapping Intervals)
-export function generateIntervalsSteps(): GenericVisualizerStep[] {
-  const intervals = [
+// 7. Intervals & Sweep Line (Merge Overlapping Intervals - Algorithm Driven)
+export function generateIntervalsSteps(
+  intervals: [number, number][] = [
     [1, 3],
     [2, 6],
     [8, 10],
     [15, 18],
-  ];
+  ]
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  // Sort intervals by start time
+  const sorted = [...intervals].sort((a, b) => a[0] - b[0]);
+  const elements = sorted.map(int => `[${int[0]}, ${int[1]}]`);
 
-  const steps: GenericVisualizerStep[] = [
-    {
-      stepNumber: 1,
-      title: 'Sort Intervals by Start Time',
-      explanation: 'Input intervals are already sorted by start time: [[1, 3], [2, 6], [8, 10], [15, 18]]. Initialize active interval = [1, 3].',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      highlightIndices: [0],
-      metrics: [
-        { label: 'Active Interval', value: '[1, 3]' },
-        { label: 'Total Intervals', value: 4 },
-      ],
-      auxiliaryData: { merged: [[1, 3]] },
-      statusBadge: { label: 'Sorted', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Compare with Next: [2, 6]',
-      explanation: 'Compare current active interval [1, 3] with [2, 6]. Start of next interval (2) <= end of active interval (3). They overlap!',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      highlightIndices: [0, 1],
-      metrics: [
-        { label: 'Active End', value: 3 },
-        { label: 'Next Start', value: 2 },
-      ],
-      auxiliaryData: { merged: [[1, 3]], candidate: [2, 6] },
-      statusBadge: { label: 'Active [1, 3]', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Overlap Detected! [2, 6] overlaps [1, 3]',
-      explanation: 'Inspect [2, 6]. Since start 2 <= active end 3, intervals overlap! Merge by taking max end: max(3, 6) = 6. Active interval becomes [1, 6].',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      highlightIndices: [0, 1],
-      metrics: [
-        { label: 'New Active', value: '[1, 6]' },
-        { label: 'Formula', value: '[1, max(3, 6)]' },
-      ],
-      auxiliaryData: { merged: [[1, 6]] },
-      statusBadge: { label: 'Merged -> [1, 6]', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'No Overlap with [8, 10] -> Commit [1, 6]',
-      explanation: 'Inspect [8, 10]. Since start 8 > active end 6, there is no overlap. Commit [1, 6] to output and make [8, 10] the new active interval.',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      highlightIndices: [2],
-      metrics: [
-        { label: 'Committed', value: '[1, 6]' },
-        { label: 'New Active', value: '[8, 10]' },
-      ],
-      auxiliaryData: { merged: [[1, 6], [8, 10]] },
-      statusBadge: { label: 'New Interval', variant: 'info' },
-    },
-    {
-      stepNumber: 5,
-      title: 'No Overlap with [15, 18] -> Final Result',
-      explanation: 'Inspect [15, 18]. Start 15 > active end 10. Commit [8, 10] and append [15, 18]. Final merged intervals: [[1, 6], [8, 10], [15, 18]].',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      highlightIndices: [3],
-      metrics: [
-        { label: 'Final Output', value: '[[1, 6], [8, 10], [15, 18]]' },
-        { label: 'Reduced From', value: '4 to 3 intervals' },
-      ],
-      auxiliaryData: { merged: [[1, 6], [8, 10], [15, 18]] },
-      statusBadge: { label: 'Complete', variant: 'success' },
-    },
-  ];
+  steps.push({
+    stepNumber: 1,
+    title: 'Sort Intervals by Start Time',
+    explanation: `Sorted intervals: [${elements.join(', ')}]. Sorting by start coordinate enables a single linear sweep to detect all overlaps.`,
+    elements,
+    highlightIndices: [0],
+    metrics: [
+      { label: 'Total Intervals', value: sorted.length },
+      { label: 'First Interval', value: elements[0] },
+    ],
+    auxiliaryData: { merged: [sorted[0]] },
+    statusBadge: { label: 'Sorted', variant: 'info' },
+  });
+
+  const merged: [number, number][] = [[sorted[0][0], sorted[0][1]]];
+
+  for (let i = 1; i < sorted.length; i++) {
+    const current = sorted[i];
+    const lastMerged = merged[merged.length - 1];
+
+    if (current[0] <= lastMerged[1]) {
+      // Overlap detected!
+      const oldEnd = lastMerged[1];
+      lastMerged[1] = Math.max(lastMerged[1], current[1]);
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Overlap Detected: ${elements[i]} with [${lastMerged[0]}, ${oldEnd}]`,
+        explanation: `Start ${current[0]} <= previous end ${oldEnd}. Intervals overlap! Merge by extending end to max(${oldEnd}, ${current[1]}) = ${lastMerged[1]}.`,
+        elements,
+        highlightIndices: [i - 1, i],
+        activePointers: [
+          { name: 'Active', index: i - 1, color: 'indigo' },
+          { name: 'Merging', index: i, color: 'rose' },
+        ],
+        metrics: [
+          { label: 'Merged Interval', value: `[${lastMerged[0]}, ${lastMerged[1]}]` },
+          { label: 'Max End', value: `max(${oldEnd}, ${current[1]})` },
+        ],
+        auxiliaryData: { merged: merged.map(m => [...m]) },
+        statusBadge: { label: 'Merged', variant: 'warning' },
+      });
+    } else {
+      // No overlap: commit current as new active interval
+      merged.push([current[0], current[1]]);
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `No Overlap: Disjoint Interval ${elements[i]}`,
+        explanation: `Start ${current[0]} > previous end ${lastMerged[1]}. No overlap. Commit previous interval and add ${elements[i]} as new active interval.`,
+        elements,
+        highlightIndices: [i],
+        activePointers: [{ name: 'New Interval', index: i, color: 'emerald' }],
+        metrics: [
+          { label: 'Committed Count', value: merged.length },
+          { label: 'New Interval', value: elements[i] },
+        ],
+        auxiliaryData: { merged: merged.map(m => [...m]) },
+        statusBadge: { label: 'Committed', variant: 'info' },
+      });
+    }
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: 'Sweep Complete: Final Merged Output',
+    explanation: `Linear sweep completed. Final disjoint non-overlapping intervals: [${merged.map(m => `[${m[0]}, ${m[1]}]`).join(', ')}].`,
+    elements,
+    highlightIndices: Array.from({ length: sorted.length }, (_, i) => i),
+    metrics: [
+      { label: 'Input Count', value: sorted.length },
+      { label: 'Output Count', value: merged.length },
+    ],
+    auxiliaryData: { merged: merged.map(m => [...m]) },
+    statusBadge: { label: 'Complete', variant: 'success' },
+  });
 
   return steps;
 }
 
-// 8. Heap / Top K (Min-Heap of size K)
-export function generateHeapSteps(): GenericVisualizerStep[] {
-  const stream = [4, 10, 3, 5, 1, 9];
-  const k = 3;
+// 8. Heap / Top K (Min-Heap Size K - Algorithm Driven)
+export function generateHeapSteps(
+  stream: number[] = [4, 10, 3, 5, 1, 9],
+  k: number = 3
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const heap: number[] = [];
 
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize Min-Heap of Capacity K = 3',
-      explanation: `Goal: Find the 3rd largest element in stream [${stream.join(', ')}] using a Min-Heap of size 3. At all times, the heap root holds the current 3rd largest element.`,
-      elements: stream,
-      auxiliaryData: { heap: [] },
-      metrics: [
-        { label: 'K', value: k },
-        { label: 'Heap Size', value: 0 },
-      ],
-      statusBadge: { label: 'Empty Heap', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Fill Heap to Capacity: Add 4, 10, 3',
-      explanation: 'Push first 3 elements into heap: [4, 10, 3]. Min-heap orders them: [3, 10, 4]. Root (minimum) is 3.',
-      elements: stream,
-      highlightIndices: [0, 1, 2],
-      auxiliaryData: { heap: [3, 10, 4] },
-      metrics: [
-        { label: 'Heap Root (Min)', value: 3 },
-        { label: 'Heap', value: '[3, 10, 4]' },
-      ],
-      statusBadge: { label: 'Heap Full', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Inspect 5: 5 > Root (3) -> Replace Root',
-      explanation: 'Next element is 5. Since 5 > root 3, 3 cannot be in the top 3. Pop 3 and insert 5. Heap re-balances to [4, 10, 5]. New root is 4.',
-      elements: stream,
-      highlightIndices: [3],
-      auxiliaryData: { heap: [4, 10, 5] },
-      metrics: [
-        { label: 'Evicted', value: 3 },
-        { label: 'New Root', value: 4 },
-        { label: 'Heap', value: '[4, 10, 5]' },
-      ],
-      statusBadge: { label: 'Root Evicted', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Inspect 1: 1 < Root (4) -> Ignore',
-      explanation: 'Next element is 1. Since 1 < current root 4, 1 is too small to be in the top 3. Discard 1 without modifying heap.',
-      elements: stream,
-      highlightIndices: [4],
-      auxiliaryData: { heap: [4, 10, 5] },
-      metrics: [
-        { label: 'Ignored', value: 1 },
-        { label: 'Root Retained', value: 4 },
-      ],
-      statusBadge: { label: 'Skipped', variant: 'info' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Inspect 9: 9 > Root (4) -> Replace Root & Final Answer',
-      explanation: 'Next element is 9. Since 9 > root 4, pop 4 and insert 9. Heap becomes [5, 10, 9]. The 3rd largest element overall is the heap root: 5!',
-      elements: stream,
-      highlightIndices: [5],
-      auxiliaryData: { heap: [5, 10, 9] },
-      metrics: [
-        { label: 'Top 3 Elements', value: '[5, 9, 10]' },
-        { label: '3rd Largest', value: 5 },
-      ],
-      statusBadge: { label: 'Ans = 5', variant: 'success' },
-    },
-  ];
+  const siftUp = (idx: number) => {
+    while (idx > 0) {
+      const pIdx = Math.floor((idx - 1) / 2);
+      if (heap[idx] < heap[pIdx]) {
+        const tmp = heap[idx];
+        heap[idx] = heap[pIdx];
+        heap[pIdx] = tmp;
+        idx = pIdx;
+      } else {
+        break;
+      }
+    }
+  };
+
+  const siftDown = (idx: number) => {
+    while (true) {
+      const left = 2 * idx + 1;
+      const right = 2 * idx + 2;
+      let smallest = idx;
+      if (left < heap.length && heap[left] < heap[smallest]) smallest = left;
+      if (right < heap.length && heap[right] < heap[smallest]) smallest = right;
+      if (smallest !== idx) {
+        const tmp = heap[idx];
+        heap[idx] = heap[smallest];
+        heap[smallest] = tmp;
+        idx = smallest;
+      } else {
+        break;
+      }
+    }
+  };
+
+  steps.push({
+    stepNumber: 1,
+    title: `Initialize Min-Heap of Capacity K = ${k}`,
+    explanation: `Stream: [${stream.join(', ')}]. Goal: Track the ${k}-th largest element. A Min-Heap of size ${k} stores the top ${k} largest seen so far, with the minimum among them (the ${k}-th largest) at the root!`,
+    elements: stream,
+    highlightIndices: [],
+    metrics: [
+      { label: 'Capacity K', value: k },
+      { label: 'Heap Size', value: 0 },
+    ],
+    auxiliaryData: { heap: [] },
+    statusBadge: { label: 'Initialized', variant: 'info' },
+  });
+
+  for (let i = 0; i < stream.length; i++) {
+    const val = stream[i];
+
+    if (heap.length < k) {
+      heap.push(val);
+      siftUp(heap.length - 1);
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Add ${val} to Heap (Size ${heap.length}/${k})`,
+        explanation: `Heap has room. Insert ${val} and rebalance. Current Min-Heap root (minimum of top ${heap.length}) is ${heap[0]}.`,
+        elements: stream,
+        highlightIndices: [i],
+        activePointers: [{ name: `+${val}`, index: i, color: 'indigo' }],
+        metrics: [
+          { label: 'Inserted', value: val },
+          { label: 'Heap Root (Min)', value: heap[0] },
+        ],
+        auxiliaryData: { heap: [...heap] },
+        statusBadge: { label: 'Heap Filling', variant: 'info' },
+      });
+    } else {
+      const root = heap[0];
+      if (val > root) {
+        heap[0] = val;
+        siftDown(0);
+
+        steps.push({
+          stepNumber: steps.length + 1,
+          title: `Stream ${val} > Root ${root} -> Replace Root`,
+          explanation: `New element ${val} is larger than the current ${k}-th largest (${root}). Evict ${root}, insert ${val}, and sift down. New root is ${heap[0]}.`,
+          elements: stream,
+          highlightIndices: [i],
+          activePointers: [{ name: `Replaced ${root}`, index: i, color: 'rose' }],
+          metrics: [
+            { label: 'Evicted', value: root },
+            { label: 'New Root', value: heap[0] },
+          ],
+          auxiliaryData: { heap: [...heap], evicted: root },
+          statusBadge: { label: 'Root Replaced', variant: 'warning' },
+        });
+      } else {
+        steps.push({
+          stepNumber: steps.length + 1,
+          title: `Stream ${val} <= Root ${root} -> Ignore`,
+          explanation: `New element ${val} is <= current ${k}-th largest (${root}). It cannot belong to the top ${k}. Discard without modifying heap.`,
+          elements: stream,
+          highlightIndices: [i],
+          activePointers: [{ name: 'Ignored', index: i, color: 'amber' }],
+          metrics: [
+            { label: 'Ignored', value: val },
+            { label: 'Retained Root', value: root },
+          ],
+          auxiliaryData: { heap: [...heap] },
+          statusBadge: { label: 'Ignored', variant: 'info' },
+        });
+      }
+    }
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Final ${k}-th Largest Element is ${heap[0]}`,
+    explanation: `All stream items processed. Top ${k} elements are [${heap.join(', ')}]. The ${k}-th largest element overall is heap root ${heap[0]}!`,
+    elements: stream,
+    highlightIndices: [stream.indexOf(heap[0]) >= 0 ? stream.indexOf(heap[0]) : 0],
+    metrics: [
+      { label: `${k}-th Largest`, value: heap[0] },
+      { label: 'Top K Set', value: `[${heap.join(', ')}]` },
+    ],
+    auxiliaryData: { heap: [...heap], kthLargest: heap[0] },
+    statusBadge: { label: `Ans: ${heap[0]}`, variant: 'success' },
+  });
+
+  return steps;
 }
 
-// 9. Tree DFS (Preorder Traversal & Height)
-export function generateTreeDFSSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Start DFS at Root (Node 1)',
-      explanation: 'Binary Tree: Node 1 has children (Left: 2, Right: 3). Node 2 has child (Left: 4). Call stack pushes DFS(1).',
-      elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'DFS(1)', index: 0, color: 'indigo' }],
-      auxiliaryData: { callStack: ['DFS(1)'], currentDepth: 1 },
+// 9. Tree DFS (Preorder/Postorder Max Depth - Algorithm Driven)
+export function generateTreeDFSSteps(
+  tree: Record<number, { val: number; left: number | null; right: number | null }> = {
+    1: { val: 1, left: 2, right: 3 },
+    2: { val: 2, left: 4, right: null },
+    3: { val: 3, left: null, right: null },
+    4: { val: 4, left: null, right: null },
+  },
+  root: number = 1
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const nodes = Object.keys(tree).map(Number);
+  const elements = nodes.map(id => `Node ${tree[id].val}`);
+  const callStack: string[] = [];
+  let maxDepth = 0;
+
+  steps.push({
+    stepNumber: 1,
+    title: `Start DFS Traversal at Root (Node ${root})`,
+    explanation: `Binary tree with nodes [${nodes.join(', ')}]. Computing maximum tree depth recursively. Starting at root Node ${root}.`,
+    elements,
+    highlightIndices: [nodes.indexOf(root)],
+    activePointers: [{ name: 'Root', index: nodes.indexOf(root), color: 'indigo' }],
+    auxiliaryData: { callStack: [`DFS(${root})`], currentDepth: 1 },
+    metrics: [
+      { label: 'Current Node', value: root },
+      { label: 'Depth', value: 1 },
+    ],
+    statusBadge: { label: 'Visiting Root', variant: 'info' },
+  });
+
+  function dfs(nodeId: number, depth: number): number {
+    callStack.push(`DFS(${nodeId})`);
+    maxDepth = Math.max(maxDepth, depth);
+    const nodeIdx = nodes.indexOf(nodeId);
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Visit Node ${nodeId} at Depth ${depth}`,
+      explanation: `Exploring Node ${nodeId}. Left child: ${tree[nodeId].left ?? 'null'}, Right child: ${tree[nodeId].right ?? 'null'}.`,
+      elements,
+      highlightIndices: [nodeIdx],
+      activePointers: [{ name: `DFS(${nodeId})`, index: nodeIdx, color: 'indigo' }],
+      auxiliaryData: { callStack: [...callStack], currentDepth: depth, maxDepth },
       metrics: [
-        { label: 'Call Stack', value: '[DFS(1)]' },
-        { label: 'Current Depth', value: 1 },
+        { label: 'Node', value: nodeId },
+        { label: 'Depth', value: depth },
+        { label: 'Max Depth', value: maxDepth },
       ],
-      statusBadge: { label: 'Visiting Root', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Recurse Left: DFS(2)',
-      explanation: 'Traverse left child: push DFS(2) to call stack. Current node is 2 at depth 2.',
-      elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
-      highlightIndices: [1],
-      activePointers: [{ name: 'DFS(2)', index: 1, color: 'indigo' }],
-      auxiliaryData: { callStack: ['DFS(1)', 'DFS(2)'], currentDepth: 2 },
+      statusBadge: { label: `Depth ${depth}`, variant: 'info' },
+    });
+
+    let leftH = 0;
+    if (tree[nodeId].left !== null) {
+      leftH = dfs(tree[nodeId].left, depth + 1);
+    }
+
+    let rightH = 0;
+    if (tree[nodeId].right !== null) {
+      rightH = dfs(tree[nodeId].right, depth + 1);
+    }
+
+    const h = 1 + Math.max(leftH, rightH);
+    callStack.pop();
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Backtrack from Node ${nodeId}: Height = ${h}`,
+      explanation: `Node ${nodeId} subtree height is 1 + max(L:${leftH}, R:${rightH}) = ${h}. Returning to caller.`,
+      elements,
+      highlightIndices: [nodeIdx],
+      activePointers: [{ name: `Height: ${h}`, index: nodeIdx, color: 'emerald' }],
+      auxiliaryData: { callStack: [...callStack], returnedHeight: h, maxDepth },
       metrics: [
-        { label: 'Call Stack', value: '[DFS(1), DFS(2)]' },
-        { label: 'Current Depth', value: 2 },
+        { label: 'Subtree Height', value: h },
+        { label: 'Call Stack Size', value: callStack.length },
       ],
-      statusBadge: { label: 'Diving Left', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Recurse Left to Leaf: DFS(4)',
-      explanation: 'Traverse left child: push DFS(4). Node 4 is a leaf (left=null, right=null). Max depth reached is 3.',
-      elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
-      highlightIndices: [3],
-      activePointers: [{ name: 'DFS(4)', index: 3, color: 'rose' }],
-      auxiliaryData: { callStack: ['DFS(1)', 'DFS(2)', 'DFS(4)'], currentDepth: 3, maxDepth: 3 },
-      metrics: [
-        { label: 'Call Stack', value: '[DFS(1), DFS(2), DFS(4)]' },
-        { label: 'Max Depth', value: 3 },
-      ],
-      statusBadge: { label: 'Leaf Reached', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Backtrack to Node 2 and Return Height',
-      explanation: 'DFS(4) returns height 1. Node 2 right child is null. DFS(2) returns 1 + max(1, 0) = 2. Pop from call stack.',
-      elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
-      highlightIndices: [1],
-      activePointers: [{ name: 'Ret: 2', index: 1, color: 'amber' }],
-      auxiliaryData: { callStack: ['DFS(1)'], returnedHeight: 2 },
-      metrics: [
-        { label: 'Subtree 2 Height', value: 2 },
-        { label: 'Call Stack', value: '[DFS(1)]' },
-      ],
-      statusBadge: { label: 'Backtracking', variant: 'info' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Traverse Right Subtree: DFS(3) & Final Depth',
-      explanation: 'Recurse to right child Node 3. Node 3 returns height 1. Root combines: 1 + max(left=2, right=1) = 3. Maximum tree depth is 3.',
-      elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
-      highlightIndices: [0, 2],
-      activePointers: [{ name: 'Height: 3', index: 0, color: 'emerald' }],
-      auxiliaryData: { callStack: [], finalHeight: 3 },
-      metrics: [
-        { label: 'Left Height', value: 2 },
-        { label: 'Right Height', value: 1 },
-        { label: 'Max Tree Depth', value: 3 },
-      ],
-      statusBadge: { label: 'Height = 3', variant: 'success' },
-    },
-  ];
+      statusBadge: { label: `Height ${h}`, variant: 'warning' },
+    });
+
+    return h;
+  }
+
+  const finalHeight = dfs(root, 1);
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `DFS Complete: Maximum Depth is ${finalHeight}`,
+    explanation: `Full binary tree traversed. Maximum tree depth from root is ${finalHeight}.`,
+    elements,
+    highlightIndices: [nodes.indexOf(root)],
+    activePointers: [{ name: `Max Depth: ${finalHeight}`, index: nodes.indexOf(root), color: 'emerald' }],
+    auxiliaryData: { callStack: [], maxDepth: finalHeight, finalHeight },
+    metrics: [
+      { label: 'Max Depth', value: finalHeight },
+      { label: 'Time Complexity', value: 'O(N)' },
+    ],
+    statusBadge: { label: `Max Depth = ${finalHeight}`, variant: 'success' },
+  });
+
+  return steps;
 }
 
-// 10. Tree BFS (Level-Order Queue)
-export function generateTreeBFSSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize Queue with Root Node 1 (Level 0)',
-      explanation: 'Tree: Root 1, Children (2, 3), Grandchildren of 2 are (4, 5). Enqueue root 1. Queue = [1].',
-      elements: ['1', '2', '3', '4', '5'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'Root', index: 0, color: 'indigo' }],
-      auxiliaryData: { queue: ['Node 1'], currentLevel: 0, order: [] },
+// 10. Tree BFS (Level-Order Queue - Algorithm Driven)
+export function generateTreeBFSSteps(
+  tree: Record<number, number[]> = {
+    1: [2, 3],
+    2: [4, 5],
+    3: [],
+    4: [],
+    5: [],
+  },
+  root: number = 1
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const nodes = Object.keys(tree).map(Number);
+  const elements = nodes.map(n => `Node ${n}`);
+  const queue: number[] = [root];
+  const levels: number[][] = [];
+
+  steps.push({
+    stepNumber: 1,
+    title: `Initialize BFS Queue with Root (Node ${root})`,
+    explanation: `Binary tree nodes: [${nodes.join(', ')}]. Initialize FIFO queue with root Node ${root}. Queue = [Node ${root}].`,
+    elements,
+    highlightIndices: [nodes.indexOf(root)],
+    activePointers: [{ name: 'Root', index: nodes.indexOf(root), color: 'indigo' }],
+    auxiliaryData: { queue: [`Node ${root}`], levels: [] },
+    metrics: [
+      { label: 'Queue Size', value: 1 },
+      { label: 'Current Level', value: 0 },
+    ],
+    statusBadge: { label: 'Level 0', variant: 'info' },
+  });
+
+  let levelIdx = 0;
+  while (queue.length > 0) {
+    const levelSize = queue.length;
+    const currentLevelVals: number[] = [];
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Start Level ${levelIdx} (Size ${levelSize})`,
+      explanation: `Level ${levelIdx} has ${levelSize} node(s) in queue: [${queue.map(id => `Node ${id}`).join(', ')}].`,
+      elements,
+      highlightIndices: queue.map(id => nodes.indexOf(id)),
+      activePointers: queue.map(id => ({ name: `L${levelIdx}`, index: nodes.indexOf(id), color: 'indigo' })),
+      auxiliaryData: { queue: queue.map(id => `Node ${id}`), currentLevel: levelIdx },
       metrics: [
-        { label: 'Queue', value: '[1]' },
-        { label: 'Current Level', value: 0 },
+        { label: 'Level', value: levelIdx },
+        { label: 'Nodes in Level', value: levelSize },
       ],
-      statusBadge: { label: 'Level 0', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Process Level 0: Dequeue 1, Enqueue 2 & 3',
-      explanation: 'Level size is 1. Dequeue node 1. Enqueue left child 2 and right child 3. Level 0 result = [1]. Queue = [2, 3].',
-      elements: ['1', '2', '3', '4', '5'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'Dequeued', index: 0, color: 'emerald' }],
-      auxiliaryData: { queue: ['Node 2', 'Node 3'], processed: ['Node 1'], level: 0 },
-      metrics: [
-        { label: 'Processed', value: '[1]' },
-        { label: 'Queue', value: '[2, 3]' },
-      ],
-      statusBadge: { label: 'Level 0 Done', variant: 'success' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Process Level 1: Dequeue 2, Enqueue 4 & 5',
-      explanation: 'Level size is 2. Dequeue 2. Node 2 has children 4 and 5: enqueue both. Queue = [3, 4, 5].',
-      elements: ['1', '2', '3', '4', '5'],
-      highlightIndices: [1],
-      activePointers: [{ name: 'Dequeued', index: 1, color: 'indigo' }],
-      auxiliaryData: { queue: ['Node 3', 'Node 4', 'Node 5'], level: 1 },
-      metrics: [
-        { label: 'Dequeued', value: '2' },
-        { label: 'Queue', value: '[3, 4, 5]' },
-      ],
-      statusBadge: { label: 'Level 1 Active', variant: 'info' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Process Level 1: Dequeue 3',
-      explanation: 'Dequeue 3. Node 3 has no children. Level 1 complete: result = [2, 3]. Queue = [4, 5].',
-      elements: ['1', '2', '3', '4', '5'],
-      highlightIndices: [2],
-      activePointers: [{ name: 'Dequeued', index: 2, color: 'indigo' }],
-      auxiliaryData: { queue: ['Node 4', 'Node 5'], level1Done: true },
-      metrics: [
-        { label: 'Level 1 Result', value: '[2, 3]' },
-        { label: 'Queue', value: '[4, 5]' },
-      ],
-      statusBadge: { label: 'Level 1 Done', variant: 'info' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Process Level 2: Dequeue Leaves 4 and 5',
-      explanation: 'Dequeue leaves 4 and 5. Queue becomes empty. Final level order traversal: [[1], [2, 3], [4, 5]].',
-      elements: ['1', '2', '3', '4', '5'],
-      highlightIndices: [3, 4],
-      activePointers: [
-        { name: 'Leaf 4', index: 3, color: 'emerald' },
-        { name: 'Leaf 5', index: 4, color: 'emerald' },
-      ],
-      auxiliaryData: { queue: [], levelOrder: '[[1], [2, 3], [4, 5]]' },
-      metrics: [
-        { label: 'Queue', value: '[]' },
-        { label: 'Levels', value: 3 },
-      ],
-      statusBadge: { label: 'BFS Completed', variant: 'success' },
-    },
-  ];
+      statusBadge: { label: `Level ${levelIdx} Start`, variant: 'info' },
+    });
+
+    for (let i = 0; i < levelSize; i++) {
+      const node = queue.shift()!;
+      currentLevelVals.push(node);
+      const children = tree[node] || [];
+      for (const child of children) {
+        queue.push(child);
+      }
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Dequeue Node ${node} -> Enqueue Children [${children.join(', ') || 'none'}]`,
+        explanation: `Processed Node ${node}. Children [${children.join(', ') || 'none'}] pushed to back of queue.`,
+        elements,
+        highlightIndices: [nodes.indexOf(node)],
+        activePointers: [{ name: 'Dequeued', index: nodes.indexOf(node), color: 'emerald' }],
+        auxiliaryData: { queue: queue.map(id => `Node ${id}`), processed: currentLevelVals },
+        metrics: [
+          { label: 'Dequeued', value: `Node ${node}` },
+          { label: 'New Queue Size', value: queue.length },
+        ],
+        statusBadge: { label: `Processed ${node}`, variant: 'info' },
+      });
+    }
+
+    levels.push(currentLevelVals);
+    levelIdx++;
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: 'BFS Traversal Complete',
+    explanation: `All levels visited. Level-order output: [${levels.map(l => `[${l.join(', ')}]`).join(', ')}].`,
+    elements,
+    highlightIndices: Array.from({ length: nodes.length }, (_, i) => i),
+    metrics: [
+      { label: 'Total Levels', value: levels.length },
+      { label: 'Total Nodes', value: nodes.length },
+    ],
+    auxiliaryData: { queue: [], levelOrder: JSON.stringify(levels) },
+    statusBadge: { label: 'BFS Complete', variant: 'success' },
+  });
+
+  return steps;
 }
 
-// 11. Graph Traversal (DFS/BFS Island Flood Fill)
-export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Detect Unvisited Land Cell at (0, 0)',
-      explanation: 'Scanning 2D grid. Encounter land cell "1" at coordinate (0, 0). Increment island count = 1 and initiate flood fill.',
-      elements: ['(0,0): 1', '(0,1): 1', '(1,0): 1', '(1,1): 0'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'Start', index: 0, color: 'indigo' }],
-      auxiliaryData: { visited: ['(0, 0)'], islandsCount: 1 },
-      metrics: [
-        { label: 'Islands Count', value: 1 },
-        { label: 'Start Cell', value: '(0, 0)' },
-      ],
-      statusBadge: { label: 'New Island', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Flood Fill East: Visit (0, 1)',
-      explanation: 'From (0, 0), traverse orthogonal neighbor east to (0, 1). Mark (0, 0) as visited ("0") and enqueue/recurse on (0, 1).',
-      elements: ['(0,0): 0', '(0,1): 1', '(1,0): 1', '(1,1): 0'],
-      highlightIndices: [1],
-      activePointers: [{ name: 'Visited', index: 1, color: 'rose' }],
-      auxiliaryData: { visited: ['(0, 0)', '(0, 1)'], islandsCount: 1 },
-      metrics: [
-        { label: 'Visited Set', value: '{(0,0), (0,1)}' },
-      ],
-      statusBadge: { label: 'Flooding East', variant: 'warning' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Flood Fill South: Visit (1, 0)',
-      explanation: 'Traverse orthogonal neighbor south from (0, 0) to (1, 0). Mark (1, 0) as visited. All connected land cells of this island are now sunken.',
-      elements: ['(0,0): 0', '(0,1): 0', '(1,0): 1', '(1,1): 0'],
-      highlightIndices: [2],
-      activePointers: [{ name: 'Visited', index: 2, color: 'rose' }],
-      auxiliaryData: { visited: ['(0, 0)', '(0, 1)', '(1, 0)'], islandsCount: 1 },
-      metrics: [
-        { label: 'Island Cells', value: '3 cells' },
-      ],
-      statusBadge: { label: 'Flooding South', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Island Completely Explored',
-      explanation: 'No further unvisited orthogonal land neighbors exist. Entire connected component is explored. Total islands discovered: 1.',
-      elements: ['(0,0): 0', '(0,1): 0', '(1,0): 0', '(1,1): 0'],
-      highlightIndices: [0, 1, 2],
-      activePointers: [
-        { name: 'Island 1', index: 0, color: 'emerald' },
-        { name: 'Island 1', index: 1, color: 'emerald' },
-        { name: 'Island 1', index: 2, color: 'emerald' },
-      ],
-      auxiliaryData: { visited: ['(0, 0)', '(0, 1)', '(1, 0)'], islandsCount: 1, totalIslands: 1 },
-      metrics: [
-        { label: 'Total Islands', value: 1 },
-        { label: 'Remaining Land', value: '0' },
-      ],
-      statusBadge: { label: 'Completed', variant: 'success' },
-    },
-  ];
+// 11. Graph Traversal (DFS/BFS Island Flood Fill - Algorithm Driven)
+export function generateGraphTraversalSteps(
+  grid: number[][] = [
+    [1, 1, 0],
+    [1, 0, 0],
+    [0, 0, 1],
+  ]
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const visited = new Set<string>();
+  const flatCells: string[] = [];
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      flatCells.push(`(${r},${c}): ${grid[r][c]}`);
+    }
+  }
+
+  steps.push({
+    stepNumber: 1,
+    title: `Initialize 2D Grid (${rows}x${cols}) Island Count`,
+    explanation: `Grid: ${rows} rows x ${cols} cols. Scanning cells to count connected land components (1s) using 4-directional flood fill.`,
+    elements: flatCells,
+    highlightIndices: [],
+    metrics: [
+      { label: 'Grid Size', value: `${rows}x${cols}` },
+      { label: 'Islands Found', value: 0 },
+    ],
+    auxiliaryData: { visited: [], islandsCount: 0 },
+    statusBadge: { label: 'Scanning Grid', variant: 'info' },
+  });
+
+  let islands = 0;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const key = `${r},${c}`;
+      const cellIdx = r * cols + c;
+
+      if (grid[r][c] === 1 && !visited.has(key)) {
+        islands++;
+        const islandCells: string[] = [];
+        const queue: [number, number][] = [[r, c]];
+        visited.add(key);
+        islandCells.push(`(${r},${c})`);
+
+        steps.push({
+          stepNumber: steps.length + 1,
+          title: `New Island #${islands} Discovered at (${r}, ${c})`,
+          explanation: `Encountered unvisited land cell '1' at coordinate (${r}, ${c}). Increment island count to ${islands} and initiate flood fill.`,
+          elements: flatCells,
+          highlightIndices: [cellIdx],
+          activePointers: [{ name: `Island ${islands}`, index: cellIdx, color: 'indigo' }],
+          metrics: [
+            { label: 'Islands Count', value: islands },
+            { label: 'Start Cell', value: `(${r}, ${c})` },
+          ],
+          auxiliaryData: { visited: Array.from(visited), islandsCount: islands },
+          statusBadge: { label: `Island #${islands}`, variant: 'info' },
+        });
+
+        // BFS Flood fill
+        const dirs = [[0, 1], [1, 0], [0, -1], [-1, 0]];
+        while (queue.length > 0) {
+          const [cr, cc] = queue.shift()!;
+          for (const [dr, dc] of dirs) {
+            const nr = cr + dr;
+            const nc = cc + dc;
+            const nKey = `${nr},${nc}`;
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] === 1 && !visited.has(nKey)) {
+              visited.add(nKey);
+              islandCells.push(`(${nr},${nc})`);
+              queue.push([nr, nc]);
+
+              const nIdx = nr * cols + nc;
+              steps.push({
+                stepNumber: steps.length + 1,
+                title: `Flood Fill: Traversed to Neighbor (${nr}, ${nc})`,
+                explanation: `Connected orthogonal land neighbor found at (${nr}, ${nc}). Mark visited and continue flood fill.`,
+                elements: flatCells,
+                highlightIndices: [nIdx],
+                activePointers: [{ name: 'Flooded', index: nIdx, color: 'rose' }],
+                metrics: [
+                  { label: 'Current Island', value: islands },
+                  { label: 'Island Cells', value: islandCells.length },
+                ],
+                auxiliaryData: { visited: Array.from(visited), islandsCount: islands },
+                statusBadge: { label: 'Flooding', variant: 'warning' },
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Grid Exploration Complete: ${islands} Island(s) Found`,
+    explanation: `Full 2D grid scanned. All land cells partitioned into connected components. Total islands: ${islands}.`,
+    elements: flatCells,
+    highlightIndices: Array.from({ length: flatCells.length }, (_, i) => i),
+    metrics: [
+      { label: 'Total Islands', value: islands },
+      { label: 'Visited Land', value: visited.size },
+    ],
+    auxiliaryData: { visited: Array.from(visited), islandsCount: islands, totalIslands: islands },
+    statusBadge: { label: `Total: ${islands}`, variant: 'success' },
+  });
+
+  return steps;
 }
 
-// 12. Topological Sort (Kahn's In-Degree Algorithm)
-export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Compute In-Degrees for All Courses',
-      explanation: 'Dependencies: 1 -> 0 (take 1 before 0), 2 -> 0, 3 -> 1, 3 -> 2. In-degrees: Course 0: 2, Course 1: 1, Course 2: 1, Course 3: 0.',
-      elements: ['Course 0: in=2', 'Course 1: in=1', 'Course 2: in=1', 'Course 3: in=0'],
-      highlightIndices: [3],
-      activePointers: [{ name: 'in=0', index: 3, color: 'indigo' }],
-      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 1, 'Course 2': 1, 'Course 3': 0 }, queue: [], order: [] },
+// 12. Topological Sort (Kahn's In-Degree Algorithm - Algorithm Driven)
+export function generateTopologicalSortSteps(
+  numCourses: number = 4,
+  prereqs: [number, number][] = [
+    [1, 3],
+    [2, 3],
+    [0, 1],
+    [0, 2],
+  ]
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const inDegree = new Array(numCourses).fill(0);
+  const adj: Record<number, number[]> = {};
+
+  for (let i = 0; i < numCourses; i++) adj[i] = [];
+  // Prereq [a, b] means b is prerequisite for a (edge: b -> a)
+  for (const [a, b] of prereqs) {
+    inDegree[a]++;
+    adj[b].push(a);
+  }
+
+  const elements = Array.from({ length: numCourses }, (_, i) => `Course ${i} (in=${inDegree[i]})`);
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Compute In-Degrees for All Courses',
+    explanation: `Graph with ${numCourses} courses and ${prereqs.length} prerequisite edges. Initial in-degrees: ${elements.join(', ')}.`,
+    elements,
+    highlightIndices: inDegree.map((d, i) => (d === 0 ? i : -1)).filter(i => i >= 0),
+    metrics: [
+      { label: 'Total Courses', value: numCourses },
+      { label: 'Prerequisites', value: prereqs.length },
+    ],
+    auxiliaryData: { inDegrees: { ...inDegree }, queue: [], order: [] },
+    statusBadge: { label: 'In-Degrees Computed', variant: 'info' },
+  });
+
+  const queue: number[] = [];
+  for (let i = 0; i < numCourses; i++) {
+    if (inDegree[i] === 0) queue.push(i);
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Enqueue Independent Courses (In-Degree = 0): [${queue.map(c => `Course ${c}`).join(', ')}]`,
+    explanation: `Courses with in-degree 0 have no outstanding prerequisites and can be taken immediately. Push to processing queue: [${queue.map(c => `Course ${c}`).join(', ')}].`,
+    elements,
+    highlightIndices: queue,
+    activePointers: queue.map(c => ({ name: 'Ready', index: c, color: 'indigo' })),
+    metrics: [
+      { label: 'Queue Size', value: queue.length },
+      { label: 'Ready Courses', value: queue.join(', ') },
+    ],
+    auxiliaryData: { inDegrees: { ...inDegree }, queue: queue.map(c => `Course ${c}`), order: [] },
+    statusBadge: { label: 'Queued', variant: 'info' },
+  });
+
+  const order: number[] = [];
+
+  while (queue.length > 0) {
+    const u = queue.shift()!;
+    order.push(u);
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Take Course ${u} -> Decrement Dependent Prerequisites`,
+      explanation: `Completed Course ${u}. Decrement in-degrees of dependent courses: [${adj[u].map(v => `Course ${v}`).join(', ') || 'none'}].`,
+      elements: Array.from({ length: numCourses }, (_, i) => `Course ${i} (in=${inDegree[i]})`),
+      highlightIndices: [u],
+      activePointers: [{ name: 'Completed', index: u, color: 'emerald' }],
       metrics: [
-        { label: 'Course 3 In-Degree', value: 0 },
-        { label: 'Prerequisites', value: '4 edges' },
+        { label: 'Current Course', value: u },
+        { label: 'Completed Order', value: order.join(' -> ') },
       ],
-      statusBadge: { label: 'In-Degrees Computed', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Enqueue Course 3 (In-Degree = 0)',
-      explanation: 'Course 3 has no prerequisites. Push to queue. Queue = [3].',
-      elements: ['Course 0: in=2', 'Course 1: in=1', 'Course 2: in=1', 'Course 3: in=0'],
-      highlightIndices: [3],
-      activePointers: [{ name: 'Ready', index: 3, color: 'indigo' }],
-      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 1, 'Course 2': 1, 'Course 3': 0 }, queue: ['Course 3'], order: [] },
-      metrics: [
-        { label: 'Queue', value: '[Course 3]' },
-        { label: 'Order', value: '[]' },
-      ],
-      statusBadge: { label: 'Queueing Roots', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Process Course 3: Decrement In-Degrees of 1 and 2',
-      explanation: 'Dequeue 3 and add to order. Edges (3 -> 1) and (3 -> 2) resolved: Course 1 in-degree becomes 0; Course 2 in-degree becomes 0. Enqueue both 1 and 2.',
-      elements: ['Course 0: in=2', 'Course 1: in=0', 'Course 2: in=0', 'Course 3: done'],
-      highlightIndices: [1, 2],
-      activePointers: [
-        { name: 'in=0', index: 1, color: 'emerald' },
-        { name: 'in=0', index: 2, color: 'emerald' },
-      ],
-      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: ['Course 1', 'Course 2'], order: ['Course 3'] },
-      metrics: [
-        { label: 'Order', value: '[3]' },
-        { label: 'Queue', value: '[Course 1, Course 2]' },
-      ],
-      statusBadge: { label: 'Decremented', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Process Courses 1 and 2: Decrement Course 0',
-      explanation: 'Dequeue 1 and 2. Both point to Course 0. Course 0 in-degree decrements 2 -> 1 -> 0! Enqueue Course 0.',
-      elements: ['Course 0: in=0', 'Course 1: done', 'Course 2: done', 'Course 3: done'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'in=0', index: 0, color: 'emerald' }],
-      auxiliaryData: { inDegrees: { 'Course 0': 0, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: ['Course 0'], order: ['Course 3', 'Course 1', 'Course 2'] },
-      metrics: [
-        { label: 'Order', value: '[3, 1, 2]' },
-        { label: 'Queue', value: '[Course 0]' },
-      ],
-      statusBadge: { label: 'Course 0 Unlocked', variant: 'warning' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Final Valid Topological Ordering',
-      explanation: 'Dequeue Course 0. All 4 courses processed without detecting any cycles. Valid graduation order: [3, 1, 2, 0].',
-      elements: ['Course 3', 'Course 1', 'Course 2', 'Course 0'],
-      highlightIndices: [0, 1, 2, 3],
-      activePointers: [
-        { name: '1st', index: 0, color: 'emerald' },
-        { name: '2nd', index: 1, color: 'emerald' },
-        { name: '3rd', index: 2, color: 'emerald' },
-        { name: '4th', index: 3, color: 'emerald' },
-      ],
-      auxiliaryData: { inDegrees: { 'Course 0': 0, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: [], order: ['Course 3', 'Course 1', 'Course 2', 'Course 0'] },
-      metrics: [
-        { label: 'Final Order', value: '[3, 1, 2, 0]' },
-        { label: 'Cycle Free', value: 'Yes' },
-      ],
-      statusBadge: { label: 'Valid DAG Order', variant: 'success' },
-    },
-  ];
+      auxiliaryData: { inDegrees: { ...inDegree }, queue: queue.map(c => `Course ${c}`), order: order.map(c => `Course ${c}`) },
+      statusBadge: { label: `Course ${u} Taken`, variant: 'info' },
+    });
+
+    for (const v of adj[u]) {
+      inDegree[v]--;
+      if (inDegree[v] === 0) {
+        queue.push(v);
+        steps.push({
+          stepNumber: steps.length + 1,
+          title: `Course ${v} In-Degree Reached 0 -> Enqueue!`,
+          explanation: `All prerequisites for Course ${v} are now satisfied (in-degree = 0). Enqueue Course ${v}!`,
+          elements: Array.from({ length: numCourses }, (_, i) => `Course ${i} (in=${inDegree[i]})`),
+          highlightIndices: [v],
+          activePointers: [{ name: 'Unlocked', index: v, color: 'emerald' }],
+          metrics: [
+            { label: 'Unlocked', value: `Course ${v}` },
+            { label: 'Queue Size', value: queue.length },
+          ],
+          auxiliaryData: { inDegrees: { ...inDegree }, queue: queue.map(c => `Course ${c}`), order: order.map(c => `Course ${c}`) },
+          statusBadge: { label: `Unlocked ${v}`, variant: 'warning' },
+        });
+      }
+    }
+  }
+
+  const isDAG = order.length === numCourses;
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: isDAG ? 'Valid Topological Sort Completed!' : 'Cycle Detected! No Valid Order',
+    explanation: isDAG
+      ? `All ${numCourses} courses resolved without cyclic dependencies. Valid schedule: [${order.map(c => `Course ${c}`).join(' -> ')}].`
+      : 'Cycle detected in prerequisite graph. Graph is not a DAG.',
+    elements: order.map(c => `Course ${c}`),
+    highlightIndices: Array.from({ length: order.length }, (_, i) => i),
+    metrics: [
+      { label: 'Schedule Order', value: order.join(' -> ') },
+      { label: 'Cycle Free', value: isDAG ? 'Yes' : 'No' },
+    ],
+    auxiliaryData: { order: order.map(c => `Course ${c}`), isDAG },
+    statusBadge: { label: isDAG ? 'Valid DAG' : 'Cycle!', variant: isDAG ? 'success' : 'danger' },
+  });
+
+  return steps;
 }
 
-// 13. Union Find (Disjoint Set Union & Cycle Detection)
-export function generateUnionFindSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize Disjoint Sets for 4 Nodes',
-      explanation: 'Nodes 0, 1, 2, 3. Each node is initially its own parent: parent = [0, 1, 2, 3], rank = [0, 0, 0, 0]. Total components = 4.',
-      elements: ['Node 0 (p:0)', 'Node 1 (p:1)', 'Node 2 (p:2)', 'Node 3 (p:3)'],
-      auxiliaryData: { parents: [0, 1, 2, 3], components: 4 },
-      metrics: [
-        { label: 'Components', value: 4 },
-        { label: 'Parents', value: '[0, 1, 2, 3]' },
-      ],
-      statusBadge: { label: '4 Disjoint Sets', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Union(0, 1): Connect Edge (0, 1)',
-      explanation: 'find(0) = 0, find(1) = 1. Different roots: attach root 1 under root 0. parent[1] = 0. Components drop to 3.',
-      elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:2)', 'Node 3 (p:3)'],
-      highlightIndices: [0, 1],
-      activePointers: [
-        { name: 'Root', index: 0, color: 'indigo' },
-        { name: 'Child', index: 1, color: 'indigo' },
-      ],
-      auxiliaryData: { parents: [0, 0, 2, 3], components: 3 },
-      metrics: [
-        { label: 'Components', value: 3 },
-        { label: 'parent[1]', value: 0 },
-      ],
-      statusBadge: { label: 'Union Successful', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Union(1, 2): Path Compression Connects 2 to 0',
-      explanation: 'find(1) compresses to root 0. find(2) = 2. Attach root 2 under root 0. Components drop to 2. Component {0, 1, 2} formed.',
-      elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:0)', 'Node 3 (p:3)'],
-      highlightIndices: [0, 2],
-      activePointers: [
-        { name: 'Root', index: 0, color: 'indigo' },
-        { name: 'Attached', index: 2, color: 'indigo' },
-      ],
-      auxiliaryData: { parents: [0, 0, 0, 3], components: 2 },
-      metrics: [
-        { label: 'Components', value: 2 },
-        { label: 'Root 0 Size', value: 3 },
-      ],
-      statusBadge: { label: 'Path Compressed', variant: 'info' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Edge (0, 2): Redundant Cycle Detected!',
-      explanation: 'Inspect edge (0, 2). find(0) = 0 and find(2) = 0. Roots are identical! Adding edge (0, 2) creates a cycle and is redundant.',
-      elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:0)', 'Node 3 (p:3)'],
-      highlightIndices: [0, 2],
-      activePointers: [
-        { name: 'Root 0', index: 0, color: 'rose' },
-        { name: 'Same Root', index: 2, color: 'rose' },
-      ],
-      auxiliaryData: { parents: [0, 0, 0, 3], components: 2, redundantCycleEdge: '(0, 2)' },
-      metrics: [
-        { label: 'find(0)', value: 0 },
-        { label: 'find(2)', value: 0 },
-        { label: 'Cycle Edge', value: '(0, 2)' },
-      ],
-      statusBadge: { label: 'Redundant Edge!', variant: 'danger' },
-    },
-  ];
+// 13. Union Find (Disjoint Set Union - Algorithm Driven)
+export function generateUnionFindSteps(
+  numNodes: number = 4,
+  edges: [number, number][] = [
+    [0, 1],
+    [1, 2],
+    [0, 2],
+    [2, 3],
+  ]
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const parent = Array.from({ length: numNodes }, (_, i) => i);
+  const rank = new Array(numNodes).fill(0);
+  let components = numNodes;
+
+  const elements = Array.from({ length: numNodes }, (_, i) => `Node ${i} (p:${parent[i]})`);
+
+  steps.push({
+    stepNumber: 1,
+    title: `Initialize Disjoint Sets for ${numNodes} Nodes`,
+    explanation: `Nodes: [0..${numNodes - 1}]. Initially each node is its own parent. Components = ${numNodes}.`,
+    elements,
+    highlightIndices: [],
+    metrics: [
+      { label: 'Components', value: components },
+      { label: 'Parents', value: `[${parent.join(', ')}]` },
+    ],
+    auxiliaryData: { parents: [...parent], components },
+    statusBadge: { label: `${numNodes} Disjoint Sets`, variant: 'info' },
+  });
+
+  const find = (x: number): number => {
+    if (parent[x] !== x) {
+      parent[x] = find(parent[x]); // Path compression
+    }
+    return parent[x];
+  };
+
+  for (const [u, v] of edges) {
+    const rootU = find(u);
+    const rootV = find(v);
+
+    if (rootU === rootV) {
+      // Cycle detected!
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Edge (${u}, ${v}): Redundant Cycle Detected!`,
+        explanation: `find(${u}) = ${rootU} and find(${v}) = ${rootV}. Both nodes already share root ${rootU}. Adding edge (${u}, ${v}) creates a cycle and is redundant!`,
+        elements: Array.from({ length: numNodes }, (_, i) => `Node ${i} (p:${parent[i]})`),
+        highlightIndices: [u, v],
+        activePointers: [
+          { name: `Root ${rootU}`, index: u, color: 'rose' },
+          { name: `Root ${rootV}`, index: v, color: 'rose' },
+        ],
+        metrics: [
+          { label: 'Edge', value: `(${u}, ${v})` },
+          { label: 'Shared Root', value: rootU },
+          { label: 'Cycle Status', value: 'Redundant' },
+        ],
+        auxiliaryData: { parents: [...parent], components, redundantEdge: `(${u}, ${v})` },
+        statusBadge: { label: 'Cycle Detected', variant: 'danger' },
+      });
+    } else {
+      // Union by rank
+      if (rank[rootU] < rank[rootV]) {
+        parent[rootU] = rootV;
+      } else if (rank[rootU] > rank[rootV]) {
+        parent[rootV] = rootU;
+      } else {
+        parent[rootV] = rootU;
+        rank[rootU]++;
+      }
+      components--;
+
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Union(${u}, ${v}): Connected Disjoint Sets`,
+        explanation: `find(${u}) = ${rootU}, find(${v}) = ${rootV}. Joined roots. Remaining components: ${components}.`,
+        elements: Array.from({ length: numNodes }, (_, i) => `Node ${i} (p:${parent[i]})`),
+        highlightIndices: [u, v],
+        activePointers: [
+          { name: 'Root', index: parent[u], color: 'indigo' },
+          { name: 'Joined', index: v, color: 'indigo' },
+        ],
+        metrics: [
+          { label: 'Edge Added', value: `(${u}, ${v})` },
+          { label: 'Components', value: components },
+        ],
+        auxiliaryData: { parents: [...parent], components },
+        statusBadge: { label: 'Union Done', variant: 'info' },
+      });
+    }
+  }
+
+  return steps;
 }
 
-// 14. Backtracking (Subsets Generation)
-export function generateBacktrackingSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initial State: Empty Subset []',
-      explanation: 'Input nums = [1, 2]. Start backtracking at index 0 with current subset []. Add [] to result list.',
-      elements: ['[]', '[1]', '[1, 2]', '[2]'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'Base', index: 0, color: 'indigo' }],
-      auxiliaryData: { currentSubset: '[]', allSubsets: ['[]'] },
-      metrics: [
-        { label: 'Current Subset', value: '[]' },
-        { label: 'Total Subsets', value: 1 },
-      ],
-      statusBadge: { label: 'Base Subset []', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Choose 1: Push 1 -> Subset [1]',
-      explanation: 'Pick element 1 at index 0. Current subset becomes [1]. Add [1] to results. Recurse to index 1.',
-      elements: ['[]', '[1]', '[1, 2]', '[2]'],
-      highlightIndices: [1],
-      activePointers: [{ name: '+1', index: 1, color: 'indigo' }],
-      auxiliaryData: { currentSubset: '[1]', allSubsets: ['[]', '[1]'] },
-      metrics: [
-        { label: 'Current Subset', value: '[1]' },
-        { label: 'Total Subsets', value: 2 },
-      ],
-      statusBadge: { label: 'Choice: +1', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Choose 2: Push 2 -> Subset [1, 2]',
-      explanation: 'Pick element 2 at index 1. Current subset becomes [1, 2]. Add [1, 2] to results. End of array reached.',
-      elements: ['[]', '[1]', '[1, 2]', '[2]'],
-      highlightIndices: [2],
-      activePointers: [{ name: '+2', index: 2, color: 'indigo' }],
-      auxiliaryData: { currentSubset: '[1, 2]', allSubsets: ['[]', '[1]', '[1, 2]'] },
-      metrics: [
-        { label: 'Current Subset', value: '[1, 2]' },
-        { label: 'Total Subsets', value: 3 },
-      ],
-      statusBadge: { label: 'Choice: +2', variant: 'info' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Backtrack: Pop 2 then Pop 1',
-      explanation: 'Backtrack: Undo choice 2 -> subset reverts to [1]. Undo choice 1 -> subset reverts to []. State restored to explore branch without 1.',
-      elements: ['[]', '[1]', '[1, 2]', '[2]'],
-      activePointers: [{ name: 'Undo', index: 0, color: 'amber' }],
-      auxiliaryData: { currentSubset: '[] (backtracked)', allSubsets: ['[]', '[1]', '[1, 2]'] },
-      metrics: [
-        { label: 'Restored State', value: '[]' },
-        { label: 'Backtracks', value: '2 pops' },
-      ],
-      statusBadge: { label: 'Undo Backtrack', variant: 'warning' },
-    },
-    {
-      stepNumber: 5,
-      title: 'Choose 2 Directly -> Subset [2] & Complete',
-      explanation: 'At index 1, pick element 2 without 1. Current subset becomes [2]. All 2^2 = 4 subsets generated: [[], [1], [1, 2], [2]].',
-      elements: ['[]', '[1]', '[1, 2]', '[2]'],
-      highlightIndices: [3],
-      activePointers: [{ name: '+2', index: 3, color: 'emerald' }],
-      auxiliaryData: { currentSubset: '[2]', allSubsets: ['[]', '[1]', '[1, 2]', '[2]'] },
-      metrics: [
-        { label: 'Final Subsets', value: '[[], [1], [1,2], [2]]' },
-        { label: 'Total Count', value: 4 },
-      ],
-      statusBadge: { label: '2^N Subsets Found', variant: 'success' },
-    },
-  ];
-}
+// 14. Backtracking (Subsets Generation - Algorithm Driven)
+export function generateBacktrackingSteps(nums: number[] = [1, 2]): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const currentSubset: number[] = [];
+  const allSubsets: string[] = [];
 
-// 15. Greedy Algorithms (Jump Game)
-export function generateGreedySteps(): GenericVisualizerStep[] {
-  const nums = [2, 3, 1, 1, 4];
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize Jump Game at Index 0',
-      explanation: `Array: [${nums.join(', ')}]. Start at index 0. Value is 2: can jump up to 2 steps. Max reachable horizon = index 0 + 2 = 2.`,
+  steps.push({
+    stepNumber: 1,
+    title: 'Initialize Backtracking for Subsets',
+    explanation: `Generate all 2^N subsets of [${nums.join(', ')}]. Start with empty subset [].`,
+    elements: nums,
+    highlightIndices: [],
+    metrics: [
+      { label: 'Input Length', value: nums.length },
+      { label: 'Total Expected', value: Math.pow(2, nums.length) },
+    ],
+    auxiliaryData: { currentSubset: '[]', allSubsets: [] },
+    statusBadge: { label: 'Start Backtracking', variant: 'info' },
+  });
+
+  function backtrack(startIdx: number) {
+    allSubsets.push(`[${currentSubset.join(', ')}]`);
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Record Subset: [${currentSubset.join(', ')}]`,
+      explanation: `Add current subset state [${currentSubset.join(', ')}] to answer list. Total subsets collected: ${allSubsets.length}.`,
       elements: nums,
-      highlightIndices: [0],
-      activePointers: [{ name: 'Current', index: 0, color: 'indigo' }],
-      auxiliaryData: { currentIndex: 0, jumpCapacity: 2, maxReach: 2 },
+      highlightIndices: currentSubset.map(val => nums.indexOf(val)),
       metrics: [
-        { label: 'Current Index', value: 0 },
-        { label: 'Jump Capacity', value: 2 },
-        { label: 'Max Reach', value: 'Index 2' },
+        { label: 'Current Subset', value: `[${currentSubset.join(', ')}]` },
+        { label: 'Subsets Found', value: allSubsets.length },
       ],
-      statusBadge: { label: 'Reach = 2', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Step to Index 1: Value is 3 -> Reach Expands to Index 4',
-      explanation: 'Move to index 1 (within current reach 2). Value is 3: jump capability reaches 1 + 3 = 4. Update max reach = 4!',
-      elements: nums,
-      highlightIndices: [1],
-      activePointers: [{ name: 'Current', index: 1, color: 'emerald' }],
-      auxiliaryData: { currentIndex: 1, jumpCapacity: 3, maxReach: 4 },
-      metrics: [
-        { label: 'Index 1 Reach', value: '1 + 3 = 4' },
-        { label: 'Max Reach', value: 'Index 4' },
-      ],
-      statusBadge: { label: 'Reach = 4 (Goal!)', variant: 'warning' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Goal Reached: Max Reach (4) >= Last Index (4)',
-      explanation: 'Max reachable index 4 is greater than or equal to last array index 4. The end of the array is guaranteed reachable!',
-      elements: nums,
-      highlightIndices: [4],
-      activePointers: [{ name: 'Destination', index: 4, color: 'emerald' }],
-      auxiliaryData: { currentIndex: 4, destinationReached: true },
-      metrics: [
-        { label: 'Last Index', value: 4 },
-        { label: 'Result', value: 'True' },
-      ],
-      statusBadge: { label: 'Destination Reachable', variant: 'success' },
-    },
-  ];
+      auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
+      statusBadge: { label: 'Recorded', variant: 'info' },
+    });
+
+    for (let i = startIdx; i < nums.length; i++) {
+      // Choose
+      currentSubset.push(nums[i]);
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Choose: Push ${nums[i]} -> Subset [${currentSubset.join(', ')}]`,
+        explanation: `Make decision: include element ${nums[i]}. Recurse deeper down decision branch.`,
+        elements: nums,
+        highlightIndices: [i],
+        activePointers: [{ name: `+${nums[i]}`, index: i, color: 'indigo' }],
+        metrics: [
+          { label: 'Choice', value: nums[i] },
+          { label: 'State', value: `[${currentSubset.join(', ')}]` },
+        ],
+        auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
+        statusBadge: { label: `Choose +${nums[i]}`, variant: 'info' },
+      });
+
+      // Explore
+      backtrack(i + 1);
+
+      // Un-choose (Backtrack)
+      const popped = currentSubset.pop();
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Backtrack: Pop ${popped} -> Restore State`,
+        explanation: `Undo decision: pop element ${popped}. Revert subset to [${currentSubset.join(', ')}] to explore alternative branches.`,
+        elements: nums,
+        highlightIndices: [i],
+        activePointers: [{ name: 'Undo', index: i, color: 'amber' }],
+        metrics: [
+          { label: 'Undone', value: popped ?? 'none' },
+          { label: 'Reverted State', value: `[${currentSubset.join(', ')}]` },
+        ],
+        auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
+        statusBadge: { label: 'Backtracked', variant: 'warning' },
+      });
+    }
+  }
+
+  backtrack(0);
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Backtracking Complete: All ${allSubsets.length} Subsets Found`,
+    explanation: `Full decision tree explored. All 2^${nums.length} = ${allSubsets.length} subsets generated: [${allSubsets.join(', ')}].`,
+    elements: nums,
+    highlightIndices: Array.from({ length: nums.length }, (_, i) => i),
+    metrics: [
+      { label: 'Total Subsets', value: allSubsets.length },
+      { label: 'Complexity', value: 'O(2^N)' },
+    ],
+    auxiliaryData: { currentSubset: '[]', allSubsets: [...allSubsets] },
+    statusBadge: { label: 'Complete', variant: 'success' },
+  });
+
+  return steps;
 }
 
-// 16. Dynamic Programming (Coin Change)
-export function generateDPSteps(): GenericVisualizerStep[] {
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize DP Array for Amount 7',
-      explanation: 'Coins: [1, 2, 5], Target Amount: 7. Create DP array of size 8 initialized to Infinity, with base case dp[0] = 0 (0 coins to make $0).',
-      elements: ['0', '∞', '∞', '∞', '∞', '∞', '∞', '∞'],
-      highlightIndices: [0],
-      activePointers: [{ name: 'Base 0', index: 0, color: 'indigo' }],
-      auxiliaryData: { dpTable: ['0', '∞', '∞', '∞', '∞', '∞', '∞', '∞'] },
+// 15. Greedy Algorithms (Jump Game - Algorithm Driven)
+export function generateGreedySteps(nums: number[] = [2, 3, 1, 1, 4]): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  let maxReach = 0;
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Initialize Greedy Jump Game',
+    explanation: `Array: [${nums.join(', ')}]. Goal: Determine if last index (${nums.length - 1}) is reachable. Greedily maintain maximum reachable horizon from each visited position.`,
+    elements: nums,
+    highlightIndices: [0],
+    activePointers: [{ name: 'Start', index: 0, color: 'indigo' }],
+    metrics: [
+      { label: 'Target Index', value: nums.length - 1 },
+      { label: 'Max Reach', value: 0 },
+    ],
+    auxiliaryData: { maxReach: 0, targetIndex: nums.length - 1 },
+    statusBadge: { label: 'Initialized', variant: 'info' },
+  });
+
+  for (let i = 0; i < nums.length; i++) {
+    if (i > maxReach) {
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Stuck at Index ${i} > Max Reach ${maxReach}`,
+        explanation: `Current index ${i} exceeds maximum reachable horizon ${maxReach}. Cannot move forward! Target is unreachable.`,
+        elements: nums,
+        highlightIndices: [i],
+        activePointers: [{ name: 'Stuck', index: i, color: 'rose' }],
+        metrics: [
+          { label: 'Current Index', value: i },
+          { label: 'Max Reach', value: maxReach },
+        ],
+        auxiliaryData: { maxReach, reachable: false },
+        statusBadge: { label: 'Unreachable', variant: 'danger' },
+      });
+      return steps;
+    }
+
+    const reachFromHere = i + nums[i];
+    const prevReach = maxReach;
+    maxReach = Math.max(maxReach, reachFromHere);
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Inspect Index ${i} (Jump = ${nums[i]}) -> Reach = max(${prevReach}, ${reachFromHere}) = ${maxReach}`,
+      explanation: `At index ${i}, jump capacity is ${nums[i]}. Can reach up to index ${reachFromHere}. Updated greedy horizon: max(${prevReach}, ${reachFromHere}) = ${maxReach}.`,
+      elements: nums,
+      highlightIndices: [i],
+      activePointers: [{ name: 'Current', index: i, color: 'indigo' }],
       metrics: [
-        { label: 'dp[0]', value: 0 },
-        { label: 'Target', value: 7 },
+        { label: 'Jump', value: nums[i] },
+        { label: 'Reach from here', value: reachFromHere },
+        { label: 'Max Reach', value: maxReach },
       ],
-      statusBadge: { label: 'Base Case Set', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Fill Subproblems 1 to 4',
-      explanation: 'For amount 1: 1 coin (1). For amount 2: 1 coin (2). For amount 3: 2 coins (2+1). For amount 4: 2 coins (2+2).',
-      elements: ['0', '1', '1', '2', '2', '∞', '∞', '∞'],
-      highlightIndices: [1, 2, 3, 4],
-      activePointers: [{ name: 'Filled', index: 4, color: 'indigo' }],
-      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '∞', '∞', '∞'] },
-      metrics: [
-        { label: 'dp[1..4]', value: '[1, 1, 2, 2]' },
-      ],
-      statusBadge: { label: 'Solving Subproblems', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'Amount 5: Coin 5 Solves in 1 Step',
-      explanation: 'For amount 5: dp[5] = min(dp[5-1]+1, dp[5-2]+1, dp[5-5]+1) = dp[0] + 1 = 1 coin (coin 5).',
-      elements: ['0', '1', '1', '2', '2', '1', '∞', '∞'],
-      highlightIndices: [5],
-      activePointers: [{ name: 'Coin 5', index: 5, color: 'amber' }],
-      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '1', '∞', '∞'] },
-      metrics: [
-        { label: 'dp[5]', value: 1 },
-      ],
-      statusBadge: { label: 'dp[5] = 1', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'Amount 7: Optimal Combination = 5 + 2 (2 Coins)',
-      explanation: 'For amount 7: test coin 1 (dp[6]+1 = 3), test coin 2 (dp[5]+1 = 2), test coin 5 (dp[2]+1 = 2). Minimum is 2 coins! Result = 2.',
-      elements: ['0', '1', '1', '2', '2', '1', '2', '2'],
-      highlightIndices: [7],
-      activePointers: [{ name: 'Min: 2', index: 7, color: 'emerald' }],
-      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '1', '2', '2'], optimalCoins: '5 + 2' },
-      metrics: [
-        { label: 'dp[7]', value: 2 },
-        { label: 'Optimal Coins', value: '5 + 2' },
-      ],
-      statusBadge: { label: 'Min Coins = 2', variant: 'success' },
-    },
-  ];
+      auxiliaryData: { maxReach, currentIndex: i },
+      statusBadge: { label: `Reach ${maxReach}`, variant: 'info' },
+    });
+
+    if (maxReach >= nums.length - 1) {
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Goal Reached! Max Reach (${maxReach}) >= Last Index (${nums.length - 1})`,
+        explanation: `Maximum reach ${maxReach} covers the destination index ${nums.length - 1}. Last position is guaranteed reachable in O(N) time and O(1) space!`,
+        elements: nums,
+        highlightIndices: [nums.length - 1],
+        activePointers: [{ name: 'Goal', index: nums.length - 1, color: 'emerald' }],
+        metrics: [
+          { label: 'Destination', value: nums.length - 1 },
+          { label: 'Max Reach', value: maxReach },
+          { label: 'Result', value: 'Reachable' },
+        ],
+        auxiliaryData: { maxReach, reachable: true },
+        statusBadge: { label: 'Goal Reachable', variant: 'success' },
+      });
+      break;
+    }
+  }
+
+  return steps;
 }
 
-// 17. Bit Manipulation (Single Number via XOR)
-export function generateBitManipulationSteps(): GenericVisualizerStep[] {
-  const nums = [4, 1, 2, 1, 2];
-  return [
-    {
-      stepNumber: 1,
-      title: 'Initialize Accumulator: acc = 0',
-      explanation: `Array: [${nums.join(', ')}]. Every number appears twice except one unique number. Exploit XOR involution: x ^ x = 0 and x ^ 0 = x.`,
-      elements: nums,
-      auxiliaryData: { accumulator: 0, binary: '0b0000' },
+// 16. Dynamic Programming (Coin Change - Algorithm Driven)
+export function generateDPSteps(
+  coins: number[] = [1, 2, 5],
+  amount: number = 7
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const dp: number[] = new Array(amount + 1).fill(Infinity);
+  dp[0] = 0;
+
+  const displayDP = () => dp.map(val => (val === Infinity ? '∞' : val));
+
+  steps.push({
+    stepNumber: 1,
+    title: `Initialize DP Array for Amount ${amount}`,
+    explanation: `Coins: [${coins.join(', ')}]. Allocate DP array of size ${amount + 1} initialized to ∞. Base case: dp[0] = 0 (0 coins required for amount $0).`,
+    elements: displayDP(),
+    highlightIndices: [0],
+    activePointers: [{ name: 'Base', index: 0, color: 'indigo' }],
+    metrics: [
+      { label: 'dp[0]', value: 0 },
+      { label: 'Target Amount', value: amount },
+    ],
+    auxiliaryData: { dpTable: displayDP() },
+    statusBadge: { label: 'Base Case Set', variant: 'info' },
+  });
+
+  for (let a = 1; a <= amount; a++) {
+    for (const c of coins) {
+      if (a >= c && dp[a - c] !== Infinity) {
+        dp[a] = Math.min(dp[a], dp[a - c] + 1);
+      }
+    }
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Compute dp[${a}] = ${dp[a] === Infinity ? '∞' : dp[a]}`,
+      explanation: `For amount ${a}, test coins: dp[${a}] = min(${coins.filter(c => a >= c).map(c => `dp[${a - c}]+1`).join(', ')}) = ${dp[a] === Infinity ? '∞' : dp[a]}.`,
+      elements: displayDP(),
+      highlightIndices: [a],
+      activePointers: [{ name: `dp[${a}]`, index: a, color: 'indigo' }],
       metrics: [
-        { label: 'Accumulator', value: '0 (0b0000)' },
-        { label: 'Rule', value: 'A ^ A = 0' },
+        { label: `dp[${a}]`, value: dp[a] === Infinity ? '∞' : dp[a] },
+        { label: 'Subproblem Amount', value: a },
       ],
-      statusBadge: { label: 'acc = 0', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'XOR with 4: 0 ^ 4 = 4',
-      explanation: 'Binary: 0000 ^ 0100 = 0100 (4). Accumulator is now 4.',
+      auxiliaryData: { dpTable: displayDP(), currentAmount: a },
+      statusBadge: { label: `dp[${a}] = ${dp[a]}`, variant: 'info' },
+    });
+  }
+
+  const ans = dp[amount] === Infinity ? -1 : dp[amount];
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Optimal Solution: Minimum Coins for ${amount} is ${ans}`,
+    explanation: `Dynamic programming completed. Minimum number of coins to make amount ${amount} is dp[${amount}] = ${ans}.`,
+    elements: displayDP(),
+    highlightIndices: [amount],
+    activePointers: [{ name: 'Optimal', index: amount, color: 'emerald' }],
+    metrics: [
+      { label: 'Final Answer', value: ans },
+      { label: 'Space', value: `O(${amount})` },
+    ],
+    auxiliaryData: { dpTable: displayDP(), optimalCoins: ans },
+    statusBadge: { label: `Answer = ${ans}`, variant: 'success' },
+  });
+
+  return steps;
+}
+
+// 17. Bit Manipulation (Single Number XOR - Algorithm Driven)
+export function generateBitManipulationSteps(
+  nums: number[] = [4, 1, 2, 1, 2]
+): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  let acc = 0;
+
+  const toBinary = (val: number) => `0b${(val >>> 0).toString(2).padStart(4, '0')}`;
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Initialize Bitwise Accumulator (acc = 0)',
+    explanation: `Array: [${nums.join(', ')}]. Every element appears twice except for one unique element. Using XOR property: X ^ X = 0 and X ^ 0 = X.`,
+    elements: nums,
+    highlightIndices: [],
+    metrics: [
+      { label: 'Accumulator', value: `0 (${toBinary(0)})` },
+      { label: 'Identity Rule', value: 'A ^ A = 0' },
+    ],
+    auxiliaryData: { accumulator: 0, binary: toBinary(0) },
+    statusBadge: { label: 'acc = 0', variant: 'info' },
+  });
+
+  const seen = new Set<number>();
+
+  for (let i = 0; i < nums.length; i++) {
+    const val = nums[i];
+    const prev = acc;
+    acc ^= val;
+    const isDuplicate = seen.has(val);
+    seen.add(val);
+
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: isDuplicate
+        ? `XOR with ${val}: Cancels out earlier ${val}!`
+        : `XOR with ${val}: Accumulator becomes ${acc}`,
+      explanation: isDuplicate
+        ? `Element ${val} was seen earlier. Bitwise ${toBinary(prev)} ^ ${toBinary(val)} = ${toBinary(acc)}. The pair cancels out!`
+        : `Bitwise ${toBinary(prev)} ^ ${toBinary(val)} = ${toBinary(acc)}. Element ${val} incorporated into bit stream.`,
       elements: nums,
-      highlightIndices: [0],
-      activePointers: [{ name: 'XOR 4', index: 0, color: 'indigo' }],
-      auxiliaryData: { accumulator: 4, binary: '0b0100' },
+      highlightIndices: [i],
+      activePointers: [{ name: `XOR ${val}`, index: i, color: isDuplicate ? 'rose' : 'indigo' }],
       metrics: [
-        { label: 'acc', value: '4 (0b0100)' },
+        { label: 'XOR Operand', value: `${val} (${toBinary(val)})` },
+        { label: 'Accumulator', value: `${acc} (${toBinary(acc)})` },
       ],
-      statusBadge: { label: 'acc = 4', variant: 'info' },
-    },
-    {
-      stepNumber: 3,
-      title: 'XOR with 1 then 2: acc = 4 ^ 1 ^ 2 = 7',
-      explanation: 'Binary: 0100 ^ 0001 = 0101 (5). Then 0101 ^ 0010 = 0111 (7).',
-      elements: nums,
-      highlightIndices: [1, 2],
-      activePointers: [
-        { name: 'XOR 1', index: 1, color: 'amber' },
-        { name: 'XOR 2', index: 2, color: 'amber' },
-      ],
-      auxiliaryData: { accumulator: 7, binary: '0b0111' },
-      metrics: [
-        { label: 'acc', value: '7 (0b0111)' },
-      ],
-      statusBadge: { label: 'acc = 7', variant: 'warning' },
-    },
-    {
-      stepNumber: 4,
-      title: 'XOR with 1: Cancels out First 1!',
-      explanation: 'Binary: 0111 ^ 0001 = 0110 (6). The duplicate 1 cancels itself out from the bit stream!',
-      elements: nums,
-      highlightIndices: [3],
-      activePointers: [{ name: 'Cancel 1', index: 3, color: 'rose' }],
-      auxiliaryData: { accumulator: 6, binary: '0b0110', cancelled: 'Number 1' },
-      metrics: [
-        { label: 'acc', value: '6 (0b0110)' },
-        { label: 'Cancelled', value: 'Number 1' },
-      ],
-      statusBadge: { label: '1 Cancelled', variant: 'warning' },
-    },
-    {
-      stepNumber: 5,
-      title: 'XOR with 2: Cancels out First 2 -> Unique 4 Remains!',
-      explanation: 'Binary: 0110 ^ 0010 = 0100 (4). Number 2 cancels out. Only the single non-duplicate number 4 remains in O(N) time and O(1) space!',
-      elements: nums,
-      highlightIndices: [4],
-      activePointers: [{ name: 'Answer', index: 4, color: 'emerald' }],
-      auxiliaryData: { accumulator: 4, binary: '0b0100', singleNumber: 4 },
-      metrics: [
-        { label: 'Final Result', value: '4' },
-        { label: 'Space', value: 'O(1)' },
-      ],
-      statusBadge: { label: 'Unique Number: 4', variant: 'success' },
-    },
-  ];
+      auxiliaryData: { accumulator: acc, binary: toBinary(acc), cancelled: isDuplicate ? val : undefined },
+      statusBadge: { label: isDuplicate ? `Cancelled ${val}` : `acc = ${acc}`, variant: isDuplicate ? 'warning' : 'info' },
+    });
+  }
+
+  steps.push({
+    stepNumber: steps.length + 1,
+    title: `Final Result: Unique Number is ${acc}`,
+    explanation: `All duplicate pairs have cancelled to 0. The single unique number is ${acc}. Time: O(N), Space: O(1).`,
+    elements: nums,
+    highlightIndices: [nums.indexOf(acc)],
+    activePointers: [{ name: 'Answer', index: nums.indexOf(acc), color: 'emerald' }],
+    metrics: [
+      { label: 'Single Number', value: acc },
+      { label: 'Aux Space', value: 'O(1)' },
+    ],
+    auxiliaryData: { accumulator: acc, binary: toBinary(acc), singleNumber: acc },
+    statusBadge: { label: `Unique: ${acc}`, variant: 'success' },
+  });
+
+  return steps;
 }

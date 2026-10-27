@@ -27,17 +27,11 @@ interface PatternVisualizerHostProps {
   subtitle?: string;
 }
 
-export default function PatternVisualizerHost({
+function GenericPatternVisualizerContainer({
   slug,
   title,
   subtitle,
 }: PatternVisualizerHostProps) {
-  // If sliding window, use the dedicated specialized visualizer
-  if (slug === 'sliding-window') {
-    return <SlidingWindowVisualizer />;
-  }
-
-  // Otherwise, select the appropriate algorithm generator
   const steps = useMemo(() => {
     switch (slug) {
       case 'hashing-and-frequency-counting':
@@ -80,7 +74,9 @@ export default function PatternVisualizerHost({
   }, [slug]);
 
   const defaultTitle = `${title || 'Algorithm'} Visualizer`;
-  const defaultSubtitle = subtitle || 'Step-by-step interactive algorithm demonstration with live state transitions.';
+  const defaultSubtitle =
+    subtitle ||
+    'Step-by-step interactive algorithm demonstration with live state transitions.';
 
   return (
     <GenericPatternVisualizer
@@ -89,4 +85,14 @@ export default function PatternVisualizerHost({
       steps={steps}
     />
   );
+}
+
+export default function PatternVisualizerHost(props: PatternVisualizerHostProps) {
+  // If sliding window, use the dedicated specialized visualizer
+  if (props.slug === 'sliding-window') {
+    return <SlidingWindowVisualizer />;
+  }
+
+  // Otherwise, render the generic visualizer container with unconditional hooks
+  return <GenericPatternVisualizerContainer {...props} />;
 }
