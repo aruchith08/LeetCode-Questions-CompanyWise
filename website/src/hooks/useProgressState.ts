@@ -9,8 +9,10 @@ import {
 import { fetchAllQuestions } from './useAllQuestions';
 import {
   validateAndParseBackup,
+  validateProgressSchema,
   CURRENT_BACKUP_SCHEMA_VERSION,
 } from '../utils/backupValidation';
+import { normalizeTimestampToDate } from '../utils/timestampUtils';
 
 const STORAGE_KEY = 'companywise-progress';
 const LEGACY_STORAGE_KEY = 'codewise-progress';
@@ -26,6 +28,15 @@ export function isStorageCorrupted(): boolean {
 
 export function clearCorruptionFlag(): void {
   storageCorruptionDetected = false;
+}
+
+export function resetCorruptedStorage(): void {
+  storageCorruptionDetected = false;
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
+    // Preserves CORRUPT_BACKUP_KEY safely for user reference
+  } catch {}
 }
 
 export function getLocalDateString(d: Date = new Date()): string {
@@ -51,72 +62,68 @@ export function getDefaultProgress(): UserProgress {
 
 function loadProgress(): UserProgress {
   storageCorruptionDetected = false;
-  const primary = localStorage.getItem(STORAGE_KEY);
-  const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+  const primaryRaw = localStorage.getItem(STORAGE_KEY);
+  const legacyRaw = localStorage.getItem(LEGACY_STORAGE_KEY);
 
-  if (!primary && !legacy) {
+  if (!primaryRaw && !legacyRaw) {
     return getDefaultProgress();
   }
 
-  let parsed: any = null;
-
-  // Try parsing primary storage first
-  if (primary) {
+  // Preserve corrupt backup without inadvertently overwriting an earlier recovery copy
+  const stashCorruptBackup = (rawContent: string) => {
     try {
-      parsed = JSON.parse(primary);
-    } catch {
-      // Primary is corrupt: stash in backup key for user recovery
-      try {
-        localStorage.setItem(CORRUPT_BACKUP_KEY, primary);
-      } catch {}
-
-      // Attempt fallback to legacy storage
-      if (legacy) {
-        try {
-          parsed = JSON.parse(legacy);
-        } catch {}
+      if (!localStorage.getItem(CORRUPT_BACKUP_KEY)) {
+        localStorage.setItem(CORRUPT_BACKUP_KEY, rawContent);
       }
-
-      if (!parsed) {
-        // Both corrupt or legacy unavailable: flag corruption so auto-save doesn't overwrite
-        storageCorruptionDetected = true;
-        return getDefaultProgress();
-      }
-    }
-  } else if (legacy) {
-    try {
-      parsed = JSON.parse(legacy);
-    } catch {
-      try {
-        localStorage.setItem(CORRUPT_BACKUP_KEY, legacy);
-      } catch {}
-      storageCorruptionDetected = true;
-      return getDefaultProgress();
-    }
-  }
-
-  if (!parsed || typeof parsed !== 'object') {
-    return getDefaultProgress();
-  }
-
-  // Preserve verified activity history without attributing historical totals to today
-  const activityHistory = parsed.activityHistory || {};
-
-  return {
-    ...getDefaultProgress(),
-    ...parsed,
-    targetCompanies: parsed.targetCompanies || [],
-    recentQuestionTimestamps: parsed.recentQuestionTimestamps || {},
-    solvedQuestionTimestamps: parsed.solvedQuestionTimestamps || {},
-    activityHistory,
+    } catch {}
   };
+
+  const tryValidate = (raw: string | null): { valid: boolean; progress?: UserProgress; error?: string } => {
+    if (!raw) return { valid: false, error: 'Empty' };
+    let parsed: any;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (err: any) {
+      return { valid: false, error: `Invalid JSON syntax: ${err.message}` };
+    }
+    return validateProgressSchema(parsed);
+  };
+
+  const primaryResult = tryValidate(primaryRaw);
+  const legacyResult = tryValidate(legacyRaw);
+
+  // 1. Valid primary data
+  if (primaryResult.valid && primaryResult.progress) {
+    return primaryResult.progress;
+  }
+
+  // 2. Recover from valid legacy storage if available
+  if (legacyResult.valid && legacyResult.progress) {
+    if (primaryRaw) {
+      stashCorruptBackup(primaryRaw);
+    }
+    return legacyResult.progress;
+  }
+
+  // 3. Corrupt data detected in both or single storage
+  if (primaryRaw) {
+    stashCorruptBackup(primaryRaw);
+  } else if (legacyRaw) {
+    stashCorruptBackup(legacyRaw);
+  }
+
+  storageCorruptionDetected = true;
+  return getDefaultProgress();
 }
 
 function loadLeetCodeAccount(): LeetCodeAccount | null {
   try {
     const stored = localStorage.getItem(LC_STORAGE_KEY) || localStorage.getItem(LEGACY_LC_STORAGE_KEY);
     if (stored) {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      if (parsed && typeof parsed === 'object' && typeof parsed.username === 'string' && parsed.username.trim()) {
+        return parsed;
+      }
     }
   } catch {}
   return null;
@@ -231,9 +238,8 @@ export function useProgressState() {
         changed = true;
 
         if (subTs) {
-          const numTs = parseInt(subTs, 10);
-          if (!isNaN(numTs) && numTs > 0) {
-            const subDate = new Date(numTs * 1000);
+          const subDate = normalizeTimestampToDate(subTs);
+          if (subDate) {
             const dateStr = getLocalDateString(subDate);
             solvedTimestamps[id] = subDate.toISOString();
             activityHistory[dateStr] = (activityHistory[dateStr] || 0) + 1;
@@ -685,6 +691,8 @@ export function useProgressState() {
     exportProgress,
     importProgress,
     resetProgress,
+    resetCorruptedStorage,
+    isStorageCorrupted: isStorageCorrupted(),
     totalSolved,
     totalAttempted,
   };

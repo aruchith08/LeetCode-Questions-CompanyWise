@@ -57,7 +57,7 @@ export interface LeetCodeSubmission {
   id: string;
   title: string;
   titleSlug: string;
-  timestamp: string;
+  timestamp?: string;
 }
 
 export interface LeetCodeAccount {

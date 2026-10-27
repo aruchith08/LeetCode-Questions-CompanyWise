@@ -35,13 +35,25 @@ This technical note documents the formal algorithmic principles, complexity proo
 
 ### B. Variable-Size Sliding Window & Monotonicity Condition
 * **Invariant:** The window spans $[L, R]$. The right boundary expands monotonically ($R = 0 \to n-1$). The left boundary contracts ($L \to R$) whenever an invariant condition is violated (e.g. invalid character frequency or current sum $\ge$ target).
-* **Crucial Monotonicity Requirement:**
-  - For problems looking for minimum-size subarray with $\sum \ge S$:
-    Expanding $R$ must monotonically increase or maintain the sum ($\text{nums}[i] \ge 0$).
-    Shrinking $L$ must monotonically decrease the sum ($\text{nums}[i] \ge 0$).
-  - **Failure Case with Negative Numbers:** If an array contains negative numbers (e.g. $[2, -1, 2]$ with target 3), shrinking from the left can *increase* the sum, meaning two pointers cannot guarantee finding the optimal boundary without backtracking. For negative arrays, **Prefix Sum + Monotonic Deque** (LeetCode #862) or **Prefix Sum + Hash Map** (LeetCode #560) is required ($\mathcal{O}(n)$).
-* **Complexity:**
-  - Although there is a nested `while` loop for contraction, each pointer $L$ and $R$ visits each index at most once.
+* **Crucial Monotonicity Requirement & Distinctions Across Techniques:**
+  - **LeetCode #209 — Minimum Size Subarray Sum:**
+    - *Objective:* Find the shortest non-empty contiguous subarray whose sum is $\ge S$, under the problem's assumption that all elements are strictly positive ($\text{nums}[i] > 0$).
+    - *Why Sliding Window works:* Expanding $R$ strictly increases the sum, and shrinking $L$ strictly decreases the sum. This mathematical monotonicity ensures that greedy contraction preserves optimality without backtracking.
+    - *Complexity:* $\mathcal{O}(n)$ time, $\mathcal{O}(1)$ auxiliary space.
+  - **LeetCode #862 — Shortest Subarray with Sum at Least K:**
+    - *Objective:* Find the minimum length of a non-empty contiguous subarray whose sum is $\ge K$, when the array can contain negative numbers.
+    - *Why standard Sliding Window fails:* Negative numbers cause running sums to oscillate non-monotonically: expanding $R$ can decrease the sum, and advancing $L$ can increase it.
+    - *Correct Technique:* **Prefix Sum + Monotonic Deque**. By maintaining indices of strictly increasing prefix sums in a double-ended queue, we can check potential left endpoints in $\mathcal{O}(1)$ amortized time:
+      1. Pop from front when $P[R] - P[\text{deque.front()}] \ge K$ (recording candidate minimum length; any future right endpoint $R' > R$ would yield a strictly longer subarray).
+      2. Pop from back while $P[R] \le P[\text{deque.back()}]$ (as $R$ is both further right and has a smaller/equal prefix sum, dominating previous entries).
+    - *Complexity:* $\mathcal{O}(n)$ time, $\mathcal{O}(n)$ auxiliary space.
+  - **LeetCode #560 — Subarray Sum Equals K:**
+    - *Objective:* Count the total number of contiguous subarrays whose sum is *exactly equal* to $K$, allowing negative numbers.
+    - *Why Monotonic Deque / Sliding Window are inapplicable:* This is an exact equality count problem, not an inequality or length minimization problem.
+    - *Correct Technique:* **Prefix Sum + Hash Map**. Maintain a hash map of prefix sum frequencies: any prior prefix satisfying $P[j] = P[i] - K$ denotes a valid contiguous subarray $(j, i]$ summing to $K$.
+    - *Complexity:* $\mathcal{O}(n)$ expected time, $\mathcal{O}(n)$ auxiliary space.
+* **Complexity of Standard Variable Window:**
+  - Each pointer $L$ and $R$ visits each index at most once.
   - Total pointer advances $\le 2n$, guaranteeing $\mathcal{O}(n)$ amortized time.
   - Space: $\mathcal{O}(1)$ for scalar conditions or $\mathcal{O}(\Sigma)$ / $\mathcal{O}(\min(n, m))$ when tracking character frequencies.
 

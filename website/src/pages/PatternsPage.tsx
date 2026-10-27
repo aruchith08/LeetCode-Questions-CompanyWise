@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, BookOpen, Target, BarChart2, X } from 'lucide-react';
-import { PATTERNS_CATALOG, SLIDING_WINDOW_QUESTIONS } from '../data/patternsData';
+import { PATTERNS_CATALOG, SLIDING_WINDOW_MAPPINGS } from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
 import { useProgress } from '../hooks/useProgress';
@@ -12,7 +12,7 @@ export default function PatternsPage() {
 
   // Calculate user progress across patterns
   const slidingWindowSolvedCount = useMemo(() => {
-    return SLIDING_WINDOW_QUESTIONS.filter(q => getStatus(q.id) === 'solved').length;
+    return SLIDING_WINDOW_MAPPINGS.filter(m => getStatus(m.questionId) === 'solved').length;
   }, [getStatus]);
 
   const totalPatternQuestionsSolved = slidingWindowSolvedCount;
@@ -202,7 +202,7 @@ export default function PatternsPage() {
                     key={pattern.id}
                     pattern={pattern}
                     solvedCount={pattern.slug === 'sliding-window' ? slidingWindowSolvedCount : 0}
-                    totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_QUESTIONS.length : undefined}
+                    totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS.length : undefined}
                   />
                 ))}
               </div>
@@ -266,7 +266,7 @@ export default function PatternsPage() {
                 key={pattern.id}
                 pattern={pattern}
                 solvedCount={pattern.slug === 'sliding-window' ? slidingWindowSolvedCount : 0}
-                totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_QUESTIONS.length : undefined}
+                totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS.length : undefined}
               />
             ))}
           </div>

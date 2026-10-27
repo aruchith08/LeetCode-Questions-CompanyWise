@@ -683,11 +683,15 @@ export default function PatternDetailPage() {
                     <span>The Monotonicity Requirement:</span>
                   </div>
                   <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
-                    Variable-size windows on sums require <strong>non-negative values</strong>. When all values are non-negative, expanding right monotonically <em>increases</em> the sum, and shrinking left monotonically <em>decreases</em> it.
+                    Variable-size windows on sums require <strong>strictly positive / non-negative values</strong> (e.g. <em>LeetCode #209</em>). Expanding right monotonically increases the sum, and shrinking left monotonically decreases it, enabling an <code className="font-mono text-[11px]">O(N)</code> time, <code className="font-mono text-[11px]">O(1)</code> space solution.
                   </p>
                   <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
-                    If negative numbers are present, shrinking could unpredictably increase the sum! In that scenario, use <strong>Prefix Sum + Hash Map</strong> (LeetCode #560) or <strong>Prefix Sum + Monotonic Deque</strong> (LeetCode #862).
+                    Negative numbers break this monotonicity! Choose the specialized technique for the exact problem objective:
                   </p>
+                  <ul className="list-disc pl-4 space-y-1 text-amber-800 dark:text-amber-400 leading-relaxed text-[11px]">
+                    <li><strong>Shortest subarray with sum &ge; K with negatives:</strong> <strong>Prefix Sum + Monotonic Deque</strong> (<em>LeetCode #862</em>, <code className="font-mono text-[10px]">O(N)</code> time, <code className="font-mono text-[10px]">O(N)</code> space).</li>
+                    <li><strong>Counting subarrays with exact sum = K with negatives:</strong> <strong>Prefix Sum + Hash Map</strong> (<em>LeetCode #560</em>, <code className="font-mono text-[10px]">O(N)</code> time, <code className="font-mono text-[10px]">O(N)</code> space).</li>
+                  </ul>
                 </div>
 
                 <div className="p-3 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40 space-y-1.5 text-xs">

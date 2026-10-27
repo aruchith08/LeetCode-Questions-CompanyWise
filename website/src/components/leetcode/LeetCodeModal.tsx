@@ -170,8 +170,18 @@ export default function LeetCodeModal({
 
           {/* Notices */}
           {syncNotice && (
-            <div className="mt-3 p-2.5 sm:p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-700 dark:text-emerald-400 flex items-start gap-2">
-              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+            <div
+              className={`mt-3 p-2.5 sm:p-3 rounded-xl border text-xs flex items-start gap-2 ${
+                syncStatus === 'partial' || syncDetails?.isPartial
+                  ? 'bg-amber-500/10 border-amber-500/30 text-amber-800 dark:text-amber-300'
+                  : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400'
+              }`}
+            >
+              {syncStatus === 'partial' || syncDetails?.isPartial ? (
+                <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+              ) : (
+                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+              )}
               <span className="leading-relaxed">{syncNotice}</span>
             </div>
           )}

@@ -18,7 +18,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Foundation',
     availability: 'upcoming',
     category: 'Hash Tables & Arrays',
-    questionCount: 42,
     subpatternCount: 3,
     tags: ['Hash Map', 'Counting', 'Lookup'],
     companiesTop: ['Amazon', 'Google', 'Microsoft', 'Meta'],
@@ -31,7 +30,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Foundation',
     availability: 'upcoming',
     category: 'Arrays & Strings',
-    questionCount: 38,
     subpatternCount: 4,
     tags: ['Pointers', 'Sorted Arrays', 'In-place'],
     companiesTop: ['Meta', 'Amazon', 'Apple', 'Bloomberg'],
@@ -58,7 +56,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Foundation',
     availability: 'upcoming',
     category: 'Arrays & Math',
-    questionCount: 29,
     subpatternCount: 3,
     tags: ['Cumulative Sum', 'Range Queries', 'Difference Array'],
     companiesTop: ['Google', 'Meta', 'Amazon', 'Uber'],
@@ -71,7 +68,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Foundation',
     availability: 'upcoming',
     category: 'Searching & Arrays',
-    questionCount: 35,
     subpatternCount: 4,
     tags: ['Divide and Conquer', 'Monotonic Space', 'Logarithmic'],
     companiesTop: ['Google', 'Meta', 'Amazon', 'Bloomberg'],
@@ -84,7 +80,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Foundation',
     availability: 'upcoming',
     category: 'Linked Lists & Arrays',
-    questionCount: 18,
     subpatternCount: 2,
     tags: ['Floyd Cycle Detection', 'Middle Finding', 'Linked Lists'],
     companiesTop: ['Microsoft', 'Amazon', 'Oracle', 'Apple'],
@@ -99,7 +94,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Stacks & Queues',
-    questionCount: 31,
     subpatternCount: 3,
     tags: ['Monotonic Stack', 'LIFO', 'Next Greater Element'],
     companiesTop: ['Amazon', 'Google', 'Meta', 'ByteDance'],
@@ -112,7 +106,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Arrays & Sorting',
-    questionCount: 24,
     subpatternCount: 3,
     tags: ['Interval Overlaps', 'Sweep Line', 'Meeting Rooms'],
     companiesTop: ['Google', 'Amazon', 'Salesforce', 'Uber'],
@@ -125,7 +118,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Heaps & Priority Queues',
-    questionCount: 27,
     subpatternCount: 3,
     tags: ['Min-Heap', 'Max-Heap', 'Top K Elements', 'Streaming'],
     companiesTop: ['Amazon', 'Microsoft', 'Meta', 'Twitter'],
@@ -138,7 +130,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Trees & Recursion',
-    questionCount: 45,
     subpatternCount: 4,
     tags: ['Recursion', 'Binary Trees', 'Backtracking Paths'],
     companiesTop: ['Amazon', 'Meta', 'Microsoft', 'Google'],
@@ -151,7 +142,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Trees & Queues',
-    questionCount: 26,
     subpatternCount: 2,
     tags: ['Level Order', 'Queues', 'Shortest Path'],
     companiesTop: ['Amazon', 'Bloomberg', 'Microsoft', 'LinkedIn'],
@@ -164,7 +154,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Graphs',
-    questionCount: 36,
     subpatternCount: 4,
     tags: ['Adjacency Lists', 'Visited Sets', 'Island Problems'],
     companiesTop: ['Amazon', 'Google', 'Meta', 'Uber'],
@@ -177,7 +166,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Intermediate',
     availability: 'upcoming',
     category: 'Graphs & DAGs',
-    questionCount: 16,
     subpatternCount: 2,
     tags: ["Kahn's Algorithm", 'In-degree', 'Course Schedule'],
     companiesTop: ['Amazon', 'Microsoft', 'Google', 'DoorDash'],
@@ -192,7 +180,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'upcoming',
     category: 'Graphs & Disjoint Sets',
-    questionCount: 20,
     subpatternCount: 2,
     tags: ['Path Compression', 'Rank Union', 'Connected Components'],
     companiesTop: ['Google', 'Amazon', 'Meta', 'Apple'],
@@ -205,7 +192,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'upcoming',
     category: 'Recursion & Combinatorics',
-    questionCount: 28,
     subpatternCount: 3,
     tags: ['Permutations', 'Subsets', 'Pruning', 'N-Queens'],
     companiesTop: ['Amazon', 'Google', 'Microsoft', 'Meta'],
@@ -218,7 +204,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'upcoming',
     category: 'Optimization & Sorting',
-    questionCount: 22,
     subpatternCount: 3,
     tags: ['Local Optimum', 'Activity Selection', 'Gas Station'],
     companiesTop: ['Google', 'Amazon', 'Microsoft', 'Adobe'],
@@ -231,7 +216,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'upcoming',
     category: 'Optimization & DP',
-    questionCount: 55,
     subpatternCount: 5,
     tags: ['Memoization', 'Tabulation', 'Knapsack', 'State Transitions'],
     companiesTop: ['Google', 'Amazon', 'Meta', 'Microsoft', 'Goldman Sachs'],
@@ -244,7 +228,6 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'upcoming',
     category: 'Bitwise & Math',
-    questionCount: 19,
     subpatternCount: 3,
     tags: ['Bitwise XOR', 'Masking', 'Bit Shifting', 'Two Complement'],
     companiesTop: ['Amazon', 'Google', 'Apple', 'Meta'],
@@ -396,28 +379,6 @@ export const SLIDING_WINDOW_MAPPINGS: PatternQuestionMapping[] = [
   },
 ];
 
-/**
- * Fallback static metadata dictionary for when catalog is not yet loaded in tests or SSR.
- * Real production UI dynamically joins with canonical questions from useAllQuestions().
- */
-const CANONICAL_FALLBACK_METADATA: Record<number, { title: string; difficulty: 'Easy' | 'Medium' | 'Hard'; acceptance: string; link: string; companies: string[] }> = {
-  643: { title: 'Maximum Average Subarray I', difficulty: 'Easy', acceptance: '49.5%', link: 'https://leetcode.com/problems/maximum-average-subarray-i', companies: ['amazon', 'google', 'meta', 'microsoft'] },
-  1456: { title: 'Maximum Number of Vowels in a Substring of Given Length', difficulty: 'Medium', acceptance: '58.1%', link: 'https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length', companies: ['amazon', 'microsoft', 'bloomberg'] },
-  2090: { title: 'K Radius Subarray Averages', difficulty: 'Medium', acceptance: '46.5%', link: 'https://leetcode.com/problems/k-radius-subarray-averages', companies: ['amazon', 'google', 'meta'] },
-  1423: { title: 'Maximum Points You Can Obtain from Cards', difficulty: 'Medium', acceptance: '52.8%', link: 'https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards', companies: ['google', 'amazon', 'microsoft', 'uber'] },
-  3: { title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', acceptance: '34.7%', link: 'https://leetcode.com/problems/longest-substring-without-repeating-characters', companies: ['amazon', 'microsoft', 'google', 'meta', 'apple'] },
-  209: { title: 'Minimum Size Subarray Sum', difficulty: 'Medium', acceptance: '47.2%', link: 'https://leetcode.com/problems/minimum-size-subarray-sum', companies: ['amazon', 'microsoft', 'google', 'facebook'] },
-  1004: { title: 'Max Consecutive Ones III', difficulty: 'Medium', acceptance: '63.3%', link: 'https://leetcode.com/problems/max-consecutive-ones-iii', companies: ['meta', 'amazon', 'google', 'microsoft'] },
-  1208: { title: 'Get Equal Substrings Within Budget', difficulty: 'Medium', acceptance: '54.2%', link: 'https://leetcode.com/problems/get-equal-substrings-within-budget', companies: ['amazon', 'google', 'bytedance'] },
-  904: { title: 'Fruit Into Baskets', difficulty: 'Medium', acceptance: '44.2%', link: 'https://leetcode.com/problems/fruit-into-baskets', companies: ['google', 'amazon', 'microsoft'] },
-  424: { title: 'Longest Repeating Character Replacement', difficulty: 'Medium', acceptance: '53.4%', link: 'https://leetcode.com/problems/longest-repeating-character-replacement', companies: ['google', 'amazon', 'meta', 'uber'] },
-  567: { title: 'Permutation in String', difficulty: 'Medium', acceptance: '44.4%', link: 'https://leetcode.com/problems/permutation-in-string', companies: ['microsoft', 'amazon', 'meta', 'apple'] },
-  438: { title: 'Find All Anagrams in a String', difficulty: 'Medium', acceptance: '50.8%', link: 'https://leetcode.com/problems/find-all-anagrams-in-a-string', companies: ['amazon', 'meta', 'microsoft', 'bloomberg'] },
-  76: { title: 'Minimum Window Substring', difficulty: 'Hard', acceptance: '42.6%', link: 'https://leetcode.com/problems/minimum-window-substring', companies: ['meta', 'amazon', 'google', 'microsoft', 'apple'] },
-  239: { title: 'Sliding Window Maximum', difficulty: 'Hard', acceptance: '46.8%', link: 'https://leetcode.com/problems/sliding-window-maximum', companies: ['amazon', 'google', 'meta', 'microsoft', 'bytedance'] },
-  1838: { title: 'Frequency of the Most Frequent Element', difficulty: 'Medium', acceptance: '44.1%', link: 'https://leetcode.com/problems/frequency-of-the-most-frequent-element', companies: ['amazon', 'google', 'microsoft'] },
-};
-
 export function joinPatternQuestions(
   mappings: PatternQuestionMapping[],
   catalog?: GlobalQuestion[] | null
@@ -446,42 +407,28 @@ export function joinPatternQuestions(
         subpatternLabel: m.subpatternLabel,
         learningOrder: m.learningOrder,
         reviewStatus: m.reviewStatus,
+        isCatalogAvailable: true,
       };
     }
 
-    const fb = CANONICAL_FALLBACK_METADATA[m.questionId];
-    if (fb) {
-      return {
-        id: m.questionId,
-        title: fb.title,
-        difficulty: fb.difficulty,
-        acceptance: fb.acceptance,
-        link: fb.link,
-        companies: fb.companies,
-        companySlugs: fb.companies,
-        companyCount: fb.companies.length,
-        frequency: 50,
-        subpattern: m.subpattern,
-        subpatternLabel: m.subpatternLabel,
-        learningOrder: m.learningOrder,
-        reviewStatus: m.reviewStatus,
-      };
-    }
-
-    // Graceful handling for missing IDs - never fabricate metadata
+    // When question is not found in the catalog (or catalog not yet loaded):
+    // Preserve authentic pattern mapping info and indicate unavailable catalog state.
+    // NEVER invent fake titles, difficulties, acceptance rates, companies, or frequencies!
     return {
       id: m.questionId,
-      title: `Question #${m.questionId}`,
-      difficulty: 'Medium',
+      title: `Problem #${m.questionId}`,
+      difficulty: undefined,
       acceptance: '—',
       link: `https://leetcode.com/problemset/all/?search=${m.questionId}`,
       companies: [],
       companySlugs: [],
       companyCount: 0,
+      frequency: undefined,
       subpattern: m.subpattern,
       subpatternLabel: m.subpatternLabel,
       learningOrder: m.learningOrder,
       reviewStatus: m.reviewStatus,
+      isCatalogAvailable: false,
     };
   });
 }

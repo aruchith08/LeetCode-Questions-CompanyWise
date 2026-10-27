@@ -46,6 +46,9 @@ describe('DSA Patterns Catalog Integrity', () => {
     expect(available[0].category).toBe('Arrays & Strings');
 
     expect(upcoming).toHaveLength(17);
+    for (const p of upcoming) {
+      expect(p.questionCount).toBeUndefined();
+    }
   });
 });
 
@@ -113,12 +116,14 @@ describe('Sliding Window Practice Questions & Catalog Integration', () => {
     const questionsJson = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
     const catalogIds = new Set(questionsJson.map((q: any) => q.id));
 
-    for (const q of SLIDING_WINDOW_QUESTIONS) {
+    const joinedWithCatalog = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS, questionsJson);
+    for (const q of joinedWithCatalog) {
       expect(catalogIds.has(q.id)).toBe(true);
       expect(q.title).toBeTruthy();
       expect(['Easy', 'Medium', 'Hard']).toContain(q.difficulty);
       expect(q.companies.length).toBeGreaterThan(0);
       expect(q.link).toMatch(/^https:\/\/leetcode\.com\/problems\//);
+      expect(q.isCatalogAvailable).toBe(true);
     }
   });
 
@@ -144,17 +149,24 @@ describe('Sliding Window Practice Questions & Catalog Integration', () => {
     expect(joined[0].acceptance).toBe('45.2%');
     expect(joined[0].companySlugs).toEqual(['google', 'amazon']);
     expect(joined[0].reviewStatus).toBe('verified');
+    expect(joined[0].isCatalogAvailable).toBe(true);
   });
 
-  it('safely handles missing or empty catalog using verified fallback metadata', () => {
+  it('safely handles missing or empty catalog without fabricating fake metadata or default frequency', () => {
     const joinedWithNull = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS.slice(0, 1), null);
     expect(joinedWithNull).toHaveLength(1);
     expect(joinedWithNull[0].id).toBe(643);
-    expect(joinedWithNull[0].title).toBe('Maximum Average Subarray I');
+    expect(joinedWithNull[0].title).toBe('Problem #643');
+    expect(joinedWithNull[0].difficulty).toBeUndefined();
+    expect(joinedWithNull[0].frequency).toBeUndefined();
+    expect(joinedWithNull[0].isCatalogAvailable).toBe(false);
 
     const joinedWithEmpty = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS.slice(0, 1), []);
     expect(joinedWithEmpty).toHaveLength(1);
     expect(joinedWithEmpty[0].id).toBe(643);
+    expect(joinedWithEmpty[0].difficulty).toBeUndefined();
+    expect(joinedWithEmpty[0].frequency).toBeUndefined();
+    expect(joinedWithEmpty[0].isCatalogAvailable).toBe(false);
   });
 });
 

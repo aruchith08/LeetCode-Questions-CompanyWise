@@ -15,7 +15,7 @@ export interface DSAPattern {
   level: PatternLevel;
   availability: PatternAvailability;
   category: string;
-  questionCount: number;
+  questionCount?: number;
   subpatternCount?: number;
   prerequisites?: string[];
   companiesTop?: string[];
@@ -35,7 +35,7 @@ export interface PatternQuestionMapping {
 export interface PatternQuestion {
   id: number;
   title: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  difficulty?: 'Easy' | 'Medium' | 'Hard';
   subpattern: SlidingWindowSubcategory;
   subpatternLabel: string;
   link: string;

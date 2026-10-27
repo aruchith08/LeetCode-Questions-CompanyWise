@@ -16,8 +16,8 @@ export default function PatternCard({
   totalQuestions,
 }: PatternCardProps) {
   const isAvailable = pattern.availability === 'available';
-  const qCount = totalQuestions ?? pattern.questionCount;
-  const progressPercent = qCount > 0 ? Math.round((solvedCount / qCount) * 100) : 0;
+  const qCount = isAvailable ? (totalQuestions ?? pattern.questionCount ?? 0) : 0;
+  const progressPercent = isAvailable && qCount > 0 ? Math.round((solvedCount / qCount) * 100) : 0;
 
   // Level badge styling
   const levelBadgeClass = (() => {
@@ -75,38 +75,46 @@ export default function PatternCard({
 
       {/* Progress & CTA */}
       <div className="space-y-3 pt-2">
-        {/* Progress bar */}
-        <div className="flex items-center gap-2">
-          <div className="flex-1 h-1 bg-slate-100 dark:bg-[#1E1E1C] rounded-full overflow-hidden">
-            <div
-              className={`h-full transition-all duration-300 ${
-                isAvailable ? 'bg-[#0F1B3D] dark:bg-[#D97757]' : 'bg-slate-300 dark:bg-[#43433F]'
-              }`}
-              style={{ width: `${progressPercent}%` }}
-            />
-          </div>
-          <span className="text-[10px] font-mono font-medium text-slate-400 dark:text-[#8E8C82]">
-            {progressPercent}%
-          </span>
-        </div>
-
-        {/* Action Button */}
         {isAvailable ? (
-          <Link
-            to={`/patterns/${pattern.slug}`}
-            className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs transition-colors shadow-xs hover:shadow-sm"
-          >
-            <span>Start Learning</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <>
+            {/* Progress bar */}
+            <div className="flex items-center gap-2">
+              <div className="flex-1 h-1 bg-slate-100 dark:bg-[#1E1E1C] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-[#0F1B3D] dark:bg-[#D97757] transition-all duration-300"
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+              <span className="text-[10px] font-mono font-medium text-slate-400 dark:text-[#8E8C82]">
+                {solvedCount}/{qCount} ({progressPercent}%)
+              </span>
+            </div>
+
+            {/* Action Button */}
+            <Link
+              to={`/patterns/${pattern.slug}`}
+              className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs transition-colors shadow-xs hover:shadow-sm"
+            >
+              <span>Start Learning</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </>
         ) : (
-          <button
-            type="button"
-            disabled
-            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-[#1F1E1D] text-slate-400 dark:text-[#7A7870] font-semibold text-xs cursor-not-allowed select-none border border-slate-200/60 dark:border-[#43433F]/70"
-          >
-            Coming Soon
-          </button>
+          <>
+            {/* Upcoming Track Indicator */}
+            <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-[#8E8C82] py-0.5">
+              <span>Curated practice collection</span>
+              <span className="font-mono text-[10px]">Phase 2</span>
+            </div>
+
+            <button
+              type="button"
+              disabled
+              className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-[#1F1E1D] text-slate-400 dark:text-[#7A7870] font-semibold text-xs cursor-not-allowed select-none border border-slate-200/60 dark:border-[#43433F]/70"
+            >
+              Coming Soon
+            </button>
+          </>
         )}
       </div>
     </div>

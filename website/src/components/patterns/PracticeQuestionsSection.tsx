@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Search, CheckCircle2, Filter, Loader2 } from 'lucide-react';
+import { ExternalLink, Search, CheckCircle2, Filter, Loader2, RotateCcw } from 'lucide-react';
 import type { PatternQuestion, SlidingWindowSubcategory } from '../../types/patterns';
 import { SLIDING_WINDOW_MAPPINGS, joinPatternQuestions } from '../../data/patternsData';
 import { useAllQuestions } from '../../hooks/useAllQuestions';
@@ -14,7 +14,7 @@ type FilterTab = 'all' | SlidingWindowSubcategory;
 
 export default function PracticeQuestionsSection() {
   const { getStatus, toggleSolved, toggleBookmark, isBookmarked } = useProgress();
-  const { data: allQuestions, loading: loadingQuestions } = useAllQuestions();
+  const { data: allQuestions, loading: loadingQuestions, error: catalogError, refetch } = useAllQuestions();
   const { data: indexData } = useDataIndex();
   const [activeTab, setActiveTab] = useState<FilterTab>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -155,127 +155,162 @@ export default function PracticeQuestionsSection() {
 
       {/* Questions Table (Identical to ProblemsPage) */}
       <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-2xs">
-        <table className="w-full text-left border-collapse text-xs">
-          <thead className="bg-slate-50/80 dark:bg-[#262624]/80 border-b border-slate-200 dark:border-[#43433F] text-slate-400 dark:text-[#A8A69C] font-bold uppercase text-[11px] tracking-wider">
-            <tr>
-              <th className="py-3 px-3 w-12 text-center">STATUS</th>
-              <th className="py-3 px-3 w-16">ID</th>
-              <th className="py-3 px-4 min-w-[200px]">PROBLEM</th>
-              <th className="py-3 px-3 w-28">DIFFICULTY</th>
-              <th className="py-3 px-3.5 hidden md:table-cell">SUBCATEGORY</th>
-              <th className="py-3 px-4 hidden sm:table-cell">COMPANIES</th>
-              <th className="py-3 px-4 text-right hidden lg:table-cell w-28">ACCEPTANCE</th>
-              <th className="py-3 px-4 text-right w-28">ACTION</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-[#43433F]/60">
-            {filteredQuestions.length === 0 ? (
+        {loadingQuestions && !allQuestions ? (
+          <div className="py-16 text-center space-y-3">
+            <Loader2 className="w-6 h-6 animate-spin text-[#0F1B3D] dark:text-[#D97757] mx-auto" />
+            <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
+              Loading practice problems from question catalog...
+            </p>
+          </div>
+        ) : catalogError && !allQuestions ? (
+          <div className="py-12 px-4 text-center space-y-3">
+            <p className="text-xs font-semibold text-rose-600 dark:text-rose-400">
+              Failed to load question catalog: {catalogError}
+            </p>
+            <button
+              type="button"
+              onClick={() => refetch()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors cursor-pointer"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Retry</span>
+            </button>
+          </div>
+        ) : (
+          <table className="w-full text-left border-collapse text-xs">
+            <thead className="bg-slate-50/80 dark:bg-[#262624]/80 border-b border-slate-200 dark:border-[#43433F] text-slate-400 dark:text-[#A8A69C] font-bold uppercase text-[11px] tracking-wider">
               <tr>
-                <td colSpan={8} className="py-12 text-center text-slate-400 dark:text-[#8E8C82]">
-                  No practice problems found matching your criteria.
-                </td>
+                <th className="py-3 px-3 w-12 text-center">STATUS</th>
+                <th className="py-3 px-3 w-16">ID</th>
+                <th className="py-3 px-4 min-w-[200px]">PROBLEM</th>
+                <th className="py-3 px-3 w-28">DIFFICULTY</th>
+                <th className="py-3 px-3.5 hidden md:table-cell">SUBCATEGORY</th>
+                <th className="py-3 px-4 hidden sm:table-cell">COMPANIES</th>
+                <th className="py-3 px-4 text-right hidden lg:table-cell w-28">ACCEPTANCE</th>
+                <th className="py-3 px-4 text-right w-28">ACTION</th>
               </tr>
-            ) : (
-              filteredQuestions.map(q => {
-                const status = getStatus(q.id);
-                const bookmarked = isBookmarked(q.id);
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-[#43433F]/60">
+              {filteredQuestions.length === 0 ? (
+                <tr>
+                  <td colSpan={8} className="py-12 text-center text-slate-400 dark:text-[#8E8C82]">
+                    No practice problems found matching your criteria.
+                  </td>
+                </tr>
+              ) : (
+                filteredQuestions.map(q => {
+                  const status = getStatus(q.id);
+                  const bookmarked = isBookmarked(q.id);
 
-                return (
-                  <tr
-                    key={q.id}
-                    className={`hover:bg-slate-50/80 dark:hover:bg-[#1F1E1D]/60 transition-colors group ${
-                      status === 'solved' ? 'bg-emerald-500/[0.04] dark:bg-emerald-500/[0.06]' : ''
-                    }`}
-                  >
-                    {/* Status Toggle */}
-                    <td className="py-3 px-3 text-center">
-                      <StatusToggle
-                        status={status}
-                        onToggleSolved={() => toggleSolved(q.id)}
-                      />
-                    </td>
+                  return (
+                    <tr
+                      key={q.id}
+                      className={`hover:bg-slate-50/80 dark:hover:bg-[#1F1E1D]/60 transition-colors group ${
+                        status === 'solved' ? 'bg-emerald-500/[0.04] dark:bg-emerald-500/[0.06]' : ''
+                      }`}
+                    >
+                      {/* Status Toggle */}
+                      <td className="py-3 px-3 text-center">
+                        <StatusToggle
+                          status={status}
+                          onToggleSolved={() => toggleSolved(q.id)}
+                        />
+                      </td>
 
-                    {/* Problem ID */}
-                    <td className="py-3 px-3 font-mono text-slate-400 text-xs">
-                      #{q.id}
-                    </td>
+                      {/* Problem ID */}
+                      <td className="py-3 px-3 font-mono text-slate-400 text-xs">
+                        #{q.id}
+                      </td>
 
-                    {/* Problem Title */}
-                    <td className="py-3 px-4">
-                      <a
-                        href={q.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors inline-block"
-                      >
-                        <span className={status === 'solved' ? 'line-through text-slate-400 dark:text-[#8E8C82]' : ''}>
-                          {q.title}
-                        </span>
-                      </a>
-                    </td>
-
-                    {/* Difficulty Badge */}
-                    <td className="py-3 px-3">
-                      <DifficultyBadge difficulty={q.difficulty} size="sm" />
-                    </td>
-
-                    {/* Subcategory */}
-                    <td className="py-3 px-3.5 hidden md:table-cell">
-                      <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-700 dark:bg-[#1F1E1D] dark:text-[#A8A69C] border border-slate-200/80 dark:border-[#43433F]">
-                        {q.subpatternLabel}
-                      </span>
-                    </td>
-
-                    {/* Top Companies Asking */}
-                    <td className="py-3 px-4 hidden sm:table-cell">
-                      <div className="flex items-center gap-1.5">
-                        <div className="flex items-center -space-x-1.5 overflow-hidden">
-                          {q.companies.slice(0, 3).map(slug => (
-                            <CompanyLogo
-                              key={slug}
-                              slug={slug}
-                              size="xs"
-                              className="border border-white dark:border-[#30302E] rounded-md shadow-2xs"
-                            />
-                          ))}
-                        </div>
-                        <span className="font-mono text-[11px] text-slate-500 dark:text-[#A8A69C] font-medium">
-                          {q.companies.length} {q.companies.length === 1 ? 'co' : 'cos'}
-                        </span>
-                      </div>
-                    </td>
-
-                    {/* Acceptance */}
-                    <td className="py-3 px-4 text-right font-mono text-slate-500 dark:text-[#A8A69C] hidden lg:table-cell">
-                      {q.acceptance}
-                    </td>
-
-                    {/* Action Column matching ProblemsPage */}
-                    <td className="py-3 px-4 text-right">
-                      <div className="flex items-center justify-end gap-1.5">
-                        <div className="opacity-60 group-hover:opacity-100 transition-opacity">
-                          <BookmarkButton
-                            isBookmarked={bookmarked}
-                            onToggle={() => toggleBookmark(q.id)}
-                          />
-                        </div>
+                      {/* Problem Title */}
+                      <td className="py-3 px-4">
                         <a
                           href={q.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-[#FAF9F5] hover:text-white hover:bg-[#0F1B3D] dark:hover:bg-[#D97757] dark:hover:text-[#1F1E1D] rounded-lg transition-colors group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:hover:bg-[#0F1B3D] dark:group-hover:hover:bg-[#D97757] group-hover:hover:text-white"
+                          className="font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors inline-block"
                         >
-                          <span>Solve</span>
-                          <ExternalLink className="w-3 h-3 opacity-60" />
+                          <span className={status === 'solved' ? 'line-through text-slate-400 dark:text-[#8E8C82]' : ''}>
+                            {q.title}
+                          </span>
                         </a>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
+                      </td>
+
+                      {/* Difficulty Badge */}
+                      <td className="py-3 px-3">
+                        {q.difficulty ? (
+                          <DifficultyBadge difficulty={q.difficulty} size="sm" />
+                        ) : (
+                          <span className="text-slate-400 dark:text-[#8E8C82] text-xs font-mono">—</span>
+                        )}
+                      </td>
+
+                      {/* Subcategory */}
+                      <td className="py-3 px-3.5 hidden md:table-cell">
+                        <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-700 dark:bg-[#1F1E1D] dark:text-[#A8A69C] border border-slate-200/80 dark:border-[#43433F]">
+                          {q.subpatternLabel}
+                        </span>
+                      </td>
+
+                      {/* Top Companies Asking */}
+                      <td className="py-3 px-4 hidden sm:table-cell">
+                        {q.companies && q.companies.length > 0 ? (
+                          <div className="flex items-center gap-1.5">
+                            <div className="flex items-center -space-x-1.5 overflow-hidden">
+                              {q.companies.slice(0, 3).map(slug => (
+                                <CompanyLogo
+                                  key={slug}
+                                  slug={slug}
+                                  size="xs"
+                                  className="border border-white dark:border-[#30302E] rounded-md shadow-2xs"
+                                />
+                              ))}
+                            </div>
+                            <span className="font-mono text-[11px] text-slate-500 dark:text-[#A8A69C] font-medium">
+                              {q.companies.length} {q.companies.length === 1 ? 'co' : 'cos'}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-slate-400 dark:text-[#8E8C82] text-xs font-mono">—</span>
+                        )}
+                      </td>
+
+                      {/* Acceptance */}
+                      <td className="py-3 px-4 text-right font-mono text-slate-500 dark:text-[#A8A69C] hidden lg:table-cell">
+                        {q.acceptance && q.acceptance !== '—' ? (
+                          q.acceptance
+                        ) : (
+                          <span className="text-slate-400 dark:text-[#8E8C82]">—</span>
+                        )}
+                      </td>
+
+                      {/* Action Column matching ProblemsPage */}
+                      <td className="py-3 px-4 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          <div className="opacity-60 group-hover:opacity-100 transition-opacity">
+                            <BookmarkButton
+                              isBookmarked={bookmarked}
+                              onToggle={() => toggleBookmark(q.id)}
+                            />
+                          </div>
+                          <a
+                            href={q.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-[#FAF9F5] hover:text-white hover:bg-[#0F1B3D] dark:hover:bg-[#D97757] dark:hover:text-[#1F1E1D] rounded-lg transition-colors group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:hover:bg-[#0F1B3D] dark:group-hover:hover:bg-[#D97757] group-hover:hover:text-white"
+                          >
+                            <span>Solve</span>
+                            <ExternalLink className="w-3 h-3 opacity-60" />
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
