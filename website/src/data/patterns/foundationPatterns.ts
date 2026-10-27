@@ -95,6 +95,27 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
   }
   return [];
 }`,
+    pythonBrute: `def twoSum(nums: list[int], target: int) -> list[int]:
+    n = len(nums)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []`,
+    tsBrute: `function twoSum(nums: number[], target: number): number[] {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) return [i, j];
+    }
+  }
+  return [];
+}`,
+    bruteComplexity: {
+      time: 'O(N²)',
+      space: 'O(1)',
+      notes: 'Tests all pairs with two nested loops without recording previously seen values.',
+    },
+    bruteExplanation: 'Evaluate all pairs using nested loops without recording previously seen elements in memory.',
     exampleProblemTitle: 'Two Sum (LeetCode #1)',
     exampleProblemDescription: 'Find indices of two numbers in an array that add up to a specified target value.',
     pythonExample: `def twoSum(nums: list[int], target: int) -> list[int]:
@@ -151,6 +172,7 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
     ],
     subpatternTabs: [
       { id: 'complement-lookup', label: 'Complement Lookup' },
+      { id: 'lookup-table', label: 'Lookup Table & Conversion' },
       { id: 'frequency-signature', label: 'Frequency Counting' },
       { id: 'set-lookup', label: 'Set Sequences' },
       { id: 'prefix-hash', label: 'Prefix Hash Map' },
@@ -296,6 +318,29 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
   }
   return [];
 }`,
+    pythonBrute: `def twoSum(numbers: list[int], target: int) -> list[int]:
+    n = len(numbers)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if numbers[i] + numbers[j] == target:
+                return [i + 1, j + 1]  # 1-indexed
+    return []`,
+    tsBrute: `function twoSum(numbers: number[], target: number): number[] {
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = i + 1; j < numbers.length; j++) {
+      if (numbers[i] + numbers[j] === target) {
+        return [i + 1, j + 1]; // 1-indexed
+      }
+    }
+  }
+  return [];
+}`,
+    bruteComplexity: {
+      time: 'O(N²)',
+      space: 'O(1)',
+      notes: 'Exhaustively checks all N*(N-1)/2 pairs in quadratic time, ignoring array sortedness.',
+    },
+    bruteExplanation: 'Check every pair of elements using nested loops, ignoring that the input array is already sorted.',
     exampleProblemTitle: 'Two Sum II - Input Array Is Sorted (LeetCode #167)',
     exampleProblemDescription: 'Find two numbers in a sorted array that sum to target, returning 1-indexed locations.',
     pythonExample: `def twoSum(numbers: list[int], target: int) -> list[int]:
@@ -513,6 +558,32 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
   }
   return maxLen;
 }`,
+    pythonBrute: `def findMaxAverage(nums: list[int], k: int) -> float:
+    n = len(nums)
+    max_sum = float('-inf')
+    for i in range(n - k + 1):
+        window_sum = 0
+        for j in range(i, i + k):
+            window_sum += nums[j]
+        max_sum = max(max_sum, window_sum)
+    return max_sum / k`,
+    tsBrute: `function findMaxAverage(nums: number[], k: number): number {
+  let maxSum = -Infinity;
+  for (let i = 0; i <= nums.length - k; i++) {
+    let windowSum = 0;
+    for (let j = i; j < i + k; j++) {
+      windowSum += nums[j];
+    }
+    maxSum = Math.max(maxSum, windowSum);
+  }
+  return maxSum / k;
+}`,
+    bruteComplexity: {
+      time: 'O(N × K)',
+      space: 'O(1)',
+      notes: 'Recalculates the entire window sum of size K from scratch at every step.',
+    },
+    bruteExplanation: 'Recalculate sum of k elements for every window from scratch, performing redundant additions.',
     exampleProblemTitle: 'Maximum Average Subarray I (LeetCode #643)',
     exampleProblemDescription: 'Find maximum average of any contiguous subarray of size k.',
     pythonExample: `def findMaxAverage(nums: list[int], k: int) -> float:
@@ -700,7 +771,7 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
         title: 'Difference Array (Range Updates)',
         description: 'Batch range additions in O(1) per update with single prefix reconstruction.',
         exampleProblem: 'LeetCode #1094: Car Pooling',
-        keyIdea: 'Add v at L, subtract v at R+1; reconstruct final values via prefix sweep.',
+        keyIdea: 'Inclusive ranges [L, R] add at L and subtract at R+1 (e.g. #1109). Half-open intervals [from, to) add at from and subtract at to (e.g. #1094 Car Pooling, where passengers exit at stop to).',
       },
     ],
     pythonTemplate: `class NumArray:
@@ -725,6 +796,34 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
     return this.prefix[right + 1] - this.prefix[left];
   }
 }`,
+    pythonBrute: `class NumArray:
+    def __init__(self, nums: list[int]):
+        self.nums = nums
+
+    def sumRange(self, left: int, right: int) -> int:
+        total = 0
+        for i in range(left, right + 1):
+            total += self.nums[i]
+        return total`,
+    tsBrute: `class NumArray {
+  private nums: number[];
+  constructor(nums: number[]) {
+    this.nums = nums;
+  }
+  sumRange(left: number, right: number): number {
+    let total = 0;
+    for (let i = left; i <= right; i++) {
+      total += this.nums[i];
+    }
+    return total;
+  }
+}`,
+    bruteComplexity: {
+      time: 'O(N) per query',
+      space: 'O(1)',
+      notes: 'Iterates through the range [left, right] on every query call.',
+    },
+    bruteExplanation: 'Iterate across the array between left and right on every query call, re-summing values from scratch.',
     exampleProblemTitle: 'Range Sum Query - Immutable (LeetCode #303)',
     exampleProblemDescription: 'Answer contiguous range sum queries in O(1) time after O(N) precomputation.',
     pythonExample: `class NumArray:
@@ -932,6 +1031,23 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
   }
   return -1;
 }`,
+    pythonBrute: `def search(nums: list[int], target: int) -> int:
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i
+    return -1`,
+    tsBrute: `function search(nums: number[], target: number): number {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === target) return i;
+  }
+  return -1;
+}`,
+    bruteComplexity: {
+      time: 'O(N)',
+      space: 'O(1)',
+      notes: 'Linear scan inspecting elements sequentially without utilizing binary partitioning.',
+    },
+    bruteExplanation: 'Sequentially scan the array from left to right in linear time without taking advantage of sorted boundaries.',
     exampleProblemTitle: 'Binary Search (LeetCode #704)',
     exampleProblemDescription: 'Search for target in sorted array nums in O(log N) time.',
     pythonExample: `def search(nums: list[int], target: int) -> int:
@@ -1145,6 +1261,31 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
   }
   return null;
 }`,
+    pythonBrute: `def detectCycle(head: Optional[ListNode]) -> Optional[ListNode]:
+    visited = set()
+    curr = head
+    while curr:
+        if curr in visited:
+            return curr  # Cycle entrance
+        visited.add(curr)
+        curr = curr.next
+    return None`,
+    tsBrute: `function detectCycle(head: ListNode | null): ListNode | null {
+  const visited = new Set<ListNode>();
+  let curr = head;
+  while (curr) {
+    if (visited.has(curr)) return curr; // Cycle entrance
+    visited.add(curr);
+    curr = curr.next;
+  }
+  return null;
+}`,
+    bruteComplexity: {
+      time: 'O(N)',
+      space: 'O(N)',
+      notes: 'Requires storing visited node references in a Hash Set to detect revisits.',
+    },
+    bruteExplanation: 'Store every visited node reference in a Hash Set to detect revisits, using O(N) auxiliary memory.',
     exampleProblemTitle: 'Linked List Cycle II (LeetCode #142)',
     exampleProblemDescription: 'Return the node where the cycle begins in a linked list, or null if no cycle exists.',
     pythonExample: `def detectCycle(head):

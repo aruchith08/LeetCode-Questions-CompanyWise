@@ -555,7 +555,7 @@ export const SLIDING_WINDOW_QUIZ: QuizQuestion[] = [
       },
     ],
     correctOptionId: 'opt-b',
-    explanation: 'In sum-threshold subarray problems, the variable-size sliding window relies on sum monotonicity. When all values are positive (or non-negative), expanding right strictly increases or maintains the sum, while contracting left strictly decreases it. If negative numbers are present in sum problems, expanding could decrease the sum or shrinking could increase it, breaking the two-pointer monotonicity (in which case a prefix sum + monotonic deque or hash map is required instead, e.g. LeetCode #862 / #560). Note that this non-negativity condition applies specifically to numeric sum problems, not to string/frequency sliding windows.',
+    explanation: 'In sum-threshold subarray problems, the variable-size sliding window relies on sum monotonicity. When all values are positive (or non-negative), expanding right makes the sum monotonically non-decreasing (or strictly increasing if strictly positive), while contracting left makes it non-increasing. If negative numbers are present in sum problems, expanding could decrease the sum or shrinking could increase it, breaking the two-pointer monotonicity (in which case a prefix sum + monotonic deque or hash map is required instead, e.g. LeetCode #862 / #560). Note that this non-negativity condition applies specifically to numeric sum problems, not to string/frequency sliding windows.',
   },
   {
     id: 'sw-q4',

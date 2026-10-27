@@ -137,6 +137,14 @@ export interface PatternLearningContent {
   tsTemplate: string;
   pythonExample: string;
   tsExample: string;
+  pythonBrute?: string;
+  tsBrute?: string;
+  bruteComplexity?: {
+    time: string;
+    space: string;
+    notes?: string;
+  };
+  bruteExplanation?: string;
   exampleProblemTitle: string;
   exampleProblemDescription: string;
   codeExplanation: string[];

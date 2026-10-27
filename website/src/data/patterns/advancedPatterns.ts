@@ -126,6 +126,48 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
     return true;
   }
 }`,
+    pythonBrute: `def findRedundantConnection(edges: list[list[int]]) -> list[int]:
+    adj = {i: [] for i in range(1, len(edges) + 1)}
+    def is_connected(source, target, visited):
+        if source == target:
+            return True
+        visited.add(source)
+        for neighbor in adj[source]:
+            if neighbor not in visited:
+                if is_connected(neighbor, target, visited):
+                    return True
+        return False
+    for u, v in edges:
+        if is_connected(u, v, set()):
+            return [u, v]
+        adj[u].append(v)
+        adj[v].append(u)
+    return []`,
+    tsBrute: `function findRedundantConnection(edges: number[][]): number[] {
+  const n = edges.length;
+  const adj: Map<number, number[]> = new Map();
+  for (let i = 1; i <= n; i++) adj.set(i, []);
+  function isConnected(src: number, dest: number, visited: Set<number>): boolean {
+    if (src === dest) return true;
+    visited.add(src);
+    for (const neighbor of (adj.get(src) || [])) {
+      if (!visited.has(neighbor) && isConnected(neighbor, dest, visited)) return true;
+    }
+    return false;
+  }
+  for (const [u, v] of edges) {
+    if (isConnected(u, v, new Set())) return [u, v];
+    adj.get(u)!.push(v);
+    adj.get(v)!.push(u);
+  }
+  return [];
+}`,
+    bruteComplexity: {
+      time: 'O(E × (V + E)) = O(V²)',
+      space: 'O(V + E)',
+      notes: 'Runs a full DFS path reachability search from u to v before adding each edge.',
+    },
+    bruteExplanation: 'Execute a full DFS path reachability search from u to v before adding each edge.',
     exampleProblemTitle: 'Redundant Connection (LeetCode #684)',
     exampleProblemDescription: 'Find the edge that creates a cycle in an undirected graph.',
     pythonExample: `def findRedundantConnection(edges: list[list[int]]) -> list[int]:
@@ -333,6 +375,43 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
   backtrack([]);
   return res;
 }`,
+    pythonBrute: `def permute(nums: list[int]) -> list[list[int]]:
+    res = []
+    n = len(nums)
+    def generate(path):
+        if len(path) == n:
+            if len(set(path)) == n:
+                res.append(path[:])
+            return
+        for x in nums:
+            path.append(x)
+            generate(path)
+            path.pop()
+    generate([])
+    return res`,
+    tsBrute: `function permute(nums: number[]): number[][] {
+  const res: number[][] = [];
+  const n = nums.length;
+  function generate(path: number[]) {
+    if (path.length === n) {
+      if (new Set(path).size === n) res.push([...path]);
+      return;
+    }
+    for (const x of nums) {
+      path.push(x);
+      generate(path);
+      path.pop();
+    }
+  }
+  generate([]);
+  return res;
+}`,
+    bruteComplexity: {
+      time: 'O(N^N × N)',
+      space: 'O(N)',
+      notes: 'Generates all N^N assignments and filters for distinct permutations.',
+    },
+    bruteExplanation: 'Generate all N^N potential assignments and filter only those with all unique elements.',
     exampleProblemTitle: 'Permutations (LeetCode #46)',
     exampleProblemDescription: 'Return all possible permutations of distinct integers.',
     pythonExample: `def permute(nums):
@@ -528,6 +607,35 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
   }
   return true;
 }`,
+    pythonBrute: `def canJump(nums: list[int]) -> bool:
+    n = len(nums)
+    def can_reach(pos):
+        if pos >= n - 1:
+            return True
+        max_jump = min(pos + nums[pos], n - 1)
+        for next_pos in range(pos + 1, max_jump + 1):
+            if can_reach(next_pos):
+                return True
+        return False
+    return can_reach(0)`,
+    tsBrute: `function canJump(nums: number[]): boolean {
+  const n = nums.length;
+  function canReach(pos: number): boolean {
+    if (pos >= n - 1) return true;
+    const maxJump = Math.min(pos + nums[pos], n - 1);
+    for (let next = pos + 1; next <= maxJump; next++) {
+      if (canReach(next)) return true;
+    }
+    return false;
+  }
+  return canReach(0);
+}`,
+    bruteComplexity: {
+      time: 'O(2^N)',
+      space: 'O(N)',
+      notes: 'Exponential recursive branching testing every possible jump path.',
+    },
+    bruteExplanation: 'Try all possible jump sizes from every index recursively without tracking the furthest reachable boundary.',
     exampleProblemTitle: 'Jump Game (LeetCode #55)',
     exampleProblemDescription: 'Determine if you can reach the last index from index 0.',
     pythonExample: `def canJump(nums):
@@ -722,6 +830,38 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
   }
   return dp[amount] === Infinity ? -1 : dp[amount];
 }`,
+    pythonBrute: `def coinChange(coins: list[int], amount: int) -> int:
+    def solve(rem):
+        if rem == 0: return 0
+        if rem < 0: return float('inf')
+        min_coins = float('inf')
+        for coin in coins:
+            res = solve(rem - coin)
+            if res != float('inf'):
+                min_coins = min(min_coins, 1 + res)
+        return min_coins
+    ans = solve(amount)
+    return ans if ans != float('inf') else -1`,
+    tsBrute: `function coinChange(coins: number[], amount: number): number {
+  function solve(rem: number): number {
+    if (rem === 0) return 0;
+    if (rem < 0) return Infinity;
+    let minCoins = Infinity;
+    for (const coin of coins) {
+      const res = solve(rem - coin);
+      if (res !== Infinity) minCoins = Math.min(minCoins, 1 + res);
+    }
+    return minCoins;
+  }
+  const ans = solve(amount);
+  return ans === Infinity ? -1 : ans;
+}`,
+    bruteComplexity: {
+      time: 'O(S^A)',
+      space: 'O(A)',
+      notes: 'Exponential recursive tree recomputing identical sub-amounts repeatedly (S coins, A amount).',
+    },
+    bruteExplanation: 'Explore all combinations of coin subtractions via naive recursion without memoization or caching.',
     exampleProblemTitle: 'Coin Change (LeetCode #322)',
     exampleProblemDescription: 'Find fewest number of coins needed to make up amount.',
     pythonExample: `def coinChange(coins, amount):
@@ -794,7 +934,7 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
       },
       {
         id: 'dp-q2',
-        question: 'What two fundamental mathematical properties must a problem satisfy for Dynamic Programming to guarantee a globally optimal solution?',
+        question: 'What two fundamental mathematical properties characterize Dynamic Programming problems where memoization yields polynomial-time efficiency?',
         options: [
           { id: 'opt-a', text: 'Sorted input and log-linear time.' },
           { id: 'opt-b', text: 'Optimal Substructure (an optimal solution contains optimal solutions to subproblems) and Overlapping Subproblems (the same subproblems are solved repeatedly).' },
@@ -802,7 +942,7 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
           { id: 'opt-d', text: 'Bipartite coloring and DAG structure.' },
         ],
         correctOptionId: 'opt-b',
-        explanation: 'Without optimal substructure, locally optimal subproblems do not combine into a global optimum. Without overlapping subproblems, divide-and-conquer without memoization would suffice.',
+        explanation: 'Optimal substructure guarantees that solving subproblems optimally produces a globally optimal solution. Overlapping subproblems provide the reason memoization is vastly faster than plain recursive tree recomputation.',
       },
       {
         id: 'dp-q3',
@@ -901,6 +1041,31 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
   }
   return acc;
 }`,
+    pythonBrute: `def singleNumber(nums: list[int]) -> int:
+    for i in range(len(nums)):
+        count = 0
+        for j in range(len(nums)):
+            if nums[i] == nums[j]:
+                count += 1
+        if count == 1:
+            return nums[i]
+    return -1`,
+    tsBrute: `function singleNumber(nums: number[]): number {
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i] === nums[j]) count++;
+    }
+    if (count === 1) return nums[i];
+  }
+  return -1;
+}`,
+    bruteComplexity: {
+      time: 'O(N²)',
+      space: 'O(1)',
+      notes: 'Counts the frequency of each number by scanning the entire array in quadratic time.',
+    },
+    bruteExplanation: 'Scan the entire array for every element to count its occurrences, requiring quadratic time.',
     exampleProblemTitle: 'Single Number (LeetCode #136)',
     exampleProblemDescription: 'Find the single non-duplicate number in an array in O(N) time and O(1) space.',
     pythonExample: `def singleNumber(nums):

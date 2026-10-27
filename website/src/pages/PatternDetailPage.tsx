@@ -635,7 +635,7 @@ export default function PatternDetailPage() {
                     <span>Monotonicity & Negative Numbers Distinctions:</span>
                   </div>
                   <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
-                    For sum-threshold subarray problems, variable-size sliding windows require non-negative elements to ensure sum monotonicity (e.g. <strong>LeetCode #209</strong>: Minimum Size Subarray Sum where expanding right strictly increases the sum and contracting left decreases it). In contrast, string/character-frequency sliding windows (e.g. #3, #76) do not have this restriction. When negative values are present in sum problems, running sums fluctuate non-monotonically, requiring alternative techniques:
+                    For sum-threshold subarray problems, variable-size sliding windows require non-negative elements to ensure sum monotonicity (e.g. <strong>LeetCode #209</strong>: Minimum Size Subarray Sum where expanding right makes the sum monotonically non-decreasing (strictly increasing if positive) and contracting left makes it non-increasing). In contrast, string/character-frequency sliding windows (e.g. #3, #76) do not have this restriction. When negative values are present in sum problems, running sums fluctuate non-monotonically, requiring alternative techniques:
                   </p>
                   <ul className="list-disc pl-4 space-y-1 text-amber-800 dark:text-amber-400 leading-relaxed text-[11px]">
                     <li><strong>Shortest subarray with sum &ge; K with negatives:</strong> <strong>Prefix Sum + Monotonic Deque</strong> (<strong>LeetCode #862</strong>, O(N) time).</li>
@@ -787,6 +787,10 @@ export default function PatternDetailPage() {
               <CodeComparison
                 title={patternContent.exampleProblemTitle}
                 subtitle={patternContent.exampleProblemDescription}
+                pythonBrute={patternContent.pythonBrute}
+                tsBrute={patternContent.tsBrute}
+                bruteComplexity={patternContent.bruteComplexity}
+                bruteExplanation={patternContent.bruteExplanation}
                 pythonOptimized={patternContent.pythonExample}
                 tsOptimized={patternContent.tsExample}
                 optimizedComplexity={patternContent.complexity}

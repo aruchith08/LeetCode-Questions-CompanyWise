@@ -1381,12 +1381,12 @@ export function generateBacktrackingSteps(nums: number[] = [1, 2]): GenericVisua
   steps.push({
     stepNumber: 1,
     title: 'Initialize Backtracking for Permutations (LeetCode #46)',
-    explanation: `Generate all ${nums.length}! = ${nums.length === 2 ? 2 : 6} permutations of [${nums.join(', ')}]. Start with empty path [] and used = [${used.join(', ')}].`,
+    explanation: `Generate all ${nums.length}! = ${(() => { let f = 1; for (let i = 2; i <= nums.length; i++) f *= i; return f; })()} permutations of [${nums.join(', ')}]. Start with empty path [] and used = [${used.join(', ')}].`,
     elements: nums,
     highlightIndices: [],
     metrics: [
       { label: 'Input Length', value: nums.length },
-      { label: 'Expected Perms', value: nums.length === 2 ? 2 : 6 },
+      { label: 'Expected Perms', value: (() => { let f = 1; for (let i = 2; i <= nums.length; i++) f *= i; return f; })() },
     ],
     auxiliaryData: { path: '[]', used: [...used], allPermutations: [] },
     statusBadge: { label: 'Start Backtracking', variant: 'info' },

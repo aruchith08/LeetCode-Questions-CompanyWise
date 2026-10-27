@@ -94,6 +94,34 @@ export const INTERMEDIATE_PATTERNS: PatternLearningContent[] = [
   }
   return ans;
 }`,
+    pythonBrute: `def dailyTemperatures(temperatures: list[int]) -> list[int]:
+    n = len(temperatures)
+    res = [0] * n
+    for i in range(n):
+        for j in range(i + 1, n):
+            if temperatures[j] > temperatures[i]:
+                res[i] = j - i
+                break
+    return res`,
+    tsBrute: `function dailyTemperatures(temperatures: number[]): number[] {
+  const n = temperatures.length;
+  const res = new Array(n).fill(0);
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (temperatures[j] > temperatures[i]) {
+        res[i] = j - i;
+        break;
+      }
+    }
+  }
+  return res;
+}`,
+    bruteComplexity: {
+      time: 'O(N²)',
+      space: 'O(1) aux',
+      notes: 'Checks future days for each day with a nested loop without stack caching.',
+    },
+    bruteExplanation: 'For each day, scan all subsequent days until a warmer temperature is encountered.',
     exampleProblemTitle: 'Daily Temperatures (LeetCode #739)',
     exampleProblemDescription: 'Return number of days until a warmer temperature occurs for each day.',
     pythonExample: `def dailyTemperatures(temperatures: list[int]) -> list[int]:
@@ -287,6 +315,46 @@ export const INTERMEDIATE_PATTERNS: PatternLearningContent[] = [
   }
   return merged;
 }`,
+    pythonBrute: `def merge(intervals: list[list[int]]) -> list[list[int]]:
+    res = [iv[:] for iv in intervals]
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(res)):
+            for j in range(i + 1, len(res)):
+                if max(res[i][0], res[j][0]) <= min(res[i][1], res[j][1]):
+                    res[i] = [min(res[i][0], res[j][0]), max(res[i][1], res[j][1])]
+                    res.pop(j)
+                    merged = True
+                    break
+            if merged:
+                break
+    return res`,
+    tsBrute: `function merge(intervals: number[][]): number[][] {
+  const res = intervals.map(iv => [...iv]);
+  let merged = true;
+  while (merged) {
+    merged = false;
+    for (let i = 0; i < res.length; i++) {
+      for (let j = i + 1; j < res.length; j++) {
+        if (Math.max(res[i][0], res[j][0]) <= Math.min(res[i][1], res[j][1])) {
+          res[i] = [Math.min(res[i][0], res[j][0]), Math.max(res[i][1], res[j][1])];
+          res.splice(j, 1);
+          merged = true;
+          break;
+        }
+      }
+      if (merged) break;
+    }
+  }
+  return res;
+}`,
+    bruteComplexity: {
+      time: 'O(N²)',
+      space: 'O(N)',
+      notes: 'Repeatedly searches for overlapping pairs and merges until convergence without pre-sorting.',
+    },
+    bruteExplanation: 'Scan all pairs of intervals for overlaps and merge them in quadratic passes without pre-sorting.',
     exampleProblemTitle: 'Merge Intervals (LeetCode #56)',
     exampleProblemDescription: 'Merge all overlapping intervals and return array of non-overlapping intervals.',
     pythonExample: `def merge(intervals: list[list[int]]) -> list[list[int]]:
@@ -466,19 +534,107 @@ def findKthLargest(nums: list[int], k: int) -> int:
         elif num > heap[0]:
             heapq.heapreplace(heap, num)
     return heap[0]`,
-    tsTemplate: `function findKthLargest(nums: number[], k: number): number {
-  // Using a bounded min-heap simulation or sorting fallback
+    tsTemplate: `class MinHeap {
+  private heap: number[] = [];
+  size(): number { return this.heap.length; }
+  peek(): number { return this.heap[0]; }
+  push(val: number): void {
+    this.heap.push(val);
+    let i = this.heap.length - 1;
+    while (i > 0) {
+      const p = Math.floor((i - 1) / 2);
+      if (this.heap[i] < this.heap[p]) {
+        [this.heap[i], this.heap[p]] = [this.heap[p], this.heap[i]];
+        i = p;
+      } else break;
+    }
+  }
+  replace(val: number): void {
+    this.heap[0] = val;
+    let i = 0, n = this.heap.length;
+    while (true) {
+      let sm = i, l = 2 * i + 1, r = 2 * i + 2;
+      if (l < n && this.heap[l] < this.heap[sm]) sm = l;
+      if (r < n && this.heap[r] < this.heap[sm]) sm = r;
+      if (sm !== i) {
+        [this.heap[i], this.heap[sm]] = [this.heap[sm], this.heap[i]];
+        i = sm;
+      } else break;
+    }
+  }
+}
+
+function findKthLargest(nums: number[], k: number): number {
+  const minHeap = new MinHeap();
+  for (const num of nums) {
+    if (minHeap.size() < k) {
+      minHeap.push(num);
+    } else if (num > minHeap.peek()) {
+      minHeap.replace(num);
+    }
+  }
+  return minHeap.peek();
+}`,
+    pythonBrute: `def findKthLargest(nums: list[int], k: int) -> int:
+    # Sort entire array descending: O(N log N) time, O(1) space
+    nums.sort(reverse=True)
+    return nums[k - 1]`,
+    tsBrute: `function findKthLargest(nums: number[], k: number): number {
+  // Sort entire array descending: O(N log N) time, O(1) space
   nums.sort((a, b) => b - a);
   return nums[k - 1];
 }`,
+    bruteComplexity: {
+      time: 'O(N log N)',
+      space: 'O(1) aux',
+      notes: 'Full sorting requires O(N log N) time and does not support streaming inputs.',
+    },
+    bruteExplanation: 'Sort the complete array descending and return index k - 1, doing extra work for elements beyond top K.',
     exampleProblemTitle: 'Kth Largest Element in an Array (LeetCode #215)',
     exampleProblemDescription: 'Find the kth largest element in an unsorted array.',
     pythonExample: `import heapq
 def findKthLargest(nums: list[int], k: int) -> int:
     return heapq.nlargest(k, nums)[-1]`,
-    tsExample: `function findKthLargest(nums: number[], k: number): number {
-  nums.sort((a, b) => b - a);
-  return nums[k - 1];
+    tsExample: `class MinHeap {
+  private heap: number[] = [];
+  size(): number { return this.heap.length; }
+  peek(): number { return this.heap[0]; }
+  push(val: number): void {
+    this.heap.push(val);
+    let i = this.heap.length - 1;
+    while (i > 0) {
+      const p = Math.floor((i - 1) / 2);
+      if (this.heap[i] < this.heap[p]) {
+        [this.heap[i], this.heap[p]] = [this.heap[p], this.heap[i]];
+        i = p;
+      } else break;
+    }
+  }
+  replace(val: number): void {
+    this.heap[0] = val;
+    let i = 0, n = this.heap.length;
+    while (true) {
+      let sm = i, l = 2 * i + 1, r = 2 * i + 2;
+      if (l < n && this.heap[l] < this.heap[sm]) sm = l;
+      if (r < n && this.heap[r] < this.heap[sm]) sm = r;
+      if (sm !== i) {
+        [this.heap[i], this.heap[sm]] = [this.heap[sm], this.heap[i]];
+        i = sm;
+      } else break;
+    }
+  }
+}
+
+function findKthLargest(nums: number[], k: number): number {
+  const minHeap = new MinHeap();
+  for (const num of nums) {
+    if (minHeap.size() < k) {
+      minHeap.push(num);
+    } else if (num > minHeap.peek()) {
+      minHeap.replace(num);
+    }
+  }
+  return minHeap.peek();
 }`,
     codeExplanation: [
       'Maintain a min-heap bounded to size k.',
@@ -505,14 +661,15 @@ def findKthLargest(nums: list[int], k: int) -> int:
       { questionId: 23, primaryPattern: 'heap-top-k', subpattern: 'k-way-merge', subpatternLabel: 'Merge K Sorted Lists', learningOrder: 6, reviewStatus: 'verified' },
       { questionId: 373, primaryPattern: 'heap-top-k', subpattern: 'k-way-merge', subpatternLabel: 'K Pairs Smallest Sums', learningOrder: 7, reviewStatus: 'verified' },
       { questionId: 295, primaryPattern: 'heap-top-k', subpattern: 'two-heaps-median', subpatternLabel: 'Median from Stream', learningOrder: 8, reviewStatus: 'verified' },
-      { questionId: 621, primaryPattern: 'heap-top-k', subpattern: 'top-k-elements', subpatternLabel: 'Task Scheduler', learningOrder: 9, reviewStatus: 'verified' },
-      { questionId: 767, primaryPattern: 'heap-top-k', subpattern: 'top-k-elements', subpatternLabel: 'Reorganize String', learningOrder: 10, reviewStatus: 'verified' },
+      { questionId: 621, primaryPattern: 'heap-top-k', subpattern: 'frequency-heap-greedy', subpatternLabel: 'Task Scheduler', learningOrder: 9, reviewStatus: 'verified' },
+      { questionId: 767, primaryPattern: 'heap-top-k', subpattern: 'frequency-heap-greedy', subpatternLabel: 'Reorganize String', learningOrder: 10, reviewStatus: 'verified' },
       { questionId: 1985, primaryPattern: 'heap-top-k', subpattern: 'top-k-elements', subpatternLabel: 'Kth Largest BigInt', learningOrder: 11, reviewStatus: 'verified' },
     ],
     subpatternTabs: [
       { id: 'top-k-elements', label: 'Top K Elements' },
       { id: 'two-heaps-median', label: 'Two Heaps Median' },
       { id: 'k-way-merge', label: 'K-Way Merge' },
+      { id: 'frequency-heap-greedy', label: 'Frequency Heap & Scheduling' },
     ],
     quiz: [
       {
@@ -541,7 +698,7 @@ def findKthLargest(nums: list[int], k: int) -> int:
       },
       {
         id: 'htk-q3',
-        question: 'In Find Median from Data Stream (LeetCode #295), how do the two heaps maintain the stream median in O(1) time?',
+        question: 'In Find Median from Data Stream (LeetCode #295), how do the two heaps allow retrieving the stream median in O(1) time (with O(log N) insertion)?',
         options: [
           { id: 'opt-a', text: 'Both heaps store the same numbers.' },
           { id: 'opt-b', text: 'A Max-Heap stores the smaller half of numbers and a Min-Heap stores the larger half, with sizes balanced within 1.' },
@@ -549,7 +706,7 @@ def findKthLargest(nums: list[int], k: int) -> int:
           { id: 'opt-d', text: 'Only one heap of size N / 2 is used.' },
         ],
         correctOptionId: 'opt-b',
-        explanation: 'Max-heap top gives the maximum of lower half, min-heap top gives minimum of upper half. The median is either the larger heap\'s root or the average of both roots.',
+        explanation: 'Each incoming number is inserted and rebalanced in O(log N) time. The Max-Heap root gives the maximum of the lower half and the Min-Heap root gives the minimum of the upper half, allowing instant O(1) median retrieval.',
       },
     ],
   },
@@ -632,6 +789,38 @@ def findKthLargest(nums: list[int], k: int) -> int:
   if (!root) return 0;
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }`,
+    pythonBrute: `def maxDepth(root: Optional[TreeNode]) -> int:
+    if not root:
+        return 0
+    paths = []
+    def collect(node, d):
+        if not node.left and not node.right:
+            paths.append(d)
+            return
+        if node.left: collect(node.left, d + 1)
+        if node.right: collect(node.right, d + 1)
+    collect(root, 1)
+    return max(paths)`,
+    tsBrute: `function maxDepth(root: TreeNode | null): number {
+  if (!root) return 0;
+  const depths: number[] = [];
+  function collect(node: TreeNode, d: number) {
+    if (!node.left && !node.right) {
+      depths.push(d);
+      return;
+    }
+    if (node.left) collect(node.left, d + 1);
+    if (node.right) collect(node.right, d + 1);
+  }
+  collect(root, 1);
+  return Math.max(...depths);
+}`,
+    bruteComplexity: {
+      time: 'O(N)',
+      space: 'O(N)',
+      notes: 'Stores all leaf depths in an auxiliary list before computing maximum.',
+    },
+    bruteExplanation: 'Enumerate all root-to-leaf paths and store their lengths in an auxiliary list, then take the maximum.',
     exampleProblemTitle: 'Maximum Depth of Binary Tree (LeetCode #104)',
     exampleProblemDescription: 'Return maximum depth from root to leaf node.',
     pythonExample: `def maxDepth(root):
@@ -825,6 +1014,53 @@ def levelOrder(root) -> list[list[int]]:
   }
   return res;
 }`,
+    pythonBrute: `def levelOrder(root: Optional[TreeNode]) -> list[list[int]]:
+    if not root: return []
+    def get_depth(node):
+        if not node: return 0
+        return 1 + max(get_depth(node.left), get_depth(node.right))
+    def get_level(node, d, current):
+        if not node: return
+        if d == 1: current.append(node.val)
+        elif d > 1:
+            get_level(node.left, d - 1, current)
+            get_level(node.right, d - 1, current)
+    h = get_depth(root)
+    res = []
+    for d in range(1, h + 1):
+        lvl = []
+        get_level(root, d, lvl)
+        res.append(lvl)
+    return res`,
+    tsBrute: `function levelOrder(root: TreeNode | null): number[][] {
+  if (!root) return [];
+  function getDepth(node: TreeNode | null): number {
+    if (!node) return 0;
+    return 1 + Math.max(getDepth(node.left), getDepth(node.right));
+  }
+  function getLevel(node: TreeNode | null, d: number, bucket: number[]) {
+    if (!node) return;
+    if (d === 1) bucket.push(node.val);
+    else if (d > 1) {
+      getLevel(node.left, d - 1, bucket);
+      getLevel(node.right, d - 1, bucket);
+    }
+  }
+  const h = getDepth(root);
+  const res: number[][] = [];
+  for (let d = 1; d <= h; d++) {
+    const lvl: number[] = [];
+    getLevel(root, d, lvl);
+    res.push(lvl);
+  }
+  return res;
+}`,
+    bruteComplexity: {
+      time: 'O(N × H) ≈ O(N²)',
+      space: 'O(H) aux',
+      notes: 'Re-traverses the tree from the root for each level d without a queue.',
+    },
+    bruteExplanation: 'Traverse from root down to level d for each depth d without maintaining a FIFO queue, repeating node visits.',
     exampleProblemTitle: 'Binary Tree Level Order Traversal (LeetCode #102)',
     exampleProblemDescription: 'Return 2D array of node values level by level.',
     pythonExample: `from collections import deque
@@ -895,7 +1131,7 @@ def levelOrder(root):
     quiz: [
       {
         id: 'tbfs-q1',
-        question: 'Why does finding the minimum depth of a binary tree with BFS terminate faster than with DFS on unbalanced trees?',
+        question: 'Why is BFS advantageous when finding the minimum depth of a binary tree (LeetCode #111)?',
         options: [
           { id: 'opt-a', text: 'BFS uses less memory.' },
           { id: 'opt-b', text: 'BFS explores level-by-level; as soon as the first leaf node is dequeued, its depth is guaranteed to be minimal, allowing early termination without visiting the remaining deeper branches.' },
@@ -903,7 +1139,7 @@ def levelOrder(root):
           { id: 'opt-d', text: 'Because trees are stored in heap memory.' },
         ],
         correctOptionId: 'opt-b',
-        explanation: 'DFS must traverse down to the end of every branch before it can prove a depth is minimal. BFS visits nodes in increasing order of distance, discovering the shallowest leaf first.',
+        explanation: 'Because BFS visits nodes in non-decreasing order of depth, the first leaf node dequeued is mathematically guaranteed to be at minimum depth, avoiding unnecessary exploration of deeper branches.',
       },
       {
         id: 'tbfs-q2',
@@ -1003,76 +1239,149 @@ def levelOrder(root):
       },
     ],
     pythonTemplate: `def numIslands(grid: list[list[str]]) -> int:
-    if not grid: return 0
+    if not grid or not grid[0]:
+        return 0
     rows, cols = len(grid), len(grid[0])
     count = 0
-    def dfs(r, c):
-        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] != '1':
-            return
-        grid[r][c] = '0'  # sink land
-        dfs(r + 1, c)
-        dfs(r - 1, c)
-        dfs(r, c + 1)
-        dfs(r, c - 1)
     for r in range(rows):
         for c in range(cols):
             if grid[r][c] == '1':
                 count += 1
-                dfs(r, c)
+                # Iterative traversal: avoids Python recursion limit on large grids
+                stack = [(r, c)]
+                grid[r][c] = '0'
+                while stack:
+                    curr_r, curr_c = stack.pop()
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        nr, nc = curr_r + dr, curr_c + dc
+                        if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == '1':
+                            grid[nr][nc] = '0'
+                            stack.append((nr, nc))
     return count`,
     tsTemplate: `function numIslands(grid: string[][]): number {
-  if (!grid.length) return 0;
+  if (!grid.length || !grid[0].length) return 0;
   const rows = grid.length;
   const cols = grid[0].length;
   let count = 0;
-  function dfs(r: number, c: number) {
-    if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] !== '1') return;
-    grid[r][c] = '0';
-    dfs(r + 1, c);
-    dfs(r - 1, c);
-    dfs(r, c + 1);
-    dfs(r, c - 1);
-  }
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < cols; c++) {
       if (grid[r][c] === '1') {
         count++;
-        dfs(r, c);
+        const stack: [number, number][] = [[r, c]];
+        grid[r][c] = '0';
+        while (stack.length > 0) {
+          const [cr, cc] = stack.pop()!;
+          for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+            const nr = cr + dr, nc = cc + dc;
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] === '1') {
+              grid[nr][nc] = '0';
+              stack.push([nr, nc]);
+            }
+          }
+        }
       }
     }
   }
   return count;
 }`,
-    exampleProblemTitle: 'Number of Islands (LeetCode #200)',
-    exampleProblemDescription: 'Count connected components of 1s in a 2D binary grid.',
-    pythonExample: `def numIslands(grid):
+    pythonBrute: `def numIslands(grid: list[list[str]]) -> int:
+    if not grid or not grid[0]: return 0
     R, C = len(grid), len(grid[0])
-    ans = 0
-    def dfs(r, c):
-        if 0 <= r < R and 0 <= c < C and grid[r][c] == '1':
-            grid[r][c] = '0'
-            for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:
-                dfs(r+dr, c+dc)
+    visited = [[False] * C for _ in range(R)]
+    islands = 0
     for r in range(R):
         for c in range(C):
-            if grid[r][c] == '1':
-                ans += 1
-                dfs(r, c)
-    return ans`,
-    tsExample: `function numIslands(grid: string[][]): number {
+            if grid[r][c] == '1' and not visited[r][c]:
+                islands += 1
+                stack = [(r, c)]
+                visited[r][c] = True
+                while stack:
+                    cr, cc = stack.pop()
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        nr, nc = cr + dr, cc + dc
+                        if 0 <= nr < R and 0 <= nc < C and grid[nr][nc] == '1' and not visited[nr][nc]:
+                            visited[nr][nc] = True
+                            stack.append((nr, nc))
+    return islands`,
+    tsBrute: `function numIslands(grid: string[][]): number {
+  if (!grid.length || !grid[0].length) return 0;
   const R = grid.length, C = grid[0].length;
-  let ans = 0;
-  function dfs(r: number, c: number) {
-    if (r < 0 || r >= R || c < 0 || c >= C || grid[r][c] !== '1') return;
-    grid[r][c] = '0';
-    dfs(r + 1, c); dfs(r - 1, c); dfs(r, c + 1); dfs(r, c - 1);
-  }
+  const visited = Array.from({ length: R }, () => new Array(C).fill(false));
+  let islands = 0;
   for (let r = 0; r < R; r++) {
     for (let c = 0; c < C; c++) {
-      if (grid[r][c] === '1') { ans++; dfs(r, c); }
+      if (grid[r][c] === '1' && !visited[r][c]) {
+        islands++;
+        const stack: [number, number][] = [[r, c]];
+        visited[r][c] = true;
+        while (stack.length > 0) {
+          const [cr, cc] = stack.pop()!;
+          for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+            const nr = cr + dr, nc = cc + dc;
+            if (nr >= 0 && nr < R && nc >= 0 && nc < C && grid[nr][nc] === '1' && !visited[nr][nc]) {
+              visited[nr][nc] = true;
+              stack.push([nr, nc]);
+            }
+          }
+        }
+      }
     }
   }
-  return ans;
+  return islands;
+}`,
+    bruteComplexity: {
+      time: 'O(R × C)',
+      space: 'O(R × C)',
+      notes: 'Allocates an external visited matrix instead of mutating the grid in-place.',
+    },
+    bruteExplanation: 'Allocate an external R x C visited boolean matrix and track state instead of in-place grid sinking.',
+    exampleProblemTitle: 'Number of Islands (LeetCode #200)',
+    exampleProblemDescription: 'Count connected components of 1s in a 2D binary grid.',
+    pythonExample: `def numIslands(grid: list[list[str]]) -> int:
+    if not grid or not grid[0]:
+        return 0
+    rows, cols = len(grid), len(grid[0])
+    count = 0
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == '1':
+                count += 1
+                # Iterative traversal: avoids Python recursion limit on large grids
+                stack = [(r, c)]
+                grid[r][c] = '0'
+                while stack:
+                    curr_r, curr_c = stack.pop()
+                    for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                        nr, nc = curr_r + dr, curr_c + dc
+                        if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == '1':
+                            grid[nr][nc] = '0'
+                            stack.append((nr, nc))
+    return count`,
+    tsExample: `function numIslands(grid: string[][]): number {
+  if (!grid.length || !grid[0].length) return 0;
+  const rows = grid.length;
+  const cols = grid[0].length;
+  let count = 0;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      if (grid[r][c] === '1') {
+        count++;
+        const stack: [number, number][] = [[r, c]];
+        grid[r][c] = '0';
+        while (stack.length > 0) {
+          const [cr, cc] = stack.pop()!;
+          for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+            const nr = cr + dr, nc = cc + dc;
+            if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] === '1') {
+              grid[nr][nc] = '0';
+              stack.push([nr, nc]);
+            }
+          }
+        }
+      }
+    }
+  }
+  return count;
 }`,
     codeExplanation: [
       'Iterate through every cell (r, c) in the grid.',
@@ -1095,18 +1404,22 @@ def levelOrder(root):
       { questionId: 200, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Number of Islands', learningOrder: 1, reviewStatus: 'verified' },
       { questionId: 695, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Max Area Island', learningOrder: 2, reviewStatus: 'verified' },
       { questionId: 733, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Flood Fill', learningOrder: 3, reviewStatus: 'verified' },
-      { questionId: 133, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Clone Graph', learningOrder: 4, reviewStatus: 'verified' },
-      { questionId: 841, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Keys and Rooms', learningOrder: 5, reviewStatus: 'verified' },
+      { questionId: 133, primaryPattern: 'graph-traversal', subpattern: 'graph-node-cloning', subpatternLabel: 'Clone Graph', learningOrder: 4, reviewStatus: 'verified' },
+      { questionId: 841, primaryPattern: 'graph-traversal', subpattern: 'graph-reachability', subpatternLabel: 'Keys and Rooms', learningOrder: 5, reviewStatus: 'verified' },
       { questionId: 785, primaryPattern: 'graph-traversal', subpattern: 'bipartite-check', subpatternLabel: 'Is Graph Bipartite', learningOrder: 6, reviewStatus: 'verified' },
       { questionId: 130, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Surrounded Regions', learningOrder: 7, reviewStatus: 'verified' },
       { questionId: 417, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'Pacific Atlantic Flow', learningOrder: 8, reviewStatus: 'verified' },
       { questionId: 994, primaryPattern: 'graph-traversal', subpattern: 'multi-source-bfs', subpatternLabel: 'Rotting Oranges', learningOrder: 9, reviewStatus: 'verified' },
-      { questionId: 127, primaryPattern: 'graph-traversal', subpattern: 'multi-source-bfs', subpatternLabel: 'Word Ladder', learningOrder: 10, reviewStatus: 'verified' },
-      { questionId: 797, primaryPattern: 'graph-traversal', subpattern: 'grid-flood-fill', subpatternLabel: 'All Paths Source Target', learningOrder: 11, reviewStatus: 'verified' },
-      { questionId: 752, primaryPattern: 'graph-traversal', subpattern: 'multi-source-bfs', subpatternLabel: 'Open the Lock', learningOrder: 12, reviewStatus: 'verified' },
+      { questionId: 127, primaryPattern: 'graph-traversal', subpattern: 'state-space-shortest-path-bfs', subpatternLabel: 'Word Ladder', learningOrder: 10, reviewStatus: 'verified' },
+      { questionId: 797, primaryPattern: 'graph-traversal', subpattern: 'dag-path-enumeration', subpatternLabel: 'All Paths Source Target', learningOrder: 11, reviewStatus: 'verified' },
+      { questionId: 752, primaryPattern: 'graph-traversal', subpattern: 'state-space-shortest-path-bfs', subpatternLabel: 'Open the Lock', learningOrder: 12, reviewStatus: 'verified' },
     ],
     subpatternTabs: [
       { id: 'grid-flood-fill', label: 'Grid Flood Fill' },
+      { id: 'graph-node-cloning', label: 'Node Cloning & Mapping' },
+      { id: 'graph-reachability', label: 'Graph Reachability' },
+      { id: 'dag-path-enumeration', label: 'DAG Path Enumeration' },
+      { id: 'state-space-shortest-path-bfs', label: 'State-Space Shortest Path BFS' },
       { id: 'multi-source-bfs', label: 'Multi-Source BFS' },
       { id: 'bipartite-check', label: 'Bipartite Coloring' },
     ],
@@ -1116,12 +1429,12 @@ def levelOrder(root):
         question: 'When implementing Graph BFS, why MUST a node be marked as visited at the time it is added to the queue, rather than when it is popped?',
         options: [
           { id: 'opt-a', text: 'To make the algorithm run in reverse.' },
-          { id: 'opt-b', text: 'To prevent adjacent nodes from enqueuing the same neighbor multiple times, which causes exponential memory usage.' },
+          { id: 'opt-b', text: 'To prevent multiple neighboring nodes from enqueuing the same vertex repeatedly, avoiding redundant processing and uncontrolled queue growth up to O(V × E).' },
           { id: 'opt-c', text: 'Because queues cannot store unvisited nodes.' },
           { id: 'opt-d', text: 'To sort the queue.' },
         ],
         correctOptionId: 'opt-b',
-        explanation: 'If marking is delayed until dequeuing, multiple paths can see the same neighbor as unvisited and push it onto the queue repeatedly, causing memory exhaustion.',
+        explanation: 'If marking is delayed until dequeuing, multiple paths see the same neighbor as unvisited and push duplicate copies into the queue. Marking on enqueue guarantees each vertex enters the queue at most once.',
       },
       {
         id: 'gt-q2',
@@ -1263,6 +1576,49 @@ def findOrder(numCourses: int, prerequisites: list[list[int]]) -> list[int]:
   }
   return order.length === numCourses ? order : [];
 }`,
+    pythonBrute: `def findOrder(numCourses: int, prerequisites: list[list[int]]) -> list[int]:
+    in_degrees = [0] * numCourses
+    for dest, src in prerequisites:
+        in_degrees[dest] += 1
+    order = []
+    for _ in range(numCourses):
+        found = -1
+        for c in range(numCourses):
+            if in_degrees[c] == 0:
+                found = c
+                break
+        if found == -1:
+            return []  # Cycle
+        order.append(found)
+        in_degrees[found] = -1
+        for dest, src in prerequisites:
+            if src == found:
+                in_degrees[dest] -= 1
+    return order`,
+    tsBrute: `function findOrder(numCourses: number, prerequisites: number[][]): number[] {
+  const inDegrees = new Array(numCourses).fill(0);
+  for (const [dest, src] of prerequisites) inDegrees[dest]++;
+  const order: number[] = [];
+  for (let step = 0; step < numCourses; step++) {
+    let found = -1;
+    for (let c = 0; c < numCourses; c++) {
+      if (inDegrees[c] === 0) { found = c; break; }
+    }
+    if (found === -1) return []; // Cycle
+    order.push(found);
+    inDegrees[found] = -1;
+    for (const [dest, src] of prerequisites) {
+      if (src === found) inDegrees[dest]--;
+    }
+  }
+  return order;
+}`,
+    bruteComplexity: {
+      time: 'O(V² + V × E)',
+      space: 'O(V)',
+      notes: 'Repeatedly searches for 0 in-degree courses by scanning the in-degree array and full edge list.',
+    },
+    bruteExplanation: 'Scan courses and the full edge list on every step without an adjacency list or queue.',
     exampleProblemTitle: 'Course Schedule II (LeetCode #210)',
     exampleProblemDescription: 'Return ordering of courses to complete all prerequisites, or empty list if cycle exists.',
     pythonExample: `from collections import deque
