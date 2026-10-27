@@ -25,28 +25,28 @@ export default function UnderstandingCheck() {
   ).length;
 
   return (
-    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-6 shadow-xs space-y-6">
+    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-4">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100 dark:border-[#383835]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#383835]">
         <div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
             Understanding Check
           </h3>
-          <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-1">
+          <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
             Test your intuition on Sliding Window mechanics, time complexity, and edge cases.
           </p>
         </div>
 
         {/* Quiz Score Badge & Reset */}
-        <div className="flex items-center gap-3">
-          <div className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
+        <div className="flex items-center gap-2.5">
+          <div className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
             Score: <span className="font-bold text-blue-600 dark:text-blue-400">{correctCount}</span> / {SLIDING_WINDOW_QUIZ.length}
           </div>
           {answeredCount > 0 && (
             <button
               type="button"
               onClick={handleReset}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#30302E] transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#30302E] transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Retry</span>
@@ -56,7 +56,7 @@ export default function UnderstandingCheck() {
       </div>
 
       {/* Quiz Questions List */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {SLIDING_WINDOW_QUIZ.map((q, qIdx) => {
           const selectedOption = selectedAnswers[q.id];
           const hasAnswered = Boolean(selectedOption);
@@ -65,20 +65,20 @@ export default function UnderstandingCheck() {
           return (
             <div
               key={q.id}
-              className="p-5 rounded-xl border border-slate-200/80 dark:border-[#383835] bg-slate-50/40 dark:bg-[#1E1E1C]/40 space-y-4"
+              className="p-3.5 sm:p-4 rounded-xl border border-slate-200/80 dark:border-[#383835] bg-slate-50/40 dark:bg-[#1E1E1C]/40 space-y-3"
             >
               {/* Question Header */}
-              <div className="flex items-start gap-3">
-                <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-950/60 border border-blue-300 dark:border-blue-900 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+              <div className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-950/60 border border-blue-300 dark:border-blue-900 text-blue-700 dark:text-blue-300 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                   {qIdx + 1}
                 </span>
-                <p className="text-sm font-semibold text-slate-900 dark:text-[#FAF9F5] leading-relaxed">
+                <p className="text-xs sm:text-[13px] font-semibold text-slate-900 dark:text-[#FAF9F5] leading-relaxed">
                   {q.question}
                 </p>
               </div>
 
               {/* Options */}
-              <div className="space-y-2 pl-9">
+              <div className="space-y-1.5 pl-7 sm:pl-8">
                 {q.options.map(opt => {
                   const isSelected = selectedOption === opt.id;
                   const isTheCorrectOne = opt.id === q.correctOptionId;
@@ -101,7 +101,7 @@ export default function UnderstandingCheck() {
                       type="button"
                       disabled={hasAnswered}
                       onClick={() => handleSelectOption(q.id, opt.id)}
-                      className={`w-full text-left p-3 rounded-xl border text-xs transition-all flex items-start justify-between gap-3 ${optionStyles}`}
+                      className={`w-full text-left p-2.5 rounded-lg border text-xs transition-all flex items-start justify-between gap-2.5 ${optionStyles}`}
                     >
                       <span className="leading-relaxed">{opt.text}</span>
                       {hasAnswered && isTheCorrectOne && (
@@ -118,7 +118,7 @@ export default function UnderstandingCheck() {
               {/* Explanatory Feedback */}
               {hasAnswered && (
                 <div
-                  className={`ml-9 p-3.5 rounded-xl text-xs leading-relaxed border ${
+                  className={`ml-7 sm:ml-8 p-3 rounded-lg text-xs leading-relaxed border ${
                     isCorrect
                       ? 'border-emerald-200 dark:border-emerald-900/60 bg-emerald-50/60 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-300'
                       : 'border-rose-200 dark:border-rose-900/60 bg-rose-50/60 dark:bg-rose-950/20 text-rose-900 dark:text-rose-300'

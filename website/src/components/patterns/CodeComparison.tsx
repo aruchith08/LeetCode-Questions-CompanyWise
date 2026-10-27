@@ -74,24 +74,24 @@ export default function CodeComparison() {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-6 shadow-xs space-y-5">
+    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-4">
       {/* Header with Title and Language Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-[#383835]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#383835]">
         <div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
             Example: Maximum Average Subarray I (LeetCode #643)
           </h3>
-          <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-1">
+          <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
             Find the maximum average of any contiguous subarray of size 4 in the array <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E1C] font-mono">[1, 12, -5, -6, 50, 3]</code>.
           </p>
         </div>
 
         {/* Language switcher */}
-        <div className="inline-flex rounded-xl p-1 bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] self-start sm:self-auto">
+        <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] self-start sm:self-auto">
           <button
             type="button"
             onClick={() => setLanguage('python')}
-            className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors ${
+            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
               language === 'python'
                 ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
@@ -102,7 +102,7 @@ export default function CodeComparison() {
           <button
             type="button"
             onClick={() => setLanguage('typescript')}
-            className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors ${
+            className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
               language === 'typescript'
                 ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
@@ -114,9 +114,9 @@ export default function CodeComparison() {
       </div>
 
       {/* Side-by-Side Comparison Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Left: Brute Force Approach */}
-        <div className="rounded-xl border border-rose-200/70 dark:border-rose-900/40 bg-rose-50/20 dark:bg-rose-950/10 p-4 space-y-3 flex flex-col justify-between">
+        <div className="rounded-xl border border-rose-200/70 dark:border-rose-900/40 bg-rose-50/20 dark:bg-rose-950/10 p-3.5 space-y-2.5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-sm font-bold text-rose-700 dark:text-rose-400">
@@ -140,23 +140,23 @@ export default function CodeComparison() {
                 </button>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-[#A8A69C] mb-3">
+            <p className="text-xs text-slate-500 dark:text-[#A8A69C] mb-2.5">
               Calculate the sum for every possible subarray of size k from scratch.
             </p>
 
-            <pre className="p-3.5 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800 shadow-2xs">
+            <pre className="p-3 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800 shadow-2xs">
               <code>{bruteCode}</code>
             </pre>
           </div>
 
-          <div className="pt-3 border-t border-rose-100 dark:border-rose-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
+          <div className="pt-2.5 border-t border-rose-100 dark:border-rose-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
             <span>Time: O(N × K)</span>
             <span>Space: O(1)</span>
           </div>
         </div>
 
         {/* Right: Optimized Sliding Window Approach */}
-        <div className="rounded-xl border border-emerald-200/80 dark:border-emerald-900/50 bg-emerald-50/20 dark:bg-emerald-950/10 p-4 space-y-3 flex flex-col justify-between">
+        <div className="rounded-xl border border-emerald-200/80 dark:border-emerald-900/50 bg-emerald-50/20 dark:bg-emerald-950/10 p-3.5 space-y-2.5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
@@ -180,16 +180,16 @@ export default function CodeComparison() {
                 </button>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-[#A8A69C] mb-3">
+            <p className="text-xs text-slate-500 dark:text-[#A8A69C] mb-2.5">
               Use a rolling sum to update the window in O(1) time per slide.
             </p>
 
-            <pre className="p-3.5 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800 shadow-2xs">
+            <pre className="p-3 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800 shadow-2xs">
               <code>{optimizedCode}</code>
             </pre>
           </div>
 
-          <div className="pt-3 border-t border-emerald-100 dark:border-emerald-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
+          <div className="pt-2.5 border-t border-emerald-100 dark:border-emerald-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
             <span className="text-emerald-600 dark:text-emerald-400 font-bold">Time: O(N)</span>
             <span>Space: O(1)</span>
           </div>

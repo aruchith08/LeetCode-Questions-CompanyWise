@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Search, BookOpen, Target, BarChart2, ChevronDown, X } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Search, BookOpen, Target, BarChart2, X } from 'lucide-react';
 import { PATTERNS_CATALOG, SLIDING_WINDOW_QUESTIONS } from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
@@ -9,23 +9,6 @@ export default function PatternsPage() {
   const { getStatus } = useProgress();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState<'All' | PatternLevel>('All');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setDropdownOpen(false);
-      }
-    }
-    if (dropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [dropdownOpen]);
 
   // Calculate user progress across patterns
   const slidingWindowSolvedCount = useMemo(() => {
@@ -144,7 +127,7 @@ export default function PatternsPage() {
       </section>
 
       {/* Search & Level Filter Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-start gap-2.5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-start gap-2.5">
         {/* Search Input */}
         <div className="relative w-full sm:w-72 md:w-80">
           <Search className="w-3.5 h-3.5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -164,41 +147,6 @@ export default function PatternsPage() {
             >
               <X className="w-3.5 h-3.5" />
             </button>
-          )}
-        </div>
-
-        {/* All Levels Dropdown Toggle */}
-        <div className="relative" ref={dropdownRef}>
-          <button
-            type="button"
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center gap-2 h-9 px-3.5 rounded-xl text-xs font-semibold bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors shadow-2xs cursor-pointer"
-          >
-            <span>{selectedLevel === 'All' ? 'All Levels' : selectedLevel}</span>
-            <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-          </button>
-
-          {dropdownOpen && (
-            <div className="absolute left-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] p-1.5 shadow-lg z-30 space-y-1">
-              {levelOptions.map(opt => (
-                <button
-                  key={opt.id}
-                  type="button"
-                  onClick={() => {
-                    setSelectedLevel(opt.id);
-                    setDropdownOpen(false);
-                  }}
-                  className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                    selectedLevel === opt.id
-                      ? 'bg-slate-100 dark:bg-[#262624] text-[#0F1B3D] dark:text-[#FAF9F5] font-bold'
-                      : 'text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
-                  }`}
-                >
-                  <span>{opt.label}</span>
-                  <span className="font-mono text-[11px] opacity-70">({opt.count})</span>
-                </button>
-              ))}
-            </div>
           )}
         </div>
 
