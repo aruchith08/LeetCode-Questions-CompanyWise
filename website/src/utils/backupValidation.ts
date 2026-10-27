@@ -1,4 +1,4 @@
-import type { UserProgress, QuestionStatus, LeetCodeAccount } from '../types';
+import type { UserProgress, QuestionStatus, LeetCodeAccount, LeetCodeSubmission } from '../types';
 
 export const CURRENT_BACKUP_SCHEMA_VERSION = 2;
 
@@ -17,6 +17,36 @@ export type BackupValidationResult = ValidationSuccess | ValidationFailure;
 
 const VALID_STATUSES: Set<string> = new Set(['solved', 'attempted', 'unsolved']);
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Validates that a string is a real calendar date in YYYY-MM-DD format.
+ * Rejects impossible dates such as 2026-99-99 or 2026-02-31 by verifying
+ * UTC calendar boundary rollover.
+ */
+export function isValidCalendarDate(dateStr: string): boolean {
+  if (!DATE_REGEX.test(dateStr)) {
+    return false;
+  }
+  const [yearStr, monthStr, dayStr] = dateStr.split('-');
+  const year = parseInt(yearStr, 10);
+  const month = parseInt(monthStr, 10);
+  const day = parseInt(dayStr, 10);
+
+  if (month < 1 || month > 12) {
+    return false;
+  }
+  if (day < 1 || day > 31) {
+    return false;
+  }
+
+  // Create date in UTC to prevent timezone shifts
+  const utcDate = new Date(Date.UTC(year, month - 1, day));
+  return (
+    utcDate.getUTCFullYear() === year &&
+    utcDate.getUTCMonth() === month - 1 &&
+    utcDate.getUTCDate() === day
+  );
+}
 
 /**
  * Validates and migrates an exported backup JSON string.
@@ -114,8 +144,8 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
       return { success: false, error: 'Field "activityHistory" must be an object mapping YYYY-MM-DD dates to solve counts.' };
     }
     for (const [dateStr, count] of Object.entries(parsed.activityHistory)) {
-      if (!DATE_REGEX.test(dateStr)) {
-        return { success: false, error: `Invalid date format "${dateStr}" in activityHistory. Expected YYYY-MM-DD.` };
+      if (!isValidCalendarDate(dateStr)) {
+        return { success: false, error: `Invalid date format or calendar date "${dateStr}" in activityHistory. Expected valid real calendar date in YYYY-MM-DD format.` };
       }
       const countNum = Number(count);
       if (typeof count !== 'number' || !Number.isInteger(countNum) || countNum < 0) {
@@ -188,6 +218,31 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
     if (typeof rawLc.username !== 'string' || !rawLc.username.trim()) {
       return { success: false, error: 'LeetCode account must have a valid non-empty username.' };
     }
+    // Validate recentSubmissions array
+    const validatedSubmissions: LeetCodeSubmission[] = [];
+    if (rawLc.recentSubmissions !== undefined) {
+      if (!Array.isArray(rawLc.recentSubmissions)) {
+        return { success: false, error: 'Field "recentSubmissions" in leetcodeAccount must be an array.' };
+      }
+      for (const sub of rawLc.recentSubmissions) {
+        if (
+          sub &&
+          typeof sub === 'object' &&
+          typeof sub.title === 'string' &&
+          sub.title.trim() &&
+          typeof sub.titleSlug === 'string' &&
+          sub.titleSlug.trim()
+        ) {
+          validatedSubmissions.push({
+            id: String(sub.id || sub.titleSlug),
+            title: sub.title.trim(),
+            titleSlug: sub.titleSlug.trim().toLowerCase(),
+            timestamp: typeof sub.timestamp === 'string' ? sub.timestamp : String(sub.timestamp || Date.now()),
+          });
+        }
+      }
+    }
+
     validatedLcAccount = {
       username: rawLc.username.trim(),
       realName: typeof rawLc.realName === 'string' ? rawLc.realName : undefined,
@@ -198,7 +253,7 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
       mediumSolved: typeof rawLc.mediumSolved === 'number' && rawLc.mediumSolved >= 0 ? rawLc.mediumSolved : 0,
       hardSolved: typeof rawLc.hardSolved === 'number' && rawLc.hardSolved >= 0 ? rawLc.hardSolved : 0,
       lastSyncedAt: typeof rawLc.lastSyncedAt === 'string' ? rawLc.lastSyncedAt : new Date().toISOString(),
-      recentSubmissions: Array.isArray(rawLc.recentSubmissions) ? rawLc.recentSubmissions : [],
+      recentSubmissions: validatedSubmissions,
       autoSync: Boolean(rawLc.autoSync),
     };
   }

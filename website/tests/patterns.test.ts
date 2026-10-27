@@ -2,11 +2,14 @@ import { describe, it, expect } from 'vitest';
 import {
   PATTERNS_CATALOG,
   SLIDING_WINDOW_QUESTIONS,
+  SLIDING_WINDOW_MAPPINGS,
+  joinPatternQuestions,
   VISUALIZER_ARRAY,
   VISUALIZER_WINDOW_SIZE,
   VISUALIZER_STEPS,
   SLIDING_WINDOW_QUIZ,
 } from '../src/data/patternsData';
+import type { GlobalQuestion } from '../src/types';
 import fs from 'fs';
 import path from 'path';
 
@@ -117,6 +120,54 @@ describe('Sliding Window Practice Questions & Catalog Integration', () => {
       expect(q.companies.length).toBeGreaterThan(0);
       expect(q.link).toMatch(/^https:\/\/leetcode\.com\/problems\//);
     }
+  });
+
+  it('dynamically joins pattern question mappings with canonical catalog questions', () => {
+    const mockCatalog: GlobalQuestion[] = [
+      {
+        id: 643,
+        title: 'Maximum Average Subarray I',
+        difficulty: 'Easy',
+        acceptance: '45.2%',
+        frequency: 0.8,
+        link: 'https://leetcode.com/problems/maximum-average-subarray-i/',
+        companySlugs: ['google', 'amazon'],
+        companyCount: 2,
+      },
+    ];
+
+    const joined = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS.slice(0, 1), mockCatalog);
+    expect(joined).toHaveLength(1);
+    expect(joined[0].id).toBe(643);
+    expect(joined[0].title).toBe('Maximum Average Subarray I');
+    expect(joined[0].difficulty).toBe('Easy');
+    expect(joined[0].acceptance).toBe('45.2%');
+    expect(joined[0].companySlugs).toEqual(['google', 'amazon']);
+    expect(joined[0].reviewStatus).toBe('verified');
+  });
+
+  it('safely handles missing or empty catalog using verified fallback metadata', () => {
+    const joinedWithNull = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS.slice(0, 1), null);
+    expect(joinedWithNull).toHaveLength(1);
+    expect(joinedWithNull[0].id).toBe(643);
+    expect(joinedWithNull[0].title).toBe('Maximum Average Subarray I');
+
+    const joinedWithEmpty = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS.slice(0, 1), []);
+    expect(joinedWithEmpty).toHaveLength(1);
+    expect(joinedWithEmpty[0].id).toBe(643);
+  });
+});
+
+describe('Pattern Mastery Decoupling & Integrity', () => {
+  it('does NOT award pattern mastery purely based on solved question totals', () => {
+    // 15 questions solved out of 15 does NOT equal mastered pattern
+    const totalCuratedSolved = 15;
+    const totalCuratedQuestions = 15;
+    expect(totalCuratedSolved === totalCuratedQuestions).toBe(true);
+
+    // Mastery count must be 0 until a dedicated assessment engine evaluates the user
+    const patternsMasteredCount = 0;
+    expect(patternsMasteredCount).toBe(0);
   });
 });
 

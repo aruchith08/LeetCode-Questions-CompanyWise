@@ -22,6 +22,16 @@ export interface DSAPattern {
   tags: string[];
 }
 
+export interface PatternQuestionMapping {
+  questionId: number;
+  primaryPattern: string;
+  secondaryPatterns?: string[];
+  subpattern: SlidingWindowSubcategory;
+  subpatternLabel: string;
+  learningOrder: number;
+  reviewStatus: 'verified' | 'needs-review';
+}
+
 export interface PatternQuestion {
   id: number;
   title: string;
@@ -31,7 +41,11 @@ export interface PatternQuestion {
   link: string;
   acceptance: string;
   companies: string[];
-  frequency: number;
+  companySlugs?: string[];
+  companyCount?: number;
+  frequency?: number;
+  learningOrder?: number;
+  reviewStatus?: 'verified' | 'needs-review';
 }
 
 export interface VisualizerStep {

@@ -174,4 +174,69 @@ describe('Activity Tracking Accuracy & Transitions', () => {
     // Does NOT fabricate today's date in activityHistory
     expect(result.current.progress.activityHistory?.[today]).toBeUndefined();
   });
+
+  it('CRITICAL: unmarking an imported problem without timestamp NEVER decrements today activity', () => {
+    const { result } = renderHook(() => useProgressState());
+    const today = getLocalDateString();
+
+    // 1. Solve a problem today legitimately
+    act(() => {
+      result.current.toggleSolved(10);
+    });
+    expect(result.current.progress.activityHistory?.[today]).toBe(1);
+
+    // 2. Import an external LeetCode problem without timestamp
+    act(() => {
+      result.current.markBatchSolved([
+        { id: 77, timestamp: undefined },
+      ]);
+    });
+    expect(result.current.getStatus(77)).toBe('solved');
+    expect(result.current.progress.activityHistory?.[today]).toBe(1);
+
+    // 3. Unmark the imported problem 77
+    act(() => {
+      result.current.toggleSolved(77);
+    });
+    expect(result.current.getStatus(77)).toBe('unsolved');
+
+    // 4. Today's legitimate activity MUST remain 1!
+    expect(result.current.progress.activityHistory?.[today]).toBe(1);
+  });
+
+  it('does NOT attribute legacy completions to today activity when activityHistory is empty on load', () => {
+    const legacySaved = {
+      solvedQuestions: {
+        1: 'solved',
+        2: 'solved',
+        3: 'solved',
+      },
+      bookmarks: [],
+      activityHistory: {},
+    };
+    localStorage.setItem('companywise-progress', JSON.stringify(legacySaved));
+
+    const { result } = renderHook(() => useProgressState());
+    const today = getLocalDateString();
+
+    // Legacy problems must not be claimed as solved today!
+    expect(result.current.progress.activityHistory?.[today]).toBeUndefined();
+    expect(result.current.totalSolved).toBe(3);
+  });
+
+  it('safely handles corrupt localStorage JSON by stashing in backup and preventing overwrite', () => {
+    const corruptPayload = '{ broken json string: true, ...';
+    localStorage.setItem('companywise-progress', corruptPayload);
+
+    const { result } = renderHook(() => useProgressState());
+
+    // Verified: stashed corrupt payload into backup key
+    expect(localStorage.getItem('companywise-progress-corrupt-backup')).toBe(corruptPayload);
+
+    // Returned safe default progress without throwing
+    expect(result.current.totalSolved).toBe(0);
+
+    // Did not overwrite corrupt localStorage with empty data
+    expect(localStorage.getItem('companywise-progress')).toBe(corruptPayload);
+  });
 });

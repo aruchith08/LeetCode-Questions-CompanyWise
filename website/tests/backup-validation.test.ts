@@ -161,4 +161,52 @@ describe('Backup Import Validation & Data Safety', () => {
       expect(res.error).toContain('username');
     }
   });
+
+  it('rejects impossible calendar dates like 2026-99-99 and 2026-02-31 in activityHistory', () => {
+    const impossibleDate1 = {
+      solvedQuestions: { '1': 'solved' },
+      activityHistory: { '2026-99-99': 1 },
+    };
+    const res1 = validateAndParseBackup(JSON.stringify(impossibleDate1));
+    expect(res1.success).toBe(false);
+
+    const impossibleDate2 = {
+      solvedQuestions: { '1': 'solved' },
+      activityHistory: { '2026-02-31': 2 },
+    };
+    const res2 = validateAndParseBackup(JSON.stringify(impossibleDate2));
+    expect(res2.success).toBe(false);
+  });
+
+  it('validates nested recentSubmissions and rejects malformed non-array submissions', () => {
+    const badSubmissions = {
+      solvedQuestions: { '1': 'solved' },
+      leetcodeAccount: {
+        username: 'alice',
+        recentSubmissions: 'not-an-array',
+      },
+    };
+    const res = validateAndParseBackup(JSON.stringify(badSubmissions));
+    expect(res.success).toBe(false);
+    if (!res.success) {
+      expect(res.error).toContain('recentSubmissions');
+    }
+
+    const validSubmissions = {
+      solvedQuestions: { '1': 'solved' },
+      leetcodeAccount: {
+        username: 'alice',
+        recentSubmissions: [
+          { id: '1', title: 'Two Sum', titleSlug: 'two-sum', timestamp: '1729000000' },
+          { id: '15', title: '3Sum', titleSlug: '3sum', timestamp: '1729001000' },
+        ],
+      },
+    };
+    const validRes = validateAndParseBackup(JSON.stringify(validSubmissions));
+    expect(validRes.success).toBe(true);
+    if (validRes.success) {
+      expect(validRes.leetcodeAccount?.recentSubmissions).toHaveLength(2);
+      expect(validRes.leetcodeAccount?.recentSubmissions[0].titleSlug).toBe('two-sum');
+    }
+  });
 });

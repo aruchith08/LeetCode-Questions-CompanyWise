@@ -325,17 +325,22 @@ export default function PatternDetailPage() {
                 The <strong>Sliding Window</strong> technique is an algorithmic pattern designed to convert inefficient nested-loop calculations over contiguous sequences (subarrays or substrings) into linear time <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E1C] font-mono text-blue-600 dark:text-blue-400 font-bold">O(N)</code> solutions.
               </p>
               <p>
-                Instead of recalculating overlapping portions of the data structure from scratch every time, a "window" of elements maintains rolling state. When moving the window forward:
+                Instead of recalculating overlapping portions of the data structure from scratch every time, a &ldquo;window&rdquo; of elements maintains a rolling state. When moving the window forward:
               </p>
               <ul className="list-disc list-inside space-y-1.5 pl-2 text-slate-700 dark:text-[#FAF9F5]">
-                <li><strong>Subtract or remove</strong> the single element exiting on the left side.</li>
-                <li><strong>Add or incorporate</strong> the single new element entering on the right side.</li>
-                <li><strong>Update</strong> the desired metric (sum, max, min, frequency, uniqueness) in constant time <code className="font-mono text-xs">O(1)</code>.</li>
+                <li><strong>Subtract or remove</strong> the single element exiting on the left boundary (<code className="font-mono text-xs">left</code>).</li>
+                <li><strong>Add or incorporate</strong> the single new element entering on the right boundary (<code className="font-mono text-xs">right</code>).</li>
+                <li><strong>Update</strong> the target metric (sum, frequencies, distinct count) in <code className="font-mono text-xs font-semibold">O(1)</code> amortized time.</li>
               </ul>
             </div>
 
-            <div className="p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-300">
-              💡 <strong>Core Intuition:</strong> Whenever a problem mentions <em>contiguous</em> elements and asks for a min, max, target sum, or longest/shortest length, think of Sliding Window before considering nested loops or dynamic programming.
+            <div className="p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-300 space-y-1">
+              <div className="font-bold flex items-center gap-1.5">
+                <span>💡</span> Core Applicability Invariant:
+              </div>
+              <p>
+                Not every contiguous subarray problem qualifies for Sliding Window. The technique requires that window state transitions are <strong>locally invertible or incrementally composable</strong> (i.e. adding an entering element and removing an exiting element takes <code className="font-mono text-[11px]">O(1)</code>) and that valid window boundaries satisfy monotonic expansion/contraction invariants.
+              </p>
             </div>
           </section>
 
@@ -418,6 +423,21 @@ export default function PatternDetailPage() {
                   </p>
                 </div>
               </div>
+
+              {/* Edge Cases & Negative Numbers in Fixed Windows */}
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] space-y-2 text-xs">
+                <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5">
+                  <span>⚡</span> Negative Numbers & Boundary Considerations:
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-[#A8A69C]">
+                  <li>
+                    <strong>Negative numbers are fully supported in fixed windows:</strong> Because the rolling sum update (<code className="font-mono text-[11px]">sum += nums[i] - nums[i - k]</code>) is purely algebraic addition/subtraction, negative values do not break the calculation.
+                  </li>
+                  <li>
+                    <strong>Input boundaries:</strong> If <code className="font-mono text-[11px]">k &gt; n</code>, no valid window exists; return <code className="font-mono text-[11px]">0</code> or throw depending on problem spec. When <code className="font-mono text-[11px]">k === 1</code>, the problem reduces to finding the maximum single element.
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
 
@@ -431,13 +451,13 @@ export default function PatternDetailPage() {
                 4
               </span>
               <h2 className="text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Variable-size Window Pattern
+                Variable-size Window Pattern & Monotonicity
               </h2>
             </div>
 
             <div className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-3">
               <p>
-                In variable-size problems (e.g. <em>LeetCode #3: Longest Substring Without Repeating Characters</em>), the window expands and contracts dynamically using two pointers:
+                In variable-size problems (e.g. <em>LeetCode #3: Longest Substring Without Repeating Characters</em> or <em>LeetCode #209: Minimum Size Subarray Sum</em>), the window expands and contracts dynamically using two pointers (<code className="font-mono text-xs">left</code> and <code className="font-mono text-xs">right</code>):
               </p>
               <pre className="p-4 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto border border-slate-800">
                 <code>{`left = 0
@@ -445,7 +465,7 @@ for right in range(len(nums)):
     # 1. Expand: Include nums[right] in current window
     add_to_window(nums[right])
     
-    # 2. Contract: Shrink from left while window condition is invalid
+    # 2. Contract: Shrink from left while window condition is violated (or to find minimum)
     while window_is_invalid():
         remove_from_window(nums[left])
         left += 1
@@ -453,6 +473,33 @@ for right in range(len(nums)):
     # 3. Update answer with valid window: (right - left + 1)
     max_len = max(max_len, right - left + 1)`}</code>
               </pre>
+
+              {/* Monotonicity and Negative Numbers Caveat */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                <div className="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-2 text-xs">
+                  <div className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
+                    <span>⚠️</span> The Monotonicity Requirement:
+                  </div>
+                  <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
+                    Variable-size windows on sums require <strong>non-negative values</strong>. Why? When all values are non-negative, expanding right monotonically <em>increases</em> the sum, and shrinking left monotonically <em>decreases</em> it.
+                  </p>
+                  <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
+                    If negative numbers are present, shrinking could unpredictably increase the sum! In that scenario, use <strong>Prefix Sum + Hash Map</strong> (LeetCode #560) or <strong>Prefix Sum + Monotonic Deque</strong> (LeetCode #862).
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40 space-y-2 text-xs">
+                  <div className="font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
+                    <span>💡</span> Window Extrema (Min/Max):
+                  </div>
+                  <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
+                    Can we track the window maximum with a single variable? <strong>No!</strong> When the current maximum leaves the window on the left, you cannot know the second-largest element without rescanning the window in <code className="font-mono text-[11px]">O(K)</code> time.
+                  </p>
+                  <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
+                    To maintain sliding window minimum or maximum in <code className="font-mono text-[11px]">O(1)</code> amortized time, use a <strong>Monotonic Deque</strong> (double-ended queue storing indices in monotonic order, e.g. <em>LeetCode #239</em>).
+                  </p>
+                </div>
+              </div>
             </div>
           </section>
 

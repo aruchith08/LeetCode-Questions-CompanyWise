@@ -4,6 +4,7 @@ import {
   Sun, Moon, Menu, X, ChevronDown
 } from 'lucide-react';
 import type { LeetCodeAccount } from '../../types';
+import type { SyncOutcome, SyncStatusDetails } from '../../services/leetcodeService';
 import LeetCodeModal from '../leetcode/LeetCodeModal';
 import CompanyWiseLogo from '../ui/CompanyWiseLogo';
 import EcosystemDropdown from './EcosystemDropdown';
@@ -14,6 +15,8 @@ interface HeaderProps {
   onToggleTheme: () => void;
   lcAccount: LeetCodeAccount | null;
   isSyncing: boolean;
+  syncStatus?: SyncOutcome;
+  syncDetails?: SyncStatusDetails | null;
   syncError: string | null;
   syncNotice: string | null;
   onConnectLC: (username: string, questions?: any[]) => Promise<any>;
@@ -35,6 +38,8 @@ export default function Header({
   onToggleTheme,
   lcAccount,
   isSyncing,
+  syncStatus,
+  syncDetails,
   syncError,
   syncNotice,
   onConnectLC,
@@ -216,6 +221,8 @@ export default function Header({
         onClose={() => setModalOpen(false)}
         account={lcAccount}
         isSyncing={isSyncing}
+        syncStatus={syncStatus}
+        syncDetails={syncDetails}
         syncError={syncError}
         syncNotice={syncNotice}
         onConnect={onConnectLC}

@@ -14,8 +14,19 @@ import {
 
 const STORAGE_KEY = 'companywise-progress';
 const LEGACY_STORAGE_KEY = 'codewise-progress';
+const CORRUPT_BACKUP_KEY = 'companywise-progress-corrupt-backup';
 const LC_STORAGE_KEY = 'companywise-leetcode-account';
 const LEGACY_LC_STORAGE_KEY = 'codewise-leetcode-account';
+
+let storageCorruptionDetected = false;
+
+export function isStorageCorrupted(): boolean {
+  return storageCorruptionDetected;
+}
+
+export function clearCorruptionFlag(): void {
+  storageCorruptionDetected = false;
+}
 
 export function getLocalDateString(d: Date = new Date()): string {
   const year = d.getFullYear();
@@ -39,27 +50,66 @@ export function getDefaultProgress(): UserProgress {
 }
 
 function loadProgress(): UserProgress {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      const activityHistory = parsed.activityHistory || {};
-      const solvedCount = Object.keys(parsed.solvedQuestions || {}).length;
-      if (solvedCount > 0 && Object.keys(activityHistory).length === 0) {
-        const today = getLocalDateString();
-        activityHistory[today] = solvedCount;
+  storageCorruptionDetected = false;
+  const primary = localStorage.getItem(STORAGE_KEY);
+  const legacy = localStorage.getItem(LEGACY_STORAGE_KEY);
+
+  if (!primary && !legacy) {
+    return getDefaultProgress();
+  }
+
+  let parsed: any = null;
+
+  // Try parsing primary storage first
+  if (primary) {
+    try {
+      parsed = JSON.parse(primary);
+    } catch {
+      // Primary is corrupt: stash in backup key for user recovery
+      try {
+        localStorage.setItem(CORRUPT_BACKUP_KEY, primary);
+      } catch {}
+
+      // Attempt fallback to legacy storage
+      if (legacy) {
+        try {
+          parsed = JSON.parse(legacy);
+        } catch {}
       }
-      return {
-        ...getDefaultProgress(),
-        ...parsed,
-        targetCompanies: parsed.targetCompanies || [],
-        recentQuestionTimestamps: parsed.recentQuestionTimestamps || {},
-        solvedQuestionTimestamps: parsed.solvedQuestionTimestamps || {},
-        activityHistory,
-      };
+
+      if (!parsed) {
+        // Both corrupt or legacy unavailable: flag corruption so auto-save doesn't overwrite
+        storageCorruptionDetected = true;
+        return getDefaultProgress();
+      }
     }
-  } catch {}
-  return getDefaultProgress();
+  } else if (legacy) {
+    try {
+      parsed = JSON.parse(legacy);
+    } catch {
+      try {
+        localStorage.setItem(CORRUPT_BACKUP_KEY, legacy);
+      } catch {}
+      storageCorruptionDetected = true;
+      return getDefaultProgress();
+    }
+  }
+
+  if (!parsed || typeof parsed !== 'object') {
+    return getDefaultProgress();
+  }
+
+  // Preserve verified activity history without attributing historical totals to today
+  const activityHistory = parsed.activityHistory || {};
+
+  return {
+    ...getDefaultProgress(),
+    ...parsed,
+    targetCompanies: parsed.targetCompanies || [],
+    recentQuestionTimestamps: parsed.recentQuestionTimestamps || {},
+    solvedQuestionTimestamps: parsed.solvedQuestionTimestamps || {},
+    activityHistory,
+  };
 }
 
 function loadLeetCodeAccount(): LeetCodeAccount | null {
@@ -73,6 +123,10 @@ function loadLeetCodeAccount(): LeetCodeAccount | null {
 }
 
 function saveProgress(progress: UserProgress) {
+  // If corruption was detected upon loading, abort auto-save to prevent data destruction
+  if (storageCorruptionDetected) {
+    return;
+  }
   progress.lastUpdated = new Date().toISOString();
   try {
     const serialized = JSON.stringify(progress);
@@ -188,13 +242,15 @@ export function useProgressState() {
         }
 
         // If no genuine timestamp available, do not fabricate today's date for historical imports
-        if (typeof item !== 'number') {
-          // Imported LeetCode problem with unknown exact timestamp
-          solvedTimestamps[id] = new Date().toISOString();
-        } else {
+        if (typeof item === 'number') {
           // Manual batch solve today
           solvedTimestamps[id] = new Date().toISOString();
           activityHistory[today] = (activityHistory[today] || 0) + 1;
+        } else {
+          // Imported LeetCode problem with unknown exact timestamp:
+          // Do not record a timestamp claiming it was solved today.
+          // This ensures that if the problem is later unmarked, it won't decrement today's activity.
+          delete solvedTimestamps[id];
         }
       }
 
@@ -583,6 +639,7 @@ export function useProgressState() {
       return { success: false, error: result.error };
     }
 
+    clearCorruptionFlag();
     setProgress(result.progress);
     if (result.leetcodeAccount !== undefined) {
       setLcAccount(result.leetcodeAccount);
@@ -591,6 +648,7 @@ export function useProgressState() {
   }, []);
 
   const resetProgress = useCallback(() => {
+    clearCorruptionFlag();
     setProgress(getDefaultProgress());
     setLcAccount(null);
     setSyncStatus('idle');

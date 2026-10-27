@@ -13,6 +13,8 @@ export default function Layout({ isDark, onToggleTheme }: LayoutProps) {
   const {
     lcAccount,
     isSyncing,
+    syncStatus,
+    syncDetails,
     syncError,
     syncNotice,
     connectLeetCode,
@@ -27,6 +29,8 @@ export default function Layout({ isDark, onToggleTheme }: LayoutProps) {
         onToggleTheme={onToggleTheme}
         lcAccount={lcAccount}
         isSyncing={isSyncing}
+        syncStatus={syncStatus}
+        syncDetails={syncDetails}
         syncError={syncError}
         syncNotice={syncNotice}
         onConnectLC={connectLeetCode}

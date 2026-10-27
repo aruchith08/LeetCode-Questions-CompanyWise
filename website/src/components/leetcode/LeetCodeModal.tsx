@@ -12,6 +12,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import type { LeetCodeAccount } from '../../types';
+import type { SyncOutcome, SyncStatusDetails } from '../../services/leetcodeService';
 import { useAllQuestions } from '../../hooks/useAllQuestions';
 
 interface LeetCodeModalProps {
@@ -19,6 +20,8 @@ interface LeetCodeModalProps {
   onClose: () => void;
   account: LeetCodeAccount | null;
   isSyncing: boolean;
+  syncStatus?: SyncOutcome;
+  syncDetails?: SyncStatusDetails | null;
   syncError: string | null;
   syncNotice: string | null;
   onConnect: (username: string, questions?: any[]) => Promise<any>;
@@ -56,6 +59,8 @@ export default function LeetCodeModal({
   onClose,
   account,
   isSyncing,
+  syncStatus = 'idle',
+  syncDetails,
   syncError,
   syncNotice,
   onConnect,
@@ -150,6 +155,19 @@ export default function LeetCodeModal({
             </p>
           </div>
 
+          {/* Partial Sync Explanation Banner */}
+          {(syncStatus === 'partial' || syncDetails?.isPartial) && (
+            <div className="mt-3 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-800 dark:text-amber-300 space-y-1">
+              <div className="flex items-center gap-1.5 font-bold">
+                <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                <span>LeetCode Public API Boundary (Partial Sync)</span>
+              </div>
+              <p className="leading-relaxed text-[11px] text-amber-700 dark:text-amber-400">
+                LeetCode&apos;s public API only exposes recent public submissions (up to 20&ndash;100). Lifetime totals ({account?.totalSolved ?? 0} total) cannot be queried in bulk without private session credentials. You can mark remaining solved problems directly in CompanyWise or import full history via JSON backup.
+              </p>
+            </div>
+          )}
+
           {/* Notices */}
           {syncNotice && (
             <div className="mt-3 p-2.5 sm:p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs text-emerald-700 dark:text-emerald-400 flex items-start gap-2">
@@ -198,10 +216,17 @@ export default function LeetCodeModal({
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-sm sm:text-base text-slate-900 dark:text-[#FAF9F5]">{account.username}</span>
-                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-                          Connected
-                        </span>
+                        {syncStatus === 'partial' || syncDetails?.isPartial ? (
+                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400" />
+                            Partial Sync
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+                            Connected
+                          </span>
+                        )}
                       </div>
                       <p className="text-[11px] text-slate-500 dark:text-[#A8A69C] mt-0.5">
                         Last synced: {account.lastSyncedAt ? new Date(account.lastSyncedAt).toLocaleString() : 'Just now'}

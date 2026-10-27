@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Search, CheckCircle2, Filter } from 'lucide-react';
+import { ExternalLink, Search, CheckCircle2, Filter, Loader2 } from 'lucide-react';
 import type { PatternQuestion, SlidingWindowSubcategory } from '../../types/patterns';
-import { SLIDING_WINDOW_QUESTIONS } from '../../data/patternsData';
+import { SLIDING_WINDOW_MAPPINGS, joinPatternQuestions } from '../../data/patternsData';
+import { useAllQuestions } from '../../hooks/useAllQuestions';
+import { useDataIndex } from '../../hooks/useDataIndex';
 import { useProgress } from '../../hooks/useProgress';
 import DifficultyBadge from '../ui/DifficultyBadge';
 import StatusToggle from '../ui/StatusToggle';
@@ -11,23 +13,44 @@ type FilterTab = 'all' | SlidingWindowSubcategory;
 
 export default function PracticeQuestionsSection() {
   const { getStatus, toggleSolved, toggleBookmark, isBookmarked } = useProgress();
+  const { data: allQuestions, loading: loadingQuestions } = useAllQuestions();
+  const { data: indexData } = useDataIndex();
   const [activeTab, setActiveTab] = useState<FilterTab>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const questions = SLIDING_WINDOW_QUESTIONS;
+  // Map company slugs to proper display names
+  const companyNameMap = useMemo(() => {
+    const map = new Map<string, string>();
+    if (indexData?.companies) {
+      for (const c of indexData.companies) {
+        map.set(c.slug.toLowerCase(), c.name);
+      }
+    }
+    return map;
+  }, [indexData]);
+
+  // Join pattern mappings with canonical global question catalog
+  const questions = useMemo(() => {
+    return joinPatternQuestions(SLIDING_WINDOW_MAPPINGS, allQuestions);
+  }, [allQuestions]);
 
   // Filter questions based on active tab and search query
   const filteredQuestions = useMemo(() => {
     return questions.filter(q => {
       const matchesTab = activeTab === 'all' || q.subpattern === activeTab;
+      const qLower = searchQuery.toLowerCase().trim();
       const matchesQuery =
-        searchQuery.trim() === '' ||
-        q.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        q.id.toString().includes(searchQuery) ||
-        q.companies.some(c => c.toLowerCase().includes(searchQuery.toLowerCase()));
+        qLower === '' ||
+        q.title.toLowerCase().includes(qLower) ||
+        q.id.toString().includes(qLower) ||
+        q.companies.some(c => {
+          const cSlug = c.toLowerCase();
+          const cName = (companyNameMap.get(cSlug) || '').toLowerCase();
+          return cSlug.includes(qLower) || cName.includes(qLower);
+        });
       return matchesTab && matchesQuery;
     });
-  }, [questions, activeTab, searchQuery]);
+  }, [questions, activeTab, searchQuery, companyNameMap]);
 
   // Solved statistics for Sliding Window
   const solvedCount = useMemo(() => {
@@ -206,16 +229,25 @@ export default function PracticeQuestionsSection() {
                     {/* Top Companies */}
                     <td className="py-3 px-4 hidden sm:table-cell">
                       <div className="flex flex-wrap items-center gap-1">
-                        {q.companies.slice(0, 3).map((comp, idx) => (
-                          <span
-                            key={idx}
-                            className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600 dark:bg-[#1E1E1C] dark:text-[#A8A69C] border border-slate-200/60 dark:border-[#383835]"
-                          >
-                            {comp}
-                          </span>
-                        ))}
+                        {q.companies.slice(0, 3).map((comp, idx) => {
+                          const name =
+                            companyNameMap.get(comp.toLowerCase()) ||
+                            comp.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                          return (
+                            <span
+                              key={idx}
+                              className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600 dark:bg-[#1E1E1C] dark:text-[#A8A69C] border border-slate-200/60 dark:border-[#383835]"
+                              title={name}
+                            >
+                              {name}
+                            </span>
+                          );
+                        })}
                         {q.companies.length > 3 && (
-                          <span className="text-[10px] font-mono text-slate-400 dark:text-[#8E8C82]">
+                          <span
+                            className="text-[10px] font-mono text-slate-400 dark:text-[#8E8C82]"
+                            title={`${q.companies.length - 3} more companies`}
+                          >
                             +{q.companies.length - 3}
                           </span>
                         )}

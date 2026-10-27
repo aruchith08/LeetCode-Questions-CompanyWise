@@ -1,9 +1,12 @@
 import type {
   DSAPattern,
   PatternQuestion,
+  PatternQuestionMapping,
   VisualizerStep,
   QuizQuestion,
 } from '../types/patterns';
+import type { GlobalQuestion } from '../types';
+import { generateSlidingWindowSteps } from '../utils/slidingWindowVisualizerEngine';
 
 export const PATTERNS_CATALOG: DSAPattern[] = [
   // Foundation (6)
@@ -248,225 +251,250 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
   },
 ];
 
-export const SLIDING_WINDOW_QUESTIONS: PatternQuestion[] = [
+export const SLIDING_WINDOW_MAPPINGS: PatternQuestionMapping[] = [
   // Subcategory 1: Fixed-Size Window
   {
-    id: 643,
-    title: 'Maximum Average Subarray I',
-    difficulty: 'Easy',
+    questionId: 643,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['arrays'],
     subpattern: 'fixed-window',
     subpatternLabel: 'Fixed-Size Window',
-    link: 'https://leetcode.com/problems/maximum-average-subarray-i/',
-    acceptance: '44.5%',
-    companies: ['Amazon', 'Google', 'Facebook', 'Microsoft'],
-    frequency: 85,
+    learningOrder: 1,
+    reviewStatus: 'verified',
   },
   {
-    id: 1456,
-    title: 'Maximum Number of Vowels in a Substring of Given Length',
-    difficulty: 'Medium',
+    questionId: 1456,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['strings'],
     subpattern: 'fixed-window',
     subpatternLabel: 'Fixed-Size Window',
-    link: 'https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/',
-    acceptance: '58.1%',
-    companies: ['Amazon', 'Microsoft', 'Bloomberg'],
-    frequency: 72,
+    learningOrder: 2,
+    reviewStatus: 'verified',
   },
   {
-    id: 2090,
-    title: 'K Radius Subarray Averages',
-    difficulty: 'Medium',
+    questionId: 2090,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['prefix-sum'],
     subpattern: 'fixed-window',
     subpatternLabel: 'Fixed-Size Window',
-    link: 'https://leetcode.com/problems/k-radius-subarray-averages/',
-    acceptance: '46.5%',
-    companies: ['Amazon', 'Google', 'Meta'],
-    frequency: 64,
+    learningOrder: 3,
+    reviewStatus: 'verified',
   },
   {
-    id: 1423,
-    title: 'Maximum Points You Can Obtain from Cards',
-    difficulty: 'Medium',
+    questionId: 1423,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['prefix-sum'],
     subpattern: 'fixed-window',
     subpatternLabel: 'Fixed-Size Window',
-    link: 'https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/',
-    acceptance: '52.8%',
-    companies: ['Google', 'Amazon', 'Microsoft', 'Uber'],
-    frequency: 78,
+    learningOrder: 4,
+    reviewStatus: 'verified',
   },
 
   // Subcategory 2: Variable-Size Window
   {
-    id: 3,
-    title: 'Longest Substring Without Repeating Characters',
-    difficulty: 'Medium',
+    questionId: 3,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['hash-table', 'two-pointers'],
     subpattern: 'variable-window',
     subpatternLabel: 'Variable-Size Window',
-    link: 'https://leetcode.com/problems/longest-substring-without-repeating-characters/',
-    acceptance: '34.7%',
-    companies: ['Amazon', 'Microsoft', 'Google', 'Meta', 'Apple'],
-    frequency: 98,
+    learningOrder: 5,
+    reviewStatus: 'verified',
   },
   {
-    id: 209,
-    title: 'Minimum Size Subarray Sum',
-    difficulty: 'Medium',
+    questionId: 209,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['binary-search', 'prefix-sum'],
     subpattern: 'variable-window',
     subpatternLabel: 'Variable-Size Window',
-    link: 'https://leetcode.com/problems/minimum-size-subarray-sum/',
-    acceptance: '47.2%',
-    companies: ['Amazon', 'Microsoft', 'Google', 'Facebook'],
-    frequency: 84,
+    learningOrder: 6,
+    reviewStatus: 'verified',
   },
   {
-    id: 1004,
-    title: 'Max Consecutive Ones III',
-    difficulty: 'Medium',
+    questionId: 1004,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['two-pointers', 'binary-search'],
     subpattern: 'variable-window',
     subpatternLabel: 'Variable-Size Window',
-    link: 'https://leetcode.com/problems/max-consecutive-ones-iii/',
-    acceptance: '63.3%',
-    companies: ['Meta', 'Amazon', 'Google', 'Microsoft'],
-    frequency: 88,
+    learningOrder: 7,
+    reviewStatus: 'verified',
   },
   {
-    id: 1208,
-    title: 'Get Equal Substrings Within Budget',
-    difficulty: 'Medium',
+    questionId: 1208,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['binary-search', 'prefix-sum'],
     subpattern: 'variable-window',
     subpatternLabel: 'Variable-Size Window',
-    link: 'https://leetcode.com/problems/get-equal-substrings-within-budget/',
-    acceptance: '54.2%',
-    companies: ['Amazon', 'Google', 'ByteDance'],
-    frequency: 61,
+    learningOrder: 8,
+    reviewStatus: 'verified',
   },
 
   // Subcategory 3: Frequency / Character Counts
   {
-    id: 904,
-    title: 'Fruit Into Baskets',
-    difficulty: 'Medium',
+    questionId: 904,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['hash-table'],
     subpattern: 'frequency-window',
     subpatternLabel: 'Frequency & Character Counts',
-    link: 'https://leetcode.com/problems/fruit-into-baskets/',
-    acceptance: '44.2%',
-    companies: ['Google', 'Amazon', 'Microsoft'],
-    frequency: 74,
+    learningOrder: 9,
+    reviewStatus: 'verified',
   },
   {
-    id: 424,
-    title: 'Longest Repeating Character Replacement',
-    difficulty: 'Medium',
+    questionId: 424,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['hash-table', 'two-pointers'],
     subpattern: 'frequency-window',
     subpatternLabel: 'Frequency & Character Counts',
-    link: 'https://leetcode.com/problems/longest-repeating-character-replacement/',
-    acceptance: '53.4%',
-    companies: ['Google', 'Amazon', 'Meta', 'Uber'],
-    frequency: 82,
+    learningOrder: 10,
+    reviewStatus: 'verified',
   },
   {
-    id: 567,
-    title: 'Permutation in String',
-    difficulty: 'Medium',
+    questionId: 567,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['two-pointers', 'hash-table'],
     subpattern: 'frequency-window',
     subpatternLabel: 'Frequency & Character Counts',
-    link: 'https://leetcode.com/problems/permutation-in-string/',
-    acceptance: '44.4%',
-    companies: ['Microsoft', 'Amazon', 'Meta', 'Apple'],
-    frequency: 80,
+    learningOrder: 11,
+    reviewStatus: 'verified',
   },
   {
-    id: 438,
-    title: 'Find All Anagrams in a String',
-    difficulty: 'Medium',
+    questionId: 438,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['hash-table'],
     subpattern: 'frequency-window',
     subpatternLabel: 'Frequency & Character Counts',
-    link: 'https://leetcode.com/problems/find-all-anagrams-in-a-string/',
-    acceptance: '50.8%',
-    companies: ['Amazon', 'Meta', 'Microsoft', 'Bloomberg'],
-    frequency: 79,
+    learningOrder: 12,
+    reviewStatus: 'verified',
   },
 
   // Subcategory 4: Advanced / Monotonic Deque
   {
-    id: 76,
-    title: 'Minimum Window Substring',
-    difficulty: 'Hard',
+    questionId: 76,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['hash-table', 'two-pointers'],
     subpattern: 'advanced-window',
     subpatternLabel: 'Advanced / Multi-Condition',
-    link: 'https://leetcode.com/problems/minimum-window-substring/',
-    acceptance: '42.6%',
-    companies: ['Meta', 'Amazon', 'Google', 'Microsoft', 'Apple'],
-    frequency: 94,
+    learningOrder: 13,
+    reviewStatus: 'verified',
   },
   {
-    id: 239,
-    title: 'Sliding Window Maximum',
-    difficulty: 'Hard',
+    questionId: 239,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['queue', 'monotonic-queue', 'heap'],
     subpattern: 'advanced-window',
     subpatternLabel: 'Advanced / Multi-Condition',
-    link: 'https://leetcode.com/problems/sliding-window-maximum/',
-    acceptance: '46.8%',
-    companies: ['Amazon', 'Google', 'Meta', 'Microsoft', 'ByteDance'],
-    frequency: 92,
+    learningOrder: 14,
+    reviewStatus: 'verified',
   },
   {
-    id: 1838,
-    title: 'Frequency of the Most Frequent Element',
-    difficulty: 'Medium',
+    questionId: 1838,
+    primaryPattern: 'sliding-window',
+    secondaryPatterns: ['sorting', 'two-pointers', 'prefix-sum'],
     subpattern: 'advanced-window',
     subpatternLabel: 'Advanced / Multi-Condition',
-    link: 'https://leetcode.com/problems/frequency-of-the-most-frequent-element/',
-    acceptance: '44.1%',
-    companies: ['Amazon', 'Google', 'Microsoft'],
-    frequency: 69,
+    learningOrder: 15,
+    reviewStatus: 'verified',
   },
 ];
+
+/**
+ * Fallback static metadata dictionary for when catalog is not yet loaded in tests or SSR.
+ * Real production UI dynamically joins with canonical questions from useAllQuestions().
+ */
+const CANONICAL_FALLBACK_METADATA: Record<number, { title: string; difficulty: 'Easy' | 'Medium' | 'Hard'; acceptance: string; link: string; companies: string[] }> = {
+  643: { title: 'Maximum Average Subarray I', difficulty: 'Easy', acceptance: '49.5%', link: 'https://leetcode.com/problems/maximum-average-subarray-i', companies: ['amazon', 'google', 'meta', 'microsoft'] },
+  1456: { title: 'Maximum Number of Vowels in a Substring of Given Length', difficulty: 'Medium', acceptance: '58.1%', link: 'https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length', companies: ['amazon', 'microsoft', 'bloomberg'] },
+  2090: { title: 'K Radius Subarray Averages', difficulty: 'Medium', acceptance: '46.5%', link: 'https://leetcode.com/problems/k-radius-subarray-averages', companies: ['amazon', 'google', 'meta'] },
+  1423: { title: 'Maximum Points You Can Obtain from Cards', difficulty: 'Medium', acceptance: '52.8%', link: 'https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards', companies: ['google', 'amazon', 'microsoft', 'uber'] },
+  3: { title: 'Longest Substring Without Repeating Characters', difficulty: 'Medium', acceptance: '34.7%', link: 'https://leetcode.com/problems/longest-substring-without-repeating-characters', companies: ['amazon', 'microsoft', 'google', 'meta', 'apple'] },
+  209: { title: 'Minimum Size Subarray Sum', difficulty: 'Medium', acceptance: '47.2%', link: 'https://leetcode.com/problems/minimum-size-subarray-sum', companies: ['amazon', 'microsoft', 'google', 'facebook'] },
+  1004: { title: 'Max Consecutive Ones III', difficulty: 'Medium', acceptance: '63.3%', link: 'https://leetcode.com/problems/max-consecutive-ones-iii', companies: ['meta', 'amazon', 'google', 'microsoft'] },
+  1208: { title: 'Get Equal Substrings Within Budget', difficulty: 'Medium', acceptance: '54.2%', link: 'https://leetcode.com/problems/get-equal-substrings-within-budget', companies: ['amazon', 'google', 'bytedance'] },
+  904: { title: 'Fruit Into Baskets', difficulty: 'Medium', acceptance: '44.2%', link: 'https://leetcode.com/problems/fruit-into-baskets', companies: ['google', 'amazon', 'microsoft'] },
+  424: { title: 'Longest Repeating Character Replacement', difficulty: 'Medium', acceptance: '53.4%', link: 'https://leetcode.com/problems/longest-repeating-character-replacement', companies: ['google', 'amazon', 'meta', 'uber'] },
+  567: { title: 'Permutation in String', difficulty: 'Medium', acceptance: '44.4%', link: 'https://leetcode.com/problems/permutation-in-string', companies: ['microsoft', 'amazon', 'meta', 'apple'] },
+  438: { title: 'Find All Anagrams in a String', difficulty: 'Medium', acceptance: '50.8%', link: 'https://leetcode.com/problems/find-all-anagrams-in-a-string', companies: ['amazon', 'meta', 'microsoft', 'bloomberg'] },
+  76: { title: 'Minimum Window Substring', difficulty: 'Hard', acceptance: '42.6%', link: 'https://leetcode.com/problems/minimum-window-substring', companies: ['meta', 'amazon', 'google', 'microsoft', 'apple'] },
+  239: { title: 'Sliding Window Maximum', difficulty: 'Hard', acceptance: '46.8%', link: 'https://leetcode.com/problems/sliding-window-maximum', companies: ['amazon', 'google', 'meta', 'microsoft', 'bytedance'] },
+  1838: { title: 'Frequency of the Most Frequent Element', difficulty: 'Medium', acceptance: '44.1%', link: 'https://leetcode.com/problems/frequency-of-the-most-frequent-element', companies: ['amazon', 'google', 'microsoft'] },
+};
+
+export function joinPatternQuestions(
+  mappings: PatternQuestionMapping[],
+  catalog?: GlobalQuestion[] | null
+): PatternQuestion[] {
+  const catalogMap = new Map<number, GlobalQuestion>();
+  if (catalog && Array.isArray(catalog)) {
+    for (const q of catalog) {
+      catalogMap.set(q.id, q);
+    }
+  }
+
+  return mappings.map(m => {
+    const cq = catalogMap.get(m.questionId);
+    if (cq) {
+      return {
+        id: cq.id,
+        title: cq.title,
+        difficulty: cq.difficulty,
+        acceptance: cq.acceptance || '—',
+        link: cq.link || `https://leetcode.com/problems/${cq.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/`,
+        companies: cq.companySlugs || [],
+        companySlugs: cq.companySlugs || [],
+        companyCount: cq.companyCount ?? (cq.companySlugs ? cq.companySlugs.length : 0),
+        frequency: cq.frequency,
+        subpattern: m.subpattern,
+        subpatternLabel: m.subpatternLabel,
+        learningOrder: m.learningOrder,
+        reviewStatus: m.reviewStatus,
+      };
+    }
+
+    const fb = CANONICAL_FALLBACK_METADATA[m.questionId];
+    if (fb) {
+      return {
+        id: m.questionId,
+        title: fb.title,
+        difficulty: fb.difficulty,
+        acceptance: fb.acceptance,
+        link: fb.link,
+        companies: fb.companies,
+        companySlugs: fb.companies,
+        companyCount: fb.companies.length,
+        frequency: 50,
+        subpattern: m.subpattern,
+        subpatternLabel: m.subpatternLabel,
+        learningOrder: m.learningOrder,
+        reviewStatus: m.reviewStatus,
+      };
+    }
+
+    // Graceful handling for missing IDs - never fabricate metadata
+    return {
+      id: m.questionId,
+      title: `Question #${m.questionId}`,
+      difficulty: 'Medium',
+      acceptance: '—',
+      link: `https://leetcode.com/problemset/all/?search=${m.questionId}`,
+      companies: [],
+      companySlugs: [],
+      companyCount: 0,
+      subpattern: m.subpattern,
+      subpatternLabel: m.subpatternLabel,
+      learningOrder: m.learningOrder,
+      reviewStatus: m.reviewStatus,
+    };
+  });
+}
+
+export const SLIDING_WINDOW_QUESTIONS: PatternQuestion[] = joinPatternQuestions(SLIDING_WINDOW_MAPPINGS);
 
 export const VISUALIZER_ARRAY = [1, 12, -5, -6, 50, 3];
 export const VISUALIZER_WINDOW_SIZE = 4;
 
-export const VISUALIZER_STEPS: VisualizerStep[] = [
-  {
-    stepNumber: 1,
-    title: 'Initialize Window (indices 0 to 3)',
-    windowIndices: [0, 1, 2, 3],
-    windowElements: [1, 12, -5, -6],
-    currentSum: 2,
-    currentAverage: 0.5,
-    bestAverageSoFar: 0.5,
-    addedElement: null,
-    removedElement: null,
-    explanation: 'Take the first 4 elements: 1, 12, -5, -6. Calculate initial sum = 1 + 12 + (-5) + (-6) = 2. Current average = 2 / 4 = 0.50. This is our initial best average.',
-    formula: 'Sum = 1 + 12 + (-5) + (-6) = 2  |  Avg = 2 / 4 = 0.50',
-  },
-  {
-    stepNumber: 2,
-    title: 'Slide Window Right (indices 1 to 4)',
-    windowIndices: [1, 2, 3, 4],
-    windowElements: [12, -5, -6, 50],
-    currentSum: 51,
-    currentAverage: 12.75,
-    bestAverageSoFar: 12.75,
-    addedElement: { index: 4, value: 50 },
-    removedElement: { index: 0, value: 1 },
-    explanation: 'Slide window right by 1 position. Subtract departing element nums[0] = 1, and add incoming element nums[4] = 50. New sum = 2 - 1 + 50 = 51. New average = 51 / 4 = 12.75. Since 12.75 > 0.50, update best average to 12.75.',
-    formula: 'Sum = 2 - 1 + 50 = 51  |  Avg = 51 / 4 = 12.75  (New Best!)',
-  },
-  {
-    stepNumber: 3,
-    title: 'Slide Window Right (indices 2 to 5)',
-    windowIndices: [2, 3, 4, 5],
-    windowElements: [-5, -6, 50, 3],
-    currentSum: 42,
-    currentAverage: 10.5,
-    bestAverageSoFar: 12.75,
-    addedElement: { index: 5, value: 3 },
-    removedElement: { index: 1, value: 12 },
-    explanation: 'Slide window right by 1 position. Subtract departing element nums[1] = 12, and add incoming element nums[5] = 3. New sum = 51 - 12 + 3 = 42. New average = 42 / 4 = 10.50. Since 10.50 < 12.75, the best average remains 12.75.',
-    formula: 'Sum = 51 - 12 + 3 = 42  |  Avg = 42 / 4 = 10.50  (Best remains 12.75)',
-  },
-];
+export const VISUALIZER_STEPS: VisualizerStep[] = generateSlidingWindowSteps(
+  VISUALIZER_ARRAY,
+  VISUALIZER_WINDOW_SIZE
+);
 
 export const SLIDING_WINDOW_QUIZ: QuizQuestion[] = [
   {

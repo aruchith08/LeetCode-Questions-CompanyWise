@@ -33,7 +33,9 @@ export default function PatternsPage() {
   }, [getStatus]);
 
   const totalPatternQuestionsSolved = slidingWindowSolvedCount;
-  const patternsMasteredCount = slidingWindowSolvedCount === SLIDING_WINDOW_QUESTIONS.length ? 1 : 0;
+  // Mastery assessment is a dedicated evaluation framework planned for Phase 2.
+  // Solving practice problems reflects practice completion, not verified pattern mastery.
+  const patternsMasteredCount = 0;
 
   // Filter patterns based on search query and selected level
   const filteredPatterns = useMemo(() => {
@@ -94,7 +96,10 @@ export default function PatternsPage() {
               </div>
 
               {/* Stat 2: Patterns mastered */}
-              <div className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] shadow-2xs">
+              <div
+                className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] shadow-2xs"
+                title="Pattern mastery assessment system planned for Phase 2"
+              >
                 <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200/80 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 shrink-0">
                   <Target className="w-4 h-4" />
                 </div>
@@ -118,7 +123,7 @@ export default function PatternsPage() {
                     {totalPatternQuestionsSolved}
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-none mt-0.5">
-                    Questions solved
+                    Practice solved
                   </div>
                 </div>
               </div>
