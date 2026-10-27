@@ -1,3 +1,4 @@
+import PatternIcon from './PatternIcon';
 import React from 'react';
 import { Check, X } from 'lucide-react';
 
@@ -349,8 +350,8 @@ export default function PatternMiniVisual({ slug, isAvailable }: PatternMiniVisu
     default:
       return (
         <div className="w-full h-24 bg-slate-50 dark:bg-[#1F1E1D] rounded-xl flex items-center justify-center border border-slate-100 dark:border-[#43433F]/70">
-          <div className="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 flex items-center justify-center font-bold text-xs">
-            {slug.substring(0, 2).toUpperCase()}
+          <div className="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center shadow-2xs">
+            <PatternIcon slug={slug} className="w-5 h-5" />
           </div>
         </div>
       );

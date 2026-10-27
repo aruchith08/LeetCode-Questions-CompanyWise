@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import type { DSAPattern } from '../../types/patterns';
 import PatternMiniVisual from './PatternMiniVisual';
+import PatternIcon from './PatternIcon';
 
 interface PatternCardProps {
   pattern: DSAPattern;
@@ -47,9 +48,14 @@ export default function PatternCard({
 
         {/* Pattern Header */}
         <div className="space-y-1 mb-3">
-          <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors">
-            {pattern.title}
-          </h3>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-md bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-2xs">
+              <PatternIcon slug={pattern.slug} name={pattern.title} className="w-3.5 h-3.5" />
+            </div>
+            <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors truncate">
+              {pattern.title}
+            </h3>
+          </div>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] line-clamp-2 leading-relaxed">
             {pattern.shortDescription}
           </p>

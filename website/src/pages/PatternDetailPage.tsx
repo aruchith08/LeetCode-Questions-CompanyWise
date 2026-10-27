@@ -31,6 +31,7 @@ import CodeComparison from '../components/patterns/CodeComparison';
 import PracticeQuestionsSection from '../components/patterns/PracticeQuestionsSection';
 import UnderstandingCheck from '../components/patterns/UnderstandingCheck';
 import CodeSnippetModal from '../components/patterns/CodeSnippetModal';
+import PatternIcon from '../components/patterns/PatternIcon';
 
 interface NavModule {
   id: string;
@@ -259,8 +260,8 @@ export default function PatternDetailPage() {
       <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3.5">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-100/80 dark:bg-emerald-950/50 border border-emerald-300/80 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-2xs font-bold text-sm">
-              {pattern.title.slice(0, 2).toUpperCase()}
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-100/80 dark:bg-emerald-950/50 border border-emerald-300/80 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-2xs">
+              <PatternIcon slug={pattern.slug} name={pattern.title} className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
             </div>
 
             <div className="space-y-0.5">
