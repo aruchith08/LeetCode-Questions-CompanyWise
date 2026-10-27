@@ -1,4 +1,5 @@
 import React from 'react';
+import { Check, X } from 'lucide-react';
 
 interface PatternMiniVisualProps {
   slug: string;
@@ -289,11 +290,11 @@ export default function PatternMiniVisual({ slug, isAvailable }: PatternMiniVisu
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-1 text-[10px] font-mono text-emerald-600 font-bold">
               <span>[1]</span>
-              <span>✓</span>
+              <Check className="w-2.5 h-2.5" />
             </div>
             <div className="flex items-center gap-1 text-[10px] font-mono text-rose-500 font-bold">
               <span>[2]</span>
-              <span>✕</span>
+              <X className="w-2.5 h-2.5" />
             </div>
           </div>
         </div>

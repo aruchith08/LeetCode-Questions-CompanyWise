@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Copy, Check } from 'lucide-react';
+import { Copy, Check, Maximize2 } from 'lucide-react';
+import CodeSnippetModal from './CodeSnippetModal';
 
 export default function CodeComparison() {
   const [copiedSection, setCopiedSection] = useState<'brute' | 'optimized' | null>(null);
   const [language, setLanguage] = useState<'python' | 'typescript'>('python');
+  const [expandedModal, setExpandedModal] = useState<'brute' | 'optimized' | null>(null);
 
   const pythonBrute = `def max_average_bruteforce(nums: list[int], k: int) -> float:
     n = len(nums)
@@ -122,14 +124,23 @@ export default function CodeComparison() {
               <span className="text-sm font-bold text-rose-700 dark:text-rose-400">
                 Brute Force Approach
               </span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-rose-100 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300">
                   O(N × K)
                 </span>
                 <button
                   type="button"
+                  onClick={() => setExpandedModal('brute')}
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  title="Expand to big card view"
+                  aria-label="Expand code in big card modal"
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
                   onClick={() => handleCopy(bruteCode, 'brute')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
                   title="Copy code"
                 >
                   {copiedSection === 'brute' ? (
@@ -162,14 +173,23 @@ export default function CodeComparison() {
               <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
                 Optimized Sliding Window
               </span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
                   O(N)
                 </span>
                 <button
                   type="button"
+                  onClick={() => setExpandedModal('optimized')}
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  title="Expand to big card view"
+                  aria-label="Expand code in big card modal"
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
                   onClick={() => handleCopy(optimizedCode, 'optimized')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
                   title="Copy code"
                 >
                   {copiedSection === 'optimized' ? (
@@ -195,6 +215,38 @@ export default function CodeComparison() {
           </div>
         </div>
       </div>
+
+      {/* Big Card Code Modal */}
+      <CodeSnippetModal
+        isOpen={expandedModal !== null}
+        onClose={() => setExpandedModal(null)}
+        title={
+          expandedModal === 'brute'
+            ? 'Brute Force Approach — Maximum Average Subarray I (LeetCode #643)'
+            : 'Optimized Sliding Window — Maximum Average Subarray I (LeetCode #643)'
+        }
+        subtitle={
+          expandedModal === 'brute'
+            ? 'Recalculates sum of k elements for every window from scratch.'
+            : 'Uses rolling sum update in O(1) amortized time per window slide.'
+        }
+        timeComplexity={expandedModal === 'brute' ? 'O(N × K)' : 'O(N)'}
+        spaceComplexity="O(1)"
+        languages={[
+          {
+            id: 'python',
+            label: 'Python',
+            code: expandedModal === 'brute' ? pythonBrute : pythonOptimized,
+          },
+          {
+            id: 'typescript',
+            label: 'TypeScript',
+            code: expandedModal === 'brute' ? tsBrute : tsOptimized,
+          },
+        ]}
+        activeLanguage={language}
+        onLanguageChange={(newLang: string) => setLanguage(newLang as 'python' | 'typescript')}
+      />
     </div>
   );
 }

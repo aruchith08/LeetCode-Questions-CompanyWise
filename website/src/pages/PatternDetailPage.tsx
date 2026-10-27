@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
+  ArrowRight,
   ChevronRight,
   ChevronDown,
   Layers,
@@ -15,12 +16,19 @@ import {
   Clock,
   PanelLeftClose,
   PanelLeftOpen,
+  Lightbulb,
+  Zap,
+  AlertTriangle,
+  Copy,
+  Check,
+  Maximize2,
 } from 'lucide-react';
 import { PATTERNS_CATALOG } from '../data/patternsData';
 import SlidingWindowVisualizer from '../components/patterns/SlidingWindowVisualizer';
 import CodeComparison from '../components/patterns/CodeComparison';
 import PracticeQuestionsSection from '../components/patterns/PracticeQuestionsSection';
 import UnderstandingCheck from '../components/patterns/UnderstandingCheck';
+import CodeSnippetModal from '../components/patterns/CodeSnippetModal';
 
 interface NavModule {
   id: string;
@@ -80,11 +88,50 @@ const MODULES: NavModule[] = [
   },
 ];
 
+const VARIABLE_WINDOW_PYTHON = `left = 0
+for right in range(len(nums)):
+    # 1. Expand: Include nums[right] in current window
+    add_to_window(nums[right])
+    
+    # 2. Contract: Shrink from left while window condition is violated (or to find minimum)
+    while window_is_invalid():
+        remove_from_window(nums[left])
+        left += 1
+        
+    # 3. Update answer with valid window: (right - left + 1)
+    max_len = max(max_len, right - left + 1)`;
+
+const VARIABLE_WINDOW_TS = `let left = 0;
+let maxLen = 0;
+
+for (let right = 0; right < nums.length; right++) {
+  // 1. Expand: Include nums[right] in current window
+  addToWindow(nums[right]);
+
+  // 2. Contract: Shrink from left while window condition is violated
+  while (windowIsInvalid()) {
+    removeFromWindow(nums[left]);
+    left++;
+  }
+
+  // 3. Update answer with valid window: (right - left + 1)
+  maxLen = Math.max(maxLen, right - left + 1);
+}`;
+
 export default function PatternDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [activeModule, setActiveModule] = useState<string>('intro');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [mobileModulesOpen, setMobileModulesOpen] = useState(false);
+  const [variableCodeModalOpen, setVariableCodeModalOpen] = useState(false);
+  const [variableCodeLang, setVariableCodeLang] = useState<'python' | 'typescript'>('python');
+  const [copiedTemplate, setCopiedTemplate] = useState(false);
+
+  const handleCopyTemplate = (code: string) => {
+    navigator.clipboard.writeText(code);
+    setCopiedTemplate(true);
+    setTimeout(() => setCopiedTemplate(false), 2000);
+  };
 
   const pattern = PATTERNS_CATALOG.find(p => p.slug === slug);
 
@@ -191,9 +238,10 @@ export default function PatternDetailPage() {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               to="/patterns/sliding-window"
-              className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-colors shadow-xs"
             >
-              Explore Sliding Window (Available Now) →
+              <span>Explore Sliding Window (Available Now)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               to="/patterns"
@@ -456,7 +504,8 @@ export default function PatternDetailPage() {
 
             <div className="p-3 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-300 space-y-1">
               <div className="font-bold flex items-center gap-1.5">
-                <span>💡</span> Core Applicability Invariant:
+                <Lightbulb className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <span>Core Applicability Invariant:</span>
               </div>
               <p className="leading-relaxed">
                 Not every contiguous subarray problem qualifies for Sliding Window. The technique requires that window state transitions are <strong>locally invertible or incrementally composable</strong> (i.e. adding an entering element and removing an exiting element takes <code className="font-mono text-[11px]">O(1)</code>) and that valid window boundaries satisfy monotonic expansion/contraction invariants.
@@ -547,7 +596,8 @@ export default function PatternDetailPage() {
               {/* Edge Cases & Negative Numbers in Fixed Windows */}
               <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] space-y-1.5 text-xs">
                 <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5">
-                  <span>⚡</span> Negative Numbers & Boundary Considerations:
+                  <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 shrink-0" />
+                  <span>Negative Numbers & Boundary Considerations:</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-[#A8A69C]">
                   <li>
@@ -579,26 +629,58 @@ export default function PatternDetailPage() {
               <p>
                 In variable-size problems (e.g. <em>LeetCode #3: Longest Substring Without Repeating Characters</em> or <em>LeetCode #209: Minimum Size Subarray Sum</em>), the window expands and contracts dynamically using two pointers (<code className="font-mono text-xs">left</code> and <code className="font-mono text-xs">right</code>):
               </p>
-              <pre className="p-3 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto border border-slate-800">
-                <code>{`left = 0
-for right in range(len(nums)):
-    # 1. Expand: Include nums[right] in current window
-    add_to_window(nums[right])
-    
-    # 2. Contract: Shrink from left while window condition is violated (or to find minimum)
-    while window_is_invalid():
-        remove_from_window(nums[left])
-        left += 1
-        
-    # 3. Update answer with valid window: (right - left + 1)
-    max_len = max(max_len, right - left + 1)`}</code>
-              </pre>
+
+              {/* Code Card with Expand to Big Card Modal */}
+              <div className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-2xs">
+                <div className="flex items-center justify-between px-3 py-2 bg-slate-950/70 border-b border-slate-800 text-xs">
+                  <div className="flex items-center gap-2">
+                    <Code2 className="w-3.5 h-3.5 text-blue-400" />
+                    <span className="font-mono text-[11px] font-semibold text-slate-300">
+                      variable_sliding_window.py
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setVariableCodeModalOpen(true)}
+                      className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
+                      title="Expand in big card popup"
+                      aria-label="Expand code in big card modal"
+                    >
+                      <Maximize2 className="w-3 h-3 text-slate-400" />
+                      <span>Expand</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyTemplate(VARIABLE_WINDOW_PYTHON)}
+                      className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
+                      title="Copy code template"
+                    >
+                      {copiedTemplate ? (
+                        <>
+                          <Check className="w-3 h-3 text-emerald-400" />
+                          <span className="text-emerald-400 font-bold">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3 h-3 text-slate-400" />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+                <pre className="p-3 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto">
+                  <code>{VARIABLE_WINDOW_PYTHON}</code>
+                </pre>
+              </div>
 
               {/* Monotonicity and Negative Numbers Caveat */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-0.5">
                 <div className="p-3 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-1.5 text-xs">
                   <div className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
-                    <span>⚠️</span> The Monotonicity Requirement:
+                    <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                    <span>The Monotonicity Requirement:</span>
                   </div>
                   <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
                     Variable-size windows on sums require <strong>non-negative values</strong>. When all values are non-negative, expanding right monotonically <em>increases</em> the sum, and shrinking left monotonically <em>decreases</em> it.
@@ -610,7 +692,8 @@ for right in range(len(nums)):
 
                 <div className="p-3 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40 space-y-1.5 text-xs">
                   <div className="font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
-                    <span>💡</span> Window Extrema (Min/Max):
+                    <Lightbulb className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
+                    <span>Window Extrema (Min/Max):</span>
                   </div>
                   <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
                     Can we track the window maximum with a single variable? <strong>No!</strong> When the current maximum leaves the window on the left, you cannot know the second-largest element without rescanning the window in <code className="font-mono text-[11px]">O(K)</code> time.
@@ -644,6 +727,30 @@ for right in range(len(nums)):
           </section>
         </div>
       </div>
+
+      {/* Big Card Code Modal for Variable-Size Window Template */}
+      <CodeSnippetModal
+        isOpen={variableCodeModalOpen}
+        onClose={() => setVariableCodeModalOpen(false)}
+        title="Variable-size Sliding Window Template"
+        subtitle="Dynamic expansion with right pointer, condition contraction with left pointer"
+        timeComplexity="O(N)"
+        spaceComplexity="O(1) to O(K)"
+        languages={[
+          {
+            id: 'python',
+            label: 'Python',
+            code: VARIABLE_WINDOW_PYTHON,
+          },
+          {
+            id: 'typescript',
+            label: 'TypeScript',
+            code: VARIABLE_WINDOW_TS,
+          },
+        ]}
+        activeLanguage={variableCodeLang}
+        onLanguageChange={lang => setVariableCodeLang(lang as 'python' | 'typescript')}
+      />
     </div>
   );
 }

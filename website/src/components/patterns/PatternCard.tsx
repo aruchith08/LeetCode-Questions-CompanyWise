@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import type { DSAPattern } from '../../types/patterns';
 import PatternMiniVisual from './PatternMiniVisual';
 
@@ -96,7 +97,7 @@ export default function PatternCard({
             className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold text-xs transition-colors shadow-xs hover:shadow-sm"
           >
             <span>Start Learning</span>
-            <span className="text-sm">→</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         ) : (
           <button
