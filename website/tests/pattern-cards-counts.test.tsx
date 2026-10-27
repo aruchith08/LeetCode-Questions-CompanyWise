@@ -10,7 +10,7 @@ describe('Pattern Cards Display & Real Question Counts', () => {
   it('renders real curated question count and progress for available pattern (Sliding Window)', () => {
     const slidingWindowPattern = PATTERNS_CATALOG.find(p => p.slug === 'sliding-window')!;
 
-    render(
+    const { container } = render(
       <MemoryRouter>
         <PatternCard
           pattern={slidingWindowPattern}
@@ -23,6 +23,11 @@ describe('Pattern Cards Display & Real Question Counts', () => {
     // Should display real progress: 3/15 (20%)
     expect(screen.getByText('3/15 (20%)')).toBeTruthy();
     expect(screen.getByRole('link', { name: /start learning/i })).toBeTruthy();
+
+    // Verify float-on-hover elevation effect
+    const cardEl = container.firstChild as HTMLElement;
+    expect(cardEl.className).toContain('hover:-translate-y-1.5');
+    expect(cardEl.className).toContain('hover:shadow-xl');
   });
 
   it('does NOT render fabricated question counts or fictional progress bars for upcoming patterns', () => {

@@ -33,10 +33,10 @@ export default function PatternCard({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between rounded-2xl p-5 transition-all duration-200 bg-white dark:bg-[#30302E] ${
+      className={`group relative flex flex-col justify-between rounded-2xl p-5 transition-all duration-300 ease-out bg-white dark:bg-[#30302E] hover:-translate-y-1.5 hover:shadow-xl ${
         isAvailable
-          ? 'border-2 border-[#0F1B3D] dark:border-[#D97757] ring-1 ring-[#0F1B3D]/10 dark:ring-[#D97757]/20 shadow-sm'
-          : 'border border-slate-200/80 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-[#52524E] shadow-xs'
+          ? 'border-2 border-[#0F1B3D] dark:border-[#D97757] ring-1 ring-[#0F1B3D]/10 dark:ring-[#D97757]/20 shadow-sm hover:shadow-[#0F1B3D]/12 dark:hover:shadow-black/50 hover:border-[#1A2D5E] dark:hover:border-[#E08566]'
+          : 'border border-slate-200/80 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-[#52524E] shadow-xs hover:shadow-slate-200/60 dark:hover:shadow-black/30'
       }`}
     >
       <div>

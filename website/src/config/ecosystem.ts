@@ -50,4 +50,16 @@ export const ECOSYSTEM_PLATFORMS: EcosystemPlatform[] = [
     badgeType: 'accent',
     primaryColor: '#D97757',
   },
+  {
+    id: 'prachub',
+    name: 'PracHub',
+    tagline: 'Technical Interview Prep Hub',
+    description: 'Real company interview questions, categorized practice & candidate insights',
+    url: 'https://prachub.com/',
+    isExternal: true,
+    logo: '/brands/prachub.png',
+    badge: 'Curated Resource',
+    badgeType: 'brand',
+    primaryColor: '#2563EB',
+  },
 ];

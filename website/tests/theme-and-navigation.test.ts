@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { PERIOD_LABELS, PERIOD_ORDER } from '../src/types';
 import { useTheme } from '../src/hooks/useTheme';
+import { ECOSYSTEM_PLATFORMS } from '../src/config/ecosystem';
 
 describe('Theme & Navigation Behavior', () => {
   beforeEach(() => {
@@ -74,5 +75,14 @@ describe('Theme & Navigation Behavior', () => {
     expect(routes).toContain('/companies');
     expect(routes).toContain('/problems');
     expect(routes).toContain('/progress');
+  });
+
+  it('verifies ecosystem platforms include PracHub with correct URL and metadata', () => {
+    const prachub = ECOSYSTEM_PLATFORMS.find(p => p.id === 'prachub');
+    expect(prachub).toBeDefined();
+    expect(prachub?.url).toBe('https://prachub.com/');
+    expect(prachub?.name).toBe('PracHub');
+    expect(prachub?.isExternal).toBe(true);
+    expect(prachub?.logo).toBe('/brands/prachub.png');
   });
 });

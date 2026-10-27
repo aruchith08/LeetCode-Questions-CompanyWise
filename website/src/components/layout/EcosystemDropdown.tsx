@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ChevronDown, ExternalLink, Globe, Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import CompanyWiseLogo from '../ui/CompanyWiseLogo';
 import { ECOSYSTEM_PLATFORMS, type EcosystemPlatform } from '../../config/ecosystem';
 
@@ -148,9 +148,16 @@ export default function EcosystemDropdown() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-1">
-                      <span className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5] group-hover/item:text-[#D97757] transition-colors truncate">
-                        {platform.name}
-                      </span>
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <span className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5] group-hover/item:text-[#D97757] transition-colors truncate">
+                          {platform.name}
+                        </span>
+                        {platform.badge && (
+                          <span className="px-1.5 py-0.2 rounded text-[9px] font-semibold bg-slate-100 text-slate-600 dark:bg-[#30302E] dark:text-[#A8A69C] border border-slate-200 dark:border-[#43433F] shrink-0">
+                            {platform.badge}
+                          </span>
+                        )}
+                      </div>
                       <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 group-hover/item:text-[#D97757] transition-colors shrink-0">
                         Launch
                         <ExternalLink className="w-3 h-3" />
