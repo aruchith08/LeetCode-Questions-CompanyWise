@@ -36,18 +36,15 @@ describe('DSA Patterns Catalog Integrity', () => {
     expect(uniqueIds.size).toBe(18);
   });
 
-  it('has Sliding Window as the single available module for Phase 1 with 17 upcoming', () => {
+  it('has all 18 core patterns fully available in Phase 2 with verified metadata and question counts', () => {
     const available = PATTERNS_CATALOG.filter(p => p.availability === 'available');
-    const upcoming = PATTERNS_CATALOG.filter(p => p.availability === 'upcoming');
+    expect(available).toHaveLength(18);
 
-    expect(available).toHaveLength(1);
-    expect(available[0].slug).toBe('sliding-window');
-    expect(available[0].level).toBe('Foundation');
-    expect(available[0].category).toBe('Arrays & Strings');
-
-    expect(upcoming).toHaveLength(17);
-    for (const p of upcoming) {
-      expect(p.questionCount).toBeUndefined();
+    for (const p of PATTERNS_CATALOG) {
+      expect(p.availability).toBe('available');
+      expect(p.questionCount).toBeGreaterThan(0);
+      expect(p.subpatternCount).toBeGreaterThan(0);
+      expect(p.prerequisites && p.prerequisites.length).toBeGreaterThan(0);
     }
   });
 });

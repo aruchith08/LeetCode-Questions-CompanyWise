@@ -26,37 +26,44 @@ describe('Pattern Cards Display & Real Question Counts', () => {
   });
 
   it('does NOT render fabricated question counts or fictional progress bars for upcoming patterns', () => {
-    const upcomingPatterns = PATTERNS_CATALOG.filter(p => p.availability === 'upcoming');
-    expect(upcomingPatterns.length).toBe(17);
+    const mockUpcomingPattern: DSAPattern = {
+      id: 'mock-upcoming',
+      slug: 'mock-upcoming',
+      title: 'Mock Upcoming Pattern',
+      shortDescription: 'Upcoming description',
+      level: 'Foundation',
+      availability: 'upcoming',
+      category: 'Mock Category',
+      tags: ['Mock'],
+    };
 
-    for (const upcomingPattern of upcomingPatterns.slice(0, 3)) {
-      const { unmount } = render(
-        <MemoryRouter>
-          <PatternCard
-            pattern={upcomingPattern}
-            solvedCount={0}
-          />
-        </MemoryRouter>
-      );
+    const { unmount } = render(
+      <MemoryRouter>
+        <PatternCard
+          pattern={mockUpcomingPattern}
+          solvedCount={0}
+        />
+      </MemoryRouter>
+    );
 
-      // Should display "Coming Soon" and "Phase 2" placeholder
-      const btn = screen.getByRole('button', { name: /coming soon/i });
-      expect(btn).toBeTruthy();
-      expect(btn.hasAttribute('disabled')).toBe(true);
-      expect(screen.getByText(/curated practice collection/i)).toBeTruthy();
-      expect(screen.getByText(/phase 2/i)).toBeTruthy();
+    // Should display "Coming Soon" and "Phase 2" placeholder
+    const btn = screen.getByRole('button', { name: /coming soon/i });
+    expect(btn).toBeTruthy();
+    expect(btn.hasAttribute('disabled')).toBe(true);
+    expect(screen.getByText(/curated practice collection/i)).toBeTruthy();
+    expect(screen.getByText(/phase 2/i)).toBeTruthy();
 
-      // Should NOT render any fabricated progress text (e.g. "0/42 (0%)" or "0/38")
-      expect(screen.queryByText(/\d+\/\d+\s*\(\d+%\)/)).toBeNull();
+    // Should NOT render any fabricated progress text (e.g. "0/42 (0%)" or "0/38")
+    expect(screen.queryByText(/\d+\/\d+\s*\(\d+%\)/)).toBeNull();
 
-      unmount();
-    }
+    unmount();
   });
 
-  it('guarantees no upcoming pattern in PATTERNS_CATALOG contains a predefined questionCount', () => {
-    const upcomingPatterns = PATTERNS_CATALOG.filter(p => p.availability === 'upcoming');
-    for (const p of upcomingPatterns) {
-      expect(p.questionCount).toBeUndefined();
+  it('guarantees all 18 available patterns in PATTERNS_CATALOG contain real questionCount', () => {
+    const availablePatterns = PATTERNS_CATALOG.filter(p => p.availability === 'available');
+    expect(availablePatterns.length).toBe(18);
+    for (const p of availablePatterns) {
+      expect(p.questionCount).toBeGreaterThan(0);
     }
   });
 });

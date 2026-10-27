@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { ExternalLink, Search, CheckCircle2, Filter, Loader2, RotateCcw } from 'lucide-react';
-import type { PatternQuestion, SlidingWindowSubcategory } from '../../types/patterns';
+import type {
+  PatternQuestion,
+  PatternQuestionMapping,
+  SlidingWindowSubcategory,
+} from '../../types/patterns';
 import { SLIDING_WINDOW_MAPPINGS, joinPatternQuestions } from '../../data/patternsData';
 import { useAllQuestions } from '../../hooks/useAllQuestions';
 import { useDataIndex } from '../../hooks/useDataIndex';
@@ -10,9 +14,21 @@ import StatusToggle from '../ui/StatusToggle';
 import BookmarkButton from '../ui/BookmarkButton';
 import CompanyLogo from '../ui/CompanyLogo';
 
-type FilterTab = 'all' | SlidingWindowSubcategory;
+type FilterTab = 'all' | SlidingWindowSubcategory | string;
 
-export default function PracticeQuestionsSection() {
+export interface PracticeQuestionsSectionProps {
+  mappings?: PatternQuestionMapping[];
+  subpatternTabs?: { id: string; label: string }[];
+  patternTitle?: string;
+  patternDescription?: string;
+}
+
+export default function PracticeQuestionsSection({
+  mappings = SLIDING_WINDOW_MAPPINGS,
+  subpatternTabs,
+  patternTitle = 'Curated Practice Problems',
+  patternDescription,
+}: PracticeQuestionsSectionProps = {}) {
   const { getStatus, toggleSolved, toggleBookmark, isBookmarked } = useProgress();
   const { data: allQuestions, loading: loadingQuestions, error: catalogError, refetch } = useAllQuestions();
   const { data: indexData } = useDataIndex();
@@ -32,8 +48,8 @@ export default function PracticeQuestionsSection() {
 
   // Join pattern mappings with canonical global question catalog
   const questions = useMemo(() => {
-    return joinPatternQuestions(SLIDING_WINDOW_MAPPINGS, allQuestions);
-  }, [allQuestions]);
+    return joinPatternQuestions(mappings, allQuestions);
+  }, [mappings, allQuestions]);
 
   // Filter questions based on active tab and search query
   const filteredQuestions = useMemo(() => {
@@ -53,36 +69,37 @@ export default function PracticeQuestionsSection() {
     });
   }, [questions, activeTab, searchQuery, companyNameMap]);
 
-  // Solved statistics for Sliding Window
+  // Solved statistics for this pattern
   const solvedCount = useMemo(() => {
     return questions.filter(q => getStatus(q.id) === 'solved').length;
   }, [questions, getStatus]);
 
-  const solvedPercentage = Math.round((solvedCount / questions.length) * 100);
+  const solvedPercentage = questions.length > 0 ? Math.round((solvedCount / questions.length) * 100) : 0;
 
-  const tabs: { id: FilterTab; label: string; count: number }[] = [
-    { id: 'all', label: 'All Problems', count: questions.length },
-    {
-      id: 'fixed-window',
-      label: 'Fixed-Size',
-      count: questions.filter(q => q.subpattern === 'fixed-window').length,
-    },
-    {
-      id: 'variable-window',
-      label: 'Variable-Size',
-      count: questions.filter(q => q.subpattern === 'variable-window').length,
-    },
-    {
-      id: 'frequency-window',
-      label: 'Frequency & Character Counts',
-      count: questions.filter(q => q.subpattern === 'frequency-window').length,
-    },
-    {
-      id: 'advanced-window',
-      label: 'Advanced',
-      count: questions.filter(q => q.subpattern === 'advanced-window').length,
-    },
-  ];
+  const tabs: { id: FilterTab; label: string; count: number }[] = useMemo(() => {
+    if (subpatternTabs && subpatternTabs.length > 0) {
+      return [
+        { id: 'all', label: 'All Problems', count: questions.length },
+        ...subpatternTabs.map(t => ({
+          id: t.id,
+          label: t.label,
+          count: questions.filter(q => q.subpattern === t.id).length,
+        })),
+      ];
+    }
+    const uniqueSubpatterns = Array.from(new Set(mappings.map(m => m.subpattern)));
+    return [
+      { id: 'all', label: 'All Problems', count: questions.length },
+      ...uniqueSubpatterns.map(sp => {
+        const sample = mappings.find(m => m.subpattern === sp);
+        return {
+          id: sp,
+          label: sample?.subpatternLabel || sp,
+          count: questions.filter(q => q.subpattern === sp).length,
+        };
+      }),
+    ];
+  }, [subpatternTabs, mappings, questions]);
 
   return (
     <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs space-y-4">
@@ -90,10 +107,10 @@ export default function PracticeQuestionsSection() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#43433F]/70">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-            Curated Practice Problems
+            {patternTitle}
           </h3>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-            15 hand-selected problems from real company interview loops, organized by sub-technique.
+            {patternDescription || `${questions.length} hand-selected problems from real company interview loops, organized by sub-technique.`}
           </p>
         </div>
 

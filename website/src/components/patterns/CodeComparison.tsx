@@ -2,12 +2,32 @@ import React, { useState } from 'react';
 import { Copy, Check, Maximize2 } from 'lucide-react';
 import CodeSnippetModal from './CodeSnippetModal';
 
-export default function CodeComparison() {
+export interface CodeComparisonProps {
+  title?: string;
+  subtitle?: string;
+  pythonBrute?: string;
+  pythonOptimized?: string;
+  tsBrute?: string;
+  tsOptimized?: string;
+  bruteComplexity?: { time: string; space: string };
+  optimizedComplexity?: { time: string; space: string };
+}
+
+export default function CodeComparison({
+  title = 'Example: Maximum Average Subarray I (LeetCode #643)',
+  subtitle = 'Find the maximum average of any contiguous subarray of size 4 in the array [1, 12, -5, -6, 50, 3].',
+  pythonBrute: customPythonBrute,
+  pythonOptimized: customPythonOptimized,
+  tsBrute: customTsBrute,
+  tsOptimized: customTsOptimized,
+  bruteComplexity = { time: 'O(N × K)', space: 'O(1)' },
+  optimizedComplexity = { time: 'O(N)', space: 'O(1)' },
+}: CodeComparisonProps = {}) {
   const [copiedSection, setCopiedSection] = useState<'brute' | 'optimized' | null>(null);
   const [language, setLanguage] = useState<'python' | 'typescript'>('python');
   const [expandedModal, setExpandedModal] = useState<'brute' | 'optimized' | null>(null);
 
-  const pythonBrute = `def max_average_bruteforce(nums: list[int], k: int) -> float:
+  const defaultPythonBrute = `def max_average_bruteforce(nums: list[int], k: int) -> float:
     n = len(nums)
     max_sum = float('-inf')
     
@@ -20,7 +40,7 @@ export default function CodeComparison() {
         
     return max_sum / k`;
 
-  const pythonOptimized = `def max_average_sliding(nums: list[int], k: int) -> float:
+  const defaultPythonOptimized = `def max_average_sliding(nums: list[int], k: int) -> float:
     # Initialize the sum of first window
     window_sum = sum(nums[:k])
     max_sum = window_sum
@@ -33,7 +53,7 @@ export default function CodeComparison() {
         
     return max_sum / k`;
 
-  const tsBrute = `function findMaxAverageBrute(nums: number[], k: number): number {
+  const defaultTsBrute = `function findMaxAverageBrute(nums: number[], k: number): number {
   let maxSum = -Infinity;
   const n = nums.length;
 
@@ -49,7 +69,7 @@ export default function CodeComparison() {
   return maxSum / k;
 }`;
 
-  const tsOptimized = `function findMaxAverageSliding(nums: number[], k: number): number {
+  const defaultTsOptimized = `function findMaxAverageSliding(nums: number[], k: number): number {
   // Step 1: Initialize sum of first k elements
   let windowSum = 0;
   for (let i = 0; i < k; i++) {
@@ -66,6 +86,11 @@ export default function CodeComparison() {
   return maxSum / k;
 }`;
 
+  const pythonBrute = customPythonBrute || defaultPythonBrute;
+  const pythonOptimized = customPythonOptimized || defaultPythonOptimized;
+  const tsBrute = customTsBrute || defaultTsBrute;
+  const tsOptimized = customTsOptimized || defaultTsOptimized;
+
   const bruteCode = language === 'python' ? pythonBrute : tsBrute;
   const optimizedCode = language === 'python' ? pythonOptimized : tsOptimized;
 
@@ -81,10 +106,10 @@ export default function CodeComparison() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#43433F]">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-            Example: Maximum Average Subarray I (LeetCode #643)
+            {title}
           </h3>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-            Find the maximum average of any contiguous subarray of size 4 in the array <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono">[1, 12, -5, -6, 50, 3]</code>.
+            {subtitle}
           </p>
         </div>
 
@@ -161,8 +186,8 @@ export default function CodeComparison() {
           </div>
 
           <div className="pt-2.5 border-t border-rose-100 dark:border-rose-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
-            <span>Time: O(N × K)</span>
-            <span>Space: O(1)</span>
+            <span>Time: {bruteComplexity.time}</span>
+            <span>Space: {bruteComplexity.space}</span>
           </div>
         </div>
 
@@ -171,11 +196,11 @@ export default function CodeComparison() {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                Optimized Sliding Window
+                Optimized Approach
               </span>
               <div className="flex items-center gap-1.5">
                 <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                  O(N)
+                  {optimizedComplexity.time}
                 </span>
                 <button
                   type="button"
@@ -201,7 +226,7 @@ export default function CodeComparison() {
               </div>
             </div>
             <p className="text-xs text-slate-500 dark:text-[#A8A69C] mb-2.5">
-              Use a rolling sum to update the window in O(1) time per slide.
+              Optimal algorithmic technique avoiding redundant recomputation.
             </p>
 
             <pre className="p-3 rounded-lg bg-slate-900 text-slate-100 font-mono text-xs overflow-x-auto leading-relaxed border border-slate-800 shadow-2xs">
@@ -210,8 +235,8 @@ export default function CodeComparison() {
           </div>
 
           <div className="pt-2.5 border-t border-emerald-100 dark:border-emerald-900/30 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-[#A8A69C]">
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold">Time: O(N)</span>
-            <span>Space: O(1)</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold">Time: {optimizedComplexity.time}</span>
+            <span>Space: {optimizedComplexity.space}</span>
           </div>
         </div>
       </div>

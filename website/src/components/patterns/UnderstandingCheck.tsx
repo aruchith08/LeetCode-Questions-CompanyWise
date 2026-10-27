@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { CheckCircle2, XCircle, HelpCircle, RotateCcw } from 'lucide-react';
 import { SLIDING_WINDOW_QUIZ } from '../../data/patternsData';
+import type { QuizQuestion } from '../../types/patterns';
 
-export default function UnderstandingCheck() {
+export interface UnderstandingCheckProps {
+  quiz?: QuizQuestion[];
+  patternTitle?: string;
+  patternDescription?: string;
+}
+
+export default function UnderstandingCheck({
+  quiz = SLIDING_WINDOW_QUIZ,
+  patternTitle = 'Understanding Check',
+  patternDescription,
+}: UnderstandingCheckProps = {}) {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
 
   const handleSelectOption = (questionId: string, optionId: string) => {
@@ -20,7 +31,7 @@ export default function UnderstandingCheck() {
   };
 
   const answeredCount = Object.keys(selectedAnswers).length;
-  const correctCount = SLIDING_WINDOW_QUIZ.filter(
+  const correctCount = quiz.filter(
     q => selectedAnswers[q.id] === q.correctOptionId
   ).length;
 
@@ -30,17 +41,17 @@ export default function UnderstandingCheck() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#43433F]">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-            Understanding Check
+            {patternTitle}
           </h3>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-            Test your intuition on Sliding Window mechanics, time complexity, and edge cases.
+            {patternDescription || 'Test your conceptual intuition, time complexity, and edge cases.'}
           </p>
         </div>
 
         {/* Quiz Score Badge & Reset */}
         <div className="flex items-center gap-2.5">
           <div className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
-            Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{correctCount}</span> / {SLIDING_WINDOW_QUIZ.length}
+            Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{correctCount}</span> / {quiz.length}
           </div>
           {answeredCount > 0 && (
             <button
@@ -57,7 +68,7 @@ export default function UnderstandingCheck() {
 
       {/* Quiz Questions List */}
       <div className="space-y-4">
-        {SLIDING_WINDOW_QUIZ.map((q, qIdx) => {
+        {quiz.map((q, qIdx) => {
           const selectedOption = selectedAnswers[q.id];
           const hasAnswered = Boolean(selectedOption);
           const isCorrect = selectedOption === q.correctOptionId;

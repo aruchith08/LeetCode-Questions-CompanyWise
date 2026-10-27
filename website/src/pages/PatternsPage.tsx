@@ -1,6 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { Search, BookOpen, Target, BarChart2, X } from 'lucide-react';
-import { PATTERNS_CATALOG, SLIDING_WINDOW_MAPPINGS } from '../data/patternsData';
+import {
+  PATTERNS_CATALOG,
+  ALL_PATTERN_MAPPINGS,
+  getPatternContent,
+  SLIDING_WINDOW_MAPPINGS,
+} from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
 import { useProgress } from '../hooks/useProgress';
@@ -10,12 +15,32 @@ export default function PatternsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState<'All' | PatternLevel>('All');
 
-  // Calculate user progress across patterns
-  const slidingWindowSolvedCount = useMemo(() => {
-    return SLIDING_WINDOW_MAPPINGS.filter(m => getStatus(m.questionId) === 'solved').length;
+  // Calculate solved counts per pattern
+  const patternSolvedCounts = useMemo(() => {
+    const counts: Record<string, { solved: number; total: number }> = {};
+    for (const pattern of PATTERNS_CATALOG) {
+      const content = getPatternContent(pattern.slug);
+      const mappings = content ? content.mappings : (pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS : []);
+      const solved = mappings.filter(m => getStatus(m.questionId) === 'solved').length;
+      counts[pattern.slug] = {
+        solved,
+        total: mappings.length || (pattern.questionCount ?? 0),
+      };
+    }
+    return counts;
   }, [getStatus]);
 
-  const totalPatternQuestionsSolved = slidingWindowSolvedCount;
+  // Total unique pattern questions solved across all 18 patterns
+  const totalPatternQuestionsSolved = useMemo(() => {
+    const solvedIds = new Set<number>();
+    for (const mapping of ALL_PATTERN_MAPPINGS) {
+      if (getStatus(mapping.questionId) === 'solved') {
+        solvedIds.add(mapping.questionId);
+      }
+    }
+    return solvedIds.size;
+  }, [getStatus]);
+
   // Mastery assessment is a dedicated evaluation framework planned for Phase 2.
   // Solving practice problems reflects practice completion, not verified pattern mastery.
   const patternsMasteredCount = 0;
@@ -70,7 +95,7 @@ export default function PatternsPage() {
                 </div>
                 <div>
                   <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-[#FAF9F5] leading-tight">
-                    18
+                    {PATTERNS_CATALOG.length}
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-none mt-0.5">
                     Learning tracks
@@ -88,7 +113,7 @@ export default function PatternsPage() {
                 </div>
                 <div>
                   <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-[#FAF9F5] leading-tight">
-                    {patternsMasteredCount} / 18
+                    {patternsMasteredCount} / {PATTERNS_CATALOG.length}
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-none mt-0.5">
                     Patterns mastered
@@ -113,7 +138,7 @@ export default function PatternsPage() {
             </div>
           </div>
 
-          {/* Right Column: Refined, Proportionate 3D Illustration */}
+          {/* Right Column: 3D Illustration */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end select-none">
             <div className="relative w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[260px] flex items-center justify-center">
               <img
@@ -201,8 +226,8 @@ export default function PatternsPage() {
                   <PatternCard
                     key={pattern.id}
                     pattern={pattern}
-                    solvedCount={pattern.slug === 'sliding-window' ? slidingWindowSolvedCount : 0}
-                    totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS.length : undefined}
+                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
                   />
                 ))}
               </div>
@@ -226,7 +251,8 @@ export default function PatternsPage() {
                   <PatternCard
                     key={pattern.id}
                     pattern={pattern}
-                    solvedCount={0}
+                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
                   />
                 ))}
               </div>
@@ -250,7 +276,8 @@ export default function PatternsPage() {
                   <PatternCard
                     key={pattern.id}
                     pattern={pattern}
-                    solvedCount={0}
+                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
                   />
                 ))}
               </div>
@@ -265,8 +292,8 @@ export default function PatternsPage() {
               <PatternCard
                 key={pattern.id}
                 pattern={pattern}
-                solvedCount={pattern.slug === 'sliding-window' ? slidingWindowSolvedCount : 0}
-                totalQuestions={pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS.length : undefined}
+                solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
               />
             ))}
           </div>

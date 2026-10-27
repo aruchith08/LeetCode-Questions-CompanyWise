@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -22,9 +22,11 @@ import {
   Copy,
   Check,
   Maximize2,
+  CheckCircle,
 } from 'lucide-react';
 import { PATTERNS_CATALOG } from '../data/patternsData';
-import SlidingWindowVisualizer from '../components/patterns/SlidingWindowVisualizer';
+import { getPatternContent } from '../data/patterns/patternRegistry';
+import PatternVisualizerHost from '../components/patterns/PatternVisualizerHost';
 import CodeComparison from '../components/patterns/CodeComparison';
 import PracticeQuestionsSection from '../components/patterns/PracticeQuestionsSection';
 import UnderstandingCheck from '../components/patterns/UnderstandingCheck';
@@ -41,30 +43,30 @@ const MODULES: NavModule[] = [
   {
     id: 'intro',
     title: 'Introduction',
-    subtitle: 'What is a Sliding Window?',
+    subtitle: 'Conceptual Foundations',
     icon: BookOpen,
   },
   {
     id: 'recognizing',
-    title: 'Recognizing the Pattern',
+    title: 'Recognizing Pattern',
     subtitle: 'When to use it?',
     icon: Eye,
   },
   {
-    id: 'fixed-size',
-    title: 'Fixed-size Window',
-    subtitle: 'Solve by size examples',
+    id: 'core-technique',
+    title: 'Core Technique',
+    subtitle: 'Algorithmic Invariant',
     icon: Layers,
   },
   {
-    id: 'variable-size',
-    title: 'Variable-size Window',
-    subtitle: 'Expanding and shrinking',
+    id: 'variations',
+    title: 'Key Variations',
+    subtitle: 'Subpatterns & Flavors',
     icon: Sliders,
   },
   {
     id: 'visualizer',
-    title: 'Interactive Visualization',
+    title: 'Visualization',
     subtitle: 'See it in action',
     icon: Sparkles,
   },
@@ -88,52 +90,23 @@ const MODULES: NavModule[] = [
   },
 ];
 
-const VARIABLE_WINDOW_PYTHON = `left = 0
-for right in range(len(nums)):
-    # 1. Expand: Include nums[right] in current window
-    add_to_window(nums[right])
-    
-    # 2. Contract: Shrink from left while window condition is violated (or to find minimum)
-    while window_is_invalid():
-        remove_from_window(nums[left])
-        left += 1
-        
-    # 3. Update answer with valid window: (right - left + 1)
-    max_len = max(max_len, right - left + 1)`;
-
-const VARIABLE_WINDOW_TS = `let left = 0;
-let maxLen = 0;
-
-for (let right = 0; right < nums.length; right++) {
-  // 1. Expand: Include nums[right] in current window
-  addToWindow(nums[right]);
-
-  // 2. Contract: Shrink from left while window condition is violated
-  while (windowIsInvalid()) {
-    removeFromWindow(nums[left]);
-    left++;
-  }
-
-  // 3. Update answer with valid window: (right - left + 1)
-  maxLen = Math.max(maxLen, right - left + 1);
-}`;
-
 export default function PatternDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [activeModule, setActiveModule] = useState<string>('intro');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [mobileModulesOpen, setMobileModulesOpen] = useState(false);
-  const [variableCodeModalOpen, setVariableCodeModalOpen] = useState(false);
-  const [variableCodeLang, setVariableCodeLang] = useState<'python' | 'typescript'>('python');
+  const [codeModalOpen, setCodeModalOpen] = useState(false);
+  const [activeCodeLang, setActiveCodeLang] = useState<'python' | 'typescript'>('python');
   const [copiedTemplate, setCopiedTemplate] = useState(false);
+
+  const pattern = useMemo(() => PATTERNS_CATALOG.find(p => p.slug === slug), [slug]);
+  const patternContent = useMemo(() => (slug ? getPatternContent(slug) : undefined), [slug]);
 
   const handleCopyTemplate = (code: string) => {
     navigator.clipboard.writeText(code);
     setCopiedTemplate(true);
     setTimeout(() => setCopiedTemplate(false), 2000);
   };
-
-  const pattern = PATTERNS_CATALOG.find(p => p.slug === slug);
 
   // Scrollspy to update active module indicator
   useEffect(() => {
@@ -240,7 +213,7 @@ export default function PatternDetailPage() {
               to="/patterns/sliding-window"
               className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs transition-colors shadow-xs"
             >
-              <span>Explore Sliding Window (Available Now)</span>
+              <span>Explore Sliding Window</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
@@ -255,7 +228,22 @@ export default function PatternDetailPage() {
     );
   }
 
-  // Full Sliding Window Learning Module
+  // Level badge styling
+  const levelBadgeClass = (() => {
+    switch (pattern.level) {
+      case 'Foundation':
+        return 'bg-blue-50 text-blue-700 border border-blue-200/80 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-900/50';
+      case 'Intermediate':
+        return 'bg-amber-50 text-amber-700 border border-amber-200/80 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-900/50';
+      case 'Advanced':
+        return 'bg-purple-50 text-purple-700 border border-purple-200/80 dark:bg-purple-950/40 dark:text-purple-300 dark:border-purple-900/50';
+    }
+  })();
+
+  const currentTemplate = activeCodeLang === 'python'
+    ? (patternContent?.pythonTemplate || '')
+    : (patternContent?.tsTemplate || '');
+
   return (
     <div className="min-h-screen py-4 sm:py-6 space-y-5 sm:space-y-6">
       {/* Breadcrumb Navigation */}
@@ -267,17 +255,12 @@ export default function PatternDetailPage() {
         <span className="text-slate-900 dark:text-[#FAF9F5] font-semibold">{pattern.title}</span>
       </div>
 
-      {/* Hero Header matching application sizing */}
+      {/* Hero Header */}
       <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3.5">
-            {/* Mint Green Circle Badge with Window Icon */}
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-100/80 dark:bg-emerald-950/50 border border-emerald-300/80 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-2xs">
-              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="3" />
-                <rect x="7" y="7" width="10" height="10" rx="1.5" fill="currentColor" fillOpacity="0.2" />
-                <path d="M7 12h10" />
-              </svg>
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-emerald-100/80 dark:bg-emerald-950/50 border border-emerald-300/80 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-2xs font-bold text-sm">
+              {pattern.title.slice(0, 2).toUpperCase()}
             </div>
 
             <div className="space-y-0.5">
@@ -291,13 +274,18 @@ export default function PatternDetailPage() {
           </div>
 
           {/* Right Badges */}
-          <div className="flex items-center gap-2 self-start md:self-auto shrink-0">
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-purple-50 text-purple-700 border border-purple-200/80 dark:bg-purple-950/40 dark:text-purple-300 dark:border-purple-900/50">
-              Foundation
+          <div className="flex items-center gap-2 self-start md:self-auto shrink-0 flex-wrap">
+            <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${levelBadgeClass}`}>
+              {pattern.level}
             </span>
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-teal-50 text-teal-700 border border-teal-200/80 dark:bg-teal-950/40 dark:text-teal-300 dark:border-teal-900/50">
-              Arrays & Strings
+              {pattern.category}
             </span>
+            {pattern.companiesTop && pattern.companiesTop.length > 0 && (
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200/80 dark:bg-[#1F1E1D] dark:text-[#A8A69C] dark:border-[#43433F]">
+                {pattern.companiesTop.slice(0, 3).join(', ')}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -383,7 +371,6 @@ export default function PatternDetailPage() {
                       aria-label={mod.title}
                     >
                       {idx + 1}
-                      {/* Tooltip on hover */}
                       <span className="absolute left-10 px-2.5 py-1 bg-slate-900 text-white text-[11px] font-sans font-medium rounded-md whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 shadow-md">
                         {mod.title}
                       </span>
@@ -477,40 +464,69 @@ export default function PatternDetailPage() {
           {/* Module 1: Introduction */}
           <section
             id="intro"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-4"
           >
             <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
               <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 1
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
-                What is a Sliding Window?
+                {patternContent?.introTitle || `What is ${pattern.title}?`}
               </h2>
             </div>
 
             <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-2.5">
-              <p>
-                The <strong>Sliding Window</strong> technique is an algorithmic pattern designed to convert inefficient nested-loop calculations over contiguous sequences (subarrays or substrings) into linear time <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono text-[#0F1B3D] dark:text-[#D97757] font-bold text-xs">O(N)</code> solutions.
-              </p>
-              <p>
-                Instead of recalculating overlapping portions of the data structure from scratch every time, a &ldquo;window&rdquo; of elements maintains a rolling state. When moving the window forward:
-              </p>
-              <ul className="list-disc list-inside space-y-1 pl-2 text-slate-700 dark:text-[#FAF9F5]">
-                <li><strong>Subtract or remove</strong> the single element exiting on the left boundary (<code className="font-mono text-xs">left</code>).</li>
-                <li><strong>Add or incorporate</strong> the single new element entering on the right boundary (<code className="font-mono text-xs">right</code>).</li>
-                <li><strong>Update</strong> the target metric (sum, frequencies, distinct count) in <code className="font-mono text-xs font-semibold">O(1)</code> amortized time.</li>
-              </ul>
+              {patternContent?.introDescription.map((desc, i) => (
+                <p key={i}>{desc}</p>
+              ))}
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs text-slate-800 dark:text-[#FAF9F5] space-y-1">
-              <div className="font-bold flex items-center gap-1.5">
-                <Lightbulb className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
-                <span>Core Applicability Invariant:</span>
+            {/* Motivating Problem Card */}
+            {patternContent?.motivatingProblem && (
+              <div className="rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/70 dark:bg-[#1F1E1D]/70 p-4 space-y-3">
+                <div className="flex items-center gap-2">
+                  <Lightbulb className="w-4 h-4 text-amber-500" />
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
+                    Motivating Problem: {patternContent.motivatingProblem.title}
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  {patternContent.motivatingProblem.description}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                  <div className="p-3 rounded-lg border border-rose-200/80 dark:border-rose-900/50 bg-rose-50/50 dark:bg-rose-950/20 space-y-1">
+                    <div className="text-xs font-bold text-rose-800 dark:text-rose-300">
+                      Naive Approach
+                    </div>
+                    <p className="text-xs text-rose-700 dark:text-rose-400">
+                      {patternContent.motivatingProblem.naiveApproach}
+                    </p>
+                  </div>
+                  <div className="p-3 rounded-lg border border-emerald-200/80 dark:border-emerald-900/50 bg-emerald-50/50 dark:bg-emerald-950/20 space-y-1">
+                    <div className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
+                      Optimal Approach
+                    </div>
+                    <p className="text-xs text-emerald-700 dark:text-emerald-400">
+                      {patternContent.motivatingProblem.optimalApproach}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="leading-relaxed text-slate-600 dark:text-[#A8A69C]">
-                Not every contiguous subarray problem qualifies for Sliding Window. The technique requires that window state transitions are <strong>locally invertible or incrementally composable</strong> (i.e. adding an entering element and removing an exiting element takes <code className="font-mono text-[11px]">O(1)</code>) and that valid window boundaries satisfy monotonic expansion/contraction invariants.
-              </p>
-            </div>
+            )}
+
+            {/* Applicability Invariant Card */}
+            {patternContent?.applicabilityInvariant && (
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs text-slate-800 dark:text-[#FAF9F5] space-y-1">
+                <div className="font-bold flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
+                  <span>Core Applicability Invariant:</span>
+                </div>
+                <p className="leading-relaxed text-slate-600 dark:text-[#A8A69C]">
+                  {patternContent.applicabilityInvariant}
+                </p>
+              </div>
+            )}
           </section>
 
           {/* Module 2: Recognizing the Pattern */}
@@ -530,231 +546,314 @@ export default function PatternDetailPage() {
             <div className="space-y-3 text-xs sm:text-[13px]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Keywords & Signals */}
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
                   <h3 className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2 text-xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
                     Keywords & Signals to Look For
                   </h3>
-                  <ul className="text-xs text-slate-600 dark:text-[#A8A69C] space-y-1 list-disc list-inside">
-                    <li>"Contiguous subarray" or "substring"</li>
-                    <li>"Window of fixed size k"</li>
-                    <li>"Longest substring with at most k distinct chars"</li>
-                    <li>"Minimum size subarray whose sum &gt;= target"</li>
-                    <li>"Substrings containing all characters of pattern"</li>
+                  <ul className="text-xs text-slate-600 dark:text-[#A8A69C] space-y-1.5 list-disc list-inside">
+                    {patternContent?.signals.map((sig, i) => (
+                      <li key={i}>{sig}</li>
+                    ))}
                   </ul>
                 </div>
 
                 {/* When NOT to Use */}
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
                   <h3 className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2 text-xs">
                     <span className="w-2 h-2 rounded-full bg-rose-500" />
-                    When NOT to Use Sliding Window
+                    When NOT to Use (Anti-Signals)
                   </h3>
-                  <ul className="text-xs text-slate-600 dark:text-[#A8A69C] space-y-1 list-disc list-inside">
-                    <li><strong>Subsequences:</strong> Non-contiguous choices (use DP or Greedy).</li>
-                    <li><strong>Negative numbers in sum problems:</strong> Breaks monotonic window expansion/contraction (use Prefix Sum + Hash Map).</li>
-                    <li><strong>Arbitrary index queries:</strong> Requires segment trees or interval trees.</li>
+                  <ul className="text-xs text-slate-600 dark:text-[#A8A69C] space-y-1.5 list-disc list-inside">
+                    {patternContent?.antiSignals.map((anti, i) => (
+                      <li key={i}>{anti}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Module 3: Fixed-size Window */}
+          {/* Module 3: Core Technique */}
           <section
-            id="fixed-size"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
+            id="core-technique"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-4"
           >
             <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
               <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 3
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Fixed-size Window Pattern
+                {patternContent?.coreTechniqueTitle || 'Core Technique & Algorithmic Steps'}
               </h2>
             </div>
 
-            <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-2.5">
-              <p>
-                In a fixed-size window, the window length <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono text-xs font-bold">k</code> is constant throughout execution. The standard recipe consists of two clean phases:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-0.5">
-                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/60 dark:bg-[#1F1E1D]/60 space-y-1">
-                  <div className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">Phase 1: Build the First Window</div>
-                  <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
-                    Iterate from <code className="font-mono text-[11px]">0</code> to <code className="font-mono text-[11px]">k - 1</code> and compute the initial state (sum, character frequency map, etc.).
-                  </p>
-                </div>
-                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/60 dark:bg-[#1F1E1D]/60 space-y-1">
-                  <div className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">Phase 2: Slide Across the Sequence</div>
-                  <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
-                    Iterate from <code className="font-mono text-[11px]">k</code> to <code className="font-mono text-[11px]">n - 1</code>. In each step, remove <code className="font-mono text-[11px]">nums[i - k]</code>, add <code className="font-mono text-[11px]">nums[i]</code>, and record the answer.
-                  </p>
-                </div>
+            <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-3">
+              <p>{patternContent?.coreTechniqueDescription}</p>
+
+              {/* Step by step cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-1">
+                {patternContent?.coreTechniqueSteps.map((step, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/60 dark:bg-[#1F1E1D]/60 space-y-1.5"
+                  >
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-5 h-5 rounded-full bg-[#0F1B3D]/10 text-[#0F1B3D] dark:bg-[#D97757]/20 dark:text-[#D97757] font-mono text-[11px] font-bold flex items-center justify-center">
+                        {idx + 1}
+                      </span>
+                      <div className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">
+                        {step.title}
+                      </div>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-[#A8A69C] leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
               </div>
 
-              {/* Edge Cases & Negative Numbers in Fixed Windows */}
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5 text-xs">
-                <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 shrink-0" />
-                  <span>Negative Numbers & Boundary Considerations:</span>
+              {/* Loop Invariant */}
+              {patternContent?.loopInvariant && (
+                <div className="p-3.5 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40 space-y-1 text-xs">
+                  <div className="font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
+                    <span>Algorithmic & Loop Invariant:</span>
+                  </div>
+                  <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
+                    {patternContent.loopInvariant}
+                  </p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-slate-600 dark:text-[#A8A69C]">
-                  <li>
-                    <strong>Negative numbers are fully supported in fixed windows:</strong> Because the rolling sum update (<code className="font-mono text-[11px]">sum += nums[i] - nums[i - k]</code>) is purely algebraic addition/subtraction, negative values do not break the calculation.
-                  </li>
-                  <li>
-                    <strong>Input boundaries:</strong> If <code className="font-mono text-[11px]">k &gt; n</code>, no valid window exists; return <code className="font-mono text-[11px]">0</code> or throw depending on problem spec. When <code className="font-mono text-[11px]">k === 1</code>, the problem reduces to finding the maximum single element.
-                  </li>
-                </ul>
-              </div>
+              )}
+
+              {/* Pedagogical Distinction Callout for Sliding Window */}
+              {pattern.slug === 'sliding-window' && (
+                <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-1.5 text-xs">
+                  <div className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
+                    <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                    <span>Monotonicity & Negative Numbers Distinctions:</span>
+                  </div>
+                  <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
+                    Variable-size sliding windows require non-negative values to ensure monotonicity (e.g. <strong>LeetCode #209</strong>: Minimum Size Subarray Sum). If negative numbers are present, running sums fluctuate, requiring specialized techniques:
+                  </p>
+                  <ul className="list-disc pl-4 space-y-1 text-amber-800 dark:text-amber-400 leading-relaxed text-[11px]">
+                    <li><strong>Shortest subarray with sum &ge; K with negatives:</strong> <strong>Prefix Sum + Monotonic Deque</strong> (<strong>LeetCode #862</strong>, O(N) time).</li>
+                    <li><strong>Subarrays with exact sum = K with negatives:</strong> <strong>Prefix Sum + Hash Map</strong> (<strong>LeetCode #560</strong>, O(N) time).</li>
+                  </ul>
+                </div>
+              )}
             </div>
           </section>
 
-          {/* Module 4: Variable-size Window */}
+          {/* Module 4: Key Variations */}
           <section
-            id="variable-size"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
+            id="variations"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-4"
           >
             <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
               <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 4
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Variable-size Window Pattern & Monotonicity
+                Key Variations & Subpatterns
               </h2>
             </div>
 
-            <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-2.5">
-              <p>
-                In variable-size problems (e.g. <em>LeetCode #3: Longest Substring Without Repeating Characters</em> or <em>LeetCode #209: Minimum Size Subarray Sum</em>), the window expands and contracts dynamically using two pointers (<code className="font-mono text-xs">left</code> and <code className="font-mono text-xs">right</code>):
-              </p>
-
-              {/* Code Card with Expand to Big Card Modal */}
-              <div className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-2xs">
-                <div className="flex items-center justify-between px-3 py-2 bg-slate-950/70 border-b border-slate-800 text-xs">
-                  <div className="flex items-center gap-2">
-                    <Code2 className="w-3.5 h-3.5 text-slate-300" />
-                    <span className="font-mono text-[11px] font-semibold text-slate-300">
-                      variable_sliding_window.py
-                    </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-xs sm:text-[13px]">
+              {patternContent?.variations.map(variation => (
+                <div
+                  key={variation.id}
+                  className="p-3.5 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/70 dark:bg-[#1F1E1D]/70 space-y-2 flex flex-col justify-between"
+                >
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">
+                        {variation.title}
+                      </h3>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-200/60 dark:bg-[#262624] text-slate-600 dark:text-[#A8A69C]">
+                        {variation.exampleProblem}
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                      {variation.description}
+                    </p>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => setVariableCodeModalOpen(true)}
-                      className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
-                      title="Expand in big card popup"
-                      aria-label="Expand code in big card modal"
-                    >
-                      <Maximize2 className="w-3 h-3 text-slate-400" />
-                      <span>Expand</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleCopyTemplate(VARIABLE_WINDOW_PYTHON)}
-                      className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
-                      title="Copy code template"
-                    >
-                      {copiedTemplate ? (
-                        <>
-                          <Check className="w-3 h-3 text-emerald-400" />
-                          <span className="text-emerald-400 font-bold">Copied</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3 text-slate-400" />
-                          <span>Copy</span>
-                        </>
-                      )}
-                    </button>
+                  <div className="pt-2 border-t border-slate-200/60 dark:border-[#43433F]/70 text-[11px] text-slate-500 dark:text-[#8E8C82]">
+                    <strong className="text-slate-700 dark:text-[#FAF9F5]">Key Idea: </strong>
+                    {variation.keyIdea}
                   </div>
                 </div>
-                <pre className="p-3 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto">
-                  <code>{VARIABLE_WINDOW_PYTHON}</code>
-                </pre>
-              </div>
-
-              {/* Monotonicity and Negative Numbers Caveat */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-0.5">
-                <div className="p-3 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-1.5 text-xs">
-                  <div className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
-                    <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
-                    <span>The Monotonicity Requirement:</span>
-                  </div>
-                  <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
-                    Variable-size windows on sums require <strong>strictly positive / non-negative values</strong> (e.g. <em>LeetCode #209</em>). Expanding right monotonically increases the sum, and shrinking left monotonically decreases it, enabling an <code className="font-mono text-[11px]">O(N)</code> time, <code className="font-mono text-[11px]">O(1)</code> space solution.
-                  </p>
-                  <p className="text-amber-800 dark:text-amber-400 leading-relaxed">
-                    Negative numbers break this monotonicity! Choose the specialized technique for the exact problem objective:
-                  </p>
-                  <ul className="list-disc pl-4 space-y-1 text-amber-800 dark:text-amber-400 leading-relaxed text-[11px]">
-                    <li><strong>Shortest subarray with sum &ge; K with negatives:</strong> <strong>Prefix Sum + Monotonic Deque</strong> (<em>LeetCode #862</em>, <code className="font-mono text-[10px]">O(N)</code> time, <code className="font-mono text-[10px]">O(N)</code> space).</li>
-                    <li><strong>Counting subarrays with exact sum = K with negatives:</strong> <strong>Prefix Sum + Hash Map</strong> (<em>LeetCode #560</em>, <code className="font-mono text-[10px]">O(N)</code> time, <code className="font-mono text-[10px]">O(N)</code> space).</li>
-                  </ul>
-                </div>
-
-                <div className="p-3 rounded-xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40 space-y-1.5 text-xs">
-                  <div className="font-bold text-purple-900 dark:text-purple-300 flex items-center gap-1.5">
-                    <Lightbulb className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
-                    <span>Window Extrema (Min/Max):</span>
-                  </div>
-                  <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
-                    Can we track the window maximum with a single variable? <strong>No!</strong> When the current maximum leaves the window on the left, you cannot know the second-largest element without rescanning the window in <code className="font-mono text-[11px]">O(K)</code> time.
-                  </p>
-                  <p className="text-purple-800 dark:text-purple-400 leading-relaxed">
-                    To maintain sliding window minimum or maximum in <code className="font-mono text-[11px]">O(1)</code> amortized time, use a <strong>Monotonic Deque</strong> (double-ended queue storing indices in monotonic order, e.g. <em>LeetCode #239</em>).
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
           {/* Module 5: Interactive Visualizer */}
           <section id="visualizer">
-            <SlidingWindowVisualizer />
+            <PatternVisualizerHost
+              slug={pattern.slug}
+              title={pattern.title}
+              subtitle={patternContent?.visualizerSubtitle}
+            />
           </section>
 
-          {/* Module 6: Implementation & Code Comparison */}
-          <section id="implementation">
-            <CodeComparison />
+          {/* Module 6: Implementation & Code Templates */}
+          <section
+            id="implementation"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-4"
+          >
+            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
+              <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
+                6
+              </span>
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
+                Canonical Code Implementation & Complexity
+              </h2>
+            </div>
+
+            {/* Template Box with Language Toggle and Expand */}
+            <div className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-2xs">
+              <div className="flex items-center justify-between px-3 py-2 bg-slate-950/70 border-b border-slate-800 text-xs">
+                <div className="flex items-center gap-2">
+                  <Code2 className="w-3.5 h-3.5 text-slate-300" />
+                  <span className="font-mono text-[11px] font-semibold text-slate-300">
+                    {activeCodeLang === 'python' ? 'pattern_template.py' : 'pattern_template.ts'}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  {/* Language switch */}
+                  <div className="flex items-center rounded-lg bg-slate-800 p-0.5 border border-slate-700/80 mr-1">
+                    <button
+                      type="button"
+                      onClick={() => setActiveCodeLang('python')}
+                      className={`px-2 py-0.5 rounded text-[10px] font-semibold transition-colors ${
+                        activeCodeLang === 'python'
+                          ? 'bg-[#0F1B3D] text-white'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      Python
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveCodeLang('typescript')}
+                      className={`px-2 py-0.5 rounded text-[10px] font-semibold transition-colors ${
+                        activeCodeLang === 'typescript'
+                          ? 'bg-[#0F1B3D] text-white'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      TypeScript
+                    </button>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setCodeModalOpen(true)}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
+                    title="Expand in big card popup"
+                  >
+                    <Maximize2 className="w-3 h-3 text-slate-400" />
+                    <span>Expand</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleCopyTemplate(currentTemplate)}
+                    className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition-colors cursor-pointer"
+                    title="Copy code template"
+                  >
+                    {copiedTemplate ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-400" />
+                        <span className="text-emerald-400 font-bold">Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-slate-400" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+              <pre className="p-3 text-slate-100 font-mono text-xs leading-relaxed overflow-x-auto">
+                <code>{currentTemplate}</code>
+              </pre>
+            </div>
+
+            {/* Code Comparison / Walkthrough for canonical problem */}
+            {patternContent && (
+              <CodeComparison
+                title={patternContent.exampleProblemTitle}
+                subtitle={patternContent.exampleProblemDescription}
+                pythonOptimized={patternContent.pythonExample}
+                tsOptimized={patternContent.tsExample}
+                optimizedComplexity={patternContent.complexity}
+              />
+            )}
+
+            {/* Pitfalls & Common Mistakes */}
+            {patternContent?.pitfalls && patternContent.pitfalls.length > 0 && (
+              <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-900/40 space-y-1.5 text-xs">
+                <div className="font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span>Common Pitfalls & Edge Cases:</span>
+                </div>
+                <ul className="text-xs text-amber-800 dark:text-amber-400 space-y-1 list-disc list-inside">
+                  {patternContent.pitfalls.map((pitfall, i) => (
+                    <li key={i}>{pitfall}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
 
           {/* Module 7: Curated Practice Problems */}
           <section id="practice">
-            <PracticeQuestionsSection />
+            <PracticeQuestionsSection
+              mappings={patternContent?.mappings}
+              subpatternTabs={patternContent?.subpatternTabs}
+              patternTitle={`Practice: ${pattern.title}`}
+              patternDescription={`Curated interview questions for ${pattern.title} indexed by frequency and top companies.`}
+            />
           </section>
 
           {/* Module 8: Understanding Check */}
           <section id="understanding">
-            <UnderstandingCheck />
+            <UnderstandingCheck
+              quiz={patternContent?.quiz}
+              patternTitle={`Understanding Check: ${pattern.title}`}
+              patternDescription={`Verify your intuitive and conceptual grasp of ${pattern.title}.`}
+            />
           </section>
         </div>
       </div>
 
-      {/* Big Card Code Modal for Variable-Size Window Template */}
-      <CodeSnippetModal
-        isOpen={variableCodeModalOpen}
-        onClose={() => setVariableCodeModalOpen(false)}
-        title="Variable-size Sliding Window Template"
-        subtitle="Dynamic expansion with right pointer, condition contraction with left pointer"
-        timeComplexity="O(N)"
-        spaceComplexity="O(1) to O(K)"
-        languages={[
-          {
-            id: 'python',
-            label: 'Python',
-            code: VARIABLE_WINDOW_PYTHON,
-          },
-          {
-            id: 'typescript',
-            label: 'TypeScript',
-            code: VARIABLE_WINDOW_TS,
-          },
-        ]}
-        activeLanguage={variableCodeLang}
-        onLanguageChange={lang => setVariableCodeLang(lang as 'python' | 'typescript')}
-      />
+      {/* Big Card Code Modal for Pattern Template */}
+      {patternContent && (
+        <CodeSnippetModal
+          isOpen={codeModalOpen}
+          onClose={() => setCodeModalOpen(false)}
+          title={`${pattern.title} Canonical Template`}
+          subtitle={`Standard boilerplate and invariants for ${pattern.title}`}
+          timeComplexity={patternContent.complexity.time}
+          spaceComplexity={patternContent.complexity.space}
+          languages={[
+            {
+              id: 'python',
+              label: 'Python',
+              code: patternContent.pythonTemplate,
+            },
+            {
+              id: 'typescript',
+              label: 'TypeScript',
+              code: patternContent.tsTemplate,
+            },
+          ]}
+          activeLanguage={activeCodeLang}
+          onLanguageChange={lang => setActiveCodeLang(lang as 'python' | 'typescript')}
+        />
+      )}
     </div>
   );
 }
