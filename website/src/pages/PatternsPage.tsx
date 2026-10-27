@@ -65,7 +65,7 @@ export default function PatternsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
               {/* Stat 1: Learning tracks */}
               <div className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] shadow-2xs">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950/50 border border-blue-200/80 dark:border-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#0F1B3D]/10 dark:bg-[#D97757]/15 border border-[#0F1B3D]/15 dark:border-[#D97757]/30 flex items-center justify-center text-[#0F1B3D] dark:text-[#D97757] shrink-0">
                   <BookOpen className="w-4 h-4" />
                 </div>
                 <div>
@@ -161,7 +161,7 @@ export default function PatternsPage() {
                 onClick={() => setSelectedLevel(opt.id)}
                 className={`h-9 px-3.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer inline-flex items-center justify-center ${
                   isSelected
-                    ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                    ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
                     : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
                 }`}
               >
@@ -169,7 +169,7 @@ export default function PatternsPage() {
                 {opt.id !== 'All' && (
                   <span
                     className={`ml-1 font-mono text-[11px] ${
-                      isSelected ? 'text-white/80 dark:text-[#0F1B3D]/80' : 'text-slate-400 dark:text-[#A8A69C]'
+                      isSelected ? 'text-white/80 dark:text-[#1F1E1D]/80' : 'text-slate-400 dark:text-[#A8A69C]'
                     }`}
                   >
                     ({opt.count})

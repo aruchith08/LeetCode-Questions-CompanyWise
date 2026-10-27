@@ -117,7 +117,7 @@ export default function CodeSnippetModal({
             </div>
 
             <div className="flex items-center gap-2">
-              <Terminal className="w-4 h-4 text-blue-400 shrink-0" />
+              <Terminal className="w-4 h-4 text-[#D97757] shrink-0" />
               <div>
                 <h3
                   id="code-modal-title"
@@ -138,7 +138,7 @@ export default function CodeSnippetModal({
             {(timeComplexity || spaceComplexity) && (
               <div className="flex items-center gap-1.5 hidden md:flex">
                 {timeComplexity && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-blue-400 border border-slate-700">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-800 text-[#D97757] border border-slate-700">
                     Time: {timeComplexity}
                   </span>
                 )}
@@ -160,7 +160,7 @@ export default function CodeSnippetModal({
                     onClick={() => handleLangSelect(l.id)}
                     className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
                       internalLang === l.id
-                        ? 'bg-blue-600 text-white shadow-2xs'
+                        ? 'bg-[#D97757] text-[#1F1E1D] font-bold shadow-2xs'
                         : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >

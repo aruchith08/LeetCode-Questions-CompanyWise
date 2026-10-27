@@ -33,9 +33,9 @@ export default function PatternCard({
 
   return (
     <div
-      className={`group relative flex flex-col justify-between rounded-2xl p-5 transition-all duration-200 bg-white dark:bg-[#262624] ${
+      className={`group relative flex flex-col justify-between rounded-2xl p-5 transition-all duration-200 bg-white dark:bg-[#30302E] ${
         isAvailable
-          ? 'border-2 border-blue-500 dark:border-blue-500 ring-1 ring-blue-500/20 shadow-sm'
+          ? 'border-2 border-[#0F1B3D] dark:border-[#D97757] ring-1 ring-[#0F1B3D]/10 dark:ring-[#D97757]/20 shadow-sm'
           : 'border border-slate-200/80 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-[#52524E] shadow-xs'
       }`}
     >
@@ -47,7 +47,7 @@ export default function PatternCard({
 
         {/* Pattern Header */}
         <div className="space-y-1 mb-3">
-          <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors">
             {pattern.title}
           </h3>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] line-clamp-2 leading-relaxed">
@@ -66,7 +66,7 @@ export default function PatternCard({
               Available
             </span>
           ) : (
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-[#30302E] dark:text-[#8E8C82] dark:border-[#43433F]">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-[#1F1E1D] dark:text-[#8E8C82] dark:border-[#43433F]">
               Upcoming
             </span>
           )}
@@ -80,7 +80,7 @@ export default function PatternCard({
           <div className="flex-1 h-1 bg-slate-100 dark:bg-[#1E1E1C] rounded-full overflow-hidden">
             <div
               className={`h-full transition-all duration-300 ${
-                isAvailable ? 'bg-blue-600 dark:bg-blue-500' : 'bg-slate-300 dark:bg-[#43433F]'
+                isAvailable ? 'bg-[#0F1B3D] dark:bg-[#D97757]' : 'bg-slate-300 dark:bg-[#43433F]'
               }`}
               style={{ width: `${progressPercent}%` }}
             />
@@ -94,7 +94,7 @@ export default function PatternCard({
         {isAvailable ? (
           <Link
             to={`/patterns/${pattern.slug}`}
-            className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-semibold text-xs transition-colors shadow-xs hover:shadow-sm"
+            className="w-full flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs transition-colors shadow-xs hover:shadow-sm"
           >
             <span>Start Learning</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -103,7 +103,7 @@ export default function PatternCard({
           <button
             type="button"
             disabled
-            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-[#30302E] text-slate-400 dark:text-[#7A7870] font-semibold text-xs cursor-not-allowed select-none border border-slate-200/60 dark:border-[#383835]"
+            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-[#1F1E1D] text-slate-400 dark:text-[#7A7870] font-semibold text-xs cursor-not-allowed select-none border border-slate-200/60 dark:border-[#43433F]/70"
           >
             Coming Soon
           </button>

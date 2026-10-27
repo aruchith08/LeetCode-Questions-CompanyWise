@@ -76,26 +76,26 @@ export default function CodeComparison() {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-4">
+    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-4">
       {/* Header with Title and Language Toggle */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#383835]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#43433F]">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
             Example: Maximum Average Subarray I (LeetCode #643)
           </h3>
           <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-            Find the maximum average of any contiguous subarray of size 4 in the array <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E1C] font-mono">[1, 12, -5, -6, 50, 3]</code>.
+            Find the maximum average of any contiguous subarray of size 4 in the array <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono">[1, 12, -5, -6, 50, 3]</code>.
           </p>
         </div>
 
         {/* Language switcher */}
-        <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] self-start sm:self-auto">
+        <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] self-start sm:self-auto">
           <button
             type="button"
             onClick={() => setLanguage('python')}
             className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
               language === 'python'
-                ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
+                ? 'bg-white dark:bg-[#262624] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
             }`}
           >
@@ -106,7 +106,7 @@ export default function CodeComparison() {
             onClick={() => setLanguage('typescript')}
             className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
               language === 'typescript'
-                ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
+                ? 'bg-white dark:bg-[#262624] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
                 : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
             }`}
           >
@@ -131,7 +131,7 @@ export default function CodeComparison() {
                 <button
                   type="button"
                   onClick={() => setExpandedModal('brute')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
                   title="Expand to big card view"
                   aria-label="Expand code in big card modal"
                 >
@@ -140,7 +140,7 @@ export default function CodeComparison() {
                 <button
                   type="button"
                   onClick={() => handleCopy(bruteCode, 'brute')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
                   title="Copy code"
                 >
                   {copiedSection === 'brute' ? (
@@ -180,7 +180,7 @@ export default function CodeComparison() {
                 <button
                   type="button"
                   onClick={() => setExpandedModal('optimized')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
                   title="Expand to big card view"
                   aria-label="Expand code in big card modal"
                 >
@@ -189,7 +189,7 @@ export default function CodeComparison() {
                 <button
                   type="button"
                   onClick={() => handleCopy(optimizedCode, 'optimized')}
-                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-white hover:bg-white/80 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
                   title="Copy code"
                 >
                   {copiedSection === 'optimized' ? (

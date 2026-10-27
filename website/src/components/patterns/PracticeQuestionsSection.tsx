@@ -8,6 +8,7 @@ import { useProgress } from '../../hooks/useProgress';
 import DifficultyBadge from '../ui/DifficultyBadge';
 import StatusToggle from '../ui/StatusToggle';
 import BookmarkButton from '../ui/BookmarkButton';
+import CompanyLogo from '../ui/CompanyLogo';
 
 type FilterTab = 'all' | SlidingWindowSubcategory;
 
@@ -84,9 +85,9 @@ export default function PracticeQuestionsSection() {
   ];
 
   return (
-    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-4">
+    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs space-y-4">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#383835]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-100 dark:border-[#43433F]/70">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
             Curated Practice Problems
@@ -97,14 +98,14 @@ export default function PracticeQuestionsSection() {
         </div>
 
         {/* Progress Bar & Counter */}
-        <div className="flex items-center gap-3 bg-slate-50 dark:bg-[#1E1E1C] px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-[#383835]">
+        <div className="flex items-center gap-3 bg-slate-50 dark:bg-[#1F1E1D] px-3 py-1.5 rounded-xl border border-slate-200 dark:border-[#43433F]">
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span className="text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
               {solvedCount} / {questions.length} Solved
             </span>
           </div>
-          <div className="w-20 sm:w-24 h-1.5 bg-slate-200 dark:bg-[#383835] rounded-full overflow-hidden">
+          <div className="w-20 sm:w-24 h-1.5 bg-slate-200 dark:bg-[#43433F] rounded-full overflow-hidden">
             <div
               className="h-full bg-emerald-500 rounded-full transition-all duration-300"
               style={{ width: `${solvedPercentage}%` }}
@@ -125,14 +126,14 @@ export default function PracticeQuestionsSection() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id)}
-              className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-colors ${
+              className={`px-2.5 py-1 rounded-lg text-xs transition-colors cursor-pointer ${
                 activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-2xs font-semibold'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-[#1E1E1C] dark:text-[#A8A69C] dark:hover:bg-[#30302E] dark:hover:text-[#FAF9F5]'
+                  ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs font-bold'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-[#1F1E1D] dark:text-[#A8A69C] dark:hover:bg-[#262624] dark:hover:text-[#FAF9F5] border border-transparent dark:border-[#43433F]/50 font-medium'
               }`}
             >
               <span>{tab.label}</span>
-              <span className={`ml-1.5 text-[11px] opacity-80 font-mono`}>
+              <span className="ml-1.5 text-[11px] opacity-80 font-mono">
                 ({tab.count})
               </span>
             </button>
@@ -147,30 +148,30 @@ export default function PracticeQuestionsSection() {
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search problems or companies..."
-            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-[#0F1B3D] dark:focus:ring-[#D97757]"
           />
         </div>
       </div>
 
-      {/* Questions Table / List */}
-      <div className="overflow-x-auto rounded-xl border border-slate-200/80 dark:border-[#383835]">
+      {/* Questions Table (Identical to ProblemsPage) */}
+      <div className="overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] shadow-2xs">
         <table className="w-full text-left border-collapse text-xs">
-          <thead>
-            <tr className="border-b border-slate-200/80 dark:border-[#383835] bg-slate-50/70 dark:bg-[#1E1E1C]/60 text-slate-500 dark:text-[#A8A69C] font-semibold">
-              <th className="py-2.5 px-3 w-10 text-center">Status</th>
-              <th className="py-2.5 px-3 w-14">#</th>
-              <th className="py-2.5 px-3.5">Title</th>
-              <th className="py-2.5 px-3 w-24">Difficulty</th>
-              <th className="py-2.5 px-3.5 hidden md:table-cell">Subcategory</th>
-              <th className="py-2.5 px-3.5 hidden sm:table-cell">Top Companies</th>
-              <th className="py-2.5 px-3 text-right hidden lg:table-cell">Acceptance</th>
-              <th className="py-2.5 px-3 w-10 text-center">Save</th>
+          <thead className="bg-slate-50/80 dark:bg-[#262624]/80 border-b border-slate-200 dark:border-[#43433F] text-slate-400 dark:text-[#A8A69C] font-bold uppercase text-[11px] tracking-wider">
+            <tr>
+              <th className="py-3 px-3 w-12 text-center">STATUS</th>
+              <th className="py-3 px-3 w-16">ID</th>
+              <th className="py-3 px-4 min-w-[200px]">PROBLEM</th>
+              <th className="py-3 px-3 w-28">DIFFICULTY</th>
+              <th className="py-3 px-3.5 hidden md:table-cell">SUBCATEGORY</th>
+              <th className="py-3 px-4 hidden sm:table-cell">COMPANIES</th>
+              <th className="py-3 px-4 text-right hidden lg:table-cell w-28">ACCEPTANCE</th>
+              <th className="py-3 px-4 text-right w-28">ACTION</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-[#383835]">
+          <tbody className="divide-y divide-slate-100 dark:divide-[#43433F]/60">
             {filteredQuestions.length === 0 ? (
               <tr>
-                <td colSpan={8} className="py-8 text-center text-slate-400 dark:text-[#8E8C82]">
+                <td colSpan={8} className="py-12 text-center text-slate-400 dark:text-[#8E8C82]">
                   No practice problems found matching your criteria.
                 </td>
               </tr>
@@ -182,12 +183,12 @@ export default function PracticeQuestionsSection() {
                 return (
                   <tr
                     key={q.id}
-                    className={`hover:bg-slate-50/70 dark:hover:bg-[#30302E]/40 transition-colors ${
-                      status === 'solved' ? 'bg-emerald-50/20 dark:bg-emerald-950/10' : ''
+                    className={`hover:bg-slate-50/80 dark:hover:bg-[#1F1E1D]/60 transition-colors group ${
+                      status === 'solved' ? 'bg-emerald-500/[0.04] dark:bg-emerald-500/[0.06]' : ''
                     }`}
                   >
                     {/* Status Toggle */}
-                    <td className="py-2.5 px-3 text-center">
+                    <td className="py-3 px-3 text-center">
                       <StatusToggle
                         status={status}
                         onToggleSolved={() => toggleSolved(q.id)}
@@ -195,76 +196,79 @@ export default function PracticeQuestionsSection() {
                     </td>
 
                     {/* Problem ID */}
-                    <td className="py-2.5 px-3 font-mono text-slate-400 dark:text-[#8E8C82]">
-                      {q.id}
+                    <td className="py-3 px-3 font-mono text-slate-400 text-xs">
+                      #{q.id}
                     </td>
 
                     {/* Problem Title */}
-                    <td className="py-2.5 px-3.5">
+                    <td className="py-3 px-4">
                       <a
                         href={q.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1.5 font-semibold text-slate-800 dark:text-[#FAF9F5] hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="font-semibold text-slate-900 dark:text-[#FAF9F5] group-hover:text-[#0F1B3D] dark:group-hover:text-[#D97757] transition-colors inline-block"
                       >
                         <span className={status === 'solved' ? 'line-through text-slate-400 dark:text-[#8E8C82]' : ''}>
                           {q.title}
                         </span>
-                        <ExternalLink className="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
                     </td>
 
-                    {/* Difficulty */}
-                    <td className="py-2.5 px-3">
-                      <DifficultyBadge difficulty={q.difficulty} />
+                    {/* Difficulty Badge */}
+                    <td className="py-3 px-3">
+                      <DifficultyBadge difficulty={q.difficulty} size="sm" />
                     </td>
 
                     {/* Subcategory */}
-                    <td className="py-2.5 px-3.5 hidden md:table-cell">
-                      <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200/80 dark:bg-[#1E1E1C] dark:text-[#A8A69C] dark:border-[#383835]">
+                    <td className="py-3 px-3.5 hidden md:table-cell">
+                      <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-700 dark:bg-[#1F1E1D] dark:text-[#A8A69C] border border-slate-200/80 dark:border-[#43433F]">
                         {q.subpatternLabel}
                       </span>
                     </td>
 
-                    {/* Top Companies */}
-                    <td className="py-2.5 px-3.5 hidden sm:table-cell">
-                      <div className="flex flex-wrap items-center gap-1">
-                        {q.companies.slice(0, 3).map((comp, idx) => {
-                          const name =
-                            companyNameMap.get(comp.toLowerCase()) ||
-                            comp.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                          return (
-                            <span
-                              key={idx}
-                              className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-600 dark:bg-[#1E1E1C] dark:text-[#A8A69C] border border-slate-200/60 dark:border-[#383835]"
-                              title={name}
-                            >
-                              {name}
-                            </span>
-                          );
-                        })}
-                        {q.companies.length > 3 && (
-                          <span
-                            className="text-[10px] font-mono text-slate-400 dark:text-[#8E8C82]"
-                            title={`${q.companies.length - 3} more companies`}
-                          >
-                            +{q.companies.length - 3}
-                          </span>
-                        )}
+                    {/* Top Companies Asking */}
+                    <td className="py-3 px-4 hidden sm:table-cell">
+                      <div className="flex items-center gap-1.5">
+                        <div className="flex items-center -space-x-1.5 overflow-hidden">
+                          {q.companies.slice(0, 3).map(slug => (
+                            <CompanyLogo
+                              key={slug}
+                              slug={slug}
+                              size="xs"
+                              className="border border-white dark:border-[#30302E] rounded-md shadow-2xs"
+                            />
+                          ))}
+                        </div>
+                        <span className="font-mono text-[11px] text-slate-500 dark:text-[#A8A69C] font-medium">
+                          {q.companies.length} {q.companies.length === 1 ? 'co' : 'cos'}
+                        </span>
                       </div>
                     </td>
 
                     {/* Acceptance */}
-                    <td className="py-2.5 px-3 text-right font-mono text-slate-500 dark:text-[#A8A69C] hidden lg:table-cell">
+                    <td className="py-3 px-4 text-right font-mono text-slate-500 dark:text-[#A8A69C] hidden lg:table-cell">
                       {q.acceptance}
                     </td>
 
-                    {/* Bookmark */}
-                    <td className="py-2.5 px-3 text-center">
-                      <BookmarkButton
-                        isBookmarked={bookmarked}
-                        onToggle={() => toggleBookmark(q.id)}
-                      />
+                    {/* Action Column matching ProblemsPage */}
+                    <td className="py-3 px-4 text-right">
+                      <div className="flex items-center justify-end gap-1.5">
+                        <div className="opacity-60 group-hover:opacity-100 transition-opacity">
+                          <BookmarkButton
+                            isBookmarked={bookmarked}
+                            onToggle={() => toggleBookmark(q.id)}
+                          />
+                        </div>
+                        <a
+                          href={q.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-slate-700 dark:text-[#FAF9F5] hover:text-white hover:bg-[#0F1B3D] dark:hover:bg-[#D97757] dark:hover:text-[#1F1E1D] rounded-lg transition-colors group-hover:bg-slate-100 dark:group-hover:bg-[#1F1E1D] group-hover:hover:bg-[#0F1B3D] dark:group-hover:hover:bg-[#D97757] group-hover:hover:text-white"
+                        >
+                          <span>Solve</span>
+                          <ExternalLink className="w-3 h-3 opacity-60" />
+                        </a>
+                      </div>
                     </td>
                   </tr>
                 );

@@ -184,7 +184,7 @@ export default function PatternDetailPage() {
         </p>
         <Link
           to="/patterns"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-xs shadow-xs"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs shadow-xs transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Patterns</span>
@@ -199,20 +199,20 @@ export default function PatternDetailPage() {
       <div className="min-h-[70vh] py-12 space-y-8 max-w-4xl mx-auto px-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-[#A8A69C]">
-          <Link to="/patterns" className="hover:text-slate-900 dark:hover:text-[#FAF9F5]">
+          <Link to="/patterns" className="hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors">
             Patterns
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="text-slate-900 dark:text-[#FAF9F5] font-semibold">{pattern.title}</span>
         </div>
 
-        <div className="rounded-3xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-8 sm:p-12 text-center space-y-6 shadow-xs">
+        <div className="rounded-3xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-8 sm:p-12 text-center space-y-6 shadow-xs">
           <div className="w-16 h-16 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/50 flex items-center justify-center text-amber-600 dark:text-amber-400 mx-auto">
             <Clock className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200 dark:border-[#43433F] text-xs font-semibold text-slate-600 dark:text-[#A8A69C]">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] text-xs font-semibold text-slate-600 dark:text-[#A8A69C]">
               <span>Track Level: {pattern.level}</span>
             </div>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-[#FAF9F5]">
@@ -223,7 +223,7 @@ export default function PatternDetailPage() {
             </p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] max-w-lg mx-auto text-left space-y-2">
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] max-w-lg mx-auto text-left space-y-2">
             <div className="text-xs font-bold text-slate-700 dark:text-[#FAF9F5]">
               Curriculum Roadmap:
             </div>
@@ -238,14 +238,14 @@ export default function PatternDetailPage() {
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               to="/patterns/sliding-window"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] font-semibold text-xs transition-colors shadow-xs"
             >
               <span>Explore Sliding Window (Available Now)</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
               to="/patterns"
-              className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] font-semibold text-xs hover:bg-slate-50 dark:hover:bg-[#30302E] transition-colors"
+              className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] font-semibold text-xs hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors"
             >
               All Patterns
             </Link>
@@ -260,7 +260,7 @@ export default function PatternDetailPage() {
     <div className="min-h-screen py-4 sm:py-6 space-y-5 sm:space-y-6">
       {/* Breadcrumb Navigation */}
       <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-[#A8A69C]">
-        <Link to="/patterns" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <Link to="/patterns" className="hover:text-[#0F1B3D] dark:hover:text-[#D97757] transition-colors">
           Patterns
         </Link>
         <ChevronRight className="w-3.5 h-3.5" />
@@ -268,7 +268,7 @@ export default function PatternDetailPage() {
       </div>
 
       {/* Hero Header matching application sizing */}
-      <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs">
+      <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3.5">
             {/* Mint Green Circle Badge with Window Icon */}
@@ -303,14 +303,14 @@ export default function PatternDetailPage() {
       </div>
 
       {/* Mobile Collapsible Module Accordion */}
-      <div className="lg:hidden rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-3 shadow-2xs">
+      <div className="lg:hidden rounded-xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-3 shadow-2xs">
         <button
           type="button"
           onClick={() => setMobileModulesOpen(!mobileModulesOpen)}
           className="w-full flex items-center justify-between text-xs font-bold text-slate-900 dark:text-[#FAF9F5] cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-mono text-[10px] flex items-center justify-center">
+            <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] flex items-center justify-center font-bold">
               {MODULES.findIndex(m => m.id === activeModule) + 1}
             </span>
             <span className="truncate">
@@ -320,7 +320,7 @@ export default function PatternDetailPage() {
           <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${mobileModulesOpen ? 'rotate-180' : ''}`} />
         </button>
         {mobileModulesOpen && (
-          <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-[#383835] space-y-1">
+          <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-[#43433F]/70 space-y-1">
             {MODULES.map((mod, idx) => (
               <button
                 key={mod.id}
@@ -331,11 +331,11 @@ export default function PatternDetailPage() {
                 }}
                 className={`w-full flex items-center gap-2.5 p-2 rounded-lg text-left text-xs transition-colors cursor-pointer ${
                   activeModule === mod.id
-                    ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-bold'
-                    : 'text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#1E1E1C]'
+                    ? 'bg-[#0F1B3D]/5 dark:bg-[#D97757]/15 text-[#0F1B3D] dark:text-[#FAF9F5] font-bold'
+                    : 'text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
                 }`}
               >
-                <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-[#1E1E1C] font-mono text-[10px] flex items-center justify-center shrink-0">
+                <span className="w-5 h-5 rounded-full bg-slate-100 dark:bg-[#1F1E1D] font-mono text-[10px] flex items-center justify-center shrink-0">
                   {idx + 1}
                 </span>
                 <span className="truncate">{mod.title}</span>
@@ -353,20 +353,20 @@ export default function PatternDetailPage() {
             isSidebarCollapsed ? 'w-14' : 'w-72'
           }`}
         >
-          <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-2.5 shadow-2xs space-y-1">
+          <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-2.5 shadow-2xs space-y-1">
             {isSidebarCollapsed ? (
               /* Collapsed Slim Rail */
               <div className="flex flex-col items-center gap-1.5 py-1">
                 <button
                   type="button"
                   onClick={() => setIsSidebarCollapsed(false)}
-                  className="p-1.5 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 cursor-pointer transition-colors"
+                  className="p-1.5 rounded-lg text-[#0F1B3D] dark:text-[#D97757] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] cursor-pointer transition-colors"
                   title="Expand modules sidebar"
                   aria-label="Expand modules sidebar"
                 >
                   <PanelLeftOpen className="w-4 h-4" />
                 </button>
-                <div className="w-6 h-px bg-slate-200 dark:bg-[#383835] my-0.5" />
+                <div className="w-6 h-px bg-slate-200 dark:bg-[#43433F] my-0.5" />
                 {MODULES.map((mod, idx) => {
                   const isActive = activeModule === mod.id;
                   return (
@@ -376,8 +376,8 @@ export default function PatternDetailPage() {
                       onClick={() => scrollToSection(mod.id)}
                       className={`w-8 h-8 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all cursor-pointer relative group ${
                         isActive
-                          ? 'bg-blue-600 text-white shadow-2xs scale-105'
-                          : 'bg-slate-100 text-slate-500 dark:bg-[#1E1E1C] dark:text-[#A8A69C] hover:bg-slate-200 dark:hover:bg-[#30302E]'
+                          ? 'bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] shadow-2xs scale-105'
+                          : 'bg-slate-100 text-slate-500 dark:bg-[#1F1E1D] dark:text-[#A8A69C] hover:bg-slate-200 dark:hover:bg-[#262624]'
                       }`}
                       title={`Step ${idx + 1}: ${mod.title}`}
                       aria-label={mod.title}
@@ -394,14 +394,14 @@ export default function PatternDetailPage() {
             ) : (
               /* Expanded Full Sidebar */
               <>
-                <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 dark:border-[#383835] mb-1">
+                <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 dark:border-[#43433F]/70 mb-1">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                     Modules in Track
                   </span>
                   <button
                     type="button"
                     onClick={() => setIsSidebarCollapsed(true)}
-                    className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1E1E1C] cursor-pointer transition-colors"
+                    className="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] cursor-pointer transition-colors"
                     title="Collapse modules sidebar (more room for content)"
                     aria-label="Collapse modules sidebar"
                   >
@@ -419,15 +419,15 @@ export default function PatternDetailPage() {
                         onClick={() => scrollToSection(mod.id)}
                         className={`w-full flex items-center gap-2.5 p-2 rounded-xl text-left transition-all cursor-pointer ${
                           isActive
-                            ? 'bg-blue-50/90 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-900/60 shadow-2xs'
-                            : 'hover:bg-slate-50 dark:hover:bg-[#1E1E1C] border border-transparent'
+                            ? 'bg-[#0F1B3D]/5 dark:bg-[#D97757]/15 border border-[#0F1B3D]/20 dark:border-[#D97757]/30 shadow-2xs'
+                            : 'hover:bg-slate-50 dark:hover:bg-[#1F1E1D] border border-transparent'
                         }`}
                       >
                         <div
                           className={`w-6 h-6 rounded-full flex items-center justify-center font-mono text-[11px] font-bold shrink-0 transition-colors ${
                             isActive
-                              ? 'bg-blue-600 text-white shadow-2xs'
-                              : 'bg-slate-100 text-slate-500 dark:bg-[#1E1E1C] dark:text-[#A8A69C]'
+                              ? 'bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] shadow-2xs'
+                              : 'bg-slate-100 text-slate-500 dark:bg-[#1F1E1D] dark:text-[#A8A69C]'
                           }`}
                         >
                           {idx + 1}
@@ -436,7 +436,7 @@ export default function PatternDetailPage() {
                           <div
                             className={`text-xs font-bold truncate ${
                               isActive
-                                ? 'text-blue-900 dark:text-blue-200'
+                                ? 'text-[#0F1B3D] dark:text-[#FAF9F5]'
                                 : 'text-slate-800 dark:text-[#FAF9F5]'
                             }`}
                           >
@@ -459,14 +459,14 @@ export default function PatternDetailPage() {
         <div className="flex-1 min-w-0 space-y-6">
           {/* Collapsed notification pill for quick expand */}
           {isSidebarCollapsed && (
-            <div className="hidden lg:flex items-center justify-between px-3.5 py-1.5 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] text-xs">
+            <div className="hidden lg:flex items-center justify-between px-3.5 py-1.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs">
               <span className="text-slate-500 dark:text-[#A8A69C] text-[11px]">
                 Showing full-width content view. Track modules are collapsed into the left icon rail.
               </span>
               <button
                 type="button"
                 onClick={() => setIsSidebarCollapsed(false)}
-                className="flex items-center gap-1 font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                className="flex items-center gap-1 font-semibold text-[#0F1B3D] dark:text-[#D97757] hover:underline cursor-pointer"
               >
                 <PanelLeftOpen className="w-3.5 h-3.5" />
                 <span>Expand Sidebar</span>
@@ -477,10 +477,10 @@ export default function PatternDetailPage() {
           {/* Module 1: Introduction */}
           <section
             id="intro"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-3"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
           >
-            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#383835]">
-              <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-mono text-[10px] font-bold flex items-center justify-center">
+            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
+              <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 1
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
@@ -490,7 +490,7 @@ export default function PatternDetailPage() {
 
             <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-2.5">
               <p>
-                The <strong>Sliding Window</strong> technique is an algorithmic pattern designed to convert inefficient nested-loop calculations over contiguous sequences (subarrays or substrings) into linear time <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E1C] font-mono text-blue-600 dark:text-blue-400 font-bold text-xs">O(N)</code> solutions.
+                The <strong>Sliding Window</strong> technique is an algorithmic pattern designed to convert inefficient nested-loop calculations over contiguous sequences (subarrays or substrings) into linear time <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono text-[#0F1B3D] dark:text-[#D97757] font-bold text-xs">O(N)</code> solutions.
               </p>
               <p>
                 Instead of recalculating overlapping portions of the data structure from scratch every time, a &ldquo;window&rdquo; of elements maintains a rolling state. When moving the window forward:
@@ -502,12 +502,12 @@ export default function PatternDetailPage() {
               </ul>
             </div>
 
-            <div className="p-3 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/70 dark:border-blue-900/40 text-xs text-blue-900 dark:text-blue-300 space-y-1">
+            <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs text-slate-800 dark:text-[#FAF9F5] space-y-1">
               <div className="font-bold flex items-center gap-1.5">
-                <Lightbulb className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                <Lightbulb className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
                 <span>Core Applicability Invariant:</span>
               </div>
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-slate-600 dark:text-[#A8A69C]">
                 Not every contiguous subarray problem qualifies for Sliding Window. The technique requires that window state transitions are <strong>locally invertible or incrementally composable</strong> (i.e. adding an entering element and removing an exiting element takes <code className="font-mono text-[11px]">O(1)</code>) and that valid window boundaries satisfy monotonic expansion/contraction invariants.
               </p>
             </div>
@@ -516,10 +516,10 @@ export default function PatternDetailPage() {
           {/* Module 2: Recognizing the Pattern */}
           <section
             id="recognizing"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-3"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
           >
-            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#383835]">
-              <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-mono text-[10px] font-bold flex items-center justify-center">
+            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
+              <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 2
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
@@ -530,7 +530,7 @@ export default function PatternDetailPage() {
             <div className="space-y-3 text-xs sm:text-[13px]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {/* Keywords & Signals */}
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] space-y-1.5">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
                   <h3 className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2 text-xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
                     Keywords & Signals to Look For
@@ -545,7 +545,7 @@ export default function PatternDetailPage() {
                 </div>
 
                 {/* When NOT to Use */}
-                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] space-y-1.5">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
                   <h3 className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2 text-xs">
                     <span className="w-2 h-2 rounded-full bg-rose-500" />
                     When NOT to Use Sliding Window
@@ -563,10 +563,10 @@ export default function PatternDetailPage() {
           {/* Module 3: Fixed-size Window */}
           <section
             id="fixed-size"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-3"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
           >
-            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#383835]">
-              <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-mono text-[10px] font-bold flex items-center justify-center">
+            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
+              <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 3
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
@@ -576,16 +576,16 @@ export default function PatternDetailPage() {
 
             <div className="text-xs sm:text-[13px] text-slate-600 dark:text-[#A8A69C] leading-relaxed space-y-2.5">
               <p>
-                In a fixed-size window, the window length <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1E1E1C] font-mono text-xs font-bold">k</code> is constant throughout execution. The standard recipe consists of two clean phases:
+                In a fixed-size window, the window length <code className="px-1 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] font-mono text-xs font-bold">k</code> is constant throughout execution. The standard recipe consists of two clean phases:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-0.5">
-                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#383835] bg-slate-50/60 dark:bg-[#1E1E1C]/60 space-y-1">
+                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/60 dark:bg-[#1F1E1D]/60 space-y-1">
                   <div className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">Phase 1: Build the First Window</div>
                   <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
                     Iterate from <code className="font-mono text-[11px]">0</code> to <code className="font-mono text-[11px]">k - 1</code> and compute the initial state (sum, character frequency map, etc.).
                   </p>
                 </div>
-                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#383835] bg-slate-50/60 dark:bg-[#1E1E1C]/60 space-y-1">
+                <div className="p-3 rounded-xl border border-slate-200/80 dark:border-[#43433F] bg-slate-50/60 dark:bg-[#1F1E1D]/60 space-y-1">
                   <div className="font-bold text-slate-900 dark:text-[#FAF9F5] text-xs">Phase 2: Slide Across the Sequence</div>
                   <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
                     Iterate from <code className="font-mono text-[11px]">k</code> to <code className="font-mono text-[11px]">n - 1</code>. In each step, remove <code className="font-mono text-[11px]">nums[i - k]</code>, add <code className="font-mono text-[11px]">nums[i]</code>, and record the answer.
@@ -594,7 +594,7 @@ export default function PatternDetailPage() {
               </div>
 
               {/* Edge Cases & Negative Numbers in Fixed Windows */}
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#383835] space-y-1.5 text-xs">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5 text-xs">
                 <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5">
                   <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 shrink-0" />
                   <span>Negative Numbers & Boundary Considerations:</span>
@@ -614,10 +614,10 @@ export default function PatternDetailPage() {
           {/* Module 4: Variable-size Window */}
           <section
             id="variable-size"
-            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs space-y-3"
+            className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-2xs space-y-3"
           >
-            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#383835]">
-              <span className="w-5 h-5 rounded-full bg-blue-600 text-white font-mono text-[10px] font-bold flex items-center justify-center">
+            <div className="flex items-center gap-2 pb-2.5 border-b border-slate-100 dark:border-[#43433F]/70">
+              <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center">
                 4
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
@@ -634,7 +634,7 @@ export default function PatternDetailPage() {
               <div className="rounded-xl border border-slate-800 bg-slate-900 overflow-hidden shadow-2xs">
                 <div className="flex items-center justify-between px-3 py-2 bg-slate-950/70 border-b border-slate-800 text-xs">
                   <div className="flex items-center gap-2">
-                    <Code2 className="w-3.5 h-3.5 text-blue-400" />
+                    <Code2 className="w-3.5 h-3.5 text-slate-300" />
                     <span className="font-mono text-[11px] font-semibold text-slate-300">
                       variable_sliding_window.py
                     </span>

@@ -79,9 +79,9 @@ export default function SlidingWindowVisualizer() {
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#262624] p-4 sm:p-5 shadow-2xs">
+    <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs">
       {/* Visualizer Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-[#383835]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-[#43433F]/70">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
             Interactive Visualization
@@ -93,13 +93,13 @@ export default function SlidingWindowVisualizer() {
 
         {/* Mode Selector */}
         <div className="flex items-center gap-2 self-start sm:self-auto">
-          <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1E1E1C] border border-slate-200/80 dark:border-[#43433F]">
+          <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F]">
             <button
               type="button"
               onClick={() => setWindowMode('fixed')}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
                 windowMode === 'fixed'
-                  ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
+                  ? 'bg-white dark:bg-[#30302E] text-[#0F1B3D] dark:text-[#FAF9F5] shadow-2xs font-bold'
                   : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
               }`}
             >
@@ -108,9 +108,9 @@ export default function SlidingWindowVisualizer() {
             <button
               type="button"
               onClick={() => setWindowMode('variable')}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors ${
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
                 windowMode === 'variable'
-                  ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-2xs'
+                  ? 'bg-white dark:bg-[#30302E] text-[#0F1B3D] dark:text-[#FAF9F5] shadow-2xs font-bold'
                   : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
               }`}
             >
@@ -125,7 +125,7 @@ export default function SlidingWindowVisualizer() {
           {/* Main Visualizer Stage */}
           <div className="space-y-4">
             {/* Array Row with Window Box */}
-            <div className="flex flex-col items-center justify-center py-4 px-3 bg-slate-50/70 dark:bg-[#1E1E1C]/60 rounded-xl border border-slate-100 dark:border-[#383835] overflow-x-auto">
+            <div className="flex flex-col items-center justify-center py-4 px-3 bg-slate-50/70 dark:bg-[#1F1E1D]/60 rounded-xl border border-slate-100 dark:border-[#43433F]/70 overflow-x-auto">
               <div className="flex items-center gap-3 px-2 min-w-max">
                 <span className="font-semibold text-xs text-slate-500 dark:text-[#A8A69C]">
                   Array:
@@ -146,8 +146,8 @@ export default function SlidingWindowVisualizer() {
                               : isRemoved
                               ? 'border-rose-400 bg-rose-50 text-rose-600 line-through opacity-75 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-500'
                               : isInWindow
-                              ? 'border-blue-500 bg-blue-50/90 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300 dark:border-blue-400 shadow-xs'
-                              : 'border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-[#A8A69C] bg-white dark:bg-[#2A2A28]'
+                              ? 'border-[#0F1B3D] bg-[#0F1B3D]/5 text-[#0F1B3D] dark:border-[#D97757] dark:bg-[#D97757]/15 dark:text-[#FAF9F5] shadow-xs'
+                              : 'border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-[#A8A69C] bg-white dark:bg-[#1F1E1D]'
                           }`}
                         >
                           {val}
@@ -164,7 +164,7 @@ export default function SlidingWindowVisualizer() {
               {/* Sub-label explaining entering and leaving elements */}
               <div className="flex flex-wrap items-center justify-center gap-4 mt-2.5 text-[11px] font-mono">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-xs bg-blue-500" />
+                  <span className="w-2 h-2 rounded-xs bg-[#0F1B3D] dark:bg-[#D97757]" />
                   <span className="text-slate-500 dark:text-[#A8A69C]">Active Window</span>
                 </div>
                 {step.removedElement && (
@@ -189,7 +189,7 @@ export default function SlidingWindowVisualizer() {
             {/* Metrics Row (4 stat cards) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5">
               {/* Metric 1: Window Size */}
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1E1E1C]/80 border border-slate-200/80 dark:border-[#383835]">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1F1E1D]/80 border border-slate-200/80 dark:border-[#43433F]">
                 <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-[#A8A69C] tracking-wider">
                   Window Size
                 </div>
@@ -199,7 +199,7 @@ export default function SlidingWindowVisualizer() {
               </div>
 
               {/* Metric 2: Current Sum */}
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1E1E1C]/80 border border-slate-200/80 dark:border-[#383835]">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1F1E1D]/80 border border-slate-200/80 dark:border-[#43433F]">
                 <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-[#A8A69C] tracking-wider">
                   Current Sum
                 </div>
@@ -209,17 +209,17 @@ export default function SlidingWindowVisualizer() {
               </div>
 
               {/* Metric 3: Current Average */}
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1E1E1C]/80 border border-slate-200/80 dark:border-[#383835]">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1F1E1D]/80 border border-slate-200/80 dark:border-[#43433F]">
                 <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-[#A8A69C] tracking-wider">
                   Current Average
                 </div>
-                <div className="text-base sm:text-lg font-bold font-mono text-blue-600 dark:text-blue-400 mt-0.5">
+                <div className="text-base sm:text-lg font-bold font-mono text-[#0F1B3D] dark:text-[#D97757] mt-0.5">
                   {step.currentAverage.toFixed(2)}
                 </div>
               </div>
 
               {/* Metric 4: Best Average */}
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1E1E1C]/80 border border-slate-200/80 dark:border-[#383835]">
+              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50/80 dark:bg-[#1F1E1D]/80 border border-slate-200/80 dark:border-[#43433F]">
                 <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-[#A8A69C] tracking-wider">
                   Best Average
                 </div>
@@ -230,18 +230,18 @@ export default function SlidingWindowVisualizer() {
             </div>
 
             {/* Step Explanation Callout Banner */}
-            <div className="p-3 sm:p-3.5 rounded-xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200/80 dark:border-blue-900/50 flex items-start gap-2.5">
-              <div className="w-5 h-5 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+            <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] flex items-start gap-2.5">
+              <div className="w-5 h-5 rounded-full bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                 <Info className="w-3 h-3" />
               </div>
               <div className="space-y-0.5">
-                <div className="text-xs font-bold text-blue-900 dark:text-blue-200">
+                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
                   Step {step.stepNumber}: {step.title}
                 </div>
-                <p className="text-xs text-blue-800/90 dark:text-blue-300/90 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
                   {step.explanation}
                 </p>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 pt-0.5 font-semibold">
+                <div className="text-[11px] font-mono text-[#0F1B3D] dark:text-[#D97757] pt-0.5 font-semibold">
                   {step.formula}
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function SlidingWindowVisualizer() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset</span>
@@ -271,7 +271,7 @@ export default function SlidingWindowVisualizer() {
                     }}
                     className={`h-1.5 rounded-full transition-all cursor-pointer ${
                       idx === currentStepIndex
-                        ? 'w-5 bg-blue-600 dark:bg-blue-500'
+                        ? 'w-5 bg-[#0F1B3D] dark:bg-[#D97757]'
                         : 'w-1.5 bg-slate-300 dark:bg-[#43433F] hover:bg-slate-400'
                     }`}
                     aria-label={`Jump to step ${idx + 1}`}
@@ -285,7 +285,7 @@ export default function SlidingWindowVisualizer() {
                   type="button"
                   onClick={handlePrev}
                   disabled={currentStepIndex === 0}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#30302E] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D] disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                   <span>Previous</span>
@@ -295,7 +295,7 @@ export default function SlidingWindowVisualizer() {
                   type="button"
                   onClick={handleNext}
                   disabled={currentStepIndex >= totalSteps - 1}
-                  className="flex items-center gap-1 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-2xs cursor-pointer"
+                  className="flex items-center gap-1 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-2xs cursor-pointer"
                 >
                   <span>Next Step</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -304,16 +304,16 @@ export default function SlidingWindowVisualizer() {
                 <button
                   type="button"
                   onClick={togglePlay}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#30302E] transition-colors cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200 dark:border-[#43433F] bg-white dark:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
                 >
                   {isPlaying ? (
                     <>
-                      <Pause className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                      <Pause className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
                       <span>Pause</span>
                     </>
                   ) : (
                     <>
-                      <Play className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 fill-blue-600 dark:fill-blue-400" />
+                      <Play className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757] fill-[#0F1B3D] dark:fill-[#D97757]" />
                       <span>Auto Play</span>
                     </>
                   )}
@@ -325,9 +325,9 @@ export default function SlidingWindowVisualizer() {
       ) : (
         /* Variable Window Concept Explainer */
         <div className="space-y-3 py-2">
-          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1E1E1C] border border-slate-200 dark:border-[#383835] space-y-2">
+          <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] space-y-2">
             <h4 className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5">
-              <Sliders className="w-3.5 h-3.5 text-blue-500" />
+              <Sliders className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
               Dynamic Expansion and Contraction Mechanism
             </h4>
             <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
