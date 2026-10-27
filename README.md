@@ -1,6 +1,6 @@
 # CompanyWise — Technical Interview Preparation & Company Datasets
 
-> **CompanyWise** is an interactive, engineering-grade interview intelligence platform with real-time LeetCode profile synchronization, coupled with the complete archive of company-specific problem frequency datasets.
+> **CompanyWise** is an interactive, engineering-grade interview intelligence platform with one-click public LeetCode profile synchronization, coupled with the complete archive of company-specific problem frequency datasets.
 
 [![Live Platform](https://img.shields.io/badge/Live%20Platform-companywise--arh.vercel.app-0F1B3D?style=for-the-badge&logo=vercel&logoColor=white)](https://companywise-arh.vercel.app)
 [![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -22,7 +22,7 @@
   - [490 Tech Companies & 3,411 Questions](#1-490-tech-companies--3411-canonical-problems)
   - [6 Recency Time Windows](#2-6-recency-time-windows)
   - [Target Company Tracking & Goals](#3-target-company-tracking--preparation-goals)
-  - [Real-Time LeetCode Sync](#4-real-time-leetcode-sync--zero-password-privacy)
+  - [LeetCode Profile Sync](#4-leetcode-profile-sync--zero-password-privacy)
   - [Custom Themed UI & Searchable Dropdowns](#5-custom-themed-ui--searchable-dropdowns)
   - [Practice Velocity & Streaks](#6-practice-velocity--streak-tracker)
   - [Native WebGL 3D Visualization](#7-native-webgl-3d-visualization)
@@ -47,7 +47,7 @@ Interview preparation often turns into solving hundreds of random algorithmic qu
 
 While raw collections of CSV files with company-specific questions have existed on GitHub, navigating hundreds of flat spreadsheet files while coding is cumbersome, disjointed, and lacks real-time progress tracking.
 
-**CompanyWise** solves this by unifying **1,112 curated company-wise CSV files** into an ultra-fast, zero-telemetry, client-side web application. It bridges the gap between historical candidate interview reports and active coding preparation, offering frequency rankings, recency filtering, real-time LeetCode profile synchronization, and goal tracking.
+**CompanyWise** solves this by unifying **1,112 curated company-wise CSV files** into an ultra-fast, zero-telemetry, client-side web application. It bridges the gap between historical candidate interview reports and active coding preparation, offering relative frequency indices, recency filtering, one-click LeetCode profile synchronization, and goal tracking.
 
 ---
 
@@ -55,7 +55,7 @@ While raw collections of CSV files with company-specific questions have existed 
 
 ### 1. 490 Tech Companies & 3,411 Canonical Problems
 - Full coverage of **490 global technology companies**, including Big Tech (FAANG / MAMAA), high-growth product companies, venture-backed startups, quantitative finance firms, and enterprise service leaders.
-- Deduplicated catalog of **3,411 unique LeetCode problems** with verified direct problem URLs, acceptance percentages, difficulty classifications (Easy, Medium, Hard), and cross-company frequency indices.
+- Deduplicated catalog of **3,411 unique LeetCode problems** with indexed direct problem URLs, acceptance percentages, difficulty classifications (Easy, Medium, Hard), and cross-company frequency indices.
 
 ### 2. 6 Recency Time Windows
 Interview patterns evolve over time. CompanyWise provides dynamic time-period filtering so candidates can see long-term classics or urgent recent trends:
@@ -72,9 +72,9 @@ Interview patterns evolve over time. CompanyWise provides dynamic time-period fi
 - **Targeted Filter Tabs**: Filter both the **Companies Catalog** and the **Progress Matrix** to view only your chosen target companies.
 - **Dynamic Home Dashboard**: Your targeted companies are automatically prioritized and featured on the Home Dashboard shortcuts.
 
-### 4. Real-Time LeetCode Sync & Zero-Password Privacy
+### 4. LeetCode Profile Sync & Zero-Password Privacy
 - **Client-Side Sync**: Connect your public LeetCode handle directly from the top navigation bar without entering any password.
-- **Automatic Solved Problem Import**: Fetches your accepted LeetCode submissions via a serverless GraphQL proxy and automatically marks matching problems as completed across all 490 companies in real time.
+- **Public Submission Import**: Fetches your recently accepted LeetCode submissions (up to 100 via public GraphQL proxy with public API fallback) and automatically marks matching problems as completed across all 490 companies. Older solved problems can be marked manually or restored via backup.
 - **Global Cross-Company Propagation**: When a problem is marked as solved, it updates instantly across every company where that question appears, updating overall completion percentages and difficulty distributions.
 - **Export & Import**: Full data portability with 1-click JSON backup export and restore.
 
@@ -296,5 +296,6 @@ npx vercel
 ## ⚖️ Disclaimer & License
 
 - **Disclaimer**: CompanyWise is an independent open-source project and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with LeetCode Inc. LeetCode is a registered trademark of LeetCode Inc. All company names, logos, and brands are property of their respective owners.
-- **Data Attribution**: Full credit for the original dataset belongs to Krishna Dey ([@krishnadey30](https://github.com/krishnadey30)), with subsequent additions and recency updates by liquidslr ([@liquidslr](https://github.com/liquidslr)).
+- **Dataset Provenance & Snapshot**: Static data snapshot as of October 2026. The catalog unifies public company-tagged interview question datasets compiled from candidate reports (original curation by Krishna Dey [@krishnadey30](https://github.com/krishnadey30), expanded by liquidslr [@liquidslr](https://github.com/liquidslr)).
+- **Frequency Index Definition**: The reported frequency metric is an empirical appearance index derived from the source CSV snapshot entries, not a guaranteed probability or prediction of receiving any specific question in an interview.
 - **License**: Released under the [MIT License](LICENSE).

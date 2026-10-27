@@ -67,6 +67,23 @@ export function generateHashingSteps(
     }
   }
 
+  // Explicit terminal state for unsuccessful search
+  if (steps.length > 0 && steps[steps.length - 1].statusBadge?.variant !== 'success') {
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Search Complete: Target ${target} Not Found`,
+      explanation: `All ${nums.length} elements inspected without finding any pair summing to ${target}. Hash map lookup terminates with empty result.`,
+      elements: nums,
+      highlightIndices: [],
+      metrics: [
+        { label: 'Target', value: target },
+        { label: 'Result', value: 'Not Found' },
+      ],
+      auxiliaryData: { map: { ...map }, found: false },
+      statusBadge: { label: 'No Match Found', variant: 'danger' },
+    });
+  }
+
   return steps;
 }
 
@@ -165,6 +182,23 @@ export function generateTwoPointersSteps(
         statusBadge: { label: '<- Shift Right', variant: 'warning' },
       });
     }
+  }
+
+  // Explicit terminal state for unsuccessful two-pointer search
+  if (left >= right && steps.length > 0 && steps[steps.length - 1].statusBadge?.variant !== 'success') {
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Search Complete: No Pair Sums to ${target}`,
+      explanation: `Pointers converged (Left: ${left}, Right: ${right}) without finding any pair summing to ${target}. Search terminates with no result.`,
+      elements: nums,
+      highlightIndices: [],
+      auxiliaryData: { left, right, found: false },
+      metrics: [
+        { label: 'Status', value: 'No Pair Found' },
+        { label: 'Target', value: target },
+      ],
+      statusBadge: { label: 'No Pair Found', variant: 'danger' },
+    });
   }
 
   return steps;
@@ -332,6 +366,23 @@ export function generateBinarySearchSteps(
       });
       right = mid - 1;
     }
+  }
+
+  // Explicit terminal state for unsuccessful binary search
+  if (left > right && steps.length > 0 && steps[steps.length - 1].statusBadge?.variant !== 'success') {
+    steps.push({
+      stepNumber: steps.length + 1,
+      title: `Search Complete: Target ${target} Not Found`,
+      explanation: `Search boundaries crossed (Left ${left} > Right ${right}). The target ${target} is not present in the sorted array. Return -1.`,
+      elements: nums,
+      highlightIndices: [],
+      auxiliaryData: { left, right, found: false, returnIndex: -1 },
+      metrics: [
+        { label: 'Status', value: 'Not Found' },
+        { label: 'Return', value: -1 },
+      ],
+      statusBadge: { label: 'Target Not Found', variant: 'danger' },
+    });
   }
 
   return steps;
@@ -1320,96 +1371,104 @@ export function generateUnionFindSteps(
   return steps;
 }
 
-// 14. Backtracking (Subsets Generation - Algorithm Driven)
+// 14. Backtracking (Permutations Generation - LeetCode #46 - Algorithm Driven)
 export function generateBacktrackingSteps(nums: number[] = [1, 2]): GenericVisualizerStep[] {
   const steps: GenericVisualizerStep[] = [];
-  const currentSubset: number[] = [];
-  const allSubsets: string[] = [];
+  const currentPerm: number[] = [];
+  const used: boolean[] = new Array(nums.length).fill(false);
+  const allPerms: string[] = [];
 
   steps.push({
     stepNumber: 1,
-    title: 'Initialize Backtracking for Subsets',
-    explanation: `Generate all 2^N subsets of [${nums.join(', ')}]. Start with empty subset [].`,
+    title: 'Initialize Backtracking for Permutations (LeetCode #46)',
+    explanation: `Generate all ${nums.length}! = ${nums.length === 2 ? 2 : 6} permutations of [${nums.join(', ')}]. Start with empty path [] and used = [${used.join(', ')}].`,
     elements: nums,
     highlightIndices: [],
     metrics: [
       { label: 'Input Length', value: nums.length },
-      { label: 'Total Expected', value: Math.pow(2, nums.length) },
+      { label: 'Expected Perms', value: nums.length === 2 ? 2 : 6 },
     ],
-    auxiliaryData: { currentSubset: '[]', allSubsets: [] },
+    auxiliaryData: { path: '[]', used: [...used], allPermutations: [] },
     statusBadge: { label: 'Start Backtracking', variant: 'info' },
   });
 
-  function backtrack(startIdx: number) {
-    allSubsets.push(`[${currentSubset.join(', ')}]`);
-
-    steps.push({
-      stepNumber: steps.length + 1,
-      title: `Record Subset: [${currentSubset.join(', ')}]`,
-      explanation: `Add current subset state [${currentSubset.join(', ')}] to answer list. Total subsets collected: ${allSubsets.length}.`,
-      elements: nums,
-      highlightIndices: currentSubset.map(val => nums.indexOf(val)),
-      metrics: [
-        { label: 'Current Subset', value: `[${currentSubset.join(', ')}]` },
-        { label: 'Subsets Found', value: allSubsets.length },
-      ],
-      auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
-      statusBadge: { label: 'Recorded', variant: 'info' },
-    });
-
-    for (let i = startIdx; i < nums.length; i++) {
-      // Choose
-      currentSubset.push(nums[i]);
+  function backtrack() {
+    if (currentPerm.length === nums.length) {
+      const permStr = `[${currentPerm.join(', ')}]`;
+      allPerms.push(permStr);
       steps.push({
         stepNumber: steps.length + 1,
-        title: `Choose: Push ${nums[i]} -> Subset [${currentSubset.join(', ')}]`,
-        explanation: `Make decision: include element ${nums[i]}. Recurse deeper down decision branch.`,
+        title: `Base Case Reached: Valid Permutation ${permStr}`,
+        explanation: `Path length equals input length (${nums.length}). Record complete permutation ${permStr} to result list.`,
+        elements: nums,
+        highlightIndices: currentPerm.map(val => nums.indexOf(val)),
+        metrics: [
+          { label: 'Recorded', value: permStr },
+          { label: 'Permutations Found', value: allPerms.length },
+        ],
+        auxiliaryData: { path: permStr, used: [...used], allPermutations: [...allPerms] },
+        statusBadge: { label: 'Recorded', variant: 'success' },
+      });
+      return;
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+      if (used[i]) continue;
+
+      // Choose
+      used[i] = true;
+      currentPerm.push(nums[i]);
+      steps.push({
+        stepNumber: steps.length + 1,
+        title: `Choose: Push nums[${i}] (${nums[i]}) -> Path [${currentPerm.join(', ')}]`,
+        explanation: `Select available element ${nums[i]}. Mark used[${i}] = true. Recurse down decision branch.`,
         elements: nums,
         highlightIndices: [i],
         activePointers: [{ name: `+${nums[i]}`, index: i, color: 'indigo' }],
         metrics: [
           { label: 'Choice', value: nums[i] },
-          { label: 'State', value: `[${currentSubset.join(', ')}]` },
+          { label: 'Path', value: `[${currentPerm.join(', ')}]` },
         ],
-        auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
+        auxiliaryData: { path: `[${currentPerm.join(', ')}]`, used: [...used], allPermutations: [...allPerms] },
         statusBadge: { label: `Choose +${nums[i]}`, variant: 'info' },
       });
 
       // Explore
-      backtrack(i + 1);
+      backtrack();
 
-      // Un-choose (Backtrack)
-      const popped = currentSubset.pop();
+      // Unchoose (Backtrack)
+      const popped = currentPerm.pop();
+      used[i] = false;
       steps.push({
         stepNumber: steps.length + 1,
-        title: `Backtrack: Pop ${popped} -> Restore State`,
-        explanation: `Undo decision: pop element ${popped}. Revert subset to [${currentSubset.join(', ')}] to explore alternative branches.`,
+        title: `Backtrack: Pop ${popped} & Unmark used[${i}] -> Restore State`,
+        explanation: `Undo decision: remove ${popped} and reset used[${i}] = false. Reverted path to [${currentPerm.join(', ')}] to try sibling choices.`,
         elements: nums,
         highlightIndices: [i],
         activePointers: [{ name: 'Undo', index: i, color: 'amber' }],
         metrics: [
           { label: 'Undone', value: popped ?? 'none' },
-          { label: 'Reverted State', value: `[${currentSubset.join(', ')}]` },
+          { label: 'Restored Path', value: `[${currentPerm.join(', ')}]` },
         ],
-        auxiliaryData: { currentSubset: `[${currentSubset.join(', ')}]`, allSubsets: [...allSubsets] },
+        auxiliaryData: { path: `[${currentPerm.join(', ')}]`, used: [...used], allPermutations: [...allPerms] },
         statusBadge: { label: 'Backtracked', variant: 'warning' },
       });
     }
   }
 
-  backtrack(0);
+  backtrack();
 
   steps.push({
     stepNumber: steps.length + 1,
-    title: `Backtracking Complete: All ${allSubsets.length} Subsets Found`,
-    explanation: `Full decision tree explored. All 2^${nums.length} = ${allSubsets.length} subsets generated: [${allSubsets.join(', ')}].`,
+    title: `Backtracking Complete: All ${allPerms.length} Permutations Generated`,
+    explanation: `State-space tree fully traversed. All ${allPerms.length} permutations collected: [${allPerms.join(', ')}].`,
     elements: nums,
     highlightIndices: Array.from({ length: nums.length }, (_, i) => i),
     metrics: [
-      { label: 'Total Subsets', value: allSubsets.length },
-      { label: 'Complexity', value: 'O(2^N)' },
+      { label: 'Total Permutations', value: allPerms.length },
+      { label: 'Complexity', value: 'O(N! × N)' },
     ],
-    auxiliaryData: { currentSubset: '[]', allSubsets: [...allSubsets] },
+    auxiliaryData: { allPermutations: [...allPerms] },
     statusBadge: { label: 'Complete', variant: 'success' },
   });
 

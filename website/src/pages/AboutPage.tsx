@@ -11,6 +11,19 @@ export default function AboutPage() {
       {/* Main 4 Horizontal Chapters */}
       <AboutSection />
 
+      {/* Dataset Provenance & Methodology */}
+      <section className="p-5 sm:p-6 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] space-y-3">
+        <div className="flex items-center gap-2 text-slate-900 dark:text-[#FAF9F5] font-bold text-sm">
+          <span>Data Provenance & Methodology Disclosure</span>
+          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">
+            Snapshot: October 2026
+          </span>
+        </div>
+        <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+          CompanyWise provides company-tagged interview practice questions aggregated from public candidate interview reports. Upstream datasets are curated by Krishna Dey (<code className="px-1 py-0.5 rounded bg-white dark:bg-[#262624] text-[11px]">@krishnadey30</code>) with recency expansions by liquidslr (<code className="px-1 py-0.5 rounded bg-white dark:bg-[#262624] text-[11px]">@liquidslr</code>). Question frequency scores represent relative appearance indices across the source CSV snapshots, rather than a guaranteed probability of receiving a specific question in an interview.
+        </p>
+      </section>
+
       {/* Deep-Dive Technical Blueprint */}
       <section className="space-y-6 pt-8 border-t border-slate-200/80 dark:border-[#43433F]/80">
         <div className="space-y-1">

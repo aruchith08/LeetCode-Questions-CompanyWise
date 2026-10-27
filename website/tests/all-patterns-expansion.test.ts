@@ -372,13 +372,13 @@ describe('18 DSA Patterns Expansion - True Algorithmic Execution Correctness', (
     expect(cycleStep?.auxiliaryData?.redundantEdge).toBe('(0, 2)');
   });
 
-  it('14. Backtracking generates exactly 2^N subsets through choose, explore, and un-choose', () => {
+  it('14. Backtracking generates exactly N! permutations through choose, explore, and un-choose', () => {
     const steps = generateBacktrackingSteps([1, 2]);
     const lastStep = steps[steps.length - 1];
     expect(lastStep.statusBadge?.label).toBe('Complete');
-    // 2^2 = 4 subsets: [], [1], [1, 2], [2]
-    expect(lastStep.auxiliaryData?.allSubsets).toHaveLength(4);
-    expect(lastStep.auxiliaryData?.allSubsets).toEqual(['[]', '[1]', '[1, 2]', '[2]']);
+    // 2! = 2 permutations: [1, 2], [2, 1]
+    expect(lastStep.auxiliaryData?.allPermutations).toHaveLength(2);
+    expect(lastStep.auxiliaryData?.allPermutations).toEqual(['[1, 2]', '[2, 1]']);
   });
 
   it('15. Greedy Jump Game tracks reachable horizon and detects when destination is reached', () => {

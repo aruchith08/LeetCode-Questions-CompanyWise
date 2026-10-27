@@ -112,11 +112,11 @@ export default function PatternsPage() {
                   <Target className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-[#FAF9F5] leading-tight">
-                    {patternsMasteredCount} / {PATTERNS_CATALOG.length}
+                  <div className="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400 leading-tight">
+                    Assessment coming soon
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-none mt-0.5">
-                    Patterns mastered
+                    Pattern mastery
                   </div>
                 </div>
               </div>

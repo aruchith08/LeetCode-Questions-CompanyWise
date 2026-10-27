@@ -843,12 +843,13 @@ def levelOrder(root):
     tsExample: `function levelOrder(root: TreeNode | null): number[][] {
   if (!root) return [];
   const ans: number[][] = [];
-  const q = [root];
-  while (q.length > 0) {
-    const len = q.length;
+  const q: (TreeNode | null)[] = [root];
+  let head = 0; // Pointer index keeps dequeue O(1) rather than O(N) Array.shift()
+  while (head < q.length) {
+    const len = q.length - head;
     const level: number[] = [];
     for (let i = 0; i < len; i++) {
-      const node = q.shift()!;
+      const node = q[head++]!;
       level.push(node.val);
       if (node.left) q.push(node.left);
       if (node.right) q.push(node.right);
@@ -865,8 +866,8 @@ def levelOrder(root):
     ],
     complexity: {
       time: 'O(N)',
-      space: 'O(W)',
-      notes: 'Every node is enqueued once. Space is maximum width W (up to N/2 nodes in leaf layer of complete tree).',
+      space: 'O(W) aux / O(N) total',
+      notes: 'O(W) auxiliary queue width (up to N/2 nodes in leaf layer of complete binary tree), and O(N) total space including returned level-order lists.',
     },
     pitfalls: [
       'Using Array.shift() in JavaScript on large arrays has O(K) complexity per shift; use pointer index or queue library for high performance.',
@@ -1203,16 +1204,23 @@ def levelOrder(root):
       {
         id: 'kahns-bfs',
         title: 'Kahn\'s Algorithm (In-Degree BFS)',
-        description: 'Queue-based in-degree reduction processing.',
+        description: 'Queue-based in-degree reduction processing on DAGs.',
         exampleProblem: 'LeetCode #207 & #210: Course Schedule I & II',
         keyIdea: 'Nodes with in-degree 0 are ready to execute; decrement neighbors as nodes finish.',
       },
       {
         id: 'dfs-postorder',
-        title: 'DFS Post-Order Reversal (Tarjan)',
+        title: 'DFS-based Topological Sort',
         description: 'DFS visit with 3-state coloring; reverse post-order produces topological order.',
         exampleProblem: 'LeetCode #210: Course Schedule II',
         keyIdea: 'Finished nodes pushed to stack; reverse of finishing times is topological order.',
+      },
+      {
+        id: 'leaf-pruning-kahn-analogy',
+        title: 'Tree Centroid / Leaf Pruning (Kahn Analogy)',
+        description: 'Iterative degree-peeling on undirected trees trimming leaves (degree 1) inward to find centroids.',
+        exampleProblem: 'LeetCode #310: Minimum Height Trees',
+        keyIdea: 'Applies Kahn\'s degree-reduction intuition to undirected trees to find center nodes in O(V) time.',
       },
     ],
     pythonTemplate: `from collections import deque
@@ -1283,8 +1291,9 @@ def findOrder(numCourses, prerequisites):
   const q: number[] = [];
   for (let i = 0; i < numCourses; i++) if (inDegree[i] === 0) q.push(i);
   const res: number[] = [];
-  while (q.length > 0) {
-    const u = q.shift()!;
+  let head = 0; // Pointer index keeps dequeue O(1) rather than O(N) Array.shift()
+  while (head < q.length) {
+    const u = q[head++];
     res.push(u);
     for (const v of adj[u]) {
       inDegree[v]--;
@@ -1314,7 +1323,7 @@ def findOrder(numCourses, prerequisites):
     mappings: [
       { questionId: 207, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Course Schedule I', learningOrder: 1, reviewStatus: 'verified' },
       { questionId: 210, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Course Schedule II', learningOrder: 2, reviewStatus: 'verified' },
-      { questionId: 310, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Minimum Height Trees', learningOrder: 3, reviewStatus: 'verified' },
+      { questionId: 310, primaryPattern: 'topological-sort', subpattern: 'leaf-pruning-kahn-analogy', subpatternLabel: 'Tree Leaf Pruning (Kahn Analogy)', learningOrder: 3, reviewStatus: 'verified' },
       { questionId: 802, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Eventual Safe States', learningOrder: 4, reviewStatus: 'verified' },
       { questionId: 2115, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Recipe Supplies', learningOrder: 5, reviewStatus: 'verified' },
       { questionId: 1462, primaryPattern: 'topological-sort', subpattern: 'kahns-bfs', subpatternLabel: 'Course Schedule IV', learningOrder: 6, reviewStatus: 'verified' },
@@ -1324,7 +1333,8 @@ def findOrder(numCourses, prerequisites):
     ],
     subpatternTabs: [
       { id: 'kahns-bfs', label: 'Kahn\'s Algorithm' },
-      { id: 'dfs-postorder', label: 'DFS Post-Order' },
+      { id: 'dfs-postorder', label: 'DFS Topological Sort' },
+      { id: 'leaf-pruning-kahn-analogy', label: 'Tree Leaf Pruning' },
     ],
     quiz: [
       {

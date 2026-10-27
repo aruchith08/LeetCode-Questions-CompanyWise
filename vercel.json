@@ -61,7 +61,7 @@
     },
     {
       "source": "/((?!api/.*).*)",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ]
 }

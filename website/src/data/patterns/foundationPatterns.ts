@@ -480,33 +480,38 @@ export const FOUNDATION_PATTERNS: PatternLearningContent[] = [
         keyIdea: 'Monotonic double-ended queue maintains window maximums in O(1).',
       },
     ],
-    pythonTemplate: `left = 0
-for right in range(len(nums)):
-    # 1. Expand: Include nums[right] in current window
-    add_to_window(nums[right])
-    
-    # 2. Contract: Shrink from left while window condition is violated
-    while window_is_invalid():
-        remove_from_window(nums[left])
-        left += 1
-        
-    # 3. Update answer with valid window: (right - left + 1)
-    max_len = max(max_len, right - left + 1)`,
-    tsTemplate: `let left = 0;
-let maxLen = 0;
-
-for (let right = 0; right < nums.length; right++) {
-  // 1. Expand: Include nums[right] in current window
-  addToWindow(nums[right]);
-
-  // 2. Contract: Shrink from left while window condition is violated
-  while (windowIsInvalid()) {
-    removeFromWindow(nums[left]);
-    left++;
+    pythonTemplate: `def sliding_window_variable(nums: list[int], k: int) -> int:
+    """Canonical variable-size sliding window template.
+    Example: Longest subarray with sum at most k (for non-negative nums)."""
+    left = 0
+    current_sum = 0
+    max_len = 0
+    for right in range(len(nums)):
+        # 1. Expand: Include nums[right] in current window
+        current_sum += nums[right]
+        # 2. Contract: Shrink from left while window invariant is violated
+        while current_sum > k and left <= right:
+            current_sum -= nums[left]
+            left += 1
+        # 3. Update answer with current valid window length (right - left + 1)
+        max_len = max(max_len, right - left + 1)
+    return max_len`,
+    tsTemplate: `function slidingWindowVariable(nums: number[], k: number): number {
+  let left = 0;
+  let currentSum = 0;
+  let maxLen = 0;
+  for (let right = 0; right < nums.length; right++) {
+    // 1. Expand: Include nums[right] in current window
+    currentSum += nums[right];
+    // 2. Contract: Shrink from left while window invariant is violated
+    while (currentSum > k && left <= right) {
+      currentSum -= nums[left];
+      left++;
+    }
+    // 3. Update answer with current valid window length (right - left + 1)
+    maxLen = Math.max(maxLen, right - left + 1);
   }
-
-  // 3. Update answer with valid window: (right - left + 1)
-  maxLen = Math.max(maxLen, right - left + 1);
+  return maxLen;
 }`,
     exampleProblemTitle: 'Maximum Average Subarray I (LeetCode #643)',
     exampleProblemDescription: 'Find maximum average of any contiguous subarray of size k.',
@@ -898,7 +903,7 @@ for (let right = 0; right < nums.length; right++) {
         title: 'Binary Search on Answer Space',
         description: 'Find minimum/maximum parameter satisfying a feasibility condition.',
         exampleProblem: 'LeetCode #875: Koko Eating Bananas',
-        keyIdea: 'Feasibility check function is monotonic: if speed K works, K+1 also works.',
+        keyIdea: 'Feasibility check function is monotonic: if speed K works, K+1 also works. Time is O(log R × cost(check)) where R is the search space.',
       },
     ],
     pythonTemplate: `def binary_search(nums: list[int], target: int) -> int:
@@ -964,9 +969,9 @@ for (let right = 0; right < nums.length; right++) {
       'If loop finishes without returning, target is absent: return -1.',
     ],
     complexity: {
-      time: 'O(log N)',
+      time: 'O(log N) array / O(log R · cost(check)) on answers',
       space: 'O(1)',
-      notes: 'Search space is halved in every iteration: log2(N) steps with constant memory.',
+      notes: 'For array lookup: O(log N) iterations with O(1) comparison. For binary search on answer space (e.g. LeetCode #875): O(log R × cost(check)) where R is the answer range and check() verifies feasibility in O(N).',
     },
     pitfalls: [
       'Using (left + right) / 2 causes integer overflow in languages with fixed-width 32-bit integers.',
