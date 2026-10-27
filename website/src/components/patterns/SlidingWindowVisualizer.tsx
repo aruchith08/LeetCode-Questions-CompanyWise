@@ -82,13 +82,18 @@ export default function SlidingWindowVisualizer() {
     <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs">
       {/* Visualizer Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-[#43433F]/70">
-        <div>
-          <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-            Interactive Visualization
-          </h3>
-          <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-            See how a fixed-size sliding window works to find the maximum average subarray.
-          </p>
+        <div className="flex items-center gap-2.5">
+          <span className="w-5 h-5 rounded-full bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] font-mono text-[10px] font-bold flex items-center justify-center shrink-0">
+            5
+          </span>
+          <div>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+              Interactive Visualization
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
+              See how a fixed-size sliding window works to find the maximum average subarray.
+            </p>
+          </div>
         </div>
 
         {/* Mode Selector */}

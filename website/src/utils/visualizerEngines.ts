@@ -89,6 +89,7 @@ export function generateTwoPointersSteps(
       { name: 'L', index: left, color: 'indigo' },
       { name: 'R', index: right, color: 'rose' },
     ],
+    auxiliaryData: { left, right, sum: nums[left] + nums[right], target, action: 'Evaluate Sum' },
     metrics: [
       { label: 'Left', value: `nums[${left}] = ${nums[left]}` },
       { label: 'Right', value: `nums[${right}] = ${nums[right]}` },
@@ -112,6 +113,7 @@ export function generateTwoPointersSteps(
           { name: 'L', index: left, color: 'emerald' },
           { name: 'R', index: right, color: 'emerald' },
         ],
+        auxiliaryData: { left, right, sum, target, action: 'Match Found!' },
         metrics: [
           { label: 'Pair', value: `[${nums[left]}, ${nums[right]}]` },
           { label: 'Indices', value: `[${left}, ${right}]` },
@@ -133,6 +135,7 @@ export function generateTwoPointersSteps(
           { name: 'L', index: left, color: 'indigo' },
           { name: 'R', index: right, color: 'rose' },
         ],
+        auxiliaryData: { left, right, sum: nums[left] + nums[right], target, action: `Advance Left -> idx ${left}` },
         metrics: [
           { label: 'Old Sum', value: sum },
           { label: 'New Sum', value: nums[left] + nums[right] },
@@ -153,6 +156,7 @@ export function generateTwoPointersSteps(
           { name: 'L', index: left, color: 'indigo' },
           { name: 'R', index: right, color: 'rose' },
         ],
+        auxiliaryData: { left, right, sum: nums[left] + nums[right], target, action: `Decrement Right -> idx ${right}` },
         metrics: [
           { label: 'Old Sum', value: sum },
           { label: 'New Sum', value: nums[left] + nums[right] },
@@ -180,12 +184,13 @@ export function generatePrefixSumSteps(
     explanation: `Original array: [${nums.join(', ')}]. Initialize prefix sum array with base P[0] = 0. Length is ${nums.length + 1}.`,
     elements: nums,
     highlightIndices: [],
-    auxiliaryData: { prefix: [0] },
+    auxiliaryData: { prefix: [...prefix] },
     metrics: [
-      { label: 'Original Length', value: nums.length },
-      { label: 'P[0]', value: 0 },
+      { label: 'Base P[0]', value: 0 },
+      { label: 'Prefix Length', value: 1 },
+      { label: 'Target Range', value: `[${query[0]}..${query[1]}]` },
     ],
-    statusBadge: { label: 'Base P[0] = 0', variant: 'info' },
+    statusBadge: { label: 'P[0] = 0', variant: 'info' },
   });
 
   for (let i = 0; i < nums.length; i++) {
@@ -253,6 +258,7 @@ export function generateBinarySearchSteps(
       { name: 'L', index: left, color: 'indigo' },
       { name: 'R', index: right, color: 'rose' },
     ],
+    auxiliaryData: { left, right, searchRange: `[${left} .. ${right}]`, target },
     metrics: [
       { label: 'Left', value: left },
       { label: 'Right', value: right },
@@ -275,6 +281,7 @@ export function generateBinarySearchSteps(
         activePointers: [
           { name: 'Target', index: mid, color: 'emerald' },
         ],
+        auxiliaryData: { left, mid, right, foundIndex: mid, target },
         metrics: [
           { label: 'Found Index', value: mid },
           { label: 'Value', value: midVal },
@@ -294,6 +301,7 @@ export function generateBinarySearchSteps(
           { name: 'M', index: mid, color: 'amber' },
           { name: 'R', index: right, color: 'rose' },
         ],
+        auxiliaryData: { left, mid, right, searchRange: `[${left} .. ${right}]`, target },
         metrics: [
           { label: 'Mid Val', value: midVal },
           { label: 'Target', value: target },
@@ -314,6 +322,7 @@ export function generateBinarySearchSteps(
           { name: 'M', index: mid, color: 'amber' },
           { name: 'R', index: right, color: 'rose' },
         ],
+        auxiliaryData: { left, mid, right, searchRange: `[${left} .. ${right}]`, target },
         metrics: [
           { label: 'Mid Val', value: midVal },
           { label: 'Target', value: target },
@@ -332,7 +341,6 @@ export function generateBinarySearchSteps(
 export function generateFastSlowSteps(): GenericVisualizerStep[] {
   // Implicit cycle: 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 2 (cycle length 4, entry at 2)
   const list = [0, 1, 2, 3, 4, 5];
-  const nextNode = [1, 2, 3, 4, 5, 2];
 
   const steps: GenericVisualizerStep[] = [
     {
@@ -345,6 +353,7 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
         { name: 'Slow', index: 0, color: 'indigo' },
         { name: 'Fast', index: 0, color: 'rose' },
       ],
+      auxiliaryData: { slowNode: 0, fastNode: 0, phase: 'Phase 1: Cycle Detection' },
       metrics: [
         { label: 'Slow Pos', value: 0 },
         { label: 'Fast Pos', value: 0 },
@@ -362,6 +371,7 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
         { name: 'Slow', index: 1, color: 'indigo' },
         { name: 'Fast', index: 2, color: 'rose' },
       ],
+      auxiliaryData: { slowNode: 1, fastNode: 2, phase: 'Phase 1: Traversing' },
       metrics: [
         { label: 'Slow Pos', value: 1 },
         { label: 'Fast Pos', value: 2 },
@@ -378,6 +388,7 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
         { name: 'Slow', index: 2, color: 'indigo' },
         { name: 'Fast', index: 4, color: 'rose' },
       ],
+      auxiliaryData: { slowNode: 2, fastNode: 4, phase: 'Slow Enters Cycle' },
       metrics: [
         { label: 'Slow Pos', value: 2 },
         { label: 'Fast Pos', value: 4 },
@@ -394,6 +405,7 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
         { name: 'Fast', index: 2, color: 'rose' },
         { name: 'Slow', index: 3, color: 'indigo' },
       ],
+      auxiliaryData: { slowNode: 3, fastNode: 2, phase: 'Fast Loops in Cycle' },
       metrics: [
         { label: 'Slow Pos', value: 3 },
         { label: 'Fast Pos', value: 2 },
@@ -407,8 +419,10 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
       elements: list,
       highlightIndices: [4],
       activePointers: [
-        { name: 'Slow & Fast', index: 4, color: 'emerald' },
+        { name: 'Slow', index: 4, color: 'emerald' },
+        { name: 'Fast', index: 4, color: 'emerald' },
       ],
+      auxiliaryData: { slowNode: 4, fastNode: 4, collisionNode: 4, cycleDetected: true },
       metrics: [
         { label: 'Collision Node', value: 4 },
         { label: 'Cycle Found', value: 'Yes' },
@@ -425,6 +439,7 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
         { name: 'P1 (Head)', index: 0, color: 'indigo' },
         { name: 'P2 (Met)', index: 4, color: 'purple' },
       ],
+      auxiliaryData: { p1Head: 0, p2Collision: 4, phase: 'Phase 2: Find Entrance' },
       metrics: [
         { label: 'P1 Pos', value: 0 },
         { label: 'P2 Pos', value: 4 },
@@ -438,8 +453,10 @@ export function generateFastSlowSteps(): GenericVisualizerStep[] {
       elements: list,
       highlightIndices: [2],
       activePointers: [
-        { name: 'Cycle Start', index: 2, color: 'emerald' },
+        { name: 'P1', index: 2, color: 'emerald' },
+        { name: 'P2', index: 2, color: 'emerald' },
       ],
+      auxiliaryData: { p1: 2, p2: 2, cycleEntrance: 2, entranceProven: true },
       metrics: [
         { label: 'Cycle Entrance', value: 'Node 2' },
         { label: 'Total Space', value: 'O(1)' },
@@ -520,33 +537,40 @@ export function generateStackSteps(
   return steps;
 }
 
-// 7. Intervals & Sweep Line (Merge Intervals)
+// 7. Intervals & Sweep Line (Merge Overlapping Intervals)
 export function generateIntervalsSteps(): GenericVisualizerStep[] {
-  const intervals = [[1, 3], [2, 6], [8, 10], [15, 18]];
+  const intervals = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18],
+  ];
+
   const steps: GenericVisualizerStep[] = [
     {
       stepNumber: 1,
       title: 'Sort Intervals by Start Time',
-      explanation: 'Input intervals: [[1, 3], [2, 6], [8, 10], [15, 18]]. Intervals are sorted in ascending order of their start values.',
-      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
-      metrics: [
-        { label: 'Total Intervals', value: 4 },
-        { label: 'Status', value: 'Sorted' },
-      ],
-      auxiliaryData: { merged: [] },
-      statusBadge: { label: 'Sorted', variant: 'info' },
-    },
-    {
-      stepNumber: 2,
-      title: 'Initialize with First Interval [1, 3]',
-      explanation: 'Add [1, 3] as the initial current active interval. Current merged list: [[1, 3]].',
+      explanation: 'Input intervals are already sorted by start time: [[1, 3], [2, 6], [8, 10], [15, 18]]. Initialize active interval = [1, 3].',
       elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
       highlightIndices: [0],
       metrics: [
         { label: 'Active Interval', value: '[1, 3]' },
-        { label: 'Merged Count', value: 1 },
+        { label: 'Total Intervals', value: 4 },
       ],
       auxiliaryData: { merged: [[1, 3]] },
+      statusBadge: { label: 'Sorted', variant: 'info' },
+    },
+    {
+      stepNumber: 2,
+      title: 'Compare with Next: [2, 6]',
+      explanation: 'Compare current active interval [1, 3] with [2, 6]. Start of next interval (2) <= end of active interval (3). They overlap!',
+      elements: intervals.map(i => `[${i[0]}, ${i[1]}]`),
+      highlightIndices: [0, 1],
+      metrics: [
+        { label: 'Active End', value: 3 },
+        { label: 'Next Start', value: 2 },
+      ],
+      auxiliaryData: { merged: [[1, 3]], candidate: [2, 6] },
       statusBadge: { label: 'Active [1, 3]', variant: 'info' },
     },
     {
@@ -676,6 +700,8 @@ export function generateTreeDFSSteps(): GenericVisualizerStep[] {
       explanation: 'Binary Tree: Node 1 has children (Left: 2, Right: 3). Node 2 has child (Left: 4). Call stack pushes DFS(1).',
       elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
       highlightIndices: [0],
+      activePointers: [{ name: 'DFS(1)', index: 0, color: 'indigo' }],
+      auxiliaryData: { callStack: ['DFS(1)'], currentDepth: 1 },
       metrics: [
         { label: 'Call Stack', value: '[DFS(1)]' },
         { label: 'Current Depth', value: 1 },
@@ -688,6 +714,8 @@ export function generateTreeDFSSteps(): GenericVisualizerStep[] {
       explanation: 'Traverse left child: push DFS(2) to call stack. Current node is 2 at depth 2.',
       elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
       highlightIndices: [1],
+      activePointers: [{ name: 'DFS(2)', index: 1, color: 'indigo' }],
+      auxiliaryData: { callStack: ['DFS(1)', 'DFS(2)'], currentDepth: 2 },
       metrics: [
         { label: 'Call Stack', value: '[DFS(1), DFS(2)]' },
         { label: 'Current Depth', value: 2 },
@@ -700,6 +728,8 @@ export function generateTreeDFSSteps(): GenericVisualizerStep[] {
       explanation: 'Traverse left child: push DFS(4). Node 4 is a leaf (left=null, right=null). Max depth reached is 3.',
       elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
       highlightIndices: [3],
+      activePointers: [{ name: 'DFS(4)', index: 3, color: 'rose' }],
+      auxiliaryData: { callStack: ['DFS(1)', 'DFS(2)', 'DFS(4)'], currentDepth: 3, maxDepth: 3 },
       metrics: [
         { label: 'Call Stack', value: '[DFS(1), DFS(2), DFS(4)]' },
         { label: 'Max Depth', value: 3 },
@@ -712,6 +742,8 @@ export function generateTreeDFSSteps(): GenericVisualizerStep[] {
       explanation: 'DFS(4) returns height 1. Node 2 right child is null. DFS(2) returns 1 + max(1, 0) = 2. Pop from call stack.',
       elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
       highlightIndices: [1],
+      activePointers: [{ name: 'Ret: 2', index: 1, color: 'amber' }],
+      auxiliaryData: { callStack: ['DFS(1)'], returnedHeight: 2 },
       metrics: [
         { label: 'Subtree 2 Height', value: 2 },
         { label: 'Call Stack', value: '[DFS(1)]' },
@@ -724,6 +756,8 @@ export function generateTreeDFSSteps(): GenericVisualizerStep[] {
       explanation: 'Recurse to right child Node 3. Node 3 returns height 1. Root combines: 1 + max(left=2, right=1) = 3. Maximum tree depth is 3.',
       elements: ['Node 1', 'Node 2', 'Node 3', 'Node 4'],
       highlightIndices: [0, 2],
+      activePointers: [{ name: 'Height: 3', index: 0, color: 'emerald' }],
+      auxiliaryData: { callStack: [], finalHeight: 3 },
       metrics: [
         { label: 'Left Height', value: 2 },
         { label: 'Right Height', value: 1 },
@@ -743,6 +777,8 @@ export function generateTreeBFSSteps(): GenericVisualizerStep[] {
       explanation: 'Tree: Root 1, Children (2, 3), Grandchildren of 2 are (4, 5). Enqueue root 1. Queue = [1].',
       elements: ['1', '2', '3', '4', '5'],
       highlightIndices: [0],
+      activePointers: [{ name: 'Root', index: 0, color: 'indigo' }],
+      auxiliaryData: { queue: ['Node 1'], currentLevel: 0, order: [] },
       metrics: [
         { label: 'Queue', value: '[1]' },
         { label: 'Current Level', value: 0 },
@@ -755,6 +791,8 @@ export function generateTreeBFSSteps(): GenericVisualizerStep[] {
       explanation: 'Level size is 1. Dequeue node 1. Enqueue left child 2 and right child 3. Level 0 result = [1]. Queue = [2, 3].',
       elements: ['1', '2', '3', '4', '5'],
       highlightIndices: [0],
+      activePointers: [{ name: 'Dequeued', index: 0, color: 'emerald' }],
+      auxiliaryData: { queue: ['Node 2', 'Node 3'], processed: ['Node 1'], level: 0 },
       metrics: [
         { label: 'Processed', value: '[1]' },
         { label: 'Queue', value: '[2, 3]' },
@@ -767,6 +805,8 @@ export function generateTreeBFSSteps(): GenericVisualizerStep[] {
       explanation: 'Level size is 2. Dequeue 2. Node 2 has children 4 and 5: enqueue both. Queue = [3, 4, 5].',
       elements: ['1', '2', '3', '4', '5'],
       highlightIndices: [1],
+      activePointers: [{ name: 'Dequeued', index: 1, color: 'indigo' }],
+      auxiliaryData: { queue: ['Node 3', 'Node 4', 'Node 5'], level: 1 },
       metrics: [
         { label: 'Dequeued', value: '2' },
         { label: 'Queue', value: '[3, 4, 5]' },
@@ -779,23 +819,30 @@ export function generateTreeBFSSteps(): GenericVisualizerStep[] {
       explanation: 'Dequeue 3. Node 3 has no children. Level 1 complete: result = [2, 3]. Queue = [4, 5].',
       elements: ['1', '2', '3', '4', '5'],
       highlightIndices: [2],
+      activePointers: [{ name: 'Dequeued', index: 2, color: 'indigo' }],
+      auxiliaryData: { queue: ['Node 4', 'Node 5'], level1Done: true },
       metrics: [
         { label: 'Level 1 Result', value: '[2, 3]' },
         { label: 'Queue', value: '[4, 5]' },
       ],
-      statusBadge: { label: 'Level 1 Done', variant: 'success' },
+      statusBadge: { label: 'Level 1 Done', variant: 'info' },
     },
     {
       stepNumber: 5,
-      title: 'Process Level 2: Dequeue Leaves 4 & 5',
-      explanation: 'Dequeue 4 and 5. Both have no children. Queue is now empty. Final level order traversal: [[1], [2, 3], [4, 5]].',
+      title: 'Process Level 2: Dequeue Leaves 4 and 5',
+      explanation: 'Dequeue leaves 4 and 5. Queue becomes empty. Final level order traversal: [[1], [2, 3], [4, 5]].',
       elements: ['1', '2', '3', '4', '5'],
       highlightIndices: [3, 4],
-      metrics: [
-        { label: 'Final Levels', value: '[[1], [2, 3], [4, 5]]' },
-        { label: 'Queue', value: '[] (Empty)' },
+      activePointers: [
+        { name: 'Leaf 4', index: 3, color: 'emerald' },
+        { name: 'Leaf 5', index: 4, color: 'emerald' },
       ],
-      statusBadge: { label: 'Traversal Complete', variant: 'success' },
+      auxiliaryData: { queue: [], levelOrder: '[[1], [2, 3], [4, 5]]' },
+      metrics: [
+        { label: 'Queue', value: '[]' },
+        { label: 'Levels', value: 3 },
+      ],
+      statusBadge: { label: 'BFS Completed', variant: 'success' },
     },
   ];
 }
@@ -809,6 +856,8 @@ export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
       explanation: 'Scanning 2D grid. Encounter land cell "1" at coordinate (0, 0). Increment island count = 1 and initiate flood fill.',
       elements: ['(0,0): 1', '(0,1): 1', '(1,0): 1', '(1,1): 0'],
       highlightIndices: [0],
+      activePointers: [{ name: 'Start', index: 0, color: 'indigo' }],
+      auxiliaryData: { visited: ['(0, 0)'], islandsCount: 1 },
       metrics: [
         { label: 'Islands Count', value: 1 },
         { label: 'Start Cell', value: '(0, 0)' },
@@ -821,6 +870,8 @@ export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
       explanation: 'From (0, 0), traverse orthogonal neighbor east to (0, 1). Mark (0, 0) as visited ("0") and enqueue/recurse on (0, 1).',
       elements: ['(0,0): 0', '(0,1): 1', '(1,0): 1', '(1,1): 0'],
       highlightIndices: [1],
+      activePointers: [{ name: 'Visited', index: 1, color: 'rose' }],
+      auxiliaryData: { visited: ['(0, 0)', '(0, 1)'], islandsCount: 1 },
       metrics: [
         { label: 'Visited Set', value: '{(0,0), (0,1)}' },
       ],
@@ -832,6 +883,8 @@ export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
       explanation: 'Traverse orthogonal neighbor south from (0, 0) to (1, 0). Mark (1, 0) as visited. All connected land cells of this island are now sunken.',
       elements: ['(0,0): 0', '(0,1): 0', '(1,0): 1', '(1,1): 0'],
       highlightIndices: [2],
+      activePointers: [{ name: 'Visited', index: 2, color: 'rose' }],
+      auxiliaryData: { visited: ['(0, 0)', '(0, 1)', '(1, 0)'], islandsCount: 1 },
       metrics: [
         { label: 'Island Cells', value: '3 cells' },
       ],
@@ -843,6 +896,12 @@ export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
       explanation: 'No further unvisited orthogonal land neighbors exist. Entire connected component is explored. Total islands discovered: 1.',
       elements: ['(0,0): 0', '(0,1): 0', '(1,0): 0', '(1,1): 0'],
       highlightIndices: [0, 1, 2],
+      activePointers: [
+        { name: 'Island 1', index: 0, color: 'emerald' },
+        { name: 'Island 1', index: 1, color: 'emerald' },
+        { name: 'Island 1', index: 2, color: 'emerald' },
+      ],
+      auxiliaryData: { visited: ['(0, 0)', '(0, 1)', '(1, 0)'], islandsCount: 1, totalIslands: 1 },
       metrics: [
         { label: 'Total Islands', value: 1 },
         { label: 'Remaining Land', value: '0' },
@@ -852,7 +911,7 @@ export function generateGraphTraversalSteps(): GenericVisualizerStep[] {
   ];
 }
 
-// 12. Topological Sort (Kahn\'s In-Degree Algorithm)
+// 12. Topological Sort (Kahn's In-Degree Algorithm)
 export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
   return [
     {
@@ -861,6 +920,8 @@ export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
       explanation: 'Dependencies: 1 -> 0 (take 1 before 0), 2 -> 0, 3 -> 1, 3 -> 2. In-degrees: Course 0: 2, Course 1: 1, Course 2: 1, Course 3: 0.',
       elements: ['Course 0: in=2', 'Course 1: in=1', 'Course 2: in=1', 'Course 3: in=0'],
       highlightIndices: [3],
+      activePointers: [{ name: 'in=0', index: 3, color: 'indigo' }],
+      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 1, 'Course 2': 1, 'Course 3': 0 }, queue: [], order: [] },
       metrics: [
         { label: 'Course 3 In-Degree', value: 0 },
         { label: 'Prerequisites', value: '4 edges' },
@@ -873,6 +934,8 @@ export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
       explanation: 'Course 3 has no prerequisites. Push to queue. Queue = [3].',
       elements: ['Course 0: in=2', 'Course 1: in=1', 'Course 2: in=1', 'Course 3: in=0'],
       highlightIndices: [3],
+      activePointers: [{ name: 'Ready', index: 3, color: 'indigo' }],
+      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 1, 'Course 2': 1, 'Course 3': 0 }, queue: ['Course 3'], order: [] },
       metrics: [
         { label: 'Queue', value: '[Course 3]' },
         { label: 'Order', value: '[]' },
@@ -885,6 +948,11 @@ export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
       explanation: 'Dequeue 3 and add to order. Edges (3 -> 1) and (3 -> 2) resolved: Course 1 in-degree becomes 0; Course 2 in-degree becomes 0. Enqueue both 1 and 2.',
       elements: ['Course 0: in=2', 'Course 1: in=0', 'Course 2: in=0', 'Course 3: done'],
       highlightIndices: [1, 2],
+      activePointers: [
+        { name: 'in=0', index: 1, color: 'emerald' },
+        { name: 'in=0', index: 2, color: 'emerald' },
+      ],
+      auxiliaryData: { inDegrees: { 'Course 0': 2, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: ['Course 1', 'Course 2'], order: ['Course 3'] },
       metrics: [
         { label: 'Order', value: '[3]' },
         { label: 'Queue', value: '[Course 1, Course 2]' },
@@ -897,6 +965,8 @@ export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
       explanation: 'Dequeue 1 and 2. Both point to Course 0. Course 0 in-degree decrements 2 -> 1 -> 0! Enqueue Course 0.',
       elements: ['Course 0: in=0', 'Course 1: done', 'Course 2: done', 'Course 3: done'],
       highlightIndices: [0],
+      activePointers: [{ name: 'in=0', index: 0, color: 'emerald' }],
+      auxiliaryData: { inDegrees: { 'Course 0': 0, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: ['Course 0'], order: ['Course 3', 'Course 1', 'Course 2'] },
       metrics: [
         { label: 'Order', value: '[3, 1, 2]' },
         { label: 'Queue', value: '[Course 0]' },
@@ -909,6 +979,13 @@ export function generateTopologicalSortSteps(): GenericVisualizerStep[] {
       explanation: 'Dequeue Course 0. All 4 courses processed without detecting any cycles. Valid graduation order: [3, 1, 2, 0].',
       elements: ['Course 3', 'Course 1', 'Course 2', 'Course 0'],
       highlightIndices: [0, 1, 2, 3],
+      activePointers: [
+        { name: '1st', index: 0, color: 'emerald' },
+        { name: '2nd', index: 1, color: 'emerald' },
+        { name: '3rd', index: 2, color: 'emerald' },
+        { name: '4th', index: 3, color: 'emerald' },
+      ],
+      auxiliaryData: { inDegrees: { 'Course 0': 0, 'Course 1': 0, 'Course 2': 0, 'Course 3': 0 }, queue: [], order: ['Course 3', 'Course 1', 'Course 2', 'Course 0'] },
       metrics: [
         { label: 'Final Order', value: '[3, 1, 2, 0]' },
         { label: 'Cycle Free', value: 'Yes' },
@@ -926,6 +1003,7 @@ export function generateUnionFindSteps(): GenericVisualizerStep[] {
       title: 'Initialize Disjoint Sets for 4 Nodes',
       explanation: 'Nodes 0, 1, 2, 3. Each node is initially its own parent: parent = [0, 1, 2, 3], rank = [0, 0, 0, 0]. Total components = 4.',
       elements: ['Node 0 (p:0)', 'Node 1 (p:1)', 'Node 2 (p:2)', 'Node 3 (p:3)'],
+      auxiliaryData: { parents: [0, 1, 2, 3], components: 4 },
       metrics: [
         { label: 'Components', value: 4 },
         { label: 'Parents', value: '[0, 1, 2, 3]' },
@@ -938,6 +1016,11 @@ export function generateUnionFindSteps(): GenericVisualizerStep[] {
       explanation: 'find(0) = 0, find(1) = 1. Different roots: attach root 1 under root 0. parent[1] = 0. Components drop to 3.',
       elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:2)', 'Node 3 (p:3)'],
       highlightIndices: [0, 1],
+      activePointers: [
+        { name: 'Root', index: 0, color: 'indigo' },
+        { name: 'Child', index: 1, color: 'indigo' },
+      ],
+      auxiliaryData: { parents: [0, 0, 2, 3], components: 3 },
       metrics: [
         { label: 'Components', value: 3 },
         { label: 'parent[1]', value: 0 },
@@ -950,6 +1033,11 @@ export function generateUnionFindSteps(): GenericVisualizerStep[] {
       explanation: 'find(1) compresses to root 0. find(2) = 2. Attach root 2 under root 0. Components drop to 2. Component {0, 1, 2} formed.',
       elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:0)', 'Node 3 (p:3)'],
       highlightIndices: [0, 2],
+      activePointers: [
+        { name: 'Root', index: 0, color: 'indigo' },
+        { name: 'Attached', index: 2, color: 'indigo' },
+      ],
+      auxiliaryData: { parents: [0, 0, 0, 3], components: 2 },
       metrics: [
         { label: 'Components', value: 2 },
         { label: 'Root 0 Size', value: 3 },
@@ -962,6 +1050,11 @@ export function generateUnionFindSteps(): GenericVisualizerStep[] {
       explanation: 'Inspect edge (0, 2). find(0) = 0 and find(2) = 0. Roots are identical! Adding edge (0, 2) creates a cycle and is redundant.',
       elements: ['Node 0 (Root)', 'Node 1 (p:0)', 'Node 2 (p:0)', 'Node 3 (p:3)'],
       highlightIndices: [0, 2],
+      activePointers: [
+        { name: 'Root 0', index: 0, color: 'rose' },
+        { name: 'Same Root', index: 2, color: 'rose' },
+      ],
+      auxiliaryData: { parents: [0, 0, 0, 3], components: 2, redundantCycleEdge: '(0, 2)' },
       metrics: [
         { label: 'find(0)', value: 0 },
         { label: 'find(2)', value: 0 },
@@ -981,6 +1074,8 @@ export function generateBacktrackingSteps(): GenericVisualizerStep[] {
       explanation: 'Input nums = [1, 2]. Start backtracking at index 0 with current subset []. Add [] to result list.',
       elements: ['[]', '[1]', '[1, 2]', '[2]'],
       highlightIndices: [0],
+      activePointers: [{ name: 'Base', index: 0, color: 'indigo' }],
+      auxiliaryData: { currentSubset: '[]', allSubsets: ['[]'] },
       metrics: [
         { label: 'Current Subset', value: '[]' },
         { label: 'Total Subsets', value: 1 },
@@ -993,6 +1088,8 @@ export function generateBacktrackingSteps(): GenericVisualizerStep[] {
       explanation: 'Pick element 1 at index 0. Current subset becomes [1]. Add [1] to results. Recurse to index 1.',
       elements: ['[]', '[1]', '[1, 2]', '[2]'],
       highlightIndices: [1],
+      activePointers: [{ name: '+1', index: 1, color: 'indigo' }],
+      auxiliaryData: { currentSubset: '[1]', allSubsets: ['[]', '[1]'] },
       metrics: [
         { label: 'Current Subset', value: '[1]' },
         { label: 'Total Subsets', value: 2 },
@@ -1005,6 +1102,8 @@ export function generateBacktrackingSteps(): GenericVisualizerStep[] {
       explanation: 'Pick element 2 at index 1. Current subset becomes [1, 2]. Add [1, 2] to results. End of array reached.',
       elements: ['[]', '[1]', '[1, 2]', '[2]'],
       highlightIndices: [2],
+      activePointers: [{ name: '+2', index: 2, color: 'indigo' }],
+      auxiliaryData: { currentSubset: '[1, 2]', allSubsets: ['[]', '[1]', '[1, 2]'] },
       metrics: [
         { label: 'Current Subset', value: '[1, 2]' },
         { label: 'Total Subsets', value: 3 },
@@ -1016,6 +1115,8 @@ export function generateBacktrackingSteps(): GenericVisualizerStep[] {
       title: 'Backtrack: Pop 2 then Pop 1',
       explanation: 'Backtrack: Undo choice 2 -> subset reverts to [1]. Undo choice 1 -> subset reverts to []. State restored to explore branch without 1.',
       elements: ['[]', '[1]', '[1, 2]', '[2]'],
+      activePointers: [{ name: 'Undo', index: 0, color: 'amber' }],
+      auxiliaryData: { currentSubset: '[] (backtracked)', allSubsets: ['[]', '[1]', '[1, 2]'] },
       metrics: [
         { label: 'Restored State', value: '[]' },
         { label: 'Backtracks', value: '2 pops' },
@@ -1028,6 +1129,8 @@ export function generateBacktrackingSteps(): GenericVisualizerStep[] {
       explanation: 'At index 1, pick element 2 without 1. Current subset becomes [2]. All 2^2 = 4 subsets generated: [[], [1], [1, 2], [2]].',
       elements: ['[]', '[1]', '[1, 2]', '[2]'],
       highlightIndices: [3],
+      activePointers: [{ name: '+2', index: 3, color: 'emerald' }],
+      auxiliaryData: { currentSubset: '[2]', allSubsets: ['[]', '[1]', '[1, 2]', '[2]'] },
       metrics: [
         { label: 'Final Subsets', value: '[[], [1], [1,2], [2]]' },
         { label: 'Total Count', value: 4 },
@@ -1048,34 +1151,37 @@ export function generateGreedySteps(): GenericVisualizerStep[] {
       elements: nums,
       highlightIndices: [0],
       activePointers: [{ name: 'Current', index: 0, color: 'indigo' }],
+      auxiliaryData: { currentIndex: 0, jumpCapacity: 2, maxReach: 2 },
       metrics: [
-        { label: 'Max Reachable', value: 'Index 2' },
-        { label: 'Target Destination', value: 'Index 4' },
+        { label: 'Current Index', value: 0 },
+        { label: 'Jump Capacity', value: 2 },
+        { label: 'Max Reach', value: 'Index 2' },
       ],
       statusBadge: { label: 'Reach = 2', variant: 'info' },
     },
     {
       stepNumber: 2,
-      title: 'Inspect Index 1 (Val 3): Horizon Expands to Index 4!',
-      explanation: 'Advance to index 1. Index 1 <= max reach 2 (reachable). Potential jump is 1 + 3 = 4. Update max reachable = max(2, 4) = 4!',
+      title: 'Step to Index 1: Value is 3 -> Reach Expands to Index 4',
+      explanation: 'Move to index 1 (within current reach 2). Value is 3: jump capability reaches 1 + 3 = 4. Update max reach = 4!',
       elements: nums,
       highlightIndices: [1],
-      activePointers: [{ name: 'Current', index: 1, color: 'indigo' }],
+      activePointers: [{ name: 'Current', index: 1, color: 'emerald' }],
+      auxiliaryData: { currentIndex: 1, jumpCapacity: 3, maxReach: 4 },
       metrics: [
-        { label: 'Previous Reach', value: 2 },
-        { label: 'New Max Reach', value: 4 },
+        { label: 'Index 1 Reach', value: '1 + 3 = 4' },
+        { label: 'Max Reach', value: 'Index 4' },
       ],
-      statusBadge: { label: 'Horizon -> 4', variant: 'warning' },
+      statusBadge: { label: 'Reach = 4 (Goal!)', variant: 'warning' },
     },
     {
       stepNumber: 3,
-      title: 'Destination Reached! Greedy Horizon >= Last Index',
-      explanation: 'Since max reachable index 4 >= target index 4, reaching the end of the array is guaranteed! Returns True in O(n) time and O(1) space.',
+      title: 'Goal Reached: Max Reach (4) >= Last Index (4)',
+      explanation: 'Max reachable index 4 is greater than or equal to last array index 4. The end of the array is guaranteed reachable!',
       elements: nums,
       highlightIndices: [4],
-      activePointers: [{ name: 'Target Reached', index: 4, color: 'emerald' }],
+      activePointers: [{ name: 'Destination', index: 4, color: 'emerald' }],
+      auxiliaryData: { currentIndex: 4, destinationReached: true },
       metrics: [
-        { label: 'Max Reach', value: 4 },
         { label: 'Last Index', value: 4 },
         { label: 'Result', value: 'True' },
       ],
@@ -1086,8 +1192,6 @@ export function generateGreedySteps(): GenericVisualizerStep[] {
 
 // 16. Dynamic Programming (Coin Change)
 export function generateDPSteps(): GenericVisualizerStep[] {
-  const coins = [1, 2, 5];
-  const amount = 7;
   return [
     {
       stepNumber: 1,
@@ -1095,6 +1199,8 @@ export function generateDPSteps(): GenericVisualizerStep[] {
       explanation: 'Coins: [1, 2, 5], Target Amount: 7. Create DP array of size 8 initialized to Infinity, with base case dp[0] = 0 (0 coins to make $0).',
       elements: ['0', '∞', '∞', '∞', '∞', '∞', '∞', '∞'],
       highlightIndices: [0],
+      activePointers: [{ name: 'Base 0', index: 0, color: 'indigo' }],
+      auxiliaryData: { dpTable: ['0', '∞', '∞', '∞', '∞', '∞', '∞', '∞'] },
       metrics: [
         { label: 'dp[0]', value: 0 },
         { label: 'Target', value: 7 },
@@ -1107,6 +1213,8 @@ export function generateDPSteps(): GenericVisualizerStep[] {
       explanation: 'For amount 1: 1 coin (1). For amount 2: 1 coin (2). For amount 3: 2 coins (2+1). For amount 4: 2 coins (2+2).',
       elements: ['0', '1', '1', '2', '2', '∞', '∞', '∞'],
       highlightIndices: [1, 2, 3, 4],
+      activePointers: [{ name: 'Filled', index: 4, color: 'indigo' }],
+      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '∞', '∞', '∞'] },
       metrics: [
         { label: 'dp[1..4]', value: '[1, 1, 2, 2]' },
       ],
@@ -1118,6 +1226,8 @@ export function generateDPSteps(): GenericVisualizerStep[] {
       explanation: 'For amount 5: dp[5] = min(dp[5-1]+1, dp[5-2]+1, dp[5-5]+1) = dp[0] + 1 = 1 coin (coin 5).',
       elements: ['0', '1', '1', '2', '2', '1', '∞', '∞'],
       highlightIndices: [5],
+      activePointers: [{ name: 'Coin 5', index: 5, color: 'amber' }],
+      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '1', '∞', '∞'] },
       metrics: [
         { label: 'dp[5]', value: 1 },
       ],
@@ -1129,6 +1239,8 @@ export function generateDPSteps(): GenericVisualizerStep[] {
       explanation: 'For amount 7: test coin 1 (dp[6]+1 = 3), test coin 2 (dp[5]+1 = 2), test coin 5 (dp[2]+1 = 2). Minimum is 2 coins! Result = 2.',
       elements: ['0', '1', '1', '2', '2', '1', '2', '2'],
       highlightIndices: [7],
+      activePointers: [{ name: 'Min: 2', index: 7, color: 'emerald' }],
+      auxiliaryData: { dpTable: ['0', '1', '1', '2', '2', '1', '2', '2'], optimalCoins: '5 + 2' },
       metrics: [
         { label: 'dp[7]', value: 2 },
         { label: 'Optimal Coins', value: '5 + 2' },
@@ -1147,6 +1259,7 @@ export function generateBitManipulationSteps(): GenericVisualizerStep[] {
       title: 'Initialize Accumulator: acc = 0',
       explanation: `Array: [${nums.join(', ')}]. Every number appears twice except one unique number. Exploit XOR involution: x ^ x = 0 and x ^ 0 = x.`,
       elements: nums,
+      auxiliaryData: { accumulator: 0, binary: '0b0000' },
       metrics: [
         { label: 'Accumulator', value: '0 (0b0000)' },
         { label: 'Rule', value: 'A ^ A = 0' },
@@ -1160,6 +1273,7 @@ export function generateBitManipulationSteps(): GenericVisualizerStep[] {
       elements: nums,
       highlightIndices: [0],
       activePointers: [{ name: 'XOR 4', index: 0, color: 'indigo' }],
+      auxiliaryData: { accumulator: 4, binary: '0b0100' },
       metrics: [
         { label: 'acc', value: '4 (0b0100)' },
       ],
@@ -1171,6 +1285,11 @@ export function generateBitManipulationSteps(): GenericVisualizerStep[] {
       explanation: 'Binary: 0100 ^ 0001 = 0101 (5). Then 0101 ^ 0010 = 0111 (7).',
       elements: nums,
       highlightIndices: [1, 2],
+      activePointers: [
+        { name: 'XOR 1', index: 1, color: 'amber' },
+        { name: 'XOR 2', index: 2, color: 'amber' },
+      ],
+      auxiliaryData: { accumulator: 7, binary: '0b0111' },
       metrics: [
         { label: 'acc', value: '7 (0b0111)' },
       ],
@@ -1182,6 +1301,8 @@ export function generateBitManipulationSteps(): GenericVisualizerStep[] {
       explanation: 'Binary: 0111 ^ 0001 = 0110 (6). The duplicate 1 cancels itself out from the bit stream!',
       elements: nums,
       highlightIndices: [3],
+      activePointers: [{ name: 'Cancel 1', index: 3, color: 'rose' }],
+      auxiliaryData: { accumulator: 6, binary: '0b0110', cancelled: 'Number 1' },
       metrics: [
         { label: 'acc', value: '6 (0b0110)' },
         { label: 'Cancelled', value: 'Number 1' },
@@ -1194,6 +1315,8 @@ export function generateBitManipulationSteps(): GenericVisualizerStep[] {
       explanation: 'Binary: 0110 ^ 0010 = 0100 (4). Number 2 cancels out. Only the single non-duplicate number 4 remains in O(N) time and O(1) space!',
       elements: nums,
       highlightIndices: [4],
+      activePointers: [{ name: 'Answer', index: 4, color: 'emerald' }],
+      auxiliaryData: { accumulator: 4, binary: '0b0100', singleNumber: 4 },
       metrics: [
         { label: 'Final Result', value: '4' },
         { label: 'Space', value: 'O(1)' },

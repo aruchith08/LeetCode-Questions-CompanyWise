@@ -214,3 +214,153 @@ describe('18 DSA Patterns Expansion - Quiz Integrity Validation', () => {
     }
   });
 });
+
+describe('18 DSA Patterns Expansion - GenericPatternVisualizer Deep Component Tests', () => {
+  it('renders co-located active pointers simultaneously without dropping any', async () => {
+    const { render, screen, cleanup } = await import('@testing-library/react');
+    cleanup();
+    const React = await import('react');
+    const { default: GenericPatternVisualizer } = await import(
+      '../src/components/patterns/GenericPatternVisualizer'
+    );
+    const steps = generateFastSlowSteps();
+
+    // Step 1 of fast-slow has BOTH 'Slow' and 'Fast' at index 0
+    render(
+      React.createElement(GenericPatternVisualizer, {
+        title: 'Fast & Slow Visualizer',
+        subtitle: 'Cycle detection',
+        steps,
+      })
+    );
+
+    // Both pointers must be in the document above index 0
+    expect(screen.getByText('Slow')).toBeTruthy();
+    expect(screen.getByText('Fast')).toBeTruthy();
+    cleanup();
+  });
+
+  it('renders auxiliary data structure inspection panel when auxiliaryData is present', async () => {
+    const { render, screen, cleanup } = await import('@testing-library/react');
+    cleanup();
+    const React = await import('react');
+    const { default: GenericPatternVisualizer } = await import(
+      '../src/components/patterns/GenericPatternVisualizer'
+    );
+    const steps = generateHashingSteps([2, 7, 11, 15], 9);
+
+    render(
+      React.createElement(GenericPatternVisualizer, {
+        title: 'Hashing Visualizer',
+        subtitle: 'Two sum hashing',
+        steps,
+      })
+    );
+
+    // Header and internal state inspection panel must be present
+    expect(screen.getByText(/Internal Data Structure & Auxiliary State/i)).toBeTruthy();
+    expect(screen.getByText(/Hash Map Table/i)).toBeTruthy();
+    cleanup();
+  });
+
+  it('provides an interactive timeline scrubber allowing direct jumps to steps', async () => {
+    const { render, screen, fireEvent, cleanup } = await import('@testing-library/react');
+    cleanup();
+    const React = await import('react');
+    const { default: GenericPatternVisualizer } = await import(
+      '../src/components/patterns/GenericPatternVisualizer'
+    );
+    const steps = generateBinarySearchSteps([2, 5, 8, 12, 16, 23, 38], 23);
+
+    render(
+      React.createElement(GenericPatternVisualizer, {
+        title: 'Binary Search Visualizer',
+        subtitle: 'Search boundaries',
+        steps,
+      })
+    );
+
+    // Initial state: Step 1 of N
+    expect(screen.getAllByText(`Step 1 of ${steps.length}`).length).toBeGreaterThanOrEqual(1);
+
+    // Find step scrubber and jump to step 2 (index 1)
+    const scrubber = screen.getByLabelText(/Step Scrubber/i);
+    fireEvent.change(scrubber, { target: { value: '1' } });
+
+    // Step badge must reflect Step 2
+    expect(screen.getAllByText(`Step 2 of ${steps.length}`).length).toBeGreaterThanOrEqual(1);
+
+    // Click on timeline button for step 3
+    const jumpBtn = screen.getByLabelText('Jump to step 3');
+    fireEvent.click(jumpBtn);
+    expect(screen.getAllByText(`Step 3 of ${steps.length}`).length).toBeGreaterThanOrEqual(1);
+    cleanup();
+  });
+
+  it('resets step index to 0 when steps prop changes', async () => {
+    const { render, screen, fireEvent, cleanup } = await import('@testing-library/react');
+    cleanup();
+    const React = await import('react');
+    const { default: GenericPatternVisualizer } = await import(
+      '../src/components/patterns/GenericPatternVisualizer'
+    );
+    const steps1 = generateTwoPointersSteps([1, 2, 4, 6, 8, 11], 10);
+    const steps2 = generatePrefixSumSteps([2, 4, 1, 3, 5], [1, 3]);
+
+    const { rerender } = render(
+      React.createElement(GenericPatternVisualizer, {
+        title: 'Two Pointers',
+        subtitle: 'Two sum sorted',
+        steps: steps1,
+      })
+    );
+
+    // Advance to step 2
+    const nextBtn = screen.getByRole('button', { name: /next/i });
+    fireEvent.click(nextBtn);
+    expect(screen.getAllByText(`Step 2 of ${steps1.length}`).length).toBeGreaterThanOrEqual(1);
+
+    // Rerender with different steps
+    rerender(
+      React.createElement(GenericPatternVisualizer, {
+        title: 'Prefix Sum',
+        subtitle: 'Cumulative range',
+        steps: steps2,
+      })
+    );
+
+    // Must reset to Step 1
+    expect(screen.getAllByText(`Step 1 of ${steps2.length}`).length).toBeGreaterThanOrEqual(1);
+    cleanup();
+  });
+
+  it('ensures all 17 generic visualizer engines populate auxiliaryData on steps', () => {
+    const engines = [
+      generateHashingSteps,
+      generateTwoPointersSteps,
+      generatePrefixSumSteps,
+      generateBinarySearchSteps,
+      generateFastSlowSteps,
+      generateStackSteps,
+      generateIntervalsSteps,
+      generateHeapSteps,
+      generateTreeDFSSteps,
+      generateTreeBFSSteps,
+      generateGraphTraversalSteps,
+      generateTopologicalSortSteps,
+      generateUnionFindSteps,
+      generateBacktrackingSteps,
+      generateGreedySteps,
+      generateDPSteps,
+      generateBitManipulationSteps,
+    ];
+
+    for (const engine of engines) {
+      const steps = engine();
+      const hasAuxData = steps.some(
+        s => s.auxiliaryData && Object.keys(s.auxiliaryData).length > 0
+      );
+      expect(hasAuxData).toBe(true);
+    }
+  });
+});
