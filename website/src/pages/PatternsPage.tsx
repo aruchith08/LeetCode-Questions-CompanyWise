@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Search, BookOpen, Target, BarChart2, ChevronDown } from 'lucide-react';
+import { Search, BookOpen, Target, BarChart2, ChevronDown, X } from 'lucide-react';
 import { PATTERNS_CATALOG, SLIDING_WINDOW_QUESTIONS } from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
@@ -142,14 +142,24 @@ export default function PatternsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-start gap-2.5">
         {/* Search Input */}
         <div className="relative w-full sm:w-72 md:w-80">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search className="w-3.5 h-3.5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search patterns..."
-            className="w-full h-10 pl-10 pr-4 text-xs sm:text-sm rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
+            className="w-full h-9 pl-9 pr-8 text-xs sm:text-sm rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
           />
+          {searchQuery && (
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1"
+              aria-label="Clear search"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
 
         {/* All Levels Dropdown Toggle */}
@@ -157,14 +167,14 @@ export default function PatternsPage() {
           <button
             type="button"
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="flex items-center gap-2 h-10 px-3.5 rounded-xl text-xs font-semibold bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#2A2A28] transition-colors shadow-2xs cursor-pointer"
+            className="flex items-center gap-2 h-9 px-3.5 rounded-xl text-xs font-semibold bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D] transition-colors shadow-2xs cursor-pointer"
           >
             <span>{selectedLevel === 'All' ? 'All Levels' : selectedLevel}</span>
             <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
           </button>
 
           {dropdownOpen && (
-            <div className="absolute left-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] p-1.5 shadow-lg z-30 space-y-1">
+            <div className="absolute left-0 mt-1.5 w-48 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] p-1.5 shadow-lg z-30 space-y-1">
               {levelOptions.map(opt => (
                 <button
                   key={opt.id}
@@ -175,8 +185,8 @@ export default function PatternsPage() {
                   }}
                   className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     selectedLevel === opt.id
-                      ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300'
-                      : 'text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#2A2A28]'
+                      ? 'bg-slate-100 dark:bg-[#262624] text-[#0F1B3D] dark:text-[#FAF9F5] font-bold'
+                      : 'text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
                   }`}
                 >
                   <span>{opt.label}</span>
@@ -187,8 +197,8 @@ export default function PatternsPage() {
           )}
         </div>
 
-        {/* Level Pills */}
-        <div className="flex flex-wrap items-center gap-1.5">
+        {/* Level Capsules */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
           {levelOptions.map(opt => {
             const isSelected = selectedLevel === opt.id;
             return (
@@ -196,13 +206,22 @@ export default function PatternsPage() {
                 key={opt.id}
                 type="button"
                 onClick={() => setSelectedLevel(opt.id)}
-                className={`h-10 px-3.5 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
+                className={`h-9 px-3.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer inline-flex items-center justify-center ${
                   isSelected
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'bg-white dark:bg-[#30302E] text-slate-600 dark:text-[#A8A69C] hover:bg-slate-50 dark:hover:bg-[#2A2A28] border border-slate-200/80 dark:border-[#43433F]'
+                    ? 'bg-[#0F1B3D] dark:bg-white text-white dark:text-[#0F1B3D] shadow-xs'
+                    : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
                 }`}
               >
-                <span>{opt.id === 'All' ? 'All Patterns' : `${opt.label} (${opt.count})`}</span>
+                <span>{opt.id === 'All' ? 'All Patterns' : opt.label}</span>
+                {opt.id !== 'All' && (
+                  <span
+                    className={`ml-1 font-mono text-[11px] ${
+                      isSelected ? 'text-white/80 dark:text-[#0F1B3D]/80' : 'text-slate-400 dark:text-[#A8A69C]'
+                    }`}
+                  >
+                    ({opt.count})
+                  </span>
+                )}
               </button>
             );
           })}
