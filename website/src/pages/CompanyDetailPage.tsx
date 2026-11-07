@@ -2,9 +2,12 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft, Search, Star, ExternalLink,
-  ChevronLeft, ChevronRight, Copy, Check
+  ChevronLeft, ChevronRight, Copy, Check,
+  AlertCircle, RotateCcw
 } from 'lucide-react';
 import { useCompanyData } from '../hooks/useCompanyData';
+import { useDataIndex } from '../hooks/useDataIndex';
+import NotFoundPage from './NotFoundPage';
 import { useProgress } from '../hooks/useProgress';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
@@ -22,7 +25,8 @@ const PAGE_SIZE = 30;
 
 export default function CompanyDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { data, loading, error, loadCompany } = useCompanyData();
+  const { data: index } = useDataIndex();
+  const { data, loading, error, isNotFound, loadCompany } = useCompanyData();
 
   useEffect(() => {
     if (slug) {
@@ -132,10 +136,40 @@ export default function CompanyDetailPage() {
   };
 
   if (loading) return <LoadingSpinner />;
+
+  // 1. Invalid company slug: not in catalog index or 404 response
+  const isInvalidCompany = Boolean(
+    (index && slug && !index.companies.some(c => c.slug.toLowerCase() === slug.toLowerCase())) ||
+    isNotFound
+  );
+
+  if (isInvalidCompany) {
+    return <NotFoundPage />;
+  }
+
+  // 2. Network / server error with retry
   if (error || !data) {
     return (
-      <div className="py-16 text-center text-xs text-slate-500">
-        Company dataset not found for &ldquo;{slug}&rdquo;.
+      <div className="py-16 text-center space-y-4 max-w-md mx-auto">
+        <div className="w-12 h-12 mx-auto rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/25 flex items-center justify-center">
+          <AlertCircle className="w-6 h-6" />
+        </div>
+        <div className="space-y-1">
+          <h2 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5]">
+            Failed to load company questions
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-[#A8A69C] leading-relaxed">
+            {error || 'An unexpected network error occurred while fetching company data.'}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => slug && loadCompany(slug)}
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] text-xs font-bold hover:bg-[#1A2D5E] dark:hover:bg-[#c66c4e] transition-colors shadow-2xs cursor-pointer"
+        >
+          <RotateCcw className="w-3.5 h-3.5 stroke-[2.5]" />
+          <span>Retry Loading</span>
+        </button>
       </div>
     );
   }

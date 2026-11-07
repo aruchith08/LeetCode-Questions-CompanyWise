@@ -1,15 +1,17 @@
 import React, { Component, type ErrorInfo, type ReactNode } from 'react';
-import { AlertTriangle, RotateCcw, Home, ChevronDown, ChevronUp } from 'lucide-react';
+import { AlertTriangle, RotateCcw, Home, ChevronDown, ChevronUp, RefreshCw, Trash2 } from 'lucide-react';
+import { isStorageCorrupted } from '../../hooks/useProgressState';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
-  fallback?: ReactNode | ((props: { error: Error | null; resetError: () => void }) => ReactNode);
+  fallback?: ReactNode | ((props: { error: Error | null; resetError: () => void; retryCount: number }) => ReactNode);
   onError?: (error: Error, errorInfo: ErrorInfo) => void;
 }
 
 interface ErrorBoundaryState {
   hasError: boolean;
   error: Error | null;
+  retryCount: number;
   showDetails: boolean;
 }
 
@@ -17,6 +19,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
   public state: ErrorBoundaryState = {
     hasError: false,
     error: null,
+    retryCount: 0,
     showDetails: false,
   };
 
@@ -31,7 +34,23 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
   }
 
   public resetError = () => {
-    this.setState({ hasError: false, error: null, showDetails: false });
+    this.setState(prev => ({
+      hasError: false,
+      error: null,
+      retryCount: prev.retryCount + 1,
+      showDetails: false,
+    }));
+  };
+
+  public handleHardReset = () => {
+    try {
+      // Clear potentially corrupt session keys while preserving any corrupt stash
+      localStorage.removeItem('companywise-progress');
+      localStorage.removeItem('companywise_user_progress');
+      localStorage.removeItem('companywise-leetcode-account');
+      localStorage.removeItem('companywise_leetcode_account');
+    } catch {}
+    window.location.href = '/';
   };
 
   public toggleDetails = () => {
@@ -45,10 +64,14 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
           return this.props.fallback({
             error: this.state.error,
             resetError: this.resetError,
+            retryCount: this.state.retryCount,
           });
         }
         return this.props.fallback;
       }
+
+      const isRepeatedFailure = this.state.retryCount >= 2;
+      const storageHasCorruption = isStorageCorrupted();
 
       return (
         <div
@@ -57,17 +80,25 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         >
           <div className="max-w-lg w-full bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] rounded-2xl shadow-xl p-6 sm:p-8 text-center space-y-5 animate-fade-in">
             {/* Warning Icon Badge */}
-            <div className="w-12 h-12 mx-auto rounded-2xl bg-amber-500/10 dark:bg-[#D97757]/15 border border-amber-500/25 dark:border-[#D97757]/30 flex items-center justify-center text-amber-600 dark:text-[#D97757]">
+            <div className={`w-12 h-12 mx-auto rounded-2xl flex items-center justify-center ${
+              isRepeatedFailure
+                ? 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/30'
+                : 'bg-amber-500/10 text-amber-600 dark:text-[#D97757] border border-amber-500/25 dark:border-[#D97757]/30'
+            }`}>
               <AlertTriangle className="w-6 h-6 stroke-[2]" />
             </div>
 
             {/* Error Message Heading */}
             <div className="space-y-1.5">
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-[#FAF9F5]">
-                Something went wrong
+                {isRepeatedFailure ? 'Persistent Rendering Error' : 'Something went wrong'}
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] leading-relaxed">
-                An unexpected error occurred while rendering this view. Your saved progress, bookmarks, and solved questions are completely safe.
+                {isRepeatedFailure
+                  ? 'The application encountered an error that persisted across retries. You can clear temporary cache or return to the homepage.'
+                  : storageHasCorruption
+                    ? 'An unexpected error occurred while reading stored data. Corrupted entries were safely quarantined to protect your history.'
+                    : 'An unexpected error occurred while rendering this view. Your saved progress, bookmarks, and solved questions are intact.'}
               </p>
             </div>
 
@@ -82,13 +113,24 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
                 <span>Try Again</span>
               </button>
 
-              <a
-                href="/"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-[#43433F] bg-slate-50 dark:bg-[#1F1E1D] hover:bg-slate-100 dark:hover:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] text-xs font-semibold transition-colors cursor-pointer"
-              >
-                <Home className="w-3.5 h-3.5" />
-                <span>Return to Home</span>
-              </a>
+              {isRepeatedFailure ? (
+                <button
+                  type="button"
+                  onClick={this.handleHardReset}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 text-xs font-semibold hover:bg-rose-100 transition-colors cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Clear Cache & Reset</span>
+                </button>
+              ) : (
+                <a
+                  href="/"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-[#43433F] bg-slate-50 dark:bg-[#1F1E1D] hover:bg-slate-100 dark:hover:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  <Home className="w-3.5 h-3.5" />
+                  <span>Return to Home</span>
+                </a>
+              )}
             </div>
 
             {/* Expandable Technical Details */}
