@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   X,
   Check,
@@ -71,13 +71,66 @@ export default function LeetCodeModal({
   const [usernameInput, setUsernameInput] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  // Close on Escape key
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElementRef = useRef<HTMLElement | null>(null);
+
+  // Focus management: save previous active element and trap focus
+  useEffect(() => {
+    if (isOpen) {
+      previousActiveElementRef.current = document.activeElement as HTMLElement;
+      // Focus first relevant element inside modal
+      const timer = setTimeout(() => {
+        if (modalRef.current) {
+          const input = modalRef.current.querySelector<HTMLInputElement>('input');
+          if (input) {
+            input.focus();
+          } else {
+            const firstButton = modalRef.current.querySelector<HTMLElement>('button');
+            firstButton?.focus();
+          }
+        }
+      }, 50);
+      return () => clearTimeout(timer);
+    } else {
+      if (previousActiveElementRef.current && typeof previousActiveElementRef.current.focus === 'function') {
+        previousActiveElementRef.current.focus();
+      }
+    }
+  }, [isOpen]);
+
+  // Handle Escape key and Tab focus trap
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
+        return;
+      }
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusables = Array.from(
+          modalRef.current.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter(el => el.offsetParent !== null);
+
+        if (focusables.length === 0) return;
+
+        const firstElement = focusables[0];
+        const lastElement = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
       }
     };
+
     if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
     }
@@ -108,6 +161,7 @@ export default function LeetCodeModal({
     >
       <div
         className="relative w-full max-w-2xl max-h-[92vh] rounded-2xl sm:rounded-[22px] overflow-hidden bg-white dark:bg-[#262624] border border-slate-200 dark:border-[#43433F] shadow-2xl shadow-slate-900/15 dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] flex flex-col md:flex-row my-auto transition-all"
+        ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="lc-modal-title"
@@ -168,6 +222,8 @@ export default function LeetCodeModal({
             </div>
           )}
 
+          {/* Live Region for Dynamic Notices & Errors */}
+          <div aria-live="polite" aria-atomic="true">
           {/* Notices */}
           {syncNotice && (
             <div
@@ -204,6 +260,7 @@ export default function LeetCodeModal({
               )}
             </div>
           )}
+          </div>
 
           {/* State 1: Connected */}
           {account ? (
