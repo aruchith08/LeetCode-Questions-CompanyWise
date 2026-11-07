@@ -3,7 +3,7 @@ import { Search, BookOpen, Target, BarChart2, X } from 'lucide-react';
 import {
   PATTERNS_CATALOG,
   ALL_PATTERN_MAPPINGS,
-  getPatternContent,
+  getPatternMappings,
   SLIDING_WINDOW_MAPPINGS,
 } from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
@@ -20,8 +20,7 @@ export default function PatternsPage() {
   const patternSolvedCounts = useMemo(() => {
     const counts: Record<string, { solved: number; total: number }> = {};
     for (const pattern of PATTERNS_CATALOG) {
-      const content = getPatternContent(pattern.slug);
-      const mappings = content ? content.mappings : (pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS : []);
+      const mappings = getPatternMappings(pattern.slug) || (pattern.slug === 'sliding-window' ? SLIDING_WINDOW_MAPPINGS : []);
       const solved = mappings.filter(m => getStatus(m.questionId) === 'solved').length;
       counts[pattern.slug] = {
         solved,

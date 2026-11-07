@@ -9,11 +9,10 @@ import type { GlobalQuestion } from '../types';
 import { generateSlidingWindowSteps } from '../utils/slidingWindowVisualizerEngine';
 import {
   ALL_PATTERN_MAPPINGS,
-  getPatternContent,
   getPatternMappings,
-} from './patterns/patternRegistry';
+} from './patterns/patternMappings';
 
-export { ALL_PATTERN_MAPPINGS, getPatternContent, getPatternMappings };
+export { ALL_PATTERN_MAPPINGS, getPatternMappings };
 
 export const PATTERNS_CATALOG: DSAPattern[] = [
   // Foundation (6)

@@ -54,7 +54,20 @@ export default function ProgressPage() {
     return allQuestions.filter(q => progress.bookmarks.includes(q.id));
   }, [allQuestions, progress.bookmarks]);
 
-  // Solved and attempted counts per difficulty
+  // Fast ID -> Question metadata index for O(1) lookup
+  const { questionCompanyMap, questionDifficultyMap } = useMemo(() => {
+    const compMap = new Map<number, string[]>();
+    const diffMap = new Map<number, 'Easy' | 'Medium' | 'Hard'>();
+    if (allQuestions) {
+      for (const q of allQuestions) {
+        compMap.set(q.id, q.companySlugs);
+        diffMap.set(q.id, q.difficulty);
+      }
+    }
+    return { questionCompanyMap: compMap, questionDifficultyMap: diffMap };
+  }, [allQuestions]);
+
+  // Solved and attempted counts per difficulty (iterating user progress instead of 3,411 catalog items)
   const difficultyStats = useMemo(() => {
     let easySolved = 0;
     let medSolved = 0;
@@ -67,18 +80,19 @@ export default function ProgressPage() {
     const medTotal = index?.difficultyCounts.Medium || 1817;
     const hardTotal = index?.difficultyCounts.Hard || 780;
 
-    if (allQuestions) {
-      for (const q of allQuestions) {
-        const s = getStatus(q.id);
-        if (s === 'solved') {
-          if (q.difficulty === 'Easy') easySolved++;
-          else if (q.difficulty === 'Medium') medSolved++;
-          else if (q.difficulty === 'Hard') hardSolved++;
-        } else if (s === 'attempted') {
-          if (q.difficulty === 'Easy') easyAttempted++;
-          else if (q.difficulty === 'Medium') medAttempted++;
-          else if (q.difficulty === 'Hard') hardAttempted++;
-        }
+    for (const [idStr, status] of Object.entries(progress.solvedQuestions)) {
+      const id = Number(idStr);
+      const diff = questionDifficultyMap.get(id);
+      if (!diff) continue;
+
+      if (status === 'solved') {
+        if (diff === 'Easy') easySolved++;
+        else if (diff === 'Medium') medSolved++;
+        else if (diff === 'Hard') hardSolved++;
+      } else if (status === 'attempted') {
+        if (diff === 'Easy') easyAttempted++;
+        else if (diff === 'Medium') medAttempted++;
+        else if (diff === 'Hard') hardAttempted++;
       }
     }
 
@@ -87,23 +101,26 @@ export default function ProgressPage() {
       medium: { solved: medSolved, attempted: medAttempted, total: medTotal },
       hard: { solved: hardSolved, attempted: hardAttempted, total: hardTotal },
     };
-  }, [allQuestions, index, getStatus]);
+  }, [index, questionDifficultyMap, progress.solvedQuestions]);
 
-  // Company completion breakdown
+  // Company completion breakdown (optimized: scans user solved questions map, not full 3,411 catalog)
   const companyProgressList = useMemo(() => {
-    if (!index || !allQuestions) return [];
+    if (!index) return [];
 
     const solvedByCompany = new Map<string, number>();
     const attemptedByCompany = new Map<string, number>();
 
-    for (const q of allQuestions) {
-      const s = getStatus(q.id);
-      if (s === 'solved') {
-        for (const slug of q.companySlugs) {
+    for (const [idStr, status] of Object.entries(progress.solvedQuestions)) {
+      const id = Number(idStr);
+      const companySlugs = questionCompanyMap.get(id);
+      if (!companySlugs) continue;
+
+      if (status === 'solved') {
+        for (const slug of companySlugs) {
           solvedByCompany.set(slug, (solvedByCompany.get(slug) || 0) + 1);
         }
-      } else if (s === 'attempted') {
-        for (const slug of q.companySlugs) {
+      } else if (status === 'attempted') {
+        for (const slug of companySlugs) {
           attemptedByCompany.set(slug, (attemptedByCompany.get(slug) || 0) + 1);
         }
       }
@@ -163,7 +180,7 @@ export default function ProgressPage() {
     });
 
     return list;
-  }, [index, allQuestions, companySort, companyFilter, companySearch, getStatus, targetCompanies]);
+  }, [index, questionCompanyMap, progress.solvedQuestions, companySort, companyFilter, companySearch, targetCompanies]);
 
   // Display initial 6 companies (or all filtered if expanded)
   const displayedCompanies = useMemo(() => {

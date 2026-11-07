@@ -1,90 +1,66 @@
-import type { PatternLearningContent, PatternQuestionMapping } from '../../types/patterns';
-import { FOUNDATION_PATTERNS } from './foundationPatterns';
-import { INTERMEDIATE_PATTERNS } from './intermediatePatterns';
-import { ADVANCED_PATTERNS } from './advancedPatterns';
+import type { PatternLearningContent } from '../../types/patterns';
+export * from './patternMappings';
 
-export const ALL_PATTERNS_CONTENT: PatternLearningContent[] = [
-  ...FOUNDATION_PATTERNS,
-  ...INTERMEDIATE_PATTERNS,
-  ...ADVANCED_PATTERNS,
-];
+const FOUNDATION_SLUGS = new Set([
+  'hashing-and-frequency-counting',
+  'two-pointers',
+  'sliding-window',
+  'prefix-sum-and-difference-array',
+  'fast-and-slow-pointers',
+  'linked-list-in-place-reversal',
+]);
 
-export const PATTERN_CONTENT_MAP: Record<string, PatternLearningContent> = ALL_PATTERNS_CONTENT.reduce(
-  (acc, pattern) => {
-    acc[pattern.slug] = pattern;
-    return acc;
-  },
-  {} as Record<string, PatternLearningContent>
-);
+const INTERMEDIATE_SLUGS = new Set([
+  'binary-search',
+  'tree-bfs',
+  'tree-dfs',
+  'graph-bfs-dfs',
+  'topological-sort',
+  'two-heaps-and-top-k',
+]);
 
+const ADVANCED_SLUGS = new Set([
+  'monotonic-stack-and-queue',
+  'dynamic-programming-1d',
+  'dynamic-programming-2d-knapsack',
+  'trie',
+  'backtracking-and-permutations',
+  'union-find-disjoint-set',
+]);
+
+const patternContentCache = new Map<string, PatternLearningContent>();
+
+/**
+ * Dynamic track loader: Code-splits patterns into foundation, intermediate, and advanced chunks.
+ */
+export async function loadPatternContent(slug: string): Promise<PatternLearningContent | undefined> {
+  if (patternContentCache.has(slug)) {
+    return patternContentCache.get(slug);
+  }
+
+  if (FOUNDATION_SLUGS.has(slug)) {
+    const mod = await import('./foundationPatterns');
+    for (const p of mod.FOUNDATION_PATTERNS) {
+      patternContentCache.set(p.slug, p);
+    }
+  } else if (INTERMEDIATE_SLUGS.has(slug)) {
+    const mod = await import('./intermediatePatterns');
+    for (const p of mod.INTERMEDIATE_PATTERNS) {
+      patternContentCache.set(p.slug, p);
+    }
+  } else if (ADVANCED_SLUGS.has(slug)) {
+    const mod = await import('./advancedPatterns');
+    for (const p of mod.ADVANCED_PATTERNS) {
+      patternContentCache.set(p.slug, p);
+    }
+  }
+
+  return patternContentCache.get(slug);
+}
+
+/**
+ * Synchronous getter: Returns curriculum content if already loaded into cache.
+ */
 export function getPatternContent(slug: string): PatternLearningContent | undefined {
-  return PATTERN_CONTENT_MAP[slug];
-}
-
-/**
- * All question mappings across all 18 patterns.
- */
-export const ALL_PATTERN_MAPPINGS: PatternQuestionMapping[] = ALL_PATTERNS_CONTENT.flatMap(
-  pattern => pattern.mappings
-);
-
-/**
- * Total question mappings count across all tracks (including multi-track questions).
- */
-export const TOTAL_PATTERN_MAPPINGS_COUNT = ALL_PATTERN_MAPPINGS.length; // 207
-
-/**
- * Deduplicated unique LeetCode question IDs across the curriculum.
- */
-export const UNIQUE_PATTERN_QUESTION_IDS: number[] = Array.from(
-  new Set(ALL_PATTERN_MAPPINGS.map(m => m.questionId))
-);
-
-/**
- * Total unique question count.
- */
-export const UNIQUE_PATTERN_QUESTIONS_COUNT = UNIQUE_PATTERN_QUESTION_IDS.length; // 203
-
-/**
- * Returns questions that legitimately appear in more than one pattern track along with their pattern tracks.
- */
-export function getCrossPatternQuestions(): {
-  questionId: number;
-  occurrences: number;
-  patterns: string[];
-}[] {
-  const map = new Map<number, string[]>();
-  for (const pattern of ALL_PATTERNS_CONTENT) {
-    for (const mapping of pattern.mappings) {
-      const list = map.get(mapping.questionId) || [];
-      list.push(pattern.slug);
-      map.set(mapping.questionId, list);
-    }
-  }
-
-  const crossQuestions: {
-    questionId: number;
-    occurrences: number;
-    patterns: string[];
-  }[] = [];
-
-  for (const [questionId, patterns] of map.entries()) {
-    if (patterns.length > 1) {
-      crossQuestions.push({
-        questionId,
-        occurrences: patterns.length,
-        patterns,
-      });
-    }
-  }
-
-  return crossQuestions;
-}
-
-/**
- * Returns a list of mappings for a given pattern slug.
- */
-export function getPatternMappings(slug: string): PatternQuestionMapping[] {
-  const content = getPatternContent(slug);
-  return content ? content.mappings : [];
+  return patternContentCache.get(slug);
 }

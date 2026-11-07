@@ -4,8 +4,7 @@ import path from 'path';
 import React from 'react';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import {
-  ALL_PATTERNS_CONTENT,
-  PATTERN_CONTENT_MAP,
+  loadPatternContent,
   getPatternContent,
   ALL_PATTERN_MAPPINGS,
   TOTAL_PATTERN_MAPPINGS_COUNT,
@@ -13,6 +12,23 @@ import {
   UNIQUE_PATTERN_QUESTION_IDS,
   getCrossPatternQuestions,
 } from '../src/data/patterns/patternRegistry';
+import { FOUNDATION_PATTERNS } from '../src/data/patterns/foundationPatterns';
+import { INTERMEDIATE_PATTERNS } from '../src/data/patterns/intermediatePatterns';
+import { ADVANCED_PATTERNS } from '../src/data/patterns/advancedPatterns';
+
+const ALL_PATTERNS_CONTENT = [
+  ...FOUNDATION_PATTERNS,
+  ...INTERMEDIATE_PATTERNS,
+  ...ADVANCED_PATTERNS,
+];
+
+const PATTERN_CONTENT_MAP = ALL_PATTERNS_CONTENT.reduce(
+  (acc, pattern) => {
+    acc[pattern.slug] = pattern;
+    return acc;
+  },
+  {} as Record<string, any>
+);
 import { PATTERNS_CATALOG } from '../src/data/patternsData';
 import {
   generateHashingSteps,

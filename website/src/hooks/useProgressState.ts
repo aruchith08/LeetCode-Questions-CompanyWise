@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import type { UserProgress, QuestionStatus, LeetCodeAccount, PatternQuizScore } from '../types';
 import {
   fetchLeetCodeData,
@@ -698,10 +698,16 @@ export function useProgressState() {
     [progress.patternQuizScores]
   );
 
-  const totalSolved = Object.values(progress.solvedQuestions).filter(s => s === 'solved').length;
-  const totalAttempted = Object.values(progress.solvedQuestions).filter(s => s === 'attempted').length;
+  const totalSolved = useMemo(
+    () => Object.values(progress.solvedQuestions).filter(s => s === 'solved').length,
+    [progress.solvedQuestions]
+  );
+  const totalAttempted = useMemo(
+    () => Object.values(progress.solvedQuestions).filter(s => s === 'attempted').length,
+    [progress.solvedQuestions]
+  );
 
-  return {
+  return useMemo(() => ({
     progress,
     lcAccount,
     isSyncing,
@@ -735,7 +741,37 @@ export function useProgressState() {
     isStorageCorrupted: isStorageCorrupted(),
     totalSolved,
     totalAttempted,
-  };
+  }), [
+    progress,
+    lcAccount,
+    isSyncing,
+    syncStatus,
+    syncDetails,
+    syncError,
+    syncNotice,
+    getStatus,
+    toggleSolved,
+    markBatchSolved,
+    setQuestionStatus,
+    markBatchStatus,
+    toggleAttempted,
+    toggleBookmark,
+    isBookmarked,
+    toggleTargetCompany,
+    isTargeted,
+    addRecentCompany,
+    addRecentQuestion,
+    connectLeetCode,
+    syncLeetCode,
+    disconnectLeetCode,
+    recordPatternQuiz,
+    getPatternQuiz,
+    exportProgress,
+    importProgress,
+    resetProgress,
+    totalSolved,
+    totalAttempted,
+  ]);
 }
 
 export type ProgressStateReturn = ReturnType<typeof useProgressState>;

@@ -108,13 +108,27 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
     // Continue to fallback
   }
 
-  // Attempt 2: Public LeetCode API Mirror (alfa-leetcode-api)
+  // Attempt 2: Public LeetCode API Mirror (alfa-leetcode-api) with 10s timeout
+  let timedOut = false;
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+    }, 10000);
+
     const [subRes, solvedRes, profileRes] = await Promise.all([
-      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}/acSubmission?limit=100`),
-      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}/solved`),
-      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}`),
+      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}/acSubmission?limit=100`, {
+        signal: controller.signal,
+      }),
+      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}/solved`, {
+        signal: controller.signal,
+      }),
+      fetch(`https://alfa-leetcode-api.onrender.com/${cleanUsername}`, {
+        signal: controller.signal,
+      }),
     ]);
+    clearTimeout(timeoutId);
 
     if (solvedRes.ok) {
       const solvedData = await solvedRes.json();
@@ -143,6 +157,9 @@ export async function fetchLeetCodeData(username: string): Promise<LeetCodeAccou
       };
     }
   } catch (err: any) {
+    if (timedOut || err?.name === 'AbortError') {
+      throw new Error('LeetCode mirror timed out after 10 seconds. Please try again.');
+    }
     // Continue to error throw
   }
 

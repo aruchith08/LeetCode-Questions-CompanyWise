@@ -25,7 +25,8 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import { PATTERNS_CATALOG } from '../data/patternsData';
-import { getPatternContent } from '../data/patterns/patternRegistry';
+import type { PatternLearningContent } from '../types/patterns';
+import { getPatternContent, loadPatternContent } from '../data/patterns/patternRegistry';
 import PatternVisualizerHost from '../components/patterns/PatternVisualizerHost';
 import CodeComparison from '../components/patterns/CodeComparison';
 import PracticeQuestionsSection from '../components/patterns/PracticeQuestionsSection';
@@ -104,7 +105,37 @@ export default function PatternDetailPage() {
 
   const { getStatus, getPatternQuiz } = useProgress();
   const pattern = useMemo(() => PATTERNS_CATALOG.find(p => p.slug === slug), [slug]);
-  const patternContent = useMemo(() => (slug ? getPatternContent(slug) : undefined), [slug]);
+  const [patternContent, setPatternContent] = useState<PatternLearningContent | undefined>(() =>
+    slug ? getPatternContent(slug) : undefined
+  );
+  const [isLoadingContent, setIsLoadingContent] = useState<boolean>(() => !patternContent && !!slug);
+
+  useEffect(() => {
+    if (!slug) return;
+    let isMounted = true;
+    const cached = getPatternContent(slug);
+    if (cached) {
+      setPatternContent(cached);
+      setIsLoadingContent(false);
+      return;
+    }
+    setIsLoadingContent(true);
+    loadPatternContent(slug)
+      .then(content => {
+        if (isMounted) {
+          setPatternContent(content);
+          setIsLoadingContent(false);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load pattern curriculum:', err);
+        if (isMounted) setIsLoadingContent(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [slug]);
 
   const quizScore = slug ? getPatternQuiz(slug) : undefined;
   const solvedCount = useMemo(() => {
@@ -173,6 +204,17 @@ export default function PatternDetailPage() {
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Patterns</span>
         </Link>
+      </div>
+    );
+  }
+
+  if (isLoadingContent || !patternContent) {
+    return (
+      <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-4">
+        <div className="w-10 h-10 border-4 border-[#0F1B3D] dark:border-[#D97757] border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs text-slate-500 dark:text-[#A8A69C] animate-pulse">
+          Loading curriculum...
+        </p>
       </div>
     );
   }
