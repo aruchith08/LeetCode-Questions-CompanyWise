@@ -5,7 +5,7 @@ import {
   normalizeTimestampToSecondsString,
 } from '../src/utils/timestampUtils';
 import { validateAndParseBackup } from '../src/utils/backupValidation';
-import { useProgressState } from '../src/hooks/useProgressState';
+import { useProgressState, getLocalDateString } from '../src/hooks/useProgressState';
 import { renderHook, act } from '@testing-library/react';
 
 describe('Timestamp Normalization & Activity Integrity', () => {
@@ -80,7 +80,7 @@ describe('Timestamp Normalization & Activity Integrity', () => {
     });
 
     const todaySolvesBefore = result.current.progress.activityHistory?.[
-      new Date().toISOString().split('T')[0]
+      getLocalDateString()
     ] || 0;
     expect(todaySolvesBefore).toBe(1);
 
@@ -92,7 +92,7 @@ describe('Timestamp Normalization & Activity Integrity', () => {
     expect(result.current.getStatus(200)).toBe('solved');
     // Daily solve count must NOT have increased artificially
     const todaySolvesAfterImport = result.current.progress.activityHistory?.[
-      new Date().toISOString().split('T')[0]
+      getLocalDateString()
     ] || 0;
     expect(todaySolvesAfterImport).toBe(1);
 
@@ -104,7 +104,7 @@ describe('Timestamp Normalization & Activity Integrity', () => {
     expect(result.current.getStatus(200)).toBe('unsolved');
     // Today's genuine activity history MUST NOT be decremented!
     const todaySolvesAfterUnmark = result.current.progress.activityHistory?.[
-      new Date().toISOString().split('T')[0]
+      getLocalDateString()
     ] || 0;
     expect(todaySolvesAfterUnmark).toBe(1);
   });

@@ -100,7 +100,7 @@ describe('Pattern Mastery & Assessment System', () => {
     it('renders Mastered badge when isMastered is true', () => {
       const pattern = PATTERNS_CATALOG[0];
       render(
-        <MemoryRouter>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <PatternCard
             pattern={pattern}
             solvedCount={3}
@@ -117,7 +117,7 @@ describe('Pattern Mastery & Assessment System', () => {
     it('does NOT render Mastered badge when isMastered is false', () => {
       const pattern = PATTERNS_CATALOG[0];
       render(
-        <MemoryRouter>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <PatternCard
             pattern={pattern}
             solvedCount={3}
@@ -134,7 +134,7 @@ describe('Pattern Mastery & Assessment System', () => {
   describe('PatternsPage Dynamic Mastery Counter', () => {
     it('renders dynamic Patterns mastered metric instead of Assessment coming soon', () => {
       render(
-        <MemoryRouter>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <ProgressProvider>
             <PatternsPage />
           </ProgressProvider>

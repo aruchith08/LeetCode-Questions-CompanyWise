@@ -11,7 +11,7 @@ describe('Pattern Cards Display & Real Question Counts', () => {
     const slidingWindowPattern = PATTERNS_CATALOG.find(p => p.slug === 'sliding-window')!;
 
     const { container } = render(
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <PatternCard
           pattern={slidingWindowPattern}
           solvedCount={3}
@@ -43,7 +43,7 @@ describe('Pattern Cards Display & Real Question Counts', () => {
     };
 
     const { unmount } = render(
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <PatternCard
           pattern={mockUpcomingPattern}
           solvedCount={0}

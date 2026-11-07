@@ -24,7 +24,7 @@ describe('Routing & Error Resilience', () => {
   describe('NotFoundPage (404 Handling)', () => {
     it('renders branded 404 page with navigation cards', () => {
       render(
-        <MemoryRouter>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <NotFoundPage />
         </MemoryRouter>
       );
@@ -46,7 +46,7 @@ describe('Routing & Error Resilience', () => {
 
     it('renders NotFoundPage when navigating to an unmapped route in Routes', () => {
       render(
-        <MemoryRouter initialEntries={['/non-existent-page-url']}>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/non-existent-page-url']}>
           <Routes>
             <Route path="/" element={<div>Home</div>} />
             <Route path="*" element={<NotFoundPage />} />
@@ -68,7 +68,7 @@ describe('Routing & Error Resilience', () => {
     it('invokes window.scrollTo(0, 0) on route transition without hash', () => {
       function TestNavigation() {
         return (
-          <MemoryRouter initialEntries={['/initial']}>
+          <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/initial']}>
             <ScrollToTop />
             <Routes>
               <Route
@@ -97,7 +97,7 @@ describe('Routing & Error Resilience', () => {
       document.body.appendChild(targetDiv);
 
       render(
-        <MemoryRouter initialEntries={['/patterns/sliding-window#practice-section']}>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/patterns/sliding-window#practice-section']}>
           <ScrollToTop />
         </MemoryRouter>
       );
@@ -210,7 +210,7 @@ describe('Routing & Error Resilience', () => {
       });
 
       render(
-        <MemoryRouter initialEntries={['/companies/fake-company-slug']}>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/companies/fake-company-slug']}>
           <ProgressProvider>
             <Routes>
               <Route path="/companies/:slug" element={<CompanyDetailPage />} />
@@ -249,7 +249,7 @@ describe('Routing & Error Resilience', () => {
       });
 
       render(
-        <MemoryRouter initialEntries={['/companies/google']}>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/companies/google']}>
           <ProgressProvider>
             <Routes>
               <Route path="/companies/:slug" element={<CompanyDetailPage />} />

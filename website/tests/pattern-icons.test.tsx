@@ -1,4 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+vi.mock('../src/hooks/useAllQuestions', () => ({
+  useAllQuestions: () => ({ data: [], loading: false, error: null }),
+}));
+
+vi.mock('../src/hooks/useDataIndex', () => ({
+  useDataIndex: () => ({ data: { companies: [] }, loading: false, error: null }),
+}));
 import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
@@ -72,7 +79,7 @@ describe('Centralized Pattern & Topic Icons', () => {
   it('renders PatternDetailPage with concept SVG icon instead of 2-letter uppercase initials', () => {
     const { container } = render(
       <ProgressProvider>
-        <MemoryRouter initialEntries={['/patterns/hashing-and-frequency-counting']}>
+        <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }} initialEntries={['/patterns/hashing-and-frequency-counting']}>
           <Routes>
             <Route path="/patterns/:slug" element={<PatternDetailPage />} />
           </Routes>
@@ -90,7 +97,7 @@ describe('Centralized Pattern & Topic Icons', () => {
   it('renders PatternCard with matching PatternIcon next to pattern title', () => {
     const pattern = PATTERNS_CATALOG[0]; // hashing-and-frequency-counting
     const { container } = render(
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <PatternCard pattern={pattern} solvedCount={0} totalQuestions={12} />
       </MemoryRouter>
     );

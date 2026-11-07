@@ -10,6 +10,10 @@ import PracticeQuestionsSection from '../src/components/patterns/PracticeQuestio
 import { ProgressProvider } from '../src/context/ProgressContext';
 import * as useAllQuestionsModule from '../src/hooks/useAllQuestions';
 
+vi.mock('../src/hooks/useDataIndex', () => ({
+  useDataIndex: () => ({ data: { companies: [] }, loading: false, error: null }),
+}));
+
 describe('Pattern Question Data Integrity & Loading States', () => {
   const mockCatalog: GlobalQuestion[] = [
     {

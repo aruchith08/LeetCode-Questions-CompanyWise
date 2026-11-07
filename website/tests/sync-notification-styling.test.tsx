@@ -4,6 +4,10 @@ import { render, screen } from '@testing-library/react';
 import LeetCodeModal from '../src/components/leetcode/LeetCodeModal';
 import type { LeetCodeAccount } from '../src/types';
 
+vi.mock('../src/hooks/useAllQuestions', () => ({
+  useAllQuestions: () => ({ data: [], loading: false, error: null }),
+}));
+
 describe('LeetCode Synchronization Notice Styling', () => {
   const mockAccount: LeetCodeAccount = {
     username: 'alice',
