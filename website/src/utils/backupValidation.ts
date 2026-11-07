@@ -1,4 +1,4 @@
-import type { UserProgress, QuestionStatus, LeetCodeAccount, LeetCodeSubmission } from '../types';
+import type { UserProgress, QuestionStatus, LeetCodeAccount, LeetCodeSubmission, PatternQuizScore } from '../types';
 import { normalizeTimestampToISO, normalizeTimestampToSecondsString } from './timestampUtils';
 
 export const CURRENT_BACKUP_SCHEMA_VERSION = 2;
@@ -259,6 +259,41 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
     };
   }
 
+  // patternQuizScores validation
+  const patternQuizScores: Record<string, PatternQuizScore> = {};
+  if (parsed.patternQuizScores !== undefined) {
+    if (typeof parsed.patternQuizScores !== 'object' || Array.isArray(parsed.patternQuizScores) || parsed.patternQuizScores === null) {
+      return { success: false, error: 'Field "patternQuizScores" must be an object.' };
+    }
+    for (const [slug, scoreData] of Object.entries(parsed.patternQuizScores)) {
+      if (typeof slug !== 'string' || !slug.trim()) {
+        return { success: false, error: 'Pattern quiz slug must be a non-empty string.' };
+      }
+      if (!scoreData || typeof scoreData !== 'object' || Array.isArray(scoreData)) {
+        return { success: false, error: `Invalid quiz score data for pattern "${slug}".` };
+      }
+      const { score, total, passed, completedAt } = scoreData as any;
+      if (typeof score !== 'number' || !Number.isInteger(score) || score < 0) {
+        return { success: false, error: `Invalid score for pattern "${slug}". Score must be a non-negative integer.` };
+      }
+      if (typeof total !== 'number' || !Number.isInteger(total) || total <= 0) {
+        return { success: false, error: `Invalid total for pattern "${slug}". Total must be a positive integer.` };
+      }
+      if (typeof passed !== 'boolean') {
+        return { success: false, error: `Invalid passed status for pattern "${slug}". Passed must be a boolean.` };
+      }
+      if (typeof completedAt !== 'string' || isNaN(Date.parse(completedAt))) {
+        return { success: false, error: `Invalid completedAt timestamp for pattern "${slug}".` };
+      }
+      patternQuizScores[slug] = {
+        score,
+        total,
+        passed,
+        completedAt: new Date(Date.parse(completedAt)).toISOString(),
+      };
+    }
+  }
+
   const progress: UserProgress = {
     solvedQuestions: validatedSolved,
     bookmarks,
@@ -268,6 +303,7 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
     recentQuestionTimestamps,
     solvedQuestionTimestamps,
     activityHistory,
+    patternQuizScores,
     lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : new Date().toISOString(),
   };
 
@@ -424,6 +460,41 @@ export function validateProgressSchema(data: any): { valid: boolean; error?: str
     }
   }
 
+  // 9. patternQuizScores validation
+  const patternQuizScores: Record<string, PatternQuizScore> = {};
+  if (data.patternQuizScores !== undefined) {
+    if (typeof data.patternQuizScores !== 'object' || Array.isArray(data.patternQuizScores) || data.patternQuizScores === null) {
+      return { valid: false, error: 'Field "patternQuizScores" must be an object.' };
+    }
+    for (const [slug, scoreData] of Object.entries(data.patternQuizScores)) {
+      if (typeof slug !== 'string' || !slug.trim()) {
+        return { valid: false, error: 'Pattern quiz slug must be a non-empty string.' };
+      }
+      if (!scoreData || typeof scoreData !== 'object' || Array.isArray(scoreData)) {
+        return { valid: false, error: `Invalid quiz score data for pattern "${slug}".` };
+      }
+      const { score, total, passed, completedAt } = scoreData as any;
+      if (typeof score !== 'number' || !Number.isInteger(score) || score < 0) {
+        return { valid: false, error: `Invalid score for pattern "${slug}". Score must be a non-negative integer.` };
+      }
+      if (typeof total !== 'number' || !Number.isInteger(total) || total <= 0) {
+        return { valid: false, error: `Invalid total for pattern "${slug}". Total must be a positive integer.` };
+      }
+      if (typeof passed !== 'boolean') {
+        return { valid: false, error: `Invalid passed status for pattern "${slug}". Passed must be a boolean.` };
+      }
+      if (typeof completedAt !== 'string' || isNaN(Date.parse(completedAt))) {
+        return { valid: false, error: `Invalid completedAt timestamp for pattern "${slug}".` };
+      }
+      patternQuizScores[slug] = {
+        score,
+        total,
+        passed,
+        completedAt: new Date(Date.parse(completedAt)).toISOString(),
+      };
+    }
+  }
+
   const progress: UserProgress = {
     solvedQuestions: validatedSolved,
     bookmarks,
@@ -433,6 +504,7 @@ export function validateProgressSchema(data: any): { valid: boolean; error?: str
     recentQuestionTimestamps,
     solvedQuestionTimestamps,
     activityHistory,
+    patternQuizScores,
     lastUpdated: typeof data.lastUpdated === 'string' ? data.lastUpdated : new Date().toISOString(),
   };
 

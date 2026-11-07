@@ -32,6 +32,8 @@ import PracticeQuestionsSection from '../components/patterns/PracticeQuestionsSe
 import UnderstandingCheck from '../components/patterns/UnderstandingCheck';
 import CodeSnippetModal from '../components/patterns/CodeSnippetModal';
 import PatternIcon from '../components/patterns/PatternIcon';
+import { useProgress } from '../hooks/useProgress';
+import { isPatternMastered } from '../utils/patternMastery';
 
 interface NavModule {
   id: string;
@@ -100,8 +102,16 @@ export default function PatternDetailPage() {
   const [activeCodeLang, setActiveCodeLang] = useState<'python' | 'typescript'>('python');
   const [copiedTemplate, setCopiedTemplate] = useState(false);
 
+  const { getStatus, getPatternQuiz } = useProgress();
   const pattern = useMemo(() => PATTERNS_CATALOG.find(p => p.slug === slug), [slug]);
   const patternContent = useMemo(() => (slug ? getPatternContent(slug) : undefined), [slug]);
+
+  const quizScore = slug ? getPatternQuiz(slug) : undefined;
+  const solvedCount = useMemo(() => {
+    const mappings = patternContent?.mappings || [];
+    return mappings.filter(m => getStatus(m.questionId) === 'solved').length;
+  }, [patternContent, getStatus]);
+  const isMastered = isPatternMastered(quizScore, solvedCount);
 
   const handleCopyTemplate = (code: string) => {
     navigator.clipboard.writeText(code);
@@ -276,6 +286,15 @@ export default function PatternDetailPage() {
 
           {/* Right Badges */}
           <div className="flex items-center gap-2 self-start md:self-auto shrink-0 flex-wrap">
+            {isMastered && (
+              <span
+                data-testid="mastered-badge"
+                className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-300 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800 flex items-center gap-1 shadow-2xs"
+              >
+                <CheckCircle className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                <span>Mastered</span>
+              </span>
+            )}
             <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${levelBadgeClass}`}>
               {pattern.level}
             </span>
@@ -826,6 +845,7 @@ export default function PatternDetailPage() {
           {/* Module 8: Understanding Check */}
           <section id="understanding">
             <UnderstandingCheck
+              patternSlug={slug}
               quiz={patternContent?.quiz}
               patternTitle={`Understanding Check: ${pattern.title}`}
               patternDescription={`Verify your intuitive and conceptual grasp of ${pattern.title}.`}

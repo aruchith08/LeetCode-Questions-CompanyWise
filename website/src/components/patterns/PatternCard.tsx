@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import type { DSAPattern } from '../../types/patterns';
 import PatternMiniVisual from './PatternMiniVisual';
 import PatternIcon from './PatternIcon';
@@ -9,12 +9,14 @@ interface PatternCardProps {
   pattern: DSAPattern;
   solvedCount?: number;
   totalQuestions?: number;
+  isMastered?: boolean;
 }
 
 export default function PatternCard({
   pattern,
   solvedCount = 0,
   totalQuestions,
+  isMastered = false,
 }: PatternCardProps) {
   const isAvailable = pattern.availability === 'available';
   const qCount = isAvailable ? (totalQuestions ?? pattern.questionCount ?? 0) : 0;
@@ -74,6 +76,16 @@ export default function PatternCard({
           ) : (
             <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-[#1F1E1D] dark:text-[#8E8C82] dark:border-[#43433F]">
               Upcoming
+            </span>
+          )}
+
+          {isMastered && (
+            <span
+              data-testid="mastered-badge"
+              className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-300 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800 flex items-center gap-1"
+            >
+              <CheckCircle2 className="w-3 h-3 text-amber-600 dark:text-amber-400 shrink-0" />
+              <span>Mastered</span>
             </span>
           )}
         </div>

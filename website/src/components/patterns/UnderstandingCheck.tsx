@@ -2,28 +2,44 @@ import React, { useState } from 'react';
 import { CheckCircle2, XCircle, HelpCircle, RotateCcw } from 'lucide-react';
 import { SLIDING_WINDOW_QUIZ } from '../../data/patternsData';
 import type { QuizQuestion } from '../../types/patterns';
+import { useProgress } from '../../hooks/useProgress';
 
 export interface UnderstandingCheckProps {
   quiz?: QuizQuestion[];
   patternTitle?: string;
   patternDescription?: string;
+  patternSlug?: string;
 }
 
 export default function UnderstandingCheck({
   quiz = SLIDING_WINDOW_QUIZ,
   patternTitle = 'Understanding Check',
   patternDescription,
+  patternSlug,
 }: UnderstandingCheckProps = {}) {
+  const { recordPatternQuiz, getPatternQuiz } = useProgress();
+  const savedQuiz = patternSlug ? getPatternQuiz(patternSlug) : undefined;
+
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
 
   const handleSelectOption = (questionId: string, optionId: string) => {
     // Only allow selection once per question unless reset
     if (selectedAnswers[questionId]) return;
 
-    setSelectedAnswers(prev => ({
-      ...prev,
+    const newAnswers = {
+      ...selectedAnswers,
       [questionId]: optionId,
-    }));
+    };
+    setSelectedAnswers(newAnswers);
+
+    // If all questions are answered, persist score and passed state
+    if (quiz.length > 0 && Object.keys(newAnswers).length === quiz.length) {
+      const currentCorrect = quiz.filter(q => newAnswers[q.id] === q.correctOptionId).length;
+      const passed = (currentCorrect / quiz.length) >= (2 / 3);
+      if (patternSlug) {
+        recordPatternQuiz(patternSlug, currentCorrect, quiz.length, passed);
+      }
+    }
   };
 
   const handleReset = () => {
@@ -53,16 +69,52 @@ export default function UnderstandingCheck({
           </div>
         </div>
 
-        {/* Quiz Score Badge & Reset */}
-        <div className="flex items-center gap-2.5">
+        {/* Quiz Score Badge, Saved Status & Reset */}
+        <div className="flex items-center gap-2.5 flex-wrap">
+          {savedQuiz && (
+            <div
+              data-testid="saved-quiz-badge"
+              className={`px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 border ${
+                savedQuiz.passed
+                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800'
+                  : 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800'
+              }`}
+            >
+              {savedQuiz.passed ? (
+                <>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>Passed ({savedQuiz.score}/{savedQuiz.total})</span>
+                </>
+              ) : (
+                <>
+                  <HelpCircle className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span>Previous: {savedQuiz.score}/{savedQuiz.total} (Retake to pass)</span>
+                </>
+              )}
+            </div>
+          )}
+
           <div className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
-            Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{correctCount}</span> / {quiz.length}
+            {answeredCount > 0 ? (
+              <>
+                Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{correctCount}</span> / {quiz.length}
+              </>
+            ) : savedQuiz ? (
+              <>
+                Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{savedQuiz.score}</span> / {savedQuiz.total}
+              </>
+            ) : (
+              <>
+                Score: <span className="font-bold text-[#0F1B3D] dark:text-[#D97757]">{correctCount}</span> / {quiz.length}
+              </>
+            )}
           </div>
+
           {answeredCount > 0 && (
             <button
               type="button"
               onClick={handleReset}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Retry</span>
@@ -70,6 +122,38 @@ export default function UnderstandingCheck({
           )}
         </div>
       </div>
+
+      {/* Quiz Completion Banner */}
+      {answeredCount === quiz.length && quiz.length > 0 && (
+        <div
+          data-testid="quiz-completion-banner"
+          className={`p-3 rounded-xl border text-xs flex items-center justify-between gap-3 ${
+            (correctCount / quiz.length) >= (2 / 3)
+              ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
+              : 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            {(correctCount / quiz.length) >= (2 / 3) ? (
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            ) : (
+              <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+            )}
+            <span>
+              {(correctCount / quiz.length) >= (2 / 3)
+                ? `Quiz passed! (${correctCount}/${quiz.length} correct) Pattern assessment requirement earned.`
+                : `Attempt complete: ${correctCount}/${quiz.length} correct. Need at least 67% to pass for Pattern Mastery.`}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={handleReset}
+            className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-white dark:bg-[#262624] border border-slate-200 dark:border-[#43433F] hover:bg-slate-50 dark:hover:bg-[#30302E] shrink-0 transition-colors cursor-pointer"
+          >
+            Retry Quiz
+          </button>
+        </div>
+      )}
 
       {/* Quiz Questions List */}
       <div className="space-y-4">

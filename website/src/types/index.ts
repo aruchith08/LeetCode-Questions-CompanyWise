@@ -41,6 +41,13 @@ export interface GlobalQuestion extends Question {
 
 export type QuestionStatus = 'solved' | 'attempted' | 'unsolved';
 
+export interface PatternQuizScore {
+  score: number;
+  total: number;
+  passed: boolean;
+  completedAt: string;
+}
+
 export interface UserProgress {
   solvedQuestions: Record<number, QuestionStatus>;
   bookmarks: number[];
@@ -50,6 +57,7 @@ export interface UserProgress {
   recentQuestionTimestamps?: Record<number, string>;
   solvedQuestionTimestamps?: Record<number, string>;
   activityHistory?: Record<string, number>;
+  patternQuizScores?: Record<string, PatternQuizScore>;
   lastUpdated: string;
 }
 

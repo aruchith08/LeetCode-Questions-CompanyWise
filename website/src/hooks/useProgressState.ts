@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import type { UserProgress, QuestionStatus, LeetCodeAccount } from '../types';
+import type { UserProgress, QuestionStatus, LeetCodeAccount, PatternQuizScore } from '../types';
 import {
   fetchLeetCodeData,
   matchLeetCodeSubmissionsWithDetails,
@@ -56,6 +56,7 @@ export function getDefaultProgress(): UserProgress {
     recentQuestionTimestamps: {},
     solvedQuestionTimestamps: {},
     activityHistory: {},
+    patternQuizScores: {},
     lastUpdated: new Date().toISOString(),
   };
 }
@@ -661,6 +662,42 @@ export function useProgressState() {
     setSyncDetails(null);
   }, []);
 
+  const recordPatternQuiz = useCallback((
+    slug: string,
+    score: number,
+    total: number,
+    passed: boolean
+  ) => {
+    setProgress(prev => {
+      const prevScores = prev.patternQuizScores || {};
+      const current = prevScores[slug];
+      const hasPassed = passed || Boolean(current?.passed);
+      const bestScore = Math.max(score, current?.score ?? 0);
+
+      const updatedScores = {
+        ...prevScores,
+        [slug]: {
+          score: bestScore,
+          total,
+          passed: hasPassed,
+          completedAt: new Date().toISOString(),
+        },
+      };
+
+      return {
+        ...prev,
+        patternQuizScores: updatedScores,
+      };
+    });
+  }, []);
+
+  const getPatternQuiz = useCallback(
+    (slug: string): PatternQuizScore | undefined => {
+      return progress.patternQuizScores?.[slug];
+    },
+    [progress.patternQuizScores]
+  );
+
   const totalSolved = Object.values(progress.solvedQuestions).filter(s => s === 'solved').length;
   const totalAttempted = Object.values(progress.solvedQuestions).filter(s => s === 'attempted').length;
 
@@ -688,6 +725,9 @@ export function useProgressState() {
     connectLeetCode,
     syncLeetCode,
     disconnectLeetCode,
+    recordPatternQuiz,
+    getPatternQuiz,
+    patternQuizScores: progress.patternQuizScores || {},
     exportProgress,
     importProgress,
     resetProgress,

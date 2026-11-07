@@ -9,9 +9,10 @@ import {
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
 import { useProgress } from '../hooks/useProgress';
+import { isPatternMastered } from '../utils/patternMastery';
 
 export default function PatternsPage() {
-  const { getStatus } = useProgress();
+  const { getStatus, getPatternQuiz } = useProgress();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState<'All' | PatternLevel>('All');
 
@@ -43,7 +44,19 @@ export default function PatternsPage() {
 
   // Mastery assessment is a dedicated evaluation framework planned for Phase 2.
   // Solving practice problems reflects practice completion, not verified pattern mastery.
-  const patternsMasteredCount = 0;
+  const patternMasteryMap = useMemo(() => {
+    const map: Record<string, boolean> = {};
+    for (const pattern of PATTERNS_CATALOG) {
+      const solved = patternSolvedCounts[pattern.slug]?.solved ?? 0;
+      const quiz = getPatternQuiz(pattern.slug);
+      map[pattern.slug] = isPatternMastered(quiz, solved);
+    }
+    return map;
+  }, [patternSolvedCounts, getPatternQuiz]);
+
+  const patternsMasteredCount = useMemo(() => {
+    return Object.values(patternMasteryMap).filter(Boolean).length;
+  }, [patternMasteryMap]);
 
   // Filter patterns based on search query and selected level
   const filteredPatterns = useMemo(() => {
@@ -106,17 +119,25 @@ export default function PatternsPage() {
               {/* Stat 2: Patterns mastered */}
               <div
                 className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] shadow-2xs"
-                title="Pattern mastery assessment system planned for Phase 2"
+                title="Pattern mastery is earned by passing the conceptual assessment quiz (≥ 67%) and solving at least 1 curated practice question."
               >
-                <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200/80 dark:border-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 shrink-0">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                  patternsMasteredCount > 0
+                    ? 'bg-amber-50 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800 text-amber-600 dark:text-amber-400'
+                    : 'bg-rose-50 dark:bg-rose-950/50 border border-rose-200/80 dark:border-rose-900/50 text-rose-600 dark:text-rose-400'
+                }`}>
                   <Target className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400 leading-tight">
-                    Assessment coming soon
+                  <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-[#FAF9F5] leading-tight flex items-baseline gap-1.5">
+                    <span>{patternsMasteredCount}</span>
+                    <span className="text-xs font-normal text-slate-400 dark:text-[#8E8C82]">/ {PATTERNS_CATALOG.length}</span>
+                    <span className="text-[10px] font-mono font-medium text-emerald-600 dark:text-emerald-400 ml-0.5">
+                      ({Math.round((patternsMasteredCount / PATTERNS_CATALOG.length) * 100)}%)
+                    </span>
                   </div>
                   <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] leading-none mt-0.5">
-                    Pattern mastery
+                    Patterns mastered
                   </div>
                 </div>
               </div>
@@ -228,6 +249,7 @@ export default function PatternsPage() {
                     pattern={pattern}
                     solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
                     totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                    isMastered={patternMasteryMap[pattern.slug] ?? false}
                   />
                 ))}
               </div>
@@ -253,6 +275,7 @@ export default function PatternsPage() {
                     pattern={pattern}
                     solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
                     totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                    isMastered={patternMasteryMap[pattern.slug] ?? false}
                   />
                 ))}
               </div>
@@ -278,6 +301,7 @@ export default function PatternsPage() {
                     pattern={pattern}
                     solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
                     totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                    isMastered={patternMasteryMap[pattern.slug] ?? false}
                   />
                 ))}
               </div>
@@ -294,6 +318,7 @@ export default function PatternsPage() {
                 pattern={pattern}
                 solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
                 totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                isMastered={patternMasteryMap[pattern.slug] ?? false}
               />
             ))}
           </div>
