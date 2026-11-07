@@ -324,9 +324,6 @@ export default function LeetCodeModal({
                     required
                   />
                 </div>
-                <span className="text-[11px] sm:text-xs text-slate-500 dark:text-[#A8A69C] block leading-relaxed pt-0.5 pb-1">
-                  No password required. Imports recent public accepted submissions (up to 100). Matching questions update across CompanyWise. Older solved problems can be marked manually or restored via backup. Uses public profile data via a proxy, with an optional public API fallback using only your public handle.
-                </span>
               </div>
 
               <div className="pt-1.5">
