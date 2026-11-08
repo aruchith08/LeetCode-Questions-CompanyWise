@@ -11,6 +11,9 @@
     <meta name="theme-color" content="#0F1B3D" />
     <link rel="canonical" href="https://companywise-arh.vercel.app/" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href="/data/index.json?v=20261025" as="fetch" type="application/json" crossorigin="anonymous" />
+    <link rel="preload" href="/companywise-globe.js" as="script" />
+    <link rel="preload" href="/globe-texture.webp" as="image" type="image/webp" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -29,11 +32,28 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      />
+    </noscript>
     <title>CompanyWise — Technical Interview Prep</title>
   </head>
   <body class="bg-[#F7F8FB] dark:bg-[#262624] text-slate-900 dark:text-[#FAF9F5] min-h-screen antialiased selection:bg-[#D97757]/25 selection:text-neutral-900 dark:selection:text-[#FAF9F5]">
     <div id="root"></div>
+    <script defer src="/companywise-globe.js"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "leetcode-questions-companywise",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "CompanyWise — Technical Interview Preparation by Company & LeetCode Frequency Archive",
   "scripts": {
     "dev": "npm --prefix website run dev",

@@ -186,7 +186,7 @@ export default function Header({
 
               {/* Mobile Companion Platforms */}
               <div className="pt-2 border-t border-slate-200/80 dark:border-[#43433F]/80 space-y-2">
-                <div className="px-1 text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                <div className="px-1 text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Companion Platforms
                 </div>
                 <div className="grid grid-cols-2 gap-2">

@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Heart, Code2, Github, Linkedin,
-  Globe, CheckCircle2, ArrowUpRight, Layers
+  Globe, CheckCircle2, ArrowUpRight, Layers,
+  Mail, Send, Check, X, Copy, ExternalLink
 } from 'lucide-react';
 
 export default function AboutSection() {
+  const [mailNote, setMailNote] = useState('');
+  const [isMailModalOpen, setIsMailModalOpen] = useState(false);
+  const [openedGmail, setOpenedGmail] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedAll, setCopiedAll] = useState(false);
+
+  const subject = encodeURIComponent('Note from CompanyWise');
+  const body = encodeURIComponent(mailNote.trim());
+  const mailtoUrl = `mailto:ruchith@alokam.com?subject=${subject}${body ? `&body=${body}` : ''}`;
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ruchith@alokam.com&su=${subject}${body ? `&body=${body}` : ''}`;
+
+  useEffect(() => {
+    if (!isMailModalOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMailModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMailModalOpen]);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsMailModalOpen(true);
+  };
   return (
     <section id="about" className="space-y-8 pt-10 border-t border-slate-200/80 dark:border-[#43433F]/80">
       {/* Section Header */}
@@ -111,11 +138,18 @@ export default function AboutSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <img
-                  src="/krishna-dey.png"
-                  alt="Krishna Dey"
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
-                />
+                <picture className="shrink-0">
+                  <source srcSet="/krishna-dey.webp" type="image/webp" />
+                  <img
+                    src="/krishna-dey.png"
+                    alt="Krishna Dey"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
+                  />
+                </picture>
                 <div className="space-y-1">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
                     The Curator: Krishna Dey
@@ -127,7 +161,7 @@ export default function AboutSection() {
               </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-100 dark:border-[#43433F] space-y-1.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 block font-semibold">
                   Original open-source project
                 </span>
                 <div className="font-mono text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
@@ -194,11 +228,18 @@ export default function AboutSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <img
-                  src="/liquidslr.png"
-                  alt="liquidslr"
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
-                />
+                <picture className="shrink-0">
+                  <source srcSet="/liquidslr.webp" type="image/webp" />
+                  <img
+                    src="/liquidslr.png"
+                    alt="liquidslr"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D] shrink-0"
+                  />
+                </picture>
                 <div className="space-y-1">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight leading-snug">
                     The Contributor: liquidslr
@@ -210,7 +251,7 @@ export default function AboutSection() {
               </div>
 
               <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-100 dark:border-[#43433F] space-y-1.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 block font-semibold">
                   Updated & Expanded Dataset
                 </span>
                 <div className="font-mono text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
@@ -278,11 +319,18 @@ export default function AboutSection() {
 
               <div className="flex items-start gap-4">
                 <div className="flex flex-col items-center gap-2 shrink-0">
-                  <img
-                    src="/alokam-ruchith.png"
-                    alt="Alokam Ruchith"
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D]"
-                  />
+                  <picture className="shrink-0">
+                    <source srcSet="/alokam-ruchith.webp" type="image/webp" />
+                    <img
+                      src="/alokam-ruchith.png"
+                      alt="Alokam Ruchith"
+                      width={96}
+                      height={96}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-slate-200/90 dark:border-[#43433F] shadow-sm bg-slate-100 dark:bg-[#1F1E1D]"
+                    />
+                  </picture>
                   {/* Social links directly under photo */}
                   <div className="flex items-center justify-center gap-1.5 pt-0.5">
                     <a
@@ -358,6 +406,85 @@ export default function AboutSection() {
                   <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
                 </a>
               </div>
+
+              {/* Direct Mail-to Box */}
+              <div className="space-y-2">
+                <form
+                  onSubmit={handleFormSubmit}
+                  className="p-2 sm:p-2.5 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] flex items-center gap-2 shadow-2xs"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setIsMailModalOpen(true)}
+                    title="Compose note to ruchith@alokam.com"
+                    aria-label="Compose note to ruchith@alokam.com"
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-[#262624] border border-slate-200/80 dark:border-[#43433F] flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] shrink-0 shadow-2xs transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-4 h-4" />
+                  </button>
+                  <input
+                    type="text"
+                    value={mailNote}
+                    onChange={e => setMailNote(e.target.value)}
+                    placeholder="Want to share something? type mail to"
+                    aria-label="Message for ruchith@alokam.com"
+                    className="flex-1 min-w-0 bg-transparent text-xs text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 dark:placeholder-[#7A786F] focus:outline-none font-sans"
+                  />
+                  <button
+                    type="submit"
+                    aria-label="Send email to ruchith@alokam.com"
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-semibold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#FAF9F5] dark:hover:bg-[#E2DFD7] text-white dark:text-[#1F1E1D] transition-all shadow-2xs shrink-0 cursor-pointer active:scale-95"
+                  >
+                    <Send className="w-3.5 h-3.5" />
+                    <span>Send</span>
+                  </button>
+                </form>
+
+                {/* Direct quick action links */}
+                <div className="flex items-center justify-between px-1 text-[11px] text-slate-500 dark:text-[#A8A69C]">
+                  <div className="flex items-center gap-1 truncate">
+                    <span>To:</span>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (navigator.clipboard?.writeText) {
+                          navigator.clipboard.writeText('ruchith@alokam.com').catch(() => {});
+                          setCopiedEmail(true);
+                          setTimeout(() => setCopiedEmail(false), 3000);
+                        }
+                      }}
+                      className="font-mono text-slate-700 dark:text-slate-300 hover:text-[#0F1B3D] dark:hover:text-[#D97757] underline decoration-dotted transition-colors cursor-pointer"
+                      title="Click to copy email address"
+                    >
+                      ruchith@alokam.com
+                    </button>
+                    {copiedEmail && (
+                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold ml-1">✓ Copied</span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href={gmailUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#0F1B3D] dark:hover:text-[#FAF9F5] inline-flex items-center gap-0.5 transition-colors font-medium cursor-pointer"
+                      title="Open directly in Gmail"
+                    >
+                      <span>Gmail</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                    <span>·</span>
+                    <a
+                      href={mailtoUrl}
+                      className="hover:text-[#0F1B3D] dark:hover:text-[#FAF9F5] inline-flex items-center gap-0.5 transition-colors font-medium cursor-pointer"
+                      title="Open in system mail app"
+                    >
+                      <span>Mail App</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right Column: Narrative Content */}
@@ -412,6 +539,137 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+    
+      {/* Send Note Modal */}
+      {isMailModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-black/75 backdrop-blur-xs animate-fade-in"
+          onClick={() => setIsMailModalOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="relative w-full max-w-lg rounded-3xl bg-white dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] p-5 sm:p-7 shadow-2xl space-y-5 animate-scale-up"
+            onClick={e => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mail-modal-title"
+          >
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-[#262624] text-[#0F1B3D] dark:text-[#D97757] flex items-center justify-center border border-indigo-100 dark:border-[#43433F] shrink-0">
+                  <Mail className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
+                </div>
+                <div>
+                  <h3 id="mail-modal-title" className="text-lg sm:text-xl font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+                    Send Note to Ruchith Alokam
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-[#A8A69C]">
+                    Developer &amp; Creator of CompanyWise
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsMailModalOpen(false)}
+                className="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-[#262624] dark:hover:bg-[#30302E] text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Close dialog"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Recipient Details */}
+            <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-[#262624] border border-slate-200/80 dark:border-[#43433F] flex items-center justify-between gap-3 text-xs">
+              <div className="space-y-0.5 truncate">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 dark:text-slate-500 block font-semibold">
+                  Recipient
+                </span>
+                <span className="font-mono font-semibold text-slate-800 dark:text-[#FAF9F5] truncate block">
+                  ruchith@alokam.com
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  if (navigator.clipboard?.writeText) {
+                    navigator.clipboard.writeText('ruchith@alokam.com').catch(() => {});
+                    setCopiedEmail(true);
+                    setTimeout(() => setCopiedEmail(false), 3000);
+                  }
+                }}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5] hover:border-[#D97757] dark:hover:border-[#D97757] transition-colors shrink-0 cursor-pointer shadow-2xs"
+              >
+                {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
+              </button>
+            </div>
+
+            {/* Note Area */}
+            <div className="space-y-1.5">
+              <label htmlFor="mail-modal-textarea" className="text-xs font-semibold text-slate-700 dark:text-[#FAF9F5]">
+                Your Message
+              </label>
+              <textarea
+                id="mail-modal-textarea"
+                value={mailNote}
+                onChange={e => setMailNote(e.target.value)}
+                placeholder="Share your feedback, report an issue, or ask a question..."
+                rows={4}
+                className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 dark:bg-[#262624] border border-slate-200/80 dark:border-[#43433F] text-xs sm:text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 dark:placeholder-[#7A786F] focus:outline-none focus:ring-2 focus:ring-[#0F1B3D]/20 dark:focus:ring-[#D97757]/30 font-sans resize-none"
+              />
+            </div>
+
+            {/* Dispatch Buttons */}
+            <div className="space-y-2.5 pt-1">
+              {/* Option 1: Gmail */}
+              <button
+                type="button"
+                onClick={() => {
+                  window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+                  setOpenedGmail(true);
+                  setTimeout(() => setOpenedGmail(false), 4000);
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] shadow-sm transition-all active:scale-[0.99] cursor-pointer"
+              >
+                <ExternalLink className="w-4 h-4 shrink-0" />
+                <span>{openedGmail ? '✓ Gmail Opened in New Tab' : 'Open in Gmail (Web)'}</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
+              </button>
+
+              {/* Option 2: Default Mail */}
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = mailtoUrl;
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-[#262624] dark:hover:bg-[#30302E] text-slate-800 dark:text-[#FAF9F5] border border-slate-200/90 dark:border-[#43433F] transition-colors active:scale-[0.99] cursor-pointer"
+              >
+                <Mail className="w-4 h-4 shrink-0 text-slate-600 dark:text-[#A8A69C]" />
+                <span>Open in System Mail App</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto opacity-70" />
+              </button>
+
+              {/* Option 3: Copy full message */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (navigator.clipboard?.writeText) {
+                    const fullText = `To: ruchith@alokam.com\nSubject: Note from CompanyWise\n\n${mailNote.trim()}`;
+                    navigator.clipboard.writeText(fullText).catch(() => {});
+                    setCopiedAll(true);
+                    setTimeout(() => setCopiedAll(false), 3000);
+                  }
+                }}
+                className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors cursor-pointer"
+              >
+                {copiedAll ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copiedAll ? 'Note & address copied to clipboard!' : 'Copy note & address to clipboard'}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

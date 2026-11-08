@@ -161,11 +161,18 @@ export default function PatternsPage() {
           {/* Right Column: 3D Illustration */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end select-none">
             <div className="relative w-full max-w-[200px] sm:max-w-[240px] lg:max-w-[260px] flex items-center justify-center">
-              <img
-                src="/patterns-hero-3d.png"
-                alt="DSA Pattern Mastery Journey: Learn, Practice, Master"
-                className="w-full h-auto object-contain drop-shadow-sm select-none pointer-events-none"
-              />
+              <picture className="w-full flex items-center justify-center">
+                <source srcSet="/patterns-hero-3d.webp" type="image/webp" />
+                <img
+                  src="/patterns-hero-3d.png"
+                  alt="DSA Pattern Mastery Journey: Learn, Practice, Master"
+                  width={260}
+                  height={173}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-contain drop-shadow-sm select-none pointer-events-none"
+                />
+              </picture>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <CompanyWiseLogo variant="full" size="sm" />
               <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-[#30302E] text-slate-600 dark:text-[#A8A69C] border border-slate-200 dark:border-[#43433F]">
-                v1.0
+                v2.0
               </span>
             </div>
             <p className="text-[11px] text-slate-500 dark:text-[#A8A69C] max-w-sm">

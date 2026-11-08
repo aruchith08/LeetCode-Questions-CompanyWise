@@ -7,7 +7,7 @@ import {
 import { useDataIndex } from '../hooks/useDataIndex';
 import { useProgress } from '../hooks/useProgress';
 import { useAllQuestions } from '../hooks/useAllQuestions';
-import LoadingSpinner from '../components/ui/LoadingSpinner';
+
 import CompanyLogo from '../components/ui/CompanyLogo';
 import StatusToggle from '../components/ui/StatusToggle';
 import DifficultyBadge from '../components/ui/DifficultyBadge';
@@ -16,7 +16,7 @@ import AboutSection from '../components/ui/AboutSection';
 
 export default function HomePage() {
   const { data, loading: loadingIndex } = useDataIndex();
-  const { data: allQuestions, loading: loadingQuestions } = useAllQuestions();
+  const { data: allQuestions, loading: loadingQuestions, refetch: loadQuestionsNow } = useAllQuestions({ immediate: false });
   const { totalSolved, progress, getStatus, toggleSolved } = useProgress();
   const navigate = useNavigate();
 
@@ -71,7 +71,7 @@ export default function HomePage() {
     let medSolved = 0;
     let hardSolved = 0;
 
-    if (allQuestions) {
+    if (allQuestions && totalSolved > 0) {
       for (const q of allQuestions) {
         if (getStatus(q.id) === 'solved') {
           if (q.difficulty === 'Easy') easySolved++;
@@ -98,7 +98,17 @@ export default function HomePage() {
 
   // Prominent target companies for shortcuts & featured section (user targeted first)
   const targetCompanies = useMemo(() => {
-    if (!data) return [];
+    const fallbackCompanies = [
+      { slug: 'google', name: 'Google', questionCount: 1204 },
+      { slug: 'amazon', name: 'Amazon', questionCount: 1145 },
+      { slug: 'facebook', name: 'Meta', questionCount: 978 },
+      { slug: 'microsoft', name: 'Microsoft', questionCount: 812 },
+      { slug: 'apple', name: 'Apple', questionCount: 654 },
+      { slug: 'bloomberg', name: 'Bloomberg', questionCount: 580 },
+      { slug: 'uber', name: 'Uber', questionCount: 462 },
+      { slug: 'bytedance', name: 'ByteDance', questionCount: 420 },
+    ];
+    if (!data) return fallbackCompanies;
     const userTargets = progress.targetCompanies || [];
     if (userTargets.length > 0) {
       const userList = userTargets
@@ -135,7 +145,7 @@ export default function HomePage() {
   // Company solved count map
   const companySolvedMap = useMemo(() => {
     const map = new Map<string, number>();
-    if (!allQuestions) return map;
+    if (!allQuestions || totalSolved === 0) return map;
     for (const q of allQuestions) {
       if (getStatus(q.id) === 'solved') {
         for (const slug of q.companySlugs) {
@@ -194,8 +204,8 @@ export default function HomePage() {
     setSearchFocused(false);
   };
 
-  if (loadingIndex || loadingQuestions) return <LoadingSpinner />;
-  if (!data) return null;
+
+
 
   return (
     <div className="space-y-10 sm:space-y-12 animate-fade-in pb-12">
@@ -203,7 +213,7 @@ export default function HomePage() {
       <section className="pt-2 sm:pt-4 pb-2 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: 3D Network Globe */}
         <div className="w-full flex items-center justify-center order-2 lg:order-1 lg:col-span-5">
-          <div className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[460px] aspect-square flex items-center justify-center">
+          <div className="relative w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[460px] aspect-square min-h-[260px] sm:min-h-[340px] lg:min-h-[460px] flex items-center justify-center">
             <CompanyWiseGlobe
               className="w-full h-full"
               style={{ width: '100%', height: '100%' }}
@@ -246,8 +256,13 @@ export default function HomePage() {
                   onChange={e => {
                     setSearchQuery(e.target.value);
                     setSearchFocused(true);
+                    loadQuestionsNow();
                   }}
-                  onFocus={() => setSearchFocused(true)}
+                  onFocus={() => {
+                    setSearchFocused(true);
+                    loadQuestionsNow();
+                    loadQuestionsNow();
+                  }}
                   placeholder="Search companies (e.g. Google) or problems (e.g. Two Sum)..."
                   className="w-full h-full pl-3 pr-24 sm:pr-28 bg-transparent text-sm text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none font-sans"
                 />
@@ -360,7 +375,7 @@ export default function HomePage() {
 
           {/* Quick-Access Company Jump Matrix */}
           <div className="space-y-2 pt-1">
-            <div className="text-[11px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+            <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Quick Jump to Target Companies
             </div>
             <div className="flex flex-wrap items-center justify-start gap-2">
@@ -374,7 +389,7 @@ export default function HomePage() {
                   <span className="font-semibold text-slate-900 dark:text-[#FAF9F5]">
                     {c.name}
                   </span>
-                  <span className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
+                  <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
                     {c.questionCount}
                   </span>
                 </Link>
@@ -393,7 +408,7 @@ export default function HomePage() {
           <div className="pt-4 border-t border-slate-200/80 dark:border-[#43433F]/80 w-full max-w-2xl">
             <div className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl bg-white/90 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs overflow-hidden divide-x divide-y sm:divide-y-0 divide-slate-100 dark:divide-[#43433F]">
               <div className="p-3.5 text-left">
-                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Catalog</span>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-semibold">Catalog</span>
                 <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
                   {totalQuestions.toLocaleString()}
                 </span>
@@ -401,9 +416,9 @@ export default function HomePage() {
               </div>
 
               <div className="p-3.5 text-left">
-                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Companies</span>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-semibold">Companies</span>
                 <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5 tabular-nums">
-                  {data.totalCompanies}
+                  {data?.totalCompanies || 490}
                 </span>
                 <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-0.5">interview loops</span>
               </div>
@@ -417,7 +432,7 @@ export default function HomePage() {
               </div>
 
               <div className="p-3.5 text-left">
-                <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider block font-semibold">Windows</span>
+                <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block font-semibold">Windows</span>
                 <span className="text-xl font-bold font-mono text-slate-900 dark:text-[#FAF9F5] block mt-0.5">
                   4 Tiers
                 </span>
@@ -437,7 +452,7 @@ export default function HomePage() {
               <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-[#FAF9F5]">
                 Featured Company Collections
               </h2>
-              <p className="text-xs text-slate-500 mt-0.5">
+              <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
                 High-frequency questions curated directly from candidate interview reports.
               </p>
             </div>
@@ -476,7 +491,7 @@ export default function HomePage() {
                           <h3 className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5] truncate">
                             {c.name}
                           </h3>
-                          <span className="text-xs text-slate-500 font-medium">
+                          <span className="text-xs text-slate-500 dark:text-[#A8A69C] font-medium">
                             {c.questionCount} questions
                           </span>
                         </div>
@@ -492,7 +507,7 @@ export default function HomePage() {
                   {/* Progress Strip */}
                   <div className="pt-2 border-t border-slate-100 dark:border-[#43433F]/80">
                     <div className="flex items-center justify-between text-xs mb-1.5 font-sans">
-                      <span className="text-slate-500 text-[11px]">
+                      <span className="text-slate-500 dark:text-[#A8A69C] text-[11px]">
                         {solved} solved of {c.questionCount}
                       </span>
                       <span className="font-bold font-mono text-[11px] text-[#0F1B3D] dark:text-[#D97757]">
@@ -545,7 +560,7 @@ export default function HomePage() {
                   style={{ width: `${Math.max(rawPct, totalSolved > 0 ? 1 : 0)}%` }}
                 />
               </div>
-              <span className="text-[11px] text-slate-500 block mt-1">
+              <span className="text-[11px] text-slate-500 dark:text-[#A8A69C] block mt-1">
                 {totalSolved} of {totalQuestions.toLocaleString()} total questions marked solved
               </span>
             </div>

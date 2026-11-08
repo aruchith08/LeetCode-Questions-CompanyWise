@@ -7,7 +7,7 @@ import { useTheme } from './hooks/useTheme';
 import { ProgressProvider } from './hooks/useProgress';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
+import HomePage from './pages/HomePage';
 const CompaniesPage = lazy(() => import('./pages/CompaniesPage'));
 const CompanyDetailPage = lazy(() => import('./pages/CompanyDetailPage'));
 const ProblemsPage = lazy(() => import('./pages/ProblemsPage'));
@@ -29,11 +29,7 @@ export default function App() {
             <Route element={<Layout isDark={isDark} onToggleTheme={toggle} />}>
               <Route
                 index
-                element={
-                  <Suspense fallback={<LoadingSpinner />}>
-                    <HomePage />
-                  </Suspense>
-                }
+                element={<HomePage />}
               />
               <Route
                 path="companies"

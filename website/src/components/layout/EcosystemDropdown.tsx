@@ -56,7 +56,7 @@ export default function EcosystemDropdown() {
         className="group flex items-center gap-1.5 px-2 py-1.5 -ml-2 rounded-xl transition-all cursor-pointer select-none text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D97757] hover:bg-slate-200/50 dark:hover:bg-[#30302E]/60 active:scale-[0.98]"
         aria-haspopup="true"
         aria-expanded={isOpen}
-        aria-label="Toggle ecosystem websites dropdown"
+        aria-label="CompanyWise, toggle ecosystem websites dropdown"
       >
         <CompanyWiseLogo
           variant="full"
@@ -119,7 +119,7 @@ export default function EcosystemDropdown() {
                       <p className="text-xs text-slate-500 dark:text-[#A09E96] truncate mt-0.5">
                         {platform.tagline}
                       </p>
-                      <p className="text-[11px] text-slate-400 dark:text-slate-500 line-clamp-1 mt-0.5">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
                         {platform.description}
                       </p>
                     </div>
@@ -166,7 +166,7 @@ export default function EcosystemDropdown() {
                     <p className="text-xs text-slate-500 dark:text-[#A09E96] truncate mt-0.5">
                       {platform.tagline}
                     </p>
-                    <p className="text-[11px] text-slate-400 dark:text-slate-500 line-clamp-1 mt-0.5">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
                       {platform.description}
                     </p>
                   </div>
@@ -176,7 +176,7 @@ export default function EcosystemDropdown() {
           </div>
 
           {/* Footer Banner */}
-          <div className="mt-2 pt-2 border-t border-slate-100 dark:border-[#30302E] px-2.5 py-1 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
+          <div className="mt-2 pt-2 border-t border-slate-100 dark:border-[#30302E] px-2.5 py-1 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
             <span>Built by Alokam Ruchith • ARH</span>
             <a
               href="https://github.com/aruchith08"

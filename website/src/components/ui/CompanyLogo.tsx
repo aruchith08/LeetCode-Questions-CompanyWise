@@ -9,6 +9,7 @@ interface CompanyLogoProps {
 
 export default function CompanyLogo({ slug, name = '', size = 'md', className = '' }: CompanyLogoProps) {
   const [hasError, setHasError] = useState(false);
+  const [useFallbackPng, setUseFallbackPng] = useState(false);
 
   const sizeMap = {
     xs: 'w-6 h-6 text-[10px]',
@@ -24,6 +25,14 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
     md: 'p-1.5',
     lg: 'p-2',
     xl: 'p-2.5',
+  };
+
+  const pixelDimensions: Record<string, number> = {
+    xs: 24,
+    sm: 32,
+    md: 44,
+    lg: 56,
+    xl: 80,
   };
 
   const rawSlug = (slug || '').toLowerCase().trim().replace(/_/g, '-');
@@ -47,16 +56,29 @@ export default function CompanyLogo({ slug, name = '', size = 'md', className = 
   }
 
   const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
-  const lightSrc = `${basePath}/logos/png/${cleanSlug}.png?v=20261025`;
+  const imageSrc = useFallbackPng
+    ? `${basePath}/logos/png/${cleanSlug}.png?v=20261025`
+    : `${basePath}/logos/svg/${cleanSlug}.svg?v=20261025`;
+
+  const handleImageError = () => {
+    if (!useFallbackPng) {
+      setUseFallbackPng(true);
+    } else {
+      setHasError(true);
+    }
+  };
 
   return (
     <div className={baseContainer}>
       <img
-        src={lightSrc}
+        src={imageSrc}
         alt={`${name || cleanSlug} logo`}
+        width={pixelDimensions[size] || 44}
+        height={pixelDimensions[size] || 44}
         className={`w-full h-full object-contain ${paddingMap[size]}`}
-        onError={() => setHasError(true)}
+        onError={handleImageError}
         loading="lazy"
+        decoding="async"
       />
     </div>
   );

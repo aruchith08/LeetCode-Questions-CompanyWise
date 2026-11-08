@@ -1,0 +1,64 @@
+{
+  "$schema": "https://agentdiscovery.org/schemas/ard-v1.json",
+  "ard_version": "1.0",
+  "name": "CompanyWise",
+  "description": "Technical interview preparation platform indexing 3,411 LeetCode problems across 490+ tech companies with frequency metrics, recency tiers, and 18 DSA curriculum tracks.",
+  "url": "https://companywise-arh.vercel.app",
+  "repository": "https://github.com/aruchith08/LeetCode-Questions-CompanyWise",
+  "publisher": {
+    "name": "Alokam Ruchith",
+    "url": "https://alokam.com",
+    "email": "ruchith@alokam.com",
+    "github": "https://github.com/aruchith08"
+  },
+  "capabilities": [
+    {
+      "id": "company-questions",
+      "name": "Company LeetCode Questions",
+      "description": "Filter and search interview questions asked by 490+ companies over multiple time windows (30 days, 3 months, 6 months, 1 year, 2+ years, all-time)."
+    },
+    {
+      "id": "dsa-patterns",
+      "name": "18 DSA Pattern Curriculums",
+      "description": "Comprehensive algorithmic pattern guides with templates, interactive visualizations, and curated practice problems."
+    },
+    {
+      "id": "progress-tracking",
+      "name": "Client-side Progress Tracking",
+      "description": "Privacy-first local storage progress tracking with optional public LeetCode profile synchronization."
+    }
+  ],
+  "resources": [
+    {
+      "type": "llms-txt",
+      "url": "https://companywise-arh.vercel.app/llms.txt",
+      "description": "LLM-friendly overview of CompanyWise documentation and site structure."
+    },
+    {
+      "type": "sitemap",
+      "url": "https://companywise-arh.vercel.app/sitemap.xml",
+      "description": "XML sitemap of all company profiles and DSA pattern pages."
+    },
+    {
+      "type": "dataset-index",
+      "url": "https://companywise-arh.vercel.app/data/index.json",
+      "description": "JSON index of all supported companies, problem counts, and slug mappings."
+    },
+    {
+      "type": "dataset-questions",
+      "url": "https://companywise-arh.vercel.app/data/questions.json",
+      "description": "Canonical database of 3,411 LeetCode problems with titles, difficulties, acceptance rates, and topic tags."
+    }
+  ],
+  "interfaces": [
+    {
+      "type": "web",
+      "url": "https://companywise-arh.vercel.app"
+    },
+    {
+      "type": "rest-api",
+      "url": "https://companywise-arh.vercel.app/api/leetcode",
+      "description": "Proxy for LeetCode public profile and submission synchronization (POST, strictly validated)."
+    }
+  ]
+}

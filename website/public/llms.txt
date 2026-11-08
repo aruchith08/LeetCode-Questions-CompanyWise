@@ -1,0 +1,26 @@
+# CompanyWise
+
+> Target the exact LeetCode questions top tech companies actually ask.
+
+CompanyWise is a modern developer interview preparation platform indexing 3,411 canonical LeetCode problems across 490+ tech companies (including FAANG, Tier 1, and high-growth unicorns), categorized by frequency, recency windows (30 days, 3 months, 6 months, 1 year, 2+ years, all-time), and 18 core Data Structures & Algorithms (DSA) patterns.
+
+## Core Capabilities
+- **Company Catalog**: Curated problem lists with frequency rankings, period filtering, and direct links to LeetCode problems.
+- **18 DSA Pattern Tracks**: Algorithmic pattern curriculums with step-by-step interactive visualizers, code templates, quizzes, and practice problems.
+- **LeetCode Profile Sync**: Client-side synchronization of public accepted submissions without requiring passwords or sensitive credentials.
+- **Offline & Local Progress**: 100% private local storage tracking of bookmarks, notes, and solved questions with encrypted JSON backups.
+
+## Structured Resources & Data
+- [Site Index](https://companywise-arh.vercel.app/): Main interactive portal
+- [Company Catalog](https://companywise-arh.vercel.app/companies): Full directory of 490+ tech companies
+- [Problem Explorer](https://companywise-arh.vercel.app/problems): Searchable database of 3,411 LeetCode problems
+- [DSA Patterns](https://companywise-arh.vercel.app/patterns): 18 algorithmic pattern tracks
+- [Sitemap](https://companywise-arh.vercel.app/sitemap.xml): Machine-readable XML sitemap of all routes
+- [Agent Discovery Manifest](https://companywise-arh.vercel.app/.well-known/ard.json): Standard machine-readable agent resource discovery manifest
+- [Companies Index JSON](https://companywise-arh.vercel.app/data/index.json): Raw catalog metadata
+- [Canonical Questions JSON](https://companywise-arh.vercel.app/data/questions.json): Full problem catalog with difficulties and tags
+
+## Technology & Attribution
+- Built with React 19, TypeScript, Tailwind CSS, Vite, and Molten Globe Three.js/WebGL visualization.
+- Developed by Alokam Ruchith (@aruchith08) based on data curated by Krishna Dey (@krishnadey30) and liquidslr (@liquidslr).
+- Repository: https://github.com/aruchith08/LeetCode-Questions-CompanyWise

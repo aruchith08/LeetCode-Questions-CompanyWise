@@ -388,7 +388,7 @@ export default function CompaniesPage() {
                         className={`p-2 rounded-xl transition-colors cursor-pointer min-w-[38px] min-h-[38px] flex items-center justify-center ${
                           targeted
                             ? 'text-amber-500 bg-amber-500/10'
-                            : 'text-slate-400 dark:text-slate-500 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
+                            : 'text-slate-500 dark:text-slate-400 hover:text-amber-500 hover:bg-slate-100 dark:hover:bg-[#1F1E1D]'
                         }`}
                         title={targeted ? 'Remove from targets' : 'Target this company'}
                         aria-label={targeted ? 'Remove from targets' : 'Target this company'}
@@ -476,7 +476,7 @@ export default function CompaniesPage() {
                   <th className="py-3.5 px-5 w-72">
                     <div className="flex items-center gap-2">
                       <span>DIFFICULTY</span>
-                      <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium normal-case font-mono">
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium normal-case font-mono">
                         (Easy · Med · Hard)
                       </span>
                     </div>

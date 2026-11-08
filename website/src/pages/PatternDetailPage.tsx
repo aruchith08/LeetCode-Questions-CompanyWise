@@ -403,7 +403,7 @@ export default function PatternDetailPage() {
               /* Expanded Full Sidebar */
               <>
                 <div className="flex items-center justify-between px-2.5 py-1.5 border-b border-slate-100 dark:border-[#43433F]/70 mb-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                     Modules in Track
                   </span>
                   <button

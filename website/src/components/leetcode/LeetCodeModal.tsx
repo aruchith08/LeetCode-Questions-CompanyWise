@@ -182,11 +182,18 @@ export default function LeetCodeModal({
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(245,165,36,0.18)_0%,rgba(217,119,87,0.06)_50%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_50%_50%,rgba(245,165,36,0.22)_0%,rgba(217,119,87,0.08)_50%,transparent_75%)] pointer-events-none" />
           {/* Subtle ground reflection glow */}
           <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 w-3/4 h-5 sm:h-6 bg-amber-500/15 dark:bg-amber-500/20 blur-xl rounded-full pointer-events-none" />
-          <img
-            src="/developer_transparent.png"
-            alt="LeetCode Developer"
-            className="relative z-10 w-full max-w-[130px] sm:max-w-[170px] md:max-w-[250px] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)] dark:drop-shadow-[0_16px_28px_rgba(0,0,0,0.65)] select-none pointer-events-none"
-          />
+          <picture className="relative z-10 w-full max-w-[130px] sm:max-w-[170px] md:max-w-[250px] flex items-center justify-center">
+            <source srcSet="/developer_transparent.webp" type="image/webp" />
+            <img
+              src="/developer_transparent.png"
+              alt="LeetCode Developer"
+              width={250}
+              height={188}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)] dark:drop-shadow-[0_16px_28px_rgba(0,0,0,0.65)] select-none pointer-events-none"
+            />
+          </picture>
         </div>
 
         {/* Right Column: Connection Form / Account Status */}

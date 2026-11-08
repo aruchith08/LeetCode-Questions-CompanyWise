@@ -20,6 +20,8 @@ export type GlobeConstructor = new (
     pitch?: number;
     draggable?: boolean;
     darkMode?: boolean;
+    textureUrl?: string;
+    onReady?: () => void;
   }
 ) => GlobeInstance;
 
@@ -89,51 +91,69 @@ export default function CompanyWiseGlobe({
 
     let cancelled = false;
 
-    // Load /companywise-globe.js dynamically if not already present on window
-    const loadScript: Promise<GlobeConstructor> = window.CompanyWiseGlobe
-      ? Promise.resolve(window.CompanyWiseGlobe)
-      : (window.__companywiseGlobeLoad ||= new Promise<GlobeConstructor>((resolve, reject) => {
-          const existingScript = document.querySelector('script[src="/companywise-globe.js"]');
-          if (existingScript) {
-            existingScript.addEventListener('load', () => {
+    const initGlobe = () => {
+      if (cancelled || !rootRef.current) return;
+
+      const loadScript: Promise<GlobeConstructor> = window.CompanyWiseGlobe
+        ? Promise.resolve(window.CompanyWiseGlobe)
+        : (window.__companywiseGlobeLoad ||= new Promise<GlobeConstructor>((resolve, reject) => {
+            const existingScript = document.querySelector('script[src="/companywise-globe.js"]');
+            if (existingScript) {
+              existingScript.addEventListener('load', () => {
+                if (window.CompanyWiseGlobe) {
+                  resolve(window.CompanyWiseGlobe);
+                } else {
+                  reject(new Error('CompanyWiseGlobe not defined after script load'));
+                }
+              });
+              existingScript.addEventListener('error', () => reject(new Error('Failed to load globe script')));
+              return;
+            }
+
+            const script = document.createElement('script');
+            script.src = '/companywise-globe.js';
+            script.async = true;
+            script.onload = () => {
               if (window.CompanyWiseGlobe) {
                 resolve(window.CompanyWiseGlobe);
               } else {
-                reject(new Error('CompanyWiseGlobe not defined after script load'));
+                reject(new Error('CompanyWiseGlobe was not found on window'));
               }
-            });
-            existingScript.addEventListener('error', () => reject(new Error('Failed to load globe script')));
-            return;
-          }
+            };
+            script.onerror = () => reject(new Error('Could not load /companywise-globe.js'));
+            document.head.appendChild(script);
+          }));
 
-          const script = document.createElement('script');
-          script.src = '/companywise-globe.js';
-          script.async = true;
-          script.onload = () => {
-            if (window.CompanyWiseGlobe) {
-              resolve(window.CompanyWiseGlobe);
-            } else {
-              reject(new Error('CompanyWiseGlobe was not found on window'));
+      loadScript
+        .then((Widget: GlobeConstructor) => {
+          if (cancelled || !rootRef.current || !Widget) return;
+
+          const removeFallback = () => {
+            if (cancelled || !rootRef.current) return;
+            const fallback = rootRef.current.querySelector<HTMLElement>('.companywise-globe-fallback');
+            if (fallback) {
+              fallback.remove();
             }
           };
-          script.onerror = () => reject(new Error('Could not load /companywise-globe.js'));
-          document.head.appendChild(script);
-        }));
 
-    loadScript
-      .then((Widget: GlobeConstructor) => {
-        if (cancelled || !rootRef.current || !Widget) return;
-        const instance = new Widget(rootRef.current, {
-          autoRotate,
-          speed,
-          draggable,
-          darkMode: darkMode !== undefined ? darkMode : undefined,
+          const instance = new Widget(rootRef.current, {
+            autoRotate,
+            speed,
+            draggable,
+            darkMode: darkMode !== undefined ? darkMode : undefined,
+            onReady: removeFallback,
+          });
+          globeInstanceRef.current = instance;
+          // WebP texture data URI is already in memory: remove fallback immediately
+          removeFallback();
+        })
+        .catch(err => {
+          console.warn('CompanyWise 3D Globe initialization notice:', err);
         });
-        globeInstanceRef.current = instance;
-      })
-      .catch(err => {
-        console.warn('CompanyWise 3D Globe initialization notice:', err);
-      });
+    };
+
+    // Initialize globe immediately on mount
+    initGlobe();
 
     return () => {
       cancelled = true;
@@ -151,6 +171,19 @@ export default function CompanyWiseGlobe({
       style={style}
       aria-label="3D network globe visualization"
       role="img"
-    />
+    >
+      <picture className="companywise-globe-fallback absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
+        <source media="(max-width: 640px)" srcSet="/globe-fallback-mobile.webp" type="image/webp" />
+        <source srcSet="/globe-fallback.webp" type="image/webp" />
+        <img
+          src="/globe-fallback.png"
+          alt="3D network globe visualization"
+          width={460}
+          height={460}
+          decoding="async"
+          className="w-full h-full object-contain pointer-events-none select-none"
+        />
+      </picture>
+    </div>
   );
 }

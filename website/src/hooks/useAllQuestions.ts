@@ -45,9 +45,14 @@ export function resetQuestionsCache() {
   inFlightPromise = null;
 }
 
-export function useAllQuestions() {
+export interface UseAllQuestionsOptions {
+  immediate?: boolean;
+}
+
+export function useAllQuestions(options: UseAllQuestionsOptions = {}) {
+  const { immediate = true } = options;
   const [data, setData] = useState<GlobalQuestion[] | null>(cachedQuestions);
-  const [loading, setLoading] = useState(!cachedQuestions);
+  const [loading, setLoading] = useState(!cachedQuestions && immediate);
   const [error, setError] = useState<string | null>(null);
 
   const loadData = useCallback(async (force = false) => {
@@ -73,6 +78,44 @@ export function useAllQuestions() {
       return;
     }
 
+    if (!immediate) {
+      let triggered = false;
+      const trigger = () => {
+        if (triggered || !mounted) return;
+        triggered = true;
+        cleanup();
+        fetchAllQuestions()
+          .then(d => {
+            if (mounted) {
+              setData(d);
+              setLoading(false);
+            }
+          })
+          .catch(err => {
+            if (mounted) {
+              setError(err.message || 'Failed to load questions');
+              setLoading(false);
+            }
+          });
+      };
+
+      const events = ['pointerdown', 'keydown', 'touchstart'] as const;
+      const cleanup = () => {
+        if (typeof window !== 'undefined') {
+          events.forEach(e => window.removeEventListener(e, trigger));
+        }
+      };
+
+      if (typeof window !== 'undefined') {
+        events.forEach(e => window.addEventListener(e, trigger, { passive: true, once: true }));
+      }
+
+      return () => {
+        mounted = false;
+        cleanup();
+      };
+    }
+
     fetchAllQuestions()
       .then(d => {
         if (mounted) {
@@ -90,7 +133,7 @@ export function useAllQuestions() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [immediate]);
 
   const refetch = useCallback(() => {
     return loadData(true);
