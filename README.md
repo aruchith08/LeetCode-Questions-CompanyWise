@@ -3,7 +3,7 @@
 > **CompanyWise** is an interactive, engineering-grade interview intelligence platform with one-click public LeetCode profile synchronization, coupled with the complete archive of company-specific problem frequency datasets.
 
 [![Live Platform](https://img.shields.io/badge/Live%20Platform-companywise--arh.vercel.app-0F1B3D?style=for-the-badge&logo=vercel&logoColor=white)](https://companywise-arh.vercel.app)
-[![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -11,7 +11,7 @@
 
 🔗 **Live Platform**: [https://companywise-arh.vercel.app](https://companywise-arh.vercel.app)
 
-![CompanyWise Platform Preview](website/public/preview.png)
+https://github.com/aruchith08/LeetCode-Questions-CompanyWise/raw/master/website/public/companywise-launch.mp4
 
 ---
 
