@@ -598,7 +598,7 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
         if max_reach >= len(nums) - 1:
             return True
     return True`,
-    tsTemplate: `function canJump(nums: number[]): number | boolean {
+    tsTemplate: `function canJump(nums: number[]): boolean {
   let maxReach = 0;
   for (let i = 0; i < nums.length; i++) {
     if (i > maxReach) return false;
@@ -775,7 +775,11 @@ export const ADVANCED_PATTERNS: PatternLearningContent[] = [
         description: 'For each amount i from 1 to target: dp[i] = min(dp[i - coin] + 1) for all coin <= i.',
       },
       {
-        title: 'Step 4: Answer Extraction',
+        title: 'Step 4: Evaluation Order (Direction)',
+        description: 'Iterate iteratively from bottom-up (amount 1 to target) so subproblem dependencies are pre-computed.',
+      },
+      {
+        title: 'Step 5: Answer Extraction',
         description: 'return dp[target] if dp[target] != infinity else -1.',
       },
     ],
