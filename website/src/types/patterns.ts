@@ -61,6 +61,7 @@ export interface VisualizerStep {
   removedElement: { index: number; value: number } | null;
   explanation: string;
   formula: string;
+  activeLineNumber?: number;
 }
 
 export interface GenericVisualizerStep {
@@ -74,6 +75,7 @@ export interface GenericVisualizerStep {
   metrics?: { label: string; value: string | number }[];
   statusBadge?: { label: string; variant: 'success' | 'warning' | 'info' | 'danger' };
   auxiliaryData?: Record<string, any>;
+  activeLineNumber?: number;
 }
 
 export interface QuizOption {

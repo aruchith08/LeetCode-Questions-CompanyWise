@@ -40,6 +40,7 @@ export interface GlobalQuestion extends Question {
 }
 
 export type QuestionStatus = 'solved' | 'attempted' | 'unsolved';
+export type QuestionConfidence = 'mastered' | 'review' | 'struggled';
 
 export interface PatternQuizScore {
   score: number;
@@ -50,6 +51,7 @@ export interface PatternQuizScore {
 
 export interface UserProgress {
   solvedQuestions: Record<number, QuestionStatus>;
+  confidence?: Record<number, QuestionConfidence>;
   bookmarks: number[];
   targetCompanies?: string[];
   recentCompanies: string[];

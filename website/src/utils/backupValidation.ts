@@ -1,4 +1,4 @@
-import type { UserProgress, QuestionStatus, LeetCodeAccount, LeetCodeSubmission, PatternQuizScore } from '../types';
+import type { UserProgress, QuestionStatus, LeetCodeAccount, LeetCodeSubmission, PatternQuizScore, QuestionConfidence } from '../types';
 import { normalizeTimestampToISO, normalizeTimestampToSecondsString } from './timestampUtils';
 
 export const CURRENT_BACKUP_SCHEMA_VERSION = 2;
@@ -17,6 +17,7 @@ export interface ValidationFailure {
 export type BackupValidationResult = ValidationSuccess | ValidationFailure;
 
 const VALID_STATUSES: Set<string> = new Set(['solved', 'attempted', 'unsolved']);
+const VALID_CONFIDENCE: Set<string> = new Set(['mastered', 'review', 'struggled']);
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 
 /**
@@ -294,8 +295,22 @@ export function validateAndParseBackup(jsonStr: string): BackupValidationResult 
     }
   }
 
+  // confidence validation (optional)
+  const confidence: Record<number, QuestionConfidence> = {};
+  if (parsed.confidence !== undefined) {
+    if (typeof parsed.confidence === 'object' && !Array.isArray(parsed.confidence) && parsed.confidence !== null) {
+      for (const [key, val] of Object.entries(parsed.confidence)) {
+        const idNum = Number(key);
+        if (Number.isInteger(idNum) && idNum > 0 && typeof val === 'string' && VALID_CONFIDENCE.has(val)) {
+          confidence[idNum] = val as QuestionConfidence;
+        }
+      }
+    }
+  }
+
   const progress: UserProgress = {
     solvedQuestions: validatedSolved,
+    confidence: Object.keys(confidence).length > 0 ? confidence : undefined,
     bookmarks,
     targetCompanies,
     recentCompanies: recentCompanies.slice(0, 10),
@@ -495,8 +510,22 @@ export function validateProgressSchema(data: any): { valid: boolean; error?: str
     }
   }
 
+  // 10. confidence validation (optional)
+  const confidence: Record<number, QuestionConfidence> = {};
+  if (data.confidence !== undefined) {
+    if (typeof data.confidence === 'object' && !Array.isArray(data.confidence) && data.confidence !== null) {
+      for (const [key, val] of Object.entries(data.confidence)) {
+        const idNum = Number(key);
+        if (Number.isInteger(idNum) && idNum > 0 && typeof val === 'string' && VALID_CONFIDENCE.has(val)) {
+          confidence[idNum] = val as QuestionConfidence;
+        }
+      }
+    }
+  }
+
   const progress: UserProgress = {
     solvedQuestions: validatedSolved,
+    confidence: Object.keys(confidence).length > 0 ? confidence : undefined,
     bookmarks,
     targetCompanies,
     recentCompanies: recentCompanies.slice(0, 10),
