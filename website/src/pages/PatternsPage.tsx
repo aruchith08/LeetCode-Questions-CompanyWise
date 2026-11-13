@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, BookOpen, Target, BarChart2, X } from 'lucide-react';
+import { Search, BookOpen, Target, BarChart2, X, LayoutGrid, Compass, GitFork } from 'lucide-react';
 import {
   PATTERNS_CATALOG,
   ALL_PATTERN_MAPPINGS,
@@ -8,11 +8,16 @@ import {
 } from '../data/patternsData';
 import type { PatternLevel } from '../types/patterns';
 import PatternCard from '../components/patterns/PatternCard';
+import PatternDecisionTree from '../components/patterns/PatternDecisionTree';
+import PatternSkillTree from '../components/patterns/PatternSkillTree';
 import { useProgress } from '../hooks/useProgress';
 import { isPatternMastered } from '../utils/patternMastery';
 
+type PatternViewMode = 'tracks' | 'decision-tree' | 'skill-tree';
+
 export default function PatternsPage() {
   const { getStatus, getPatternQuiz } = useProgress();
+  const [viewMode, setViewMode] = useState<PatternViewMode>('tracks');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState<'All' | PatternLevel>('All');
 
@@ -178,168 +183,218 @@ export default function PatternsPage() {
         </div>
       </section>
 
-      {/* Search & Level Filter Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-start gap-2.5">
-        {/* Search Input */}
-        <div className="relative w-full sm:w-72 md:w-80">
-          <Search className="w-3.5 h-3.5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            placeholder="Search patterns..."
-            className="w-full h-9 pl-9 pr-8 text-xs sm:text-sm rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1"
-              aria-label="Clear search"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
-        </div>
-
-        {/* Level Capsules */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-          {levelOptions.map(opt => {
-            const isSelected = selectedLevel === opt.id;
-            return (
-              <button
-                key={opt.id}
-                type="button"
-                onClick={() => setSelectedLevel(opt.id)}
-                className={`h-9 px-3.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer inline-flex items-center justify-center ${
-                  isSelected
-                    ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
-                    : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
-                }`}
-              >
-                <span>{opt.id === 'All' ? 'All Patterns' : opt.label}</span>
-                {opt.id !== 'All' && (
-                  <span
-                    className={`ml-1 font-mono text-[11px] ${
-                      isSelected ? 'text-white/80 dark:text-[#1F1E1D]/80' : 'text-slate-400 dark:text-[#A8A69C]'
-                    }`}
-                  >
-                    ({opt.count})
-                  </span>
-                )}
-              </button>
-            );
-          })}
+      {/* Top Navigation: Tracks vs Decision Flowchart vs Skill Tree */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F]/70 self-start">
+          <button
+            type="button"
+            onClick={() => setViewMode('tracks')}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              viewMode === 'tracks'
+                ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-xs'
+                : 'text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5]'
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            <span>Curated Tracks ({PATTERNS_CATALOG.length})</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('decision-tree')}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              viewMode === 'decision-tree'
+                ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-xs'
+                : 'text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5]'
+            }`}
+          >
+            <Compass className="w-3.5 h-3.5" />
+            <span>30s Decision Tree</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('skill-tree')}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              viewMode === 'skill-tree'
+                ? 'bg-white dark:bg-[#30302E] text-slate-900 dark:text-[#FAF9F5] shadow-xs'
+                : 'text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5]'
+            }`}
+          >
+            <GitFork className="w-3.5 h-3.5" />
+            <span>Skill Prerequisites</span>
+          </button>
         </div>
       </div>
 
-      {/* Pattern Groups */}
-      {selectedLevel === 'All' ? (
-        <div className="space-y-8">
-          {/* Foundation Section */}
-          {foundationPatterns.length > 0 && (
-            <section className="space-y-3">
-              <div>
-                <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-                  Start with the fundamentals
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
-                  Essential patterns that appear frequently in interviews.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                {foundationPatterns.map(pattern => (
-                  <PatternCard
-                    key={pattern.id}
-                    pattern={pattern}
-                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
-                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
-                    isMastered={patternMasteryMap[pattern.slug] ?? false}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Intermediate Section */}
-          {intermediatePatterns.length > 0 && (
-            <section className="space-y-3">
-              <div>
-                <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-                  Intermediate patterns
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
-                  Build on the fundamentals to solve more complex problems.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                {intermediatePatterns.map(pattern => (
-                  <PatternCard
-                    key={pattern.id}
-                    pattern={pattern}
-                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
-                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
-                    isMastered={patternMasteryMap[pattern.slug] ?? false}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Advanced Section */}
-          {advancedPatterns.length > 0 && (
-            <section className="space-y-3">
-              <div>
-                <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-                  Advanced patterns
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
-                  Tackle specialized and high-difficulty interview questions.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                {advancedPatterns.map(pattern => (
-                  <PatternCard
-                    key={pattern.id}
-                    pattern={pattern}
-                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
-                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
-                    isMastered={patternMasteryMap[pattern.slug] ?? false}
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
+      {viewMode === 'decision-tree' ? (
+        <PatternDecisionTree />
+      ) : viewMode === 'skill-tree' ? (
+        <PatternSkillTree />
       ) : (
-        /* Filtered Grid for single level */
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {filteredPatterns.map(pattern => (
-              <PatternCard
-                key={pattern.id}
-                pattern={pattern}
-                solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
-                totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
-                isMastered={patternMasteryMap[pattern.slug] ?? false}
+        <>
+          {/* Search & Level Filter Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-start gap-2.5">
+            {/* Search Input */}
+            <div className="relative w-full sm:w-72 md:w-80">
+              <Search className="w-3.5 h-3.5 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Search patterns..."
+                className="w-full h-9 pl-9 pr-8 text-xs sm:text-sm rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] placeholder-slate-400 focus:outline-none focus:border-[#0F1B3D] dark:focus:border-[#D97757] transition-colors shadow-2xs"
               />
-            ))}
-          </div>
-        </div>
-      )}
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-1"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
 
-      {filteredPatterns.length === 0 && (
-        <div className="text-center py-12 bg-white dark:bg-[#30302E] rounded-2xl border border-slate-200/80 dark:border-[#43433F] p-8">
-          <p className="text-sm font-semibold text-slate-700 dark:text-[#FAF9F5]">
-            No patterns found matching "{searchQuery}"
-          </p>
-          <p className="text-xs text-slate-400 dark:text-[#8E8C82] mt-1">
-            Try searching for another keyword like "two pointers", "window", or "heap".
-          </p>
-        </div>
+            {/* Level Capsules */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+              {levelOptions.map(opt => {
+                const isSelected = selectedLevel === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => setSelectedLevel(opt.id)}
+                    className={`h-9 px-3.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all shadow-2xs cursor-pointer inline-flex items-center justify-center ${
+                      isSelected
+                        ? 'bg-[#0F1B3D] dark:bg-[#D97757] text-white dark:text-[#1F1E1D] shadow-xs'
+                        : 'bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-50 dark:hover:bg-[#1F1E1D]'
+                    }`}
+                  >
+                    <span>{opt.id === 'All' ? 'All Patterns' : opt.label}</span>
+                    {opt.id !== 'All' && (
+                      <span
+                        className={`ml-1 font-mono text-[11px] ${
+                          isSelected ? 'text-white/80 dark:text-[#1F1E1D]/80' : 'text-slate-400 dark:text-[#A8A69C]'
+                        }`}
+                      >
+                        ({opt.count})
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Pattern Groups */}
+          {selectedLevel === 'All' ? (
+            <div className="space-y-8">
+              {/* Foundation Section */}
+              {foundationPatterns.length > 0 && (
+                <section className="space-y-3">
+                  <div>
+                    <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+                      Start with the fundamentals
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
+                      Essential patterns that appear frequently in interviews.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {foundationPatterns.map(pattern => (
+                      <PatternCard
+                        key={pattern.id}
+                        pattern={pattern}
+                        solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                        totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                        isMastered={patternMasteryMap[pattern.slug] ?? false}
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* Intermediate Section */}
+              {intermediatePatterns.length > 0 && (
+                <section className="space-y-3">
+                  <div>
+                    <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+                      Intermediate patterns
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
+                      Build on the fundamentals to solve more complex problems.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {intermediatePatterns.map(pattern => (
+                      <PatternCard
+                        key={pattern.id}
+                        pattern={pattern}
+                        solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                        totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                        isMastered={patternMasteryMap[pattern.slug] ?? false}
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* Advanced Section */}
+              {advancedPatterns.length > 0 && (
+                <section className="space-y-3">
+                  <div>
+                    <h2 className="text-xl font-bold hero-serif text-slate-900 dark:text-[#FAF9F5] tracking-tight">
+                      Advanced patterns
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 dark:text-[#A8A69C] mt-0.5">
+                      Tackle specialized and high-difficulty interview questions.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    {advancedPatterns.map(pattern => (
+                      <PatternCard
+                        key={pattern.id}
+                        pattern={pattern}
+                        solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                        totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                        isMastered={patternMasteryMap[pattern.slug] ?? false}
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          ) : (
+            /* Filtered Grid for single level */
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                {filteredPatterns.map(pattern => (
+                  <PatternCard
+                    key={pattern.id}
+                    pattern={pattern}
+                    solvedCount={patternSolvedCounts[pattern.slug]?.solved ?? 0}
+                    totalQuestions={patternSolvedCounts[pattern.slug]?.total ?? pattern.questionCount}
+                    isMastered={patternMasteryMap[pattern.slug] ?? false}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {filteredPatterns.length === 0 && (
+            <div className="text-center py-12 bg-white dark:bg-[#30302E] rounded-2xl border border-slate-200/80 dark:border-[#43433F] p-8">
+              <p className="text-sm font-semibold text-slate-700 dark:text-[#FAF9F5]">
+                No patterns found matching "{searchQuery}"
+              </p>
+              <p className="text-xs text-slate-400 dark:text-[#8E8C82] mt-1">
+                Try searching for another keyword like "two pointers", "window", or "heap".
+              </p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
