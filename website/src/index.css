@@ -115,12 +115,12 @@
     }
   }
 
-  @keyframes hero-pulse-glow {
-    0%, 100% {
-      opacity: 0;
+  @keyframes hero-text-shimmer {
+    0% {
+      background-position: 180% 0;
     }
-    50% {
-      opacity: 1;
+    60%, 100% {
+      background-position: -80% 0;
     }
   }
 
@@ -134,20 +134,39 @@
     display: inline-block;
   }
 
-  .hero-accent-badge::before {
-    content: '';
-    position: absolute;
-    inset: -2px -6px;
-    border-radius: 6px;
-    background: radial-gradient(ellipse at center, rgba(245, 165, 36, 0.35) 0%, transparent 72%);
-    opacity: 0;
-    pointer-events: none;
-    animation: hero-pulse-glow 2.4s ease-in-out 0.7s infinite;
-    will-change: opacity;
+  .hero-text-shimmer {
+    display: inline-block;
+    background: linear-gradient(
+      110deg,
+      #0F1B3D 0%,
+      #0F1B3D 32%,
+      #D97757 50%,
+      #0F1B3D 68%,
+      #0F1B3D 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: hero-text-shimmer 3.6s ease-in-out infinite;
+    will-change: background-position;
   }
 
-  .dark .hero-accent-badge::before {
-    background: radial-gradient(ellipse at center, rgba(217, 119, 87, 0.42) 0%, transparent 72%);
+  .dark .hero-text-shimmer {
+    background: linear-gradient(
+      110deg,
+      #D97757 0%,
+      #D97757 32%,
+      #FFE2C6 50%,
+      #D97757 68%,
+      #D97757 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .hero-accent-underline {
@@ -156,10 +175,14 @@
     bottom: -2px;
     width: 100%;
     height: 3px;
-    background: currentColor;
+    background: #0F1B3D;
     border-radius: 2px;
     transform-origin: left center;
     animation: hero-underline-draw 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+  }
+
+  .dark .hero-accent-underline {
+    background: #D97757;
   }
 
   /* -------------------------------------------------------------
@@ -265,6 +288,13 @@
       transform: none !important;
       opacity: 1 !important;
       filter: none !important;
+    }
+
+    .hero-text-shimmer {
+      animation: none !important;
+      background: none !important;
+      -webkit-text-fill-color: currentColor !important;
+      color: currentColor !important;
     }
   }
 }
