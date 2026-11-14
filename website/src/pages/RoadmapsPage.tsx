@@ -193,7 +193,7 @@ export default function RoadmapsPage() {
       <section className="pt-2 pb-6 border-b border-slate-200/80 dark:border-[#43433F]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Left Column: Heading & Subtitle */}
-          <div className="lg:col-span-8 space-y-3 text-left">
+          <div className="lg:col-span-7 space-y-3 text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5]">
               Interview Roadmaps & Preparation Strategy
             </h1>
@@ -203,19 +203,21 @@ export default function RoadmapsPage() {
             </p>
           </div>
 
-          {/* Right Column: Hero Mountain Illustration */}
-          <div className="lg:col-span-4 flex items-center justify-center lg:justify-end select-none">
-            <div className="relative w-full max-w-[180px] sm:max-w-[220px] lg:max-w-[260px] flex items-center justify-center">
+          {/* Right Column: Hero Mountain Illustration (Merged into page) */}
+          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end select-none">
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[390px] flex items-center justify-center">
+              {/* Subtle ambient backdrop glow to blend naturally into light and dark page backgrounds */}
+              <div className="absolute inset-0 bg-radial from-sky-400/10 dark:from-sky-500/15 via-transparent to-transparent rounded-full blur-2xl pointer-events-none -z-10" />
               <picture className="w-full flex items-center justify-center">
                 <source srcSet="/companywise-roadmap-mountain.webp" type="image/webp" />
                 <img
                   src="/companywise-roadmap-mountain.webp"
                   alt="CompanyWise Interview Roadmap: Mountain Journey to Mastery"
-                  width={260}
-                  height={180}
+                  width={390}
+                  height={200}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-auto object-contain drop-shadow-sm select-none pointer-events-none"
+                  className="w-full h-auto object-contain select-none pointer-events-none transition-opacity duration-300"
                 />
               </picture>
             </div>
