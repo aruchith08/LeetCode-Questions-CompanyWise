@@ -200,8 +200,22 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     tags: ["Kahn's Algorithm", 'In-degree', 'Course Schedule', 'DAG'],
     companiesTop: ['Amazon', 'Microsoft', 'Google', 'DoorDash'],
   },
+  {
+    id: 'trie-prefix-tree',
+    slug: 'trie-prefix-tree',
+    title: 'Tries (Prefix Trees)',
+    shortDescription: 'Organize words by common prefixes for O(L) autocomplete, prefix matching, and word searches.',
+    level: 'Intermediate',
+    availability: 'available',
+    category: 'Trees & Strings',
+    questionCount: 10,
+    subpatternCount: 6,
+    prerequisites: ['Binary Trees', 'Tree DFS', 'Hash Tables'],
+    tags: ['Prefix Tree', 'Trie', 'Autocomplete', 'Word Search', 'Prefix Match'],
+    companiesTop: ['Google', 'Amazon', 'Microsoft', 'Meta', 'Uber'],
+  },
 
-  // Advanced (5)
+  // Advanced (6)
   {
     id: 'union-find',
     slug: 'union-find',
@@ -215,6 +229,20 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     prerequisites: ['Equivalence Relations', 'Trees', 'Amortized Complexity'],
     tags: ['Path Compression', 'Rank Union', 'Connected Components', 'Disjoint Set'],
     companiesTop: ['Google', 'Amazon', 'Meta', 'Apple'],
+  },
+  {
+    id: 'dijkstras-algorithm',
+    slug: 'dijkstras-algorithm',
+    title: "Dijkstra's Shortest Path",
+    shortDescription: 'Find minimal cumulative distance in weighted graphs with non-negative edge weights using Min-Heaps.',
+    level: 'Advanced',
+    availability: 'available',
+    category: 'Graphs & Greedy',
+    questionCount: 9,
+    subpatternCount: 4,
+    prerequisites: ['Graph Traversal', 'Adjacency Lists', 'Min-Heap'],
+    tags: ["Dijkstra's", 'Shortest Path', 'Min-Heap', 'Weighted Graph', 'Relaxation'],
+    companiesTop: ['Google', 'Amazon', 'Meta', 'Uber', 'Microsoft'],
   },
   {
     id: 'backtracking',
@@ -252,7 +280,7 @@ export const PATTERNS_CATALOG: DSAPattern[] = [
     level: 'Advanced',
     availability: 'available',
     category: 'Optimization & DP',
-    questionCount: 12,
+    questionCount: 15,
     subpatternCount: 4,
     prerequisites: ['Recursion', 'Memoization', 'State Transitions', 'Bellman Optimality'],
     tags: ['Memoization', 'Tabulation', 'Knapsack', 'State Transitions', 'Subproblems'],

@@ -14,31 +14,31 @@ import fs from 'fs';
 import path from 'path';
 
 describe('DSA Patterns Catalog Integrity', () => {
-  it('contains exactly 18 core patterns across 3 learning levels', () => {
-    expect(PATTERNS_CATALOG).toHaveLength(18);
+  it('contains exactly 20 core patterns across 3 learning levels', () => {
+    expect(PATTERNS_CATALOG).toHaveLength(20);
 
     const foundation = PATTERNS_CATALOG.filter(p => p.level === 'Foundation');
     const intermediate = PATTERNS_CATALOG.filter(p => p.level === 'Intermediate');
     const advanced = PATTERNS_CATALOG.filter(p => p.level === 'Advanced');
 
     expect(foundation).toHaveLength(6);
-    expect(intermediate).toHaveLength(7);
-    expect(advanced).toHaveLength(5);
+    expect(intermediate).toHaveLength(8);
+    expect(advanced).toHaveLength(6);
   });
 
-  it('guarantees unique slugs and IDs for all 18 patterns', () => {
+  it('guarantees unique slugs and IDs for all 20 patterns', () => {
     const slugs = PATTERNS_CATALOG.map(p => p.slug);
     const uniqueSlugs = new Set(slugs);
-    expect(uniqueSlugs.size).toBe(18);
+    expect(uniqueSlugs.size).toBe(20);
 
     const ids = PATTERNS_CATALOG.map(p => p.id);
     const uniqueIds = new Set(ids);
-    expect(uniqueIds.size).toBe(18);
+    expect(uniqueIds.size).toBe(20);
   });
 
-  it('has all 18 core patterns fully available in Phase 2 with verified metadata and question counts', () => {
+  it('has all 20 core patterns fully available in Phase 2 with verified metadata and question counts', () => {
     const available = PATTERNS_CATALOG.filter(p => p.availability === 'available');
-    expect(available).toHaveLength(18);
+    expect(available).toHaveLength(20);
 
     for (const p of PATTERNS_CATALOG) {
       expect(p.availability).toBe('available');

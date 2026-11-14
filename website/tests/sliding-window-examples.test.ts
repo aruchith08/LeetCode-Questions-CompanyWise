@@ -109,5 +109,17 @@ describe('Sliding Window Algorithm Implementations', () => {
       expect(generateSlidingWindowSteps([1, 2], 3)).toEqual([]);
       expect(generateSlidingWindowSteps([1, 2], 0)).toEqual([]);
     });
+
+    it('attaches activeLineNumber for synchronized code stepping on custom inputs', () => {
+      const customNums = [2, 1, 5, 1, 3, 2];
+      const customK = 3;
+      const steps = generateSlidingWindowSteps(customNums, customK);
+
+      expect(steps).toHaveLength(4); // 6 - 3 + 1 = 4
+      expect(steps[0].activeLineNumber).toBe(3); // Init
+      expect(steps[1].activeLineNumber).toBeDefined();
+      expect(steps[2].activeLineNumber).toBeDefined();
+      expect(steps[3].activeLineNumber).toBeDefined();
+    });
   });
 });

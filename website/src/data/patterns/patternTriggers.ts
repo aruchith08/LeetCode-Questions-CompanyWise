@@ -257,6 +257,88 @@ export const PATTERN_TRIGGERS: Record<number, PatternTrigger> = {
     whyThisPattern: "O(N) time with strictly O(1) auxiliary space without hash sets or sorting.",
     keyInvariant: "XOR is commutative and associative: order of elements does not matter.",
   },
+
+  // Dynamic Programming (Advanced Additions)
+  312: {
+    questionId: 312,
+    trigger: "Reverse thinking: Instead of choosing which balloon to burst FIRST, choose which balloon k to burst LAST in range (i, j).",
+    whyThisPattern: "Bursting forward creates dependent, non-contiguous subproblems; bursting last ensures subproblems (i, k) and (k, j) remain strictly independent.",
+    whenItBreaks: "Forward simulation breaks because bursting removes walls between previously distant neighbors.",
+    keyInvariant: "dp[i][j] = max_{i < k < j}(dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]).",
+  },
+  10: {
+    questionId: 10,
+    trigger: "Wildcard matching state: When p[j+1] == '*', we can either ignore p[j..j+1] (dp(i, j+2)) or match one character if s[i] matches p[j] (dp(i+1, j)).",
+    whyThisPattern: "2D DP memoizes overlapping character prefixes and handles arbitrary zero-or-more quantifier branching.",
+    keyInvariant: "dp[i][j] is true if and only if s[i:] matches p[j:].",
+  },
+  188: {
+    questionId: 188,
+    trigger: "State Machine DP: Maintain buy[k] and sell[k] states across at most k transactions. If k >= n/2, greedily accumulate all upward price movements.",
+    whyThisPattern: "State compression allows computing optimal transactions in O(k * n) time and O(k) space.",
+    keyInvariant: "sell[t] = max(sell[t], buy[t] + price), buy[t] = max(buy[t], sell[t-1] - price).",
+  },
+
+  // Tries (Prefix Trees)
+  208: {
+    questionId: 208,
+    trigger: "Common prefix branch tree: Each character branches to child nodes; exact search checks isEnd, while startsWith checks path existence.",
+    whyThisPattern: "Provides strictly O(L) insertion, search, and prefix queries independent of dictionary size N.",
+    whenItBreaks: "Hash Sets achieve O(L) exact search with less memory, but CANNOT perform prefix queries without O(N * L) scans.",
+    keyInvariant: "Every node at depth d uniquely represents the prefix formed by characters along the path from root.",
+  },
+  211: {
+    questionId: 211,
+    trigger: "Wildcard '.' branching: Standard characters follow single child pointer; '.' fans out to all non-null children with DFS recursion.",
+    whyThisPattern: "Prunes invalid prefixes immediately while recursively exploring all branches for wildcard slots.",
+    keyInvariant: "A dot matches any active child; non-dot characters match strictly one child index.",
+  },
+  212: {
+    questionId: 212,
+    trigger: "Grid DFS guided by Trie: Build a Trie of the dictionary words and explore the 2D matrix once, stepping along Trie nodes.",
+    whyThisPattern: "Searching board for each word takes O(W * M * N * 4^L); stepping board against Trie takes O(M * N * 4^L) by pruning invalid prefixes early.",
+    keyInvariant: "Board DFS only moves to adjacent cells that exist as valid children of current TrieNode.",
+  },
+  648: {
+    questionId: 648,
+    trigger: "Shortest prefix root match: Insert root dictionary into Trie. For each sentence word, walk the Trie and stop at the first node with isEnd = true.",
+    whyThisPattern: "Finds the shortest root prefix in O(L) time without checking all candidate roots.",
+    keyInvariant: "First encountered isEnd = true node along word path is its shortest root.",
+  },
+  677: {
+    questionId: 677,
+    trigger: "Prefix score accumulation: Store running score sum on each TrieNode along the word path to answer sum(prefix) in O(L) time.",
+    whyThisPattern: "Augmenting Trie nodes with aggregate values converts O(N) prefix searches into instant O(L) lookups.",
+    keyInvariant: "Node score equals the sum of all word values residing in its subtree.",
+  },
+
+  // Dijkstra's Shortest Path
+  743: {
+    questionId: 743,
+    trigger: "Weighted non-negative edges: Greedily extract minimum tentative distance node from Min-Heap to finalize shortest path.",
+    whyThisPattern: "Greedy relaxation guarantees the popped node cannot be reached via any shorter alternative path.",
+    whenItBreaks: "Negative edge weights violate the greedy non-decreasing distance assumption (use Bellman-Ford).",
+    keyInvariant: "When node u is popped from min-heap, dist[u] is permanently optimal.",
+  },
+  787: {
+    questionId: 787,
+    trigger: "Constrained edge-count shortest path: Track stops in priority queue state or run K+1 Bellman-Ford rounds to avoid premature pruning.",
+    whyThisPattern: "A route with higher cost but fewer stops must not be discarded if it enables reaching the destination within K stops.",
+    keyInvariant: "After round r, dist[u] stores the cheapest price to reach u using at most r flights.",
+  },
+  1514: {
+    questionId: 1514,
+    trigger: "Multiplicative monotonic decrease: Edge probabilities <= 1 mean path probability monotonically shrinks; use Dijkstra with Max-Heap!",
+    whyThisPattern: "Multiplying fractions produces non-increasing values, making Max-Heap Dijkstra equivalent to shortest path.",
+    whenItBreaks: "If probabilities were > 1, multiplication would create positive cycles and Dijkstra would fail.",
+    keyInvariant: "When node u is popped from max-heap, prob[u] is permanently maximal.",
+  },
+  1631: {
+    questionId: 1631,
+    trigger: "Minimax grid path: Dijkstra relaxation where edge cost is max(current_effort, abs(height_diff)). Min-Heap prioritizes smallest effort.",
+    whyThisPattern: "Dijkstra naturally generalizes to minimax bottleneck paths where edge evaluation uses max() instead of +.",
+    keyInvariant: "Popped cell effort is the minimal maximum-edge-difference achievable from top-left.",
+  },
 };
 
 /**

@@ -119,6 +119,11 @@ const GOAL_OPTIONS: Record<string, DecisionOption[]> = {
       label: 'Find Boundary in Monotonic Space',
       description: 'Target lookup or minimum feasible threshold',
     },
+    {
+      id: 'prefix-autocomplete',
+      label: 'Prefix Lookup, Autocomplete, or Word Dictionary',
+      description: 'Check words sharing common starting letters',
+    },
   ],
   'linked-list': [
     {
@@ -149,6 +154,11 @@ const GOAL_OPTIONS: Record<string, DecisionOption[]> = {
       id: 'shortest-path-unweighted',
       label: 'Shortest Path / Flood Fill',
       description: 'Fewest steps or connected island components',
+    },
+    {
+      id: 'weighted-shortest-path',
+      label: 'Shortest Path with Edge Weights / Latency',
+      description: 'Find minimum cost, network delay, or highest probability',
     },
     {
       id: 'dependency-ordering',
@@ -241,6 +251,13 @@ const CONSTRAINT_OPTIONS: Record<string, DecisionOption[]> = {
       description: 'Can eliminate half the remaining search space each check',
     },
   ],
+  'array-string:prefix-autocomplete': [
+    {
+      id: 'shared-prefix-tree',
+      label: 'Frequent startsWith() or Character Matrix DFS',
+      description: 'Multiple prefix queries or Word Search II board traversal',
+    },
+  ],
   'linked-list:cycle-midpoint': [
     {
       id: 'constant-space-required',
@@ -274,6 +291,13 @@ const CONSTRAINT_OPTIONS: Record<string, DecisionOption[]> = {
       id: 'unweighted-edges',
       label: 'All edge weights are uniform (1 step = 1 unit)',
       description: 'Queue naturally visits in increasing distance order',
+    },
+  ],
+  'graph-grid:weighted-shortest-path': [
+    {
+      id: 'non-negative-weights',
+      label: 'Edge weights are strictly non-negative (w >= 0)',
+      description: 'Varying latency, costs, or probabilities',
     },
   ],
   'graph-grid:dependency-ordering': [
@@ -654,6 +678,38 @@ const DECISION_RESULTS: Record<string, DecisionResult> = {
       link: 'https://leetcode.com/problems/koko-eating-bananas/',
     },
   },
+  'array-string:prefix-autocomplete:shared-prefix-tree': {
+    patternSlug: 'trie-prefix-tree',
+    patternTitle: 'Tries (Prefix Trees)',
+    level: 'Intermediate',
+    whyThisPattern:
+      'Trie nodes branch on characters. Insertion, exact search, and startsWith all execute in O(L) time proportional strictly to string length, independent of dictionary size.',
+    coreInvariant:
+      'Every node at depth d uniquely represents the prefix of length d spelled along the path from root.',
+    whenItBreaks:
+      '⚠️ High memory overhead on large sparse alphabets; consider Hash Set if prefix searches are not needed.',
+    sampleQuestion: {
+      id: 208,
+      title: 'Implement Trie (Prefix Tree)',
+      link: 'https://leetcode.com/problems/implement-trie-prefix-tree/',
+    },
+  },
+  'graph-grid:weighted-shortest-path:non-negative-weights': {
+    patternSlug: 'dijkstras-algorithm',
+    patternTitle: "Dijkstra's Algorithm",
+    level: 'Advanced',
+    whyThisPattern:
+      'Min-Heap priority queue greedily extracts the lowest tentative distance node. Because edge weights are non-negative, the extracted distance is provably optimal and finalized.',
+    coreInvariant:
+      'Whenever vertex u is popped from the min-heap, dist[u] is permanently the true minimal distance from source to u.',
+    whenItBreaks:
+      '⚠️ Negative edge weights break greedy finality (use Bellman-Ford or SPFA instead).',
+    sampleQuestion: {
+      id: 743,
+      title: 'Network Delay Time',
+      link: 'https://leetcode.com/problems/network-delay-time/',
+    },
+  },
 };
 
 // Quick Decision Scenarios for direct browsing / quick cheat sheet
@@ -747,6 +803,24 @@ const QUICK_SCENARIOS: QuickScenario[] = [
     level: 'Advanced',
     decisionRule: 'Optimal subproblems repeat; memoize or tabulate state transitions.',
     whenItBreaks: 'If greedy choice provably reaches global optimum -> Switch to Greedy to avoid O(N^2) state space.',
+  },
+  {
+    id: 's11',
+    problemScenario: 'Fast prefix lookups, autocomplete, or word dictionary search',
+    patternSlug: 'trie-prefix-tree',
+    patternTitle: 'Tries (Prefix Trees)',
+    level: 'Intermediate',
+    decisionRule: 'Tree of character branches: search and startsWith run in O(L) time proportional to word length.',
+    whenItBreaks: 'Large sparse alphabets without common prefixes can lead to high node memory overhead.',
+  },
+  {
+    id: 's12',
+    problemScenario: 'Shortest path in directed graph with non-negative edge weights',
+    patternSlug: 'dijkstras-algorithm',
+    patternTitle: "Dijkstra's Algorithm",
+    level: 'Advanced',
+    decisionRule: 'Min-Heap priority queue repeatedly relaxes the lowest tentative distance in O((V + E) log V).',
+    whenItBreaks: 'Negative edge weights break greedy distance finality -> Switch to Bellman-Ford.',
   },
 ];
 

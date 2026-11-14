@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   RotateCcw,
   Play,
@@ -6,23 +6,79 @@ import {
   ChevronRight,
   ChevronLeft,
   Info,
-  CheckCircle2,
   Sliders,
+  Sparkles,
+  SlidersHorizontal,
+  Code2,
+  AlertCircle,
+  Check,
 } from 'lucide-react';
 import {
   VISUALIZER_ARRAY,
   VISUALIZER_WINDOW_SIZE,
-  VISUALIZER_STEPS,
 } from '../../data/patternsData';
+import { generateSlidingWindowSteps } from '../../utils/slidingWindowVisualizerEngine';
+
+const PRESETS = [
+  { label: 'Default Benchmark', array: [1, 12, -5, -6, 50, 3], k: 4 },
+  { label: 'All Negative Values', array: [-2, -5, -1, -8, -3], k: 3 },
+  { label: 'High Center Peak', array: [2, 1, 5, 1, 3, 2], k: 3 },
+  { label: 'Alternating Swings', array: [5, -2, 6, -3, 8, -1], k: 2 },
+];
+
+const PYTHON_LINES = [
+  { line: 1, text: 'def findMaxAverage(nums: list[int], k: int) -> float:' },
+  { line: 2, text: '    # 1. Initialize window of size k' },
+  { line: 3, text: '    window_sum = sum(nums[:k])' },
+  { line: 4, text: '    max_avg = window_sum / k' },
+  { line: 5, text: '' },
+  { line: 6, text: '    # 2. Slide window across array in O(N) time' },
+  { line: 7, text: '    for i in range(k, len(nums)):' },
+  { line: 8, text: '        window_sum += nums[i] - nums[i - k]' },
+  { line: 9, text: '        max_avg = max(max_avg, window_sum / k)' },
+  { line: 10, text: '' },
+  { line: 11, text: '    return max_avg' },
+];
+
+const TYPESCRIPT_LINES = [
+  { line: 1, text: 'function findMaxAverage(nums: number[], k: number): number {' },
+  { line: 2, text: '  // 1. Initialize window of size k' },
+  { line: 3, text: '  let windowSum = 0;' },
+  { line: 4, text: '  for (let i = 0; i < k; i++) windowSum += nums[i];' },
+  { line: 5, text: '  let maxAvg = windowSum / k;' },
+  { line: 6, text: '' },
+  { line: 7, text: '  // 2. Slide window through rest of array' },
+  { line: 8, text: '  for (let i = k; i < nums.length; i++) {' },
+  { line: 9, text: '    windowSum += nums[i] - nums[i - k];' },
+  { line: 10, text: '    maxAvg = Math.max(maxAvg, windowSum / k);' },
+  { line: 11, text: '  }' },
+  { line: 12, text: '  return maxAvg;' },
+  { line: 13, text: '}' },
+];
 
 export default function SlidingWindowVisualizer() {
+  const [array, setArray] = useState<number[]>(VISUALIZER_ARRAY);
+  const [windowSize, setWindowSize] = useState<number>(VISUALIZER_WINDOW_SIZE);
+  const [steps, setSteps] = useState(() => generateSlidingWindowSteps(VISUALIZER_ARRAY, VISUALIZER_WINDOW_SIZE));
+
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [windowMode, setWindowMode] = useState<'fixed' | 'variable'>('fixed');
+
+  // Custom Input State
+  const [isCustomOpen, setIsCustomOpen] = useState(false);
+  const [customArrayStr, setCustomArrayStr] = useState('1, 12, -5, -6, 50, 3');
+  const [customKStr, setCustomKStr] = useState('4');
+  const [customError, setCustomError] = useState<string | null>(null);
+
+  // Synchronized Code State
+  const [selectedLang, setSelectedLang] = useState<'python' | 'typescript'>('python');
+  const [isCodeVisible, setIsCodeVisible] = useState(true);
+
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const step = VISUALIZER_STEPS[currentStepIndex];
-  const totalSteps = VISUALIZER_STEPS.length;
+  const totalSteps = steps.length;
+  const step = steps[currentStepIndex] || steps[0];
 
   // Auto-play interval handler
   useEffect(() => {
@@ -78,6 +134,69 @@ export default function SlidingWindowVisualizer() {
     }
   };
 
+  const handleApplyCustom = (arrStr: string, kStr: string) => {
+    setCustomError(null);
+    const parsedNums = arrStr
+      .split(/[,\s]+/)
+      .map(s => s.trim())
+      .filter(Boolean)
+      .map(Number);
+
+    if (parsedNums.length < 2) {
+      setCustomError('Please provide at least 2 numbers.');
+      return;
+    }
+    if (parsedNums.length > 12) {
+      setCustomError('Please provide at most 12 numbers for optimal visualization.');
+      return;
+    }
+    if (parsedNums.some(n => isNaN(n))) {
+      setCustomError('Array contains invalid numbers.');
+      return;
+    }
+
+    const parsedK = parseInt(kStr, 10);
+    if (isNaN(parsedK) || parsedK < 1 || parsedK > parsedNums.length) {
+      setCustomError(`Window size k must be between 1 and ${parsedNums.length}.`);
+      return;
+    }
+
+    const newSteps = generateSlidingWindowSteps(parsedNums, parsedK);
+    setArray(parsedNums);
+    setWindowSize(parsedK);
+    setSteps(newSteps);
+    setCurrentStepIndex(0);
+    setIsPlaying(false);
+    setCustomError(null);
+  };
+
+  const handlePresetSelect = (preset: typeof PRESETS[0]) => {
+    const arrStr = preset.array.join(', ');
+    const kStr = String(preset.k);
+    setCustomArrayStr(arrStr);
+    setCustomKStr(kStr);
+    handleApplyCustom(arrStr, kStr);
+  };
+
+  // Determine active line in code for current step
+  const activeLineInfo = useMemo(() => {
+    if (!step) return null;
+    const isLast = currentStepIndex === steps.length - 1;
+    if (selectedLang === 'python') {
+      if (step.activeLineNumber === 3) return { lines: [3, 4], label: 'Initialize window of size k' };
+      if (step.activeLineNumber === 9) return { lines: [8, 9], label: 'Slide window & update best average' };
+      if (step.activeLineNumber === 8) return { lines: [8], label: 'Slide window: subtract leaving, add entering' };
+      if (isLast) return { lines: [11], label: 'Return final max average' };
+      return { lines: [7], label: 'Iterate next window position' };
+    } else {
+      if (step.activeLineNumber === 3) return { lines: [3, 4, 5], label: 'Initialize window sum of size k' };
+      if (step.activeLineNumber === 9) return { lines: [9, 10], label: 'Slide window & update best average' };
+      if (step.activeLineNumber === 8) return { lines: [9], label: 'Slide window: subtract leaving, add entering' };
+      if (isLast) return { lines: [12], label: 'Return final max average' };
+      return { lines: [8], label: 'Iterate next window position' };
+    }
+  }, [step, selectedLang, currentStepIndex, steps.length]);
+
   return (
     <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs">
       {/* Visualizer Header */}
@@ -88,16 +207,29 @@ export default function SlidingWindowVisualizer() {
           </span>
           <div>
             <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-[#FAF9F5] tracking-tight">
-              Interactive Visualization
+              Sliding Window Interactive Visualization & Execution Playground
             </h3>
             <p className="text-xs text-slate-500 dark:text-[#A8A69C] mt-0.5">
-              See how a fixed-size sliding window works to find the maximum average subarray.
+              Step through the sliding window invariant execution with custom inputs and synchronized code highlighting.
             </p>
           </div>
         </div>
 
-        {/* Mode Selector */}
-        <div className="flex items-center gap-2 self-start sm:self-auto">
+        {/* Mode Selector & Custom Input Toggle */}
+        <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+          <button
+            type="button"
+            onClick={() => setIsCustomOpen(!isCustomOpen)}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer border ${
+              isCustomOpen
+                ? 'bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] border-transparent shadow-xs'
+                : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-[#1F1E1D] dark:text-[#FAF9F5] dark:hover:bg-[#262624] border-slate-200/80 dark:border-[#43433F]'
+            }`}
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            <span>Custom Input</span>
+          </button>
+
           <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F]">
             <button
               type="button"
@@ -108,7 +240,7 @@ export default function SlidingWindowVisualizer() {
                   : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5]'
               }`}
             >
-              Fixed-size (k = 4)
+              Fixed-size (k = {windowSize})
             </button>
             <button
               type="button"
@@ -125,6 +257,92 @@ export default function SlidingWindowVisualizer() {
         </div>
       </div>
 
+      {/* Collapsible Custom Input Drawer */}
+      {isCustomOpen && (
+        <div className="mb-4 p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] space-y-3 animate-fade-in">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
+              <span>Simulate Your Own Array & Window Size</span>
+            </div>
+            <span className="text-[10.5px] font-mono text-slate-500 dark:text-[#A8A69C]">
+              2 to 12 integers
+            </span>
+          </div>
+
+          {/* Quick Presets */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-[11px] font-semibold text-slate-500 dark:text-[#A8A69C] mr-1">
+              Presets:
+            </span>
+            {PRESETS.map((p, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => handlePresetSelect(p)}
+                className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-white dark:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] border border-slate-200 dark:border-[#43433F] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-colors cursor-pointer"
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Input Controls */}
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 pt-1">
+            <div className="sm:col-span-3 space-y-1">
+              <label className="text-[11px] font-semibold text-slate-600 dark:text-[#A8A69C]">
+                Array Elements (comma separated):
+              </label>
+              <input
+                type="text"
+                value={customArrayStr}
+                onChange={e => setCustomArrayStr(e.target.value)}
+                placeholder="e.g. 1, 12, -5, -6, 50, 3"
+                className="w-full px-3 py-1.5 text-xs font-mono rounded-lg bg-white dark:bg-[#262624] border border-slate-200 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] focus:outline-none focus:ring-1 focus:ring-[#0F1B3D] dark:focus:ring-[#D97757]"
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="text-[11px] font-semibold text-slate-600 dark:text-[#A8A69C]">
+                Window Size (k):
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="12"
+                value={customKStr}
+                onChange={e => setCustomKStr(e.target.value)}
+                className="w-full px-3 py-1.5 text-xs font-mono rounded-lg bg-white dark:bg-[#262624] border border-slate-200 dark:border-[#43433F] text-slate-900 dark:text-[#FAF9F5] focus:outline-none focus:ring-1 focus:ring-[#0F1B3D] dark:focus:ring-[#D97757]"
+              />
+            </div>
+          </div>
+
+          {customError && (
+            <div className="flex items-center gap-1.5 text-xs text-rose-600 dark:text-rose-400 font-medium">
+              <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+              <span>{customError}</span>
+            </div>
+          )}
+
+          <div className="flex items-center justify-end gap-2 pt-1 border-t border-slate-200/60 dark:border-[#43433F]/70">
+            <button
+              type="button"
+              onClick={() => handlePresetSelect(PRESETS[0])}
+              className="px-2.5 py-1 text-xs font-medium text-slate-600 dark:text-[#A8A69C] hover:text-slate-900 dark:hover:text-[#FAF9F5] cursor-pointer"
+            >
+              Reset to Benchmark
+            </button>
+            <button
+              type="button"
+              onClick={() => handleApplyCustom(customArrayStr, customKStr)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] shadow-2xs transition-colors cursor-pointer"
+            >
+              <Check className="w-3.5 h-3.5" />
+              <span>Simulate Visualizer</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {windowMode === 'fixed' ? (
         <>
           {/* Main Visualizer Stage */}
@@ -137,7 +355,7 @@ export default function SlidingWindowVisualizer() {
                 </span>
 
                 <div className="flex items-center gap-2 sm:gap-2.5 relative py-1">
-                  {VISUALIZER_ARRAY.map((val, idx) => {
+                  {array.map((val, idx) => {
                     const isInWindow = step.windowIndices.includes(idx);
                     const isAdded = step.addedElement?.index === idx;
                     const isRemoved = step.removedElement?.index === idx;
@@ -170,7 +388,7 @@ export default function SlidingWindowVisualizer() {
               <div className="flex flex-wrap items-center justify-center gap-4 mt-2.5 text-[11px] font-mono">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-xs bg-[#0F1B3D] dark:bg-[#D97757]" />
-                  <span className="text-slate-500 dark:text-[#A8A69C]">Active Window</span>
+                  <span className="text-slate-500 dark:text-[#A8A69C]">Active Window (k={windowSize})</span>
                 </div>
                 {step.removedElement && (
                   <div className="flex items-center gap-1.5">
@@ -199,7 +417,7 @@ export default function SlidingWindowVisualizer() {
                   Window Size
                 </div>
                 <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-[#FAF9F5] mt-0.5">
-                  {VISUALIZER_WINDOW_SIZE}
+                  {windowSize}
                 </div>
               </div>
 
@@ -241,7 +459,7 @@ export default function SlidingWindowVisualizer() {
               </div>
               <div className="space-y-0.5">
                 <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Step {step.stepNumber}: {step.title}
+                  Step {step.stepNumber} of {totalSteps}: {step.title}
                 </div>
                 <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
                   {step.explanation}
@@ -265,8 +483,8 @@ export default function SlidingWindowVisualizer() {
               </button>
 
               {/* Step indicator */}
-              <div className="flex items-center gap-1.5">
-                {VISUALIZER_STEPS.map((_, idx) => (
+              <div className="flex items-center gap-1.5 flex-wrap justify-center">
+                {steps.map((_, idx) => (
                   <button
                     key={idx}
                     type="button"
@@ -324,6 +542,87 @@ export default function SlidingWindowVisualizer() {
                   )}
                 </button>
               </div>
+            </div>
+
+            {/* Synchronized Code Execution Frame */}
+            <div className="pt-3 border-t border-slate-100 dark:border-[#43433F]/70 space-y-2.5">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <Code2 className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
+                  <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
+                    Synchronized Code Stepper
+                  </span>
+                  {activeLineInfo && (
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-semibold border border-amber-300/80 dark:border-amber-700/50">
+                      {activeLineInfo.label}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="inline-flex rounded-lg p-0.5 bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] text-[11px]">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedLang('python')}
+                      className={`px-2 py-0.5 rounded-md font-mono font-medium transition-colors cursor-pointer ${
+                        selectedLang === 'python'
+                          ? 'bg-white dark:bg-[#30302E] text-[#0F1B3D] dark:text-[#FAF9F5] shadow-2xs font-bold'
+                          : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C]'
+                      }`}
+                    >
+                      Python
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedLang('typescript')}
+                      className={`px-2 py-0.5 rounded-md font-mono font-medium transition-colors cursor-pointer ${
+                        selectedLang === 'typescript'
+                          ? 'bg-white dark:bg-[#30302E] text-[#0F1B3D] dark:text-[#FAF9F5] shadow-2xs font-bold'
+                          : 'text-slate-500 hover:text-slate-900 dark:text-[#A8A69C]'
+                      }`}
+                    >
+                      TypeScript
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsCodeVisible(!isCodeVisible)}
+                    className="text-[11px] text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] cursor-pointer"
+                  >
+                    {isCodeVisible ? 'Hide Code' : 'Show Code'}
+                  </button>
+                </div>
+              </div>
+
+              {isCodeVisible && (
+                <div className="rounded-xl overflow-hidden border border-slate-200/80 dark:border-[#43433F] bg-slate-900 text-slate-200 font-mono text-xs shadow-inner">
+                  <div className="py-2.5 overflow-x-auto">
+                    {(selectedLang === 'python' ? PYTHON_LINES : TYPESCRIPT_LINES).map(lineObj => {
+                      const isActive = activeLineInfo?.lines.includes(lineObj.line);
+                      return (
+                        <div
+                          key={lineObj.line}
+                          className={`flex items-center px-4 py-0.5 font-mono transition-colors ${
+                            isActive
+                              ? 'bg-[#D97757]/20 text-[#FAF9F5] border-l-4 border-[#D97757] font-semibold'
+                              : 'hover:bg-slate-800/40 opacity-80'
+                          }`}
+                        >
+                          <span className="w-8 shrink-0 text-slate-500 text-[10px] select-none text-right pr-3">
+                            {lineObj.line}
+                          </span>
+                          <span className="flex-1 whitespace-pre">{lineObj.text}</span>
+                          {isActive && (
+                            <span className="ml-2 text-[10px] text-[#D97757] font-bold px-1.5 py-0.2 rounded bg-[#D97757]/10 uppercase tracking-wider select-none shrink-0">
+                              Active
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </>

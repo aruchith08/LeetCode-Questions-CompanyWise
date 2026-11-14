@@ -1,16 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
-import { FOUNDATION_PATTERNS } from '../src/data/patterns/foundationPatterns';
-import { INTERMEDIATE_PATTERNS } from '../src/data/patterns/intermediatePatterns';
-import { ADVANCED_PATTERNS } from '../src/data/patterns/advancedPatterns';
+import { ALL_PATTERNS_CONTENT } from '../src/data/patterns/patternRegistry';
 import { generateBacktrackingSteps } from '../src/utils/visualizerEngines';
 
-const ALL_PATTERNS = [
-  ...FOUNDATION_PATTERNS,
-  ...INTERMEDIATE_PATTERNS,
-  ...ADVANCED_PATTERNS,
-];
+const ALL_PATTERNS = ALL_PATTERNS_CONTENT;
 
 describe('Sliding Window Educational Notes & Algorithmic Distinctions', () => {
   const notesPath = path.resolve(__dirname, '../../docs/research/sliding-window-notes.md');
@@ -62,9 +56,9 @@ describe('Sliding Window Educational Notes & Algorithmic Distinctions', () => {
   });
 });
 
-describe('18 Patterns Curriculum Quality & Algorithmic Correctness Gate', () => {
-  it('ensures all 18 patterns have non-empty, pattern-specific brute force implementations', () => {
-    expect(ALL_PATTERNS).toHaveLength(18);
+describe('DSA Patterns Curriculum Quality & Algorithmic Correctness Gate', () => {
+  it('ensures all patterns have non-empty, pattern-specific brute force implementations', () => {
+    expect(ALL_PATTERNS).toHaveLength(20);
 
     for (const pattern of ALL_PATTERNS) {
       // Must have pythonBrute and tsBrute
@@ -133,7 +127,7 @@ describe('18 Patterns Curriculum Quality & Algorithmic Correctness Gate', () => 
     expect(metricLen4?.value).toBe(24); // 4! = 24
   });
 
-  it('ensures all practice questions are assigned to registered subpattern tabs across all 18 patterns', () => {
+  it('ensures all practice questions are assigned to registered subpattern tabs across all patterns', () => {
     for (const pattern of ALL_PATTERNS) {
       const registeredTabIds = new Set(pattern.subpatternTabs.map(t => t.id));
       for (const mapping of pattern.mappings) {

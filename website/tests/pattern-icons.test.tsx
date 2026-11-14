@@ -20,8 +20,8 @@ import PatternCard from '../src/components/patterns/PatternCard';
 import { ProgressProvider } from '../src/context/ProgressContext';
 
 describe('Centralized Pattern & Topic Icons', () => {
-  it('ensures 100% of the 18 patterns in PATTERNS_CATALOG have dedicated concept icons', () => {
-    expect(PATTERNS_CATALOG).toHaveLength(18);
+  it('ensures 100% of the 20 patterns in PATTERNS_CATALOG have dedicated concept icons', () => {
+    expect(PATTERNS_CATALOG).toHaveLength(20);
 
     for (const pattern of PATTERNS_CATALOG) {
       const hasIcon = hasPatternIcon(pattern.slug);

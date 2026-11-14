@@ -32,6 +32,22 @@ describe('Pattern Triggers & Active Recall Insights', () => {
     const coinChangeTrigger = getPatternTrigger(322);
     expect(coinChangeTrigger).toBeDefined();
     expect(coinChangeTrigger?.whenItBreaks).toContain('Greedy');
+
+    // Implement Trie (#208)
+    const trieTrigger = getPatternTrigger(208);
+    expect(trieTrigger).toBeDefined();
+    expect(trieTrigger?.trigger).toContain('prefix');
+    expect(trieTrigger?.keyInvariant).toContain('depth d');
+
+    // Network Delay Time (#743)
+    const dijkstraTrigger = getPatternTrigger(743);
+    expect(dijkstraTrigger).toBeDefined();
+    expect(dijkstraTrigger?.trigger).toContain('Min-Heap');
+
+    // Burst Balloons (#312)
+    const burstBalloonsTrigger = getPatternTrigger(312);
+    expect(burstBalloonsTrigger).toBeDefined();
+    expect(burstBalloonsTrigger?.trigger).toContain('LAST');
   });
 
   it('should gracefully synthesize fallback trigger when given subpattern label', () => {

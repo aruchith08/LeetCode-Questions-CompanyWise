@@ -109,16 +109,26 @@ export const SKILL_NODES: SkillNode[] = [
     keyInvariant: 'Two sorted intervals [s1, e1] and [s2, e2] overlap if and only if s2 <= e1.',
   },
 
-  // Trees & Graphs Trail (5)
+  // Trees & Graphs Trail (7)
   {
     slug: 'tree-dfs',
     title: 'Tree DFS',
     level: 'Intermediate',
     category: 'Trees & Graphs',
     prerequisites: [],
-    unlocks: ['tree-bfs', 'graph-traversal', 'backtracking'],
+    unlocks: ['tree-bfs', 'graph-traversal', 'trie-prefix-tree', 'backtracking'],
     summary: 'Recursive post-order subtree aggregations, ancestry pathing, and bottom-up evaluations.',
     keyInvariant: 'Subtree results from children are computed before combining at root apex.',
+  },
+  {
+    slug: 'trie-prefix-tree',
+    title: 'Tries (Prefix Trees)',
+    level: 'Intermediate',
+    category: 'Trees & Graphs',
+    prerequisites: ['tree-dfs'],
+    unlocks: [],
+    summary: 'Branching character tree for O(L) autocomplete, prefix queries, and Boggle word searches.',
+    keyInvariant: 'Every node at depth d uniquely represents the prefix formed from root to that node.',
   },
   {
     slug: 'tree-bfs',
@@ -136,9 +146,19 @@ export const SKILL_NODES: SkillNode[] = [
     level: 'Intermediate',
     category: 'Trees & Graphs',
     prerequisites: ['tree-dfs'],
-    unlocks: ['topological-sort', 'union-find'],
+    unlocks: ['topological-sort', 'union-find', 'dijkstras-algorithm'],
     summary: 'Traverse arbitrary cycles and matrix grids using visited sets and queue waves.',
     keyInvariant: 'BFS queue guarantees visiting nodes in non-decreasing order of distance.',
+  },
+  {
+    slug: 'dijkstras-algorithm',
+    title: "Dijkstra's Shortest Path",
+    level: 'Advanced',
+    category: 'Trees & Graphs',
+    prerequisites: ['graph-traversal', 'heap-top-k'],
+    unlocks: [],
+    summary: 'Greedy shortest path in non-negative weighted graphs via min-heap edge relaxation.',
+    keyInvariant: 'Popping the minimum tentative distance guarantees the node shortest path is finalized.',
   },
   {
     slug: 'topological-sort',

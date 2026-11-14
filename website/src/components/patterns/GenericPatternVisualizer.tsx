@@ -424,9 +424,16 @@ export default function GenericPatternVisualizer({
 
       {/* Step Explanation Card */}
       <div className="p-3.5 sm:p-4 rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/40 dark:bg-blue-950/20 space-y-1.5 text-xs text-slate-700 dark:text-[#FAF9F5]">
-        <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-1.5 text-xs">
-          <Info className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
-          <span>{step.title}</span>
+        <div className="font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center justify-between gap-1.5 text-xs flex-wrap">
+          <div className="flex items-center gap-1.5">
+            <Info className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
+            <span>{step.title}</span>
+          </div>
+          {step.activeLineNumber && (
+            <span className="font-mono text-[10.5px] px-2 py-0.5 rounded-md bg-[#0F1B3D]/10 dark:bg-[#D97757]/20 text-[#0F1B3D] dark:text-[#FAF9F5] font-semibold border border-[#0F1B3D]/20 dark:border-[#D97757]/40">
+              Line {step.activeLineNumber}
+            </span>
+          )}
         </div>
         <p className="leading-relaxed text-slate-600 dark:text-[#A8A69C]">
           {step.explanation}

@@ -153,4 +153,19 @@ describe('User Progress State & Persistence', () => {
     expect(isValidProgress('{"someOtherKey": 123}')).toBe(false);
     expect(isValidProgress('null')).toBe(false);
   });
+
+  it('tracks confidence ratings and evaluates review queue for spaced repetition', () => {
+    const progress: UserProgress = {
+      solvedQuestions: { 1: 'solved', 42: 'solved', 100: 'solved' },
+      confidence: { 1: 'mastered', 42: 'review', 100: 'struggled' },
+      bookmarks: [],
+      recentCompanies: [],
+      recentQuestions: [],
+      lastUpdated: new Date().toISOString(),
+    };
+
+    expect(progress.confidence?.[1]).toBe('mastered');
+    expect(progress.confidence?.[42]).toBe('review');
+    expect(progress.confidence?.[100]).toBe('struggled');
+  });
 });

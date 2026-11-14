@@ -347,6 +347,36 @@ export default function PatternMiniVisual({ slug, isAvailable }: PatternMiniVisu
         </div>
       );
 
+    case 'trie-prefix-tree':
+      return (
+        <div className="w-full h-24 bg-slate-50 dark:bg-[#1F1E1D] rounded-xl p-2 flex flex-col justify-center items-center gap-1 select-none border border-slate-100 dark:border-[#43433F]/70">
+          <div className="flex items-center gap-1 font-mono text-[11px] font-bold">
+            <span className="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-[#383835] text-slate-600 dark:text-slate-300">root</span>
+            <span className="text-slate-400">→</span>
+            <span className="w-5 h-5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 flex items-center justify-center">a</span>
+            <span className="text-slate-400">→</span>
+            <span className="w-5 h-5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 flex items-center justify-center">p</span>
+            <span className="text-slate-400">→</span>
+            <span className="w-5 h-5 rounded bg-emerald-500 text-white flex items-center justify-center shadow-xs">p*</span>
+          </div>
+          <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">isEnd = true ("app")</span>
+        </div>
+      );
+
+    case 'dijkstras-algorithm':
+      return (
+        <div className="w-full h-24 bg-slate-50 dark:bg-[#1F1E1D] rounded-xl p-2 flex flex-col justify-center items-center gap-1 select-none border border-slate-100 dark:border-[#43433F]/70">
+          <div className="flex items-center gap-2 font-mono text-xs font-bold">
+            <span className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xs">1</span>
+            <span className="text-[10px] text-slate-400">w=1</span>
+            <span className="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-xs">2</span>
+            <span className="text-[10px] text-slate-400">w=2</span>
+            <span className="w-6 h-6 rounded-full bg-[#0F1B3D] dark:bg-[#D97757] text-white flex items-center justify-center shadow-xs">3</span>
+          </div>
+          <span className="text-[10px] font-mono text-[#0F1B3D] dark:text-[#D97757] font-semibold">min-heap dist relaxation</span>
+        </div>
+      );
+
     default:
       return (
         <div className="w-full h-24 bg-slate-50 dark:bg-[#1F1E1D] rounded-xl flex items-center justify-center border border-slate-100 dark:border-[#43433F]/70">

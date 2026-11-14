@@ -330,6 +330,8 @@ export const PATTERN_ICON_MAP: Record<string, IconRenderer> = {
   'greedy-algorithms': Target,
   'dynamic-programming': Grid3X3,
   'bit-manipulation': Binary,
+  'trie-prefix-tree': TrieIcon,
+  'dijkstras-algorithm': Network,
 
   // === Common Pattern Aliases ===
   'hashing': Hash,
@@ -363,6 +365,8 @@ export const PATTERN_ICON_MAP: Record<string, IconRenderer> = {
   'memoization': Grid3X3,
   'bitwise': Binary,
   'bits': Binary,
+  'dijkstra': Network,
+  'shortest-path': Network,
 
   // === General DSA Topics ===
   'arrays': ArrayCellsIcon,

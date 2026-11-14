@@ -3,11 +3,15 @@ export * from './patternMappings';
 import { FOUNDATION_PATTERNS } from './foundationPatterns';
 import { INTERMEDIATE_PATTERNS } from './intermediatePatterns';
 import { ADVANCED_PATTERNS } from './advancedPatterns';
+import { TRIE_PATTERN } from './triePattern';
+import { DIJKSTRA_PATTERN } from './dijkstraPattern';
 
 export const ALL_PATTERNS_CONTENT: PatternLearningContent[] = [
   ...FOUNDATION_PATTERNS,
   ...INTERMEDIATE_PATTERNS,
+  TRIE_PATTERN,
   ...ADVANCED_PATTERNS,
+  DIJKSTRA_PATTERN,
 ];
 
 const patternContentCache = new Map<string, PatternLearningContent>();

@@ -38,16 +38,16 @@ import { generateSlidingWindowSteps } from '../src/utils/slidingWindowVisualizer
 import PatternVisualizerHost from '../src/components/patterns/PatternVisualizerHost';
 import GenericPatternVisualizer from '../src/components/patterns/GenericPatternVisualizer';
 
-describe('18 DSA Patterns Expansion - Catalog & Content Integrity', () => {
-  it('contains exactly 18 fully developed patterns in both registry and catalog', () => {
-    expect(ALL_PATTERNS_CONTENT).toHaveLength(18);
-    expect(PATTERNS_CATALOG).toHaveLength(18);
+describe('20 DSA Patterns Expansion - Catalog & Content Integrity', () => {
+  it('contains exactly 20 fully developed patterns in both registry and catalog', () => {
+    expect(ALL_PATTERNS_CONTENT).toHaveLength(20);
+    expect(PATTERNS_CATALOG).toHaveLength(20);
 
     const catalogSlugs = new Set(PATTERNS_CATALOG.map(p => p.slug));
     const contentSlugs = new Set(ALL_PATTERNS_CONTENT.map(p => p.slug));
 
-    expect(catalogSlugs.size).toBe(18);
-    expect(contentSlugs.size).toBe(18);
+    expect(catalogSlugs.size).toBe(20);
+    expect(contentSlugs.size).toBe(20);
 
     for (const slug of catalogSlugs) {
       expect(contentSlugs.has(slug)).toBe(true);
@@ -55,7 +55,7 @@ describe('18 DSA Patterns Expansion - Catalog & Content Integrity', () => {
     }
   });
 
-  it('guarantees all 18 patterns are marked available with valid metadata', () => {
+  it('guarantees all 20 patterns are marked available with valid metadata', () => {
     for (const pattern of PATTERNS_CATALOG) {
       expect(pattern.availability).toBe('available');
       expect(pattern.questionCount).toBeGreaterThan(0);
@@ -139,10 +139,10 @@ describe('18 DSA Patterns Expansion - Question Catalog & Metric Separation', () 
     expect(missingIds).toEqual([]);
   });
 
-  it('independently separates total mappings (207) from unique question IDs (203)', () => {
-    expect(TOTAL_PATTERN_MAPPINGS_COUNT).toBe(207);
-    expect(UNIQUE_PATTERN_QUESTIONS_COUNT).toBe(203);
-    expect(UNIQUE_PATTERN_QUESTION_IDS).toHaveLength(203);
+  it('independently separates total mappings (229) from unique question IDs (225)', () => {
+    expect(TOTAL_PATTERN_MAPPINGS_COUNT).toBe(229);
+    expect(UNIQUE_PATTERN_QUESTIONS_COUNT).toBe(225);
+    expect(UNIQUE_PATTERN_QUESTION_IDS).toHaveLength(225);
 
     // Exactly 4 questions appear in two different valid tracks
     const crossQuestions = getCrossPatternQuestions();
@@ -179,8 +179,8 @@ describe('18 DSA Patterns Expansion - Question Catalog & Metric Separation', () 
     const advanced = PATTERNS_CATALOG.filter(p => p.level === 'Advanced');
 
     expect(foundation).toHaveLength(6);
-    expect(intermediate).toHaveLength(7);
-    expect(advanced).toHaveLength(5);
+    expect(intermediate).toHaveLength(8);
+    expect(advanced).toHaveLength(6);
 
     const foundationQuestions = foundation.reduce((sum, p) => sum + (p.questionCount ?? 0), 0);
     const intermediateQuestions = intermediate.reduce((sum, p) => sum + (p.questionCount ?? 0), 0);

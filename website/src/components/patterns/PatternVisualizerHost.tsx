@@ -19,6 +19,8 @@ import {
   generateGreedySteps,
   generateDPSteps,
   generateBitManipulationSteps,
+  generateTrieSteps,
+  generateDijkstraSteps,
 } from '../../utils/visualizerEngines';
 
 interface PatternVisualizerHostProps {
@@ -68,6 +70,10 @@ function GenericPatternVisualizerContainer({
         return generateDPSteps();
       case 'bit-manipulation':
         return generateBitManipulationSteps();
+      case 'trie-prefix-tree':
+        return generateTrieSteps();
+      case 'dijkstras-algorithm':
+        return generateDijkstraSteps();
       default:
         return generateTwoPointersSteps();
     }

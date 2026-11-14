@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Search, CheckCircle2, Filter, Loader2, RotateCcw, Lightbulb, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { ExternalLink, Search, CheckCircle2, Filter, Loader2, RotateCcw, Lightbulb, ChevronDown, ChevronUp, X, Sparkles } from 'lucide-react';
 import type {
   PatternQuestion,
   PatternQuestionMapping,
   SlidingWindowSubcategory,
 } from '../../types/patterns';
+import type { QuestionConfidence } from '../../types';
 import { SLIDING_WINDOW_MAPPINGS, joinPatternQuestions } from '../../data/patternsData';
 import { getPatternTrigger } from '../../data/patterns/patternTriggers';
 import { useAllQuestions } from '../../hooks/useAllQuestions';
@@ -30,7 +31,7 @@ export default function PracticeQuestionsSection({
   patternTitle = 'Curated Practice Problems',
   patternDescription,
 }: PracticeQuestionsSectionProps = {}) {
-  const { getStatus, toggleSolved, toggleBookmark, isBookmarked } = useProgress();
+  const { getStatus, toggleSolved, toggleBookmark, isBookmarked, setConfidence, getConfidence, getReviewQueue } = useProgress();
   const { data: allQuestions, loading: loadingQuestions, error: catalogError, refetch } = useAllQuestions();
   const { data: indexData } = useDataIndex();
   const [activeTab, setActiveTab] = useState<FilterTab>('all');
@@ -53,10 +54,27 @@ export default function PracticeQuestionsSection({
     return joinPatternQuestions(mappings, allQuestions);
   }, [mappings, allQuestions]);
 
+  // Spaced repetition review queue
+  const reviewQueueSet = useMemo(() => new Set(getReviewQueue()), [getReviewQueue]);
+
+  // Solved statistics for this pattern
+  const solvedCount = useMemo(() => {
+    return questions.filter(q => getStatus(q.id) === 'solved').length;
+  }, [questions, getStatus]);
+
+  const reviewCountInPattern = useMemo(() => {
+    return questions.filter(q => reviewQueueSet.has(q.id)).length;
+  }, [questions, reviewQueueSet]);
+
   // Filter questions based on active tab and search query
   const filteredQuestions = useMemo(() => {
     return questions.filter(q => {
-      const matchesTab = activeTab === 'all' || q.subpattern === activeTab;
+      const matchesTab =
+        activeTab === 'all'
+          ? true
+          : activeTab === 'review-queue'
+          ? reviewQueueSet.has(q.id)
+          : q.subpattern === activeTab;
       const qLower = searchQuery.toLowerCase().trim();
       const matchesQuery =
         qLower === '' ||
@@ -69,39 +87,42 @@ export default function PracticeQuestionsSection({
         });
       return matchesTab && matchesQuery;
     });
-  }, [questions, activeTab, searchQuery, companyNameMap]);
-
-  // Solved statistics for this pattern
-  const solvedCount = useMemo(() => {
-    return questions.filter(q => getStatus(q.id) === 'solved').length;
-  }, [questions, getStatus]);
+  }, [questions, activeTab, searchQuery, companyNameMap, reviewQueueSet]);
 
   const solvedPercentage = questions.length > 0 ? Math.round((solvedCount / questions.length) * 100) : 0;
 
   const tabs: { id: FilterTab; label: string; count: number }[] = useMemo(() => {
-    if (subpatternTabs && subpatternTabs.length > 0) {
-      return [
-        { id: 'all', label: 'All Problems', count: questions.length },
-        ...subpatternTabs.map(t => ({
-          id: t.id,
-          label: t.label,
-          count: questions.filter(q => q.subpattern === t.id).length,
-        })),
-      ];
+    const baseTabs = subpatternTabs && subpatternTabs.length > 0
+      ? [
+          { id: 'all', label: 'All Problems', count: questions.length },
+          ...subpatternTabs.map(t => ({
+            id: t.id,
+            label: t.label,
+            count: questions.filter(q => q.subpattern === t.id).length,
+          })),
+        ]
+      : [
+          { id: 'all', label: 'All Problems', count: questions.length },
+          ...Array.from(new Set(mappings.map(m => m.subpattern))).map(sp => {
+            const sample = mappings.find(m => m.subpattern === sp);
+            return {
+              id: sp,
+              label: sample?.subpatternLabel || sp,
+              count: questions.filter(q => q.subpattern === sp).length,
+            };
+          }),
+        ];
+
+    if (reviewCountInPattern > 0) {
+      baseTabs.push({
+        id: 'review-queue',
+        label: '⏳ Revise Today',
+        count: reviewCountInPattern,
+      });
     }
-    const uniqueSubpatterns = Array.from(new Set(mappings.map(m => m.subpattern)));
-    return [
-      { id: 'all', label: 'All Problems', count: questions.length },
-      ...uniqueSubpatterns.map(sp => {
-        const sample = mappings.find(m => m.subpattern === sp);
-        return {
-          id: sp,
-          label: sample?.subpatternLabel || sp,
-          count: questions.filter(q => q.subpattern === sp).length,
-        };
-      }),
-    ];
-  }, [subpatternTabs, mappings, questions]);
+
+    return baseTabs;
+  }, [subpatternTabs, mappings, questions, reviewCountInPattern]);
 
   return (
     <div className="rounded-2xl border border-slate-200/90 dark:border-[#43433F] bg-white dark:bg-[#30302E] p-4 sm:p-5 shadow-xs space-y-4">
@@ -227,6 +248,7 @@ export default function PracticeQuestionsSection({
                   const bookmarked = isBookmarked(q.id);
                   const trigger = getPatternTrigger(q.id, q.subpatternLabel);
                   const isExpanded = expandedTriggerId === q.id;
+                  const confidence = getConfidence(q.id);
 
                   return (
                     <React.Fragment key={q.id}>
@@ -281,6 +303,20 @@ export default function PracticeQuestionsSection({
                                   <ChevronDown className="w-2.5 h-2.5 opacity-70" />
                                 )}
                               </button>
+                            )}
+                            {confidence && (
+                              <span
+                                className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-semibold font-mono ${
+                                  confidence === 'mastered'
+                                    ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50'
+                                    : confidence === 'review'
+                                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/50'
+                                    : 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 border border-rose-200/60 dark:border-rose-800/50'
+                                }`}
+                                title={`Spaced Repetition Confidence: ${confidence}`}
+                              >
+                                {confidence === 'mastered' ? '🟢 Mastered' : confidence === 'review' ? '🟡 Review' : '🔴 Struggled'}
+                              </span>
                             )}
                           </div>
                         </td>
@@ -421,6 +457,56 @@ export default function PracticeQuestionsSection({
                                   <span className="text-slate-700 dark:text-[#E2DFD8] font-mono text-[10.5px] sm:text-[11px]">
                                     {trigger.keyInvariant}
                                   </span>
+                                </div>
+
+                                <div className="md:col-span-2 pt-2 border-t border-slate-100 dark:border-[#33322E] flex flex-wrap items-center justify-between gap-2.5">
+                                  <div className="flex items-center gap-1.5">
+                                    <Sparkles className="w-3.5 h-3.5 text-[#0F1B3D] dark:text-[#D97757]" />
+                                    <span className="text-[11px] font-bold text-slate-800 dark:text-[#FAF9F5]">
+                                      Recall Confidence:
+                                    </span>
+                                    <span className="text-[10.5px] text-slate-500 dark:text-[#A8A69C] hidden sm:inline">
+                                      (Powers spaced repetition revision queue)
+                                    </span>
+                                  </div>
+                                  <div className="inline-flex items-center gap-1.5">
+                                    <button
+                                      type="button"
+                                      onClick={() => setConfidence(q.id, 'mastered')}
+                                      className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                                        confidence === 'mastered'
+                                          ? 'bg-emerald-600 text-white dark:bg-emerald-500 dark:text-[#1F1E1D] shadow-xs'
+                                          : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-300 dark:hover:bg-emerald-950/70 border border-emerald-200/60 dark:border-emerald-800/50'
+                                      }`}
+                                      title="Solved cleanly without hints"
+                                    >
+                                      🟢 Mastered
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => setConfidence(q.id, 'review')}
+                                      className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                                        confidence === 'review'
+                                          ? 'bg-amber-600 text-white dark:bg-amber-500 dark:text-[#1F1E1D] shadow-xs'
+                                          : 'bg-amber-50 text-amber-700 hover:bg-amber-100 dark:bg-amber-950/40 dark:text-amber-300 dark:hover:bg-amber-950/70 border border-amber-200/60 dark:border-amber-800/50'
+                                      }`}
+                                      title="Needed hint or struggled on edge cases"
+                                    >
+                                      🟡 Needs Review
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => setConfidence(q.id, 'struggled')}
+                                      className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer ${
+                                        confidence === 'struggled'
+                                          ? 'bg-rose-600 text-white dark:bg-rose-500 dark:text-[#1F1E1D] shadow-xs'
+                                          : 'bg-rose-50 text-rose-700 hover:bg-rose-100 dark:bg-rose-950/40 dark:text-rose-300 dark:hover:bg-rose-950/70 border border-rose-200/60 dark:border-rose-800/50'
+                                      }`}
+                                      title="Brute force only or couldn't find invariant"
+                                    >
+                                      🔴 Struggled
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </div>

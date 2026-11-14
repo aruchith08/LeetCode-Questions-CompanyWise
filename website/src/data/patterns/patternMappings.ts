@@ -1658,6 +1658,182 @@ export const ALL_PATTERN_MAPPINGS: PatternQuestionMapping[] = [
     "subpatternLabel": "Gray Code",
     "learningOrder": 12,
     "reviewStatus": "verified"
+  },
+  {
+    "questionId": 312,
+    "primaryPattern": "dynamic-programming",
+    "subpattern": "interval-dp",
+    "subpatternLabel": "Burst Balloons",
+    "learningOrder": 13,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 10,
+    "primaryPattern": "dynamic-programming",
+    "subpattern": "2d-string-alignment",
+    "subpatternLabel": "Regular Expression Matching",
+    "learningOrder": 14,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 188,
+    "primaryPattern": "dynamic-programming",
+    "subpattern": "state-machine-dp",
+    "subpatternLabel": "Stock with K Transactions",
+    "learningOrder": 15,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 208,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "trie-design",
+    "subpatternLabel": "Implement Trie",
+    "learningOrder": 1,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 211,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "wildcard-search",
+    "subpatternLabel": "Word Dictionary Search",
+    "learningOrder": 2,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 648,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "prefix-replacement",
+    "subpatternLabel": "Replace Words",
+    "learningOrder": 3,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 677,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "prefix-sum-pairs",
+    "subpatternLabel": "Map Sum Pairs",
+    "learningOrder": 4,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 212,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "grid-trie-dfs",
+    "subpatternLabel": "Word Search II",
+    "learningOrder": 5,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 720,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "trie-design",
+    "subpatternLabel": "Longest Word in Dictionary",
+    "learningOrder": 6,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 1032,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "trie-design",
+    "subpatternLabel": "Stream of Characters",
+    "learningOrder": 7,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 14,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "trie-design",
+    "subpatternLabel": "Longest Common Prefix",
+    "learningOrder": 8,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 421,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "binary-trie",
+    "subpatternLabel": "Maximum XOR Pair",
+    "learningOrder": 9,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 2416,
+    "primaryPattern": "trie-prefix-tree",
+    "subpattern": "prefix-sum-pairs",
+    "subpatternLabel": "Prefix Scores Sum",
+    "learningOrder": 10,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 743,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "single-source-shortest-path",
+    "subpatternLabel": "Network Delay Time",
+    "learningOrder": 1,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 1514,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "max-probability-path",
+    "subpatternLabel": "Max Probability Path",
+    "learningOrder": 2,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 1631,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "min-effort-grid",
+    "subpatternLabel": "Min Effort Path",
+    "learningOrder": 3,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 787,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "constrained-stops",
+    "subpatternLabel": "Cheapest Flights K Stops",
+    "learningOrder": 4,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 778,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "min-effort-grid",
+    "subpatternLabel": "Swim in Rising Water",
+    "learningOrder": 5,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 1368,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "single-source-shortest-path",
+    "subpatternLabel": "Min Cost Valid Path Grid",
+    "learningOrder": 6,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 1976,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "single-source-shortest-path",
+    "subpatternLabel": "Ways to Arrive Destination",
+    "learningOrder": 7,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 882,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "single-source-shortest-path",
+    "subpatternLabel": "Reachable Nodes Subdivided",
+    "learningOrder": 8,
+    "reviewStatus": "verified"
+  },
+  {
+    "questionId": 2642,
+    "primaryPattern": "dijkstras-algorithm",
+    "subpattern": "single-source-shortest-path",
+    "subpatternLabel": "Shortest Path Calculator",
+    "learningOrder": 9,
+    "reviewStatus": "verified"
   }
 ];
 
@@ -3254,6 +3430,30 @@ export const PATTERN_MAPPINGS_BY_SLUG: Record<string, PatternQuestionMapping[]> 
       "subpatternLabel": "Partition Equal Subset",
       "learningOrder": 12,
       "reviewStatus": "verified"
+    },
+    {
+      "questionId": 312,
+      "primaryPattern": "dynamic-programming",
+      "subpattern": "interval-dp",
+      "subpatternLabel": "Burst Balloons",
+      "learningOrder": 13,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 10,
+      "primaryPattern": "dynamic-programming",
+      "subpattern": "2d-string-alignment",
+      "subpatternLabel": "Regular Expression Matching",
+      "learningOrder": 14,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 188,
+      "primaryPattern": "dynamic-programming",
+      "subpattern": "state-machine-dp",
+      "subpatternLabel": "Stock with K Transactions",
+      "learningOrder": 15,
+      "reviewStatus": "verified"
     }
   ],
   "bit-manipulation": [
@@ -3351,6 +3551,162 @@ export const PATTERN_MAPPINGS_BY_SLUG: Record<string, PatternQuestionMapping[]> 
       "subpattern": "bitmask-subsets",
       "subpatternLabel": "Gray Code",
       "learningOrder": 12,
+      "reviewStatus": "verified"
+    }
+  ],
+  "trie-prefix-tree": [
+    {
+      "questionId": 208,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "trie-design",
+      "subpatternLabel": "Implement Trie",
+      "learningOrder": 1,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 211,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "wildcard-search",
+      "subpatternLabel": "Word Dictionary Search",
+      "learningOrder": 2,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 648,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "prefix-replacement",
+      "subpatternLabel": "Replace Words",
+      "learningOrder": 3,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 677,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "prefix-sum-pairs",
+      "subpatternLabel": "Map Sum Pairs",
+      "learningOrder": 4,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 212,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "grid-trie-dfs",
+      "subpatternLabel": "Word Search II",
+      "learningOrder": 5,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 720,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "trie-design",
+      "subpatternLabel": "Longest Word in Dictionary",
+      "learningOrder": 6,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 1032,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "trie-design",
+      "subpatternLabel": "Stream of Characters",
+      "learningOrder": 7,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 14,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "trie-design",
+      "subpatternLabel": "Longest Common Prefix",
+      "learningOrder": 8,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 421,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "binary-trie",
+      "subpatternLabel": "Maximum XOR Pair",
+      "learningOrder": 9,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 2416,
+      "primaryPattern": "trie-prefix-tree",
+      "subpattern": "prefix-sum-pairs",
+      "subpatternLabel": "Prefix Scores Sum",
+      "learningOrder": 10,
+      "reviewStatus": "verified"
+    }
+  ],
+  "dijkstras-algorithm": [
+    {
+      "questionId": 743,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "single-source-shortest-path",
+      "subpatternLabel": "Network Delay Time",
+      "learningOrder": 1,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 1514,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "max-probability-path",
+      "subpatternLabel": "Max Probability Path",
+      "learningOrder": 2,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 1631,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "min-effort-grid",
+      "subpatternLabel": "Min Effort Path",
+      "learningOrder": 3,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 787,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "constrained-stops",
+      "subpatternLabel": "Cheapest Flights K Stops",
+      "learningOrder": 4,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 778,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "min-effort-grid",
+      "subpatternLabel": "Swim in Rising Water",
+      "learningOrder": 5,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 1368,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "single-source-shortest-path",
+      "subpatternLabel": "Min Cost Valid Path Grid",
+      "learningOrder": 6,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 1976,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "single-source-shortest-path",
+      "subpatternLabel": "Ways to Arrive Destination",
+      "learningOrder": 7,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 882,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "single-source-shortest-path",
+      "subpatternLabel": "Reachable Nodes Subdivided",
+      "learningOrder": 8,
+      "reviewStatus": "verified"
+    },
+    {
+      "questionId": 2642,
+      "primaryPattern": "dijkstras-algorithm",
+      "subpattern": "single-source-shortest-path",
+      "subpatternLabel": "Shortest Path Calculator",
+      "learningOrder": 9,
       "reviewStatus": "verified"
     }
   ]

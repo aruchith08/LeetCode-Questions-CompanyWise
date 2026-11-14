@@ -64,9 +64,9 @@ describe('Pattern Cards Display & Real Question Counts', () => {
     unmount();
   });
 
-  it('guarantees all 18 available patterns in PATTERNS_CATALOG contain real questionCount', () => {
+  it('guarantees all 20 available patterns in PATTERNS_CATALOG contain real questionCount', () => {
     const availablePatterns = PATTERNS_CATALOG.filter(p => p.availability === 'available');
-    expect(availablePatterns.length).toBe(18);
+    expect(availablePatterns.length).toBe(20);
     for (const p of availablePatterns) {
       expect(p.questionCount).toBeGreaterThan(0);
     }

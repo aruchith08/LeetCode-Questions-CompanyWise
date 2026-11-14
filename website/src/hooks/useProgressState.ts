@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import type { UserProgress, QuestionStatus, LeetCodeAccount, PatternQuizScore } from '../types';
+import type { UserProgress, QuestionStatus, LeetCodeAccount, PatternQuizScore, QuestionConfidence } from '../types';
 import {
   fetchLeetCodeData,
   matchLeetCodeSubmissionsWithDetails,
@@ -49,6 +49,7 @@ export function getLocalDateString(d: Date = new Date()): string {
 export function getDefaultProgress(): UserProgress {
   return {
     solvedQuestions: {},
+    confidence: {},
     bookmarks: [],
     targetCompanies: [],
     recentCompanies: [],
@@ -698,6 +699,54 @@ export function useProgressState() {
     [progress.patternQuizScores]
   );
 
+  const setConfidence = useCallback((id: number, confidence: QuestionConfidence) => {
+    setProgress(prev => {
+      const updatedConfidence = { ...(prev.confidence || {}) };
+      updatedConfidence[id] = confidence;
+      return {
+        ...prev,
+        confidence: updatedConfidence,
+        lastUpdated: new Date().toISOString(),
+      };
+    });
+  }, []);
+
+  const getConfidence = useCallback((id: number): QuestionConfidence | undefined => {
+    return progress.confidence?.[id];
+  }, [progress.confidence]);
+
+  const getReviewQueue = useCallback((daysThreshold: number = 14): number[] => {
+    const queue = new Set<number>();
+    const now = Date.now();
+    const thresholdMs = daysThreshold * 24 * 60 * 60 * 1000;
+
+    // 1. Questions explicitly marked as 'review' or 'struggled'
+    if (progress.confidence) {
+      for (const [idStr, rating] of Object.entries(progress.confidence)) {
+        if (rating === 'review' || rating === 'struggled') {
+          queue.add(Number(idStr));
+        }
+      }
+    }
+
+    // 2. Questions solved > daysThreshold ago without 'mastered' confidence
+    if (progress.solvedQuestionTimestamps) {
+      for (const [idStr, ts] of Object.entries(progress.solvedQuestionTimestamps)) {
+        const id = Number(idStr);
+        if (progress.solvedQuestions[id] === 'solved') {
+          const solvedTime = new Date(ts).getTime();
+          if (!isNaN(solvedTime) && now - solvedTime > thresholdMs) {
+            if (progress.confidence?.[id] !== 'mastered') {
+              queue.add(id);
+            }
+          }
+        }
+      }
+    }
+
+    return Array.from(queue);
+  }, [progress.confidence, progress.solvedQuestionTimestamps, progress.solvedQuestions]);
+
   const totalSolved = useMemo(
     () => Object.values(progress.solvedQuestions).filter(s => s === 'solved').length,
     [progress.solvedQuestions]
@@ -734,6 +783,10 @@ export function useProgressState() {
     recordPatternQuiz,
     getPatternQuiz,
     patternQuizScores: progress.patternQuizScores || {},
+    setConfidence,
+    getConfidence,
+    getReviewQueue,
+    confidence: progress.confidence || {},
     exportProgress,
     importProgress,
     resetProgress,
@@ -766,6 +819,9 @@ export function useProgressState() {
     disconnectLeetCode,
     recordPatternQuiz,
     getPatternQuiz,
+    setConfidence,
+    getConfidence,
+    getReviewQueue,
     exportProgress,
     importProgress,
     resetProgress,

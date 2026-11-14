@@ -145,10 +145,10 @@ describe('Pattern Mastery & Assessment System', () => {
       const masteryLabel = screen.getByText('Patterns mastered');
       expect(masteryLabel).toBeTruthy();
 
-      // Verify the parent container displays / 18
+      // Verify the parent container displays / {PATTERNS_CATALOG.length}
       const statContainer = masteryLabel.parentElement!;
       expect(statContainer).toBeTruthy();
-      expect(within(statContainer).getByText(/\/ 18/)).toBeTruthy();
+      expect(within(statContainer).getByText(new RegExp(`/ ${PATTERNS_CATALOG.length}`))).toBeTruthy();
 
       // Should NOT show "Assessment coming soon"
       expect(screen.queryByText('Assessment coming soon')).toBeNull();

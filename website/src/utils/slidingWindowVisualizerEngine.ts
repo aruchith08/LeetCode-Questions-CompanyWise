@@ -51,6 +51,7 @@ export function generateSlidingWindowSteps(
     bestAverageSoFar: initialAverage,
     addedElement: null,
     removedElement: null,
+    activeLineNumber: 3,
     explanation: `Take the first ${k} elements: ${initialElements.join(', ')}. Calculate initial sum = ${initialFormulaTerms} = ${currentSum}. Current average = ${currentSum} / ${k} = ${initialAverage.toFixed(2)}. This is our initial best average.`,
     formula: `Sum = ${initialFormulaTerms} = ${currentSum}  |  Avg = ${currentSum} / ${k} = ${initialAverage.toFixed(2)}`,
   });
@@ -95,6 +96,7 @@ export function generateSlidingWindowSteps(
       bestAverageSoFar,
       addedElement: { index: addedIndex, value: addedVal },
       removedElement: { index: removedIndex, value: removedVal },
+      activeLineNumber: isNewBest ? 9 : 8,
       explanation: `Slide window right by 1 position. Subtract departing element nums[${removedIndex}] = ${removedVal}, and add incoming element nums[${addedIndex}] = ${addedVal}. New sum = ${prevSum} - ${removedStr} + ${addedStr} = ${currentSum}. New average = ${currentSum} / ${k} = ${currentAverage.toFixed(2)}. ${
         isNewBest
           ? `Since ${currentAverage.toFixed(2)} > ${prevBestAverage.toFixed(2)}, update best average to ${bestAverageSoFar.toFixed(2)}.`

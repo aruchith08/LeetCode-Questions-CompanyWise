@@ -1695,3 +1695,231 @@ export function generateBitManipulationSteps(
 
   return steps;
 }
+
+// 18. Trie / Prefix Tree Visualizer (LeetCode #208)
+export function generateTrieSteps(): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const wordsToInsert = ['app', 'apple'];
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Initialize Root TrieNode',
+    explanation: 'A Trie root represents the empty string prefix "". It contains a map of 26 child pointers and isEnd = false.',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [0],
+    activeLineNumber: 2,
+    metrics: [
+      { label: 'Trie Depth', value: 0 },
+      { label: 'Words Stored', value: 0 },
+    ],
+    auxiliaryData: { trieRoot: { children: [], isEnd: false }, activePrefix: '""' },
+    statusBadge: { label: 'Root Initialized', variant: 'info' },
+  });
+
+  steps.push({
+    stepNumber: 2,
+    title: 'Insert "app": Step 1 (character "a")',
+    explanation: 'Traverse root. Child "a" does not exist yet: create new TrieNode for character "a". Move pointer to "a".',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [1],
+    activePointers: [{ name: 'curr', index: 1, color: 'blue' }],
+    activeLineNumber: 6,
+    metrics: [
+      { label: 'Active Char', value: "'a'" },
+      { label: 'Prefix', value: '"a"' },
+    ],
+    auxiliaryData: { triePath: 'root -> a', isEnd: false },
+    statusBadge: { label: 'Node "a" Created', variant: 'info' },
+  });
+
+  steps.push({
+    stepNumber: 3,
+    title: 'Insert "app": Step 2 (character "p")',
+    explanation: 'From node "a", child "p" does not exist: allocate new TrieNode for "p". Advance pointer.',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [2],
+    activePointers: [{ name: 'curr', index: 2, color: 'blue' }],
+    activeLineNumber: 6,
+    metrics: [
+      { label: 'Active Char', value: "'p'" },
+      { label: 'Prefix', value: '"ap"' },
+    ],
+    auxiliaryData: { triePath: 'root -> a -> p', isEnd: false },
+    statusBadge: { label: 'Node "p" Created', variant: 'info' },
+  });
+
+  steps.push({
+    stepNumber: 4,
+    title: 'Insert "app": Step 3 (character "p", Word Complete)',
+    explanation: 'From first "p", child "p" does not exist: create new TrieNode. Since "app" ends here, mark isEnd = true!',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [3],
+    activePointers: [{ name: 'isEnd=true', index: 3, color: 'emerald' }],
+    activeLineNumber: 8,
+    metrics: [
+      { label: 'Word Added', value: '"app"' },
+      { label: 'Total Words', value: 1 },
+    ],
+    auxiliaryData: { triePath: 'root -> a -> p -> p (END)', isEnd: true },
+    statusBadge: { label: 'Word "app" Marked', variant: 'success' },
+  });
+
+  steps.push({
+    stepNumber: 5,
+    title: 'Insert "apple": Reusing Existing Prefix "app"',
+    explanation: 'Inserting "apple": walk root -> "a" -> "p" -> "p". All 3 nodes already exist! No allocations needed for prefix "app".',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [1, 2, 3],
+    activePointers: [{ name: 'Shared Prefix', index: 3, color: 'amber' }],
+    activeLineNumber: 5,
+    metrics: [
+      { label: 'Prefix Reused', value: '"app"' },
+      { label: 'Time Saved', value: '3 lookups' },
+    ],
+    auxiliaryData: { sharedPrefix: '"app"', memorySaved: true },
+    statusBadge: { label: 'Prefix Reused', variant: 'warning' },
+  });
+
+  steps.push({
+    stepNumber: 6,
+    title: 'Insert "apple": Append "l" and "e" (Mark isEnd = true)',
+    explanation: 'From second "p", branch to new node "l", then new node "e". Mark node "e" as isEnd = true. Word "apple" stored.',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [4, 5],
+    activePointers: [{ name: 'isEnd=true', index: 5, color: 'emerald' }],
+    activeLineNumber: 8,
+    metrics: [
+      { label: 'Word Added', value: '"apple"' },
+      { label: 'Total Words', value: 2 },
+    ],
+    auxiliaryData: { triePath: 'root -> a -> p -> p -> l -> e (END)', isEnd: true },
+    statusBadge: { label: 'Word "apple" Stored', variant: 'success' },
+  });
+
+  steps.push({
+    stepNumber: 7,
+    title: 'Prefix Query: startsWith("app") in O(L) Time',
+    explanation: 'Query startsWith("app"): follow root -> "a" -> "p" -> "p". All characters exist along the path! Return true in O(L) time regardless of dictionary size!',
+    elements: ['root', 'a', 'p', 'p', 'l', 'e'],
+    highlightIndices: [1, 2, 3],
+    activePointers: [{ name: 'Prefix Match', index: 3, color: 'emerald' }],
+    activeLineNumber: 12,
+    metrics: [
+      { label: 'Query', value: 'startsWith("app")' },
+      { label: 'Result', value: 'true (O(L))' },
+    ],
+    auxiliaryData: { query: 'startsWith("app")', result: true },
+    statusBadge: { label: 'Prefix Found!', variant: 'success' },
+  });
+
+  return steps;
+}
+
+// 19. Dijkstra's Algorithm / Shortest Path Visualizer (LeetCode #743)
+export function generateDijkstraSteps(): GenericVisualizerStep[] {
+  const steps: GenericVisualizerStep[] = [];
+  const nodes = ['Node 1 (Src)', 'Node 2', 'Node 3', 'Node 4'];
+
+  steps.push({
+    stepNumber: 1,
+    title: 'Initialize Distances & Priority Queue (Min-Heap)',
+    explanation: 'Set dist[1] = 0, and dist[2..4] = infinity. Push initial state (dist: 0, node: 1) into Min-Heap.',
+    elements: nodes,
+    highlightIndices: [0],
+    activePointers: [{ name: 'dist = 0', index: 0, color: 'emerald' }],
+    activeLineNumber: 3,
+    metrics: [
+      { label: 'Min-Heap Top', value: '(0, node 1)' },
+      { label: 'Finalized', value: 0 },
+    ],
+    auxiliaryData: {
+      distances: { '1': 0, '2': 'inf', '3': 'inf', '4': 'inf' },
+      heap: ['(0, Node 1)'],
+      finalized: [],
+    },
+    statusBadge: { label: 'Initialized', variant: 'info' },
+  });
+
+  steps.push({
+    stepNumber: 2,
+    title: 'Pop Node 1 (dist=0) & Relax Neighbors',
+    explanation: 'Extract minimum from heap: Node 1 (dist 0). Relax outgoing edges: edge (1->2, w=1) yields dist[2] = 1; edge (1->3, w=4) yields dist[3] = 4. Push (1, Node 2) and (4, Node 3) to heap.',
+    elements: nodes,
+    highlightIndices: [0, 1, 2],
+    activePointers: [{ name: 'Popped', index: 0, color: 'emerald' }],
+    activeLineNumber: 8,
+    metrics: [
+      { label: 'Relaxed', value: 'Nodes 2 & 3' },
+      { label: 'dist[2]', value: 1 },
+      { label: 'dist[3]', value: 4 },
+    ],
+    auxiliaryData: {
+      distances: { '1': 0, '2': 1, '3': 4, '4': 'inf' },
+      heap: ['(1, Node 2)', '(4, Node 3)'],
+      finalized: [1],
+    },
+    statusBadge: { label: 'Node 1 Finalized', variant: 'info' },
+  });
+
+  steps.push({
+    stepNumber: 3,
+    title: 'Pop Node 2 (dist=1) & Shorter Path to Node 3 Found!',
+    explanation: 'Extract min: Node 2 (dist 1). Edge (2->3, w=2) gives dist 1 + 2 = 3. Since 3 < 4, relax dist[3] to 3! Edge (2->4, w=5) gives dist[4] = 6.',
+    elements: nodes,
+    highlightIndices: [1, 2, 3],
+    activePointers: [{ name: 'Popped', index: 1, color: 'emerald' }],
+    activeLineNumber: 9,
+    metrics: [
+      { label: 'New dist[3]', value: '3 (was 4)' },
+      { label: 'dist[4]', value: 6 },
+    ],
+    auxiliaryData: {
+      distances: { '1': 0, '2': 1, '3': 3, '4': 6 },
+      heap: ['(3, Node 3)', '(4, Node 3 - stale)', '(6, Node 4)'],
+      finalized: [1, 2],
+    },
+    statusBadge: { label: 'Node 3 Relaxed to 3', variant: 'warning' },
+  });
+
+  steps.push({
+    stepNumber: 4,
+    title: 'Pop Node 3 (dist=3) & Relax Edge to Node 4',
+    explanation: 'Extract min: Node 3 (dist 3). Outgoing edge (3->4, w=1) gives dist 3 + 1 = 4. Since 4 < 6, update dist[4] from 6 to 4!',
+    elements: nodes,
+    highlightIndices: [2, 3],
+    activePointers: [{ name: 'Popped', index: 2, color: 'emerald' }],
+    activeLineNumber: 9,
+    metrics: [
+      { label: 'New dist[4]', value: '4 (was 6)' },
+      { label: 'Finalized', value: 3 },
+    ],
+    auxiliaryData: {
+      distances: { '1': 0, '2': 1, '3': 3, '4': 4 },
+      heap: ['(4, Node 4)', '(4, Node 3 - stale)', '(6, Node 4 - stale)'],
+      finalized: [1, 2, 3],
+    },
+    statusBadge: { label: 'Node 4 Relaxed to 4', variant: 'warning' },
+  });
+
+  steps.push({
+    stepNumber: 5,
+    title: 'Pop Node 4 (dist=4) & Complete Shortest Path Tree',
+    explanation: 'Extract min: Node 4 (dist 4). All nodes visited! Shortest paths from Node 1: Node 2: 1, Node 3: 3, Node 4: 4. Network Delay Time = max(dist) = 4. Time: O((V+E) log V).',
+    elements: nodes,
+    highlightIndices: [0, 1, 2, 3],
+    activePointers: [{ name: 'Max Latency = 4', index: 3, color: 'emerald' }],
+    activeLineNumber: 12,
+    metrics: [
+      { label: 'Max Delay', value: 4 },
+      { label: 'Nodes Visited', value: '4 / 4' },
+    ],
+    auxiliaryData: {
+      distances: { '1': 0, '2': 1, '3': 3, '4': 4 },
+      heap: [],
+      finalized: [1, 2, 3, 4],
+    },
+    statusBadge: { label: 'Dijkstra Optimal (Delay=4)', variant: 'success' },
+  });
+
+  return steps;
+}
