@@ -117,10 +117,10 @@
 
   @keyframes hero-text-shimmer {
     0% {
-      background-position: 180% 0;
+      background-position: 200% 0;
     }
-    60%, 100% {
-      background-position: -80% 0;
+    100% {
+      background-position: 0% 0;
     }
   }
 
@@ -136,20 +136,22 @@
 
   .hero-text-shimmer {
     display: inline-block;
+    transform: translateZ(0);
+    backface-visibility: hidden;
     background: linear-gradient(
       110deg,
       #0F1B3D 0%,
-      #0F1B3D 32%,
+      #0F1B3D 34%,
       #D97757 50%,
-      #0F1B3D 68%,
+      #0F1B3D 66%,
       #0F1B3D 100%
     );
-    background-size: 250% 100%;
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: hero-text-shimmer 3.6s ease-in-out infinite;
+    animation: hero-text-shimmer 3s ease-in-out infinite;
     will-change: background-position;
   }
 
@@ -157,12 +159,12 @@
     background: linear-gradient(
       110deg,
       #D97757 0%,
-      #D97757 32%,
-      #FFE2C6 50%,
-      #D97757 68%,
+      #D97757 34%,
+      #FFF0DF 50%,
+      #D97757 66%,
       #D97757 100%
     );
-    background-size: 250% 100%;
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
