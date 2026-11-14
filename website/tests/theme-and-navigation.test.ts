@@ -11,41 +11,32 @@ describe('Theme & Navigation Behavior', () => {
     document.body.className = '';
   });
 
-  it('verifies theme defaults to dark mode and switches correctly', () => {
-    const getStoredTheme = () => localStorage.getItem('codewise-theme') || 'dark';
+  it('verifies theme defaults to light mode for any device and switches correctly', () => {
+    const getStoredTheme = () =>
+      (localStorage.getItem('companywise-theme') || localStorage.getItem('codewise-theme')) === 'dark' ? 'dark' : 'light';
 
-    expect(getStoredTheme()).toBe('dark');
-
-    // Simulate toggle
-    localStorage.setItem('codewise-theme', 'light');
     expect(getStoredTheme()).toBe('light');
 
-    // Toggle back to dark
-    localStorage.setItem('codewise-theme', 'dark');
+    // Simulate toggle to dark mode
+    localStorage.setItem('companywise-theme', 'dark');
     expect(getStoredTheme()).toBe('dark');
+
+    // Toggle back to light mode
+    localStorage.setItem('companywise-theme', 'light');
+    expect(getStoredTheme()).toBe('light');
   });
 
-  it('useTheme hook updates DOM classes and switches from dark to light mode', () => {
+  it('useTheme hook updates DOM classes, defaults to light mode, and switches to dark mode upon user action', () => {
     const { result } = renderHook(() => useTheme());
 
-    // Initial state is dark
-    expect(result.current.isDark).toBe(true);
-    expect(document.documentElement.classList.contains('dark')).toBe(true);
-    expect(document.documentElement.classList.contains('light')).toBe(false);
-    expect(localStorage.getItem('codewise-theme')).toBe('dark');
-
-    // Toggle to light mode
-    act(() => {
-      result.current.toggle();
-    });
-
+    // Initial state is light mode by default for any device
     expect(result.current.isDark).toBe(false);
     expect(document.documentElement.classList.contains('light')).toBe(true);
     expect(document.documentElement.classList.contains('dark')).toBe(false);
     expect(document.body.className).toContain('bg-[#F7F8FB]');
-    expect(localStorage.getItem('codewise-theme')).toBe('light');
+    expect(localStorage.getItem('companywise-theme')).toBe('light');
 
-    // Toggle back to dark mode
+    // Toggle to dark mode
     act(() => {
       result.current.toggle();
     });
@@ -54,7 +45,32 @@ describe('Theme & Navigation Behavior', () => {
     expect(document.documentElement.classList.contains('dark')).toBe(true);
     expect(document.documentElement.classList.contains('light')).toBe(false);
     expect(document.body.className).toContain('bg-[#262624]');
-    expect(localStorage.getItem('codewise-theme')).toBe('dark');
+    expect(localStorage.getItem('companywise-theme')).toBe('dark');
+
+    // Toggle back to light mode
+    act(() => {
+      result.current.toggle();
+    });
+
+    expect(result.current.isDark).toBe(false);
+    expect(document.documentElement.classList.contains('light')).toBe(true);
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
+    expect(document.body.className).toContain('bg-[#F7F8FB]');
+    expect(localStorage.getItem('companywise-theme')).toBe('light');
+  });
+
+  it('persists and honors previous user preference stored in localStorage on that device', () => {
+    // If the user previously selected dark mode on this device
+    localStorage.setItem('companywise-theme', 'dark');
+    const { result: darkResult } = renderHook(() => useTheme());
+    expect(darkResult.current.isDark).toBe(true);
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+
+    // If the user explicitly stored light mode on this device
+    localStorage.setItem('companywise-theme', 'light');
+    const { result: lightResult } = renderHook(() => useTheme());
+    expect(lightResult.current.isDark).toBe(false);
+    expect(document.documentElement.classList.contains('light')).toBe(true);
   });
 
   it('supports the required time period taxonomy and display labels', () => {

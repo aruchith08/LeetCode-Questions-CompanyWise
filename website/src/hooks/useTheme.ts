@@ -1,9 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
 function getStoredTheme(): boolean {
-  if (typeof window === 'undefined') return true;
-  const stored = localStorage.getItem('companywise-theme') || localStorage.getItem('codewise-theme');
-  return stored ? stored === 'dark' : true;
+  if (typeof window === 'undefined') return false;
+  try {
+    const stored = localStorage.getItem('companywise-theme') || localStorage.getItem('codewise-theme');
+    return stored === 'dark';
+  } catch {
+    return false;
+  }
 }
 
 export function useTheme() {
@@ -20,8 +24,12 @@ export function useTheme() {
       root.classList.add('light');
       document.body.className = 'bg-[#F7F8FB] text-neutral-900';
     }
-    localStorage.setItem('companywise-theme', isDark ? 'dark' : 'light');
-    localStorage.setItem('codewise-theme', isDark ? 'dark' : 'light');
+    try {
+      localStorage.setItem('companywise-theme', isDark ? 'dark' : 'light');
+      localStorage.setItem('codewise-theme', isDark ? 'dark' : 'light');
+    } catch {
+      // Ignore storage write errors (e.g., private browsing mode quota restrictions)
+    }
   }, [isDark]);
 
   useEffect(() => {
