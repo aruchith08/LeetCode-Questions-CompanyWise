@@ -53,7 +53,7 @@ describe('RoadmapsPage Component Tests', () => {
 
     // Check initial recommendation
     const resultBox = screen.getByTestId('diagnostic-result');
-    expect(resultBox.textContent).toContain('🔰 Beginner Roadmap');
+    expect(resultBox.textContent).toContain('Beginner Roadmap');
     expect(resultBox.getAttribute('aria-live')).toBe('polite');
     expect(resultBox.getAttribute('aria-atomic')).toBe('true');
 
@@ -70,7 +70,7 @@ describe('RoadmapsPage Component Tests', () => {
 
     const resultBox = screen.getByTestId('diagnostic-result');
     // Initially Beginner
-    expect(resultBox.textContent).toContain('🔰 Beginner Roadmap');
+    expect(resultBox.textContent).toContain('Beginner Roadmap');
     expect(resultBox.textContent).toContain('0/5 answered');
 
     // Tap 3 intermediate options:
@@ -85,13 +85,13 @@ describe('RoadmapsPage Component Tests', () => {
     expect(resultBox.textContent).toContain('2/5 answered');
 
     // Still score 2 -> Beginner
-    expect(resultBox.textContent).toContain('🔰 Beginner Roadmap');
+    expect(resultBox.textContent).toContain('Beginner Roadmap');
 
     // 3. Solved: 50+ Problems Solved -> Score 3 -> Switches to Intermediate
     const solvedBtn = screen.getByText('50+ Problems Solved');
     fireEvent.click(solvedBtn);
 
-    expect(resultBox.textContent).toContain('⚡ Intermediate Sprint');
+    expect(resultBox.textContent).toContain('Intermediate Sprint');
     expect(resultBox.textContent).toContain('3/5 answered');
 
     // Click Reset answers
@@ -99,7 +99,7 @@ describe('RoadmapsPage Component Tests', () => {
     fireEvent.click(resetBtn);
 
     // Recalculates back to Beginner
-    expect(resultBox.textContent).toContain('🔰 Beginner Roadmap');
+    expect(resultBox.textContent).toContain('Beginner Roadmap');
     expect(resultBox.textContent).toContain('0/5 answered');
   });
 
@@ -111,7 +111,7 @@ describe('RoadmapsPage Component Tests', () => {
     fireEvent.click(beginnerTab);
 
     // Should display Beginner sections
-    expect(screen.getByText(/🔰 Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeTruthy();
+    expect(screen.getByText(/Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeTruthy();
     expect(screen.getByText(/Phase 1: Linear Invariants/i)).toBeTruthy();
     expect(screen.getByText(/The 15-Minute Rule Flowchart/i)).toBeTruthy();
     expect(screen.getByText(/Foundation Invariants Cheat Sheet/i)).toBeTruthy();
@@ -124,20 +124,20 @@ describe('RoadmapsPage Component Tests', () => {
     fireEvent.click(intermediateTab);
 
     // Should display Intermediate sections
-    expect(screen.getByText(/⚡ Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep/i)).toBeTruthy();
+    expect(screen.getByText(/Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep/i)).toBeTruthy();
     expect(screen.getByText(/When Technique X Breaks → Pivot to Y/i)).toBeTruthy();
     expect(screen.getByText(/6 Advanced Sprint Tracks & Time Budgets/i)).toBeTruthy();
     expect(screen.getByText(/Target Company Frequency Mining Protocol/i)).toBeTruthy();
     expect(screen.getByText(/Mock Interview Protocol: The 45-Minute Execution Playbook/i)).toBeTruthy();
 
     // Beginner-specific sections should not be visible
-    expect(screen.queryByText(/🔰 Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeNull();
+    expect(screen.queryByText(/Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeNull();
 
     // Switch to Feature Compass tab
     const compassTab = screen.getByRole('tab', { name: /Feature Compass/i });
     fireEvent.click(compassTab);
 
-    expect(screen.getByText(/🧭 Feature Compass: From Frustration to Feature/i)).toBeTruthy();
+    expect(screen.getByText(/Feature Compass: From Frustration to Feature/i)).toBeTruthy();
     expect(screen.getByText(/“I freeze when facing an unseen problem I haven't memorized.”/i)).toBeTruthy();
     expect(screen.getByText(/“I don't know what Google or Meta actually ask in interviews today.”/i)).toBeTruthy();
 

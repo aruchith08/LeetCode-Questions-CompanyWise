@@ -17,7 +17,8 @@ import {
   Sparkles,
   MessageSquareCode,
   ShieldCheck,
-  Workflow
+  Workflow,
+  GraduationCap
 } from 'lucide-react';
 
 type RoadmapTab = 'all' | 'beginner' | 'intermediate' | 'compass' | 'loop';
@@ -121,12 +122,12 @@ const DIAGNOSTIC_QUESTIONS: DiagnosticQuestion[] = [
   },
 ];
 
-const TABS: { id: RoadmapTab; label: string; prefix: string }[] = [
-  { id: 'all', label: 'All Tracks & Overview', prefix: '' },
-  { id: 'beginner', label: 'Beginner Roadmap', prefix: '🔰' },
-  { id: 'intermediate', label: 'Intermediate Sprint', prefix: '⚡' },
-  { id: 'compass', label: 'Feature Compass', prefix: '🧭' },
-  { id: 'loop', label: 'Platform Loop', prefix: '🔄' },
+const TABS: { id: RoadmapTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
+  { id: 'all', label: 'All Tracks & Overview', icon: Sparkles },
+  { id: 'beginner', label: 'Beginner Roadmap', icon: GraduationCap },
+  { id: 'intermediate', label: 'Intermediate Sprint', icon: Zap },
+  { id: 'compass', label: 'Feature Compass', icon: Compass },
+  { id: 'loop', label: 'Platform Loop', icon: Workflow },
 ];
 
 export default function RoadmapsPage() {
@@ -233,6 +234,7 @@ export default function RoadmapsPage() {
         >
           {TABS.map((tab) => {
             const isCurrent = activeTab === tab.id;
+            const TabIcon = tab.icon;
             return (
               <button
                 key={tab.id}
@@ -243,13 +245,13 @@ export default function RoadmapsPage() {
                 aria-controls={`panel-${tab.id}`}
                 tabIndex={isCurrent ? 0 : -1}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                   isCurrent
                     ? 'bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] shadow-2xs font-bold'
                     : 'bg-white dark:bg-[#30302E] text-slate-600 dark:text-[#A8A69C] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F]'
                 }`}
               >
-                {tab.prefix && <span>{tab.prefix}</span>}
+                <TabIcon className="w-3.5 h-3.5 shrink-0" />
                 <span>{tab.label}</span>
               </button>
             );
@@ -377,8 +379,18 @@ export default function RoadmapsPage() {
                 <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
                   Calculated Recommendation:
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D]">
-                  {recommendedTrack === 'beginner' ? '🔰 Beginner Roadmap' : '⚡ Intermediate Sprint'}
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D]">
+                  {recommendedTrack === 'beginner' ? (
+                    <>
+                      <GraduationCap className="w-3.5 h-3.5" />
+                      <span>Beginner Roadmap</span>
+                    </>
+                  ) : (
+                    <>
+                      <Zap className="w-3.5 h-3.5" />
+                      <span>Intermediate Sprint</span>
+                    </>
+                  )}
                 </span>
                 <span className="text-[10px] text-slate-500 dark:text-[#A8A69C] font-mono">
                   ({answeredCount}/5 answered)
@@ -386,7 +398,7 @@ export default function RoadmapsPage() {
               </div>
               <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
                 {answeredCount === 0
-                  ? 'Baseline Default: 🔰 Beginner Roadmap. Tap options in the 5 questions above to calibrate your track to your experience level.'
+                  ? 'Baseline Default: Beginner Roadmap. Tap options in the 5 questions above to calibrate your track to your experience level.'
                   : recommendedTrack === 'beginner'
                   ? 'Focus on mastering core linear invariants and the 15-minute practice loop. Avoid random hard questions until your pattern intuition is solid.'
                   : 'Your foundational mechanics are strong. Focus on technique pivot scenarios, advanced multi-constraint patterns, and company recency mining.'}
@@ -535,7 +547,7 @@ export default function RoadmapsPage() {
                   3-Tier Rating
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Record honest confidence: 🟢 Mastered (clean solo solve), 🟡 Needs Review, or 🔴 Struggled (needed hints).
+                  Record honest confidence: <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Mastered</span> (clean solo solve), <span className="inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-amber-400"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" />Needs Review</span>, or <span className="inline-flex items-center gap-1 font-semibold text-rose-700 dark:text-rose-400"><span className="w-1.5 h-1.5 rounded-full bg-rose-500" />Struggled</span> (needed hints).
                 </p>
               </div>
               <Link
@@ -618,7 +630,7 @@ export default function RoadmapsPage() {
         </section>
       )}
 
-      {/* Visual Module 3: 🔰 The Beginner Roadmap ("From 0 to Pattern Intuition") */}
+      {/* Visual Module 3: Beginner Roadmap ("From 0 to Pattern Intuition") */}
       {(activeTab === 'all' || activeTab === 'beginner') && (
         <section
           id="panel-beginner"
@@ -627,9 +639,14 @@ export default function RoadmapsPage() {
           className="space-y-8 pt-4"
         >
           <div className="space-y-1">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-              🔰 Beginner Roadmap: From 0 to Pattern Intuition
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-4 h-4" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
+                Beginner Roadmap: From 0 to Pattern Intuition
+              </h2>
+            </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
               Structured 3-phase curriculum designed to replace brute-force trial and error with intuitive invariant recognition.
             </p>
@@ -884,7 +901,7 @@ export default function RoadmapsPage() {
                   Rate & Queue
                 </div>
                 <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Tag 🟢 Mastered, 🟡 Review, or 🔴 Struggled. CompanyWise automatically schedules spaced repetition.
+                  Tag <span className="font-semibold text-emerald-700 dark:text-emerald-400">Mastered</span>, <span className="font-semibold text-amber-700 dark:text-amber-400">Review</span>, or <span className="font-semibold text-rose-700 dark:text-rose-400">Struggled</span>. CompanyWise automatically schedules spaced repetition.
                 </div>
               </div>
             </div>
@@ -968,7 +985,7 @@ export default function RoadmapsPage() {
         </section>
       )}
 
-      {/* Visual Module 4: ⚡ The Intermediate Sprint Roadmap ("2-6 Week High-Velocity Prep") */}
+      {/* Visual Module 4: Intermediate Sprint Roadmap ("2-6 Week High-Velocity Prep") */}
       {(activeTab === 'all' || activeTab === 'intermediate') && (
         <section
           id="panel-intermediate"
@@ -977,9 +994,14 @@ export default function RoadmapsPage() {
           className="space-y-8 pt-4"
         >
           <div className="space-y-1">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-              ⚡ Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
+                <Zap className="w-4 h-4" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
+                Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep
+              </h2>
+            </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
               Engineered for candidates with DSA fundamentals facing upcoming interview rounds at Meta, Google, Amazon, or Microsoft.
             </p>
@@ -1420,9 +1442,14 @@ export default function RoadmapsPage() {
           className="space-y-6 pt-4"
         >
           <div className="space-y-1">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-              🧭 Feature Compass: From Frustration to Feature
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-400 flex items-center justify-center shrink-0">
+                <Compass className="w-4 h-4" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
+                Feature Compass: From Frustration to Feature
+              </h2>
+            </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
               Map common interview preparation roadblocks directly to dedicated CompanyWise capabilities.
             </p>
@@ -1492,7 +1519,7 @@ export default function RoadmapsPage() {
                   Solution: 3-Tier Rating & Spaced Repetition
                 </div>
                 <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Rate questions 🟢 Mastered, 🟡 Needs Review, or 🔴 Struggled. CompanyWise surfaces questions right at the point of forgetting.
+                  Rate questions <span className="font-semibold text-emerald-700 dark:text-emerald-400">Mastered</span>, <span className="font-semibold text-amber-700 dark:text-amber-400">Needs Review</span>, or <span className="font-semibold text-rose-700 dark:text-rose-400">Struggled</span>. CompanyWise surfaces questions right at the point of forgetting.
                 </p>
               </div>
               <Link
