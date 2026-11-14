@@ -106,9 +106,15 @@ describe('RoadmapsPage Component Tests', () => {
   it('switches views when clicking track switcher tabs', () => {
     renderRoadmapsPage();
 
+    // Initially in "All Tracks & Overview", Diagnostic is rendered
+    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
+
     // Switch to Beginner Roadmap tab
     const beginnerTab = screen.getByRole('tab', { name: /Beginner Roadmap/i });
     fireEvent.click(beginnerTab);
+
+    // Diagnostic should be hidden to let the selected module appear at the top
+    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
 
     // Should display Beginner sections
     expect(screen.getByText(/Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeTruthy();
@@ -122,6 +128,9 @@ describe('RoadmapsPage Component Tests', () => {
     // Switch to Intermediate Sprint tab
     const intermediateTab = screen.getByRole('tab', { name: /Intermediate Sprint/i });
     fireEvent.click(intermediateTab);
+
+    // Diagnostic should remain hidden
+    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
 
     // Should display Intermediate sections
     expect(screen.getByText(/Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep/i)).toBeTruthy();
@@ -137,6 +146,8 @@ describe('RoadmapsPage Component Tests', () => {
     const compassTab = screen.getByRole('tab', { name: /Feature Compass/i });
     fireEvent.click(compassTab);
 
+    // Diagnostic hidden
+    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
     expect(screen.getByText(/Feature Compass: From Frustration to Feature/i)).toBeTruthy();
     expect(screen.getByText(/“I freeze when facing an unseen problem I haven't memorized.”/i)).toBeTruthy();
     expect(screen.getByText(/“I don't know what Google or Meta actually ask in interviews today.”/i)).toBeTruthy();
@@ -145,12 +156,28 @@ describe('RoadmapsPage Component Tests', () => {
     const loopTab = screen.getByRole('tab', { name: /Platform Loop/i });
     fireEvent.click(loopTab);
 
+    // Diagnostic hidden, Platform Loop is now at the top
+    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
     expect(screen.getByText(/The CompanyWise Engine Loop/i)).toBeTruthy();
     expect(screen.getByText(/Invariant First/i)).toBeTruthy();
     expect(screen.getByText(/Interactive Visualizer/i)).toBeTruthy();
     expect(screen.getByText(/15-Min Practice Sprint/i)).toBeTruthy();
     expect(screen.getByText(/Ah-Ha Drawer Unstick/i)).toBeTruthy();
     expect(screen.getByText(/Closed Learning Circuit/i)).toBeTruthy();
+
+    // Switch back to All Tracks & Overview
+    const allTab = screen.getByRole('tab', { name: /All Tracks & Overview/i });
+    fireEvent.click(allTab);
+
+    // Diagnostic is restored
+    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
+
+    // Verify quick jump helper from Beginner to Diagnostic
+    fireEvent.click(beginnerTab);
+    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
+    const jumpBtn = screen.getByRole('button', { name: /Take 5-Tap Diagnostic/i });
+    fireEvent.click(jumpBtn);
+    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
   });
 
   it('renders mock interview execution playbook and communication tips in intermediate track', () => {

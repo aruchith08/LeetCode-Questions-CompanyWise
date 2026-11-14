@@ -260,10 +260,13 @@ export default function RoadmapsPage() {
       </section>
 
       {/* Visual Module 1: Interactive 5-Tap Diagnostic */}
-      <section
-        className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-6"
-        aria-labelledby="diagnostic-heading"
-      >
+      {activeTab === 'all' && (
+        <section
+          id="panel-all"
+          role="tabpanel"
+          aria-labelledby="tab-all"
+          className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-6"
+        >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <h2
@@ -415,6 +418,7 @@ export default function RoadmapsPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Visual Module 2: The Visual CompanyWise Engine Loop */}
       {(activeTab === 'all' || activeTab === 'loop') && (
@@ -425,9 +429,14 @@ export default function RoadmapsPage() {
           className="space-y-6 pt-4"
         >
           <div className="space-y-1">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-              The CompanyWise Engine Loop
-            </h2>
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-violet-100 dark:bg-violet-950/60 text-violet-700 dark:text-violet-400 flex items-center justify-center shrink-0">
+                <Workflow className="w-4 h-4" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
+                The CompanyWise Engine Loop
+              </h2>
+            </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
               A continuous 7-stage learning circuit that turns solved questions into permanent pattern reflexes.
             </p>
@@ -651,6 +660,24 @@ export default function RoadmapsPage() {
               Structured 3-phase curriculum designed to replace brute-force trial and error with intuitive invariant recognition.
             </p>
           </div>
+
+          {/* Quick diagnostic jump helper when navigated directly to Beginner */}
+          {activeTab === 'beginner' && (
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs">
+              <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-[#A8A69C]">
+                <HelpCircle className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
+                <span>Not sure if Beginner is your level? Take the 5-tap self-diagnostic in Overview.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveTab('all')}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline whitespace-nowrap self-start sm:self-auto cursor-pointer"
+              >
+                <span>Take 5-Tap Diagnostic</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
 
           {/* 3 Milestone Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -1006,6 +1033,24 @@ export default function RoadmapsPage() {
               Engineered for candidates with DSA fundamentals facing upcoming interview rounds at Meta, Google, Amazon, or Microsoft.
             </p>
           </div>
+
+          {/* Quick diagnostic jump helper when navigated directly to Intermediate */}
+          {activeTab === 'intermediate' && (
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs">
+              <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-[#A8A69C]">
+                <HelpCircle className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
+                <span>Need to verify your prerequisites? Check the 5-tap diagnostic self-test in Overview.</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActiveTab('all')}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline whitespace-nowrap self-start sm:self-auto cursor-pointer"
+              >
+                <span>Take 5-Tap Diagnostic</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
 
           {/* "When Technique X Breaks -> Pivot to Y" Matrix */}
           <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
