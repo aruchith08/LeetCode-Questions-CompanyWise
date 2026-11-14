@@ -13,6 +13,7 @@ const CompanyDetailPage = lazy(() => import('./pages/CompanyDetailPage'));
 const ProblemsPage = lazy(() => import('./pages/ProblemsPage'));
 const PatternsPage = lazy(() => import('./pages/PatternsPage'));
 const PatternDetailPage = lazy(() => import('./pages/PatternDetailPage'));
+const RoadmapsPage = lazy(() => import('./pages/RoadmapsPage'));
 const ProgressPage = lazy(() => import('./pages/ProgressPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
@@ -68,6 +69,14 @@ export default function App() {
                 element={
                   <Suspense fallback={<LoadingSpinner />}>
                     <PatternDetailPage />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="roadmaps"
+                element={
+                  <Suspense fallback={<LoadingSpinner />}>
+                    <RoadmapsPage />
                   </Suspense>
                 }
               />

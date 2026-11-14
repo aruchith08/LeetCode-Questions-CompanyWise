@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutSection from '../components/ui/AboutSection';
 import {
-  Database, ShieldCheck, Terminal, Globe
+  Database, ShieldCheck, Terminal, Globe, Compass, ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -22,6 +22,26 @@ export default function AboutPage() {
         <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
           CompanyWise provides company-tagged interview practice questions aggregated from public candidate interview reports. Upstream datasets are curated by Krishna Dey (<code className="px-1 py-0.5 rounded bg-white dark:bg-[#262624] text-[11px]">@krishnadey30</code>) with recency expansions by liquidslr (<code className="px-1 py-0.5 rounded bg-white dark:bg-[#262624] text-[11px]">@liquidslr</code>). Question frequency scores represent relative appearance indices across the source CSV snapshots, rather than a guaranteed probability of receiving a specific question in an interview.
         </p>
+      </section>
+
+      {/* Roadmap Discovery Callout Banner */}
+      <section className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <Compass className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
+            <span className="font-bold text-sm text-slate-900 dark:text-[#FAF9F5]">Looking for a structured prep strategy?</span>
+          </div>
+          <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
+            Explore visual Beginner & Intermediate sprint roadmaps, 15-minute practice loops, and technique pivot matrices.
+          </p>
+        </div>
+        <Link
+          to="/roadmaps"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs"
+        >
+          <span>Explore Roadmaps</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
       </section>
 
       {/* Deep-Dive Technical Blueprint */}

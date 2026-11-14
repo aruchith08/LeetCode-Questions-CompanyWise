@@ -29,6 +29,7 @@ const navItems = [
   { to: '/companies', label: 'Companies' },
   { to: '/problems', label: 'Problems' },
   { to: '/patterns', label: 'Patterns' },
+  { to: '/roadmaps', label: 'Roadmaps' },
   { to: '/progress', label: 'My Progress' },
   { to: '/about', label: 'About' },
 ];
