@@ -35,6 +35,11 @@ describe('RoadmapsPage Component Tests', () => {
     expect(screen.getByRole('tab', { name: /Intermediate Sprint/i })).toBeTruthy();
     expect(screen.getByRole('tab', { name: /Feature Compass/i })).toBeTruthy();
     expect(screen.getByRole('tab', { name: /Platform Loop/i })).toBeTruthy();
+
+    // Verify hero mountain image
+    const heroImage = screen.getByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i);
+    expect(heroImage).toBeTruthy();
+    expect(heroImage.getAttribute('src')).toBe('/companywise-roadmap-mountain.webp');
   });
 
   it('renders all 5 diagnostic questions with interactive options and accessibility attributes', () => {

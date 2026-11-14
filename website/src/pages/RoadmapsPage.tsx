@@ -191,14 +191,35 @@ export default function RoadmapsPage() {
     <div className="space-y-12 animate-fade-in pb-20">
       {/* Hero Header */}
       <section className="pt-2 pb-6 border-b border-slate-200/80 dark:border-[#43433F]">
-        <div className="max-w-4xl space-y-3">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5]">
-            Interview Roadmaps & Preparation Strategy
-          </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-            Choose the trajectory tailored to your timeline. Master core algorithmic invariants with the
-            15-minute practice loop, or execute a high-velocity 2-to-6 week company sprint.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          {/* Left Column: Heading & Subtitle */}
+          <div className="lg:col-span-8 space-y-3 text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5]">
+              Interview Roadmaps & Preparation Strategy
+            </h1>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed max-w-2xl">
+              Choose the trajectory tailored to your timeline. Master core algorithmic invariants with the
+              15-minute practice loop, or execute a high-velocity 2-to-6 week company sprint.
+            </p>
+          </div>
+
+          {/* Right Column: Hero Mountain Illustration */}
+          <div className="lg:col-span-4 flex items-center justify-center lg:justify-end select-none">
+            <div className="relative w-full max-w-[180px] sm:max-w-[220px] lg:max-w-[260px] flex items-center justify-center">
+              <picture className="w-full flex items-center justify-center">
+                <source srcSet="/companywise-roadmap-mountain.webp" type="image/webp" />
+                <img
+                  src="/companywise-roadmap-mountain.webp"
+                  alt="CompanyWise Interview Roadmap: Mountain Journey to Mastery"
+                  width={260}
+                  height={180}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-contain drop-shadow-sm select-none pointer-events-none"
+                />
+              </picture>
+            </div>
+          </div>
         </div>
 
         {/* Track Switcher Navigation Tabs */}
