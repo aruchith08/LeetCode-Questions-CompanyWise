@@ -207,8 +207,6 @@ export default function RoadmapsPage() {
           {/* Right Column: Hero Mountain Illustration (Merged into page) */}
           <div className="lg:col-span-5 flex items-center justify-center lg:justify-end select-none">
             <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[390px] flex items-center justify-center">
-              {/* Subtle ambient backdrop glow to blend naturally into light and dark page backgrounds */}
-              <div className="absolute inset-0 bg-radial from-sky-400/10 dark:from-sky-500/15 via-transparent to-transparent rounded-full blur-2xl pointer-events-none -z-10" />
               <picture className="w-full flex items-center justify-center">
                 <source srcSet="/companywise-roadmap-mountain.webp" type="image/webp" />
                 <img
