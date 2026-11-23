@@ -18,23 +18,21 @@ describe('RoadmapsPage Component Tests', () => {
     );
   };
 
-  it('renders page header title, subtitle, and all track switcher tabs', () => {
+  it('renders hero section with title, "still building" notice, and clean mountain image', () => {
     renderRoadmapsPage();
 
-    // Verify main header and subtitle
+    // Verify main header
     expect(
       screen.getByRole('heading', { name: /Interview Roadmaps & Preparation Strategy/i, level: 1 })
     ).toBeTruthy();
-    expect(
-      screen.getByText(/Choose the trajectory tailored to your timeline/i)
-    ).toBeTruthy();
 
-    // Verify track switcher tabs
-    expect(screen.getByRole('tab', { name: /All Tracks & Overview/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Beginner Roadmap/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Intermediate Sprint/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Feature Compass/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Platform Loop/i })).toBeTruthy();
+    // Verify status badge
+    expect(screen.getByText(/STATUS: ARCHITECTURAL DESIGN \/\/ COMING SOON/i)).toBeTruthy();
+
+    // Verify exact user-requested notice
+    expect(
+      screen.getByText(/Still building — will be available soon with an artifact for display/i)
+    ).toBeTruthy();
 
     // Verify hero mountain image
     const heroImage = screen.getByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i);
@@ -42,190 +40,117 @@ describe('RoadmapsPage Component Tests', () => {
     expect(heroImage.getAttribute('src')).toBe('/companywise-roadmap-mountain.webp');
   });
 
-  it('renders all 5 diagnostic questions with interactive options and accessibility attributes', () => {
+  it('renders the architectural artifact specimen card with all 3 proposal tabs', () => {
     renderRoadmapsPage();
 
-    expect(screen.getByText('Language Fluency')).toBeTruthy();
-    expect(screen.getByText('Big-O Intuition')).toBeTruthy();
-    expect(screen.getByText('Problems Solved')).toBeTruthy();
-    expect(screen.getByText('Recursion & Trees')).toBeTruthy();
-    expect(screen.getByText('Core Bottleneck')).toBeTruthy();
+    // Specimen header metadata
+    expect(screen.getByText(/SPEC \/\/ CW-RDMP-2026\.11 · SYSTEM ARTIFACT FOR DISPLAY/i)).toBeTruthy();
+    expect(screen.getByRole('heading', { name: /Roadmap Representation Candidate Models/i })).toBeTruthy();
 
-    // Check initial recommendation
-    const resultBox = screen.getByTestId('diagnostic-result');
-    expect(resultBox.textContent).toContain('Beginner Roadmap');
-    expect(resultBox.getAttribute('aria-live')).toBe('polite');
-    expect(resultBox.getAttribute('aria-atomic')).toBe('true');
-
-    // Verify radiogroups and radio buttons
-    const radioGroups = screen.getAllByRole('radiogroup');
-    expect(radioGroups.length).toBe(5);
-
-    const radioButtons = screen.getAllByRole('radio');
-    expect(radioButtons.length).toBe(10); // 2 per question * 5 questions
+    // 3 Candidate Proposal Tabs
+    expect(screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i })).toBeTruthy();
+    expect(screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i })).toBeTruthy();
+    expect(screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i })).toBeTruthy();
   });
 
-  it('dynamically recalculates recommended track when user taps options', () => {
+  it('switches views interactively when clicking candidate proposal tabs', () => {
     renderRoadmapsPage();
 
-    const resultBox = screen.getByTestId('diagnostic-result');
-    // Initially Beginner
-    expect(resultBox.textContent).toContain('Beginner Roadmap');
-    expect(resultBox.textContent).toContain('0/5 answered');
+    // Default view is Model A: Interactive Skill Tree DAG
+    expect(screen.getByText(/Hierarchical Invariant Trajectory/i)).toBeTruthy();
+    expect(screen.getByText(/Tier 1 \/\/ Foundation/i)).toBeTruthy();
+    expect(screen.getByText(/Linear Invariants & Pointers/i)).toBeTruthy();
 
-    // Tap 3 intermediate options:
-    // 1. Language: Fluent in 1 Language
-    const fluentBtn = screen.getByText('Fluent in 1 Language');
-    fireEvent.click(fluentBtn);
-    expect(resultBox.textContent).toContain('1/5 answered');
+    // Click Model B: High-Velocity Company Sprint
+    const modelBTab = screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i });
+    fireEvent.click(modelBTab);
 
-    // 2. Big-O: Instant Complexity Intuition
-    const bigOBtn = screen.getByText('Instant Complexity Intuition');
-    fireEvent.click(bigOBtn);
-    expect(resultBox.textContent).toContain('2/5 answered');
+    expect(screen.getByText(/Time-Boxed Sprint Velocity Playbook/i)).toBeTruthy();
+    expect(screen.getByText(/Week 1–2 \/\/ Phase 1/i)).toBeTruthy();
+    expect(screen.getByText(/High-Frequency Core Blitz/i)).toBeTruthy();
+    expect(screen.queryByText(/Linear Invariants & Pointers/i)).toBeNull();
 
-    // Still score 2 -> Beginner
-    expect(resultBox.textContent).toContain('Beginner Roadmap');
+    // Click Model C: Technique Pivot & Decision Matrix
+    const modelCTab = screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i });
+    fireEvent.click(modelCTab);
 
-    // 3. Solved: 50+ Problems Solved -> Score 3 -> Switches to Intermediate
-    const solvedBtn = screen.getByText('50+ Problems Solved');
-    fireEvent.click(solvedBtn);
+    expect(screen.getByText(/Live Interview Pivot Diagnostics/i)).toBeTruthy();
+    expect(screen.getByText(/Diagnostic Pivot 01/i)).toBeTruthy();
+    expect(screen.getByText(/Sliding Window Fails on Negative Numbers/i)).toBeTruthy();
+    expect(screen.queryByText(/High-Frequency Core Blitz/i)).toBeNull();
 
-    expect(resultBox.textContent).toContain('Intermediate Sprint');
-    expect(resultBox.textContent).toContain('3/5 answered');
+    // Click back to Model A
+    const modelATab = screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i });
+    fireEvent.click(modelATab);
 
-    // Click Reset answers
-    const resetBtn = screen.getByRole('button', { name: /reset answers/i });
-    fireEvent.click(resetBtn);
-
-    // Recalculates back to Beginner
-    expect(resultBox.textContent).toContain('Beginner Roadmap');
-    expect(resultBox.textContent).toContain('0/5 answered');
+    expect(screen.getByText(/Hierarchical Invariant Trajectory/i)).toBeTruthy();
+    expect(screen.getByText(/Linear Invariants & Pointers/i)).toBeTruthy();
   });
 
-  it('switches views when clicking track switcher tabs', () => {
+  it('supports keyboard navigation across architectural proposal tablist (ArrowRight, ArrowLeft, Home, End)', () => {
     renderRoadmapsPage();
 
-    // Initially in "All Tracks & Overview", Diagnostic is rendered
-    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
+    const tablist = screen.getByRole('tablist', { name: /Roadmap architectural proposals/i });
 
-    // Switch to Beginner Roadmap tab
-    const beginnerTab = screen.getByRole('tab', { name: /Beginner Roadmap/i });
-    fireEvent.click(beginnerTab);
-
-    // Diagnostic should be hidden to let the selected module appear at the top
-    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
-
-    // Should display Beginner sections
-    expect(screen.getByText(/Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeTruthy();
-    expect(screen.getByText(/Phase 1: Linear Invariants/i)).toBeTruthy();
-    expect(screen.getByText(/The 15-Minute Rule Flowchart/i)).toBeTruthy();
-    expect(screen.getByText(/Foundation Invariants Cheat Sheet/i)).toBeTruthy();
-
-    // Intermediate-specific sections should not be visible when Beginner is selected
-    expect(screen.queryByText(/When Technique X Breaks → Pivot to Y/i)).toBeNull();
-
-    // Switch to Intermediate Sprint tab
-    const intermediateTab = screen.getByRole('tab', { name: /Intermediate Sprint/i });
-    fireEvent.click(intermediateTab);
-
-    // Diagnostic should remain hidden
-    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
-
-    // Should display Intermediate sections
-    expect(screen.getByText(/Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep/i)).toBeTruthy();
-    expect(screen.getByText(/When Technique X Breaks → Pivot to Y/i)).toBeTruthy();
-    expect(screen.getByText(/6 Advanced Sprint Tracks & Time Budgets/i)).toBeTruthy();
-    expect(screen.getByText(/Target Company Frequency Mining Protocol/i)).toBeTruthy();
-    expect(screen.getByText(/Mock Interview Protocol: The 45-Minute Execution Playbook/i)).toBeTruthy();
-
-    // Beginner-specific sections should not be visible
-    expect(screen.queryByText(/Beginner Roadmap: From 0 to Pattern Intuition/i)).toBeNull();
-
-    // Switch to Feature Compass tab
-    const compassTab = screen.getByRole('tab', { name: /Feature Compass/i });
-    fireEvent.click(compassTab);
-
-    // Diagnostic hidden
-    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
-    expect(screen.getByText(/Feature Compass: From Frustration to Feature/i)).toBeTruthy();
-    expect(screen.getByText(/“I freeze when facing an unseen problem I haven't memorized.”/i)).toBeTruthy();
-    expect(screen.getByText(/“I don't know what Google or Meta actually ask in interviews today.”/i)).toBeTruthy();
-
-    // Switch to Platform Loop tab
-    const loopTab = screen.getByRole('tab', { name: /Platform Loop/i });
-    fireEvent.click(loopTab);
-
-    // Diagnostic hidden, Platform Loop is now at the top
-    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
-    expect(screen.getByText(/The CompanyWise Engine Loop/i)).toBeTruthy();
-    expect(screen.getByText(/Invariant First/i)).toBeTruthy();
-    expect(screen.getByText(/Interactive Visualizer/i)).toBeTruthy();
-    expect(screen.getByText(/15-Min Practice Sprint/i)).toBeTruthy();
-    expect(screen.getByText(/Ah-Ha Drawer Unstick/i)).toBeTruthy();
-    expect(screen.getByText(/Closed Learning Circuit/i)).toBeTruthy();
-
-    // Switch back to All Tracks & Overview
-    const allTab = screen.getByRole('tab', { name: /All Tracks & Overview/i });
-    fireEvent.click(allTab);
-
-    // Diagnostic is restored
-    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
-
-    // Verify quick jump helper from Beginner to Diagnostic
-    fireEvent.click(beginnerTab);
-    expect(screen.queryByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeNull();
-    const jumpBtn = screen.getByRole('button', { name: /Take 5-Tap Diagnostic/i });
-    fireEvent.click(jumpBtn);
-    expect(screen.getByText(/Interactive 5-Tap Diagnostic: Where Do You Stand\?/i)).toBeTruthy();
-  });
-
-  it('renders mock interview execution playbook and communication tips in intermediate track', () => {
-    renderRoadmapsPage();
-
-    // Switch to intermediate tab
-    const intermediateTab = screen.getByRole('tab', { name: /Intermediate Sprint/i });
-    fireEvent.click(intermediateTab);
-
-    // Verify 45-minute stage breakdown
-    expect(screen.getByText(/Mock Interview Protocol: The 45-Minute Execution Playbook/i)).toBeTruthy();
-    expect(screen.getByText('Clarify & Scope')).toBeTruthy();
-    expect(screen.getByText('Invariant Alignment')).toBeTruthy();
-    expect(screen.getByText('Modular Implementation')).toBeTruthy();
-    expect(screen.getByText('Manual Trace Table')).toBeTruthy();
-    expect(screen.getByText('Complexity & Scale')).toBeTruthy();
-
-    // Verify communication guidelines
-    expect(screen.getByText('Never Code in Silence')).toBeTruthy();
-    expect(screen.getByText('Collaborate on Interviewer Hints')).toBeTruthy();
-    expect(screen.getByText('Dry-Run Edge Cases by Hand')).toBeTruthy();
-    expect(screen.getByText('Record and Audit Peer Sessions')).toBeTruthy();
-  });
-
-  it('supports keyboard navigation across tablist (ArrowRight, ArrowLeft, Home, End)', () => {
-    renderRoadmapsPage();
-
-    const tablist = screen.getByRole('tablist');
-
-    // Press ArrowRight -> moves to Beginner
+    // Press ArrowRight -> moves to Model B
     fireEvent.keyDown(tablist, { key: 'ArrowRight' });
-    expect(screen.getByRole('tab', { name: /Beginner Roadmap/i }).getAttribute('aria-selected')).toBe('true');
+    expect(
+      screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i }).getAttribute('aria-selected')
+    ).toBe('true');
 
-    // Press ArrowRight -> moves to Intermediate
+    // Press ArrowRight -> moves to Model C
     fireEvent.keyDown(tablist, { key: 'ArrowRight' });
-    expect(screen.getByRole('tab', { name: /Intermediate Sprint/i }).getAttribute('aria-selected')).toBe('true');
+    expect(
+      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
+    ).toBe('true');
 
-    // Press End -> moves to Platform Loop
+    // Press End -> stays on Model C
     fireEvent.keyDown(tablist, { key: 'End' });
-    expect(screen.getByRole('tab', { name: /Platform Loop/i }).getAttribute('aria-selected')).toBe('true');
+    expect(
+      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
+    ).toBe('true');
 
-    // Press Home -> moves back to All Tracks & Overview
+    // Press Home -> moves back to Model A
     fireEvent.keyDown(tablist, { key: 'Home' });
-    expect(screen.getByRole('tab', { name: /All Tracks & Overview/i }).getAttribute('aria-selected')).toBe('true');
+    expect(
+      screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i }).getAttribute('aria-selected')
+    ).toBe('true');
 
-    // Press ArrowLeft -> wraps to Platform Loop
+    // Press ArrowLeft -> wraps to Model C
     fireEvent.keyDown(tablist, { key: 'ArrowLeft' });
-    expect(screen.getByRole('tab', { name: /Platform Loop/i }).getAttribute('aria-selected')).toBe('true');
+    expect(
+      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
+    ).toBe('true');
+  });
+
+  it('renders comparative evaluation matrix table with all criteria', () => {
+    renderRoadmapsPage();
+
+    expect(screen.getByText(/Model Comparison & Deliberation Matrix/i)).toBeTruthy();
+    expect(screen.getByText('Primary Candidate Focus')).toBeTruthy();
+    expect(screen.getByText('Cognitive Mental Model')).toBeTruthy();
+    expect(screen.getByText('Optimal Practice Window')).toBeTruthy();
+    expect(screen.getByText('Retention & Invariant Yield')).toBeTruthy();
+    expect(screen.getByText('Platform Integration Depth')).toBeTruthy();
+  });
+
+  it('renders quick access cards to live production modules with valid routes', () => {
+    const { container } = renderRoadmapsPage();
+
+    expect(screen.getByText(/Start Practicing Now with Live Platform Engines/i)).toBeTruthy();
+    expect(screen.getByText(/20 Canonical Patterns/i)).toBeTruthy();
+    expect(screen.getByText(/490\+ Tech Companies/i)).toBeTruthy();
+    expect(screen.getByText(/3,411 Curated Problems/i)).toBeTruthy();
+    expect(screen.getByText(/Personal Mastery Tracker/i)).toBeTruthy();
+
+    const links = Array.from(container.querySelectorAll('a'))
+      .map(a => a.getAttribute('href'))
+      .filter((href): href is string => href !== null);
+
+    expect(links).toContain('/patterns');
+    expect(links).toContain('/companies');
+    expect(links).toContain('/problems');
+    expect(links).toContain('/progress');
   });
 
   it('verifies all pattern route links point to valid canonical patterns in catalog', () => {
@@ -251,11 +176,13 @@ describe('RoadmapsPage Component Tests', () => {
         `Slug "/patterns/${slug}" was not found in PATTERNS_CATALOG!`
       ).toBe(true);
     }
+  });
 
-    // Verify key destinations exist
-    expect(links).toContain('/patterns');
-    expect(links).toContain('/companies');
-    expect(links).toContain('/problems');
-    expect(links).toContain('/progress');
+  it('renders technical engineering note acknowledging preserved draft modules', () => {
+    renderRoadmapsPage();
+
+    expect(
+      screen.getByText(/RoadmapsDraftModules\.tsx/i)
+    ).toBeTruthy();
   });
 });

@@ -1,1661 +1,773 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Compass,
-  Zap,
-  BookOpen,
-  ArrowRight,
-  CheckCircle2,
-  Timer,
-  Eye,
-  HelpCircle,
-  RotateCcw,
-  Building2,
-  Check,
-  Split,
-  ChevronRight,
-  Sparkles,
-  MessageSquareCode,
-  ShieldCheck,
   Workflow,
-  GraduationCap
+  Timer,
+  GitFork,
+  ArrowRight,
+  Sparkles,
+  Building2,
+  Code2,
+  Layers,
+  FileCode2,
+  Target,
+  Clock,
+  Compass,
+  CheckCircle2,
+  ExternalLink,
+  Flame,
+  Boxes,
+  HelpCircle
 } from 'lucide-react';
 
-type RoadmapTab = 'all' | 'beginner' | 'intermediate' | 'compass' | 'loop';
+type ArchitecturalProposal = 'dag-tree' | 'company-sprint' | 'pivot-matrix';
 
-interface DiagnosticQuestion {
-  id: string;
-  title: string;
-  category: string;
-  options: {
-    label: string;
+interface ProposalSpec {
+  id: ArchitecturalProposal;
+  label: string;
+  badge: string;
+  icon: React.ComponentType<{ className?: string }>;
+  tagline: string;
+  bestFor: string;
+  cognitiveLoad: 'Low' | 'Medium' | 'High';
+  timelineYield: '2–3 Months' | '2–6 Weeks' | 'Any / Just-in-Time';
+  summary: string;
+  schematicTitle: string;
+  schematicSteps: {
+    tier: string;
+    title: string;
     description: string;
-    score: number; // 0 for beginner signal, 1 for intermediate signal
+    patterns: { name: string; slug: string }[];
+    status: 'prerequisite' | 'core' | 'capstone';
   }[];
+  tradeoffs: {
+    pros: string[];
+    cons: string[];
+  };
 }
 
-const DIAGNOSTIC_QUESTIONS: DiagnosticQuestion[] = [
-  {
-    id: 'language',
-    title: 'Language Fluency',
-    category: 'Syntax & Standard Library',
-    options: [
+const PROPOSALS: Record<ArchitecturalProposal, ProposalSpec> = {
+  'dag-tree': {
+    id: 'dag-tree',
+    label: 'Model A: Interactive Skill Tree DAG',
+    badge: 'STRUCTURAL MASTERY',
+    icon: Workflow,
+    tagline: 'Dependency graph progression from foundational invariants to non-linear structures.',
+    bestFor: 'Candidates with 2–4 months who want rock-solid algorithmic intuition and zero knowledge gaps.',
+    cognitiveLoad: 'Medium',
+    timelineYield: '2–3 Months',
+    summary:
+      'Models algorithmic problem solving as a Directed Acyclic Graph (DAG). Candidates unlock downstream nodes only after proving invariant fluency on upstream prerequisites, preventing the common failure mode of jumping into Dynamic Programming without mastery of recursion.',
+    schematicTitle: 'Hierarchical Invariant Trajectory',
+    schematicSteps: [
       {
-        label: 'Still Syntax-Struggling',
-        description: 'Frequently look up standard library methods, syntax, or array manipulation basics.',
-        score: 0,
+        tier: 'Tier 1 // Foundation',
+        title: 'Linear Invariants & Pointers',
+        description: 'Two Pointers opposite/same direction, sliding window fixed/dynamic contraction, prefix sums.',
+        patterns: [
+          { name: 'Two Pointers', slug: 'two-pointers' },
+          { name: 'Sliding Window', slug: 'sliding-window' },
+          { name: 'Prefix Sum', slug: 'prefix-sum' },
+        ],
+        status: 'prerequisite',
       },
       {
-        label: 'Fluent in 1 Language',
-        description: 'Can write clean, idiomatic loops, hash maps, and recursion without syntax friction.',
-        score: 1,
-      },
-    ],
-  },
-  {
-    id: 'bigO',
-    title: 'Big-O Intuition',
-    category: 'Complexity Analysis',
-    options: [
-      {
-        label: 'Unsure or Guessing',
-        description: 'Struggle to analyze nested loops, recursive stack depths, or space trade-offs.',
-        score: 0,
+        tier: 'Tier 2 // Branching',
+        title: 'Non-Linear & Hierarchical Traversal',
+        description: 'Binary search boundary conditions, DFS/BFS state trees, monotonic stack element boundaries.',
+        patterns: [
+          { name: 'Binary Search', slug: 'binary-search' },
+          { name: 'Tree DFS', slug: 'tree-dfs' },
+          { name: 'Monotonic Stack', slug: 'stack-and-monotonic-stack' },
+        ],
+        status: 'core',
       },
       {
-        label: 'Instant Complexity Intuition',
-        description: 'Immediately recognize O(N log N) vs O(N) vs O(2^N) and compute auxiliary space.',
-        score: 1,
-      },
-    ],
-  },
-  {
-    id: 'solved',
-    title: 'Problems Solved',
-    category: 'Practice Volume',
-    options: [
-      {
-        label: '< 30 Problems Solved',
-        description: 'New to LeetCode practice or returning after a prolonged multi-month break.',
-        score: 0,
-      },
-      {
-        label: '50+ Problems Solved',
-        description: 'Familiar with basic arrays, hash maps, and have tackled diverse question types.',
-        score: 1,
+        tier: 'Tier 3 // Capstone',
+        title: 'Graph Invariants & Dynamic States',
+        description: 'Topological dependency ordering, cycle detection, memoization DAGs, and state compression.',
+        patterns: [
+          { name: 'Topological Sort', slug: 'topological-sort' },
+          { name: 'Dynamic Programming', slug: 'dynamic-programming' },
+        ],
+        status: 'capstone',
       },
     ],
+    tradeoffs: {
+      pros: [
+        'Eliminates tutorial hell by enforcing prerequisite mastery before complex topics.',
+        'Visually rewarding progression with lock/unlock mechanics and skill confidence ratings.',
+        'Protects against memorization by anchoring each node around a mathematical invariant.',
+      ],
+      cons: [
+        'Requires more time commitment; not optimized for emergency 2-week interview sprints.',
+        'High initial UI density can feel daunting to candidates who just need top 20 questions.',
+      ],
+    },
   },
-  {
-    id: 'recursion',
-    title: 'Recursion & Trees',
-    category: 'Data Structures',
-    options: [
+  'company-sprint': {
+    id: 'company-sprint',
+    label: 'Model B: High-Velocity Company Sprint',
+    badge: 'MAXIMUM INTERVIEW ROI',
+    icon: Timer,
+    tagline: 'Time-budgeted frequency mining targeted at specific company interview cycles.',
+    bestFor: 'Candidates with interviews scheduled in 2–6 weeks who need immediate high-yield practice.',
+    cognitiveLoad: 'Low',
+    timelineYield: '2–6 Weeks',
+    summary:
+      'Organizes prep into strictly time-boxed countdown sprints (14, 30, or 45 days) driven by real-world company hiring bar analytics. Bypasses niche algorithms to focus exclusively on patterns with >85% recurring frequency at Meta, Google, Amazon, or Microsoft.',
+    schematicTitle: 'Time-Boxed Sprint Velocity Playbook',
+    schematicSteps: [
       {
-        label: 'Fear the Call Stack',
-        description: 'Uncomfortable visualizing branching recursive calls, DFS/BFS, or backtracking trees.',
-        score: 0,
+        tier: 'Week 1–2 // Phase 1',
+        title: 'High-Frequency Core Blitz',
+        description: 'Top 30 company-tagged questions covering Sliding Window, Hash Maps, and Binary Search.',
+        patterns: [
+          { name: 'Sliding Window', slug: 'sliding-window' },
+          { name: 'Two Pointers', slug: 'two-pointers' },
+          { name: 'Binary Search', slug: 'binary-search' },
+        ],
+        status: 'prerequisite',
       },
       {
-        label: 'Comfortable with Trees',
-        description: 'Can write tree traversals, understand base cases, and conceptualize state branching.',
-        score: 1,
+        tier: 'Week 3–4 // Phase 2',
+        title: 'Graph & Tree Speedruns',
+        description: 'BFS shortest path in grid, DFS recursion trees, and company-specific variants (e.g. Meta graph crawls).',
+        patterns: [
+          { name: 'Tree BFS', slug: 'tree-bfs' },
+          { name: 'Topological Sort', slug: 'topological-sort' },
+        ],
+        status: 'core',
+      },
+      {
+        tier: 'Week 5–6 // Phase 3',
+        title: 'Mock Protocol & Edge Case Defense',
+        description: '45-minute timed live simulation, manual trace tables, and interviewer hint navigation.',
+        patterns: [
+          { name: 'Monotonic Stack', slug: 'stack-and-monotonic-stack' },
+          { name: 'Dynamic Programming', slug: 'dynamic-programming' },
+        ],
+        status: 'capstone',
       },
     ],
+    tradeoffs: {
+      pros: [
+        'Immediate practical utility for urgent interview dates with clear daily quotas.',
+        'Direct alignment with real-world hiring rounds at Meta, Amazon, Apple, and Google.',
+        'High motivation through clear countdown milestones and bite-sized problem sets.',
+      ],
+      cons: [
+        'Leaves blind spots for rare or innovative questions that fall outside top-frequency lists.',
+        'Risk of superficial pattern matching if foundational invariants are glossed over.',
+      ],
+    },
   },
-  {
-    id: 'bottleneck',
-    title: 'Core Bottleneck',
-    category: 'Current Struggle',
-    options: [
+  'pivot-matrix': {
+    id: 'pivot-matrix',
+    label: 'Model C: Technique Pivot & Decision Matrix',
+    badge: 'ANTI-FREEZE ARCHITECTURE',
+    icon: GitFork,
+    tagline: 'Diagnostic "When Pattern X Breaks → Pivot to Y" cognitive recovery system.',
+    bestFor: 'Candidates who know theory but freeze or get stuck when an unseen problem invalidates their first attempt.',
+    cognitiveLoad: 'Medium',
+    timelineYield: 'Any / Just-in-Time',
+    summary:
+      'Rather than a linear timeline, this model represents roadmaps as a real-time interview survival matrix. It maps problem symptoms, failure conditions, and interviewer pushback directly to algorithmic pivots, training candidates to pivot smoothly without panicking.',
+    schematicTitle: 'Live Interview Pivot Diagnostics',
+    schematicSteps: [
       {
-        label: 'No Clue Which Pattern Applies',
-        description: 'Read a problem description and freeze because the starting technique is opaque.',
-        score: 0,
+        tier: 'Diagnostic Pivot 01',
+        title: 'Sliding Window Fails on Negative Numbers',
+        description: 'Symptom: Shrinking left pointer no longer guarantees sum monotonicity. Pivot immediately to Prefix Sum + Hash Map.',
+        patterns: [
+          { name: 'Sliding Window', slug: 'sliding-window' },
+          { name: 'Prefix Sum', slug: 'prefix-sum' },
+        ],
+        status: 'core',
       },
       {
-        label: 'Spot Pattern, Fail Edge Cases & Speed',
-        description: 'Recognize the general family, but stumble on implementation details or time limits.',
-        score: 1,
+        tier: 'Diagnostic Pivot 02',
+        title: 'Recursion Call Stack Hits Memory Limits',
+        description: 'Symptom: Deep tree or graph causes Maximum Call Stack Exceeded. Pivot to Monotonic Stack or Iterative BFS Queue.',
+        patterns: [
+          { name: 'Tree DFS', slug: 'tree-dfs' },
+          { name: 'Monotonic Stack', slug: 'stack-and-monotonic-stack' },
+        ],
+        status: 'core',
+      },
+      {
+        tier: 'Diagnostic Pivot 03',
+        title: 'Greedy Choice Fails Counter-Example',
+        description: 'Symptom: Locally optimal choice misses global optimum. Pivot to 1D/2D Dynamic Programming state array.',
+        patterns: [
+          { name: 'Dynamic Programming', slug: 'dynamic-programming' },
+          { name: 'Two Pointers', slug: 'two-pointers' },
+        ],
+        status: 'capstone',
       },
     ],
+    tradeoffs: {
+      pros: [
+        'Directly cures interview freezing — gives candidates an instinctive "Plan B" during live rounds.',
+        'Trains higher-order engineering judgment and critical trade-off articulation.',
+        'Works seamlessly as a quick reference sheet during interview prep weeks.',
+      ],
+      cons: [
+        'Assumes prior familiarity with multiple patterns; less standalone for pure beginners.',
+        'Matrix format requires careful visual hierarchy to prevent information overload.',
+      ],
+    },
   },
-];
-
-const TABS: { id: RoadmapTab; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
-  { id: 'all', label: 'All Tracks & Overview', icon: Sparkles },
-  { id: 'beginner', label: 'Beginner Roadmap', icon: GraduationCap },
-  { id: 'intermediate', label: 'Intermediate Sprint', icon: Zap },
-  { id: 'compass', label: 'Feature Compass', icon: Compass },
-  { id: 'loop', label: 'Platform Loop', icon: Workflow },
-];
+};
 
 export default function RoadmapsPage() {
-  const [activeTab, setActiveTab] = useState<RoadmapTab>('all');
-  const [answers, setAnswers] = useState<Record<string, number | null>>({
-    language: null,
-    bigO: null,
-    solved: null,
-    recursion: null,
-    bottleneck: null,
-  });
+  const [activeProposal, setActiveProposal] = useState<ArchitecturalProposal>('dag-tree');
+  const spec = PROPOSALS[activeProposal];
 
-  const handleSelectOption = (questionId: string, score: number) => {
-    setAnswers(prev => ({ ...prev, [questionId]: score }));
-  };
-
-  const handleResetDiagnostic = () => {
-    setAnswers({
-      language: null,
-      bigO: null,
-      solved: null,
-      recursion: null,
-      bottleneck: null,
-    });
-  };
-
-  // Compute recommendation
-  const answeredCount = useMemo(() => {
-    return Object.values(answers).filter(v => v !== null).length;
-  }, [answers]);
-
-  const totalScore = useMemo(() => {
-    return Object.values(answers).reduce<number>((acc, cur) => acc + (cur ?? 0), 0);
-  }, [answers]);
-
-  const recommendedTrack: 'beginner' | 'intermediate' = useMemo(() => {
-    return totalScore >= 3 ? 'intermediate' : 'beginner';
-  }, [totalScore]);
-
-  const handleTabKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    const currentIndex = TABS.findIndex(t => t.id === activeTab);
-    if (currentIndex === -1) return;
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys: ArchitecturalProposal[] = ['dag-tree', 'company-sprint', 'pivot-matrix'];
+    const currentIndex = keys.indexOf(activeProposal);
 
     if (e.key === 'ArrowRight') {
       e.preventDefault();
-      const nextTab = TABS[(currentIndex + 1) % TABS.length].id;
-      setActiveTab(nextTab);
+      const nextIndex = (currentIndex + 1) % keys.length;
+      setActiveProposal(keys[nextIndex]);
     } else if (e.key === 'ArrowLeft') {
       e.preventDefault();
-      const prevTab = TABS[(currentIndex - 1 + TABS.length) % TABS.length].id;
-      setActiveTab(prevTab);
+      const prevIndex = (currentIndex - 1 + keys.length) % keys.length;
+      setActiveProposal(keys[prevIndex]);
     } else if (e.key === 'Home') {
       e.preventDefault();
-      setActiveTab(TABS[0].id);
+      setActiveProposal(keys[0]);
     } else if (e.key === 'End') {
       e.preventDefault();
-      setActiveTab(TABS[TABS.length - 1].id);
+      setActiveProposal(keys[keys.length - 1]);
     }
   };
 
   return (
-    <div className="space-y-12 animate-fade-in pb-20">
-      {/* Hero Header */}
-      <section className="pt-2 pb-6 border-b border-slate-200/80 dark:border-[#43433F]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-          {/* Left Column: Heading & Subtitle */}
-          <div className="lg:col-span-7 space-y-3 text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-normal hero-serif tracking-tight text-slate-900 dark:text-[#FAF9F5]">
-              Interview Roadmaps & Preparation Strategy
-            </h1>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed max-w-2xl">
-              Choose the trajectory tailored to your timeline. Master core algorithmic invariants with the
-              15-minute practice loop, or execute a high-velocity 2-to-6 week company sprint.
-            </p>
-          </div>
+    <div className="min-h-screen bg-[#F7F8FB] dark:bg-[#262624] text-[#0F1B3D] dark:text-[#FAF9F5] transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10 sm:space-y-12">
+        {/* ========================================================================= */}
+        {/* 1. HERO SECTION WITH CLEAN MOUNTAIN INTEGRATION & STILL BUILDING NOTICE    */}
+        {/* ========================================================================= */}
+        <section
+          aria-labelledby="roadmaps-hero-heading"
+          className="relative rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] p-6 sm:p-8 md:p-10 shadow-sm overflow-hidden"
+        >
+          {/* Subtle architectural grid pattern accent */}
+          <div
+            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+            style={{
+              backgroundImage:
+                'radial-gradient(currentColor 1px, transparent 1px), radial-gradient(currentColor 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+              backgroundPosition: '0 0, 12px 12px',
+            }}
+            aria-hidden="true"
+          />
 
-          {/* Right Column: Hero Mountain Illustration (Merged into page) */}
-          <div className="lg:col-span-5 flex items-center justify-center lg:justify-end select-none">
-            <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[390px] flex items-center justify-center">
-              <picture className="w-full flex items-center justify-center">
-                <source srcSet="/companywise-roadmap-mountain.webp" type="image/webp" />
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: Heading, Still Building Notice, Description */}
+            <div className="lg:col-span-7 space-y-5">
+              {/* Status pill with pulsing amber indicator */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60 shadow-xs">
+                <span className="relative flex h-2 w-2" aria-hidden="true">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+                </span>
+                <span>STATUS: ARCHITECTURAL DESIGN // COMING SOON</span>
+              </div>
+
+              {/* Editorial Serif Heading */}
+              <h1
+                id="roadmaps-hero-heading"
+                className="text-3xl sm:text-4xl md:text-5xl font-serif tracking-tight text-[#0F1B3D] dark:text-[#FAF9F5] leading-tight"
+                style={{
+                  fontFamily:
+                    '"Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif',
+                }}
+              >
+                Interview Roadmaps & Preparation Strategy
+              </h1>
+
+              {/* Exact user-facing notice string & context */}
+              <div className="space-y-3">
+                <p className="text-base sm:text-lg font-medium text-slate-800 dark:text-slate-100 leading-relaxed">
+                  Still building — will be available soon with an artifact for display.
+                </p>
+                <p className="text-sm sm:text-base text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  We are actively deliberating the optimal representation architecture to bridge theoretical algorithms with high-velocity interview execution. Below is our live design specimen detailing the three candidate roadmap models currently under evaluation.
+                </p>
+              </div>
+
+              {/* Quick Jump Buttons to Live Catalog Modules */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="#artifact-specimen"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] hover:opacity-90 transition-all shadow-sm focus:outline-hidden focus:ring-2 focus:ring-[#D97757]"
+                >
+                  <FileCode2 className="w-4 h-4" />
+                  <span>Inspect Display Artifact</span>
+                </a>
+                <Link
+                  to="/patterns"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-slate-100 hover:bg-slate-200 dark:bg-[#1F1E1D] dark:hover:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] border border-slate-200 dark:border-[#43433F] transition-all focus:outline-hidden focus:ring-2 focus:ring-slate-400"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-500" />
+                  <span>Explore 20 Patterns</span>
+                </Link>
+                <Link
+                  to="/companies"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-slate-100 hover:bg-slate-200 dark:bg-[#1F1E1D] dark:hover:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] border border-slate-200 dark:border-[#43433F] transition-all focus:outline-hidden focus:ring-2 focus:ring-slate-400"
+                >
+                  <Building2 className="w-4 h-4 text-blue-500" />
+                  <span>490+ Companies</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Clean Mountain Illustration (de-matted for clean contrast on both light & dark) */}
+            <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
+              <div className="relative w-full max-w-[420px] rounded-xl overflow-hidden p-2 flex items-center justify-center">
                 <img
                   src="/companywise-roadmap-mountain.webp"
                   alt="CompanyWise Interview Roadmap: Mountain Journey to Mastery"
-                  width={390}
-                  height={200}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto object-contain select-none pointer-events-none transition-opacity duration-300"
+                  className="w-full h-auto max-h-[190px] sm:max-h-[220px] object-contain drop-shadow-sm select-none pointer-events-none transition-all duration-300"
+                  loading="eager"
                 />
-              </picture>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Track Switcher Navigation Tabs */}
-        <div
-          className="mt-8 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none"
-          role="tablist"
-          aria-label="Roadmap Tracks"
-          onKeyDown={handleTabKeyDown}
-        >
-          {TABS.map((tab) => {
-            const isCurrent = activeTab === tab.id;
-            const TabIcon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                id={`tab-${tab.id}`}
-                type="button"
-                role="tab"
-                aria-selected={isCurrent}
-                aria-controls={`panel-${tab.id}`}
-                tabIndex={isCurrent ? 0 : -1}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                  isCurrent
-                    ? 'bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D] shadow-2xs font-bold'
-                    : 'bg-white dark:bg-[#30302E] text-slate-600 dark:text-[#A8A69C] hover:bg-slate-100 dark:hover:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F]'
-                }`}
-              >
-                <TabIcon className="w-3.5 h-3.5 shrink-0" />
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Visual Module 1: Interactive 5-Tap Diagnostic */}
-      {activeTab === 'all' && (
+        {/* ========================================================================= */}
+        {/* 2. ARCHITECTURAL ARTIFACT SPECIMEN CARD (SPEC // CW-RDMP-2026.11)         */}
+        {/* ========================================================================= */}
         <section
-          id="panel-all"
-          role="tabpanel"
-          aria-labelledby="tab-all"
-          className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-6"
+          id="artifact-specimen"
+          aria-labelledby="artifact-specimen-heading"
+          className="rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] shadow-sm overflow-hidden"
         >
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <h2
-              id="diagnostic-heading"
-              className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]"
-            >
-              Interactive 5-Tap Diagnostic: Where Do You Stand?
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
-              Tap your current proficiency across 5 core dimensions to dynamically pinpoint your recommended path.
-            </p>
-          </div>
-          {answeredCount > 0 && (
-            <button
-              type="button"
-              onClick={handleResetDiagnostic}
-              className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:text-[#A8A69C] dark:hover:text-[#FAF9F5] transition-colors self-start sm:self-center cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset answers</span>
-            </button>
-          )}
-        </div>
-
-        {/* 5 Diagnostic Questions */}
-        <div className="grid grid-cols-1 gap-4">
-          {DIAGNOSTIC_QUESTIONS.map((q, idx) => {
-            const currentAnswer = answers[q.id];
-            return (
-              <div
-                key={q.id}
-                role="radiogroup"
-                aria-labelledby={`q-title-${q.id}`}
-                className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/70 dark:border-[#43433F]/70 space-y-3"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="w-5 h-5 rounded-full bg-slate-200 dark:bg-[#30302E] text-[11px] font-bold text-slate-700 dark:text-[#FAF9F5] flex items-center justify-center"
-                      aria-hidden="true"
-                    >
-                      {idx + 1}
-                    </span>
-                    <span id={`q-title-${q.id}`} className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      {q.title}
-                    </span>
-                    <span className="text-[10px] text-slate-500 dark:text-[#A8A69C] hidden sm:inline">
-                      ({q.category})
-                    </span>
-                  </div>
-                  {currentAnswer !== null && (
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400">
-                      Answered
-                    </span>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {q.options.map((opt) => {
-                    const isSelected = currentAnswer === opt.score;
-                    return (
-                      <button
-                        key={opt.label}
-                        type="button"
-                        role="radio"
-                        aria-checked={isSelected}
-                        onClick={() => handleSelectOption(q.id, opt.score)}
-                        className={`text-left p-3 rounded-lg border transition-all cursor-pointer ${
-                          isSelected
-                            ? 'bg-white dark:bg-[#30302E] border-[#0F1B3D] dark:border-[#D97757] ring-1 ring-[#0F1B3D] dark:ring-[#D97757] shadow-2xs'
-                            : 'bg-white/60 dark:bg-[#262624]/60 border-slate-200/90 dark:border-[#43433F] hover:bg-white dark:hover:bg-[#262624]'
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="space-y-1">
-                            <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                              {opt.label}
-                            </div>
-                            <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                              {opt.description}
-                            </div>
-                          </div>
-                          <div
-                            className={`w-4 h-4 rounded-full border shrink-0 mt-0.5 flex items-center justify-center transition-colors ${
-                              isSelected
-                                ? 'bg-[#0F1B3D] dark:bg-[#D97757] border-[#0F1B3D] dark:border-[#D97757]'
-                                : 'border-slate-300 dark:border-slate-600'
-                            }`}
-                          >
-                            {isSelected && <Check className="w-2.5 h-2.5 text-white dark:text-[#1F1E1D]" />}
-                          </div>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
+          {/* Engineering Specimen Header Bar */}
+          <div className="px-6 py-4 sm:px-8 border-b border-slate-200 dark:border-[#43433F] bg-slate-50/80 dark:bg-[#1F1E1D]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-slate-200/80 dark:bg-[#30302E] text-slate-700 dark:text-slate-300">
+                <Layers className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
               </div>
-            );
-          })}
-        </div>
-
-        {/* Dynamic Diagnostic Recommendation Banner */}
-        <div
-          data-testid="diagnostic-result"
-          aria-live="polite"
-          aria-atomic="true"
-          className="p-5 rounded-xl border bg-slate-50 dark:bg-[#1F1E1D] border-slate-200/90 dark:border-[#43433F] space-y-3"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Calculated Recommendation:
+              <div>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-[#A8A69C] block">
+                  SPEC // CW-RDMP-2026.11 · SYSTEM ARTIFACT FOR DISPLAY
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#0F1B3D] text-white dark:bg-[#D97757] dark:text-[#1F1E1D]">
-                  {recommendedTrack === 'beginner' ? (
-                    <>
-                      <GraduationCap className="w-3.5 h-3.5" />
-                      <span>Beginner Roadmap</span>
-                    </>
-                  ) : (
-                    <>
-                      <Zap className="w-3.5 h-3.5" />
-                      <span>Intermediate Sprint</span>
-                    </>
-                  )}
-                </span>
-                <span className="text-[10px] text-slate-500 dark:text-[#A8A69C] font-mono">
-                  ({answeredCount}/5 answered)
-                </span>
+                <h2
+                  id="artifact-specimen-heading"
+                  className="text-base sm:text-lg font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5]"
+                >
+                  Roadmap Representation Candidate Models
+                </h2>
               </div>
-              <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                {answeredCount === 0
-                  ? 'Baseline Default: Beginner Roadmap. Tap options in the 5 questions above to calibrate your track to your experience level.'
-                  : recommendedTrack === 'beginner'
-                  ? 'Focus on mastering core linear invariants and the 15-minute practice loop. Avoid random hard questions until your pattern intuition is solid.'
-                  : 'Your foundational mechanics are strong. Focus on technique pivot scenarios, advanced multi-constraint patterns, and company recency mining.'}
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setActiveTab(recommendedTrack)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shrink-0 shadow-xs cursor-pointer"
-            >
-              <span>Explore {recommendedTrack === 'beginner' ? 'Beginner Roadmap' : 'Intermediate Sprint'}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      </section>
-      )}
-
-      {/* Visual Module 2: The Visual CompanyWise Engine Loop */}
-      {(activeTab === 'all' || activeTab === 'loop') && (
-        <section
-          id="panel-loop"
-          role="tabpanel"
-          aria-labelledby="tab-loop"
-          className="space-y-6 pt-4"
-        >
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-violet-100 dark:bg-violet-950/60 text-violet-700 dark:text-violet-400 flex items-center justify-center shrink-0">
-                <Workflow className="w-4 h-4" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                The CompanyWise Engine Loop
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
-              A continuous 7-stage learning circuit that turns solved questions into permanent pattern reflexes.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Step 1 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    01
-                  </span>
-                  <BookOpen className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Invariant First
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Learn the mathematical rule guaranteeing correctness before writing code. Understand why the pattern works.
-                </p>
-              </div>
-              <Link
-                to="/patterns"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Browse Invariants</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
             </div>
 
-            {/* Step 2 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    02
-                  </span>
-                  <Eye className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Interactive Visualizer
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Input custom test cases into the visualizer engine to step through pointer progression and state expansion.
-                </p>
-              </div>
-              <Link
-                to="/patterns/sliding-window"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Try Sliding Window</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Step 3 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    03
-                  </span>
-                  <Timer className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  15-Min Practice Sprint
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Solo attempt under realistic time constraints. Write the invariant on a scratchpad before typing solution code.
-                </p>
-              </div>
-              <Link
-                to="/problems"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Browse Practice Problems</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Step 4 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    04
-                  </span>
-                  <HelpCircle className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Ah-Ha Drawer Unstick
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  If blocked past 15 min, open progressive non-spoiler hints step-by-step instead of reading complete editorials.
-                </p>
-              </div>
-              <Link
-                to="/patterns/two-pointers"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>See Ah-Ha Drawers</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Step 5 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    05
-                  </span>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  3-Tier Rating
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Record honest confidence: <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />Mastered</span> (clean solo solve), <span className="inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-amber-400"><span className="w-1.5 h-1.5 rounded-full bg-amber-500" />Needs Review</span>, or <span className="inline-flex items-center gap-1 font-semibold text-rose-700 dark:text-rose-400"><span className="w-1.5 h-1.5 rounded-full bg-rose-500" />Struggled</span> (needed hints).
-                </p>
-              </div>
-              <Link
-                to="/progress"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Track Confidence</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Step 6 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    06
-                  </span>
-                  <RotateCcw className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Revise Today Queue
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Your daily spaced repetition queue automatically resurfaces questions before memory decay sets in (Day 1, 3, 7).
-                </p>
-              </div>
-              <Link
-                to="/progress"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Open Revision Queue</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Step 7 */}
-            <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between md:col-span-2">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-[#1F1E1D] text-slate-700 dark:text-[#FAF9F5]">
-                    07
-                  </span>
-                  <Building2 className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
-                </div>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Company Frequency Targeting
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Filter by target employer across 6 recency windows (Last 30 Days to All Time). Apply mastered pattern invariants directly to actual company interview questions.
-                </p>
-              </div>
-              <Link
-                to="/companies"
-                className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-              >
-                <span>Explore 490 Companies</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Continuous Loop Feedback Indicator */}
-          <div className="p-4 rounded-xl bg-slate-100 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2 text-slate-800 dark:text-[#FAF9F5]">
-              <Workflow className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
-              <span className="font-semibold">Closed Learning Circuit:</span>
-              <span className="text-slate-600 dark:text-[#A8A69C]">
-                Step 07 company practice triggers spaced repetition in Step 06, which routes back to Step 01 Invariants when unsticking is needed.
+            <div className="flex items-center gap-2 self-start sm:self-auto">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono font-medium bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60">
+                <Code2 className="w-3.5 h-3.5" />
+                DRAFT-SPEC 0.4
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono font-medium bg-slate-100 dark:bg-[#1F1E1D] text-slate-600 dark:text-[#A8A69C] border border-slate-200 dark:border-[#43433F]">
+                3 CANDIDATES
               </span>
             </div>
+          </div>
+
+          {/* Model Switcher Tabs */}
+          <div className="px-6 sm:px-8 pt-6">
+            <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-[#A8A69C] mb-3">
+              SELECT PROPOSED REPRESENTATION ARCHITECTURE TO PREVIEW:
+            </p>
+            <div
+              role="tablist"
+              aria-label="Roadmap architectural proposals"
+              onKeyDown={handleKeyDown}
+              className="grid grid-cols-1 md:grid-cols-3 gap-3"
+            >
+              {(Object.keys(PROPOSALS) as ArchitecturalProposal[]).map((key) => {
+                const item = PROPOSALS[key];
+                const isSelected = activeProposal === key;
+                const IconComponent = item.icon;
+
+                return (
+                  <button
+                    key={key}
+                    role="tab"
+                    id={`tab-${key}`}
+                    aria-selected={isSelected}
+                    aria-controls={`panel-${key}`}
+                    tabIndex={isSelected ? 0 : -1}
+                    onClick={() => setActiveProposal(key)}
+                    className={`text-left p-4 rounded-xl border transition-all relative ${
+                      isSelected
+                        ? 'bg-slate-50 dark:bg-[#1F1E1D] border-[#0F1B3D] dark:border-[#D97757] ring-1 ring-[#0F1B3D] dark:ring-[#D97757] shadow-sm'
+                        : 'bg-white dark:bg-[#30302E] border-slate-200 dark:border-[#43433F] hover:border-slate-300 dark:hover:border-slate-600 opacity-80 hover:opacity-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-2">
+                        <IconComponent
+                          className={`w-4 h-4 ${
+                            isSelected
+                              ? 'text-[#0F1B3D] dark:text-[#D97757]'
+                              : 'text-slate-500 dark:text-slate-400'
+                          }`}
+                        />
+                        <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-[#A8A69C]">
+                          {item.badge}
+                        </span>
+                      </div>
+                      {isSelected && (
+                        <span className="w-2 h-2 rounded-full bg-[#0F1B3D] dark:bg-[#D97757]" />
+                      )}
+                    </div>
+                    <div className="text-sm font-bold text-[#0F1B3D] dark:text-[#FAF9F5] mb-1">
+                      {item.label}
+                    </div>
+                    <p className="text-xs text-slate-600 dark:text-[#A8A69C] line-clamp-2">
+                      {item.tagline}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Active Model Specimen Body */}
+          <div
+            role="tabpanel"
+            id={`panel-${spec.id}`}
+            aria-labelledby={`tab-${spec.id}`}
+            className="p-6 sm:p-8 space-y-8"
+          >
+            {/* Header Summary Box */}
+            <div className="p-5 sm:p-6 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] space-y-4">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold">
+                      ARCHITECTURE SPECIFICATION
+                    </span>
+                    <span className="text-slate-300 dark:text-slate-700">•</span>
+                    <span className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+                      ID: {spec.id}
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5]">
+                    {spec.label}
+                  </h3>
+                </div>
+
+                {/* Metadata Pills */}
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                  <span className="px-3 py-1 rounded bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-slate-300">
+                    Cognitive Load: <strong className="text-[#0F1B3D] dark:text-[#FAF9F5]">{spec.cognitiveLoad}</strong>
+                  </span>
+                  <span className="px-3 py-1 rounded bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] text-slate-700 dark:text-slate-300">
+                    Yield Window: <strong className="text-[#0F1B3D] dark:text-[#FAF9F5]">{spec.timelineYield}</strong>
+                  </span>
+                </div>
+              </div>
+
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                {spec.summary}
+              </p>
+
+              <div className="pt-2 border-t border-slate-200/60 dark:border-[#43433F]/60 flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
+                <Target className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                <span>
+                  <strong className="text-slate-800 dark:text-slate-200">Recommended Candidate Profile: </strong>
+                  {spec.bestFor}
+                </span>
+              </div>
+            </div>
+
+            {/* Specimen Visual Schematic Display */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-mono uppercase tracking-wider text-slate-600 dark:text-[#A8A69C] flex items-center gap-2">
+                  <Boxes className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757]" />
+                  <span>Interactive Trajectory Schematic // {spec.schematicTitle}</span>
+                </h4>
+                <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                  SAMPLE FLOW
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {spec.schematicSteps.map((step, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#1F1E1D] border border-slate-200 dark:border-[#43433F] relative flex flex-col justify-between space-y-4 shadow-2xs hover:border-slate-300 dark:hover:border-slate-500 transition-colors"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-[#A8A69C]">
+                          {step.tier}
+                        </span>
+                        <span
+                          className={`text-[10px] font-mono px-2 py-0.5 rounded uppercase font-semibold ${
+                            step.status === 'prerequisite'
+                              ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300'
+                              : step.status === 'core'
+                              ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300'
+                              : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300'
+                          }`}
+                        >
+                          {step.status}
+                        </span>
+                      </div>
+                      <h5 className="text-base font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5]">
+                        {step.title}
+                      </h5>
+                      <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-100 dark:border-[#43433F]/60">
+                      <div className="text-[11px] font-mono text-slate-500 dark:text-[#A8A69C] mb-2">
+                        CANONICAL PATTERNS:
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {step.patterns.map((p) => (
+                          <Link
+                            key={p.slug}
+                            to={`/patterns/${p.slug}`}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-[#30302E] text-slate-700 dark:text-[#FAF9F5] hover:bg-slate-200 dark:hover:bg-[#43433F] transition-colors"
+                          >
+                            <span>{p.name}</span>
+                            <ArrowRight className="w-3 h-3 text-slate-400" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Architectural Trade-offs Matrix */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+              <div className="p-5 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-800/40 space-y-3">
+                <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-semibold text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>Architectural Strengths</span>
+                </div>
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                  {spec.tradeoffs.pros.map((pro, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">•</span>
+                      <span>{pro}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/40 space-y-3">
+                <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-semibold text-sm">
+                  <HelpCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <span>Design Trade-Offs & Mitigations</span>
+                </div>
+                <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                  {spec.tradeoffs.cons.map((con, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-amber-600 dark:text-amber-400 font-bold">•</span>
+                      <span>{con}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* 3. COMPARATIVE ARCHITECTURAL EVALUATION MATRIX                             */}
+        {/* ========================================================================= */}
+        <section
+          aria-labelledby="comparison-matrix-heading"
+          className="rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] p-6 sm:p-8 shadow-sm space-y-6"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-[#A8A69C]">
+                ENGINEERING DECISION RUBRIC
+              </span>
+              <h2
+                id="comparison-matrix-heading"
+                className="text-lg sm:text-xl font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5]"
+              >
+                Model Comparison & Deliberation Matrix
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+              FINAL DECISION PENDING USER SELECTION
+            </span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-[#43433F] text-slate-500 dark:text-[#A8A69C] font-mono uppercase text-[11px]">
+                  <th className="py-3 px-4 font-semibold">Evaluation Criteria</th>
+                  <th className="py-3 px-4 font-semibold text-[#0F1B3D] dark:text-[#FAF9F5]">Model A (Skill Tree DAG)</th>
+                  <th className="py-3 px-4 font-semibold text-[#0F1B3D] dark:text-[#FAF9F5]">Model B (Company Sprint)</th>
+                  <th className="py-3 px-4 font-semibold text-[#0F1B3D] dark:text-[#FAF9F5]">Model C (Pivot Matrix)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-[#43433F]/60 text-slate-700 dark:text-slate-300">
+                <tr>
+                  <td className="py-3.5 px-4 font-medium text-slate-900 dark:text-slate-100">Primary Candidate Focus</td>
+                  <td className="py-3.5 px-4">Beginners to Intermediates (Zero to Intuition)</td>
+                  <td className="py-3.5 px-4">Urgent 2–6 Week Candidates (High Frequency)</td>
+                  <td className="py-3.5 px-4">Interview-Day Anti-Freeze & Recovery</td>
+                </tr>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium text-slate-900 dark:text-slate-100">Cognitive Mental Model</td>
+                  <td className="py-3.5 px-4">Prerequisite Graph (Topological unlocking)</td>
+                  <td className="py-3.5 px-4">Calendar Timeline & Daily Problem Quotas</td>
+                  <td className="py-3.5 px-4">Diagnostic Symptom → Solution Lookups</td>
+                </tr>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium text-slate-900 dark:text-slate-100">Optimal Practice Window</td>
+                  <td className="py-3.5 px-4">8 to 16 Weeks comprehensive</td>
+                  <td className="py-3.5 px-4">14 to 45 Days focused velocity</td>
+                  <td className="py-3.5 px-4">Any timeline / Pre-interview refactor</td>
+                </tr>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium text-slate-900 dark:text-slate-100">Retention & Invariant Yield</td>
+                  <td className="py-3.5 px-4 text-emerald-600 dark:text-emerald-400 font-semibold">Highest (First-principles proofs)</td>
+                  <td className="py-3.5 px-4 text-amber-600 dark:text-amber-400 font-semibold">High on top 50 recurring variants</td>
+                  <td className="py-3.5 px-4 text-emerald-600 dark:text-emerald-400 font-semibold">Highest under stress/hints</td>
+                </tr>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium text-slate-900 dark:text-slate-100">Platform Integration Depth</td>
+                  <td className="py-3.5 px-4">Tied to Pattern Visualizers & Quizzes</td>
+                  <td className="py-3.5 px-4">Tied to Company Frequency Filters</td>
+                  <td className="py-3.5 px-4">Tied to Ah-Ha Drawer & Solution Hints</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* 4. ACTIVE PLATFORM CAPABILITIES QUICK ACCESS GRID                          */}
+        {/* ========================================================================= */}
+        <section aria-labelledby="live-tools-heading" className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <h2
+              id="live-tools-heading"
+              className="text-lg sm:text-xl font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5]"
+            >
+              Start Practicing Now with Live Platform Engines
+            </h2>
+            <p className="text-xs font-mono text-slate-500 dark:text-[#A8A69C]">
+              ALL UNDERLYING QUESTIONS & PATTERNS ARE PRODUCTION-READY
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               to="/patterns"
-              className="text-[#0F1B3D] dark:text-[#D97757] font-bold hover:underline inline-flex items-center gap-1 shrink-0"
+              className="group p-5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-xs flex flex-col justify-between space-y-4"
             >
-              <span>Restart loop at Invariants</span>
-              <ChevronRight className="w-3 h-3" />
+              <div className="space-y-2">
+                <div className="p-2.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 w-fit">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5] group-hover:text-amber-600 dark:group-hover:text-[#D97757] transition-colors">
+                  20 Canonical Patterns
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  Interactive step-by-step visualizers, invariant cheat-sheets, and subpattern breakdowns.
+                </p>
+              </div>
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                <span>Launch Patterns Catalog</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/companies"
+              className="group p-5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-xs flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-2">
+                <div className="p-2.5 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 w-fit">
+                  <Building2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5] group-hover:text-blue-600 dark:group-hover:text-[#D97757] transition-colors">
+                  490+ Tech Companies
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  Real-world hiring bar questions for Meta, Google, Amazon, Apple, Microsoft, and Uber.
+                </p>
+              </div>
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                <span>Filter by Target Company</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/problems"
+              className="group p-5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-xs flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-2">
+                <div className="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 w-fit">
+                  <Code2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5] group-hover:text-emerald-600 dark:group-hover:text-[#D97757] transition-colors">
+                  3,411 Curated Problems
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  Full problem catalog with difficulty tags, company appearances, and Ah-Ha mental models.
+                </p>
+              </div>
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                <span>Search Problem Archive</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              to="/progress"
+              className="group p-5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200 dark:border-[#43433F] hover:border-[#0F1B3D] dark:hover:border-[#D97757] transition-all shadow-xs flex flex-col justify-between space-y-4"
+            >
+              <div className="space-y-2">
+                <div className="p-2.5 rounded-lg bg-orange-50 dark:bg-[#1F1E1D] text-[#D97757] dark:text-[#D97757] w-fit border border-orange-100 dark:border-[#43433F]">
+                  <Flame className="w-5 h-5" />
+                </div>
+                <h3 className="text-base font-serif font-bold text-[#0F1B3D] dark:text-[#FAF9F5] group-hover:text-[#D97757] transition-colors">
+                  Personal Mastery Tracker
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
+                  Track your solved questions, accuracy metrics, and spaced repetition review schedules.
+                </p>
+              </div>
+              <div className="flex items-center gap-1 text-xs font-semibold text-[#0F1B3D] dark:text-[#D97757]">
+                <span>View Solved Progress</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </div>
             </Link>
           </div>
         </section>
-      )}
 
-      {/* Visual Module 3: Beginner Roadmap ("From 0 to Pattern Intuition") */}
-      {(activeTab === 'all' || activeTab === 'beginner') && (
-        <section
-          id="panel-beginner"
-          role="tabpanel"
-          aria-labelledby="tab-beginner"
-          className="space-y-8 pt-4"
-        >
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                <GraduationCap className="w-4 h-4" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Beginner Roadmap: From 0 to Pattern Intuition
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
-              Structured 3-phase curriculum designed to replace brute-force trial and error with intuitive invariant recognition.
-            </p>
-          </div>
-
-          {/* Quick diagnostic jump helper when navigated directly to Beginner */}
-          {activeTab === 'beginner' && (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs">
-              <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-[#A8A69C]">
-                <HelpCircle className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
-                <span>Not sure if Beginner is your level? Take the 5-tap self-diagnostic in Overview.</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveTab('all')}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline whitespace-nowrap self-start sm:self-auto cursor-pointer"
-              >
-                <span>Take 5-Tap Diagnostic</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          )}
-
-          {/* 3 Milestone Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Milestone 1 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-              <div className="space-y-1">
-                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300">
-                  Weeks 1–2
-                </span>
-                <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Phase 1: Linear Invariants
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                  Master contiguous subarrays, frequency maps, and dual pointers.
-                </p>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <div className="font-semibold text-slate-800 dark:text-[#FAF9F5]">Core Invariants:</div>
-                <ul className="space-y-1.5 text-slate-600 dark:text-[#A8A69C]">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Hashing:</strong> O(1) identity verification</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Two Pointers:</strong> Monotonic search reduction</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Sliding Window:</strong> Expand right, shrink left</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-2 border-t border-slate-200/80 dark:border-[#43433F]/80">
-                <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] mb-2">Milestone Target: 25 Solved</div>
-                <div className="flex flex-wrap gap-1.5">
-                  <Link
-                    to="/patterns/hashing-and-frequency-counting"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5] hover:border-[#D97757]"
-                  >
-                    Hashing
-                  </Link>
-                  <Link
-                    to="/patterns/two-pointers"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5] hover:border-[#D97757]"
-                  >
-                    Two Pointers
-                  </Link>
-                  <Link
-                    to="/patterns/sliding-window"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5] hover:border-[#D97757]"
-                  >
-                    Sliding Window
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Milestone 2 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-              <div className="space-y-1">
-                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300">
-                  Weeks 3–5
-                </span>
-                <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Phase 2: Tree & Branching
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                  Conquer recursive call stacks, binary search predicates, and state trees.
-                </p>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <div className="font-semibold text-slate-800 dark:text-[#FAF9F5]">Core Invariants:</div>
-                <ul className="space-y-1.5 text-slate-600 dark:text-[#A8A69C]">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Binary Search:</strong> Halve candidate intervals</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Tree DFS/BFS:</strong> Exhaustive node visitation</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Backtracking:</strong> Choose, explore, unchoose</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-2 border-t border-slate-200/80 dark:border-[#43433F]/80">
-                <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] mb-2">Milestone Target: 40 Solved</div>
-                <div className="flex flex-wrap gap-1.5">
-                  <Link
-                    to="/patterns/binary-search"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Binary Search
-                  </Link>
-                  <Link
-                    to="/patterns/tree-dfs"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Tree DFS
-                  </Link>
-                  <Link
-                    to="/patterns/tree-bfs"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Tree BFS
-                  </Link>
-                  <Link
-                    to="/patterns/backtracking"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Backtracking
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Milestone 3 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-              <div className="space-y-1">
-                <span className="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300">
-                  Weeks 6–8
-                </span>
-                <h3 className="text-base font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Phase 3: Graphs & Subproblems
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                  Represent systems as graph networks and memoize overlapping states.
-                </p>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <div className="font-semibold text-slate-800 dark:text-[#FAF9F5]">Core Invariants:</div>
-                <ul className="space-y-1.5 text-slate-600 dark:text-[#A8A69C]">
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Graph Traversal:</strong> Level-by-level shortest path & cycles</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Top K Heaps:</strong> Bounded priority order</span>
-                  </li>
-                  <li className="flex items-start gap-1.5">
-                    <span className="text-[#0F1B3D] dark:text-[#D97757]">•</span>
-                    <span><strong>Dynamic Programming:</strong> Optimal substructure transitions</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="pt-2 border-t border-slate-200/80 dark:border-[#43433F]/80">
-                <div className="text-[11px] text-slate-500 dark:text-[#A8A69C] mb-2">Milestone Target: 60+ Solved</div>
-                <div className="flex flex-wrap gap-1.5">
-                  <Link
-                    to="/patterns/graph-traversal"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Graph Traversal
-                  </Link>
-                  <Link
-                    to="/patterns/heap-top-k"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Top K Heaps
-                  </Link>
-                  <Link
-                    to="/patterns/dynamic-programming"
-                    className="px-2 py-1 rounded-lg bg-slate-100 dark:bg-[#1F1E1D] text-[11px] font-medium text-slate-700 dark:text-[#FAF9F5]"
-                  >
-                    Dynamic Programming
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 15-Minute Rule Flowchart */}
-          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-            <div className="space-y-1">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2">
-                <Timer className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
-                <span>The 15-Minute Rule Flowchart</span>
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                Never spin your wheels for 90 minutes on a single problem. Follow this strict protocol to maximize neural retention.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  00:00 – 02:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Rephrase & Constraints
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Restate the problem in plain English. Check array length N to establish asymptotic time limit.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  02:00 – 05:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Scratchpad Invariant
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Write the core invariant on paper. Step through a 4-element test case without touching the keyboard.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  05:00 – 15:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Code Implementation
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Implement the solution cleanly. Maintain explicit loop invariants and clean pointer bounds.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Minute 15
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Ah-Ha Progressive Unstick
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Stuck? Reveal Hint 1 in the pattern drawer. Do not open YouTube or the full solution editorial.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Post-Solve
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Rate & Queue
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Tag <span className="font-semibold text-emerald-700 dark:text-emerald-400">Mastered</span>, <span className="font-semibold text-amber-700 dark:text-amber-400">Review</span>, or <span className="font-semibold text-rose-700 dark:text-rose-400">Struggled</span>. CompanyWise automatically schedules spaced repetition.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Foundation Invariants Breakdown */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
-              Foundation Invariants Cheat Sheet
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Sliding Window Invariant
-                  </span>
-                  <Link
-                    to="/patterns/sliding-window"
-                    className="text-[11px] text-[#0F1B3D] dark:text-[#D97757] font-semibold hover:underline"
-                  >
-                    View Pattern →
-                  </Link>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  A window [L, R] remains valid by advancing R. Once invalid, increment L until the constraint holds. No redundant nested rescanning.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Two Pointers Invariant
-                  </span>
-                  <Link
-                    to="/patterns/two-pointers"
-                    className="text-[11px] text-[#0F1B3D] dark:text-[#D97757] font-semibold hover:underline"
-                  >
-                    View Pattern →
-                  </Link>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  On sorted sequences, comparing elements at the opposite ends allows discarding an entire row, column, or half-space in O(1).
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Binary Search Invariant
-                  </span>
-                  <Link
-                    to="/patterns/binary-search"
-                    className="text-[11px] text-[#0F1B3D] dark:text-[#D97757] font-semibold hover:underline"
-                  >
-                    View Pattern →
-                  </Link>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Given any monotonic boolean condition P(x), the target boundary is strictly preserved within [low, high] across all iterations.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Tree Traversal (DFS/BFS) Invariant
-                  </span>
-                  <Link
-                    to="/patterns/tree-dfs"
-                    className="text-[11px] text-[#0F1B3D] dark:text-[#D97757] font-semibold hover:underline"
-                  >
-                    View Pattern →
-                  </Link>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  BFS guarantees discovering unweighted shortest paths level-by-level; DFS preserves path ancestor state from root to leaves.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Visual Module 4: Intermediate Sprint Roadmap ("2-6 Week High-Velocity Prep") */}
-      {(activeTab === 'all' || activeTab === 'intermediate') && (
-        <section
-          id="panel-intermediate"
-          role="tabpanel"
-          aria-labelledby="tab-intermediate"
-          className="space-y-8 pt-4"
-        >
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 flex items-center justify-center shrink-0">
-                <Zap className="w-4 h-4" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Intermediate Sprint Roadmap: 2–6 Week High-Velocity Prep
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
-              Engineered for candidates with DSA fundamentals facing upcoming interview rounds at Meta, Google, Amazon, or Microsoft.
-            </p>
-          </div>
-
-          {/* Quick diagnostic jump helper when navigated directly to Intermediate */}
-          {activeTab === 'intermediate' && (
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] shadow-2xs">
-              <div className="flex items-center gap-2.5 text-xs text-slate-600 dark:text-[#A8A69C]">
-                <HelpCircle className="w-4 h-4 text-[#0F1B3D] dark:text-[#D97757] shrink-0" />
-                <span>Need to verify your prerequisites? Check the 5-tap diagnostic self-test in Overview.</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveTab('all')}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline whitespace-nowrap self-start sm:self-auto cursor-pointer"
-              >
-                <span>Take 5-Tap Diagnostic</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          )}
-
-          {/* "When Technique X Breaks -> Pivot to Y" Matrix */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-            <div className="space-y-1">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2">
-                <Split className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
-                <span>When Technique X Breaks → Pivot to Y</span>
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                Recognizing algorithmic failure modes in real time is what separates Senior/L5+ candidates from junior coders.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When BFS TLEs on Weighted Edges
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">Dijkstra / 0-1 BFS</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  FIFO queue fails because step count is not proportional to cost. Replace queue with a min-heap keyed on cumulative path weight.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When Hash Table Substring Search OOMs
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">Prefix Tree (Trie)</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Hashing every prefix produces massive memory overhead. A Trie overlaps common prefixes into tree branches, bounding memory.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When Dependency Resolution / Cycles Get Messy
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">Kahn&apos;s Algorithm (Topo Sort)</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  DFS recursion cycle tracking is error-prone. Compute in-degrees and push zero-indegree nodes into a BFS queue.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When Nested Loops O(N²) Find Next Greater
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">Monotonic Stack</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Searching backward or forward for the next larger element in O(N²) collapses to linear O(N) by enforcing a strict decreasing stack.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When Dynamic Connectivity Recomputation Slows Down
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">Union-Find (Disjoint Set)</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Rerunning BFS or DFS for every edge modification is wasteful. Disjoint set with path compression handles union/find in near O(1).
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-2">
-                <div className="text-[11px] font-bold text-red-600 dark:text-red-400">
-                  When 1D DP Cannot Express 2nd Constraint
-                </div>
-                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  <span>Pivot to:</span>
-                  <span className="text-[#0F1B3D] dark:text-[#D97757]">2D Dynamic Programming</span>
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  When remaining capacity or budget cannot be implied by index alone, expand the state matrix to dp[index][capacity].
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* 6 Advanced Tracks */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5]">
-              6 Advanced Sprint Tracks & Time Budgets
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      1. Dijkstra & Shortest Path
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      3–4 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Priority queue relaxations, network delay time, cheapest flights with K stops.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Amazon, Google, Uber
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/dijkstras-algorithm"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Dijkstra Pattern</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      2. Trie & Prefix Systems
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      2–3 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Implement Trie, autocomplete systems, Word Search II backtracking hybrid.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Google, Microsoft, Meta
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/trie-prefix-tree"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Trie Pattern</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      3. Kahn&apos;s Topo Sort & Dependencies
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      2–3 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Course Schedule I & II, Alien Dictionary, build dependency resolving.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Meta, Amazon, Apple
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/topological-sort"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Topo Sort</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      4. Monotonic Stack & Queue
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      3–4 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Daily Temperatures, Largest Rectangle in Histogram, Trapping Rain Water.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Bloomberg, Google, ByteDance
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/stack-and-monotonic-stack"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Monotonic Stack</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      5. Union-Find / Disjoint Set
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      2–3 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Number of Provinces, Redundant Connection, Accounts Merge.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Amazon, Meta, Microsoft
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/union-find"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Union-Find</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-2 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                      6. 2D DP & Knapsack
-                    </span>
-                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
-                      4–5 Days
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                    Unique Paths, Longest Common Subsequence, Target Sum, Edit Distance.
-                  </p>
-                  <div className="text-[11px] font-medium text-slate-500 dark:text-[#A8A69C]">
-                    Target Companies: Google, Bloomberg, Goldman Sachs
-                  </div>
-                </div>
-                <Link
-                  to="/patterns/dynamic-programming"
-                  className="text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline inline-flex items-center gap-1 pt-2"
-                >
-                  <span>Explore Dynamic Programming</span>
-                  <ChevronRight className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Company Frequency Mining Guide */}
-          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/90 dark:border-[#43433F] space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
-              <span>Target Company Frequency Mining Protocol</span>
-            </h3>
-            <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-              How top candidates leverage CompanyWise data in the final 2 weeks before interview loops:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1">
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">1. Filter by 30-Day Window</div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Uncover recent shifts in question pools reported by candidates within the current hiring cycle.
-                </p>
-              </div>
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1">
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">2. Target Top 20 Frequency</div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Prioritize problems with frequency scores &gt; 0.6. These questions appear repeatedly in screening rounds.
-                </p>
-              </div>
-              <div className="p-3.5 rounded-xl bg-white dark:bg-[#30302E] border border-slate-200/80 dark:border-[#43433F] space-y-1">
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">3. Cross-Reference Invariants</div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  If Meta loves Binary Search variants, drill the invariant so altered problem constraints don&apos;t throw you off.
-                </p>
-              </div>
-            </div>
-            <div className="pt-2">
-              <Link
-                to="/companies"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors"
-              >
-                <span>Mine Company Datasets</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Visual Module 4 Part 2: Mock Interview Protocol & Execution Playbook */}
-          <div className="p-6 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-6">
-            <div className="space-y-1">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-[#FAF9F5] flex items-center gap-2">
-                <MessageSquareCode className="w-5 h-5 text-[#0F1B3D] dark:text-[#D97757]" />
-                <span>Mock Interview Protocol: The 45-Minute Execution Playbook</span>
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-[#A8A69C]">
-                Senior candidates fail technical loops not from coding inability, but from poor pacing and silent thinking. Follow this exact minute-by-minute protocol.
-              </p>
-            </div>
-
-            {/* 5-Stage Time Allocation Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  00:00 – 05:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Clarify & Scope
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Ask about N scale, negative numbers, duplicates, and memory constraints. Restate expected return values.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  05:00 – 15:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Invariant Alignment
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Pitch brute force in 30s. State the optimal pattern invariant and asymptotic bounds. Obtain consensus before coding.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  15:00 – 35:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Modular Implementation
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Type idiomatic, clean code. Talk out loud through key pointer updates. Write small helpers for complex logic.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  35:00 – 40:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Manual Trace Table
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  Trace happy path + 1 edge case (empty array, 1 element) line-by-line with comments before saying &ldquo;I&apos;m finished&rdquo;.
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] space-y-1.5">
-                <div className="text-[10px] font-mono font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  40:00 – 45:00
-                </div>
-                <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                  Complexity & Scale
-                </div>
-                <div className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                  State time and auxiliary memory Big-O. Address distributed scaling or stream processing follow-ups.
-                </div>
-              </div>
-            </div>
-
-            {/* 4 Execution Checklist Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Never Code in Silence
-                  </div>
-                  <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                    Verbalize trade-offs continuously. Interviewers grade communication and problem formulation as strictly as working code.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Collaborate on Interviewer Hints
-                  </div>
-                  <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                    When the interviewer asks &ldquo;What if elements were sorted?&rdquo;, pivot immediately. Hints are directional gifts, not penalties.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Dry-Run Edge Cases by Hand
-                  </div>
-                  <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                    Catching off-by-one errors yourself during a manual walkthrough signals senior maturity; relying on the interviewer to point it out hurts.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-[#1F1E1D] border border-slate-200/80 dark:border-[#43433F] flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-slate-900 dark:text-[#FAF9F5]">
-                    Record and Audit Peer Sessions
-                  </div>
-                  <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-snug">
-                    Record your practice sessions. Watching playback reveals verbal crutches, pace stalling, and points where explanation clarity lagged.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Visual Module 5: Visual "Feature Compass" Cheat Sheet */}
-      {(activeTab === 'all' || activeTab === 'compass') && (
-        <section
-          id="panel-compass"
-          role="tabpanel"
-          aria-labelledby="tab-compass"
-          className="space-y-6 pt-4"
-        >
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-400 flex items-center justify-center shrink-0">
-                <Compass className="w-4 h-4" />
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-                Feature Compass: From Frustration to Feature
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C]">
-              Map common interview preparation roadblocks directly to dedicated CompanyWise capabilities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Card 1 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Frustration:
-                </div>
-                <div className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] italic">
-                  &ldquo;I freeze when facing an unseen problem I haven&apos;t memorized.&rdquo;
-                </div>
-                <div className="pt-1 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Solution: Pattern Invariants & Visualizer
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Internalize the 18 core invariant definitions. Walk custom inputs through visual pointer movements to build mental models.
-                </p>
-              </div>
-              <Link
-                to="/patterns"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline pt-2"
-              >
-                <span>Explore Patterns</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Card 2 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Frustration:
-                </div>
-                <div className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] italic">
-                  &ldquo;I don&apos;t know what Google or Meta actually ask in interviews today.&rdquo;
-                </div>
-                <div className="pt-1 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Solution: Verified Company Recency Windows
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Query 490 companies filtered across 6 recency snapshots from Last 30 Days to All Time, sorted by verified appearance frequency.
-                </p>
-              </div>
-              <Link
-                to="/companies"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline pt-2"
-              >
-                <span>View Companies</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Card 3 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Frustration:
-                </div>
-                <div className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] italic">
-                  &ldquo;I solve questions but forget the solution 2 weeks later.&rdquo;
-                </div>
-                <div className="pt-1 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Solution: 3-Tier Rating & Spaced Repetition
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Rate questions <span className="font-semibold text-emerald-700 dark:text-emerald-400">Mastered</span>, <span className="font-semibold text-amber-700 dark:text-amber-400">Needs Review</span>, or <span className="font-semibold text-rose-700 dark:text-rose-400">Struggled</span>. CompanyWise surfaces questions right at the point of forgetting.
-                </p>
-              </div>
-              <Link
-                to="/progress"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline pt-2"
-              >
-                <span>Open Progress & Revision</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Card 4 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Frustration:
-                </div>
-                <div className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] italic">
-                  &ldquo;I get stuck and look at the full solution editorial too quickly.&rdquo;
-                </div>
-                <div className="pt-1 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Solution: Progressive Ah-Ha Drawer
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Reveal hints in 3 progressive tiers without spoiling the code implementation, preserving critical problem-solving struggle.
-                </p>
-              </div>
-              <Link
-                to="/patterns"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline pt-2"
-              >
-                <span>Test Ah-Ha Drawers</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-
-            {/* Card 5 */}
-            <div className="p-5 rounded-2xl bg-white dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] space-y-3 flex flex-col justify-between md:col-span-2 lg:col-span-1">
-              <div className="space-y-2">
-                <div className="text-[11px] font-bold text-amber-700 dark:text-amber-400">
-                  Frustration:
-                </div>
-                <div className="text-xs font-semibold text-slate-800 dark:text-[#FAF9F5] italic">
-                  &ldquo;I am completely overwhelmed by 3,400+ problems on LeetCode.&rdquo;
-                </div>
-                <div className="pt-1 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757]">
-                  Solution: 18 High-Yield Pattern Families
-                </div>
-                <p className="text-[11px] text-slate-600 dark:text-[#A8A69C] leading-relaxed">
-                  Cut through noise with curated patterns mapped to canonical problems. 90% of technical loops test the same 18 patterns.
-                </p>
-              </div>
-              <Link
-                to="/problems"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0F1B3D] dark:text-[#D97757] hover:underline pt-2"
-              >
-                <span>Browse Curated Questions</span>
-                <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Bottom Action Footer */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-slate-100 dark:bg-[#30302E] border border-slate-200/90 dark:border-[#43433F] text-center space-y-4">
-        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-[#FAF9F5]">
-          Ready to kick off your preparation?
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-[#A8A69C] max-w-xl mx-auto">
-          Start by exploring foundational pattern invariants or jump straight into questions asked by 490 tech companies.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-          <Link
-            to="/patterns"
-            className="px-5 py-2.5 rounded-xl text-xs font-bold bg-[#0F1B3D] hover:bg-[#1A2D5E] dark:bg-[#D97757] dark:hover:bg-[#c66c4e] text-white dark:text-[#1F1E1D] transition-colors shadow-xs"
-          >
-            Explore Patterns
-          </Link>
-          <Link
-            to="/companies"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-white dark:bg-[#1F1E1D] hover:bg-slate-50 dark:hover:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] border border-slate-200 dark:border-[#43433F] transition-colors"
-          >
-            Explore Companies
-          </Link>
-          <Link
-            to="/problems"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-white dark:bg-[#1F1E1D] hover:bg-slate-50 dark:hover:bg-[#262624] text-slate-700 dark:text-[#FAF9F5] border border-slate-200 dark:border-[#43433F] transition-colors"
-          >
-            Browse Problems
-          </Link>
+        {/* Footer Technical Note regarding preserved draft modules */}
+        <div className="pt-4 pb-2 text-center">
+          <p className="text-xs font-mono text-slate-400 dark:text-slate-500">
+            ENGINEERING NOTE: All preliminary modules (5-Tap Diagnostic, 15-Minute Practice Loop, Beginner Milestones, Intermediate Pivot Engine) are preserved in <code className="text-slate-600 dark:text-[#A8A69C]">RoadmapsDraftModules.tsx</code> ready for direct integration.
+          </p>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
