@@ -3,7 +3,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import RoadmapsPage from '../src/pages/RoadmapsPage';
-import { PATTERNS_CATALOG } from '../src/data/patternsData';
 
 describe('RoadmapsPage Component Tests', () => {
   beforeEach(() => {
@@ -18,7 +17,7 @@ describe('RoadmapsPage Component Tests', () => {
     );
   };
 
-  it('renders hero section with title, "still building" notice, and clean mountain image', () => {
+  it('renders hero card with "Work In Progress" badge, title, and "Still building — will be available soon."', () => {
     renderRoadmapsPage();
 
     // Verify main header
@@ -26,115 +25,61 @@ describe('RoadmapsPage Component Tests', () => {
       screen.getByRole('heading', { name: /Interview Roadmaps & Preparation Strategy/i, level: 1 })
     ).toBeTruthy();
 
-    // Verify status badge
-    expect(screen.getByText(/STATUS: ARCHITECTURAL DESIGN \/\/ COMING SOON/i)).toBeTruthy();
+    // Verify Work In Progress status badge
+    expect(screen.getByText('Work In Progress')).toBeTruthy();
 
-    // Verify exact user-requested notice
+    // Verify exact clean notice
     expect(
-      screen.getByText(/Still building — will be available soon with an artifact for display/i)
+      screen.getByText(/Still building — will be available soon\./i)
     ).toBeTruthy();
 
-    // Verify hero mountain image
-    const heroImage = screen.getByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i);
-    expect(heroImage).toBeTruthy();
-    expect(heroImage.getAttribute('src')).toBe('/companywise-roadmap-mountain.webp');
+    // Verify unwanted speculative text has been completely removed
+    expect(screen.queryByText(/with an artifact for display/i)).toBeNull();
+    expect(screen.queryByText(/Below is our live design specimen detailing the three candidate roadmap models/i)).toBeNull();
+    expect(screen.queryByText(/SPEC \/\/ CW-RDMP-2026\.11/i)).toBeNull();
   });
 
-  it('renders the architectural artifact specimen card with all 3 proposal tabs', () => {
+  it('renders default mountain roadmap artwork and allows switching to repair robot artwork', () => {
     renderRoadmapsPage();
 
-    // Specimen header metadata
-    expect(screen.getByText(/SPEC \/\/ CW-RDMP-2026\.11 · SYSTEM ARTIFACT FOR DISPLAY/i)).toBeTruthy();
-    expect(screen.getByRole('heading', { name: /Roadmap Representation Candidate Models/i })).toBeTruthy();
+    // Default view has the mountain artwork
+    const mountainImg = screen.getByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i);
+    expect(mountainImg).toBeTruthy();
+    expect(mountainImg.getAttribute('src')).toBe('/companywise-roadmap-mountain.webp');
 
-    // 3 Candidate Proposal Tabs
-    expect(screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i })).toBeTruthy();
-    expect(screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i })).toBeTruthy();
+    // Switcher buttons exist
+    const mountainBtn = screen.getByRole('button', { name: /Mountain Journey/i });
+    const robotBtn = screen.getByRole('button', { name: /Repair Robot/i });
+    expect(mountainBtn).toBeTruthy();
+    expect(robotBtn).toBeTruthy();
+
+    // Click Repair Robot button
+    fireEvent.click(robotBtn);
+
+    // Mountain should no longer be visible; Robot images are rendered
+    expect(screen.queryByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i)).toBeNull();
+    const robotImgs = screen.getAllByAltText(/CompanyWise Construction Robot: Repairing Roadmap Gears/i);
+    expect(robotImgs.length).toBeGreaterThan(0);
+
+    // Click Mountain Journey button to switch back
+    fireEvent.click(mountainBtn);
+    expect(screen.getByAltText(/CompanyWise Interview Roadmap: Mountain Journey to Mastery/i)).toBeTruthy();
   });
 
-  it('switches views interactively when clicking candidate proposal tabs', () => {
+  it('renders direct navigation links to live production engines within the hero card', () => {
     renderRoadmapsPage();
 
-    // Default view is Model A: Interactive Skill Tree DAG
-    expect(screen.getByText(/Hierarchical Invariant Trajectory/i)).toBeTruthy();
-    expect(screen.getByText(/Tier 1 \/\/ Foundation/i)).toBeTruthy();
-    expect(screen.getByText(/Linear Invariants & Pointers/i)).toBeTruthy();
+    const patternBtn = screen.getByRole('link', { name: /Explore 20 Patterns/i });
+    expect(patternBtn.getAttribute('href')).toBe('/patterns');
 
-    // Click Model B: High-Velocity Company Sprint
-    const modelBTab = screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i });
-    fireEvent.click(modelBTab);
+    const companyBtn = screen.getByRole('link', { name: /490\+ Companies/i });
+    expect(companyBtn.getAttribute('href')).toBe('/companies');
 
-    expect(screen.getByText(/Time-Boxed Sprint Velocity Playbook/i)).toBeTruthy();
-    expect(screen.getByText(/Week 1–2 \/\/ Phase 1/i)).toBeTruthy();
-    expect(screen.getByText(/High-Frequency Core Blitz/i)).toBeTruthy();
-    expect(screen.queryByText(/Linear Invariants & Pointers/i)).toBeNull();
-
-    // Click Model C: Technique Pivot & Decision Matrix
-    const modelCTab = screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i });
-    fireEvent.click(modelCTab);
-
-    expect(screen.getByText(/Live Interview Pivot Diagnostics/i)).toBeTruthy();
-    expect(screen.getByText(/Diagnostic Pivot 01/i)).toBeTruthy();
-    expect(screen.getByText(/Sliding Window Fails on Negative Numbers/i)).toBeTruthy();
-    expect(screen.queryByText(/High-Frequency Core Blitz/i)).toBeNull();
-
-    // Click back to Model A
-    const modelATab = screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i });
-    fireEvent.click(modelATab);
-
-    expect(screen.getByText(/Hierarchical Invariant Trajectory/i)).toBeTruthy();
-    expect(screen.getByText(/Linear Invariants & Pointers/i)).toBeTruthy();
+    const problemBtn = screen.getByRole('link', { name: /3,411 Problems/i });
+    expect(problemBtn.getAttribute('href')).toBe('/problems');
   });
 
-  it('supports keyboard navigation across architectural proposal tablist (ArrowRight, ArrowLeft, Home, End)', () => {
-    renderRoadmapsPage();
-
-    const tablist = screen.getByRole('tablist', { name: /Roadmap architectural proposals/i });
-
-    // Press ArrowRight -> moves to Model B
-    fireEvent.keyDown(tablist, { key: 'ArrowRight' });
-    expect(
-      screen.getByRole('tab', { name: /Model B: High-Velocity Company Sprint/i }).getAttribute('aria-selected')
-    ).toBe('true');
-
-    // Press ArrowRight -> moves to Model C
-    fireEvent.keyDown(tablist, { key: 'ArrowRight' });
-    expect(
-      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
-    ).toBe('true');
-
-    // Press End -> stays on Model C
-    fireEvent.keyDown(tablist, { key: 'End' });
-    expect(
-      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
-    ).toBe('true');
-
-    // Press Home -> moves back to Model A
-    fireEvent.keyDown(tablist, { key: 'Home' });
-    expect(
-      screen.getByRole('tab', { name: /Model A: Interactive Skill Tree DAG/i }).getAttribute('aria-selected')
-    ).toBe('true');
-
-    // Press ArrowLeft -> wraps to Model C
-    fireEvent.keyDown(tablist, { key: 'ArrowLeft' });
-    expect(
-      screen.getByRole('tab', { name: /Model C: Technique Pivot & Decision Matrix/i }).getAttribute('aria-selected')
-    ).toBe('true');
-  });
-
-  it('renders comparative evaluation matrix table with all criteria', () => {
-    renderRoadmapsPage();
-
-    expect(screen.getByText(/Model Comparison & Deliberation Matrix/i)).toBeTruthy();
-    expect(screen.getByText('Primary Candidate Focus')).toBeTruthy();
-    expect(screen.getByText('Cognitive Mental Model')).toBeTruthy();
-    expect(screen.getByText('Optimal Practice Window')).toBeTruthy();
-    expect(screen.getByText('Retention & Invariant Yield')).toBeTruthy();
-    expect(screen.getByText('Platform Integration Depth')).toBeTruthy();
-  });
-
-  it('renders quick access cards to live production modules with valid routes', () => {
+  it('renders active platform engines direct access grid', () => {
     const { container } = renderRoadmapsPage();
 
     expect(screen.getByText(/Start Practicing Now with Live Platform Engines/i)).toBeTruthy();
@@ -153,32 +98,7 @@ describe('RoadmapsPage Component Tests', () => {
     expect(links).toContain('/progress');
   });
 
-  it('verifies all pattern route links point to valid canonical patterns in catalog', () => {
-    const { container } = renderRoadmapsPage();
-
-    const links = Array.from(container.querySelectorAll('a'))
-      .map(a => a.getAttribute('href'))
-      .filter((href): href is string => href !== null);
-
-    // Extract pattern detail slugs
-    const patternDetailSlugs = links
-      .filter(h => h.startsWith('/patterns/') && h !== '/patterns')
-      .map(h => h.replace('/patterns/', ''));
-
-    expect(patternDetailSlugs.length).toBeGreaterThan(0);
-
-    const validCatalogSlugs = new Set(PATTERNS_CATALOG.map(p => p.slug));
-
-    // Every pattern link in RoadmapsPage MUST exist in PATTERNS_CATALOG (0 broken 404 links)
-    for (const slug of patternDetailSlugs) {
-      expect(
-        validCatalogSlugs.has(slug),
-        `Slug "/patterns/${slug}" was not found in PATTERNS_CATALOG!`
-      ).toBe(true);
-    }
-  });
-
-  it('renders technical engineering note acknowledging preserved draft modules', () => {
+  it('renders engineering note acknowledging preserved draft modules', () => {
     renderRoadmapsPage();
 
     expect(
